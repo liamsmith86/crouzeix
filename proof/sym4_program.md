@@ -28,4 +28,16 @@ q_j-law (π₀ = 1/2-analog), sign law for B(τ_j)g₀(e_j).
   treat separately.
 - Degenerate corners: e₂ → 0 (collapses toward sym3-like), e₁ → e₂ (double pair).
 
-## Data: experiments/sym4_sweep.py → sym4_sweep_s61.jsonl (running).
+## Data: experiments/sym4_sweep.py → sym4_sweep_s61.jsonl (COMPLETE: 20/20 ρ > 0).
+
+## Findings (2026-07-20 late)
+- NO equioscillation: K = ‖A₊F(N_even)‖ single active block (5-digit match); x₀ always even-sublattice.
+- Phases: 16 ODD (zeros {0,±α}; interlacing τ₂<α<τ₁ in 13, exceptions have q₁<0 and α outside pair),
+  4 EVEN ("OTHER"; q = 1/2 exact — sym3-like).
+- ζ-boundary: quartic oval, near-ellipse; fitted foci ≈ {0, E₁} (NOT {E₁,E₂}!) — the dominant
+  structure is sym3-type confocal {0, outer-pair} with E₂ an interior extra node. Even-phase model
+  = "sym3 + one node". Odd-phase = Z₂-twisted (half-order weight |F| = |ζ|^{-1/2} on boundary).
+- Stationarity law: NOT any simple two-point relation in (α, τ₁, τ₂) (tested: midpoint, products,
+  equimodularity); involves the block frame. Derive from dK/dα = 0 on K(α) = ‖F₁M₁ + F₂M₂‖
+  (rank-one frames M_j = g_jh_j from A₊ and the N_even eigensystem) — one real equation, doable
+  symbolically per the sym3 pattern (there it collapsed to v = α²).
