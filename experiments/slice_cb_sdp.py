@@ -54,8 +54,9 @@ def trace_ratio(operator: np.ndarray, witness: np.ndarray) -> float:
     are floating-point solver output, so the result is a regression diagnostic, not a certificate.
     """
 
-    difference = witness - operator @ witness @ operator.T
-    eigenvalues = np.linalg.eigvalsh((difference + difference.T) / 2)
+    adjoint = operator.conj().T
+    difference = witness - operator @ witness @ adjoint
+    eigenvalues = np.linalg.eigvalsh((difference + difference.conj().T) / 2)
     positive_trace = float(np.maximum(eigenvalues, 0).sum())
     negative_trace = float(np.maximum(-eigenvalues, 0).sum())
     if positive_trace == 0:
@@ -68,12 +69,18 @@ def solve_similarity_sdp(operator: np.ndarray) -> SimilarityCertificate:
 
     size = operator.shape[0]
     identity = np.eye(size)
-    metric = cp.Variable((size, size), symmetric=True)
+    is_complex = bool(np.iscomplexobj(operator) and np.max(abs(operator.imag)) > 1e-14)
+    metric = (
+        cp.Variable((size, size), hermitian=True)
+        if is_complex
+        else cp.Variable((size, size), symmetric=True)
+    )
     bound = cp.Variable()
+    adjoint = operator.conj().T
     constraints = [
         metric - identity >> 0,
         bound * identity - metric >> 0,
-        metric - operator.T @ metric @ operator >> 0,
+        metric - adjoint @ metric @ operator >> 0,
     ]
     problem = cp.Problem(
         cp.Minimize(bound),
@@ -99,8 +106,9 @@ def solve_similarity_sdp(operator: np.ndarray) -> SimilarityCertificate:
 
     metric_value = np.asarray(metric.value)
     dual_witness = np.asarray(constraints[2].dual_value)
+    contraction_defect = metric_value - adjoint @ metric_value @ operator
     contraction_slack = np.min(
-        np.linalg.eigvalsh(metric_value - operator.T @ metric_value @ operator)
+        np.linalg.eigvalsh((contraction_defect + contraction_defect.conj().T) / 2)
     )
     return SimilarityCertificate(
         bound=float(bound.value),

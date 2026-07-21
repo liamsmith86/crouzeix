@@ -1,6 +1,28 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
+## Immediate audit gate (2026-07-21, post-L45)
+**Load-bearing audit passed:** L17's exact ground-state identity with
+`y=1/sqrt(g')` fixes the Dirichlet-form direction, and L21's parity restriction follows by
+averaging its linear dual triple before rescaling the invariant ray.  See
+`proof/load_bearing_audit.md`.
+
+**General similarity gate passed numerically:** 102/120 certificate-gated general complex
+matrices (`n=3..8`) had `t*(phi(A))<=3.8399296`; none exceeded four.  On the sharp near-Crabb
+case, shrinking the outer offset `.02→.00125` raised `t*` from `3.68956→3.97783`, always below
+four.  Seventeen polygonal near-normal maps and one inaccurate SDP were rejected rather than
+counted.  This makes the complete-bounded route credible, not proved; see
+`proof/general_similarity_probe.md`.
+
+**L44 sharp boundary passed exactly:** its true boundary is `p=a=b=0` (the modal angle is flat),
+not L29's stale `p=p*+c^4 x` ridge.  There the energy is `k(1+c²)/(4c)<=1/(1+c²)<1`; an
+80-decimal scaled scan through `c=10^-20` finds margin `~3c²` and no excess.  This is L46 and
+does not prove a neighbourhood.  The remaining L29 exact regenerations continue in a detached
+job; the tiny-edge checker already reproduced its constants cleanly after 28 minutes.
+
+L45's convex-in-`a` branch is common (772,130 of 2,000,000 random quadratic-form probes) but its
+discriminant remained positive in the sample; no concavity-only shortcut exists.
+
 ## Exact current frontier
 Campaign has reduced Crouzeix's conjecture to **H-r: ρ = Re∫f₀·Φ(f₀)dμ ≥ 0 at extremal pairs on
 the critical domain Ω = int W(A)** (⟹ conjecture via SV24 Thm 6.1 + shrinking; proof/strategy_S.md,

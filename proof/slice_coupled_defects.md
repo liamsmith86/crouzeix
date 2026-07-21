@@ -508,6 +508,44 @@ exact and are audited by `experiments/slice_rank_one_transfer.py`; the two
 optional searches are reproduced with `--global-energy` and
 `--envelope-energy`.
 
+### 6.2 Exact small-nome boundary of the block-energy target
+
+The sharp-looking corner of (BE) can be evaluated without floating-point
+optimization.  Set $p=0$ and $a=b=0$, and write $t=\tan\theta$ for the free
+left modal angle and $g=\sqrt{k/c}$.  Direct substitution in the modal block
+formula gives
+
+\[
+ B={g\over\sqrt{1+t^2}}
+   \begin{bmatrix}1&0\\ct&0\end{bmatrix},\qquad
+ C={g\over\sqrt{1+t^2}}
+   \begin{bmatrix}c&t\\0&0\end{bmatrix}. \tag{36}
+\]
+
+At $a=b=0$ the off-diagonal blocks in (34) vanish and the other two are
+$C/2$ and $B/2$.  Hence the angle cancels exactly:
+
+\[
+ \sum_{i,j}\|S_{ij}\|^2
+ ={1\over4}(\|B\|^2+\|C\|^2)
+ ={k(1+c^2)\over4c}. \tag{37}
+\]
+
+L23's nome inequality $k/c\le4/(1+c^2)^2$ therefore proves
+
+\[
+ \sum_{i,j}\|S_{ij}\|^2\le{1\over1+c^2}<1. \tag{38}
+\]
+
+Thus the exact boundary never exceeds one, although it tends to one as
+$c\downarrow0$.  An independent 80-decimal audit at
+$c=10^{-2},10^{-4},10^{-8},10^{-12},10^{-20}$ finds
+$(1-\mathrm{BE})/c^2\to3$ and no excess in a scaled neighbourhood.  The old
+coordinate $p=p_*+c^4x$ belongs to L29's different odd-block ridge; it is not
+the exact equality boundary of L44.  The audit is reproduced by
+`experiments/slice_rank_one_ridge_check.py`.  The finite neighbourhood scan is
+falsification evidence only; (37)--(38) are the proved boundary statement.
+
 ## 7. Remaining target
 
 The live theorem is now (27), equivalently (RT), with the special conformal coupling

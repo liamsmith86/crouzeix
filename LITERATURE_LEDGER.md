@@ -76,3 +76,11 @@ Papers, theorems, assumptions, possible gaps. Status verified via web 2026-07-20
 - [ ] SV24 full §§1–5 (their Prop 2.4, 2.8, 3.5 used in §6; Berger–Stampfli generalization)
 - [ ] R–S Question 4.1 citation trail — is unitality known to be insufficient? (still undetermined)
 - [ ] BCG+23 arXiv:2312.04537 (Crouzeix, compressions of shifts, nilpotent classes)
+
+## Internal load-bearing audit (2026-07-21)
+- L17 and L21 were independently re-derived after the rapid Epoch-6 proof sequence.  L17's
+  disconjugacy/positivity step is the exact ground-state transform with positive solution
+  `1/sqrt(g')`; the comparison direction is `E_Q≤E_−1` for `Q≥−1`.  L21 has a genuine Slater
+  point after scaling the Lyapunov series, and parity reduction must average the linear dual
+  triple before re-optimizing its invariant ray.  No gap was found.  See
+  `proof/load_bearing_audit.md`.

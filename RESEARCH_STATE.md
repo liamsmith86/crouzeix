@@ -1,6 +1,34 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-21 (Epoch 6 — rank-one/full KKT face proved)
+**Last updated:** 2026-07-21 (Epoch 6 — strategic audit after L45)
+
+## AUDIT-GATE OUTCOME (2026-07-21, after L45 and external steering review)
+- **L17 and L21 survive independent re-derivation.** L17's load-bearing step is the exact
+  ground-state identity with positive solution `1/sqrt(g')`; L21 has a strict Lyapunov-series
+  Slater point, and its parity restriction is valid only by averaging the linear dual triple and
+  then rescaling the invariant ray. `proof/load_bearing_audit.md` records the full sign audit.
+- **The similarity route survives its first general-matrix falsification gate.** A seeded sweep
+  of 120 varied complex matrices (`n=3..8`) accepted 102 through independent map, Cauchy,
+  double-layer, resolution, and SDP primal/dual gates. None exceeded four; the maximum was
+  `t*=3.8399296`. The sharp case rose from `3.68956` to `3.97783` as the outer offset shrank from
+  `.02` to `.00125`, always from below. Seventeen nearly normal cases had unresolved polygonal
+  map discretization and one SDP had a bad duality gap, so they were rejected rather than counted.
+  This makes L21 a credible general attack, not a proof. `proof/general_similarity_probe.md`.
+- **L44's exact sharp boundary passes analytically and at 80 digits.** At `p=a=b=0` its energy is
+  `k(1+c²)/(4c)`, independently of the modal angle, and L23 bounds it by `1/(1+c²)<1`. A scaled
+  80-decimal scan down to `c=10^-20` finds margin `~3c²` and no excess. The old
+  `p=p*+c⁴x` coordinate belongs to L29's different ridge and must not be imported into L44.
+  This proves only the exact boundary (L46); a finite neighbourhood scan is still not L44.
+- **The remaining L29 exact certificates are regenerating in a detached background job.** The
+  already completed tiny-edge checker reproduced its saved constants exactly after 28 minutes;
+  do not mark the full regeneration gate complete until the remaining scripts exit cleanly.
+- **L45's one-variable convex branch is genuinely present.** In 2,000,000 random quadratic-form
+  probes on exact modal slice matrices, 772,130 had `q2>0` with the minimizing `a` inside
+  `(-1,1)`; none had a negative discriminant (smallest sampled margin `5.48e-5`). Thus the new
+  identity does not collapse merely by concavity. The discriminant route remains well supported,
+  but it must retain the conformal coupling.
+- L45 is banked in commit `0dfcc18`; the present checkpoint records the independent audit and
+  strategic-gate outcomes before the analytic L20 attack resumes.
 
 ## NEWEST (2026-07-21, Epoch 6) — L20 reduced to an explicit trace-cone inequality
 - **L21 PROVED (dimension-independent):** for every strictly stable matrix `T`, the least
@@ -120,6 +148,10 @@
   full rigorous cubic envelope for `r=H(p)`, approaching equality only on the known
   `c→0,a,b→0` boundary. The softer strip `s₀p≤r≤p` is false (value `1.3067`), so the cubic
   conformal input is essential. L44 remains numerical, not proved.
+- **L46 certifies L44's exact small-nome boundary.** At `p=a=b=0`, direct modal substitution
+  gives `Σ||S_ij||²=k(1+c²)/(4c)`, with complete cancellation of the free modal angle. L23 bounds
+  this by `1/(1+c²)<1`; an 80-decimal scaled scan confirms margin `~3c²` through `c=10^-20`.
+  This removes the sharp-edge falsification concern but does not prove a neighbourhood or L44.
 - **L45 splits the polynomial core into two exact residual squares plus one central defect.**
   Its quadratic form is
   `3(1−b²)||x−aBy||²+3(1−a²)||y−bCx||²`
