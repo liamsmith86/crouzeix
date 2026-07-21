@@ -379,6 +379,85 @@ has no elliptic resolvents and is only quartic in $a,b$; it is the preferred
 starting point for using the modal relation (23).  The exact audit of (24)--
 (28) is included in `experiments/slice_rank_one_transfer.py`.
 
+### 6.1 Hyperbolic square completion
+
+The Schur coupling in (27) has an exact second-stage factorization.  For
+$q\in(-1,1)$ define
+
+\[
+ A_q={2(4-q^2)\over1-q^2},\qquad
+ D_q={2(4q^2-1)\over1-q^2},\qquad
+ E_q={6q\over1-q^2}. \tag{30}
+\]
+
+The key scalar identity is
+
+\[
+ A_qD_q-E_q^2=-16. \tag{31}
+\]
+
+Put
+
+\[
+ \mathcal H=
+ \begin{bmatrix}
+ \sqrt{A_a}I&-E_aB/\sqrt{A_a}\\
+ -E_bC/\sqrt{A_b}&\sqrt{A_b}I
+ \end{bmatrix},\qquad
+ \Delta=\operatorname{diag}(C/\sqrt{A_b},B/\sqrt{A_a}).
+\]
+
+Expanding and using (31) gives the exact square completion
+
+\[
+ 2\mathcal Q_{a,b}(T)=\mathcal H^*\mathcal H-16\Delta^*\Delta. \tag{32}
+\]
+
+Let
+
+\[
+ u={E_a\over A_a}={3a\over4-a^2},\qquad
+ v={E_b\over A_b}={3b\over4-b^2}.
+\]
+
+Both lie strictly between $-1$ and $1$.  Since the spectrum of $BC$ is
+$\{\tau_1^2,\tau_2^2\}$, the matrix $\mathcal H$ is invertible.  Therefore
+(27) is equivalent to the small-gain inequality
+
+\[
+ \|\mathcal S_{a,b}(T)\|\le1,\qquad
+ \mathcal S_{a,b}(T)=4\Delta\mathcal H^{-1}. \tag{33}
+\]
+
+Writing $F=BC$ and $G=CB$ removes the inverse of the $4\times4$ block:
+
+\[
+ \mathcal S_{a,b}(T)=4
+ \begin{bmatrix}
+ {C(I-uvF)^{-1}\over\sqrt{A_aA_b}}&
+ {uG(I-uvG)^{-1}\over A_b}\\
+ {vF(I-uvF)^{-1}\over A_a}&
+ {B(I-uvG)^{-1}\over\sqrt{A_aA_b}}
+ \end{bmatrix}. \tag{34}
+\]
+
+This exposes a concrete scalar sufficient inequality.  If $S_{ij}$ denote
+the four $2\times2$ blocks in (34), then
+
+\[
+ \boxed{\sum_{i,j=1}^2\|S_{ij}\|^2\le1} \tag{BE}
+\]
+
+implies (33): replace every block by its operator norm to obtain a scalar
+$2\times2$ comparison matrix, whose operator norm is at most its Frobenius
+norm.  Thus (BE) would prove (RT).  It is stronger than necessary, but it is
+numerically robust: deterministic global searches over all five live real
+parameters approach one only at the already sharp $c\to0$, $a,b\to0$
+boundary.  The default rank-one/rank-one cases give $0.790699$ and $0.742709$.
+This is evidence, not a certificate.  Formulae (30)--(34) are exact and are
+audited by `experiments/slice_rank_one_transfer.py`; the optional search is
+reproduced with `--global-energy`.
+
 ## 7. Remaining target
 
 The live theorem is now (27), equivalently (RT), with the special conformal coupling
@@ -390,7 +469,7 @@ The live theorem is now (27), equivalently (RT), with the special conformal coup
 Arbitrary rotations and node pairs do not obey the factor-four bound.  A
 scalar reduction is also insufficient: numerical interior maxima can exceed
 all scalar-automorphism boundary values.  A proof must retain the
-Blaschke--Potapov structure (21) while using (23), for example through a
-four-dimensional Schur complement or a two-node matrix-valued Pick
-inequality.  Proving (RT) completes the elliptic \(4\times4\) slice; it does
+Blaschke--Potapov structure (21) while using (23).  The preferred targets are
+either the polynomial Schur complement (27) or the stronger four-block energy
+inequality (BE).  Proving (RT) completes the elliptic \(4\times4\) slice; it does
 not by itself settle the general conjecture.

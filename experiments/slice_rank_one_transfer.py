@@ -15,14 +15,15 @@ is used in the exact algebra audit.
 
 from __future__ import annotations
 
-from math import sqrt
+import argparse
+from math import exp, log, pi, sqrt
 
 import numpy as np
 import sympy as sp
 from scipy.optimize import differential_evolution
 
 from slice_cb_sdp import DEFAULT_CASES, solve_similarity_sdp
-from slice_similarity_duality import modal_slice_from_weights
+from slice_similarity_duality import modal_slice, modal_slice_from_weights
 
 
 RANK_TOLERANCE = 2e-6
@@ -113,6 +114,73 @@ def transfer_core_lmi(
         + even_parameter * odd_defect * lower.T
     )
     return np.block([[odd_block, coupling], [coupling.T, even_block]])
+
+
+def small_gain_matrix(
+    operator: np.ndarray,
+    odd_parameter: float,
+    even_parameter: float,
+) -> np.ndarray:
+    """Return the square-completion small-gain matrix from formula (33)."""
+
+    block_size = operator.shape[0] // 2
+    upper = operator[:block_size, block_size:]
+    lower = operator[block_size:, :block_size]
+    identity = np.eye(block_size)
+    odd_coefficient = 2.0 * (4.0 - odd_parameter**2) / (
+        1.0 - odd_parameter**2
+    )
+    even_coefficient = 2.0 * (4.0 - even_parameter**2) / (
+        1.0 - even_parameter**2
+    )
+    odd_schur = 3.0 * odd_parameter / (4.0 - odd_parameter**2)
+    even_schur = 3.0 * even_parameter / (4.0 - even_parameter**2)
+    product = odd_schur * even_schur
+    odd_resolvent = np.linalg.inv(identity - product * upper @ lower)
+    even_resolvent = np.linalg.inv(identity - product * lower @ upper)
+    common_scale = 4.0 / np.sqrt(odd_coefficient * even_coefficient)
+    return np.block(
+        [
+            [
+                common_scale * lower @ odd_resolvent,
+                4.0
+                * odd_schur
+                * lower
+                @ odd_resolvent
+                @ upper
+                / even_coefficient,
+            ],
+            [
+                4.0
+                * even_schur
+                * upper
+                @ even_resolvent
+                @ lower
+                / odd_coefficient,
+                common_scale * upper @ even_resolvent,
+            ],
+        ]
+    )
+
+
+def block_norm_energy(matrix: np.ndarray) -> float:
+    """Return the sum of squared operator norms of the four equal blocks."""
+
+    block_size = matrix.shape[0] // 2
+    return float(
+        sum(
+            np.linalg.norm(
+                matrix[
+                    row : row + block_size,
+                    column : column + block_size,
+                ],
+                2,
+            )
+            ** 2
+            for row in (0, block_size)
+            for column in (0, block_size)
+        )
+    )
 
 
 def exact_algebra_audit() -> None:
@@ -211,6 +279,70 @@ def exact_algebra_audit() -> None:
     ) != sp.zeros(4):
         raise AssertionError("the polynomial core formula failed")
 
+    odd_coefficient = 2 * (4 - odd_square) / (1 - odd_square)
+    even_coefficient = 2 * (4 - even_square) / (1 - even_square)
+    odd_linear = 6 * odd_parameter / (1 - odd_square)
+    even_linear = 6 * even_parameter / (1 - even_square)
+    completion = sp.BlockMatrix(
+        [
+            [
+                sp.sqrt(odd_coefficient) * identity_two,
+                -odd_linear * upper / sp.sqrt(odd_coefficient),
+            ],
+            [
+                -even_linear * lower / sp.sqrt(even_coefficient),
+                sp.sqrt(even_coefficient) * identity_two,
+            ],
+        ]
+    ).as_explicit()
+    loss = sp.diag(
+        *([1 / sp.sqrt(even_coefficient)] * 2),
+        *([1 / sp.sqrt(odd_coefficient)] * 2),
+    ) * sp.diag(lower, upper)
+    if sp.simplify(2 * core - completion.T * completion + 16 * loss.T * loss) != sp.zeros(4):
+        raise AssertionError("the hyperbolic square completion failed")
+
+    small_gain = 4 * loss * completion.inv()
+    odd_schur = odd_linear / odd_coefficient
+    even_schur = even_linear / even_coefficient
+    schur_product = odd_schur * even_schur
+    odd_schur_resolvent = (
+        identity_two - schur_product * upper * lower
+    ).inv()
+    even_schur_resolvent = (
+        identity_two - schur_product * lower * upper
+    ).inv()
+    explicit_small_gain = sp.BlockMatrix(
+        [
+            [
+                4
+                * lower
+                * odd_schur_resolvent
+                / sp.sqrt(odd_coefficient * even_coefficient),
+                4
+                * odd_schur
+                * lower
+                * odd_schur_resolvent
+                * upper
+                / even_coefficient,
+            ],
+            [
+                4
+                * even_schur
+                * upper
+                * even_schur_resolvent
+                * lower
+                / odd_coefficient,
+                4
+                * upper
+                * even_schur_resolvent
+                / sp.sqrt(odd_coefficient * even_coefficient),
+            ],
+        ]
+    ).as_explicit()
+    if sp.simplify(small_gain - explicit_small_gain) != sp.zeros(4):
+        raise AssertionError("the explicit small-gain formula failed")
+
     a, b, s, t, z = sp.symbols("a b s t z", nonzero=True)
     denominator = 1 - a * b * z**2
     node_function = sp.Matrix(
@@ -276,6 +408,11 @@ def run_numerical_regression() -> None:
             np.linalg.eigvalsh(core).min() >= -2e-12
         ):
             raise AssertionError("the transfer norm and polynomial LMI disagree")
+        small_gain = small_gain_matrix(data.operator, 0.3, -0.4)
+        if (np.linalg.eigvalsh(core).min() >= -2e-12) != (
+            np.linalg.norm(small_gain, 2) <= 1.0 + 2e-12
+        ):
+            raise AssertionError("the polynomial LMI and small-gain norm disagree")
 
         maximum, parameters = maximize_transfer(data.operator)
         sdp = solve_similarity_sdp(data.operator)
@@ -285,6 +422,8 @@ def run_numerical_regression() -> None:
             numerical_rank(witness[2:, 2:]),
         )
         transfer_square = maximum**2
+        optimized_small_gain = small_gain_matrix(data.operator, *parameters)
+        energy = block_norm_energy(optimized_small_gain)
         if transfer_square > 4.0 + OPTIMIZATION_TOLERANCE:
             raise AssertionError("the transfer search found a factor-four violation")
         if dual_ranks == (1, 1) and abs(transfer_square - sdp.bound) > OPTIMIZATION_TOLERANCE:
@@ -293,14 +432,64 @@ def run_numerical_regression() -> None:
             f"weights={weights} dual_ranks={dual_ranks} "
             f"transfer_squared={transfer_square:.9f} sdp={sdp.bound:.9f} "
             f"parameters=({parameters[0]:+.6f},{parameters[1]:+.6f}) "
-            f"formula_error={formula_error:.2e}"
+            f"block_energy={energy:.9f} formula_error={formula_error:.2e}"
         )
 
 
+def maximize_global_block_energy(maximum_iterations: int) -> tuple[float, np.ndarray]:
+    """Search the five live real parameters for a violation of (BE)."""
+
+    def objective(parameters: np.ndarray) -> float:
+        log_c, eigenvalue_ratio, left_angle, odd_parameter, even_parameter = (
+            parameters
+        )
+        data = modal_slice(exp(log_c), eigenvalue_ratio, left_angle)
+        small_gain = small_gain_matrix(
+            data.operator, odd_parameter, even_parameter
+        )
+        return -block_norm_energy(small_gain)
+
+    result = differential_evolution(
+        objective,
+        [
+            (log(0.003), log(0.8)),
+            (0.002, 0.998),
+            (0.002, pi / 2 - 0.002),
+            (-0.999999, 0.999999),
+            (-0.999999, 0.999999),
+        ],
+        seed=20260721,
+        popsize=20,
+        maxiter=maximum_iterations,
+        tol=1e-9,
+        polish=True,
+    )
+    parameters = result.x.copy()
+    parameters[0] = exp(parameters[0])
+    return -float(result.fun), parameters
+
+
 def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--global-energy",
+        action="store_true",
+        help="run the optional five-parameter numerical search for (BE)",
+    )
+    parser.add_argument("--maxiter", type=int, default=500)
+    arguments = parser.parse_args()
     exact_algebra_audit()
     print("rank-one transfer algebra: exact")
     run_numerical_regression()
+    if arguments.global_energy:
+        energy, parameters = maximize_global_block_energy(arguments.maxiter)
+        print(
+            "global block-energy search: "
+            f"energy={energy:.12f} "
+            f"(c,r,u,a,b)={tuple(float(value) for value in parameters)}"
+        )
+        if energy > 1.0 + OPTIMIZATION_TOLERANCE:
+            raise AssertionError("the global search found a block-energy violation")
 
 
 if __name__ == "__main__":

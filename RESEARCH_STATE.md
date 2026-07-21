@@ -113,6 +113,11 @@
   the transfer is a contraction because its two node values come from a rational inner matrix.
   Conjugating to physical coordinates costs exactly `c^(−3/2)≤2`. The remaining transfer
   theorem is confined to `0<c<2^(−2/3)`.
+- **L43 square-completes the remaining coupling.** The polynomial core is PSD exactly when
+  an explicit four-block small-gain matrix has norm at most one. Its only resolvents are those
+  of `BC,CB` at contracted parameters `u=3a/(4−a²)`, `v=3b/(4−b²)`. The stronger scalar
+  target L44, `Σ||S_ij||²≤1`, implies the theorem and survives global searches, approaching
+  equality only on the known `c→0,a,b→0` boundary. L44 remains numerical, not proved.
 
 ## Previous Epoch-6 milestone — EL4 PROVED
 - **EL4 is now an analytic theorem**, not a grid conjecture. New L17: `SG ≥ 0` on the real
@@ -225,8 +230,8 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
 1. **Prove L40's transfer theorem.** Show `||R_{a,b}(T)||≤2` for the explicit
    Blaschke--Potapov transfer in `proof/slice_coupled_defects.md`. Preserve the matrix-valued
    interior: a boundary/scalar reduction is numerically false. Use L41's polynomial Schur
-   complement in modal coordinates for `c<2^(−2/3)` and `tan(v)=H(p)tan(u)` before any
-   interval split.
+   complement or L44's block-energy form for `c<2^(−2/3)` and use
+   `tan(v)=H(p)tan(u)` before any interval split.
    This one theorem would prove L20 for the complete elliptic 4×4 slice.
 2. **Shifted Möbius phase**: derive its exact stationarity/rho formula (Kenan-Li quartic analog)
    and prove rho≥0 or K≤2. Definite parity is false.

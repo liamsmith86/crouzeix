@@ -122,6 +122,10 @@ polynomial `4×4` LMI. Its two diagonal `2×2` blocks are already PSD by L24/L26
 bilinear estimates, leaving only one explicit off-diagonal Schur inequality.
 L42 also closes `c≥2^(−2/3)`: the symmetric-modal transfer is a contraction and the
 physical similarity has condition `c^(−3/2)≤2`. Only the lower-nome Schur inequality remains.
+L43 then square-completes that Schur coupling: it is equivalent to norm at most one for an
+explicit four-block small-gain matrix with contracted parameters `u=3a/(4−a²)`,
+`v=3b/(4−b²)`. The stronger scalar block-energy target `Σ||S_ij||²≤1` (L44) implies the
+result and is globally search-supported, but is not yet proved.
 
 ## Strongest proved lemmas
 P1 (K²+ρ ≤ Kq), L13 (Clark-type transition ⟨q(A)x₀,u₀⟩ = K∫q·conj(f₀)dμ), L14 + collapse theorem
