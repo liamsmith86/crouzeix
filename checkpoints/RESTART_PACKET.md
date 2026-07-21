@@ -82,6 +82,14 @@ so its norm-two condition is exactly `det(M)+2|M12+M21|≤4`. In the inner-node 
 This is a two-variable `(c,p)` theta inequality; the old `(c,p,a)` determinant is obsolete as
 the primary certificate target. Equations (13m)–(13p) contain the exact coefficients.
 
+**L31 factors that discriminant into a square.** Put
+`Q=2g(1+c²p)−d(kp+4c)` and `S=−2g(c²+p)+d(kp+4c)`. Exact expansion gives
+`c²(1+r)²(4AC−B²)=16rg²p(1−c²)²(1−d²)−(Qr−S)²`, with
+`1−d²=(1−k²)(1−k²p⁴)/(1−k²p²)²`. The new primary target is therefore
+`|Qr−S|≤4g(1−c²)sqrt(rp(1−d²))` at `r=L(p),U(p)` on the branch `A>0, |B|<2A`.
+The expression is concave in `r`, so endpoint reduction is automatic. The exact audit is in
+`experiments/slice_odd_block_check.py`.
+
 ## Strongest proved lemmas
 P1 (K²+ρ ≤ Kq), L13 (Clark-type transition ⟨q(A)x₀,u₀⟩ = K∫q·conj(f₀)dμ), L14 + collapse theorem
 (sym3: v = α², ρ = (α²/2)(g₀(e)−g₀(0))), **Landen theorem** (sym3 ρ = 1 − π/(2K(k₁))),
@@ -137,11 +145,12 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
 ## Next five concrete actions (refreshed 2026-07-21, Epoch 6)
-1. **Prove L30's final two-variable discriminant**: certify `4AC−B²≥0` from equations
-   (13m)–(13p) only on `A>0, |B|<2A`, at `r=L(p),U(p)`. Isolate the small-nome ridge
-   `p=1/2+3c²/2+…` analytically and interval-certify the compact remainder. This closes the
-   generic rank-one/full face. Then attack L27's rank-one/rank-one face. Do not repeat the
-   already-proved one-block, lower-odd, or concave-sign estimates.
+1. **Prove L31's square distortion inequality**: certify
+   `|Qr−S|≤4g(1−c²)sqrt(rp(1−d²))` from (13q)–(13t), only on `A>0, |B|<2A`, at
+   `r=L(p),U(p)`. Isolate the small-nome ridge `p=1/2+3c²/2+…` analytically and
+   interval-certify the compact remainder. This closes the generic rank-one/full face. Then
+   attack L27's rank-one/rank-one face. Do not repeat the already-proved one-block, lower-odd,
+   or concave-sign estimates.
 2. **Shifted degree-one Möbius phase**: derive its stationarity/rho formula and prove positivity
    (or K≤2) independently, both as a fallback and as a guide to the metric.
 3. **Bi-conic Schwarzian route**: compute `SG` for the off-slice collapsed map on its critical

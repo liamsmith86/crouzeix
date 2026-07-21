@@ -11,9 +11,46 @@ from __future__ import annotations
 from math import asin, cos, pi, sin, sqrt
 
 import numpy as np
+import sympy as sp
 from scipy.special import ellipk, ellipkinc
 
 from slice_similarity_duality import elliptic_modulus, modal_slice, rotation
+
+
+def audit_discriminant_factorization() -> None:
+    """Verify the L31 square factorization over an exact polynomial ring."""
+    c, p, r, d, g = sp.symbols("c p r d g", nonzero=True, real=True)
+    coefficient_a = (
+        g * p * (2 * d * (1 + c**2 * r) - c * g * (1 + r))
+        / (c * (1 + r))
+    )
+    coefficient_b = (
+        2 * c**2 * g * p * r
+        - 2 * c**2 * g
+        - c * d * g**2 * p * (1 + r)
+        + 4 * c * d * (1 + r)
+        + 2 * g * p
+        - 2 * g * r
+    ) / (c * (1 + r))
+    coefficient_c = 4 - 2 * d * g * (c**2 + r) / (c * (1 + r))
+
+    q_value = 2 * c**2 * g * p - c * d * g**2 * p - 4 * c * d + 2 * g
+    s_value = -2 * c**2 * g + c * d * g**2 * p + 4 * c * d - 2 * g * p
+    square_form = (
+        16 * r * g**2 * p * (1 - c**2) ** 2 * (1 - d**2)
+        - (q_value * r - s_value) ** 2
+    ) / (c**2 * (1 + r) ** 2)
+    discriminant = 4 * coefficient_a * coefficient_c - coefficient_b**2
+    if sp.factor(discriminant - square_form) != 0:
+        raise AssertionError("the exact L31 discriminant factorization failed")
+
+    k = sp.symbols("k", real=True)
+    d_value = k * (1 - p**2) / (1 - k**2 * p**2)
+    positive_factor = (1 - k**2) * (1 - k**2 * p**4) / (
+        1 - k**2 * p**2
+    ) ** 2
+    if sp.factor(1 - d_value**2 - positive_factor) != 0:
+        raise AssertionError("the exact 1-d^2 factorization failed")
 
 
 def inverse_ellipse_map(p: float, modulus: float) -> float:
@@ -81,6 +118,7 @@ def direct_block(
 
 
 def audit(seed: int = 20260721, count: int = 20_000) -> None:
+    audit_discriminant_factorization()
     generator = np.random.default_rng(seed)
     largest_upper = (0.0, None)
     largest_lower = (0.0, None)
@@ -324,6 +362,7 @@ def audit(seed: int = 20260721, count: int = 20_000) -> None:
     if smallest_branched_discriminant < -2e-7:
         raise AssertionError("the final branched discriminant failed numerically")
 
+    print("discriminant square factorization: exact")
     print(f"random cases: {count}")
     print(f"largest upper odd block: {largest_upper}")
     print(f"largest lower odd block: {largest_lower}")

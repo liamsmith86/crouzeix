@@ -270,6 +270,48 @@ at \(r=L(p)\) and \(r=U(p)\).  This removes both the orientation and the
 Blaschke parameter from the remaining certificate: (13p) depends only on
 \((c,p)\) and complete theta quantities.
 
+The discriminant in (13p) has a much sharper square factorization.  Define
+
+\[
+ \begin{aligned}
+ Q&=2g(1+c^2p)-d(kp+4c),\\
+ S&=-2g(c^2+p)+d(kp+4c),
+ \end{aligned} \tag{13q}
+\]
+
+where we used \(cg^2=k\).  Exact expansion of (13m) gives
+
+\[
+ \boxed{
+ c^2(1+r)^2(4AC-B^2)
+ =16rg^2p(1-c^2)^2(1-d^2)-(Qr-S)^2.} \tag{13r}
+\]
+
+This is not a numerical fit: comparison of the coefficients in \(r\) gives
+the leading and constant terms \(-Q^2\) and \(-S^2\), while the difference
+between half the middle coefficient and \(QS\) is exactly
+\(8g^2p(1-c^2)^2(1-d^2)\).  The remaining positive factor also has the
+elementary form
+
+\[
+ 1-d^2=
+ { (1-k^2)(1-k^2p^4)\over(1-k^2p^2)^2}. \tag{13s}
+\]
+
+Consequently the final target can equivalently be written as the sharp
+two-variable distortion estimate
+
+\[
+ \boxed{|Qr-S|\le
+ 4g(1-c^2)\sqrt{rp(1-d^2)}}. \tag{13t}
+\]
+
+The right side of (13r) is a concave quadratic in \(r\).  Hence its minimum
+on the conformal envelope interval is attained at \(L(p)\) or \(U(p)\),
+which recovers the endpoint reduction without differentiating (13j).  The
+only remaining content of the rank-one/full face is therefore (13t) at
+those two cubic endpoints, restricted to the interior-vertex branch (13o).
+
 The **lower odd block is already proved**.  For fixed modal parameters its
 matrix is linear in \((q_1,q_2)\), and the operator norm is convex.  Since
 \(|q_i|\le\tau_i\), it is enough to check the four vertices of the rectangle
@@ -381,9 +423,10 @@ than expect a uniform positive margin.
 
 ## 5. Remaining proof debt
 
-1. Prove the two-variable discriminant (13p) on its branch (13o), at the two
-   envelope endpoints.  The older equivalent route is \(\mathcal N\ge0\)
-   under (14), but it retains an unnecessary Blaschke parameter.
+1. Prove the square distortion inequality (13t) on its branch (13o), at the
+   two envelope endpoints.  This is exactly the discriminant (13p).  The
+   older equivalent route is \(\mathcal N\ge0\) under (14), but it retains
+   an unnecessary Blaschke parameter.
 2. Treat the rank-one/rank-one coupled face after this rank-one/full sector.
 
 `experiments/slice_odd_block_check.py` audits (5)--(13), the conformal

@@ -1,6 +1,6 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-21 (Epoch 6 — rank-one/full face reduced to odd block)
+**Last updated:** 2026-07-21 (Epoch 6 — odd discriminant factored to a square)
 
 ## NEWEST (2026-07-21, Epoch 6) — L20 reduced to an explicit trace-cone inequality
 - **L21 PROVED (dimension-independent):** for every strictly stable matrix `T`, the least
@@ -62,6 +62,13 @@
   fail only on `A>0, |B|<2A`, where the complete remaining condition is `4AC−B²≥0` at the lower
   and upper cubic-envelope values of `r`. Thus both orientation and `t` are gone: L29 is now a
   two-variable `(c,p)` theta inequality with a sharply localized branch.
+- **L31 factors the final discriminant exactly.** With
+  `Q=2g(1+c²p)−d(kp+4c)` and `S=−2g(c²+p)+d(kp+4c)`, the remaining numerator is
+  `16rg²p(1−c²)²(1−d²)−(Qr−S)²`, where
+  `1−d²=(1−k²)(1−k²p⁴)/(1−k²p²)²`. This is an exact SymPy-audited identity, not a fit.
+  It turns L29 into the sharp distortion inequality
+  `|Qr−S|≤4g(1−c²)sqrt(rp(1−d²))`. The numerator is concave in `r`, so only the two
+  cubic-envelope endpoints remain. The small-nome ridge is still the live analytic obstruction.
 
 ## Previous Epoch-6 milestone — EL4 PROVED
 - **EL4 is now an analytic theorem**, not a grid conjecture. New L17: `SG ≥ 0` on the real
@@ -171,11 +178,12 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   (resid 1e-4–1e-3).** Next: close sym4 analytically = first new Crouzeix class in campaign.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-21)
-1. **Prove L30's final two-variable discriminant.** Use equations (13m)–(13p) in
-   `proof/slice_odd_block_reduction.md`: certify `4AC−B²≥0` only where `A>0, |B|<2A`, at
-   `r=L(p),U(p)`. Isolate the small-nome ridge (`p=1/2+3c²/2+…`) analytically and use intervals
-   only on the compact remainder. This closes the generic rank-one/full face. Then return to
-   L27's rank-one/rank-one coupled face.
+1. **Prove L31's square distortion bound.** Use equations (13q)–(13t) in
+   `proof/slice_odd_block_reduction.md`: certify
+   `|Qr−S|≤4g(1−c²)sqrt(rp(1−d²))` only where `A>0, |B|<2A`, at `r=L(p),U(p)`.
+   Isolate the small-nome ridge (`p=1/2+3c²/2+…`) analytically and use intervals only on the
+   compact remainder. This closes the generic rank-one/full face. Then return to L27's
+   rank-one/rank-one coupled face.
 2. **Shifted Möbius phase**: derive its exact stationarity/rho formula (Kenan-Li quartic analog)
    and prove rho≥0 or K≤2. Definite parity is false.
 3. **Bi-conic Schwarzian test**: compute `SG` for the off-slice collapsed map on the critical
