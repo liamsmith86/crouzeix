@@ -1,0 +1,2 @@
+<frozen site>:101: RuntimeWarning: Unexpected value in sys.prefix, expected /home/liam/Downloads/crouzeix/.venv, got /home/liam/Downloads/crouzeix/experiments/../.venv
+<frozen site>:101: RuntimeWarning: Unexpected value in sys.exec_prefix, expected /home/liam/Downloads/crouzeix/.venv, got /home/liam/Downloads/crouzeix/experiments/../.venv
