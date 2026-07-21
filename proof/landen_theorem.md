@@ -25,6 +25,16 @@ PROVIDED the level's numerical range is elliptic (exact ellipse needed for the c
 2. The collapse identity v = α² from dK/dα = 0 (one-line calculus, verify signs).
 3. K_norm > 1 hypothesis handling (below it extremal structure differs; irrelevant for Crouzeix).
 
+## Level-4 elliptic slice: first exact facts (2026-07-21, slice_exact.py)
+- CORRECTION of an earlier note: foci² = cL = e₁² — **the ellipse W(A) is confocal with the OUTER
+  eigenvalue pair ±e₁** (not e₁²+e₂²); τ₁ = φ(e₁) = √k exactly (focus-image law, same as sym3).
+  Inner pair ±e₂ = interior nodes with τ₂ = φ(e₂) free.
+- ρ > 0 on the slice (exact machinery, matches pipeline): +1.7e-6, +4.7e-5, (+2.2e-3 low-K case).
+- Stationarity: NEAR-equimodularity |B(τ₁)| ≈ |B(τ₂)| (3–9% off) — conjectured exact law is
+  frame-weighted equimodularity; extract from high-precision scan with block-obliquity logging.
+- Anomaly flag: weight-ordering a₂ > a₁ case gave K = 1.24 with bad reduced-diag — active-block
+  switch or even-phase competition; handle sectors separately.
+
 ## Next-level targets
 - Determine the elliptic-W slice of sym4 (quartic degenerates to conic ⟺ weight condition);
   test the DOUBLE-Landen prediction ρ = 1 − π/(2K(k₂)).
