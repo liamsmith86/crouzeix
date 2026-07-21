@@ -90,6 +90,8 @@ def audit(seed: int = 20260721, count: int = 20_000) -> None:
     largest_colligation_error = 0.0
     smallest_envelope_slack = np.inf
     smallest_determinant = np.inf
+    smallest_endpoint_determinant = np.inf
+    smallest_convex_linear_coefficient = np.inf
 
     for _ in range(count):
         c = float(np.exp(generator.uniform(np.log(1e-3), np.log(0.8))))
@@ -200,6 +202,28 @@ def audit(seed: int = 20260721, count: int = 20_000) -> None:
             smallest_determinant,
             determinant_numerator(c, exact_r, q1, q2),
         )
+        smallest_endpoint_determinant = min(
+            smallest_endpoint_determinant,
+            determinant_numerator(c, lower_envelope, q1, q2),
+            determinant_numerator(c, upper_envelope, q1, q2),
+        )
+        quadratic_coefficient = (
+            16 * c**3
+            + c * q1 * q1 * q2 * q2
+            - 4 * q1 * q1
+            - 4 * c**4 * q2 * q2
+        )
+        linear_coefficient = (
+            32 * c**3
+            + 2 * c * q1 * q1 * q2 * q2
+            - 8 * c * c * (q1 * q1 + q2 * q2)
+            + 8 * (1 - c * c) ** 2 * q1 * q2
+        )
+        if quadratic_coefficient > 1e-14:
+            smallest_convex_linear_coefficient = min(
+                smallest_convex_linear_coefficient,
+                linear_coefficient,
+            )
 
     if largest_reciprocal_error > 2e-11:
         raise AssertionError("the reciprocal block formula failed")
@@ -215,6 +239,10 @@ def audit(seed: int = 20260721, count: int = 20_000) -> None:
         raise AssertionError("the odd-block target failed numerically")
     if smallest_determinant < -2e-12:
         raise AssertionError("the midpoint determinant target failed numerically")
+    if smallest_endpoint_determinant < -2e-12:
+        raise AssertionError("the cubic-envelope endpoint target failed numerically")
+    if smallest_convex_linear_coefficient < -2e-12:
+        raise AssertionError("the convex-quadratic endpoint reduction failed numerically")
 
     print(f"random cases: {count}")
     print(f"largest upper odd block: {largest_upper}")
@@ -228,6 +256,11 @@ def audit(seed: int = 20260721, count: int = 20_000) -> None:
     print(f"largest colligation identity error: {largest_colligation_error:.3e}")
     print(f"smallest envelope slack: {smallest_envelope_slack:.3e}")
     print(f"smallest determinant numerator: {smallest_determinant:.3e}")
+    print(f"smallest envelope-endpoint numerator: {smallest_endpoint_determinant:.3e}")
+    print(
+        "smallest B_r when A_r is positive: "
+        f"{smallest_convex_linear_coefficient:.3e}"
+    )
 
 
 if __name__ == "__main__":

@@ -126,7 +126,16 @@ with
 \]
 
 Here (10) follows from \(|q_i|\le\tau_i\) and L23.  Consequently it is
-enough to check the reciprocal orientation \(x^2=1/r\).  There
+enough to check the reciprocal orientation \(x^2=1/r\).  At this point
+
+\[
+ U\operatorname{diag}(1,r)V^T
+ =\begin{pmatrix}\sqrt r&0\\1-r&\sqrt r\end{pmatrix},
+\]
+
+so the reciprocal orientation is exactly the palindromic weighted-shift
+slice.  This explains why it is the sharp orientation rather than merely an
+algebraic midpoint.  The odd block is
 
 \[
  M_*={1\over\sqrt c(1+r)}
@@ -221,6 +230,32 @@ that (12) is nonnegative for **every** \(r\) in the interval (14), not only
 for \(r=H(p)\).  This survived random and differential-evolution searches;
 it is not yet a certificate.  Proving this envelope version would establish
 (OB) without interval evaluation of an incomplete elliptic integral.
+
+There is one further exact simplification.  As a polynomial in \(r\), write
+\(\mathcal N=A_r r^2+B_r r+C_r\), where
+
+\[
+ \begin{aligned}
+ A_r={}&16c^3+cq_1^2q_2^2-4q_1^2-4c^4q_2^2,\\
+ B_r={}&32c^3+2cq_1^2q_2^2-8c^2(q_1^2+q_2^2)
+       +8(1-c^2)^2q_1q_2. \tag{14a}
+ \end{aligned}
+\]
+
+If \(A_r\le0\), the minimum on the envelope interval is at an endpoint.
+If \(A_r>0\), all searches give \(B_r\ge0\), which makes the quadratic
+increasing for \(r\ge0\) and again puts its minimum at an endpoint.  Thus a
+particularly concrete proof package is now visible:
+
+\[
+ A_r>0\Longrightarrow B_r\ge0,
+ \qquad \mathcal N(L(p))\ge0,
+ \qquad \mathcal N(U(p))\ge0, \tag{14b}
+\]
+
+where \(L,U\) are the two cubics in (14).  The implication and the two
+endpoint inequalities are still unproved; they are lower-dimensional
+algebraic theta inequalities suitable for a finite certificate.
 
 The small-nome edge explains why the estimate is delicate.  With
 \(a=Ac\),
