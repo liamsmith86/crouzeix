@@ -35,6 +35,20 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   adversarial min-ρ floors: +2e-4 (n=3), +1.7e-2 (n=4), +1.6e-2 (n=5, weak search); n=6 pending.
   ρ = 0 attained at disk-like configs. Hadamard: pair-response dominates frozen term (heavy route).
 
+## MILESTONES (Epoch 5, 2026-07-21) — THE LANDEN THEOREM
+- **sym3 ρ-positivity now CLASSICAL-COMPLETE closed form** (proof/landen_theorem.md):
+  W(A) ellipse explicit (semi-axes from support function; foci ±e proved); z₁ = e/√2 EXACT
+  (quarter-period u₁ = K/2, sn(K/2) = 1/√(1+k′)); r₁ = eπ/(2√2 K k);
+  **ρ = 1 − π/((1+k′)K(k)) = 1 − π/(2K(k₁)) ≥ 0** (Landen descent k₁ = (1−k′)/(1+k′)),
+  equality iff disk. Verified: independent mpmath 30 dps + Landen identity 1e-31.
+- ζ = z²-collapse ≡ Landen transformation ⟹ **Landen-tower conjecture** for the symmetric
+  tridiagonal family (induction over levels; needs elliptic range at each level).
+- **Elliptic sym4 slice found analytically: b_j = c·a_j** (= c-deformed weighted shifts!);
+  W(A) exact ellipse (verified 3e-15), foci² = e₁²+e₂² (new confocal pattern). ρ > 0 on slice;
+  naive single-Landen formula does NOT match — multi-node (two-pair) formula is the open target.
+- Adversarial H-r floors (all positive): n=3 +2e-4, n=4 +1.7e-2/+7.2e-2, n=5 +1.6e-2/+1.8e-2
+  (n=6 running). Direct ratio searches at n=6,7 running.
+
 ## MILESTONES (Epoch 4, 2026-07-20)
 - **sym3 (= GKL 2018 class, real slice) H-r PROVED-by-reduction**: exact ζ = z² transform onto the
   canonical 2×2 confocal configuration; stationarity = pseudo-hyperbolic-midpoint law; π₀ = 1/2
