@@ -81,7 +81,7 @@
   small-nome ridge and supplies the stable coordinate `p=p*+c⁴x`; the identity itself makes
   no unproved sign assumption about its residual theta expression `H`.
 - **L35 rigorously removes the singular core of that ridge.** An exact rational certificate proves
-  both cubic-envelope endpoint residuals are positive for `0<c≤1/50` and
+  both cubic-envelope endpoint residuals are positive for `0<c≤1/20` and
   `|p−p*|≤4c⁴`. The regenerated upper numerator has leading form
   `c¹⁰ K[2x²+4x+3]`; the lower has a strictly positive `c⁸` lead. No sampled or saved
   coefficients are trusted. Remaining L29 domain: the complement of this tube in
@@ -198,7 +198,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
 1. **Prove L31/L32's low-nome square distortion bound.** Use equations (13q)–(13ad) in
    `proof/slice_odd_block_reduction.md`: certify
    `rF₁F₂−g²D²≥0` for `0<c<63/100`, only where `A>0, |B|<2A`, at `r=L(p),U(p)`.
-   L35 already closes `0<c≤1/50`, `|p−p*|≤4c⁴`; use branch-aware intervals on its complement.
+   L35 already closes `0<c≤1/20`, `|p−p*|≤4c⁴`; use branch-aware intervals on its complement.
    This closes the generic rank-one/full face. Then return to L27's
    rank-one/rank-one coupled face.
 2. **Shifted Möbius phase**: derive its exact stationarity/rho formula (Kenan-Li quartic analog)

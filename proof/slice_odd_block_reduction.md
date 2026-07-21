@@ -472,7 +472,7 @@ at the upper and lower cubic envelopes.  Put
  D_0=2g^2(1-2c^2g),\qquad p=p_*+c^4x. \tag{13ah}
 \]
 
-**Tiny-edge theorem.**  If \(0<c\le1/50\) and \(|x|\le4\), then
+**Tiny-edge theorem.**  If \(0<c\le1/20\) and \(|x|\le4\), then
 
 \[
  \operatorname{Num}_U>0,\qquad \operatorname{Num}_L>0. \tag{13ai}
@@ -483,32 +483,54 @@ tails give
 
 \[
  \begin{aligned}
- g={}&2-4c^2+10c^4-20c^6+36c^8-64c^{10}+c^{12}P,
-       &|P|\le120,\\
- s_0={}&1-4c^2+12c^4-32c^6+76c^8-168c^{10}+c^{12}Q,
-       &|Q|\le370.
+ g={}&2-4c^2+10c^4-20c^6+36c^8-64c^{10}+110c^{12}+c^{14}P,
+       &|P|\le200,\\
+ s_0={}&1-4c^2+12c^4-32c^6+76c^8-168c^{10}+352c^{12}+c^{14}Q,
+       &|Q|\le750.
  \end{aligned} \tag{13aj}
 \]
 
 Exact polynomial expansion, after clearing \(D_0^{12}\), gives
 
 \[
- D_0^{12}\operatorname{Num}_U
- =c^{10}\{K_U(2x^2+4x+3)+R_U\},
- \quad K_U=9{,}895{,}604{,}649{,}984. \tag{13ak}
+ D_0^{12}\operatorname{Num}_U=c^{10}\{T(c^2,x)+R_U\},
+ \quad K_U=9{,}895{,}604{,}649{,}984, \tag{13ak}
 \]
 
-Absolute coefficient domination over (13aj) proves
+where
 
 \[
- |R_U|<0.9K_U\quad(|x|\le2),\qquad
- |R_U|<2.5K_U\quad(|x|\le4). \tag{13al}
+ \begin{aligned}
+ T(t,x)={}&K_U(2x^2+4x+3)\\
+ &-t(2{,}275{,}989{,}069{,}496{,}320x^2
+      +4{,}690{,}516{,}604{,}092{,}416x
+      +3{,}225{,}967{,}115{,}894{,}784)\\
+ &+t^2(-13{,}194{,}139{,}533{,}312x^3
+      +132{,}911{,}164{,}588{,}818{,}432x^2\\
+ &\hspace{35mm}+280{,}995{,}589{,}640{,}945{,}664x
+      +177{,}393{,}556{,}757{,}938{,}176).
+ \end{aligned} \tag{13al}
 \]
 
-The leading quadratic is \(2(x+1)^2+1\).  It is at least \(K_U\) on
-\([-2,2]\), at least \(3K_U\) on \([-4,-2]\), and at least \(19K_U\)
-on \([2,4]\), so (13al) proves the upper assertion.  For the lower
-endpoint, the shorter expansions
+Exact tensor-product Bernstein coefficients on \(0\le t\le1/400\), with
+the (x)-interval split into eighths, give
+
+\[
+ {T\over K_U}>0.8124\quad(-2\le x\le2),\qquad
+ {T\over K_U}>2.3479\quad(-4\le x\le-2),\qquad
+ {T\over K_U}>14.3177\quad(2\le x\le4). \tag{13am}
+\]
+
+Absolute coefficient domination over the terms of degree at least six in
+(c) proves
+
+\[
+ |R_U|<0.1K_U\quad(|x|\le2),\qquad
+ |R_U|<0.25K_U\quad(|x|\le4). \tag{13an}
+\]
+
+Thus (13am)--(13an) prove the upper assertion.  For the lower endpoint,
+the shorter expansions
 
 \[
  g=2-4c^2+10c^4-20c^6+c^8E,\quad |E|\le37,
@@ -521,13 +543,14 @@ give
 \[
  D_0^{12}\operatorname{Num}_L
  =c^8(K_L+R_L),\quad
- K_L=316{,}659{,}348{,}799{,}488,\quad |R_L|<0.1K_L. \tag{13am}
+ K_L=316{,}659{,}348{,}799{,}488,\quad |R_L|<0.5K_L. \tag{13ao}
 \]
 
 All coefficients, tail bounds, vanishing orders, and remainder sums are
 reconstructed with rational arithmetic by
-`experiments/slice_odd_tiny_edge_certificate.py`; the measured bounds are
-\(0.898511K_U\), \(2.417160K_U\), and \(0.063066K_L\).  The checker also
+`experiments/slice_odd_tiny_edge_certificate.py`; the measured upper tail
+bounds are \(0.085844K_U\) and \(0.232382K_U\), while the lower remainder
+is \(0.462117K_L\).  The checker also
 verifies that the discarded denominators are positive squares.  Thus this
 is a proof, not a floating-point sweep.  It closes the sharp tube only; the
 rest of the low-nome rectangle remains below.
@@ -646,8 +669,8 @@ than expect a uniform positive margin.
 1. Prove the square distortion inequality (13t) on its branch (13o), at the
    two envelope endpoints, only for \(0<c<63/100\).  This is exactly the
    discriminant (13p); the high-nome complement is closed by (13u)--(13y).
-   The sharp tube \(0<c\le1/50\), \(|(p-p_*)/c^4|\le4\), is closed by
-   (13ah)--(13am).  Interval-certify its complement, using the exact centered
+   The sharp tube \(0<c\le1/20\), \(|(p-p_*)/c^4|\le4\), is closed by
+   (13ah)--(13ao).  Interval-certify its complement, using the exact centered
    coordinate near \(c=0\) rather than an axis-aligned box.
    The older equivalent route is \(\mathcal N\ge0\) under (14), but it
    retains an unnecessary Blaschke parameter.

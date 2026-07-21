@@ -4,7 +4,7 @@
 This checker proves the two cubic-envelope endpoint inequalities from
 ``proof/slice_odd_block_reduction.md`` when
 
-    0 < c <= 1/50,  p = p_star + c**4*x,  |x| <= 4.
+    0 < c <= 1/20,  p = p_star + c**4*x,  |x| <= 4.
 
 Only rational polynomial arithmetic is used.  The large intermediate
 polynomials are generated from the compact residual formula and are never
@@ -22,7 +22,7 @@ from sympy import QQ
 from sympy.polys.rings import PolyElement, ring
 
 
-EDGE = sp.Rational(1, 50)
+EDGE = sp.Rational(1, 20)
 
 
 @dataclass(frozen=True)
@@ -90,18 +90,20 @@ def certify_theta_remainders() -> list[tuple[sp.Rational, sp.Rational]]:
 
     g_through_c6 = 2 - 4 * c**2 + 10 * c**4 - 20 * c**6
     s_through_c4 = 1 - 4 * c**2 + 12 * c**4
-    g_through_c10 = g_through_c6 + 36 * c**8 - 64 * c**10
-    s_through_c10 = s_through_c4 - 32 * c**6 + 76 * c**8 - 168 * c**10
+    g_through_c12 = g_through_c6 + 36 * c**8 - 64 * c**10 + 110 * c**12
+    s_through_c12 = (
+        s_through_c4 - 32 * c**6 + 76 * c**8 - 168 * c**10 + 352 * c**12
+    )
 
     residuals = (
         (bounds.g_lower - (g_through_c6 - 37 * c**8), 8),
         (g_through_c6 + 37 * c**8 - bounds.g_upper, 8),
         (bounds.s_lower - (s_through_c4 - 33 * c**6), 6),
         (s_through_c4 + 33 * c**6 - bounds.s_upper, 6),
-        (bounds.g_lower - (g_through_c10 - 120 * c**12), 12),
-        (g_through_c10 + 120 * c**12 - bounds.g_upper, 12),
-        (bounds.s_lower - (s_through_c10 - 370 * c**12), 12),
-        (s_through_c10 + 370 * c**12 - bounds.s_upper, 12),
+        (bounds.g_lower - (g_through_c12 - 200 * c**14), 14),
+        (g_through_c12 + 200 * c**14 - bounds.g_upper, 14),
+        (bounds.s_lower - (s_through_c12 - 750 * c**14), 14),
+        (s_through_c12 + 750 * c**14 - bounds.s_upper, 14),
         (2 - bounds.g_upper, 2),
     )
     return [certify_positive_rational(value, c, order) for value, order in residuals]
@@ -142,7 +144,7 @@ def residual_numerator(endpoint: str) -> sp.Expr:
 def polynomial_ring() -> tuple[object, ...]:
     """Create the common exact ring used by both endpoint certificates."""
 
-    return ring("c,g,s,p,x,G,S,A,B,C,D,E,F,M,N,P,Q", QQ)
+    return ring("c,g,s,p,x,G,S,A,B,C,D,E,F,M,N,P,Q,U,V", QQ)
 
 
 def homogenized_residual(
@@ -215,20 +217,92 @@ def assert_active_variables(
 def absolute_remainder_bound(
     polynomial: PolyElement,
     leading_power: int,
+    first_remainder_power: int,
     limits: dict[int, object],
 ) -> object:
-    """Bound every nonleading monomial on the supplied symmetric box."""
+    """Bound a polynomial tail on the supplied symmetric box."""
 
     result = QQ(0)
     for monomial, coefficient in polynomial.terms():
         c_power = monomial[0]
-        if c_power == leading_power:
+        if c_power < first_remainder_power:
             continue
-        term = abs(coefficient) * QQ(1, 50) ** (c_power - leading_power)
+        term = abs(coefficient) * QQ(1, 20) ** (c_power - leading_power)
         for index, limit in limits.items():
             term *= QQ.convert(limit) ** monomial[index]
         result += term
     return result
+
+
+def bernstein_rectangle_lower(
+    expression: sp.Expr,
+    first: sp.Symbol,
+    first_interval: tuple[sp.Rational, sp.Rational],
+    second: sp.Symbol,
+    second_interval: tuple[sp.Rational, sp.Rational],
+) -> sp.Rational:
+    """Return the least exact tensor-product Bernstein coefficient."""
+
+    u, v = sp.symbols("u v")
+    first_lower, first_upper = first_interval
+    second_lower, second_upper = second_interval
+    transformed = sp.Poly(
+        sp.expand(
+            expression.subs(
+                {
+                    first: first_lower + (first_upper - first_lower) * u,
+                    second: second_lower + (second_upper - second_lower) * v,
+                }
+            )
+        ),
+        u,
+        v,
+    )
+    first_degree = transformed.degree(u)
+    second_degree = transformed.degree(v)
+    power_coefficients = {
+        (i, j): transformed.coeff_monomial(u**i * v**j)
+        for i in range(first_degree + 1)
+        for j in range(second_degree + 1)
+    }
+    coefficients = []
+    for k in range(first_degree + 1):
+        for ell in range(second_degree + 1):
+            coefficient = sp.Integer(0)
+            for i in range(k + 1):
+                for j in range(ell + 1):
+                    coefficient += (
+                        power_coefficients[i, j]
+                        * sp.Rational(sp.binomial(k, i), sp.binomial(first_degree, i))
+                        * sp.Rational(sp.binomial(ell, j), sp.binomial(second_degree, j))
+                    )
+            coefficients.append(coefficient)
+    return min(coefficients)
+
+
+def truncated_upper_lower_bounds(expression: sp.Expr) -> tuple[sp.Rational, ...]:
+    """Bernstein-certify the upper leading polynomial on three x ranges."""
+
+    t, x = sp.symbols("t x")
+    ranges = ((-2, 2), (-4, -2), (2, 4))
+    minima = []
+    for lower, upper in ranges:
+        box_minima = []
+        left = sp.Rational(lower)
+        while left < upper:
+            right = min(left + sp.Rational(1, 8), sp.Rational(upper))
+            box_minima.append(
+                bernstein_rectangle_lower(
+                    expression,
+                    t,
+                    (sp.Integer(0), EDGE**2),
+                    x,
+                    (left, right),
+                )
+            )
+            left = right
+        minima.append(min(box_minima))
+    return tuple(minima)
 
 
 def common_series_substitutions(
@@ -250,10 +324,16 @@ def common_series_substitutions(
     return polynomial
 
 
-def certify_upper_endpoint(data: tuple[object, ...], started: float) -> tuple[float, float]:
+def certify_upper_endpoint(
+    data: tuple[object, ...],
+    started: float,
+) -> tuple[tuple[float, ...], float, float]:
     """Generate and certify the upper cubic-envelope endpoint polynomial."""
 
-    _, c, _, _, _, x, _, _, _, _, c_rem, d_rem, e_rem, f_rem, m_rem, n_rem, p_rem, q_rem = data
+    (
+        _, c, _, _, _, x, _, _, _, _, c_rem, d_rem, e_rem, f_rem,
+        m_rem, n_rem, p_rem, q_rem, u_rem, v_rem,
+    ) = data
     polynomial = homogenized_residual(data, "upper")
     print(f"upper homogenized: {len(polynomial.terms())} terms", flush=True)
     polynomial = common_series_substitutions(data, polynomial, started)
@@ -270,22 +350,60 @@ def certify_upper_endpoint(data: tuple[object, ...], started: float) -> tuple[fl
     polynomial = divide_by_c_power(polynomial, 10)
     polynomial = compose(polynomial, m_rem, -64 + c**2 * p_rem, started)
     polynomial = compose(polynomial, n_rem, -168 + c**2 * q_rem, started)
-    assert_active_variables(polynomial, {0, 4, 15, 16})
+    polynomial = compose(polynomial, p_rem, 110 + c**2 * u_rem, started)
+    polynomial = compose(polynomial, q_rem, 352 + c**2 * v_rem, started)
+    assert_active_variables(polynomial, {0, 4, 17, 18})
 
     scale = QQ(9_895_604_649_984)
-    expected_lead = scale * (2 * x**2 + 4 * x + 3)
-    actual_lead = polynomial.ring.zero
+    expected_truncated = (
+        scale * (2 * x**2 + 4 * x + 3)
+        + c**2
+        * (
+            -QQ(2_275_989_069_496_320) * x**2
+            - QQ(4_690_516_604_092_416) * x
+            - QQ(3_225_967_115_894_784)
+        )
+        + c**4
+        * (
+            -QQ(13_194_139_533_312) * x**3
+            + QQ(132_911_164_588_818_432) * x**2
+            + QQ(280_995_589_640_945_664) * x
+            + QQ(177_393_556_757_938_176)
+        )
+    )
+    actual_truncated = polynomial.ring.zero
     for monomial, coefficient in polynomial.terms():
-        if monomial[0] == 0:
-            actual_lead[monomial] = coefficient
-    if actual_lead != expected_lead:
-        raise AssertionError(actual_lead)
+        if monomial[0] <= 4:
+            actual_truncated[monomial] = coefficient
+    if actual_truncated != expected_truncated:
+        raise AssertionError(actual_truncated)
 
-    central = absolute_remainder_bound(polynomial, 0, {4: 2, 15: 120, 16: 370})
-    outer = absolute_remainder_bound(polynomial, 0, {4: 4, 15: 120, 16: 370})
-    if central >= QQ(9, 10) * scale or outer >= QQ(5, 2) * scale:
+    t_symbol, x_symbol = sp.symbols("t x")
+    truncated_expression = sp.sympify(expected_truncated.as_expr()).subs(
+        {sp.Symbol("c"): sp.sqrt(t_symbol), sp.Symbol("x"): x_symbol}
+    )
+    truncated_expression = sp.expand(truncated_expression)
+    truncated_minima = truncated_upper_lower_bounds(truncated_expression)
+    if not (
+        truncated_minima[0] > sp.Rational(4, 5) * int(scale)
+        and truncated_minima[1] > 2 * int(scale)
+        and truncated_minima[2] > 14 * int(scale)
+    ):
+        raise AssertionError(truncated_minima)
+
+    central = absolute_remainder_bound(
+        polynomial, 0, 6, {4: 2, 17: 200, 18: 750}
+    )
+    outer = absolute_remainder_bound(
+        polynomial, 0, 6, {4: 4, 17: 200, 18: 750}
+    )
+    if central >= QQ(1, 10) * scale or outer >= QQ(1, 4) * scale:
         raise AssertionError((central / scale, outer / scale))
-    return float(central / scale), float(outer / scale)
+    return (
+        tuple(float(value / int(scale)) for value in truncated_minima),
+        float(central / scale),
+        float(outer / scale),
+    )
 
 
 def certify_lower_endpoint(data: tuple[object, ...], started: float) -> float:
@@ -306,11 +424,11 @@ def certify_lower_endpoint(data: tuple[object, ...], started: float) -> float:
         for monomial, coefficient in polynomial.terms()
         if monomial[0] == 8
     ]
-    expected_monomial = (8,) + (0,) * 16
+    expected_monomial = (8,) + (0,) * (len(data) - 2)
     if lead_terms != [(expected_monomial, scale)]:
         raise AssertionError(lead_terms)
-    remainder = absolute_remainder_bound(polynomial, 8, {4: 4, 10: 33, 11: 37})
-    if remainder >= QQ(1, 10) * scale:
+    remainder = absolute_remainder_bound(polynomial, 8, 10, {4: 4, 10: 33, 11: 37})
+    if remainder >= QQ(1, 2) * scale:
         raise AssertionError(remainder / scale)
     return float(remainder / scale)
 
@@ -320,12 +438,13 @@ def main() -> None:
     remainder_checks = certify_theta_remainders()
     print("theta remainder bounds: exact", flush=True)
     data = polynomial_ring()
-    upper_central, upper_outer = certify_upper_endpoint(data, started)
+    upper_minima, upper_central, upper_outer = certify_upper_endpoint(data, started)
     gc.collect()
     lower = certify_lower_endpoint(data, started)
     print("tiny-edge endpoint certificate: exact")
-    print(f"  upper |x|<=2 remainder/lead <= {upper_central:.12g}")
-    print(f"  upper |x|<=4 remainder/lead <= {upper_outer:.12g}")
+    print(f"  upper truncated minima/scale: {upper_minima}")
+    print(f"  upper |x|<=2 tail/scale <= {upper_central:.12g}")
+    print(f"  upper |x|<=4 tail/scale <= {upper_outer:.12g}")
     print(f"  lower |x|<=4 remainder/lead <= {lower:.12g}")
     print(f"  theta rational checks: {len(remainder_checks)}")
     print(f"  elapsed seconds: {time.monotonic() - started:.1f}")
