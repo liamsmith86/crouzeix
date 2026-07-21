@@ -1,8 +1,25 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-21 (Epoch 5, late — level-4 closed-form theory + D2 landscape)
+**Last updated:** 2026-07-21 (Epoch 6 — EL4 proved by Schwarzian comparison)
 
-## NEWEST (2026-07-21 late session) — read proof/slice_closed_form.md + proof/D2_landscape.md
+## NEWEST (2026-07-21, Epoch 6) — EL4 PROVED
+- **EL4 is now an analytic theorem**, not a grid conjecture. New L17: `SG ≥ 0` on the real
+  node interval implies D2, by converting to hyperbolic coordinates and comparing the associated
+  Dirichlet form against the constant Schwarzian `−2` Möbius model.
+- For the squared-ellipse map `G(k sn²U)=sin²(sU)`, `SG≥0` reduces to the exact inequality
+  `1/sn²(x|m)−s²/sin²(sx)≥(1+m−s²)/3`; the remainder is the positive Weierstrass series
+  `8s² Σ n q^(2n)/(1−q^(2n))(1−cos(2nsx))`. Therefore `Theta≤1` and `rho≥0` throughout the
+  nondegenerate even midpoint phase. Proof: `proof/el4_schwarzian_theorem.md`; 70-dps regression:
+  `experiments/el4_schwarzian_check.py`.
+- **Scope audit:** this does not yet prove the whole elliptic 4×4 slice. L16 proves midpoint
+  stationarity and conditional `q1=q2=1/2`, but the note still lacks a proof that this stationary
+  point is the global even-sector maximum. Odd, degree-one, and possible symmetry-breaking phases
+  remain. The prior statement `A ~ −A ⇒ extremal has definite parity` is not automatic and must
+  be proved or replaced by a complete Pick-boundary classification.
+- Highest-leverage next move: use the same Schwarzian test on the off-slice bi-conic collapsed
+  map, while separately closing the optimizer-classification gap before declaring any 4×4 class.
+
+## Previous frontier (2026-07-21 late session) — level-4 theory + D2 landscape
 - **L15 PROVED**: level-4 nodal closed form K² = (T+√(T²−4δ²F₁²F₂²))/2 (frame invariants
   p_ij, δ only; verified 1e-16); odd-phase stationarity law explicit (1e-10); Hellmann–Feynman
   frame identities. Extremal problem = 4-point Pick problem with explicit objective.
@@ -85,17 +102,19 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   Blaschke is ODD ({0,±α} zeros) ⟹ f₀ = z·F(z²) collapse exists; squared boundary NOT elliptic
   (resid 1e-4–1e-3).** Next: close sym4 analytically = first new Crouzeix class in campaign.
 
-## Current next actions (Epoch 5, refreshed 2026-07-21 late — items 1–2 of the old list DONE, see NEWEST)
-1. **EL4 via deformation path** (top target): derive dV/dk analytically — kernel functional
-   (Möbius-Jacobian two-interval average, formula in proof/D2_landscape.md) applied to the
-   elliptic velocity field ∂ψ_k/∂k; prove its sign. Gate check passed (dV/dk < 0 strictly,
-   bounded away from 0). Do plain-ellipse family first, then squared-ellipse (= EL4 proper),
-   then bi-conic (general level-4 even phase).
-2. **Odd phase positivity**: ρ = B₁g₁q₁+B₂g₂q₂ ≥ 0 given the L15 stationarity law
+## Current next actions (Epoch 6, refreshed 2026-07-21)
+1. **Global optimizer classification at level 4**: prove the even midpoint stationary point is
+   the global even-sector maximum; then prove that a global extremal can be chosen with definite
+   parity (or analyze symmetry-breaking Pick data explicitly). This is now logically prior to
+   using the proved EL4 theorem as a matrix-class result.
+2. **Bi-conic Schwarzian test**: compute `SG` for the off-slice collapsed map on the critical
+   real interval. `SG≥0` would extend L17 immediately; otherwise test the weaker Sturm-potential
+   comparison that the proof actually needs.
+3. **Odd phase positivity**: ρ = B₁g₁q₁+B₂g₂q₂ ≥ 0 given the L15 stationarity law
    (3-parameter; interlacing τ₂ < α < τ₁; term-1 dominance observed). Try the same
    deformation/kernel machinery.
-3. n=6 H-r floor via STRUCTURED families (dense run killed as futile — pitfall P7).
-4. Rigor debts: 2×2 α=0 step; contact-degeneracy write-up; ellipse-squared analytic proof;
+4. n=6 H-r floor via STRUCTURED families (dense run killed as futile — pitfall P7).
+5. Rigor debts: 2×2 α=0 step; contact-degeneracy write-up; ellipse-squared analytic proof;
    GKL comparison read (arXiv:1701.01365); UW thesis check (elliptic n≥4 novelty — is the
    elliptic sym4 slice class already in literature?).
 5. General-n: parity-collapse induction (L16 mechanism is dimension-generic for 2-dim active
@@ -104,8 +123,9 @@ Keep committing+pushing after each task (user instruction).
 
 ## Files map (handoff-ready, 2026-07-21)
 proof/ — read in this order for the current frontier:
-  rho_positivity_program.md (MASTER program), slice_closed_form.md (level-4 theory: L15/L16/EL4/
-  D2-crit), D2_landscape.md (soft-class falsifications + deformation route), landen_theorem.md
+  rho_positivity_program.md (MASTER program), el4_schwarzian_theorem.md (EL4 proof + L17),
+  slice_closed_form.md (level-4 theory: L15/L16/EL4/D2-crit), D2_landscape.md (soft-class
+  falsifications + Schwarzian route), landen_theorem.md
   (sym3 closed form), sym3_reduction.md (collapse theorem), sym4_program.md (family setup),
   rho_2x2_theorem.md (n=2 base), graded_induction_skeleton.md (general-n plan);
   background: strategy_S.md, P2_target.md, refined_master_inequality.md,

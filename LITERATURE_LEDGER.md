@@ -46,6 +46,8 @@ Papers, theorems, assumptions, possible gaps. Status verified via web 2026-07-20
 - [x] MMOR arXiv:2407.19049 (pp. 1–8) — configuration constants c_R = c_C, a(Ω) < 1, ellipse formula, thin-domain obstruction, Theorem 6 curvature bound.
 - [x] BGG+20 arXiv:2006.04901 (pp. 4–12) — Blaschke extremal structure (Crouzeix 04 Thm 2.1), cancellation Thm 4.1, extremal measure Thm 4.5, compressed shifts.
 - [x] Schwenninger–de Vries arXiv:2409.15954 (pp. 15–20) — see table (P1 baseline).
+- [x] NIST DLMF §23.8.1 — Weierstrass Fourier expansion used to prove the positive series in
+  EL4; combined with `wp(x)=1/sn²(x|m)−(1+m)/3` for half-periods `(K,iK′)`.
 
 ## To read next
 - [ ] GKL arXiv:1701.01365 (Glader–Kurula–Lindström 2018, 3×3 tridiagonal elliptic W(A)) —

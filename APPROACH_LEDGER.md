@@ -20,10 +20,11 @@ Every attempted approach; why it succeeded/failed. Includes known-failed approac
 | A4 | A/B | H-r reduction: ρ ≥ 0 at extremal pairs on Ω = int W(A) ⟹ Crouzeix (SV24 Thm 6.1 + shrinking) | ACTIVE — CENTRAL | proof/strategy_S.md, rho_positivity_program.md |
 | A5 | B | 2×2 closed form ρ = 1 − π/(2K(m)) on confocal ellipses | PROVED (mod α=0 write-up) | rho_2x2_theorem.md; K>1 hypothesis essential |
 | A6 | B | sym3 ζ=z² collapse → Landen theorem ρ = 1 − π/(2K(k₁)) | PROVED | landen_theorem.md; collapse ≡ Landen transformation |
-| A7 | B | Level-4 nodal/Pick closed form (L15) + phases + even-phase theorems (L16) | PROVED | slice_closed_form.md; EL4 = remaining even-phase inequality (verified, unproved) |
+| A7 | B | Level-4 nodal/Pick closed form (L15) + phases + even-phase stationary structure (L16) | PARTIAL | `slice_closed_form.md`; EL4 is now proved, but midpoint globality, parity classification, and the odd/Möbius phases remain |
 | A8 | B | Frame-free level-4 stationarity laws / PSLQ closed-form hunts | DEAD | Law is frame-coupled; algebraic only after adjoining p_ij, δ (L15 explains) |
 | A9 | B | Soft D2 classes: free univalent / convex / odd+G'-increasing | ALL FALSIFIED (certified) | D2_landscape.md; Koebe 1+δ²; z+tz² exact; odd+G'↑ via linearized step-deficit + 40-dps counterexample. 5th instance of the no-soft-proof meta-pattern |
-| A10 | B | EL4 deformation path: dV/dk ≤ 0 with Möbius-Jacobian kernel on elliptic velocity field | ACTIVE — NEXT | Gate check passed (strictly negative on grid); derivation pending |
+| A10 | B | EL4 deformation path: dV/dk ≤ 0 with Möbius-Jacobian kernel on elliptic velocity field | SUPERSEDED — EL4 PROVED | Gate was correct, but Schwarzian comparison is stronger and shorter: `SG≥0 ⇒ D2`; squared-ellipse `SG≥0` is a positive Weierstrass Fourier series. `proof/el4_schwarzian_theorem.md` |
+| A11 | B | Schwarzian/Sturm comparison for D2 | PROVED; ACTIVE FOR BI-CONIC | Closes EL4 analytically. Next test whether the off-slice bi-conic collapsed map has `SG≥0` on its critical real interval; if not, use the more general potential ordering directly |
 
 ## Methodological pitfalls discovered (Track G)
 - P1. Offset-curve construction silently breaks on matrices with nonsmooth W(M) (near-normal, corners/flats): FFT ringing → garbage integrals that still satisfy holomorphic-identity checks. FIX: certify positivity of P(σ) pointwise + convex tangent winding + mass 2I + Cauchy reconstruction; reject otherwise. COVERAGE GAP: such matrices currently unsearchable — needs smoothed support-function domains.
@@ -60,9 +61,9 @@ Every attempted approach; why it succeeded/failed. Includes known-failed approac
 
 ## Epochs 4–5 outcome (2026-07-20/21) — see RESEARCH_STATE.md NEWEST + proof/slice_closed_form.md
 H-r reduction anchored (A4); 2×2 and sym3 PROVED in closed form (A5, A6 — Landen theorem);
-level-4 closed-form theory built (A7: L15/L16 proved, EL4 verified-central-target); soft-class
-hunts all falsified with certificates (A8, A9); deformation-path route defined and gate-checked
-(A10). Adversarial H-r floors positive n=3..5 (n=6 running); direct ratio searches n≤7 max 1.47.
+level-4 closed-form theory built (A7: L15 plus conditional L16 structure); EL4 subsequently
+proved by A11; soft-class hunts all falsified with certificates (A8, A9). Adversarial H-r floors
+positive n=3..5; direct ratio searches n≤7 found no violation.
 
 ## Epoch 3 (historical): P2 target, audit-adopted (chatgpt/FABLE_RESEARCH_AUDIT.md — verified before adoption)
 P1 (proved): K² + ReC ≤ Kq. P2 (target): q ≤ 2 + ReC/2 at extremals ⟹ Crouzeix. See proof/P2_target.md.

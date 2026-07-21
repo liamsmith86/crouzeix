@@ -51,7 +51,9 @@ with nodes u_j = τ_j². On the slice u₁ = τ₁² = k exactly (focus law).
     at U₁ = K (focus law τ₁ = √k). v = pseudo-hyp midpoint of (k, k·sn²U₂) [quadratic formula;
     NOT arithmetic in U — tested false], W = sn⁻¹(√(v/k), m), B₁ = (k−v)/(1−kv). Then
     **ρ = 1 − Θ, Θ = B₁·s(1−v²)·sin(sW)cos²(sU₂) / [2k·snW·cnW·dnW·cos(sW)·(sin²sW−sin²sU₂)]**
-    Target: Θ ≤ 1 on (k,U₂) ∈ (0,1)×(0,K). STATUS: verified 50×50 grid (0 negatives,
+    Target: Θ ≤ 1 on (k,U₂) ∈ (0,1)×(0,K). **PROVED 2026-07-21** by the
+    Schwarzian-D2 comparison theorem plus a positive Fourier expansion for the squared-ellipse
+    map; see `proof/el4_schwarzian_theorem.md`. Earlier verification: 50×50 grid (0 negatives,
     min 1−Θ = 2.4e-15 at degenerate corner); edge asymptotics 1−Θ ~ c·ε⁴ at U₂=(1−ε)K
     (checked dps 50/80: +7.9e-19, +7.9e-27 — dps-25 sign flips were cancellation noise, P3);
     **U₂→0 edge = sym3/Landen theorem EXACTLY** (Θ(k,0⁺) = π/(2K(k₁)), 12 digits).
@@ -101,12 +103,11 @@ bi-conic verified (sign/order). FALSE without foci-pinning (§4(vi)). The abstra
 "why do Kippenhahn-foci nodes make it true" is the distilled deep quest for the even sector.
 
 ## 6. Reduced open targets (ranked)
-1. PROVE EL4 (§4(iv)) — 2-parameter explicit elliptic inequality, tight on both edges
-   (U₂→0: Landen theorem, proved; U₂→K: quartic degeneracy). Candidate routes: monotonicity
-   ∂Θ/∂U₂ ≥ 0 via symbolic differentiation; integral representation with positive integrand;
-   AGM/mean-inequality form (sym3 case: ρ = 1 − AGM(1,k₁′) ≥ 0 trivially — hunt the
-   2-parameter mean analog). NO soft/convexity route exists (§4(vi)).
+1. Prove that the parity-sector midpoint stationary point in §4(i) is the GLOBAL even-sector
+   maximum (or replace that claim by a complete Pick-boundary classification). EL4 itself is
+   now proved, but its use requires this optimizer-classification premise.
 2. Odd-phase positivity: ρ = B₁g₁q₁+B₂g₂q₂ ≥ 0 given §3 stationarity (3-parameter).
 3. Möbius-phase positivity (deg-1 f₀ = φ on ellipse domains — may admit a general theorem
    beyond 4×4: only uses domain ellipse + deg-1 extremal + nodal weights).
-4. De-symmetrize off the slice (bi-conic Kippenhahn data replaces exact ellipse).
+4. Exclude genuinely symmetry-breaking extremals; `A ~ -A` alone does not imply definite
+   parity for a maximizer. Then de-symmetrize off the slice (bi-conic data replaces ellipse).

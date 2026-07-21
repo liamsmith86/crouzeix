@@ -70,12 +70,19 @@ the predicted linear-order excess. So odd + G'-increasing is INSUFFICIENT; only 
 symmetric-node case survives (proved above). The sharp class is quantitative: h'-variation
 must be dominated by the Möbius-Jacobian averaging kernel (BMO/Muckenhoupt-flavored).
 
-## The surviving proof route for EL4 (deformation path)
-V ≡ 1 at k = 0 (disk) and worst-V DECREASES in k numerically (0.99998 → 0.99970 over
-k = 0.4 → 0.9, free nodes). So EL4-free-nodes ⟺ dV/dk ≤ 0 along the disk→ellipse
-deformation, and dV/dk has the SAME kernel structure with h = ∂ψ_k/∂k = explicit elliptic
-velocity field. Target: show the ellipse velocity field satisfies the kernel inequality
-h'_k(v) ≤ (Jacobian-average of h'_k) for all (v,x,k) — one explicit elliptic-function
-inequality, linear in the velocity at each k. Same route for squared-ellipse (EL4 proper)
-and bi-conic (level-4 general even phase). This is the concrete replacement for the dead
-soft-class hunts.
+## EL4 closed by Schwarzian comparison (2026-07-21)
+The deformation gate was pointing at a true inequality, but differentiating in the modulus is
+unnecessary. A stronger reusable lemma is now proved in `proof/el4_schwarzian_theorem.md`:
+**SG ≥ 0 on the node interval implies D2.** In hyperbolic coordinates this becomes
+`S(G∘tanh) ≥ -2`; a Dirichlet-form/Sturm comparison against the constant potential `-1`
+gives D2 in one step.
+
+For the squared-ellipse map `G(k sn² U) = sin²(sU)`, the Schwarzian sign reduces to
+
+`1/sn²(x|m) - s²/sin²(sx) ≥ (1+m-s²)/3`.
+
+The difference is exactly a positive Weierstrass Fourier series
+`8s² Σ n q^(2n)/(1-q^(2n)) [1-cos(2nsx)]`. Hence EL4 is PROVED, including all free
+real node pairs inside the focus interval. The next D2 task is not the ellipse deformation;
+it is to determine whether the bi-conic collapsed map has nonnegative Schwarzian on its
+critical node interval (or whether a weaker potential comparison still suffices).
