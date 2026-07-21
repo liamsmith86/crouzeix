@@ -100,6 +100,9 @@ intervals/asymptotics. L34 factors `F₁` through a quadratic whose exact vertex
 `p*=(g²−4c²)/(2g²(1−2c²g))`; near zero use `p=p*+c⁴x`, not axis-aligned `(c,p)` boxes.
 L35 now exactly closes both endpoints on the singular tube `0<c≤1/20`, `|x|≤4`, using
 rational theta tails and regenerated coefficient domination. Only the complement remains.
+L36 now directed-interval certifies both endpoints on the whole discriminant branch for
+`1/12≤c≤12599/20000`; L33 closes the range above. Hence only `0<c<1/12` remains, with
+the L35 tube already removed.
 
 ## Strongest proved lemmas
 P1 (K²+ρ ≤ Kq), L13 (Clark-type transition ⟨q(A)x₀,u₀⟩ = K∫q·conj(f₀)dμ), L14 + collapse theorem
@@ -158,8 +161,9 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
 ## Next five concrete actions (refreshed 2026-07-21, Epoch 6)
 1. **Prove L31/L32's low-nome square inequality**: certify
    `rF₁F₂−g²D²≥0` from (13z)–(13ad) for `0<c<12599/20000`, only on `A>0, |B|<2A`, at
-   `r=L(p),U(p)`. L35 closes `c≤1/20`, `|p−p*|≤4c⁴`; interval-certify its branch-aware
-   complement. This closes the generic rank-one/full face. Then
+   `r=L(p),U(p)`. L36/L33 leave only `0<c<1/12`; L35 closes
+   `c≤1/20`, `|p−p*|≤4c⁴`. Use multiscale coordinates to certify the complement. This closes
+   the generic rank-one/full face. Then
    attack L27's rank-one/rank-one face. Do not repeat the already-proved one-block, lower-odd,
    or concave-sign estimates.
 2. **Shifted degree-one Möbius phase**: derive its stationarity/rho formula and prove positivity

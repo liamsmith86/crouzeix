@@ -555,6 +555,62 @@ verifies that the discarded denominators are positive squares.  Thus this
 is a proof, not a floating-point sweep.  It closes the sharp tube only; the
 rest of the low-nome rectangle remains below.
 
+The compact part away from the singular nome is also finite.
+
+**Compact low-nome theorem.**  At either cubic-envelope endpoint, on the
+branch (13o),
+
+\[
+ rF_1F_2-g^2D^2\ge0
+ \qquad\left({1\over12}\le c\le{12599\over20000},\ 0\le p\le1\right).
+ \tag{13ap}
+\]
+
+This is proved by the independently reproducible directed-interval checker
+`experiments/slice_odd_compact_certificate.py`.  Its finite certificate uses
+second-order Taylor models in two variables.  For (1/12\le c\le1/2), it
+splits the (p)-interval at the exact (p_*) in (13ag) and uses
+
+\[
+ p=p_*v,\qquad p=p_*+(1-p_*)v,\qquad 0\le v\le1. \tag{13aq}
+\]
+
+The checker first interval-proves (0\le p_*\le1) on this range, so the two
+charts cover every (p).  For (1/2\le c\le12599/20000), ordinary
+((c,p)) boxes are already well conditioned.
+
+No elliptic-function library or sampled modulus is used.  With (n=7), the
+omitted theta tail and its first two derivatives are bounded, for example,
+by
+
+\[
+ \begin{aligned}
+ 0\le T-T_6&\le {2c^{2n^2}\over1-c^{4n+2}},\\
+ 0\le T'-T_6'&\le {4n^2c^{2n^2-1}\over1-4c^{4n+2}},\\
+ 0\le T''-T_6''&\le
+ {4n^2(2n^2-1)c^{2n^2-2}\over1-16c^{4n+2}},
+ \end{aligned} \tag{13ar}
+\]
+
+with analogous bounds for (R=\sum c^{2j(j+1)}).  Every binary64
+operation is expanded by one ulp outward.  On each box the resulting Taylor
+intervals enclose (A,2A+B,2A-B), and the residual in (13ap).  A box is
+accepted only if one branch form has upper endpoint at most zero, or the
+residual has lower endpoint at least zero; otherwise it is bisected.
+
+The completed run has no unresolved boxes.  The ridge charts use 15,203
+bisections (maximum depth 12; 25,756 branch-excluded and 56,647 proved box
+evaluations).  The direct charts use 17,594 bisections (maximum depth 11;
+36,160 branch-excluded and 7,434 proved evaluations).  Thus (13ap) is a
+finite enclosure proof.  Combining it with L33 leaves only
+
+\[
+ 0<c<{1\over12}. \tag{13as}
+\]
+
+Within (13as), L35 already removes the sharp tube
+(c\le1/20, |p-p_*|\le4c^4).
+
 The **lower odd block is already proved**.  For fixed modal parameters its
 matrix is linear in \((q_1,q_2)\), and the operator norm is convex.  Since
 \(|q_i|\le\tau_i\), it is enough to check the four vertices of the rectangle
@@ -669,9 +725,10 @@ than expect a uniform positive margin.
 1. Prove the square distortion inequality (13t) on its branch (13o), at the
    two envelope endpoints, only for \(0<c<12599/20000\).  This is exactly the
    discriminant (13p); the high-nome complement is closed by (13u)--(13y).
-   The sharp tube \(0<c\le1/20\), \(|(p-p_*)/c^4|\le4\), is closed by
-   (13ah)--(13ao).  Interval-certify its complement, using the exact centered
-   coordinate near \(c=0\) rather than an axis-aligned box.
+   L36 and L33 reduce this to \(0<c<1/12\).  The sharp tube
+   \(0<c\le1/20\), \(|(p-p_*)/c^4|\le4\), is closed by (13ah)--(13ao).
+   Certify its complement, using multiscale coordinates near \(c=0\) rather
+   than an axis-aligned box.
    The older equivalent route is \(\mathcal N\ge0\) under (14), but it
    retains an unnecessary Blaschke parameter.
 2. Treat the rank-one/rank-one coupled face after this rank-one/full sector.
