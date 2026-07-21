@@ -70,7 +70,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   ρ > 0 on slice; no pure-modulus Landen formula (marked point breaks second descent) — the
   correct closed form is EL4's ρ = 1 − Θ(k,U₂) (see NEWEST above).
 - Adversarial H-r floors (all positive): n=3 +2e-4, n=4 +1.7e-2/+7.2e-2, n=5 +1.6e-2/+1.8e-2
-  (n=6 running as of 2026-07-21, bash job in experiments/log_Hr_n6_s42.txt). Direct ratio
+  (n=6 dense: NOT OBTAINED — uncapped acceptance loop + solver stall at diag ~1e-3, job killed 2026-07-21; see pitfall P7; redesign on structured families). Direct ratio
   searches DONE: n=6 best 1.148, n=7 best 1.465 — nothing near 2.
 
 ## MILESTONES (Epoch 4, 2026-07-20)
@@ -94,7 +94,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
 2. **Odd phase positivity**: ρ = B₁g₁q₁+B₂g₂q₂ ≥ 0 given the L15 stationarity law
    (3-parameter; interlacing τ₂ < α < τ₁; term-1 dominance observed). Try the same
    deformation/kernel machinery.
-3. n=6 adversarial result (running; check experiments/log_Hr_n6_s42.txt; harness will notify).
+3. n=6 H-r floor via STRUCTURED families (dense run killed as futile — pitfall P7).
 4. Rigor debts: 2×2 α=0 step; contact-degeneracy write-up; ellipse-squared analytic proof;
    GKL comparison read (arXiv:1701.01365); UW thesis check (elliptic n≥4 novelty — is the
    elliptic sym4 slice class already in literature?).
@@ -119,6 +119,6 @@ experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_
   taus/f0e fields BUGGY — pitfall P5), Hr_test.py / Hr_adversarial.py (certified min-ρ search),
   zero_geometry.py (phi_of_points); historical: L10/L12/scalar/adversarial_L7/search.py.
 Data: sym3_sweep_s51.jsonl (40 rec), sym4_sweep_s61.jsonl (20 rec, ρ column trustworthy).
-Ledgers: LEMMA_LEDGER.md, APPROACH_LEDGER.md (pitfalls P1–P6 — READ BEFORE ANY SEARCH),
+Ledgers: LEMMA_LEDGER.md, APPROACH_LEDGER.md (pitfalls P1–P7 — READ BEFORE ANY SEARCH),
 LITERATURE_LEDGER.md, COUNTEREXAMPLE_SEARCH.md. Audit: chatgpt/FABLE_RESEARCH_AUDIT.md
 (reconciled 2026-07-20). Restart: checkpoints/RESTART_PACKET.md (paste-ready instruction).

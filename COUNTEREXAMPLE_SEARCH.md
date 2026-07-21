@@ -28,7 +28,7 @@ A candidate R(A,p) > 2 counts ONLY after: increased precision, conditioning anal
 | Hr_adversarial n=3 | min ρ over certified extremal pairs | multistart + certificate battery | min ρ = +2e-4 | H-r floor POSITIVE |
 | Hr_adversarial n=4 | same | same | min ρ = +1.7e-2 (run2: +7.2e-2) | POSITIVE |
 | Hr_adversarial n=5 | same | same | min ρ = +1.6e-2 (run2: +1.8e-2) | POSITIVE (weaker search) |
-| Hr_adversarial n=6 s42 | same | same | RUNNING (started 2026-07-21 22:06, log_Hr_n6_s42.txt) | collect on completion |
+| Hr_adversarial n=6 s42 | same | same | KILLED 2026-07-21 after 2h04m, ZERO output | FUTILE BY DESIGN (pitfall P7): init acceptance loop is uncapped and the diag < 1e-5 extremality certificate is unreachable at n=6 dense — probe reproduced: old solver 14s/eval diag 1.7e-3 REJECT (~500 rejects burned); even best_extremal 98s diag 1.9e-3 REJECT (its deg-3 K 1.58723 beat old deg-5 1.58701). Redesign: structured n=6 families (zero-diag tridiagonal, graded collapse → block certification) or stronger solver |
 
 ## Near misses
 None above 2. Best R = 1.9747 (converging to Crabb-type equality configuration, R → 2⁻).

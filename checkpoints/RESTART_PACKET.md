@@ -8,7 +8,7 @@ proof/rho_positivity_program.md). H-r: PROVED for all 2×2 (closed form ρ = 1 �
 the α=0 symmetry step); PROVED-by-reduction for the sym3/GKL 3×3 elliptic class (proof/sym3_reduction.md
 — ζ = z² collapse, midpoint law, π₀ = 1/2); NUMERICALLY CONFIRMED beyond all known classes (sym4;
 adversarial floors positive for n=3,4,5). No counterexample to the conjecture found anywhere
-(all "violations" ever seen were certified numerical artifacts — APPROACH_LEDGER pitfalls P1–P6).
+(all "violations" ever seen were certified numerical artifacts — APPROACH_LEDGER pitfalls P1–P7).
 
 ## Strongest proved lemmas
 P1 (K²+ρ ≤ Kq), L13 (Clark-type transition ⟨q(A)x₀,u₀⟩ = K∫q·conj(f₀)dμ), L14 + collapse theorem
@@ -39,7 +39,8 @@ extremal_pullback.py + theodorsen.py + minkowski_test.best_extremal = exact extr
 slice_exact.py = exact elliptic sym4 slice (25 dps; family-restricted — cross-check phases).
 slice_invariants.py = L15 invariant formulas (K closed form 1e-16, law 1e-10, frame identities).
 sym3_sweep_s51.jsonl (40 rec); sym4_sweep_s61.jsonl (20 rec; OTHER-branch taus/f0e BUGGY, ρ/K/qs
-fine). Hr_adversarial floors: n3 +2e-4, n4 +1.7e-2, n5 +1.6e-2 (n6 running, log_Hr_n6_s42.txt).
+fine). Hr_adversarial floors: n3 +2e-4, n4 +1.7e-2, n5 +1.6e-2 (n6 dense: NOT OBTAINED — job killed
+as futile, see pitfall P7 + COUNTEREXAMPLE_SEARCH; use structured families instead).
 Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
 
 ## Epoch-5 late findings (2026-07-21, after Landen theorem)
@@ -73,7 +74,9 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
 2. **Odd-phase level-4 positivity**: ρ = B₁g₁q₁+B₂g₂q₂ ≥ 0 under the L15 stationarity law
    (slice_closed_form.md §3; interlacing τ₂ < α < τ₁, dominant positive outer term observed).
    Try the same kernel/deformation machinery; the Möbius-equality structure should persist.
-3. **Collect n=6 Hr_adversarial** (running since 2026-07-21 22:06; experiments/log_Hr_n6_s42.txt).
+3. **n=6 H-r floor, redesigned** (old dense run KILLED as futile — pitfall P7): run the
+   adversarial min-ρ search on STRUCTURED n=6 families (zero-diag tridiagonal; graded collapse
+   makes extremality certifiable via blocks), or upgrade the solver first.
 4. Rigor debts: 2×2 α=0 symbolic step; contact-degeneracy write-up; ellipse-squared analytic
    proof; read GKL arXiv:1701.01365 + UW thesis (novelty calibration for elliptic n≥4).
 5. General-n: L16 mechanism is dimension-generic (any 2-dim active block) — formulate the
@@ -84,7 +87,7 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
 "Continue the Crouzeix campaign in /home/liam/Downloads/crouzeix (git repo; commit+push after each
 task). Read RESEARCH_STATE.md (NEWEST section first), then proof/slice_closed_form.md and
 proof/D2_landscape.md; master program in proof/rho_positivity_program.md. Resume at restart-packet
-action 1 (EL4 deformation-path derivation). Respect APPROACH_LEDGER.md pitfalls P1–P6: every
+action 1 (EL4 deformation-path derivation). Respect APPROACH_LEDGER.md pitfalls P1–P7: every
 numerical claim needs the certificate battery; treat any apparent violation as artifact until it
 survives strict re-evaluation and an independent implementation; cross-check extremal phases with
 best_extremal (P5); verify analyticity/univalence of probe map families (P6). Do not re-open dead

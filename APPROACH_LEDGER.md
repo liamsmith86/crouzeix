@@ -43,6 +43,16 @@ Every attempted approach; why it succeeded/failed. Includes known-failed approac
   trusting any V > 1, verify analyticity (pole locations) and univalence (Re G' > 0
   Noshiro–Warschawski, or boundary-curve simplicity). Entire (polynomial) smoothings +
   explicit Re G' bounds give certified counterexamples (D2_landscape.md).
+- P7. **Certification capability gap at n ≥ 6 (dense)** (found 2026-07-21): the true-extremal
+  criterion diag = |⟨f₀(A)x₀,x₀⟩| < 1e-5 is currently UNREACHABLE for arbitrary dense 6×6
+  matrices — both find_extremal_blaschke and best_extremal stall at diag ~1e-3 on the deg-5
+  Blaschke landscape (10 params), so any acceptance-gated loop (e.g. Hr_adversarial's uncapped
+  `while cur is None`) spins forever at 100% CPU with zero output (n=6 s42 job killed after
+  2h04m / ~500 silent rejections). FIXES: (i) cap rejection loops + log every rejection with
+  (K, diag); (ii) at n ≥ 6 use STRUCTURED families (zero-diag tridiagonal: graded collapse
+  reduces extremality to small blocks — certifiable, and they are the G–O-hard configurations
+  anyway); (iii) or upgrade the solver (analytic gradients / phase-aware polish) before any
+  dense-n≥6 campaign.
 - **Meta-pattern (important):** every relaxation of extremality so far admits sharp counterconfigurations: abstract lemma (R–S, non-unital α), domain-only constants (MMOR, thin quadrilaterals), scalar localization (L10, odd-symmetric mechanism — ours), free-map S ≤ 1, soft D2 classes (convex; odd+G'↑). Conjecture-strength inequalities must engage TRUE extremal/critical structure (global maximality of f₀ + positive extremal measure + critical domain), not just its first-order shadows.
 
 ## Epoch 2 outcome
