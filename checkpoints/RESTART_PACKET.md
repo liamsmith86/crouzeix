@@ -50,7 +50,7 @@ n3 +2e-4, n4 +1.7e-2, n5 +1.6e-2 (n6 job may be incomplete).
 - D2 soft-class hunt CLOSED (all falsified, incl. odd+G'↑ via certified 40-dps
   counterexample); symmetric-node case + wedge family + convex trace bound PROVED.
   proof/D2_landscape.md. Remaining route: deformation-path (dV/dk ≤ 0 with explicit
-  kernel functional on elliptic velocity field).
+  kernel functional on elliptic velocity field). GATE-CHECK PASSED: dV/dk < 0 strictly on full grid (−1.5e-3..−3.7e-2, bounded away from 0 in interior) — robust target.
 
 ## Next five concrete actions
 1. sym4 closure — SHARPENED by final Epoch-5 data (sym4_sweep_s61.jsonl, 20/20 ρ>0):
