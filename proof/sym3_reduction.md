@@ -1,5 +1,26 @@
 # Closed-form reduction: doubly-symmetric 3×3 family (VERIFIED numerically, 2026-07-20)
 
+## ★ FINAL STRUCTURE (added later on 2026-07-20): EXACT ζ = z² REDUCTION TO THE 2×2 THEOREM
+1. **Squared-range ellipse theorem (numerically machine-exact, residual ~1e-14, 3/3 matrices):**
+   {z²: z ∈ ∂W(A)} is an EXACT ellipse with foci {0, e²} (= eigenvalues of A²), center e²/2.
+   [Prove analytically from the tridiagonal support function; likely related to known
+   Chien–Nakazato/KLS tridiagonal results — CHECK literature before claiming novelty.]
+2. f₀ = B∘φ with B(w) = b_{α²}(w²) and φ odd ⟹ in ζ-coordinates f₀ = b_{α²}∘Φ_ζ, Φ_ζ := φ(√ζ)²
+   = Riemann map of the ζ-image domain. Blaschke zero at ζ₁ = z₁².
+3. Stationarity v = α² ⟺ **α² = pseudo-hyperbolic midpoint of the eigenvalue images {0, τ²}**
+   (identical to the 2×2 zero-at-midpoint law; verified: |α²−τ²|/|1−τ²α²| = v = α²).
+   Euclidean shadow: z₁ ≈ e/√2 (ζ₁ ≈ e²/2 = ellipse center; matches sweep 0.7060–0.7071).
+4. Recentring ζ → ζ − e²/2 gives the canonical confocal configuration (ellipse, eigenvalues at
+   foci ±e²/2, oblique rank-one frame with parameter h = √(κ²−1)) = EXACTLY the proven 2×2 setup.
+   ⟹ **H-r(sym3) and K ≤ 2 for the family follow from the 2×2 theorem (ρ = 1 − π/(2K(m)) ≥ 0).**
+5. Failed-relaxation ledger (important negative results): S ≤ 1 is FALSE for free odd convex maps
+   (max 1.019), false on 2-focus rational focal loci (1.003), false on 3-focus polynomial focal
+   loci (1.24!). The full criticality (exact confocal-ellipse-squared structure) is essential —
+   the inequality has NO soft/qualitative proof; it is rigid.
+6. **Induction hypothesis for Epoch 5:** 4×4 zero-diag tridiagonal (A⁴ = pA² − qI): even f₀ ⟹
+   function of A²: ζ-reduction to a 2-pair problem; generally: symmetric level-n collapses to
+   level-(n−1)-type. Chase this — it is a genuinely new mechanism for Crouzeix-type bounds.
+
 Family: A = [[0,a,0],[b,0,c],[0,d,0]] real; σ(A) = {0, ±e}, e = √(ab+cd); A³ = e²A.
 Right/left null vectors: χ = (c, 0, −b), ϱ = (d, 0, −a); obliquity κ = ‖χ‖‖ϱ‖/|ϱ*χ| ≥ 1.
 Critical domain Ω = int W(A): doubly symmetric; Riemann map ψ: D → Ω odd; τ := φ(e) ∈ (0,1).
