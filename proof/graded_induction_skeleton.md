@@ -5,9 +5,10 @@ symmetries A ~ −A (D = alternating diag) and A real. Includes/perturbs the Cra
 shifts = Greenbaum–Overton's empirically-hardest configurations. n = 2: proved (elliptic closed
 form). n = 3: proved-by-reduction (= GKL class). n = 4: 20/20 numerical (this file's target).
 
-## Structure theorems (established at n ≤ 4, conjectured generic)
-1. Parity: extremal f₀ has definite parity; both parities occur as PHASES of the family
-   (n=4: 16 odd / 4 even records). Phase boundary = ties of the two parity-optima.
+## Structure theorems and corrections (established at n ≤ 4, conjectured generic)
+1. **Parity claim DISPROVED numerically at n=4:** odd and even sectors are invariant and both
+   occur, but a shifted degree-one Möbius phase can beat both (`slice_phase_audit.py`). The
+   induction must carry symmetry-breaking phases rather than assume a parity extremal exists.
 2. Graded collapse: f₀ even ⟹ f₀(A) = G(A²) block-diagonal on sublattices; f₀ odd ⟹
    f₀(A) = A·F(A²) block-off-diagonal. Sublattice blocks of A² are (⌈n/2⌉, ⌊n/2⌋)-sized with
    common nonzero spectrum {e_j²}.

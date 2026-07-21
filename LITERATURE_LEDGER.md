@@ -52,8 +52,12 @@ Papers, theorems, assumptions, possible gaps. Status verified via web 2026-07-20
 ## To read next
 - [ ] GKL arXiv:1701.01365 (Glader–Kurula–Lindström 2018, 3×3 tridiagonal elliptic W(A)) —
   novelty calibration vs our sym3 ρ-proof (their mechanism is cb/dilation-based; ours is new)
-- [ ] UW thesis "Crouzeix's Conjecture and Beyond for Special Classes of Matrices" — check
-  whether the elliptic sym4 slice class (n≥4, elliptic W(A)) is already covered anywhere
+- [x] Kenan Li, 2021 UW thesis, Chapter 2.3 — for the proportional 3×3 elliptic family it
+  explicitly identifies three extremal phases: centered degree 1, shifted real Möbius degree 1,
+  and even degree 2. This invalidates any symmetry-only parity inference and directly predicts
+  the shifted phase now found on the 4×4 slice. The thesis discusses `A=C+bC*` as the general
+  construction of elliptic numerical ranges but does not visibly prove the arbitrary 4×4
+  weighted-shift slice; a more targeted novelty audit remains.
 - [ ] de Vries thesis (SV24 companion) — extremal-pair machinery details
 - [ ] MMOR 2024 (C_N < 1+√2) — equality-case analysis of C–P (relevant to P2 stability)
 - [ ] SV24 full §§1–5 (their Prop 2.4, 2.8, 3.5 used in §6; Berger–Stampfli generalization)

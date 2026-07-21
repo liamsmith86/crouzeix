@@ -8,9 +8,11 @@ A diagonalizable ⟹ f₀(A) depends only on the nodal values v = (f₀(e))_{e�
 K(f₀) = Ψ(v) with Ψ explicit (norm of the interpolant matrix), and
   K_max = max{ Ψ(v) : v admissible Pick data for nodes φ(σ(A)) ⊂ D }.
 Pick: v admissible iff the 4×4 Pick matrix ⪰ 0; extremals are Blaschke of deg ≤ 3 = rank.
-Z₂ symmetry (A ~ −A via D = diag(1,−1,1,−1)) ⟹ extremal f₀ has definite parity:
-ODD sector f₀(−z) = −f₀(z) or EVEN sector f₀(−z) = f₀(z); each leaves 2 free values
-(v₁,v₂) = (f₀(e₁), f₀(e₂)).
+Z₂ symmetry (A ~ −A via D = diag(1,−1,1,−1)) makes the ODD and EVEN sectors invariant,
+but **does not force a global extremal to have definite parity**. The earlier implication was
+false. The parity sectors remain useful reductions: ODD has f₀(−z)=−f₀(z), EVEN has
+f₀(−z)=f₀(z), and each leaves two free values (v₁,v₂)=(f₀(e₁),f₀(e₂)). A shifted degree-one
+Möbius phase can break the symmetry; see §5.
 
 ## 2. Master closed form for the objective (VERIFIED 1e-16, slice_invariants.py V1)
 Active block (odd sector) M = A₊(F₁Q₁+F₂Q₂), F_j = v_j/e_j, Q_j = spectral projections of
@@ -78,8 +80,16 @@ with nodes u_j = τ_j². On the slice u₁ = τ₁² = k exactly (focus law).
   ρ = B₁g₁q₁+B₂g₂q₂ with dominant positive outer term.
 - EVEN phase (e.g. (1.5,2.0,0.9,.12), (1.2,1.7,2.1,.06) — a₂ > a₁ cases): zeros {±α},
   theory in §4. (In deg-3 solver runs the third zero migrates to ∂D = removable.)
-- MÖBIUS phase = α→1 endpoint of odd family, B → −w, f₀ = ±φ (e.g. (2.2,0.9,1.3,.10)):
+- CENTERED MÖBIUS phase = α→1 endpoint of odd family, B → −w, f₀ = ±φ
+  (e.g. (2.2,0.9,1.3,.10)):
   K = 1.7750, ρ = +3.02e-2, both nodal terms positive; q = (0.708, 0.292).
+- **SHIFTED MÖBIUS / SYMMETRY-BREAKING phase** (found 2026-07-21): on the exact slice
+  `(a₁,a₂,a₃,c)=(.8,2.4,1.1,.3)`, the real disk automorphism `b_β`,
+  `β=0.65306547`, gives `K=1.56976242`, beating the odd-sector numerical value
+  `1.51151418` and the rigorously global even-sector value `1.48913578`; extremal diagonal
+  `1.8e-8`, `ρ=+0.15504`. Its partner `b_{−β}` has the same norm. This is robust numerical
+  disproof of the assumed parity classification, not a Crouzeix counterexample. Reproducer:
+  `experiments/slice_phase_audit.py`. It parallels Region II in Kenan Li's 2021 thesis.
 - Family-restricted α-searches (slice_exact.extremal) can land on non-global stationary points
   in the even/Möbius phases — always cross-check with best_extremal (this caught cases 3,4,5).
 - Pipeline→exact consistency: K(inflate→0) ↗ exact-ellipse K (1.811→1.896 vs 1.8987 at
@@ -106,8 +116,8 @@ bi-conic verified (sign/order). FALSE without foci-pinning (§4(vi)). The abstra
 "why do Kippenhahn-foci nodes make it true" is the distilled deep quest for the even sector.
 
 ## 6. Reduced open targets (ranked)
-1. Prove that a global extremal can be chosen with definite parity, or explicitly classify and
-   cover symmetry-breaking four-node Pick data. Symmetry of the objective alone is insufficient.
+1. Classify and prove positivity/bound 2 for shifted degree-one Möbius phases. Definite parity is
+   false, so the full four-node problem must explicitly include this symmetry-breaking sector.
 2. Odd-phase positivity: ρ = B₁g₁q₁+B₂g₂q₂ ≥ 0 given §3 stationarity (3-parameter).
 3. Möbius-phase positivity (deg-1 f₀ = φ on ellipse domains — may admit a general theorem
    beyond 4×4: only uses domain ellipse + deg-1 extremal + nodal weights).

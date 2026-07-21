@@ -15,11 +15,16 @@
   stationarity and conditional `q1=q2=1/2`. **The globality debt is now closed by L18**:
   `sup ||F(u1)Q1+F(u2)Q2||=max(1,d||Q1−Q2||)`, and for norm>1 the midpoint automorphism is the
   unique nonconstant global even maximizer up to phase (`proof/even_pick_globality.md`). Thus the
-  complete even sector of the elliptic slice has rho≥0. Odd, degree-one, and possible
-  symmetry-breaking phases remain. The prior statement `A ~ −A ⇒ extremal has definite parity`
-  is not automatic and must be proved or replaced by a complete four-node Pick classification.
-- Highest-leverage next move: resolve parity/symmetry breaking; in parallel use the same
-  Schwarzian test on the off-slice bi-conic collapsed map.
+  complete even sector of the elliptic slice has rho≥0. Odd and degree-one phases remain.
+- **Immediate correction (same epoch): parity is false on the elliptic slice.** Exact nodal
+  search at weights `(.8,2.4,1.1,.3)` finds shifted `b_β`, β=.65306547, K=1.569762, above odd
+  numerical 1.511514 and even global 1.489136; diag=1.8e-8 and rho=+0.15504. This mirrors Kenan
+  Li's 3×3 Region-II Möbius phase. Reproducer: `experiments/slice_phase_audit.py`.
+- **New bypass route L20:** solve `I≤P≤tI`, `T*PT≤P` for `T=φ(A)`. If `t≤4` uniformly, then
+  `P^(1/2)TP^(−1/2)` is a contraction with similarity condition≤2, so von Neumann proves the
+  complete bound for the entire elliptic slice without classifying phases. SDP: 80/80 random
+  cases pass, worst `t=3.92642` (`sqrt(t)=1.98152`). Analytic construction of P is now the
+  highest-leverage slice target. `experiments/slice_cb_sdp.py`.
 
 ## Previous frontier (2026-07-21 late session) — level-4 theory + D2 landscape
 - **L15 PROVED**: level-4 nodal closed form K² = (T+√(T²−4δ²F₁²F₂²))/2 (frame invariants
@@ -105,21 +110,20 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   (resid 1e-4–1e-3).** Next: close sym4 analytically = first new Crouzeix class in campaign.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-21)
-1. **Parity/symmetry-breaking classification at level 4**: prove that a global extremal can be
-   chosen with definite parity, or analyze general four-node Pick data explicitly. Even-sector
-   globality is now proved; symmetry of the objective alone does not settle the full problem.
-2. **Bi-conic Schwarzian test**: compute `SG` for the off-slice collapsed map on the critical
+1. **Prove the complete-2 similarity L20 on the elliptic slice**: exploit the parity-block form of
+   `T=φ(A)` and the SDP pattern (`P` is parity-block diagonal with paired eigenvalues `{1,1,t,t}`).
+   Derive a closed-form metric P and prove `t≤4` from the ellipse/focus parameters.
+2. **Shifted Möbius phase**: derive its exact stationarity/rho formula (Kenan-Li quartic analog)
+   and prove rho≥0 or K≤2. Definite parity is false.
+3. **Bi-conic Schwarzian test**: compute `SG` for the off-slice collapsed map on the critical
    real interval. `SG≥0` would extend L17 immediately; otherwise test the weaker Sturm-potential
    comparison that the proof actually needs.
-3. **Odd phase positivity**: ρ = B₁g₁q₁+B₂g₂q₂ ≥ 0 given the L15 stationarity law
+4. **Odd phase positivity**: ρ = B₁g₁q₁+B₂g₂q₂ ≥ 0 given the L15 stationarity law
    (3-parameter; interlacing τ₂ < α < τ₁; term-1 dominance observed). Try the same
    deformation/kernel machinery.
-4. n=6 H-r floor via STRUCTURED families (dense run killed as futile — pitfall P7).
-5. Rigor debts: 2×2 α=0 step; contact-degeneracy write-up; ellipse-squared analytic proof;
-   GKL comparison read (arXiv:1701.01365); UW thesis check (elliptic n≥4 novelty — is the
-   elliptic sym4 slice class already in literature?).
-5. General-n: parity-collapse induction (L16 mechanism is dimension-generic for 2-dim active
-   blocks; n=6 even phase = deg-2-in-χ, needs the next rung); de-symmetrization using ρ-margins.
+5. Rigor debts: n=6 structured floor; 2×2 α=0; contact degeneracy; novelty audit.
+   General-n work must include symmetry-breaking phases; the former parity-collapse induction
+   remains valid only inside a chosen parity sector.
 Keep committing+pushing after each task (user instruction).
 
 ## Files map (handoff-ready, 2026-07-21)
@@ -139,6 +143,8 @@ experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_
   formulas + verifications), sym3_structure/sweep/analysis.py, sym4_probe/sweep.py (OTHER-branch
   taus/f0e fields BUGGY — pitfall P5), Hr_test.py / Hr_adversarial.py (certified min-ρ search),
   zero_geometry.py (phi_of_points); historical: L10/L12/scalar/adversarial_L7/search.py.
+  Epoch-6: el4_schwarzian_check.py, even_pick_globality_check.py, slice_phase_audit.py,
+  slice_cb_sdp.py (requires cvxpy; exploratory similarity SDP).
 Data: sym3_sweep_s51.jsonl (40 rec), sym4_sweep_s61.jsonl (20 rec, ρ column trustworthy).
 Ledgers: LEMMA_LEDGER.md, APPROACH_LEDGER.md (pitfalls P1–P7 — READ BEFORE ANY SEARCH),
 LITERATURE_LEDGER.md, COUNTEREXAMPLE_SEARCH.md. Audit: chatgpt/FABLE_RESEARCH_AUDIT.md

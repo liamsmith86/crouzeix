@@ -33,6 +33,12 @@ A candidate R(A,p) > 2 counts ONLY after: increased precision, conditioning anal
 ## Near misses
 None above 2. Best R = 1.9747 (converging to Crabb-type equality configuration, R → 2⁻).
 
+## Structural counterexample (not a Crouzeix violation)
+The claimed level-4 parity classification is numerically false: exact elliptic-slice weights
+`(.8,2.4,1.1,.3)` have a shifted degree-one Möbius candidate with K=1.569762, above the computed
+odd 1.511514 and proved-global even 1.489136 sector values. Its rho is +0.15504, so it supports
+H-r; it only refutes the reduction to parity sectors. `experiments/slice_phase_audit.py`.
+
 ## Coverage gaps (honest accounting, refreshed 2026-07-21)
 - Matrices with nonsmooth W(A) (flat portions / corners): rejected by certificates in operator
   pipeline; not yet searched. Plan: smoothed support-function domains or near-polygon ψ-families.

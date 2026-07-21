@@ -20,6 +20,14 @@ This is not yet the 4×4 theorem. Midpoint globality is now proved by L18 in
 `proof/even_pick_globality.md`, but parity/symmetry-breaking and the odd/Möbius phases remain.
 Symmetry of the objective does not by itself prove that every maximizer has definite parity.
 
+**Correction:** parity is actually false on the slice. `experiments/slice_phase_audit.py` finds
+a robust shifted degree-one Möbius phase at weights `(.8,2.4,1.1,.3)` that beats both parity
+sectors. Its rho is positive. Do not attempt to prove definite parity.
+
+**Best new bypass:** `experiments/slice_cb_sdp.py` searches for `I≤P≤tI`, `T*PT≤P`, `T=φ(A)`.
+All 80 random slice cases gave `t<4` (worst 3.92642). A uniform analytic metric proves the
+complete-2 bound for the entire elliptic slice via von Neumann and avoids all phase bookkeeping.
+
 ## Strongest proved lemmas
 P1 (K²+ρ ≤ Kq), L13 (Clark-type transition ⟨q(A)x₀,u₀⟩ = K∫q·conj(f₀)dμ), L14 + collapse theorem
 (sym3: v = α², ρ = (α²/2)(g₀(e)−g₀(0))), **Landen theorem** (sym3 ρ = 1 − π/(2K(k₁))),
@@ -71,31 +79,32 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   fields are BUGGY — recompute, don't trust.
 - D2 soft-class hunt CLOSED (all falsified, incl. odd+G'↑ via certified 40-dps
   counterexample); symmetric-node case + wedge family + convex trace bound PROVED.
-  proof/D2_landscape.md. Remaining route: deformation-path (dV/dk ≤ 0 with explicit
-  kernel functional on elliptic velocity field). GATE-CHECK PASSED: dV/dk < 0 strictly on full grid (−1.5e-3..−3.7e-2, bounded away from 0 in interior) — robust target.
+  The former deformation route was superseded by the Schwarzian proof of EL4; see
+  proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
 ## Next five concrete actions (refreshed 2026-07-21, Epoch 6)
-1. **Close level-4 parity classification**: even Pick-sector midpoint globality is proved (L18).
-   Now prove existence of a definite-parity global extremal or explicitly cover symmetry-breaking
-   four-node Pick data. EL4 cannot be promoted to the whole slice without this gate.
-2. **Bi-conic Schwarzian route**: compute `SG` for the off-slice collapsed map on its critical
+1. **Prove L20 analytically**: use the SDP-discovered parity-block metric structure for `T=φ(A)`;
+   derive `P` in closed form and prove its condition bound `t≤4`. This would close the whole
+   elliptic slice completely bounded.
+2. **Shifted degree-one Möbius phase**: derive its stationarity/rho formula and prove positivity
+   (or K≤2) independently, both as a fallback and as a guide to the metric.
+3. **Bi-conic Schwarzian route**: compute `SG` for the off-slice collapsed map on its critical
    real interval. If nonnegative, L17 gives D2 immediately; otherwise compare its Sturm potential
    directly with `−1`.
-3. **Odd-phase level-4 positivity**: ρ = B₁g₁q₁+B₂g₂q₂ ≥ 0 under the L15 stationarity law
+4. **Odd-phase level-4 positivity**: ρ = B₁g₁q₁+B₂g₂q₂ ≥ 0 under the L15 stationarity law
    (slice_closed_form.md §3; interlacing τ₂ < α < τ₁, dominant positive outer term observed).
    Try the same kernel/deformation machinery; the Möbius-equality structure should persist.
-4. **n=6 H-r floor, redesigned** (old dense run KILLED as futile — pitfall P7): run the
+5. **n=6 H-r floor, redesigned** (old dense run KILLED as futile — pitfall P7): run the
    adversarial min-ρ search on STRUCTURED n=6 families (zero-diag tridiagonal; graded collapse
    makes extremality certifiable via blocks), or upgrade the solver first.
-5. Rigor/generalization debts: 2×2 α=0; contact degeneracy; literature novelty audit; formulate
-   the dimension-generic even-phase tower and de-symmetrization using the EL4 margin.
 
 ## Paste-ready continuation instruction
 "Continue the Crouzeix campaign in /home/liam/Downloads/crouzeix (git repo; commit+push after each
 task). Read RESEARCH_STATE.md (NEWEST section first), then proof/el4_schwarzian_theorem.md,
 proof/even_pick_globality.md, proof/slice_closed_form.md, and proof/D2_landscape.md; master program in
-proof/rho_positivity_program.md. Resume at restart-packet action 1 (level-4 parity/symmetry-breaking
-classification). EL4 and even-sector midpoint globality are proved; do not redo them. Respect APPROACH_LEDGER.md pitfalls P1–P7: every
+proof/rho_positivity_program.md. Resume at restart-packet action 1 (analytic L20 similarity metric
+for the elliptic slice). EL4 and even-sector midpoint globality are proved; definite parity is
+false. Do not redo those routes. Respect APPROACH_LEDGER.md pitfalls P1–P7: every
 numerical claim needs the certificate battery; treat any apparent violation as artifact until it
 survives strict re-evaluation and an independent implementation; cross-check extremal phases with
 best_extremal (P5); verify analyticity/univalence of probe map families (P6). Do not re-open dead

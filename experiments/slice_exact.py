@@ -3,9 +3,11 @@
 W(A) = ellipse, semi-axes A2 = sqrt(L(1+c)^2)/2, B2 = sqrt(L(1-c)^2)/2 where
 L = lam_max-type = (T + sqrt(T^2 - 4 t1 t3))/2, T = sum a_j^2 — wait: from support
 function h^2 = [(t1+t2+t3) + sqrt((sum)^2 - 4 t1 t3)]/2 * (u cos^2 + v sin^2)/1,
-t_j = a_j^2, u = (1+c)^2/4, v = (1-c)^2/4. Foci^2 = A2^2 - B2^2 = L*c*... = e1^2+e2^2.
+t_j = a_j^2, u = (1+c)^2/4, v = (1-c)^2/4. Thus
+foci^2 = A2^2 - B2^2 = L*c = e1^2.
 
-Riemann map (foci ±f): phi(z) = sqrt(k) sn(2K asin(z/f)/pi, k), K'(k)/K(k) = 4 xi0/pi.
+The foci are ±e1 (the outer eigenvalue pair), so f^2 = e1^2.  The Riemann map is
+phi(z) = sqrt(k) sn(2K asin(z/f)/pi, k), K'(k)/K(k) = 4 xi0/pi.
 Extremal odd Blaschke B(w) = w(w^2-alpha^2)/(1-alpha^2 w^2), alpha real (symmetry sector).
 f0(A) = A F(A^2): K = max block norm; all 2x2 exact.
 
