@@ -148,17 +148,159 @@ default SDP cases reproduce their optima from (10) to numerical precision on
 the coupled faces; `experiments/slice_coupled_defects.py` audits the exact
 reconstruction and the KKT rank restrictions.
 
-## 4. Remaining target
+## 4. Transfer reduction of the rank-one/rank-one face
 
-The next useful result must exploit the special relation
+The remaining face also has an exact colligation reduction.  Write
 
 \[
- \tan v=r\tan u,\qquad r=H(p),\qquad p=\tau_2/\tau_1. \tag{12}
+ Z_o=xx^T,\qquad Z_e=yy^T,
 \]
 
-inside the four sandwich inequalities (6), with (10).  Arbitrary positive
-rotations and node pairs do not obey the factor-four bound, and arbitrary
-choices in (9) can have large condition number.  The rank classification
-shows precisely where the conformal relation must enter: one must exclude a
-KKT minimizer above four on the rank-one/rank-one Pick-kernel face or its
-one-zero boundary.
+and take the spectral positive and negative factors of its two dual blocks:
+
+\[
+ \begin{aligned}
+ xx^T-(By)(By)^T&=p_op_o^T-n_on_o^T,\\
+ yy^T-(Cx)(Cx)^T&=p_ep_e^T-n_en_e^T.
+ \end{aligned} \tag{12}
+\]
+
+Each difference of two rank-one matrices has at most one positive and one
+negative eigenvalue, so this includes the semidefinite limits by allowing a
+factor to vanish.  After harmless sign choices, equality of the corresponding
+row Gramians gives two rotations.  Thus, for some \(a,b\in[-1,1]\), with
+\(s=\sqrt{1-a^2}\) and \(t=\sqrt{1-b^2}\),
+
+\[
+ \begin{aligned}
+ By&=ax+sn_o,&p_o&=-sx+an_o,\\
+ Cx&=by+tn_e,&p_e&=-ty+bn_e.
+ \end{aligned} \tag{13}
+\]
+
+Stack
+
+\[
+ X=\binom{x}{y},\quad P=\binom{p_o}{p_e},\quad
+ N=\binom{n_o}{n_e},\quad
+ A=\operatorname{diag}(aI_2,bI_2),\quad
+ S=\operatorname{diag}(sI_2,tI_2). \tag{14}
+\]
+
+Equations (13) become
+
+\[
+ TX=AX+SN,\qquad P=-SX+AN. \tag{15}
+\]
+
+Multiplying the second equation by \(S\) and using \(S^2=I-A^2\) gives
+
+\[
+ SP=-(I-AT)X. \tag{16}
+\]
+
+For \(|a|,|b|<1\), \(I-AT\) is invertible: the eigenvalues of
+\((AT)^2\) are \(ab\tau_i^2\), whose moduli are strictly below one.  Hence
+
+\[
+ N=\mathscr R_{a,b}(T)P,
+ \qquad
+ \mathscr R_{a,b}(T)
+ =-S^{-1}(T-A)(I-AT)^{-1}S. \tag{17}
+\]
+
+Since the factors in (12) are spectral,
+
+\[
+ {\operatorname{tr}D_-\over\operatorname{tr}D_+}
+ ={\|N\|^2\over\|P\|^2}
+ \le\|\mathscr R_{a,b}(T)\|^2. \tag{18}
+\]
+
+The apparent singularity at \(a=\pm1\) or \(b=\pm1\) disappears after block
+elimination.  Put \(F=BC\), \(G=CB\), and \(z=ab\).  Then exactly
+
+\[
+ \boxed{
+ \mathscr R_{a,b}(T)=
+ \begin{bmatrix}
+ (aI-bF)(I-zF)^{-1}&-st(I-zF)^{-1}B\\
+ -st(I-zG)^{-1}C&(bI-aG)(I-zG)^{-1}
+ \end{bmatrix}.} \tag{19}
+\]
+
+Formula (19) extends continuously to the closed square.  Consequently the
+single sufficient theorem
+
+\[
+ \boxed{\|\mathscr R_{a,b}(T)\|\le2
+ \quad\text{for every }(a,b)\in[-1,1]^2} \tag{RT}
+\]
+
+closes the rank-one/rank-one face and therefore proves `L20`.
+
+## 5. Matrix-valued Blaschke structure
+
+The transfer is not an arbitrary two-parameter rational matrix.  Let
+
+\[
+ L=\operatorname{diag}(D,\sqrt cD),\qquad
+ \mathcal U=\operatorname{diag}(U,V),\qquad
+ T_0=\begin{bmatrix}0&\Sigma\\\Sigma&0\end{bmatrix}.
+\]
+
+The modal formula gives \(T=L\mathcal U T_0\mathcal U^TL^{-1}\).  Because
+\(A\) and \(S\) are scalar on each parity block, they commute with both
+\(L\) and \(\mathcal U\).  Therefore
+
+\[
+ \mathscr R_{a,b}(T)
+ =L\mathcal U\mathscr R_{a,b}(T_0)\mathcal U^TL^{-1}. \tag{20}
+\]
+
+After grouping the two coordinates belonging to the same node,
+\(\mathscr R_{a,b}(T_0)\) is the direct sum of
+
+\[
+ K_{a,b}(w)={1\over1-abw^2}
+ \begin{bmatrix}
+ a-bw^2&-st w\\
+ -st w&b-aw^2
+ \end{bmatrix},qquad w=\tau_1,\tau_2. \tag{21}
+\]
+
+This is a rational \(2\times2\) inner function.  Direct algebra gives
+
+\[
+ K_{a,b}(1/z)^TK_{a,b}(z)=I,qquad
+ \det K_{a,b}(z)={ab-z^2\over1-abz^2}. \tag{22}
+\]
+
+Thus the determinant is a degree-two scalar Blaschke product, but the
+interior transfer is genuinely matrix-valued.  If \(a=\pm1\) or \(b=\pm1\),
+(19) becomes a direct sum of a signed identity and a scalar automorphism of
+\(F\) or \(G\); this boundary is already contained in the proved even sector.
+At \(a=b=0\), the transfer is \(-T\), so L24 and L26 close that point.  The
+new content of (RT) is the open interior of the parameter square.
+
+`experiments/slice_rank_one_transfer.py` audits (19) and (22) with exact
+rational/symbolic arithmetic.  Its deterministic floating-point search is
+sharp on the two default rank-one/rank-one SDP cases: the squared transfer
+norms \(3.136329347\) and \(2.491664377\) reproduce the primal-dual optima.
+This sharpness is evidence only, not the proof of (RT).
+
+## 6. Remaining target
+
+The live theorem is now (RT), with the special conformal coupling
+
+\[
+ \tan v=r\tan u,\qquad r=H(p),\qquad p=\tau_2/\tau_1. \tag{23}
+\]
+
+Arbitrary rotations and node pairs do not obey the factor-four bound.  A
+scalar reduction is also insufficient: numerical interior maxima can exceed
+all scalar-automorphism boundary values.  A proof must retain the
+Blaschke--Potapov structure (21) while using (23), for example through a
+four-dimensional Schur complement or a two-node matrix-valued Pick
+inequality.  Proving (RT) completes the elliptic \(4\times4\) slice; it does
+not by itself settle the general conjecture.

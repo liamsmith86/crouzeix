@@ -107,6 +107,17 @@ the worst correction ratio is `0.907895`. L39 interval-certifies the bridge comp
 block ≤2 for every parameter. Together with the analytic lower block, the generic rank-one/full
 KKT face is closed; only L27's rank-one/rank-one face remains for L20.
 
+**L40 reduces the final rank-one/rank-one face to a matrix-valued inner transfer.** If
+`Z_o=xx^T` and `Z_e=yy^T`, spectral positive/negative factors and two row-Gram rotations give
+`tr D_-/tr D_+≤||R_{a,b}(T)||²`, where
+`R_{a,b}(T)=−S⁻¹(T−A)(I−AT)⁻¹S`. Its cancellation-free block formula is valid on the full
+closed square `(a,b)∈[−1,1]²`. In symmetric modal coordinates the two nodes see
+`K_{a,b}(z)=[[a−bz²,−stz],[-stz,b−az²]]/(1−abz²)`, a rational inner matrix with determinant
+`(ab−z²)/(1−abz²)`. The boundary is in the proved even sector; the interior is genuinely
+matrix-valued and can beat all scalar lines. The only remaining L20 theorem is
+`||R_{a,b}(T)||≤2`. Exact audit and sharp default-case regression:
+`experiments/slice_rank_one_transfer.py`; proof: `proof/slice_coupled_defects.md` §4–6.
+
 ## Strongest proved lemmas
 P1 (K²+ρ ≤ Kq), L13 (Clark-type transition ⟨q(A)x₀,u₀⟩ = K∫q·conj(f₀)dμ), L14 + collapse theorem
 (sym3: v = α², ρ = (α²/2)(g₀(e)−g₀(0))), **Landen theorem** (sym3 ρ = 1 − π/(2K(k₁))),

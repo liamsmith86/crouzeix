@@ -96,6 +96,14 @@
   bisections), and L33 supplies the rest. Thus L30–L32 prove the upper odd block ≤2 for every
   parameter. The lower odd block was already analytic, so L28's rank-one/full face is done.
   **Only L27's rank-one/rank-one coupled face remains for the L20 elliptic-slice theorem.**
+- **L40 now reduces that last face to one matrix-valued inner theorem.** Two spectral
+  row-Gram rotations give the transfer
+  `R_{a,b}(T)=−S⁻¹(T−A)(I−AT)⁻¹S`; every rank-one/rank-one trace ratio is at most
+  `||R_{a,b}(T)||²`. A cancellation-free block formula extends to the closed parameter square.
+  In symmetric modal coordinates its node function is a `2×2` rational inner function with
+  determinant `(ab−z²)/(1−abz²)`. Proving `||R_{a,b}(T)||≤2` uniformly would prove L20.
+  The boundary reduces to the proved scalar even sector, but numerical maxima can occur in the
+  genuinely matrix-valued interior, so a scalar-only argument is insufficient.
 
 ## Previous Epoch-6 milestone — EL4 PROVED
 - **EL4 is now an analytic theorem**, not a grid conjecture. New L17: `SG ≥ 0` on the real
@@ -205,11 +213,11 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   (resid 1e-4–1e-3).** Next: close sym4 analytically = first new Crouzeix class in campaign.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-21)
-1. **Close L27's rank-one/rank-one coupled face.** First derive its exact KKT equations in the
-   two defect directions and relative scale. Look for the same orthogonal-colligation/finite-
-   Blaschke interpretation that turned rank-one/full into L29; do not optimize four unconstrained
-   defect coordinates before exploiting complementary slackness. Proving this face would prove
-   L20 for the complete elliptic 4×4 slice.
+1. **Prove L40's transfer theorem.** Show `||R_{a,b}(T)||≤2` for the explicit
+   Blaschke--Potapov transfer in `proof/slice_coupled_defects.md`. Preserve the matrix-valued
+   interior: a boundary/scalar reduction is numerically false. First derive the `4I−R*R`
+   Schur complement in modal coordinates and use `tan(v)=H(p)tan(u)` before any interval split.
+   This one theorem would prove L20 for the complete elliptic 4×4 slice.
 2. **Shifted Möbius phase**: derive its exact stationarity/rho formula (Kenan-Li quartic analog)
    and prove rho≥0 or K≤2. Definite parity is false.
 3. **Bi-conic Schwarzian test**: compute `SG` for the off-slice collapsed map on the critical
