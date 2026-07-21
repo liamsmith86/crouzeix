@@ -32,10 +32,15 @@ sym4_probe.py = new-territory probe (ρ > 0: +1.3e-4, +1.9e-3, +4.5e-4). Hr_adve
 n3 +2e-4, n4 +1.7e-2, n5 +1.6e-2 (n6 job may be incomplete).
 
 ## Next five concrete actions
-1. sym4 closure: derive K = max(‖A₊F(N_o)‖, ‖A₋F(N_e)‖) two-block formula (blocks of A² on
-   even/odd sublattices; f₀ = A·F(A²), odd Blaschke zeros {0,±α}); find the stationarity law
-   (equioscillation between blocks + midpoint-analog); express ρ; prove ≥ 0. This would be the
-   FIRST NEW Crouzeix class of the campaign.
+1. sym4 closure — SHARPENED by final Epoch-5 data (sym4_sweep_s61.jsonl, 20/20 ρ>0):
+   NO equioscillation — K = ‖A₊F(N_even)‖ alone (single active 2×2 block, verified 5 digits;
+   other block 4–400× smaller). ODD phase (16/20): B odd, zeros {0,±α}, α interlaces (τ₂,τ₁)
+   [13/16; check 3 exceptions]. EVEN phase (4/20): sym3-like, q=1/2 exact. So: single-block 2-node
+   problem with F_j = B(τ_j)/e_j linked through α; stationarity dK/dα = 0 on the 2×2
+   K(α) = ‖A₊(F₁Q₁+F₂Q₂)‖; then ρ = Re[B(τ₁)g₀(e₁)q₁ + B(τ₂)g₀(e₂)q₂] ≥ 0 via
+   interlacing sign structure. Beware: the critical domain is NOT elliptic — the ζ-domain conformal
+   data (g₀-values) needs the bi-conic Kippenhahn structure (det even in t: t⁴+c₂t²+c₄).
+   This would be the FIRST NEW Crouzeix class of the campaign.
 2. Sym4 sweep (adapt sym3_sweep.py) to gather (zeros, ρ, block data); verify collapse numerically
    before proving.
 3. Rigor debts: 2×2 α=0; ellipse-squared analytic; read GKL arXiv:1701.01365 (compare mechanism —
