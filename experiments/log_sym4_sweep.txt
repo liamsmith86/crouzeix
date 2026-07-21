@@ -1,0 +1,4 @@
+<frozen site>:101: RuntimeWarning: Unexpected value in sys.prefix, expected /home/liam/Downloads/crouzeix/.venv, got /home/liam/Downloads/crouzeix/experiments/../.venv
+<frozen site>:101: RuntimeWarning: Unexpected value in sys.exec_prefix, expected /home/liam/Downloads/crouzeix/.venv, got /home/liam/Downloads/crouzeix/experiments/../.venv
+[1] K=1.7645 rho=+0.000191 formula=+0.000191 (err 2.5e-10) ODD sub=even q1=+0.361 q2=+0.639
+[2] K=1.7106 rho=+0.000731 formula=+0.000731 (err 1.5e-10) ODD sub=even q1=+0.462 q2=+0.538
