@@ -166,6 +166,25 @@ Also \(|\det M_*|=|q_1q_2|/c\le kp/c<4\), so nonnegativity of
 to one explicit three-parameter scalar inequality: substitute (7),
 \(\tau_1^2=k\), \(\tau_2^2=kp^2\), and \(r=H(p)\) into (12).
 
+For certification it is better to replace the Blaschke zero \(a\) by its
+value at the inner squared node,
+
+\[
+ t={kp^2-a\over1-akp^2}\in[-1,1],\qquad
+ d={k(1-p^2)\over1-k^2p^2}. \tag{13e}
+\]
+
+The automorphism addition law then removes both rational denominators:
+
+\[
+ q_2=\sqrt k\,p t,qquad
+ q_1=\sqrt k\,{t+d\over1+dt}. \tag{13f}
+\]
+
+Thus the final compact variables can be taken as \((c,p,t)\), with only the
+complete theta quantities \(k(c),s_0(c)\) left transcendental.  The sharp
+ridge becomes \(p\to1/2\), \(t\sim-2c\).
+
 The **lower odd block is already proved**.  For fixed modal parameters its
 matrix is linear in \((q_1,q_2)\), and the operator norm is convex.  Since
 \(|q_i|\le\tau_i\), it is enough to check the four vertices of the rectangle
