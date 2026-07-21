@@ -472,7 +472,7 @@ at the upper and lower cubic envelopes.  Put
  D_0=2g^2(1-2c^2g),\qquad p=p_*+c^4x. \tag{13ah}
 \]
 
-**Tiny-edge theorem.**  If \(0<c\le1/20\) and \(|x|\le4\), then
+**Tiny-edge theorem.**  If \(0<c\le1/20\) and \(|x|\le8\), then
 
 \[
  \operatorname{Num}_U>0,\qquad \operatorname{Num}_L>0. \tag{13ai}
@@ -513,20 +513,20 @@ where
 \]
 
 Exact tensor-product Bernstein coefficients on \(0\le t\le1/400\), with
-the (x)-interval split into eighths, give
+the \(x\)-interval split into eighths, give
 
 \[
  {T\over K_U}>0.8124\quad(-2\le x\le2),\qquad
- {T\over K_U}>2.3479\quad(-4\le x\le-2),\qquad
- {T\over K_U}>14.3177\quad(2\le x\le4). \tag{13am}
+ {T\over K_U}>2.3479\quad(-8\le x\le-2),\qquad
+ {T\over K_U}>14.3177\quad(2\le x\le8). \tag{13am}
 \]
 
 Absolute coefficient domination over the terms of degree at least six in
-(c) proves
+\(c\) proves
 
 \[
  |R_U|<0.1K_U\quad(|x|\le2),\qquad
- |R_U|<0.25K_U\quad(|x|\le4). \tag{13an}
+ |R_U|<0.75K_U\quad(|x|\le8). \tag{13an}
 \]
 
 Thus (13am)--(13an) prove the upper assertion.  For the lower endpoint,
@@ -543,14 +543,14 @@ give
 \[
  D_0^{12}\operatorname{Num}_L
  =c^8(K_L+R_L),\quad
- K_L=316{,}659{,}348{,}799{,}488,\quad |R_L|<0.5K_L. \tag{13ao}
+ K_L=316{,}659{,}348{,}799{,}488,\quad |R_L|<0.9K_L. \tag{13ao}
 \]
 
 All coefficients, tail bounds, vanishing orders, and remainder sums are
 reconstructed with rational arithmetic by
 `experiments/slice_odd_tiny_edge_certificate.py`; the measured upper tail
-bounds are \(0.085844K_U\) and \(0.232382K_U\), while the lower remainder
-is \(0.462117K_L\).  The checker also
+bounds are \(0.085844K_U\) and \(0.741649K_U\), while the lower remainder
+is \(0.843779K_L\).  The checker also
 verifies that the discarded denominators are positive squares.  Thus this
 is a proof, not a floating-point sweep.  It closes the sharp tube only; the
 rest of the low-nome rectangle remains below.
@@ -609,7 +609,7 @@ finite enclosure proof.  Combining it with L33 leaves only
 \]
 
 Within (13as), L35 already removes the sharp tube
-(c\le1/20, |p-p_*|\le4c^4).
+\(c\le1/20, |p-p_*|\le8c^4\).
 
 The **lower odd block is already proved**.  For fixed modal parameters its
 matrix is linear in \((q_1,q_2)\), and the operator norm is convex.  Since
@@ -726,7 +726,7 @@ than expect a uniform positive margin.
    two envelope endpoints, only for \(0<c<12599/20000\).  This is exactly the
    discriminant (13p); the high-nome complement is closed by (13u)--(13y).
    L36 and L33 reduce this to \(0<c<1/12\).  The sharp tube
-   \(0<c\le1/20\), \(|(p-p_*)/c^4|\le4\), is closed by (13ah)--(13ao).
+   \(0<c\le1/20\), \(|(p-p_*)/c^4|\le8\), is closed by (13ah)--(13ao).
    Certify its complement, using multiscale coordinates near \(c=0\) rather
    than an axis-aligned box.
    The older equivalent route is \(\mathcal N\ge0\) under (14), but it

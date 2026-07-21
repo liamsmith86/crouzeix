@@ -82,7 +82,7 @@
   no unproved sign assumption about its residual theta expression `H`.
 - **L35 rigorously removes the singular core of that ridge.** An exact rational certificate proves
   both cubic-envelope endpoint residuals are positive for `0<c≤1/20` and
-  `|p−p*|≤4c⁴`. The regenerated upper numerator has leading form
+  `|p−p*|≤8c⁴`. The regenerated upper numerator has leading form
   `c¹⁰ K[2x²+4x+3]`; the lower has a strictly positive `c⁸` lead. No sampled or saved
   coefficients are trusted. Remaining L29 domain: the complement of this tube in
   `0<c<12599/20000` (subject only to the discriminant branch).
@@ -91,7 +91,7 @@
   ridge coordinates below `c=1/2` and direct coordinates above it. Explicit theta-tail bounds
   include two derivatives; all operations are one-ulp outward rounded; 32,797 total bisections
   finish with no unresolved boxes. Together with L33, only `0<c<1/12` remains for L29, and
-  L35 already removes its sharp tube through `c=1/20`.
+  L35 already removes its sharp tube `|p−p*|≤8c⁴` through `c=1/20`.
 
 ## Previous Epoch-6 milestone — EL4 PROVED
 - **EL4 is now an analytic theorem**, not a grid conjecture. New L17: `SG ≥ 0` on the real
@@ -205,7 +205,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    `proof/slice_odd_block_reduction.md`: certify
    `rF₁F₂−g²D²≥0` for `0<c<12599/20000`, only where `A>0, |B|<2A`, at `r=L(p),U(p)`.
    L36/L33 reduce the live range to `0<c<1/12`; L35 closes
-   `0<c≤1/20`, `|p−p*|≤4c⁴`. Use multiscale branch-aware certificates on its complement.
+   `0<c≤1/20`, `|p−p*|≤8c⁴`. Use multiscale branch-aware certificates on its complement.
    This closes the generic rank-one/full face. Then return to L27's
    rank-one/rank-one coupled face.
 2. **Shifted Möbius phase**: derive its exact stationarity/rho formula (Kenan-Li quartic analog)

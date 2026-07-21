@@ -4,7 +4,7 @@
 This checker proves the two cubic-envelope endpoint inequalities from
 ``proof/slice_odd_block_reduction.md`` when
 
-    0 < c <= 1/20,  p = p_star + c**4*x,  |x| <= 4.
+    0 < c <= 1/20,  p = p_star + c**4*x,  |x| <= 8.
 
 Only rational polynomial arithmetic is used.  The large intermediate
 polynomials are generated from the compact residual formula and are never
@@ -284,7 +284,7 @@ def truncated_upper_lower_bounds(expression: sp.Expr) -> tuple[sp.Rational, ...]
     """Bernstein-certify the upper leading polynomial on three x ranges."""
 
     t, x = sp.symbols("t x")
-    ranges = ((-2, 2), (-4, -2), (2, 4))
+    ranges = ((-2, 2), (-8, -2), (2, 8))
     minima = []
     for lower, upper in ranges:
         box_minima = []
@@ -395,9 +395,9 @@ def certify_upper_endpoint(
         polynomial, 0, 6, {4: 2, 17: 200, 18: 750}
     )
     outer = absolute_remainder_bound(
-        polynomial, 0, 6, {4: 4, 17: 200, 18: 750}
+        polynomial, 0, 6, {4: 8, 17: 200, 18: 750}
     )
-    if central >= QQ(1, 10) * scale or outer >= QQ(1, 4) * scale:
+    if central >= QQ(1, 10) * scale or outer >= QQ(3, 4) * scale:
         raise AssertionError((central / scale, outer / scale))
     return (
         tuple(float(value / int(scale)) for value in truncated_minima),
@@ -427,8 +427,8 @@ def certify_lower_endpoint(data: tuple[object, ...], started: float) -> float:
     expected_monomial = (8,) + (0,) * (len(data) - 2)
     if lead_terms != [(expected_monomial, scale)]:
         raise AssertionError(lead_terms)
-    remainder = absolute_remainder_bound(polynomial, 8, 10, {4: 4, 10: 33, 11: 37})
-    if remainder >= QQ(1, 2) * scale:
+    remainder = absolute_remainder_bound(polynomial, 8, 10, {4: 8, 10: 33, 11: 37})
+    if remainder >= QQ(9, 10) * scale:
         raise AssertionError(remainder / scale)
     return float(remainder / scale)
 
@@ -444,8 +444,8 @@ def main() -> None:
     print("tiny-edge endpoint certificate: exact")
     print(f"  upper truncated minima/scale: {upper_minima}")
     print(f"  upper |x|<=2 tail/scale <= {upper_central:.12g}")
-    print(f"  upper |x|<=4 tail/scale <= {upper_outer:.12g}")
-    print(f"  lower |x|<=4 remainder/lead <= {lower:.12g}")
+    print(f"  upper |x|<=8 tail/scale <= {upper_outer:.12g}")
+    print(f"  lower |x|<=8 remainder/lead <= {lower:.12g}")
     print(f"  theta rational checks: {len(remainder_checks)}")
     print(f"  elapsed seconds: {time.monotonic() - started:.1f}")
 

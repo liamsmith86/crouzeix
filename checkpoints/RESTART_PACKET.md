@@ -98,7 +98,7 @@ an exact opposite-sign determinant factor proves all of them norm≤2. The exist
 five-factor product certificate gives `cℓ≥1` for `c≥12599/20000`. Only `0<c<12599/20000` remains for
 intervals/asymptotics. L34 factors `F₁` through a quadratic whose exact vertex is
 `p*=(g²−4c²)/(2g²(1−2c²g))`; near zero use `p=p*+c⁴x`, not axis-aligned `(c,p)` boxes.
-L35 now exactly closes both endpoints on the singular tube `0<c≤1/20`, `|x|≤4`, using
+L35 now exactly closes both endpoints on the singular tube `0<c≤1/20`, `|x|≤8`, using
 rational theta tails and regenerated coefficient domination. Only the complement remains.
 L36 now directed-interval certifies both endpoints on the whole discriminant branch for
 `1/12≤c≤12599/20000`; L33 closes the range above. Hence only `0<c<1/12` remains, with
@@ -162,7 +162,7 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
 1. **Prove L31/L32's low-nome square inequality**: certify
    `rF₁F₂−g²D²≥0` from (13z)–(13ad) for `0<c<12599/20000`, only on `A>0, |B|<2A`, at
    `r=L(p),U(p)`. L36/L33 leave only `0<c<1/12`; L35 closes
-   `c≤1/20`, `|p−p*|≤4c⁴`. Use multiscale coordinates to certify the complement. This closes
+   `c≤1/20`, `|p−p*|≤8c⁴`. Use multiscale coordinates to certify the complement. This closes
    the generic rank-one/full face. Then
    attack L27's rank-one/rank-one face. Do not repeat the already-proved one-block, lower-odd,
    or concave-sign estimates.
