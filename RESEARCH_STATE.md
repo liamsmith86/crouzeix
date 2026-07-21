@@ -1,6 +1,6 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-21 (Epoch 6 — odd discriminant factored to a square)
+**Last updated:** 2026-07-21 (Epoch 6 — odd square localized to the low-nome range)
 
 ## NEWEST (2026-07-21, Epoch 6) — L20 reduced to an explicit trace-cone inequality
 - **L21 PROVED (dimension-independent):** for every strictly stable matrix `T`, the least
@@ -69,6 +69,13 @@
   It turns L29 into the sharp distortion inequality
   `|Qr−S|≤4g(1−c²)sqrt(rp(1−d²))`. The numerator is concave in `r`, so only the two
   cubic-envelope endpoints remain. The small-nome ridge is still the live analytic obstruction.
+- **L32/L33 sharpen and localize the certificate.** A second exact factorization writes the
+  discriminant as `4[rF₁F₂−g²D²]`, with
+  `D=(r−p)−c²(1−pr)+λ(1−r)`; direct endpoint formulas for `p−r` avoid catastrophic
+  cancellation. Separately, if `cℓ≥1`, convexity of the full nodal rectangle plus an exact
+  opposite-sign vertex factorization proves every upper block is ≤2. L26's product bound gives
+  `cℓ≥1` for `c≥13/20`. Thus L29's live square certificate is restricted to
+  `0<c<13/20`, with the cancellation-free form preferred for intervals.
 
 ## Previous Epoch-6 milestone — EL4 PROVED
 - **EL4 is now an analytic theorem**, not a grid conjecture. New L17: `SG ≥ 0` on the real
@@ -178,9 +185,9 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   (resid 1e-4–1e-3).** Next: close sym4 analytically = first new Crouzeix class in campaign.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-21)
-1. **Prove L31's square distortion bound.** Use equations (13q)–(13t) in
+1. **Prove L31/L32's low-nome square distortion bound.** Use equations (13q)–(13ad) in
    `proof/slice_odd_block_reduction.md`: certify
-   `|Qr−S|≤4g(1−c²)sqrt(rp(1−d²))` only where `A>0, |B|<2A`, at `r=L(p),U(p)`.
+   `rF₁F₂−g²D²≥0` for `0<c<13/20`, only where `A>0, |B|<2A`, at `r=L(p),U(p)`.
    Isolate the small-nome ridge (`p=1/2+3c²/2+…`) analytically and use intervals only on the
    compact remainder. This closes the generic rank-one/full face. Then return to L27's
    rank-one/rank-one coupled face.

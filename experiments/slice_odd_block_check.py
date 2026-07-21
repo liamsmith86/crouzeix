@@ -44,6 +44,20 @@ def audit_discriminant_factorization() -> None:
     if sp.factor(discriminant - square_form) != 0:
         raise AssertionError("the exact L31 discriminant factorization failed")
 
+    k_from_g = c * g**2
+    lambda_value = d * (k_from_g * p + 4 * c) / (2 * g)
+    a_value = 1 + c**2 * p - lambda_value
+    b_value = c**2 + p - lambda_value
+    f1 = -4 * c**2 * d + 2 * c * g * (p + 1) - d * g**2 * p
+    f2 = c**2 * d * g**2 * p - 2 * c * g * (p + 1) + 4 * d
+    e_value = p * (1 - c**2) ** 2 * (1 - d**2) - a_value * b_value
+    if sp.factor(e_value - f1 * f2 / (4 * g**2)) != 0:
+        raise AssertionError("the exact auxiliary-discriminant factorization failed")
+    d_small = (r - p) - c**2 * (1 - p * r) + lambda_value * (1 - r)
+    reduced_square = 4 * (r * f1 * f2 - g**2 * d_small**2)
+    if sp.factor(c**2 * (1 + r) ** 2 * discriminant - reduced_square) != 0:
+        raise AssertionError("the exact cancellation-free square form failed")
+
     k = sp.symbols("k", real=True)
     d_value = k * (1 - p**2) / (1 - k**2 * p**2)
     positive_factor = (1 - k**2) * (1 - k**2 * p**4) / (
@@ -51,6 +65,24 @@ def audit_discriminant_factorization() -> None:
     ) ** 2
     if sp.factor(1 - d_value**2 - positive_factor) != 0:
         raise AssertionError("the exact 1-d^2 factorization failed")
+
+
+def audit_high_nome_factorization() -> None:
+    """Verify the opposite-sign rectangle factorization in (13w)."""
+    c, ell, p, r = sp.symbols("c ell p r", positive=True)
+    h = 4 / ell**2
+    k = c * h
+    q1 = sp.sqrt(k)
+    q2 = -sp.sqrt(k) * p
+    numerator = determinant_numerator(c, r, q1, q2)
+    f_minus = ell * (c**2 * (1 + p * r) + p + r) - (
+        c * (1 + r) * (ell**2 + p)
+    )
+    f_plus = ell * (c**2 * (1 + p * r) + p + r) + (
+        c * (1 + r) * (ell**2 + p)
+    )
+    if sp.factor(numerator + 16 * c * f_minus * f_plus / ell**4) != 0:
+        raise AssertionError("the exact high-nome vertex factorization failed")
 
 
 def inverse_ellipse_map(p: float, modulus: float) -> float:
@@ -119,6 +151,7 @@ def direct_block(
 
 def audit(seed: int = 20260721, count: int = 20_000) -> None:
     audit_discriminant_factorization()
+    audit_high_nome_factorization()
     generator = np.random.default_rng(seed)
     largest_upper = (0.0, None)
     largest_lower = (0.0, None)
@@ -363,6 +396,8 @@ def audit(seed: int = 20260721, count: int = 20_000) -> None:
         raise AssertionError("the final branched discriminant failed numerically")
 
     print("discriminant square factorization: exact")
+    print("cancellation-free square factorization: exact")
+    print("high-nome opposite-vertex factorization: exact")
     print(f"random cases: {count}")
     print(f"largest upper odd block: {largest_upper}")
     print(f"largest lower odd block: {largest_lower}")

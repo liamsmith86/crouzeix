@@ -90,6 +90,13 @@ the primary certificate target. Equations (13m)–(13p) contain the exact coeffi
 The expression is concave in `r`, so endpoint reduction is automatic. The exact audit is in
 `experiments/slice_odd_block_check.py`.
 
+**L32/L33 remove cancellation and the high-nome range.** With
+`λ=d(kp+4c)/(2g)` and `D=(r−p)−c²(1−pr)+λ(1−r)`, exact factorization gives
+`c²(1+r)²(4AC−B²)=4[rF₁F₂−g²D²]`; evaluate `p−r` from its endpoint formula rather
+than subtracting. If `cℓ≥1`, convexity reduces the entire nodal rectangle to four vertices and
+an exact opposite-sign determinant factor proves all of them norm≤2. The existing L26 product
+certificate gives `cℓ≥1` for `c≥13/20`. Only `0<c<13/20` remains for intervals/asymptotics.
+
 ## Strongest proved lemmas
 P1 (K²+ρ ≤ Kq), L13 (Clark-type transition ⟨q(A)x₀,u₀⟩ = K∫q·conj(f₀)dμ), L14 + collapse theorem
 (sym3: v = α², ρ = (α²/2)(g₀(e)−g₀(0))), **Landen theorem** (sym3 ρ = 1 − π/(2K(k₁))),
@@ -145,8 +152,8 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
 ## Next five concrete actions (refreshed 2026-07-21, Epoch 6)
-1. **Prove L31's square distortion inequality**: certify
-   `|Qr−S|≤4g(1−c²)sqrt(rp(1−d²))` from (13q)–(13t), only on `A>0, |B|<2A`, at
+1. **Prove L31/L32's low-nome square inequality**: certify
+   `rF₁F₂−g²D²≥0` from (13z)–(13ad) for `0<c<13/20`, only on `A>0, |B|<2A`, at
    `r=L(p),U(p)`. Isolate the small-nome ridge `p=1/2+3c²/2+…` analytically and
    interval-certify the compact remainder. This closes the generic rank-one/full face. Then
    attack L27's rank-one/rank-one face. Do not repeat the already-proved one-block, lower-odd,

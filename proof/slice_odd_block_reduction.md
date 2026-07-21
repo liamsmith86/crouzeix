@@ -312,6 +312,107 @@ which recovers the endpoint reduction without differentiating (13j).  The
 only remaining content of the rank-one/full face is therefore (13t) at
 those two cubic endpoints, restricted to the interior-vertex branch (13o).
 
+There is no remaining inequality in the high-nome regime.  Recall
+\(\ell=2/g\).  If
+
+\[
+ c\ell\ge1, \tag{13u}
+\]
+
+then the entire rectangle \(|q_1|\le\tau_1\),
+\(|q_2|\le\tau_2\) maps into the norm-two ball.  By convexity it is enough
+to check its four vertices.  The equal-sign vertices are \(\pm B\), already
+closed by L26.  At an opposite-sign vertex the reciprocal block is, up to
+global sign,
+
+\[
+ {\sqrt h\over1+r}
+ \begin{pmatrix}
+  \sqrt r(1-p)&(r+p)/c\\
+  c(1+rp)&\sqrt r(1-p)
+ \end{pmatrix}. \tag{13v}
+\]
+
+Its determinant numerator (12) factors as
+
+\[
+ -{16c\over\ell^4}F_-F_+, \tag{13w}
+\]
+
+where
+
+\[
+ F_\pm=\ell[c^2(1+pr)+p+r]
+ \mathbin{\pm}c(1+r)(\ell^2+p). \tag{13x}
+\]
+
+Clearly \(F_+>0\).  Regard \(F_-\) as a concave quadratic in \(\ell\).
+At \(\ell=1/c\),
+
+\[
+ F_-=-{(c^2-1)(p-1)\over c}\le0,
+\]
+
+and its derivative there is
+
+\[
+ c^2(1+pr)+p-r-2
+ \le (p-1)(1+r)\le0.
+\]
+
+The derivative decreases thereafter, so (13u) implies \(F_-\le0\), and
+(13w) is nonnegative.  As before \(|\det M|=hp<4\), and the reciprocal-
+quadratic orientation identity propagates the vertex bound to all
+orientations.  Therefore L29 is already proved whenever \(c\ell\ge1\).
+The exact two-factor estimate from L26 gives this for
+\(13/20\le c<1\); the square target (13t) need only be certified on
+
+\[
+ 0<c<13/20. \tag{13y}
+\]
+
+For a finite certificate, (13r) has a second cancellation-free form.  Put
+
+\[
+ \lambda={d(kp+4c)\over2g},\qquad
+ a=1+c^2p-\lambda,\qquad b=c^2+p-\lambda. \tag{13z}
+\]
+
+Thus \(Q=2ga\) and \(S=-2gb\).  Define
+
+\[
+ \begin{aligned}
+ F_1&=-4c^2d+2cg(p+1)-dg^2p,\\
+ F_2&=c^2dg^2p-2cg(p+1)+4d.
+ \end{aligned} \tag{13aa}
+\]
+
+Direct factorization gives
+
+\[
+ p(1-c^2)^2(1-d^2)-ab={F_1F_2\over4g^2}. \tag{13ab}
+\]
+
+Consequently (13r) is equivalently
+
+\[
+ \boxed{
+ c^2(1+r)^2(4AC-B^2)
+ =4\{rF_1F_2-g^2D^2\},} \tag{13ac}
+\]
+
+where
+
+\[
+ D=ar-b=(r-p)-c^2(1-pr)+\lambda(1-r). \tag{13ad}
+\]
+
+At an envelope endpoint, evaluate \(p-r\) directly rather than subtracting:
+it is \((1-s_0)p(1-p^2)\) for \(U\), and
+\(p[1-s_0-a_3p^2]\) for \(L\).  Formula (13ac) exposes the two small
+quantities separately and avoids the subtraction of two order-one squares
+in (13r); it is the preferred interval-certificate form.
+
 The **lower odd block is already proved**.  For fixed modal parameters its
 matrix is linear in \((q_1,q_2)\), and the operator norm is convex.  Since
 \(|q_i|\le\tau_i\), it is enough to check the four vertices of the rectangle
@@ -424,9 +525,10 @@ than expect a uniform positive margin.
 ## 5. Remaining proof debt
 
 1. Prove the square distortion inequality (13t) on its branch (13o), at the
-   two envelope endpoints.  This is exactly the discriminant (13p).  The
-   older equivalent route is \(\mathcal N\ge0\) under (14), but it retains
-   an unnecessary Blaschke parameter.
+   two envelope endpoints, only for \(0<c<13/20\).  This is exactly the
+   discriminant (13p); the high-nome complement is closed by (13u)--(13y).
+   The older equivalent route is \(\mathcal N\ge0\) under (14), but it
+   retains an unnecessary Blaschke parameter.
 2. Treat the rank-one/rank-one coupled face after this rank-one/full sector.
 
 `experiments/slice_odd_block_check.py` audits (5)--(13), the conformal
