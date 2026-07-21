@@ -3,8 +3,11 @@
 ## ★ FINAL STRUCTURE (added later on 2026-07-20): EXACT ζ = z² REDUCTION TO THE 2×2 THEOREM
 1. **Squared-range ellipse theorem (numerically machine-exact, residual ~1e-14, 3/3 matrices):**
    {z²: z ∈ ∂W(A)} is an EXACT ellipse with foci {0, e²} (= eigenvalues of A²), center e²/2.
-   [Prove analytically from the tridiagonal support function; likely related to known
-   Chien–Nakazato/KLS tridiagonal results — CHECK literature before claiming novelty.]
+   NOVELTY CALIBRATION (2026-07-20): this is equivalent to W(A) itself being an ellipse centered
+   at the eigenvalue 0 with foci ±e (elementary computation: square of a centered ellipse), i.e.
+   the sym3 family is a real slice of the Glader–Kurula–Lindström 2018 class (arXiv:1701.01365,
+   Crouzeix proved there, even completely bounded). So sym3-H-r is a NEW PROOF BY NEW MECHANISM
+   of a known theorem — validates the ρ-program; new territory starts at sym4.
 2. f₀ = B∘φ with B(w) = b_{α²}(w²) and φ odd ⟹ in ζ-coordinates f₀ = b_{α²}∘Φ_ζ, Φ_ζ := φ(√ζ)²
    = Riemann map of the ζ-image domain. Blaschke zero at ζ₁ = z₁².
 3. Stationarity v = α² ⟺ **α² = pseudo-hyperbolic midpoint of the eigenvalue images {0, τ²}**

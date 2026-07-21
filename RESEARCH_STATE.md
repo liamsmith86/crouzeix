@@ -35,19 +35,31 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   adversarial min-ρ floors: +2e-4 (n=3), +1.7e-2 (n=4), +1.6e-2 (n=5, weak search); n=6 pending.
   ρ = 0 attained at disk-like configs. Hadamard: pair-response dominates frozen term (heavy route).
 
-## Current next actions (Epoch 4)
-1. n=6 adversarial result (bg job bj2wx10ia); log_Hr_n6_s42.txt.
-2. Semi-closed ρ for the doubly-symmetric 3×3 family (analog of A² = I collapse: use
-   Cayley–Hamilton A³ = c₁A for zero-diag tridiagonal + symmetry) — hunt the n=3 elliptic-type
-   formula and its positivity mechanism. THE main theory push.
-3. Rigor debts: (a) α=0 (2×2) symmetry/uniqueness proof; (b) contact-degeneracy lemma write-up;
-   (c) mpmath independent recheck of one near-tight n=3 extremal; (d) improve general-domain
-   pipeline accuracy (interp error ~1e-4 found by exact-disk cross-check — spline/higher-N).
-4. Read: de Vries PhD thesis (Twente 2025, "C-spectral sets and related estimates") — ρ follow-ups;
-   SV25 PAMS (ρ-contractions).
-5. Pick-geometry formulation: express ρ entirely in terms of (wⱼ, Pick data, Jordan weights);
-   the conjecture becomes a finite-dim inequality per n — target a proof for n = 3.
-6. Keep committing after each task (user instruction).
+## MILESTONES (Epoch 4, 2026-07-20)
+- **sym3 (= GKL 2018 class, real slice) H-r PROVED-by-reduction**: exact ζ = z² transform onto the
+  canonical 2×2 confocal configuration; stationarity = pseudo-hyperbolic-midpoint law; π₀ = 1/2
+  exact; ρ = (α²/2)(g₀(e)−g₀(0)) = 1 − S ≥ 0 via the 2×2 elliptic theorem. NEW MECHANISM,
+  known class (novelty calibrated vs arXiv:1701.01365). proof/sym3_reduction.md is the master note.
+- Rigidity of the inequality: S ≤ 1 FALSE for free odd convex maps (1.019), false on partial-focal
+  synthetic loci (up to 1.24) — full criticality essential; no soft proof exists.
+- L13 Clark-type transition proved; L14 three-factor formula; collapse theorem v = α².
+- **sym4 = FIRST BEYOND-LITERATURE TERRITORY: ρ > 0 confirmed numerically (3 cases); extremal
+  Blaschke is ODD ({0,±α} zeros) ⟹ f₀ = z·F(z²) collapse exists; squared boundary NOT elliptic
+  (resid 1e-4–1e-3).** Next: close sym4 analytically = first new Crouzeix class in campaign.
+
+## Current next actions (Epoch 5)
+1. sym4 collapse: A² block-decomposes on even/odd sublattices (2×2 blocks); derive the K- and
+   ρ-formulas via odd functional calculus f₀(A) = A·F(A²); find stationarity law (midpoint analog
+   for the pair {e₁², e₂²}?); determine the ζ-domain confocal structure (foci of the ζ-Kippenhahn
+   curve); attempt reduction to 2×2-theorem-type elliptic inequality. Handle the C-case sector
+   (imaginary eigenvalue pairs) separately.
+2. n=6 adversarial result (bg job bj2wx10ia; check log_Hr_n6_s42.txt).
+3. Rigor debts (unchanged): 2×2 α=0 step; contact-degeneracy write-up; mpmath independent
+   recheck; ellipse-squared analytic proof (elementary); GKL comparison read (1701.01365).
+4. General-n program: parity-collapse induction for zero-diag tridiagonal families (weighted-shift
+   perturbations = Greenbaum–Overton's hardest empirical configurations!); then de-symmetrization
+   (deformation off the symmetric slice, using the ρ-margin as stability budget).
+5. Keep committing after each task (user instruction).
 
 ## Files map
 proof/: track_A_crouzeix_palencia.md, refined_master_inequality.md, epoch2_extremal_structure.md,
