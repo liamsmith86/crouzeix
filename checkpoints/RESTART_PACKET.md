@@ -65,6 +65,16 @@ Do not try to bound arbitrary defect choices: some are badly conditioned. Exclud
 above four using the sandwich activity and the conformal relations. See
 `proof/slice_coupled_defects.md` and `experiments/slice_coupled_defects.py`.
 
+**L28 reduces the generic rank-one/full face to the odd Blaschke sector.** On its sign-separated
+boundary an orthogonal-colligation identity gives the exact value
+`sup_{a∈[-1,1]} ||B R_a(CB)||²`; this is the upper block of
+`f_a(T)=T(T²−aI)(I−aT²)^{-1}`. The parity-swapped lower block is proved ≤2. For the upper block,
+the reciprocal-quadratic orientation identity leaves one explicit determinant numerator
+`N(c,p,H(p),a)`. Kanas--Sugawa gives the rigorous envelope
+`s₀p+a₃p³≤H(p)≤s₀p+(1−s₀)p³`, and the stronger envelope target passes all searches but is not
+yet proved. Its sharp ridge is `c→0, p→1/2, a∼3c`. See
+`proof/slice_odd_block_reduction.md` and `experiments/slice_odd_block_check.py`.
+
 ## Strongest proved lemmas
 P1 (K²+ρ ≤ Kq), L13 (Clark-type transition ⟨q(A)x₀,u₀⟩ = K∫q·conj(f₀)dμ), L14 + collapse theorem
 (sym3: v = α², ρ = (α²/2)(g₀(e)−g₀(0))), **Landen theorem** (sym3 ρ = 1 − π/(2K(k₁))),
@@ -120,11 +130,11 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
 ## Next five concrete actions (refreshed 2026-07-21, Epoch 6)
-1. **Close the L27 coupled KKT faces analytically**: insert the rank-one defect formula into the
-   metric sandwich KKT conditions and exclude `t>4`, treating rank-one/rank-one and the one-zero
-   boundary separately. Use `tan(v)=r tan(u)` and the exact elliptic relation `r=H(p)`; arbitrary
-   Pick-kernel metrics do not obey the bound. This would close the whole elliptic slice completely
-   bounded. Do not repeat the already-proved one-block norm estimates.
+1. **Prove the L29 upper odd-block determinant**: use equation (12) and envelope (14) of
+   `proof/slice_odd_block_reduction.md`; reduce the quadratic in `r` to its envelope endpoints,
+   isolate the `p=1/2, a∼3c` small-nome square, and interval-certify only the compact remainder.
+   This closes the generic rank-one/full face. Then attack L27's rank-one/rank-one face. Do not
+   repeat the already-proved one-block or lower-odd estimates.
 2. **Shifted degree-one Möbius phase**: derive its stationarity/rho formula and prove positivity
    (or K≤2) independently, both as a fallback and as a guide to the metric.
 3. **Bi-conic Schwarzian route**: compute `SG` for the off-slice collapsed map on its critical
