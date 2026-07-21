@@ -725,7 +725,7 @@ $\|\mathscr R_{a,0}(T)\|\le2$.  The factorization with $B,C$ swapped proves
 the same statement when $a=0$.  Thus both full coordinate axes of (RT) are
 closed, not merely their common center.
 
-### 6.4 A sharper nome bound and the high half of the zero-node face
+### 6.4 A sharper nome bound and the complete zero-node face
 
 The block-energy ridge has a second boundary mechanism which is invisible in
 the estimate used in L23.  Jacobi's product gives, with $q=c^2$,
@@ -788,12 +788,42 @@ exactly zero).  Consequently
  \boxed{\text{(BE), hence (RT), holds when }p=0,\ c\ge1/2.} \tag{56}
 \]
 
-For $c\le1/2$, inserting (52) in (55) exposes the exact sharp ridge
-$b=1$, $a=2c$.  The resulting scalar polynomial is numerically nonnegative,
-but its curved zero set defeats an uncentered Bernstein box; it is not yet a
-certificate.  This is the correct blow-up coordinate for the remaining
-small-$c$, small-$p$ analysis.  In particular, the sharp boundary is not
-confined to $a=b=0$.
+For $c\le1/2$, put $x=2c$ and insert (52), now
+$k\le2x/(1+x^2)$, in (55).  Clearing the positive denominator produces a
+degree $(4,4,4)$ polynomial $P(x,a,b)$.  Its nonnegativity on the unit cube
+has the following finite exact Bernstein cover:
+
+* on $b\ge15/16$, split at the exact ridge $a=x$ and use
+  $a=xy$ below it and $a=x+(1-x)y$ above it;
+* on $b\le15/16$, use the compact boxes $x\ge1/16$ and, when
+  $x\le1/16$, first $1/16\le b\le15/16$, then
+  $b\le1/16$, $a\ge1/16$;
+* in the remaining cube $x,a,b\le1/16$, choose a largest coordinate $t$
+  and use one of
+  \[
+   (x,a,b)={1\over16}(t,ty,tz),\quad
+   {1\over16}(ty,t,tz),\quad
+   {1\over16}(ty,tz,t),
+  \]
+  after dividing the transformed polynomial by its exact common factor
+  $t^2$.
+
+All chart maps have rational coefficients.  The two ridge charts, the
+$a\ge1/16$ chart, and the three origin charts are nonnegative without
+subdivision; the compact $x\ge1/16$ chart needs eight exact dyadic
+bisections and the intermediate $b$ chart needs one.  Thus the cover is
+finite and uses no floating-point
+sign decisions.  It includes the curved zero set $b=1$, $a=x$ and closes the
+degenerate origin by continuity.  The same checker regenerates every
+coefficient.  Combining the two halves gives
+
+\[
+ \boxed{\text{(BE), hence (RT), holds when }p=0,\quad0<c<1.} \tag{57}
+\]
+
+The ridge $b=1$, $a=2c$ remains the correct centered coordinate for a
+neighbourhood with small positive $p$; the sharp boundary is not confined to
+$a=b=0$.
 
 ## 7. Remaining target
 
@@ -809,9 +839,9 @@ all scalar-automorphism boundary values.  A proof must retain the
 Blaschke--Potapov structure (21) while using (23).  The preferred targets are
 either the polynomial Schur complement (27) or the stronger four-block energy
 inequality (BE).  L47--L48 remove the complete axes $a=0$ and $b=0$;
-L49--L50 add the sharper small-nome estimate and close the high half of the
-$p=0$ face.  The live transfer square is genuinely two-parameter with
-$ab\ne0$, and its singular chart must retain
+L49--L50 add the sharper small-nome estimate and close the complete $p=0$
+face.  The live transfer square is genuinely two-parameter with
+$abp\ne0$, and a neighbourhood of its singular boundary must retain
 $b\to1$, $a-2c\to0$, $p\to0$.  Proving
 (RT) completes the elliptic \(4\times4\) slice; it does not by itself settle the
 general conjecture.
