@@ -1,6 +1,6 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-21 (Epoch 6 — both modal-block theorems proved)
+**Last updated:** 2026-07-21 (Epoch 6 — coupled KKT faces parameterized)
 
 ## NEWEST (2026-07-21, Epoch 6) — L20 reduced to an explicit trace-cone inequality
 - **L21 PROVED (dimension-independent):** for every strictly stable matrix `T`, the least
@@ -38,6 +38,15 @@
 - Both block norms ≤2 close every one-block dual phase, but do not handle the observed coupled
   phases where `t*>max(||B||²,||C||²)`. The trace route's sole slice obstruction is now genuinely
   coupled.
+- **L27 eliminates the coupled contraction LMIs exactly.** If `Q_o,Q_e≥0` are their Stein
+  defects and `K_ij=(1−τ_i²τ_j²)^{-1}`, then every modal contraction metric is
+  `H_o=K∘(Q_o+cΣQ_eΣ)`, `H_e=K∘(Q_e+c^{-1}ΣQ_oΣ)`. Complementary slackness gives
+  `rank Z_i+rank Q_i≤2`. Since both dual blocks cannot be full and one-block phases are already
+  closed, any hypothetical KKT optimum above four lies on a rank-one/rank-one or rank-one/full
+  coupled face. Hence `Q_o=aa^T`, `Q_e=bb^T` (one vector may vanish), leaving two directions and
+  one relative scale. This is an exact reduction, not a numerical rank guess. Arbitrary choices
+  of these defects can be badly conditioned; the live task is to exclude an *optimal KKT point*
+  above four using `tan(v)=r tan(u)` and `r=H(p)`. `proof/slice_coupled_defects.md`.
 
 ## Previous Epoch-6 milestone — EL4 PROVED
 - **EL4 is now an analytic theorem**, not a grid conjecture. New L17: `SG ≥ 0` on the real
@@ -147,12 +156,11 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   (resid 1e-4–1e-3).** Next: close sym4 analytically = first new Crouzeix class in campaign.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-21)
-1. **Prove the explicit L20' trace inequality** from `proof/slice_similarity_duality.md`:
-   characterize the extreme parity-block dual pairs `Z_o,Z_e≥0` (numerically low-rank/boundary),
-   then prove `tr D_-≤4 tr D_+` using `tan v=r tan u` and the coupled Jacobi-`sn` nodes. This is
-   now preferable to guessing a closed-form primal metric. L24/L26 already close the one-block
-   rays, so start with the both-rank-one and rank-one/full coupled dual phases rather than
-   repeating a modal norm estimate.
+1. **Close the explicit L27 coupled faces.** Use the rank-one defect formula in
+   `proof/slice_coupled_defects.md` and the sandwich KKT conditions to exclude a minimizer with
+   `t>4`. Split rank-one/rank-one from the one-zero (rank-one/full-dual) boundary, and exploit
+   `tan v=r tan u`, `r=H(p)` rather than bounding arbitrary Pick-kernel metrics. L24/L26 already
+   close one-block dual rays; do not repeat modal norm estimates.
 2. **Shifted Möbius phase**: derive its exact stationarity/rho formula (Kenan-Li quartic analog)
    and prove rho≥0 or K≤2. Definite parity is false.
 3. **Bi-conic Schwarzian test**: compute `SG` for the off-slice collapsed map on the critical
@@ -187,7 +195,8 @@ experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_
   slice_cb_sdp.py (requires cvxpy; exploratory similarity SDP),
   slice_similarity_duality.py (exact modal reconstruction + primal/dual regression + grid),
   slice_boundary_check.py (L23–L26 stress regression),
-  slice_upper_block_certificate.py (exact factorization + finite scalar certificate for L26).
+  slice_upper_block_certificate.py (exact factorization + finite scalar certificate for L26),
+  slice_coupled_defects.py (L27 reconstruction and KKT rank regression).
 Data: sym3_sweep_s51.jsonl (40 rec), sym4_sweep_s61.jsonl (20 rec, ρ column trustworthy).
 Ledgers: LEMMA_LEDGER.md, APPROACH_LEDGER.md (pitfalls P1–P7 — READ BEFORE ANY SEARCH),
 LITERATURE_LEDGER.md, COUNTEREXAMPLE_SEARCH.md. Audit: chatgpt/FABLE_RESEARCH_AUDIT.md

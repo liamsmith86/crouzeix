@@ -222,7 +222,9 @@ Those failures show that the remaining result is not a one-line Lyapunov estimat
 Subsequent exact progress is in `proof/slice_boundary_theorems.md` and
 `proof/slice_upper_block_theorem.md`: the full bound is proved on the sharp (c\to0)
 weighted-shift face, both modal blocks satisfy (\|B\|,\|C\|\le2) everywhere, and the focus node
-obeys (k/c\le4/(1+c^2)^2).  Genuinely coupled dual phases remain.
+obeys (k/c\le4/(1+c^2)^2).  `proof/slice_coupled_defects.md` then eliminates the two
+contraction LMIs by a two-node Stein-kernel formula and reduces any hypothetical optimum above
+four to rank-one/rank-one or rank-one/full coupled KKT faces.
 
 The live analytic target is now the explicit cone inequality
 

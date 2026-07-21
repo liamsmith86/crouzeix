@@ -54,6 +54,17 @@ inequalities are certified by exact rational bounds plus 13,500 outward-rounded 
 interval boxes (`experiments/slice_upper_block_certificate.py`). Thus all one-block dual phases
 are closed; genuinely coupled witnesses remain.
 
+**L27 now parameterizes the coupled obstruction exactly:** with modal Stein defects `Q_o,Q_e≥0`,
+every contraction metric is
+`H_o=K∘(Q_o+cΣQ_eΣ)`, `H_e=K∘(Q_e+c^{-1}ΣQ_oΣ)`, where
+`K_ij=(1−τ_i²τ_j²)^{-1}`. Complementary slackness gives
+`rank Z_i+rank Q_i≤2`. Because both dual blocks cannot be full and the one-block faces are
+already closed, a hypothetical KKT optimum above four must have
+`Q_o=aa^T`, `Q_e=bb^T`, allowing one vector to vanish. This leaves three projective parameters.
+Do not try to bound arbitrary defect choices: some are badly conditioned. Exclude a KKT minimizer
+above four using the sandwich activity and the conformal relations. See
+`proof/slice_coupled_defects.md` and `experiments/slice_coupled_defects.py`.
+
 ## Strongest proved lemmas
 P1 (K²+ρ ≤ Kq), L13 (Clark-type transition ⟨q(A)x₀,u₀⟩ = K∫q·conj(f₀)dμ), L14 + collapse theorem
 (sym3: v = α², ρ = (α²/2)(g₀(e)−g₀(0))), **Landen theorem** (sym3 ρ = 1 − π/(2K(k₁))),
@@ -109,11 +120,11 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
 ## Next five concrete actions (refreshed 2026-07-21, Epoch 6)
-1. **Prove L20' analytically**: use L21/L22 to characterize extreme parity-block dual pairs
-   `Z_o,Z_e≥0` and prove `tr(Z−TZT*)_-≤4 tr(Z−TZT*)_+` from the explicit relations
-   `tan(v)=r tan(u)` and the coupled elliptic nodes. This would close the whole elliptic slice
-   completely bounded. Both modal norms are already proved by L24/L26; attack the genuinely
-   coupled rank-one/rank-one and rank-one/full dual phases, not another one-block estimate.
+1. **Close the L27 coupled KKT faces analytically**: insert the rank-one defect formula into the
+   metric sandwich KKT conditions and exclude `t>4`, treating rank-one/rank-one and the one-zero
+   boundary separately. Use `tan(v)=r tan(u)` and the exact elliptic relation `r=H(p)`; arbitrary
+   Pick-kernel metrics do not obey the bound. This would close the whole elliptic slice completely
+   bounded. Do not repeat the already-proved one-block norm estimates.
 2. **Shifted degree-one Möbius phase**: derive its stationarity/rho formula and prove positivity
    (or K≤2) independently, both as a fallback and as a guide to the metric.
 3. **Bi-conic Schwarzian route**: compute `SG` for the off-slice collapsed map on its critical
