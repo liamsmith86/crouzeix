@@ -39,6 +39,24 @@ Re⟨P₀x₀,x₀⟩ = Re[1 − ⟨A²x₀,x₀⟩/e²] = Re∫(1−z²/e²)dμ
 - Degenerate corner α → 0 (double zero, Crabb-like): use confluent formulas (g₀ = −1/α² + 2r₁/z₁
   is a difference of large terms — numerically fragile; derive the limit separately).
 
+## COLLAPSE THEOREM (sym3; numerically airtight 40/40, algebra partially proved, 2026-07-20)
+At the extremal: **v = α²** (α-stationarity in closed form: α² = (1−√(1−τ⁴))/τ²; verified to 1e-6
+against pipeline α for the test case, and equivalent to π₀ = 1/2 which held EXACTLY in all sweep
+records; algebraic equivalence π₀ = 1/2 ⟺ v = α² PROVED via tan2θ computation).
+Consequences:
+- m = 2α²; **M = α²·[[−1, −2√(κ²−1)],[0, 1]]** — f₀(A) is a scaled canonical 2×2 Jordan-family
+  matrix with parameter h = √(κ²−1). DIMENSIONAL SELF-SIMILARITY: the n=3 extremal operator is a
+  dilated n=2 configuration. (Induction-on-n hypothesis: level-n extremal f₀(A) always collapses
+  to a scaled level-(n−1) object?)
+- K = α²(κ + √(κ²−1))  [verified: 1.8672656 vs pipeline 1.867263].
+- π₀ = 1/2 exactly ⟹ **ρ = (α²/2)(g₀(e) − g₀(0))**.
+- **H-r(sym3) ⟺ g₀(e) ≥ g₀(0)** — monotonicity of the conjugate transform between eigenvalues.
+  Sweep: holds in 40/40 (margins +0.0000…+0.107; degenerate α→0 corner needs confluent treatment).
+- TODO-proof debts: (a) derive v = α² from dK/dα = 0 directly (should be elementary algebra with
+  dv/dα); (b) g-monotonicity proof (THE remaining content of H-r for this family); (c) confluent
+  α→0 corner; (d) K ≤ 2 for sym3 ⟺ α²(κ+√(κ²−1)) ≤ 2 under the criticality constraint — check
+  against Crouzeix-known cases.
+
 ## Next
 1. α-stationarity dK/dα = 0 explicitly (one real equation) → eliminate α.
 2. Express the criticality constraint: for the family, parameterize W(A) (Kippenhahn) and get
