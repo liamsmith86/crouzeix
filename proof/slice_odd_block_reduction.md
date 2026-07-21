@@ -458,6 +458,80 @@ than axis-aligned boxes in \((c,p)\).  The identities (13af)--(13ag) are
 exactly audited in `experiments/slice_odd_block_check.py`; no sign claim
 about \(H\) is being assumed here.
 
+The exact centered coordinate also makes the singular endpoint corner
+finite.  Let \(\operatorname{Num}_U\) and \(\operatorname{Num}_L\) denote
+the positive-denominator numerators of
+
+\[
+ rF_1F_2-g^2D^2
+\]
+
+at the upper and lower cubic envelopes.  Put
+
+\[
+ D_0=2g^2(1-2c^2g),\qquad p=p_*+c^4x. \tag{13ah}
+\]
+
+**Tiny-edge theorem.**  If \(0<c\le1/50\) and \(|x|\le4\), then
+
+\[
+ \operatorname{Num}_U>0,\qquad \operatorname{Num}_L>0. \tag{13ai}
+\]
+
+Here is the finite exact certificate.  The theta series and geometric
+tails give
+
+\[
+ \begin{aligned}
+ g={}&2-4c^2+10c^4-20c^6+36c^8-64c^{10}+c^{12}P,
+       &|P|\le120,\\
+ s_0={}&1-4c^2+12c^4-32c^6+76c^8-168c^{10}+c^{12}Q,
+       &|Q|\le370.
+ \end{aligned} \tag{13aj}
+\]
+
+Exact polynomial expansion, after clearing \(D_0^{12}\), gives
+
+\[
+ D_0^{12}\operatorname{Num}_U
+ =c^{10}\{K_U(2x^2+4x+3)+R_U\},
+ \quad K_U=9{,}895{,}604{,}649{,}984. \tag{13ak}
+\]
+
+Absolute coefficient domination over (13aj) proves
+
+\[
+ |R_U|<0.9K_U\quad(|x|\le2),\qquad
+ |R_U|<2.5K_U\quad(|x|\le4). \tag{13al}
+\]
+
+The leading quadratic is \(2(x+1)^2+1\).  It is at least \(K_U\) on
+\([-2,2]\), at least \(3K_U\) on \([-4,-2]\), and at least \(19K_U\)
+on \([2,4]\), so (13al) proves the upper assertion.  For the lower
+endpoint, the shorter expansions
+
+\[
+ g=2-4c^2+10c^4-20c^6+c^8E,\quad |E|\le37,
+ \qquad
+ s_0=1-4c^2+12c^4+c^6J,\quad |J|\le33
+\]
+
+give
+
+\[
+ D_0^{12}\operatorname{Num}_L
+ =c^8(K_L+R_L),\quad
+ K_L=316{,}659{,}348{,}799{,}488,\quad |R_L|<0.1K_L. \tag{13am}
+\]
+
+All coefficients, tail bounds, vanishing orders, and remainder sums are
+reconstructed with rational arithmetic by
+`experiments/slice_odd_tiny_edge_certificate.py`; the measured bounds are
+\(0.898511K_U\), \(2.417160K_U\), and \(0.063066K_L\).  The checker also
+verifies that the discarded denominators are positive squares.  Thus this
+is a proof, not a floating-point sweep.  It closes the sharp tube only; the
+rest of the low-nome rectangle remains below.
+
 The **lower odd block is already proved**.  For fixed modal parameters its
 matrix is linear in \((q_1,q_2)\), and the operator norm is convex.  Since
 \(|q_i|\le\tau_i\), it is enough to check the four vertices of the rectangle
@@ -572,8 +646,9 @@ than expect a uniform positive margin.
 1. Prove the square distortion inequality (13t) on its branch (13o), at the
    two envelope endpoints, only for \(0<c<63/100\).  This is exactly the
    discriminant (13p); the high-nome complement is closed by (13u)--(13y).
-   Use the exact centered coordinate \(p=p_*+c^4x\) from (13ag) near
-   \(c=0\), rather than an axis-aligned interval box.
+   The sharp tube \(0<c\le1/50\), \(|(p-p_*)/c^4|\le4\), is closed by
+   (13ah)--(13am).  Interval-certify its complement, using the exact centered
+   coordinate near \(c=0\) rather than an axis-aligned box.
    The older equivalent route is \(\mathcal N\ge0\) under (14), but it
    retains an unnecessary Blaschke parameter.
 2. Treat the rank-one/rank-one coupled face after this rank-one/full sector.

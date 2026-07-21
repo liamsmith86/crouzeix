@@ -80,6 +80,12 @@
   `p*=(g²−4c²)/(2g²(1−2c²g))=1/2+3c²/2+O(c⁶)`. This explains the sharp
   small-nome ridge and supplies the stable coordinate `p=p*+c⁴x`; the identity itself makes
   no unproved sign assumption about its residual theta expression `H`.
+- **L35 rigorously removes the singular core of that ridge.** An exact rational certificate proves
+  both cubic-envelope endpoint residuals are positive for `0<c≤1/50` and
+  `|p−p*|≤4c⁴`. The regenerated upper numerator has leading form
+  `c¹⁰ K[2x²+4x+3]`; the lower has a strictly positive `c⁸` lead. No sampled or saved
+  coefficients are trusted. Remaining L29 domain: the complement of this tube in
+  `0<c<63/100` (subject only to the discriminant branch).
 
 ## Previous Epoch-6 milestone — EL4 PROVED
 - **EL4 is now an analytic theorem**, not a grid conjecture. New L17: `SG ≥ 0` on the real
@@ -192,8 +198,8 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
 1. **Prove L31/L32's low-nome square distortion bound.** Use equations (13q)–(13ad) in
    `proof/slice_odd_block_reduction.md`: certify
    `rF₁F₂−g²D²≥0` for `0<c<63/100`, only where `A>0, |B|<2A`, at `r=L(p),U(p)`.
-   Isolate the small-nome ridge with L34's exact coordinate `p=p*+c⁴x` and use intervals only on the
-   compact remainder. This closes the generic rank-one/full face. Then return to L27's
+   L35 already closes `0<c≤1/50`, `|p−p*|≤4c⁴`; use branch-aware intervals on its complement.
+   This closes the generic rank-one/full face. Then return to L27's
    rank-one/rank-one coupled face.
 2. **Shifted Möbius phase**: derive its exact stationarity/rho formula (Kenan-Li quartic analog)
    and prove rho≥0 or K≤2. Definite parity is false.
