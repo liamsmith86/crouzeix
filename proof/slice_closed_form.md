@@ -80,6 +80,26 @@ with nodes u_j = τ_j². On the slice u₁ = τ₁² = k exactly (focus law).
 - Pipeline→exact consistency: K(inflate→0) ↗ exact-ellipse K (1.811→1.896 vs 1.8987 at
   inflate .02→.0005), same α. Validates slice_exact against the certified pipeline.
 
+## 5b. OFF-SLICE GENERALITY (2026-07-21, late): D2-crit
+The L16 mechanism is domain-independent, and VERIFIED off the elliptic slice:
+- L16(i)-(ii) proofs never used the ellipse: per-block norm is symmetric+even in (B₁,B₂) for
+  ANY complementary 2×2 idempotent frame (κ₁ = κ₂ always), so the midpoint solution is always
+  stationary; q = 1/2 by the involution identity. Any real even deg-2 Blaschke = b_v∘(φ²)
+  (b_β·b_{−β} = b_{β²}(w²)), so the even phase is always deg-1 in the collapsed variable.
+- Bi-conic check (sweep case ws=(1.235,.091,1.931,.035,1.965,.165), K=1.798): true extremal
+  zeros ±0.34525 (deg-3 third zero = boundary junk); midpoint law v_mid = α² to 2.3e-7;
+  b_v(u₁) = −b_v(u₂) to 5e-7; the symmetric critical point IS the global max off-slice too.
+- D2-form ρ = +1.18e-5 (independent Newton-ψ + finite-diff φ′) vs pipeline ρ = +2.13e-5:
+  sign/order agree; exact match precision-limited (1−Θ ~ 1e-5 needs φ′ to 1e-6 relative).
+- DATA BUG FLAG: sym4_sweep_s61.jsonl OTHER-branch records have broken taus (τ₂ = 0 exactly)
+  and inconsistent f0e — do not use those fields for OTHER records; recompute.
+**D2-crit (general even-phase target):** for the even-phase class (any n, active block 2-dim),
+Ω = int W(A) critical (Kippenhahn: nodes = real foci of the boundary-generating curve),
+ρ = 1 − (δ/2)[1/(ζ₁−ζ₀)+1/(ζ₀−ζ₂)]/h'(ζ₀) ≥ 0 for the midpoint-normalized h = b_v∘χ.
+Proved: 2×2 (both nodes at foci), sym3 (Landen; node at focus + center), slice-EL4 verified;
+bi-conic verified (sign/order). FALSE without foci-pinning (§4(vi)). The abstract question
+"why do Kippenhahn-foci nodes make it true" is the distilled deep quest for the even sector.
+
 ## 6. Reduced open targets (ranked)
 1. PROVE EL4 (§4(iv)) — 2-parameter explicit elliptic inequality, tight on both edges
    (U₂→0: Landen theorem, proved; U₂→K: quartic degeneracy). Candidate routes: monotonicity
