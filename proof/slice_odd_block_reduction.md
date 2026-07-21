@@ -1,10 +1,11 @@
 # Sign-separated coupled faces and the odd-Blaschke block
 
-This note identifies the exact scalar theorem hidden in the generic
-rank-one/full KKT face of `slice_coupled_defects.md`.  It does **not** yet
-prove that theorem.  The reduction is useful because it turns a coupled dual
-matrix problem into one explicit odd finite-Blaschke block and then removes
-the orientation parameter.
+This note identifies and proves the exact scalar theorem hidden in the
+generic rank-one/full KKT face of `slice_coupled_defects.md`.  It turns the
+coupled dual matrix problem into one explicit odd finite-Blaschke block,
+removes the orientation and Blaschke parameters, and certifies the remaining
+two-variable endpoint inequalities.  It does **not** close the separate
+rank-one/rank-one face or prove L20.
 
 ## 1. A rank-one boundary is an orthogonal colligation
 
@@ -34,7 +35,7 @@ matrix.  Writing one of its entries as \(a\in[-1,1]\), and eliminating the
 other entry, gives
 
 \[
- u={F-aI\over\sqrt{1-a^2}}x,qquad
+ u={F-aI\over\sqrt{1-a^2}}x,\qquad
  y={aC-B^{-1}\over\sqrt{1-a^2}}x. \tag{3}
 \]
 
@@ -58,8 +59,8 @@ At a generic rank-one/full KKT point the smallest and largest eigenvalues of
 the primal metric are simple.  Since the dual stationarity matrix is block
 diagonal and has one positive and one negative eigenvalue, they lie in
 opposite parity blocks, giving precisely (1), up to swapping parity.  Multiple
-sandwich eigenvalues are limiting cases.  Thus the theorem below would close
-the generic rank-one/full face and its closure.
+sandwich eigenvalues are limiting cases.  Thus the theorem proved below
+closes the generic rank-one/full face and its closure.
 
 ## 2. The quotient is an odd finite-Blaschke block
 
@@ -99,9 +100,9 @@ rank-one/full target is the concrete scalar-looking inequality
 \]
 
 The swapped face gives the analogous lower block \(C R_a(BC)\).  The lower
-block can in fact be closed immediately (the proof is in §3); only the upper
-inequality (OB) remains.  In conceptual terms, (OB) is the complete norm-two
-theorem for the odd two-node Pick sector.
+block is closed directly later in this section, and the upper inequality
+(OB) is proved by (13at)--(13bg).  In conceptual terms, (OB) is the complete
+norm-two theorem for the odd two-node Pick sector.
 
 ## 3. The orientation variable disappears exactly
 
@@ -210,7 +211,7 @@ value at the inner squared node,
 The automorphism addition law then removes both rational denominators:
 
 \[
- q_2=\sqrt k\,p t,qquad
+ q_2=\sqrt k\,p t,\qquad
  q_1=\sqrt k\,{t+d\over1+dt}. \tag{13f}
 \]
 
@@ -552,8 +553,8 @@ reconstructed with rational arithmetic by
 bounds are \(0.085844K_U\) and \(0.741649K_U\), while the lower remainder
 is \(0.843779K_L\).  The checker also
 verifies that the discarded denominators are positive squares.  Thus this
-is a proof, not a floating-point sweep.  It closes the sharp tube only; the
-rest of the low-nome rectangle remains below.
+is a proof, not a floating-point sweep.  This first certificate closes the
+sharp core; the deeper centered completion below closes its complement.
 
 The compact part away from the singular nome is also finite.
 
@@ -568,16 +569,16 @@ branch (13o),
 
 This is proved by the independently reproducible directed-interval checker
 `experiments/slice_odd_compact_certificate.py`.  Its finite certificate uses
-second-order Taylor models in two variables.  For (1/12\le c\le1/2), it
-splits the (p)-interval at the exact (p_*) in (13ag) and uses
+second-order Taylor models in two variables.  For \(1/12\le c\le1/2\), it
+splits the \(p\)-interval at the exact \(p_*\) in (13ag) and uses
 
 \[
  p=p_*v,\qquad p=p_*+(1-p_*)v,\qquad 0\le v\le1. \tag{13aq}
 \]
 
 The checker first interval-proves (0\le p_*\le1) on this range, so the two
-charts cover every (p).  For (1/2\le c\le12599/20000), ordinary
-((c,p)) boxes are already well conditioned.
+charts cover every \(p\).  For \(1/2\le c\le12599/20000\), ordinary
+\((c,p)\) boxes are already well conditioned.
 
 No elliptic-function library or sampled modulus is used.  With (n=7), the
 omitted theta tail and its first two derivatives are bounded, for example,
@@ -592,14 +593,17 @@ by
  \end{aligned} \tag{13ar}
 \]
 
-with analogous bounds for (R=\sum c^{2j(j+1)}).  Every binary64
+with analogous bounds for \(R=\sum c^{2j(j+1)}\).  Every binary64
 operation is expanded by one ulp outward.  On each box the resulting Taylor
-intervals enclose (A,2A+B,2A-B), and the residual in (13ap).  A box is
+intervals enclose \(A,2A+B,2A-B\), and the residual in (13ap).  A box is
 accepted only if one branch form has upper endpoint at most zero, or the
 residual has lower endpoint at least zero; otherwise it is bisected.
+The chart value interval is intersected with its separately proved codomain
+\([0,1]\); if a coarse dependency interval straddles a positive denominator,
+the box is bisected rather than accepted.
 
-The completed run has no unresolved boxes.  The ridge charts use 15,203
-bisections (maximum depth 12; 25,756 branch-excluded and 56,647 proved box
+The completed run has no unresolved boxes.  The ridge charts use 15,047
+bisections (maximum depth 12; 25,600 branch-excluded and 56,647 proved box
 evaluations).  The direct charts use 17,594 bisections (maximum depth 11;
 36,160 branch-excluded and 7,434 proved evaluations).  Thus (13ap) is a
 finite enclosure proof.  Combining it with L33 leaves only
@@ -610,6 +614,195 @@ finite enclosure proof.  Combining it with L33 leaves only
 
 Within (13as), L35 already removes the sharp tube
 \(c\le1/20, |p-p_*|\le8c^4\).
+
+The rest of (13as) can now be closed by two complementary exact
+certificates.  First, deeper centered expansions remove the whole singular
+band rather than only its core.
+
+**Centered completion theorem.**  At both cubic-envelope endpoints,
+
+\[
+ \operatorname{Num}_U>0,\quad \operatorname{Num}_L>0
+ \quad\left(0<c\le {1\over20},\quad
+ \left|{p-p_*\over c^2}\right|\le50\right). \tag{13at}
+\]
+
+The same certificate also proves the bridge tube
+
+\[
+ \operatorname{Num}_U>0,\quad \operatorname{Num}_L>0
+ \quad\left(0<c\le {1\over12},\ |p-p_*|\le4c^4\right). \tag{13au}
+\]
+
+For the upper endpoint, use the deeper exact enclosure
+
+\[
+ \begin{aligned}
+ g={}&2-4c^2+10c^4-20c^6+36c^8-64c^{10}
+       +110c^{12}-180c^{14}+c^{16}W,\\
+ s_0={}&1-4c^2+12c^4-32c^6+76c^8-168c^{10}
+       +352c^{12}-704c^{14}+c^{16}Z,
+ \end{aligned}
+ \qquad |W|\le300,\quad |Z|\le1500. \tag{13av}
+\]
+
+For the lower endpoint it is enough to use the shorter bounds
+
+\[
+ g=2-4c^2+10c^4-20c^6+36c^8-64c^{10}+c^{12}P,
+ \quad |P|\le120,
+\]
+\[
+ s_0=1-4c^2+12c^4-32c^6+76c^8+c^{10}N,
+ \quad |N|\le200. \tag{13aw}
+\]
+
+All four remainder bounds hold on the larger interval \(c\le1/12\), by
+the same rational theta tails used above.  With \(p=p_*+c^4x\), exact
+expansion gives
+
+\[
+ D_0^{12}\operatorname{Num}_U=c^{10}\widehat U(c,x,W,Z),
+ \qquad
+ D_0^{12}\operatorname{Num}_L=c^8\widehat L(c,x,N,P). \tag{13ax}
+\]
+
+Tensor-product Bernstein bounds for the parts of \(\widehat U\) through
+\(c^6\), and of \(\widehat L\) through \(c^4\), followed by absolute
+coefficient bounds for the tails, give the following normalized data:
+
+\[
+\begin{array}{c|ccc|c}
+ &\min U_{\le6}/K_U\ (|x|\le2)&
+ \min U_{\le6}/K_U\ (x\le-2)&
+ \min U_{\le6}/K_U\ (x\ge2)&|U_{\ge8}|/K_U\\ \hline
+ c\le1/20,\ |x|\le16&0.81162&2.34015&14.23828&0.19648\\
+ c\le1/12,\ |x|\le4&0.55453&1.48088&8.25522&0.42678/1.16046
+\end{array} \tag{13ay}
+\]
+
+The two tail entries in the second row are for \(|x|\le2\) and
+\(|x|\le4\), respectively.  For the lower endpoint,
+
+\[
+\begin{array}{c|cc}
+ &\min L_{\le4}/K_L&|L_{\ge6}|/K_L\\ \hline
+ c\le1/20,\ |x|\le16&0.76251&0.07344\\
+ c\le1/12,\ |x|\le4&0.53031&0.22142
+\end{array}. \tag{13az}
+\]
+
+Thus the two tubes in (13at)--(13au) are strict.  To finish (13at), put
+\(t=c^2\) and \(y=(p-p_*)/c^2=tx\).  After the same exact substitutions,
+
+\[
+ D_0^{12}\operatorname{Num}_U=c^6Q_U(c,y),\qquad
+ D_0^{12}\operatorname{Num}_L=c^6Q_L(c,y). \tag{13ba}
+\]
+
+On \(16t\le|y|\le50\), coefficient domination gives
+
+\[
+ Q_U=K_U(2y^2+4ty+3t^2)+E_U,\qquad
+ |E_U|<1.474641K_Uy^2. \tag{13bb}
+\]
+
+But \(2y^2+4ty+3t^2=2(y+t)^2+t^2\ge(225/128)y^2\).
+For the lower endpoint the leading coefficient is
+\(A_L=712{,}483{,}534{,}798{,}848\); after discarding one positive
+\(t\)-term,
+
+\[
+ Q_L=A_Ly^2+E_L+(\hbox{positive term}),\qquad
+ |E_L|<0.968283A_Ly^2. \tag{13bc}
+\]
+
+This annulus meets the \(|x|\le16\) tube exactly and proves (13at).
+`experiments/slice_odd_centered_completion_certificate.py` regenerates the
+309,479-term and 565,425-term exact polynomials and checks every number in
+(13av)--(13bc); saved expansion files are not inputs.
+
+It remains to prove that (13at) contains every branch point not handled by
+regular estimates.  The uncentered endpoint numerators have the common
+leading polynomial
+
+\[
+ \operatorname{Num}_U=c^2L_0(p)+O(c^4),\qquad
+ \operatorname{Num}_L=36c^2L_0(p)+O(c^4),
+\]
+\[
+ L_0(p)=64p(p+1)^2(2p-1)^2(3-4p). \tag{13bd}
+\]
+
+The exact regular-region certificate uses four elementary pieces.
+
+1. If \(p<c/4\), substitute \(p=cz\) in the positive-denominator
+   numerator of the branch form \(2A-B\).  After removing \(c^2\), its
+   leading terms are \(24z-12\) and \(144z-72\); the absolute remainders
+   are only \(0.079427\) of their margins at \(z=1/4\).  Hence this strip
+   does not meet the branch (13o).
+2. On \(c/4\le p\le1/4\), \(L_0(p)\ge50p\).  Every higher term, bounded as
+   a multiple of \(p\), is at most \(0.907878\) and \(0.907895\) of that
+   leading lower bound at the upper and lower endpoints.
+3. Put \(h=|2p-1|\).  On \(1/4\le p\le2/3\),
+   \(L_0(p)\ge(25/3)h^2\).  If \(h\ge96c^2\), exact Bernstein bounds on
+   the \(c^4/h\) term and coefficient domination on the \(c^6\) tail give
+   total ratios \(0.675539\) and \(0.674419\).
+4. On \(2/3\le p\le3/4\), put \(q=3/4-p\).  Here
+   \(L_0(p)\ge(12800/243)q\), and the \(c^4\) constant is the helpful
+   \(68943/256\) (36 times this below).  The \(q\)-correction ratios are
+   \(0.709433,0.708693\), while the remaining \(c^2\)-ratios are
+   \(0.095632,0.099831\).  If \(p\ge3/4\), the branch numerator instead
+   starts with
+   \(-42q-105c/16\) and \(-252q-315c/8\), where now \(q=p-3/4\); all
+   potentially positive corrections use less than \(0.0890\) and \(0.695\)
+   of these two margins.  Thus this second boundary strip is also outside
+   (13o).
+
+Finally, the exact identity
+
+\[
+ {p_*-1/2\over c^2}={g^3-2\over g^2(1-2c^2g)} \tag{13be}
+\]
+
+and the rational bounds \(19/10\le g\le2\) imply
+\(1/2\le p_*\le1/2+2c^2\) for \(c\le1/20\).  Therefore the only middle
+points not covered by item 3 have
+
+\[
+ |p-p_*|/c^2<48+2=50,
+\]
+
+and are in (13at).  This proves both endpoint residuals on the entire
+branch for \(0<c\le1/20\).  The exact regenerating checker is
+`experiments/slice_odd_small_edge_certificate.py`.
+
+The last bridge \(1/20\le c\le1/12\) is finite.  Outside (13au), use the
+two exact ridge-complement charts
+
+\[
+ p=(p_*-4c^4)v,\qquad
+ p=p_*+4c^4+(1-p_*-4c^4)v,\qquad 0\le v\le1. \tag{13bf}
+\]
+
+The directed-interval checker first proves that their endpoints lie in
+\([0,1]\), then applies the same second-order Taylor enclosure as L36.
+It closes this bridge with 15,267 bisections (maximum depth 17), 952
+branch-excluded and 17,715 residual-positive box evaluations, and no
+unresolved boxes.  Together with (13au), this proves the endpoint residuals
+through \(c=1/12\).
+
+Combining the small-edge partition, bridge certificate, L36, and L33 covers
+every \(0\le c<1\).  L30--L32 then propagate the endpoint square to every
+Blaschke parameter and orientation.  Consequently
+
+\[
+ \boxed{\|B R_a(CB)\|\le2\quad(-1\le a\le1),} \tag{13bg}
+\]
+
+so **L29 is proved** and the generic rank-one/full KKT face in L28 is
+closed.  This is a theorem for that coupled face of the elliptic \(4\times4\)
+slice, not yet a proof of L20 or of Crouzeix's conjecture.
 
 The **lower odd block is already proved**.  For fixed modal parameters its
 matrix is linear in \((q_1,q_2)\), and the operator norm is convex.  Since
@@ -670,11 +863,13 @@ Since \(H(1)=1\), this yields the two-sided cubic envelope
  \le s_0p+(1-s_0)p^3.} \tag{14}
 \]
 
-Numerical global optimization indicates the stronger algebraic statement
-that (12) is nonnegative for **every** \(r\) in the interval (14), not only
-for \(r=H(p)\).  This survived random and differential-evolution searches;
-it is not yet a certificate.  Proving this envelope version would establish
-(OB) without interval evaluation of an incomplete elliptic integral.
+Before L30, numerical global optimization indicated the stronger raw
+statement that (12) is nonnegative for **every** \(r\) in the interval
+(14), not only for \(r=H(p)\).  That statement survived random and
+differential-evolution searches, but is not separately claimed here.  The
+proved route above first removes the Blaschke parameter and certifies the
+smaller discriminant; it establishes (OB) without evaluating an incomplete
+elliptic integral and makes this stronger raw formulation unnecessary.
 
 For comparison with the original determinant route, as a polynomial in \(r\), write
 \(\mathcal N=A_r r^2+B_r r+C_r\), where
@@ -698,9 +893,11 @@ particularly concrete proof package is now visible:
  \qquad \mathcal N(U(p))\ge0, \tag{14b}
 \]
 
-where \(L,U\) are the two cubics in (14).  The implication and the two
-endpoint inequalities are still unproved; they are lower-dimensional
-algebraic theta inequalities suitable for a finite certificate.
+where \(L,U\) are the two cubics in (14).  This older sufficient package was
+not needed: L30--L32 remove the Blaschke parameter first, and
+(13at)--(13bg) certify the resulting smaller discriminant directly.  The
+standalone implication in (14b) remains unaudited and should not be used as
+an additional theorem.
 
 The small-nome edge explains why the estimate is delicate.  With
 \(a=Ac\),
@@ -722,16 +919,12 @@ than expect a uniform positive margin.
 
 ## 5. Remaining proof debt
 
-1. Prove the square distortion inequality (13t) on its branch (13o), at the
-   two envelope endpoints, only for \(0<c<12599/20000\).  This is exactly the
-   discriminant (13p); the high-nome complement is closed by (13u)--(13y).
-   L36 and L33 reduce this to \(0<c<1/12\).  The sharp tube
-   \(0<c\le1/20\), \(|(p-p_*)/c^4|\le8\), is closed by (13ah)--(13ao).
-   Certify its complement, using multiscale coordinates near \(c=0\) rather
-   than an axis-aligned box.
-   The older equivalent route is \(\mathcal N\ge0\) under (14), but it
-   retains an unnecessary Blaschke parameter.
-2. Treat the rank-one/rank-one coupled face after this rank-one/full sector.
+1. Treat L27's rank-one/rank-one coupled face.  The entire rank-one/full
+   sector, including the singular \(c\to0\) ridge, is now closed by L29.
+2. Audit whether the rank-one/rank-one KKT equations have an analogous
+   colligation/Blaschke interpretation, rather than introducing four free
+   defect-direction coordinates prematurely.
 
 `experiments/slice_odd_block_check.py` audits (5)--(13), the conformal
-envelope, and the current numerical status.
+envelope, and the symbolic reductions.  The three certificate scripts cited
+above audit the complete parameter range.

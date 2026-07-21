@@ -71,9 +71,9 @@ boundary an orthogonal-colligation identity gives the exact value
 `f_a(T)=T(T²−aI)(I−aT²)^{-1}`. The parity-swapped lower block is proved ≤2. For the upper block,
 the reciprocal-quadratic orientation identity leaves one explicit determinant numerator
 `N(c,p,H(p),a)`. Kanas--Sugawa gives the rigorous envelope
-`s₀p+a₃p³≤H(p)≤s₀p+(1−s₀)p³`, and the stronger envelope target passes all searches but is not
-yet proved. Its sharp ridge is `c→0, p→1/2, a∼3c`. See
-`proof/slice_odd_block_reduction.md` and `experiments/slice_odd_block_check.py`.
+`s₀p+a₃p³≤H(p)≤s₀p+(1−s₀)p³`. L30–L39 now prove the upper block as well, including the sharp
+ridge `c→0, p→1/2, a∼3c`; hence this entire face is closed. See
+`proof/slice_odd_block_reduction.md` and its three certificate scripts.
 
 **L30 further removes the Blaschke parameter.** The reciprocal upper block has equal diagonal,
 so its norm-two condition is exactly `det(M)+2|M12+M21|≤4`. In the inner-node value coordinate
@@ -98,18 +98,22 @@ an exact opposite-sign determinant factor proves all of them norm≤2. The exist
 five-factor product certificate gives `cℓ≥1` for `c≥12599/20000`. Only `0<c<12599/20000` remains for
 intervals/asymptotics. L34 factors `F₁` through a quadratic whose exact vertex is
 `p*=(g²−4c²)/(2g²(1−2c²g))`; near zero use `p=p*+c⁴x`, not axis-aligned `(c,p)` boxes.
-L35 now exactly closes both endpoints on the singular tube `0<c≤1/20`, `|x|≤8`, using
-rational theta tails and regenerated coefficient domination. Only the complement remains.
-L36 now directed-interval certifies both endpoints on the whole discriminant branch for
-`1/12≤c≤12599/20000`; L33 closes the range above. Hence only `0<c<1/12` remains, with
-the L35 tube already removed.
+**L29 is now proved.** L37 deepens the centered expansion to
+`|(p−p*)/c²|≤50` for `c≤1/20` and supplies `|p−p*|≤4c⁴` through `c=1/12`.
+L38 excludes the two branch boundary strips and exactly covers every regular small-nome point;
+the worst correction ratio is `0.907895`. L39 interval-certifies the bridge complement
+`1/20≤c≤1/12` with 15,267 bisections and no unresolved boxes. L36 covers
+`1/12≤c≤12599/20000`, and L33 covers the range above. Therefore L30–L32 prove the upper odd
+block ≤2 for every parameter. Together with the analytic lower block, the generic rank-one/full
+KKT face is closed; only L27's rank-one/rank-one face remains for L20.
 
 ## Strongest proved lemmas
 P1 (K²+ρ ≤ Kq), L13 (Clark-type transition ⟨q(A)x₀,u₀⟩ = K∫q·conj(f₀)dμ), L14 + collapse theorem
 (sym3: v = α², ρ = (α²/2)(g₀(e)−g₀(0))), **Landen theorem** (sym3 ρ = 1 − π/(2K(k₁))),
 **L15** (level-4 nodal/Pick closed form + odd stationarity law + frame identities),
 **L16** (even-phase midpoint law + q = 1/2, domain-general), ceiling K²+2ρ+G² ≤ 4,
-2×2 closed form; D2 partial results (symmetric-node case, wedge family, convex trace bound).
+**L29** (generic rank-one/full elliptic-slice KKT face), 2×2 closed form; D2 partial results
+(symmetric-node case, wedge family, convex trace bound).
 See LEMMA_LEDGER.md.
 
 ## Failed approaches — do not repeat
@@ -159,13 +163,11 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
 ## Next five concrete actions (refreshed 2026-07-21, Epoch 6)
-1. **Prove L31/L32's low-nome square inequality**: certify
-   `rF₁F₂−g²D²≥0` from (13z)–(13ad) for `0<c<12599/20000`, only on `A>0, |B|<2A`, at
-   `r=L(p),U(p)`. L36/L33 leave only `0<c<1/12`; L35 closes
-   `c≤1/20`, `|p−p*|≤8c⁴`. Use multiscale coordinates to certify the complement. This closes
-   the generic rank-one/full face. Then
-   attack L27's rank-one/rank-one face. Do not repeat the already-proved one-block, lower-odd,
-   or concave-sign estimates.
+1. **Close L27's rank-one/rank-one face.** Derive the exact KKT equations for both defect
+   directions and their relative scale. Search first for an orthogonal-colligation/finite-
+   Blaschke interpretation analogous to L28; do not launch a free four-coordinate certificate
+   before using complementary slackness. This is the only remaining KKT face for L20. Do not
+   repeat the now-proved rank-one/full, one-block, lower-odd, or concave-sign estimates.
 2. **Shifted degree-one Möbius phase**: derive its stationarity/rho formula and prove positivity
    (or K≤2) independently, both as a fallback and as a guide to the metric.
 3. **Bi-conic Schwarzian route**: compute `SG` for the off-slice collapsed map on its critical

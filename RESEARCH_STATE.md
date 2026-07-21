@@ -1,6 +1,6 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-21 (Epoch 6 — odd square localized to the low-nome range)
+**Last updated:** 2026-07-21 (Epoch 6 — rank-one/full KKT face proved)
 
 ## NEWEST (2026-07-21, Epoch 6) — L20 reduced to an explicit trace-cone inequality
 - **L21 PROVED (dimension-independent):** for every strictly stable matrix `T`, the least
@@ -80,18 +80,22 @@
   `p*=(g²−4c²)/(2g²(1−2c²g))=1/2+3c²/2+O(c⁶)`. This explains the sharp
   small-nome ridge and supplies the stable coordinate `p=p*+c⁴x`; the identity itself makes
   no unproved sign assumption about its residual theta expression `H`.
-- **L35 rigorously removes the singular core of that ridge.** An exact rational certificate proves
-  both cubic-envelope endpoint residuals are positive for `0<c≤1/20` and
-  `|p−p*|≤8c⁴`. The regenerated upper numerator has leading form
-  `c¹⁰ K[2x²+4x+3]`; the lower has a strictly positive `c⁸` lead. No sampled or saved
-  coefficients are trusted. Remaining L29 domain: the complement of this tube in
-  `0<c<12599/20000` (subject only to the discriminant branch).
-- **L36 closes the entire compact range `1/12≤c≤12599/20000`.** A directed binary64
-  second-order Taylor certificate covers both cubic endpoints on the discriminant branch, using
-  ridge coordinates below `c=1/2` and direct coordinates above it. Explicit theta-tail bounds
-  include two derivatives; all operations are one-ulp outward rounded; 32,797 total bisections
-  finish with no unresolved boxes. Together with L33, only `0<c<1/12` remains for L29, and
-  L35 already removes its sharp tube `|p−p*|≤8c⁴` through `c=1/20`.
+- **L29 is now PROVED: the generic rank-one/full KKT face is closed.** L35 first certifies the
+  singular core. L37 deepens this to the entire centered band
+  `|(p−p*)/c²|≤50` for `c≤1/20`, and also supplies the bridge tube
+  `|p−p*|≤4c⁴` through `c=1/12`. Its exact checker regenerates 309,479- and
+  565,425-term polynomials, using Bernstein tube bounds and a multiscale annulus estimate.
+- **L38 closes every remaining small-nome branch point.** Exact branch numerators exclude
+  `p<c/4` and `p≥3/4`; coefficient domination handles the boundary regions; exact Bernstein
+  bounds handle the middle whenever `|2p−1|≥96c²`. The identity
+  `(p*−1/2)/c²=(g³−2)/(g²(1−2c²g))` puts the complement inside L37. The worst
+  regular correction ratio is `0.907895<1`.
+- **L36/L39 finish the compact ranges.** L39 uses exact ridge-complement coordinates and
+  outward-rounded Taylor intervals to close `1/20≤c≤1/12` outside L37's tube (15,267
+  bisections, none unresolved). L36 supplies `1/12≤c≤12599/20000` (32,641
+  bisections), and L33 supplies the rest. Thus L30–L32 prove the upper odd block ≤2 for every
+  parameter. The lower odd block was already analytic, so L28's rank-one/full face is done.
+  **Only L27's rank-one/rank-one coupled face remains for the L20 elliptic-slice theorem.**
 
 ## Previous Epoch-6 milestone — EL4 PROVED
 - **EL4 is now an analytic theorem**, not a grid conjecture. New L17: `SG ≥ 0` on the real
@@ -201,13 +205,11 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   (resid 1e-4–1e-3).** Next: close sym4 analytically = first new Crouzeix class in campaign.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-21)
-1. **Prove L31/L32's low-nome square distortion bound.** Use equations (13q)–(13ad) in
-   `proof/slice_odd_block_reduction.md`: certify
-   `rF₁F₂−g²D²≥0` for `0<c<12599/20000`, only where `A>0, |B|<2A`, at `r=L(p),U(p)`.
-   L36/L33 reduce the live range to `0<c<1/12`; L35 closes
-   `0<c≤1/20`, `|p−p*|≤8c⁴`. Use multiscale branch-aware certificates on its complement.
-   This closes the generic rank-one/full face. Then return to L27's
-   rank-one/rank-one coupled face.
+1. **Close L27's rank-one/rank-one coupled face.** First derive its exact KKT equations in the
+   two defect directions and relative scale. Look for the same orthogonal-colligation/finite-
+   Blaschke interpretation that turned rank-one/full into L29; do not optimize four unconstrained
+   defect coordinates before exploiting complementary slackness. Proving this face would prove
+   L20 for the complete elliptic 4×4 slice.
 2. **Shifted Möbius phase**: derive its exact stationarity/rho formula (Kenan-Li quartic analog)
    and prove rho≥0 or K≤2. Definite parity is false.
 3. **Bi-conic Schwarzian test**: compute `SG` for the off-slice collapsed map on the critical

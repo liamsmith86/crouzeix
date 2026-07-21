@@ -153,7 +153,7 @@ reconstruction and the KKT rank restrictions.
 The next useful result must exploit the special relation
 
 \[
- \tan v=r\tan u,qquad r=H(p),\qquad p=\tau_2/\tau_1, \tag{12}
+ \tan v=r\tan u,\qquad r=H(p),\qquad p=\tau_2/\tau_1. \tag{12}
 \]
 
 inside the four sandwich inequalities (6), with (10).  Arbitrary positive

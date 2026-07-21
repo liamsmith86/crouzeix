@@ -6,6 +6,10 @@ discriminant branch for
 
     1/12 <= c <= 12599/20000,  0 <= p <= 1.
 
+It also proves the complement of the centered bridge tube for
+
+    1/20 <= c <= 1/12,  |p-p_star| >= 4*c**4.
+
 The lower part uses the exact ridge vertex p_star as a coordinate split;
 the upper part uses (c,p) directly.  Every accepted box either misses the
 branch ``A>0, 2A+B>0, 2A-B>0`` or has a nonnegative interval lower bound
@@ -25,6 +29,7 @@ from typing import Literal
 
 NEGATIVE_INFINITY = -math.inf
 POSITIVE_INFINITY = math.inf
+Coordinate = Literal["direct", "lower", "upper", "lower_outside", "upper_outside"]
 
 
 def round_down(value: float) -> float:
@@ -305,13 +310,22 @@ def p_star(c: Jet, g: Jet) -> Jet:
     return (g * g - 4 * c * c) / (2 * g * g * (1 - 2 * c * c * g))
 
 
+def clamp_unit_value(value: Jet) -> Jet:
+    """Intersect a chart's value range with its proved codomain [0,1]."""
+
+    clipped = Interval(max(0.0, value.value.lower), min(1.0, value.value.upper))
+    if clipped.lower > clipped.upper:
+        raise AssertionError(value.value)
+    return Jet(clipped, value.c, value.p, value.cc, value.cp, value.pp)
+
+
 def coordinate_forms(
     c_lower: float,
     c_upper: float,
     p_lower: float,
     p_upper: float,
     endpoint: Literal["L", "U"],
-    coordinate: Literal["direct", "lower", "upper"],
+    coordinate: Coordinate,
 ) -> tuple[Jet, ...]:
     c = Jet(Interval(c_lower, c_upper), ONE)
     parameter = Jet(Interval(p_lower, p_upper), ZERO, ONE)
@@ -321,7 +335,18 @@ def coordinate_forms(
     else:
         _, g, _ = data
         center = p_star(c, g)
-        p = center * parameter if coordinate == "lower" else parameter + (1 - parameter) * center
+        if coordinate == "lower":
+            p = center * parameter
+        elif coordinate == "upper":
+            p = parameter + (1 - parameter) * center
+        elif coordinate == "lower_outside":
+            p = (center - 4 * c**4) * parameter
+        elif coordinate == "upper_outside":
+            lower = center + 4 * c**4
+            p = lower + (1 - lower) * parameter
+        else:
+            raise ValueError(coordinate)
+    p = clamp_unit_value(p)
     return endpoint_forms(c, p, endpoint, data)
 
 
@@ -351,29 +376,34 @@ class Box:
     p_lower: float
     p_upper: float
     endpoint: Literal["L", "U"]
-    coordinate: Literal["direct", "lower", "upper"]
+    coordinate: Coordinate
     depth: int = 0
 
 
 def evaluate_box(box: Box) -> Literal["outside", "proved", "split"]:
     c_midpoint = (box.c_lower + box.c_upper) / 2
     p_midpoint = (box.p_lower + box.p_upper) / 2
-    whole = coordinate_forms(
-        box.c_lower,
-        box.c_upper,
-        box.p_lower,
-        box.p_upper,
-        box.endpoint,
-        box.coordinate,
-    )
-    center = coordinate_forms(
-        c_midpoint,
-        c_midpoint,
-        p_midpoint,
-        p_midpoint,
-        box.endpoint,
-        box.coordinate,
-    )
+    try:
+        whole = coordinate_forms(
+            box.c_lower,
+            box.c_upper,
+            box.p_lower,
+            box.p_upper,
+            box.endpoint,
+            box.coordinate,
+        )
+        center = coordinate_forms(
+            c_midpoint,
+            c_midpoint,
+            p_midpoint,
+            p_midpoint,
+            box.endpoint,
+            box.coordinate,
+        )
+    except ArithmeticError:
+        # A coarse dependency interval may straddle a positive denominator.
+        # The exact denominator is nonzero; subdivision restores a finite box.
+        return "split"
     values = tuple(
         taylor_enclosure(
             center_value,
@@ -392,6 +422,8 @@ def evaluate_box(box: Box) -> Literal["outside", "proved", "split"]:
 
 def outward_fraction(value: Fraction, upper: bool) -> float:
     converted = float(value)
+    if Fraction.from_float(converted) == value:
+        return converted
     return round_up(converted) if upper else round_down(converted)
 
 
@@ -400,7 +432,7 @@ def initial_boxes(
     c_stop: Fraction,
     c_step: Fraction,
     p_step: Fraction,
-    coordinates: tuple[Literal["direct", "lower", "upper"], ...],
+    coordinates: tuple[Coordinate, ...],
 ) -> list[Box]:
     boxes = []
     c_lower_fraction = c_start
@@ -447,6 +479,35 @@ def audit_p_star_range(
         center = p_star(c, g).value
         if center.lower < 0 or center.upper > 1:
             raise AssertionError((lower_fraction, upper_fraction, center))
+        lower_fraction = upper_fraction
+
+
+def audit_outside_chart_range(
+    c_start: Fraction,
+    c_stop: Fraction,
+    c_step: Fraction,
+) -> None:
+    """Prove that both bridge-complement charts have ordered endpoints."""
+
+    lower_fraction = c_start
+    while lower_fraction < c_stop:
+        upper_fraction = min(lower_fraction + c_step, c_stop)
+        c = Jet(
+            Interval(
+                outward_fraction(lower_fraction, False),
+                outward_fraction(upper_fraction, True),
+            ),
+            ONE,
+        )
+        _, g, _ = theta_data(c)
+        center = p_star(c, g).value
+        edge = (4 * c**4).value
+        lower_endpoint = center - edge
+        upper_endpoint = center + edge
+        if lower_endpoint.lower < 0 or upper_endpoint.upper > 1:
+            raise AssertionError(
+                (lower_fraction, upper_fraction, lower_endpoint, upper_endpoint)
+            )
         lower_fraction = upper_fraction
 
 
@@ -529,6 +590,14 @@ def certify(boxes: list[Box], label: str, max_splits: int = 150_000) -> tuple[in
 
 
 def main() -> None:
+    audit_outside_chart_range(Fraction(1, 20), Fraction(1, 12), Fraction(1, 500))
+    bridge_complement_boxes = initial_boxes(
+        Fraction(1, 20),
+        Fraction(1, 12),
+        Fraction(1, 500),
+        Fraction(1, 50),
+        ("lower_outside", "upper_outside"),
+    )
     audit_p_star_range(Fraction(1, 12), Fraction(1, 2), Fraction(1, 200))
     compact_boxes = initial_boxes(
         Fraction(1, 12),
@@ -544,9 +613,11 @@ def main() -> None:
         Fraction(1, 200),
         ("direct",),
     )
+    bridge = certify(bridge_complement_boxes, "bridge-complement range")
     compact = certify(compact_boxes, "ridge-coordinate range")
     high = certify(high_boxes, "direct-coordinate range")
     print("compact low-nome endpoint certificate: proved")
+    print(f"  bridge-complement summary: {bridge}")
     print(f"  ridge-coordinate summary: {compact}")
     print(f"  direct-coordinate summary: {high}")
 
