@@ -16,9 +16,9 @@ sharp lemma is `SG≥0 ⇒ D2`, proved by Schwarzian/Dirichlet-form comparison; 
 map has `SG≥0` because its gap is a positive Weierstrass Fourier series. The 70-dps regression is
 `experiments/el4_schwarzian_check.py`. Do not redo the modulus-deformation derivative.
 
-This is conditional progress, not the 4×4 theorem: midpoint globality, parity/symmetry-breaking,
-odd and Möbius phases remain. In particular, symmetry of the objective does not by itself prove
-that every maximizer has definite parity.
+This is not yet the 4×4 theorem. Midpoint globality is now proved by L18 in
+`proof/even_pick_globality.md`, but parity/symmetry-breaking and the odd/Möbius phases remain.
+Symmetry of the objective does not by itself prove that every maximizer has definite parity.
 
 ## Strongest proved lemmas
 P1 (K²+ρ ≤ Kq), L13 (Clark-type transition ⟨q(A)x₀,u₀⟩ = K∫q·conj(f₀)dμ), L14 + collapse theorem
@@ -75,9 +75,9 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   kernel functional on elliptic velocity field). GATE-CHECK PASSED: dV/dk < 0 strictly on full grid (−1.5e-3..−3.7e-2, bounded away from 0 in interior) — robust target.
 
 ## Next five concrete actions (refreshed 2026-07-21, Epoch 6)
-1. **Close level-4 optimizer classification**: prove midpoint globality in the even Pick sector,
-   then prove existence of a definite-parity global extremal or explicitly cover symmetry-breaking
-   Pick data. EL4 is already proved but cannot be promoted to a matrix theorem without this gate.
+1. **Close level-4 parity classification**: even Pick-sector midpoint globality is proved (L18).
+   Now prove existence of a definite-parity global extremal or explicitly cover symmetry-breaking
+   four-node Pick data. EL4 cannot be promoted to the whole slice without this gate.
 2. **Bi-conic Schwarzian route**: compute `SG` for the off-slice collapsed map on its critical
    real interval. If nonnegative, L17 gives D2 immediately; otherwise compare its Sturm potential
    directly with `−1`.
@@ -93,9 +93,9 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
 ## Paste-ready continuation instruction
 "Continue the Crouzeix campaign in /home/liam/Downloads/crouzeix (git repo; commit+push after each
 task). Read RESEARCH_STATE.md (NEWEST section first), then proof/el4_schwarzian_theorem.md,
-proof/slice_closed_form.md, and proof/D2_landscape.md; master program in
-proof/rho_positivity_program.md. Resume at restart-packet action 1 (level-4 global optimizer/parity
-classification). EL4 is proved; do not redo its modulus deformation. Respect APPROACH_LEDGER.md pitfalls P1–P7: every
+proof/even_pick_globality.md, proof/slice_closed_form.md, and proof/D2_landscape.md; master program in
+proof/rho_positivity_program.md. Resume at restart-packet action 1 (level-4 parity/symmetry-breaking
+classification). EL4 and even-sector midpoint globality are proved; do not redo them. Respect APPROACH_LEDGER.md pitfalls P1–P7: every
 numerical claim needs the certificate battery; treat any apparent violation as artifact until it
 survives strict re-evaluation and an independent implementation; cross-check extremal phases with
 best_extremal (P5); verify analyticity/univalence of probe map families (P6). Do not re-open dead

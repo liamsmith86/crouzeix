@@ -12,12 +12,14 @@
   nondegenerate even midpoint phase. Proof: `proof/el4_schwarzian_theorem.md`; 70-dps regression:
   `experiments/el4_schwarzian_check.py`.
 - **Scope audit:** this does not yet prove the whole elliptic 4×4 slice. L16 proves midpoint
-  stationarity and conditional `q1=q2=1/2`, but the note still lacks a proof that this stationary
-  point is the global even-sector maximum. Odd, degree-one, and possible symmetry-breaking phases
-  remain. The prior statement `A ~ −A ⇒ extremal has definite parity` is not automatic and must
-  be proved or replaced by a complete Pick-boundary classification.
-- Highest-leverage next move: use the same Schwarzian test on the off-slice bi-conic collapsed
-  map, while separately closing the optimizer-classification gap before declaring any 4×4 class.
+  stationarity and conditional `q1=q2=1/2`. **The globality debt is now closed by L18**:
+  `sup ||F(u1)Q1+F(u2)Q2||=max(1,d||Q1−Q2||)`, and for norm>1 the midpoint automorphism is the
+  unique nonconstant global even maximizer up to phase (`proof/even_pick_globality.md`). Thus the
+  complete even sector of the elliptic slice has rho≥0. Odd, degree-one, and possible
+  symmetry-breaking phases remain. The prior statement `A ~ −A ⇒ extremal has definite parity`
+  is not automatic and must be proved or replaced by a complete four-node Pick classification.
+- Highest-leverage next move: resolve parity/symmetry breaking; in parallel use the same
+  Schwarzian test on the off-slice bi-conic collapsed map.
 
 ## Previous frontier (2026-07-21 late session) — level-4 theory + D2 landscape
 - **L15 PROVED**: level-4 nodal closed form K² = (T+√(T²−4δ²F₁²F₂²))/2 (frame invariants
@@ -103,10 +105,9 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   (resid 1e-4–1e-3).** Next: close sym4 analytically = first new Crouzeix class in campaign.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-21)
-1. **Global optimizer classification at level 4**: prove the even midpoint stationary point is
-   the global even-sector maximum; then prove that a global extremal can be chosen with definite
-   parity (or analyze symmetry-breaking Pick data explicitly). This is now logically prior to
-   using the proved EL4 theorem as a matrix-class result.
+1. **Parity/symmetry-breaking classification at level 4**: prove that a global extremal can be
+   chosen with definite parity, or analyze general four-node Pick data explicitly. Even-sector
+   globality is now proved; symmetry of the objective alone does not settle the full problem.
 2. **Bi-conic Schwarzian test**: compute `SG` for the off-slice collapsed map on the critical
    real interval. `SG≥0` would extend L17 immediately; otherwise test the weaker Sturm-potential
    comparison that the proof actually needs.
@@ -124,7 +125,7 @@ Keep committing+pushing after each task (user instruction).
 ## Files map (handoff-ready, 2026-07-21)
 proof/ — read in this order for the current frontier:
   rho_positivity_program.md (MASTER program), el4_schwarzian_theorem.md (EL4 proof + L17),
-  slice_closed_form.md (level-4 theory: L15/L16/EL4/D2-crit), D2_landscape.md (soft-class
+  even_pick_globality.md (L18), slice_closed_form.md (level-4 theory: L15/L16/EL4/D2-crit), D2_landscape.md (soft-class
   falsifications + Schwarzian route), landen_theorem.md
   (sym3 closed form), sym3_reduction.md (collapse theorem), sym4_program.md (family setup),
   rho_2x2_theorem.md (n=2 base), graded_induction_skeleton.md (general-n plan);

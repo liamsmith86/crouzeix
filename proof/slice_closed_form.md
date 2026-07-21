@@ -32,12 +32,15 @@ Frame identities (VERIFIED 1e-16): c_j = ∂K²/∂F_j/(2K) = (T_j+S_j)/(4K) and
 ## 4. EVEN PHASE THEOREMS (new; the sym3 mechanism generalizes exactly)
 Even f₀ = c·(φ²−α²)/(1−α²φ²) = c·b_v(φ(z)²), v = α² — a DEGREE-1 Möbius in u = φ(z)²
 with nodes u_j = τ_j². On the slice u₁ = τ₁² = k exactly (focus law).
-(i) **Midpoint law** [PROVED]: K²(B₁,B₂) is symmetric (κ := ‖Q₁‖_F² = ‖Q₂‖_F² for
+(i) **Midpoint law and globality** [PROVED]: K²(B₁,B₂) is symmetric (κ := ‖Q₁‖_F² = ‖Q₂‖_F² for
     complementary idempotents ⟹ T = κ(B₁²+B₂²) + 2(1−κ)B₁B₂) and even under joint negation;
     the Möbius flow is ∂_v b_v(u) = −(1−b_v(u)²)/(1−v²). Hence at B₂ = −B₁ stationarity holds
     identically: ∂₁K²(B,−B)+∂₂K²(−B,B)-cancellation by symmetry+evenness. So the even extremal
     satisfies **b_v(u₂) = −b_v(u₁) ⟺ v = pseudo-hyperbolic midpoint of (u₁,u₂)** — the
-    2×2/sym3 midpoint law, one Landen level up. (Global-max vs stationary: confirmed numerically.)
+    2×2/sym3 midpoint law, one Landen level up. The missing global step is now proved in
+    `proof/even_pick_globality.md`: for the complete two-node Schur/Pick problem,
+    `sup ||F(u₁)Q₁+F(u₂)Q₂|| = max(1, d||Q₁−Q₂||)`, and in the norm>1 regime the midpoint
+    automorphism is the unique nonconstant global maximizer up to phase.
 (ii) **q = 1/2 law** [PROVED, sympy]: at B₂ = −B₁, X = B₁R with R = Q₁−Q₂ a traceless
     involution; for the generic 2×2 traceless involution the top right-singular vector obeys
     x₀ᵀRx₀ = 0 (symbolic identity), hence q_j = x₀ᵀQ_jx₀ = 1/2 exactly.
@@ -103,11 +106,9 @@ bi-conic verified (sign/order). FALSE without foci-pinning (§4(vi)). The abstra
 "why do Kippenhahn-foci nodes make it true" is the distilled deep quest for the even sector.
 
 ## 6. Reduced open targets (ranked)
-1. Prove that the parity-sector midpoint stationary point in §4(i) is the GLOBAL even-sector
-   maximum (or replace that claim by a complete Pick-boundary classification). EL4 itself is
-   now proved, but its use requires this optimizer-classification premise.
+1. Prove that a global extremal can be chosen with definite parity, or explicitly classify and
+   cover symmetry-breaking four-node Pick data. Symmetry of the objective alone is insufficient.
 2. Odd-phase positivity: ρ = B₁g₁q₁+B₂g₂q₂ ≥ 0 given §3 stationarity (3-parameter).
 3. Möbius-phase positivity (deg-1 f₀ = φ on ellipse domains — may admit a general theorem
    beyond 4×4: only uses domain ellipse + deg-1 extremal + nodal weights).
-4. Exclude genuinely symmetry-breaking extremals; `A ~ -A` alone does not imply definite
-   parity for a maximizer. Then de-symmetrize off the slice (bi-conic data replaces ellipse).
+4. De-symmetrize off the slice (bi-conic Kippenhahn data replaces the exact ellipse).

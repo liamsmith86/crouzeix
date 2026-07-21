@@ -172,8 +172,7 @@ by continuity (with equality only at the corresponding disk/coalescence limits).
 ## 4. Scope and remaining logical debt
 
 This proves the **analytic inequality EL4**, not the whole 4-by-4 case and not Crouzeix's
-conjecture.  Applying it to a global extremal still requires a rigorous classification showing
-that the relevant extremal is in the even midpoint phase.  The current project proves midpoint
-stationarity and the conditional (q_1=q_2=1/2) identity, while global maximality and exclusion
-of symmetry-breaking phases remain separate obligations.  Odd and degree-one phases also remain.
-
+conjecture.  `proof/even_pick_globality.md` subsequently proved that the midpoint automorphism is
+the global even-sector maximizer whenever that sector has norm larger than one, so EL4 now closes
+the complete even sector of the elliptic slice.  Exclusion or treatment of symmetry-breaking
+four-node extremals remains separate.  Odd and degree-one phases also remain.
