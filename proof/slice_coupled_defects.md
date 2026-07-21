@@ -546,6 +546,185 @@ the exact equality boundary of L44.  The audit is reproduced by
 `experiments/slice_rank_one_ridge_check.py`.  The finite neighbourhood scan is
 falsification evidence only; (37)--(38) are the proved boundary statement.
 
+### 6.3 A sharp product theorem for the two parity blocks
+
+There is a second exact consequence of the conformal coupling which is not
+visible from the separate bounds in L24 and L26:
+
+\[
+ \boxed{\|B\|\,\|C\|\le2.} \tag{39}
+\]
+
+This section proves (39).  It will close both coordinate axes of (RT).
+Write the common modal matrix as
+
+\[
+ M=U\operatorname{diag}(\sqrt{k},p\sqrt{k})V^T,
+ \qquad \tan v=r\tan u,
+\]
+
+where $p=\tau _2/\tau _1$ and $r=H(p)$.  If $m_{ij}$ are the entries of
+$M$, then
+
+\[
+ {m_{12}\over m_{21}}=-\delta,qquad
+ \delta={p-r\over1-pr},qquad
+ w:=m_{21}^2
+ ={k\tan ^2u(1-pr)^2\over(1+\tan ^2u)(1+r^2\tan ^2u)}. \tag{40}
+\]
+
+Consequently
+
+\[
+ 0\le w\le {k(1-pr)^2\over(1+r)^2}. \tag{41}
+\]
+
+The interval is exact: the maximum occurs at $\tan ^2u=1/r$, and every
+intermediate value is attained.  Put
+
+\[
+ S=k(1+p^2),\quad d=kp,\quad
+ \alpha=(1-c^2)(1-\delta^2/c^2),\quad
+ \beta=(1-c^2)(c^{-2}-\delta^2),
+\]
+
+and $x=S-\alpha w$, $y=S+\beta w$.  Directly from
+$B=c^{-1/2}DMD^{-1}$ and $C=c^{1/2}DM^TD^{-1}$,
+
+\[
+ \begin{array}{c|c|c}
+ &\operatorname{tr}(X^*X)&\det X\\ \hline
+ B&x/c&d/c\\
+ C&cy&cd.
+ \end{array} \tag{42}
+\]
+
+For a $2\times2$ matrix whose squared singular values are
+$\lambda\ge\mu$, define
+
+\[
+ U(X)=\operatorname{tr}(X^*X)
+       -{|\det X|^2\over\operatorname{tr}(X^*X)}.
+\]
+
+Then $U(X)-\|X\|^2=\mu^2/(\lambda+\mu)\ge0$.  Thus (39) follows from
+
+\[
+ \left(x-{d^2\over x}\right)
+ \left(y-{d^2\over y}\right)\le4. \tag{43}
+\]
+
+Set $w=kW$, $x=kX$, and $y=kY$, and parameterize (41) by
+
+\[
+ W={ (1-pr)^2\over(1+r)^2}\,\omega,qquad0\le\omega\le1.
+\]
+
+After multiplication by $XY>0$, (43) is the scalar polynomial target
+
+\[
+ k^2(X^2-p^2)(Y^2-p^2)-4XY\le0. \tag{44}
+\]
+
+Only elementary nome bounds are needed.  With $q=c^2$,
+$s_0=\theta _3(q)^{-2}$, and $n^2\ge2n-1$,
+
+\[
+ \theta _3(q)\le1+{2q\over1-q^2},\qquad
+ s_0\ge h:={(1-q^2)^2\over(1+2q-q^2)^2}. \tag{45}
+\]
+
+The nonnegative Taylor coefficients of $H$ also give
+$s_0p\le r\le p$.  Hence it is enough to use the larger interval
+
+\[
+ r=p(1-q\lambda\eta),\quad0\le\eta\le1,qquad
+ \lambda={1-h\over q}={4(1+q-q^2)\over(1+2q-q^2)^2}. \tag{46}
+\]
+
+For completeness, here is the exact polynomial submitted to the finite
+certificate.  Put
+
+\[
+ L=4(1+q-q^2),\quad R=(1+2q-q^2)^2,\quad R_0=R-qL\eta,
+\]
+\[
+ G=R+pR_0,\qquad D=R-p^2R_0,
+\]
+
+and
+
+\[
+\begin{aligned}
+ X_n&=(1+p^2)G^2-(1-q)(D^2-p^2qL^2\eta^2)\omega,\\
+ Y_n&=q(1+p^2)G^2+(1-q)(D^2-p^2q^3L^2\eta^2)\omega,\\
+ N_x&=X_n^2-p^2G^4,\qquad
+ N_y=Y_n^2-p^2q^2G^4. \tag{47}
+\end{aligned}
+\]
+
+Then $X=X_n/G^2$ and $qY=Y_n/G^2$.  L23 gives
+$k\le4c/(1+c^2)^2$, while trivially $k\le1$.  If the product multiplying
+$k^2$ in (44) is negative, (44) is immediate; otherwise either upper bound
+may replace $k$.  After clearing positive factors the two sufficient
+integer polynomials are
+
+\[
+ \begin{aligned}
+ P_{\rm lo}&=16N_xN_y-4(1+q)^4X_nY_nG^4,
+      &&0\le c\le37/125,\\
+ P_{\rm hi}&=N_xN_y-4qX_nY_nG^4,
+      &&59/200\le c\le1. \tag{48}
+ \end{aligned}
+\]
+
+Both are nonpositive.  The exact checker
+`experiments/slice_block_product_certificate.py` regenerates the 15,953-
+and 15,084-term polynomials and converts them to integer Bernstein form.
+For $P_{\rm hi}$, bisecting each coordinate once after restricting $c$
+gives 16 boxes, all with strictly negative Bernstein coefficients.  For
+$P_{\rm lo}$, four outer boxes cover
+
+\[
+ p\ge37/125\quad\hbox{or}\quad
+ \omega\le51/250\quad\hbox{or}\quad\omega\ge199/250.
+\]
+
+The remaining cube is resolved without a limiting numerical margin.  Let
+$d=|\omega-1/2|$ and choose the largest of $c,p,d$.  The four exact blow-up
+charts are
+
+\[
+ \begin{array}{ll}
+ p=cy, & \omega=1/2+c(2z-1),\\
+ c=py, & \omega=1/2+p(2z-1),\\
+ c=dy,\ p=dv, & \omega=1/2+d,\\
+ c=dy,\ p=dv, & \omega=1/2-d,
+ \end{array}\qquad y,v,z\in[0,1]. \tag{49}
+\]
+
+After scaling the leading variable by $37/125$, all 71,145; 322,245;
+1,095,633; and 1,095,633 Bernstein coefficients, respectively, are
+nonpositive.  Arithmetic is over Python integers; zero coefficients remain
+exactly zero.  Since a polynomial on a box is a convex combination of its
+Bernstein coefficients, (48), then (44), (43), and finally (39) follow.
+
+There is an immediate transfer consequence.  When $b=0$, formula (19)
+factors as
+
+\[
+ \mathscr R_{a,0}(T)=
+ \operatorname{diag}(I,C)
+ \begin{bmatrix}aI&-\sqrt{1-a^2}I\\-\sqrt{1-a^2}I&-aI\end{bmatrix}
+ \operatorname{diag}(I,B). \tag{50}
+\]
+
+The middle factor is orthogonal.  L24, L26, and (39) imply
+$\max(1,\|B\|)\max(1,\|C\|)\le2$, so
+$\|\mathscr R_{a,0}(T)\|\le2$.  The factorization with $B,C$ swapped proves
+the same statement when $a=0$.  Thus both full coordinate axes of (RT) are
+closed, not merely their common center.
+
 ## 7. Remaining target
 
 The live theorem is now (27), equivalently (RT), with the special conformal coupling
@@ -559,5 +738,7 @@ scalar reduction is also insufficient: numerical interior maxima can exceed
 all scalar-automorphism boundary values.  A proof must retain the
 Blaschke--Potapov structure (21) while using (23).  The preferred targets are
 either the polynomial Schur complement (27) or the stronger four-block energy
-inequality (BE).  Proving (RT) completes the elliptic \(4\times4\) slice; it does
-not by itself settle the general conjecture.
+inequality (BE).  L47--L48 now also remove the complete axes $a=0$ and $b=0$;
+the live transfer square is genuinely two-parameter with $ab\ne0$.  Proving
+(RT) completes the elliptic \(4\times4\) slice; it does not by itself settle the
+general conjecture.

@@ -17,8 +17,17 @@ counted.  This makes the complete-bounded route credible, not proved; see
 **L44 sharp boundary passed exactly:** its true boundary is `p=a=b=0` (the modal angle is flat),
 not L29's stale `p=p*+c^4 x` ridge.  There the energy is `k(1+c²)/(4c)<=1/(1+c²)<1`; an
 80-decimal scaled scan through `c=10^-20` finds margin `~3c²` and no excess.  This is L46 and
-does not prove a neighbourhood.  The remaining L29 exact regenerations continue in a detached
-job; the tiny-edge checker already reproduced its constants cleanly after 28 minutes.
+does not prove a neighbourhood.  All three L29 exact certificate scripts have now regenerated
+cleanly; the 85-minute centered completion rebuilt both deep expansions and the final detached
+job ended with `PASS 2026-07-21T15:10:52-07:00`.
+
+**New exact milestone:** L47 proves `||B||||C||≤2` for the two elliptic-slice parity blocks.
+One orientation scalar gives both traces and determinants; elementary nome relaxations reduce
+the claim to exact integer Bernstein polynomials. Four blow-up charts close the singular corner
+without floating-point margins. L48 then factors the transfer through an orthogonal block and
+proves (RT) on both complete axes `a=0` and `b=0`. The remaining transfer obstruction has
+`ab≠0`; see `proof/slice_coupled_defects.md` §6.3 and
+`experiments/slice_block_product_certificate.py`.
 
 L45's convex-in-`a` branch is common (772,130 of 2,000,000 random quadratic-form probes) but its
 discriminant remained positive in the sample; no concavity-only shortcut exists.
@@ -30,7 +39,7 @@ proof/rho_positivity_program.md). H-r: PROVED for all 2×2 (closed form ρ = 1 �
 the α=0 symmetry step); PROVED-by-reduction for the sym3/GKL 3×3 elliptic class (proof/sym3_reduction.md
 — ζ = z² collapse, midpoint law, π₀ = 1/2); NUMERICALLY CONFIRMED beyond all known classes (sym4;
 adversarial floors positive for n=3,4,5). No counterexample to the conjecture found anywhere
-(all "violations" ever seen were certified numerical artifacts — APPROACH_LEDGER pitfalls P1–P7).
+(all "violations" ever seen were certified numerical artifacts — APPROACH_LEDGER pitfalls P1–P8).
 
 ## Epoch-6 addition (2026-07-21): EL4 proved
 `proof/el4_schwarzian_theorem.md` proves the explicit elliptic inequality `Theta≤1`. The new
@@ -239,7 +248,7 @@ proof/rho_positivity_program.md. Resume at restart-packet action 1 (analytic L20
 for the elliptic slice). EL4 and even-sector midpoint globality are proved; definite parity is
 false. L20 is now exactly a 2×2-block dual trace inequality, and both individual modal blocks are
 bounded by two; do not redo the SDP duality, modal norms, or blind metric ansatzes. Respect
-APPROACH_LEDGER.md pitfalls P1–P7: every
+APPROACH_LEDGER.md pitfalls P1–P8: every
 numerical claim needs the certificate battery; treat any apparent violation as artifact until it
 survives strict re-evaluation and an independent implementation; cross-check extremal phases with
 best_extremal (P5); verify analyticity/univalence of probe map families (P6). Do not re-open dead

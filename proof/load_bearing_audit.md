@@ -131,11 +131,29 @@ Thus an invariant ratio witness exists at least at the original violating
 level.  This justifies the parity restriction without a convexity claim
 about the ratio.  The audit finds no gap in L21.
 
-## 3. Audit verdict
+## 3. L29: clean regeneration of all exact certificates
+
+The three certificate entry points cited by L29 were rerun from a clean
+detached shell, with no saved symbolic expansion files supplied:
+
+1. `slice_odd_centered_completion_certificate.py` rebuilt the 309,479-term
+   upper and 565,425-term lower deep series and exited exact after 85 minutes;
+2. `slice_odd_small_edge_certificate.py` regenerated both residual series and
+   all rational theta checks, with worst correction ratio below `0.907895`;
+3. `slice_odd_compact_certificate.py` closed its bridge, ridge, and direct
+   ranges with no pending box (15,267, 15,047, and 17,594 splits).
+
+The wrapper ended with `PASS 2026-07-21T15:10:52-07:00`.  This verifies
+reproducibility of the computer-assisted part; it is independent of the
+separate algebraic review already recorded in
+`proof/slice_odd_block_reduction.md`.
+
+## 4. Audit verdict
 
 Both lemmas survive independent derivation.  L17's essential hidden-looking
 step is secured by the explicit ground-state identity (A4), and L21's
 nonlinear symmetry issue is secured only by averaging the linear dual triple
 and then rescaling as in (A12).  These arguments should be retained whenever
 the lemmas are reused; shorter claims that the ratio itself averages are not
-valid substitutes.
+valid substitutes.  L29's three regenerating checkers also pass cleanly, so
+the audit debt identified for all three load-bearing results is discharged.

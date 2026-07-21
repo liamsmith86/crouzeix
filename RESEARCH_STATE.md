@@ -1,8 +1,15 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-21 (Epoch 6 — strategic audit after L45)
+**Last updated:** 2026-07-21 (Epoch 6 — L47/L48 block-product milestone)
 
-## AUDIT-GATE OUTCOME (2026-07-21, after L45 and external steering review)
+## AUDIT-GATE OUTCOME (2026-07-21, after L48 and external steering review)
+- **L47 proves the new sharp block tradeoff `||B|| ||C||≤2`.** The two matrix
+  traces and determinants compress to one orientation scalar; a universal 2×2 singular-value
+  majorant reduces the claim to a four-variable rational polynomial. Elementary nome bounds,
+  four singular-corner blow-up charts, and exact integer Bernstein coefficients close the whole
+  parameter box. The checker regenerates every coefficient in about 13 seconds. Consequently
+  L48 closes both full transfer axes `a=0` and `b=0`; the remaining rank-one/rank-one obstruction
+  is genuinely two-parameter with `ab≠0`. `proof/slice_coupled_defects.md` §6.3.
 - **L17 and L21 survive independent re-derivation.** L17's load-bearing step is the exact
   ground-state identity with positive solution `1/sqrt(g')`; L21 has a strict Lyapunov-series
   Slater point, and its parity restriction is valid only by averaging the linear dual triple and
@@ -19,16 +26,17 @@
   80-decimal scan down to `c=10^-20` finds margin `~3c²` and no excess. The old
   `p=p*+c⁴x` coordinate belongs to L29's different ridge and must not be imported into L44.
   This proves only the exact boundary (L46); a finite neighbourhood scan is still not L44.
-- **The remaining L29 exact certificates are regenerating in a detached background job.** The
-  already completed tiny-edge checker reproduced its saved constants exactly after 28 minutes;
-  do not mark the full regeneration gate complete until the remaining scripts exit cleanly.
+- **All three L29 certificate scripts regenerated cleanly and independently.** The centered
+  completion rebuilt its 309,479- and 565,425-term expansions and passed after 85 minutes; the
+  small-edge and compact-range checkers also exited exactly with no unresolved boxes. The
+  detached job ended with `PASS 2026-07-21T15:10:52-07:00`. The L29 audit gate is complete.
 - **L45's one-variable convex branch is genuinely present.** In 2,000,000 random quadratic-form
   probes on exact modal slice matrices, 772,130 had `q2>0` with the minimizing `a` inside
   `(-1,1)`; none had a negative discriminant (smallest sampled margin `5.48e-5`). Thus the new
   identity does not collapse merely by concavity. The discriminant route remains well supported,
   but it must retain the conformal coupling.
-- L45 is banked in commit `0dfcc18`; the present checkpoint records the independent audit and
-  strategic-gate outcomes before the analytic L20 attack resumes.
+- The exact frontier is still (RT), but L47/L48 remove two complete one-parameter sections of
+  its square and provide a new coupled invariant likely useful in the interior.
 
 ## NEWEST (2026-07-21, Epoch 6) — L20 reduced to an explicit trace-cone inequality
 - **L21 PROVED (dimension-independent):** for every strictly stable matrix `T`, the least
@@ -160,6 +168,13 @@
   interior loss as `diag(I−C*C,I−B*B)`. The next analytic attack should exploit the separate
   quadratic dependence on `a` or `b`, reducing any convex vertex branch to a discriminant as in
   L30 rather than attempting another free block-norm bound.
+- **L47/L48 add a sharp coupled block invariant and close both transfer axes.** The common
+  modal matrix compresses both block traces to one scalar `w`. The majorant
+  `tr−det²/tr` turns `||B||||C||≤2` into a rational scalar inequality, and the elementary
+  relaxations `k≤min(1,4c/(1+c²)²)` and
+  `H(p)≥p(1−c⁴)²/(1+2c²−c⁴)²` suffice. Four blow-up charts resolve the only equality corner
+  with exact nonpositive integer Bernstein coefficients. Factoring `R_{a,0}` through an
+  orthogonal block, then swapping parity, proves (RT) whenever `ab=0`.
 
 ## Previous Epoch-6 milestone — EL4 PROVED
 - **EL4 is now an analytic theorem**, not a grid conjecture. New L17: `SG ≥ 0` on the real
@@ -273,7 +288,8 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    Blaschke--Potapov transfer in `proof/slice_coupled_defects.md`. Preserve the matrix-valued
    interior: a boundary/scalar reduction is numerically false. Use L41's polynomial Schur
    complement, L45's two-square form, or L44's block-energy form for `c<2^(−2/3)` and use
-   `tan(v)=H(p)tan(u)` before any interval split.
+   `tan(v)=H(p)tan(u)` before any interval split. L47/L48 already close `ab=0`; exploit the new
+   product tradeoff in the genuinely interior Schur coupling rather than recertifying the axes.
    This one theorem would prove L20 for the complete elliptic 4×4 slice.
 2. **Shifted Möbius phase**: derive its exact stationarity/rho formula (Kenan-Li quartic analog)
    and prove rho≥0 or K≤2. Definite parity is false.
@@ -311,8 +327,9 @@ experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_
   slice_boundary_check.py (L23–L26 stress regression),
   slice_upper_block_certificate.py (exact factorization + finite scalar certificate for L26),
   slice_coupled_defects.py (L27 reconstruction and KKT rank regression),
-  slice_odd_block_check.py (L28 identities and L29 floating-point stress test).
+  slice_odd_block_check.py (L28 identities and L29 floating-point stress test),
+  slice_block_product_certificate.py (L47 exact integer Bernstein certificate).
 Data: sym3_sweep_s51.jsonl (40 rec), sym4_sweep_s61.jsonl (20 rec, ρ column trustworthy).
-Ledgers: LEMMA_LEDGER.md, APPROACH_LEDGER.md (pitfalls P1–P7 — READ BEFORE ANY SEARCH),
+Ledgers: LEMMA_LEDGER.md, APPROACH_LEDGER.md (pitfalls P1–P8 — READ BEFORE ANY SEARCH),
 LITERATURE_LEDGER.md, COUNTEREXAMPLE_SEARCH.md. Audit: chatgpt/FABLE_RESEARCH_AUDIT.md
 (reconciled 2026-07-20). Restart: checkpoints/RESTART_PACKET.md (paste-ready instruction).
