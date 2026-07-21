@@ -1,2 +1,8 @@
 <frozen site>:101: RuntimeWarning: Unexpected value in sys.prefix, expected /home/liam/Downloads/crouzeix/.venv, got /home/liam/Downloads/crouzeix/experiments/../.venv
 <frozen site>:101: RuntimeWarning: Unexpected value in sys.exec_prefix, expected /home/liam/Downloads/crouzeix/.venv, got /home/liam/Downloads/crouzeix/experiments/../.venv
+[n=5 t=0.005 s=72] init: ReC=+0.057315 K=1.53967
+[n=5 t=0.005 s=72] it=3: ReC=+0.050760 K=1.53997 s_phase=+0.45098
+[n=5 t=0.005 s=72] it=7: ReC=+0.049422 K=1.54521 s_phase=+0.44609
+[n=5 t=0.005 s=72] it=8: ReC=+0.047412 K=1.54437 s_phase=+0.44742
+[n=5 t=0.005 s=72] it=9: ReC=+0.046783 K=1.53582 s_phase=+0.45609
+[n=5 t=0.005 s=72] it=11: ReC=+0.046289 K=1.52612 s_phase=+0.46572

@@ -3,3 +3,6 @@
 [n=6 d=6 s=81] trial 2: R_inner=1.00000000 R_outer=1.00000000
 [n=6 d=6 s=81] trial 7: R_inner=1.00000000 R_outer=1.00000000
 [n=6 d=6 s=81] trial 12: R_inner=1.00000000 R_outer=1.00000000
+[n=6 d=6 s=81] trial 13: R_inner=1.02193415 R_outer=1.02193002
+[n=6 d=6 s=81] trial 36: R_inner=1.14824199 R_outer=1.14821272
+DONE n=6 d=6 seed=81: best R_inner(1024) = 1.1482419931
