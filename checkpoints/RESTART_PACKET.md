@@ -120,6 +120,8 @@ matrix-valued and can beat all scalar lines. The only remaining L20 theorem is
 L41 further removes both transfer resolvents: the norm test is equivalent to a quartic
 polynomial `4×4` LMI. Its two diagonal `2×2` blocks are already PSD by L24/L26 and elementary
 bilinear estimates, leaving only one explicit off-diagonal Schur inequality.
+L42 also closes `c≥2^(−2/3)`: the symmetric-modal transfer is a contraction and the
+physical similarity has condition `c^(−3/2)≤2`. Only the lower-nome Schur inequality remains.
 
 ## Strongest proved lemmas
 P1 (K²+ρ ≤ Kq), L13 (Clark-type transition ⟨q(A)x₀,u₀⟩ = K∫q·conj(f₀)dμ), L14 + collapse theorem

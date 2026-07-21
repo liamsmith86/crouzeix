@@ -109,6 +109,10 @@
   scalar estimates prove both `2×2` diagonal blocks positive semidefinite for every `a,b`.
   The sole content left is its explicit off-diagonal Schur inequality, with coupling
   `3[a(1−b²)B+b(1−a²)C*]`. This is the preferred form for the conformal-node attack.
+- **L42 closes the full high-nome range `c≥2^(−2/3)`.** In symmetric modal coordinates
+  the transfer is a contraction because its two node values come from a rational inner matrix.
+  Conjugating to physical coordinates costs exactly `c^(−3/2)≤2`. The remaining transfer
+  theorem is confined to `0<c<2^(−2/3)`.
 
 ## Previous Epoch-6 milestone — EL4 PROVED
 - **EL4 is now an analytic theorem**, not a grid conjecture. New L17: `SG ≥ 0` on the real
@@ -221,7 +225,8 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
 1. **Prove L40's transfer theorem.** Show `||R_{a,b}(T)||≤2` for the explicit
    Blaschke--Potapov transfer in `proof/slice_coupled_defects.md`. Preserve the matrix-valued
    interior: a boundary/scalar reduction is numerically false. Use L41's polynomial Schur
-   complement in modal coordinates and `tan(v)=H(p)tan(u)` before any interval split.
+   complement in modal coordinates for `c<2^(−2/3)` and `tan(v)=H(p)tan(u)` before any
+   interval split.
    This one theorem would prove L20 for the complete elliptic 4×4 slice.
 2. **Shifted Möbius phase**: derive its exact stationarity/rho formula (Kenan-Li quartic analog)
    and prove rho≥0 or K≤2. Definite parity is false.

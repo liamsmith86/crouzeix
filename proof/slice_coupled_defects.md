@@ -277,7 +277,32 @@ This is a rational \(2\times2\) inner function.  Direct algebra gives
 \]
 
 Thus the determinant is a degree-two scalar Blaschke product, but the
-interior transfer is genuinely matrix-valued.  If \(a=\pm1\) or \(b=\pm1\),
+interior transfer is genuinely matrix-valued.  It does, however, close the
+large-$c$ range immediately.  A rational inner matrix is contractive at every
+point of the disk, so (21) gives
+
+\[
+ \|\mathscr R_{a,b}(T_0)\|\le1.
+\]
+
+The two orthogonal modal rotations do not change this norm, while the
+similarity in (20) has
+
+\[
+ \operatorname{cond}(L)=c^{-3/2}.
+\]
+
+Consequently
+
+\[
+ \boxed{\|\mathscr R_{a,b}(T)\|\le c^{-3/2}\le2
+ \quad\text{whenever }c\ge2^{-2/3}.} \tag{22a}
+\]
+
+This uses the complete matrix-valued inner structure, not a scalar boundary
+reduction, and removes every parameter $a,b,r,u$ in that nome range.
+
+If \(a=\pm1\) or \(b=\pm1\),
 (19) becomes a direct sum of a signed identity and a scalar automorphism of
 \(F\) or \(G\); this boundary is already contained in the proved even sector.
 At \(a=b=0\), the transfer is \(-T\), so L24 and L26 close that point.  The
