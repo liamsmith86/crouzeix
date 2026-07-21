@@ -11,7 +11,9 @@ Papers, theorems, assumptions, possible gaps. Status verified via web 2026-07-20
 | Ransford–Schwenninger 2018 (SIMAX 1708.08633) | The abstract lemma (‖f(A)+g(A)*‖≤2‖f‖, g=C(f̄)) cannot yield better than 1+√2 in abstract setting | Explicit abstract construction | KEY OBSTRUCTION: need concrete structure of the pair (f(A), g(A)) beyond the abstract hypotheses |
 | Malman–Mashreghi–O'Loughlin–Ransford 2024 | For each fixed N: C_N < 1+√2 | Compactness + strict inequality analysis of C–P equality conditions | Non-constructive; no uniform bound. Their equality analysis of C–P may reveal extremal structure |
 | MMOR 2025 | Configuration constants via Neumann–Poincaré operator; domain-dependent bounds | Double-layer potential spectral analysis | Domain-dependent c(Ω) < 1+√2 for smooth domains? Check exact statement |
-| arXiv:2410.10678 (rev. Feb 2025) | Parameterized extension of C–P framework | Scaled version of C–P | TO READ: does the family bottom out above 2? |
+| Schwenninger–de Vries, arXiv:2409.15954 "DLP for spectral constants revisited" | §6: ρ(f₀,x₀) := ∫Re(K_Ω(f₀)*f₀)dμ₀ = ReC; **K² + ρ ≤ 2K** (Thm 6.1: K ≤ 1+√(1−ρ)); ρ ≥ −1 (convex); ρ ≥ 0 ⟹ Crouzeix; disk ⟹ (K−1)ρ = 0; \|ρ\| ≤ a(Ω) (Rem 6.2) | Extremal pair + DLP | READ & VERIFIED (pp. 15–17). Closest baseline to campaign's P1; our increment = β-subtraction (q < 2). Also: Appendix A smooth-approximation lemma (useful for Ω ↓ W(A) rigor); Prop A.2 spectral-constant equivalence |
+| arXiv:2410.10678 | "The algebraic numerical range as a spectral set in Banach algebras" | — | CORRECTED ID (audit): earlier ledger entry misattributed this ID to a parameterized C–P extension |
+| O'Loughlin–Rani, arXiv:2603.15536 (2026) "q-Numerical Ranges and Spectral Sets" | Bound K = t + √(t²+a(Ω)), t = 1+γ(1)/2 | q-numerical range | CAUTION (audit): sentence after Thm 3.3 claiming K<2-type conclusion may be typo/gap — verify before use |
 
 ## Special cases proved (constant 2)
 - Normal matrices (trivial: R ≤ 1; equality-2 impossible). von Neumann: W(A) ⊇ spectrum.
@@ -38,8 +40,15 @@ Papers, theorems, assumptions, possible gaps. Status verified via web 2026-07-20
 - Equivalent: enough for A with W(A) having smooth boundary (perturb A ↦ A + εB dense case? verify continuity argument), and p with ‖p‖_{W(A)} = 1.
 - Reduction: can assume p has degree < n (Cayley–Hamilton changes sup — INVALID as direct reduction; but valid: sup over W(A) of the reduced rep may increase, so inequality for reduced rep does NOT imply original. Only the direction ‖·‖ side is fixed.) — see APPROACH_LEDGER pitfalls.
 
+## Read & digested (Epochs 1–3)
+- [x] Ransford–Schwenninger arXiv:1708.08633 (full) — abstract lemma, sharpness (non-unital, Ω ⊅ W(T)), Question 4.1.
+- [x] Schwenninger–de Vries arXiv:2302.05389 (full) — extremal pairs/measures, Theorem 5, Prop 8/9, Remarks 12–13.
+- [x] MMOR arXiv:2407.19049 (pp. 1–8) — configuration constants c_R = c_C, a(Ω) < 1, ellipse formula, thin-domain obstruction, Theorem 6 curvature bound.
+- [x] BGG+20 arXiv:2006.04901 (pp. 4–12) — Blaschke extremal structure (Crouzeix 04 Thm 2.1), cancellation Thm 4.1, extremal measure Thm 4.5, compressed shifts.
+- [x] Schwenninger–de Vries arXiv:2409.15954 (pp. 15–20) — see table (P1 baseline).
+
 ## To read next
-- [ ] arXiv:2410.10678 full text
-- [ ] MMOR 2024 (C_N < 1+√2) — extract their equality-case analysis of C–P
-- [ ] MMOR 2025 configuration constants
-- [ ] Ransford–Schwenninger construction details (what does the sharp abstract example look like — can it be realized by an actual (A, Ω)? If YES → route to counterexample intuition; if NO → the gap is real structure to exploit)
+- [ ] MMOR 2024 (C_N < 1+√2) — equality-case analysis of C–P (relevant to P2 stability)
+- [ ] SV24 full §§1–5 (their Prop 2.4, 2.8, 3.5 used in §6; Berger–Stampfli generalization)
+- [ ] R–S Question 4.1 citation trail — is unitality known to be insufficient? (still undetermined)
+- [ ] BCG+23 arXiv:2312.04537 (Crouzeix, compressions of shifts, nilpotent classes)

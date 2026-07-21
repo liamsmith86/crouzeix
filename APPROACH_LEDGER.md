@@ -25,5 +25,10 @@ Every attempted approach; why it succeeded/failed. Includes known-failed approac
 - P4. Near-singular layer-potential quadrature (outer→inner contour, gap ε/2): N=1024 insufficient; passed all other certificates while Φ values were wrong (fake viol +0.358 at n=3, killed at N=4096). FIX: unitality certificate Φ(1)=1 through the same kernel + N-vs-2N stability check.
 - **Meta-pattern (important):** every relaxation of extremality so far admits sharp counterconfigurations: abstract lemma (R–S, non-unital α), domain-only constants (MMOR, thin quadrilaterals), scalar localization (L10, odd-symmetric mechanism — ours). Conjecture-strength inequalities must engage TRUE extremal structure (global maximality of f₀ + positive extremal measure), not just its first-order shadows.
 
-## Epoch 2 plan (selected obstruction: prove L7 at true extremal pairs)
-Attacks: (i) 2×2 exact sandbox — extremal pairs computable, test/prove L7 exactly, extract mechanism; (ii) extremal-pair first-order theory from BGG+20/Crouzeix (supp μ ⊆ {|f₀|=1}, Blaschke-type f₀ of degree ≤ n−1) → feed into saturation rigidity L9; (iii) status check R–S Question 4.1 + citations (is unitality known insufficient?).
+## Epoch 2 outcome
+2×2/ψ-domain exact extremal machinery built (extremal_pullback.py). Empirical laws at true extremals: c small (0 on disk, ~ε²-ish off), G ≈ |β|, ReC ≤ 0 generic, L7@ext holds broadly. L12-strong false.
+
+## Epoch 3 (current): P2 target, audit-adopted (chatgpt/FABLE_RESEARCH_AUDIT.md — verified before adoption)
+P1 (proved): K² + ReC ≤ Kq. P2 (target): q ≤ 2 + ReC/2 at extremals ⟹ Crouzeix. See proof/P2_target.md.
+Attacks: (i) falsification-first: exact 2×2, Ω = W(A) ellipse (elliptic Riemann map) + ψ-family adversarial ascent on −s_phase = q − 2 − r/2; (ii) if P2 survives: Euler–Lagrange at extremals (Blaschke-zero variations + singular-vector stationarity) → Stinespring leakage bound; (iii) fallback: pre-Cauchy–Schwarz angle form of P1.
+Audit adoptions verified by hand: P1/P2 algebra, Stinespring identities (D), D2-exactness, SV24 §6 baseline (ρ = ReC, K²+ρ≤2K — our β-subtraction is the increment). Audit hygiene items fixed (ledgers synced, 2410.10678 corrected, run tables filled).
