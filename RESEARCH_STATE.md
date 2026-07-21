@@ -1,6 +1,27 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-20 (Epoch 4 open)
+**Last updated:** 2026-07-21 (Epoch 5, late — level-4 closed-form theory + D2 landscape)
+
+## NEWEST (2026-07-21 late session) — read proof/slice_closed_form.md + proof/D2_landscape.md
+- **L15 PROVED**: level-4 nodal closed form K² = (T+√(T²−4δ²F₁²F₂²))/2 (frame invariants
+  p_ij, δ only; verified 1e-16); odd-phase stationarity law explicit (1e-10); Hellmann–Feynman
+  frame identities. Extremal problem = 4-point Pick problem with explicit objective.
+- **L16 PROVED**: even phase = deg-1 Möbius in collapsed variable; midpoint law (symmetry
+  proof) + q = 1/2 (involution identity) — DOMAIN-GENERAL, verified off-slice (2e-7).
+- **EL4 (central target)**: even-phase ρ = 1 − Θ(k,U₂) explicit elliptic formula; ≤ 1 verified
+  (50×50 grid, ε⁴-edges at dps 80); U₂→0 edge = Landen theorem exactly. Θ-form validated
+  vs exact machinery (6-7 digits) and on a bi-conic case (sign/order).
+- **Phases on slice**: odd {0,±α} / even {±α} / Möbius (= odd family's α→1 endpoint);
+  family-restricted searches can miss the global phase — always cross-check best_extremal.
+- **D2 landscape mapped, soft routes ALL DEAD (certified)**: free-convex false (z+tz² exact,
+  Herglotz-random ≤1.45); odd+G'-increasing FALSE (linearized step-deficit closed form +
+  certified counterexample V−1 = +9.8e-8 at 40 dps, entire-poly step, Noshiro–Warschawski);
+  symmetric-node case PROVED (one line); wedge family exactly solvable (γ ≤ 1 ⟺ pass);
+  convex trace bound |d/ds log g'| ≤ 2 proved (Poisson). Ellipse/sq-ellipse pass with FREE
+  nodes (focus-pinning not needed — mechanism is the map class regularity).
+- **Surviving proof route for EL4**: deformation path — V ≡ 1 at disk, show dV/dk ≤ 0 with
+  the explicit Möbius-Jacobian kernel functional applied to the elliptic velocity field
+  ∂ψ_k/∂k (linear in velocity at each k). See D2_landscape.md end.
 
 ## Objective & status
 Resolve Crouzeix's conjecture. OPEN in literature (verified 2026-07). No counterexample found by

@@ -41,6 +41,17 @@ n3 +2e-4, n4 +1.7e-2, n5 +1.6e-2 (n6 job may be incomplete).
   algebraic frame system (heavier than sym3 but finite).
 - Tools: experiments/slice_exact.py (exact elliptic slice machinery, 25 dps).
 
+## Epoch-5 LATE additions (2026-07-21, second work block)
+- L15 (nodal/Pick closed form, odd law) + L16 (even-phase midpoint + q=1/2) PROVED;
+  EL4 = ρ = 1−Θ(k,U₂) ≤ 1 is the even-phase central target (verified thoroughly; contains
+  the Landen theorem at U₂=0). proof/slice_closed_form.md is the master note.
+- Slice phase geography: odd/even/Möbius(=odd α→1 endpoint). Sweep OTHER-branch taus/f0e
+  fields are BUGGY — recompute, don't trust.
+- D2 soft-class hunt CLOSED (all falsified, incl. odd+G'↑ via certified 40-dps
+  counterexample); symmetric-node case + wedge family + convex trace bound PROVED.
+  proof/D2_landscape.md. Remaining route: deformation-path (dV/dk ≤ 0 with explicit
+  kernel functional on elliptic velocity field).
+
 ## Next five concrete actions
 1. sym4 closure — SHARPENED by final Epoch-5 data (sym4_sweep_s61.jsonl, 20/20 ρ>0):
    NO equioscillation — K = ‖A₊F(N_even)‖ alone (single active 2×2 block, verified 5 digits;
