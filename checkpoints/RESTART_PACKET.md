@@ -8,28 +8,39 @@ proof/rho_positivity_program.md). H-r: PROVED for all 2×2 (closed form ρ = 1 �
 the α=0 symmetry step); PROVED-by-reduction for the sym3/GKL 3×3 elliptic class (proof/sym3_reduction.md
 — ζ = z² collapse, midpoint law, π₀ = 1/2); NUMERICALLY CONFIRMED beyond all known classes (sym4;
 adversarial floors positive for n=3,4,5). No counterexample to the conjecture found anywhere
-(all "violations" ever seen were certified numerical artifacts — APPROACH_LEDGER P1–P4).
+(all "violations" ever seen were certified numerical artifacts — APPROACH_LEDGER pitfalls P1–P6).
 
 ## Strongest proved lemmas
 P1 (K²+ρ ≤ Kq), L13 (Clark-type transition ⟨q(A)x₀,u₀⟩ = K∫q·conj(f₀)dμ), L14 + collapse theorem
-(sym3: v = α², M = scaled 2×2 Jordan, ρ = (α²/2)(g₀(e)−g₀(0))), ceiling K²+2ρ+G² ≤ 4,
-2×2 closed form. See LEMMA_LEDGER.md.
+(sym3: v = α², ρ = (α²/2)(g₀(e)−g₀(0))), **Landen theorem** (sym3 ρ = 1 − π/(2K(k₁))),
+**L15** (level-4 nodal/Pick closed form + odd stationarity law + frame identities),
+**L16** (even-phase midpoint law + q = 1/2, domain-general), ceiling K²+2ρ+G² ≤ 4,
+2×2 closed form; D2 partial results (symmetric-node case, wedge family, convex trace bound).
+See LEMMA_LEDGER.md.
 
 ## Failed approaches — do not repeat
 Scalar reduction L10 (disproved, odd-symmetric mechanism); global-operator conditions like
 ∮λ_min(P)ds (not ⊕-stable); soft/free-map versions of the confocal inequality S ≤ 1 (false:
 1.019 free convex, 1.24 partial-focal); Löwner/K-monotonicity constraints (vacuous);
-L12-strong annihilation (false); frozen-Hadamard route (pair-response dominates).
+L12-strong annihilation (false); frozen-Hadamard route (pair-response dominates);
+frame-free level-4 laws + PSLQ hunts (frame-coupled — L15 explains); soft D2 classes:
+free univalent (Koebe 1+δ²), convex (z+tz² exact), odd+G'-increasing (certified 40-dps
+counterexample) — see proof/D2_landscape.md; pure-modulus double-Landen formula for the slice
+(marked point breaks second descent); arithmetic-in-U midpoint identity (false, 1e-2 off).
 
 ## Unresolved candidate lemmas
-H-r general; sym4 closure (current task); 2×2 α=0 step; ellipse-squared analytic proof (elementary);
-contact-degeneracy write-up; Lemma M (Minkowski monotonicity — superseded-ish by direct H-r work).
+H-r general; **EL4** (even-phase level-4 elliptic inequality — verified, central); odd-phase
+level-4 positivity; 2×2 α=0 step; ellipse-squared analytic proof (elementary); contact-degeneracy
+write-up; D2 sharp-class question (open classical problem, NOT needed for campaign).
 
 ## Best numerical assets (experiments/)
 extremal_pullback.py + theodorsen.py + minkowski_test.best_extremal = exact extremal-pair machinery
-(certified). ellipse_sandbox.py = exact 2×2. sym3_sweep_s51.jsonl = 40-record verified dataset.
-sym4_probe.py = new-territory probe (ρ > 0: +1.3e-4, +1.9e-3, +4.5e-4). Hr_adversarial floors:
-n3 +2e-4, n4 +1.7e-2, n5 +1.6e-2 (n6 job may be incomplete).
+(certified; best_extremal is the phase-safe solver — pitfall P5). ellipse_sandbox.py = exact 2×2.
+slice_exact.py = exact elliptic sym4 slice (25 dps; family-restricted — cross-check phases).
+slice_invariants.py = L15 invariant formulas (K closed form 1e-16, law 1e-10, frame identities).
+sym3_sweep_s51.jsonl (40 rec); sym4_sweep_s61.jsonl (20 rec; OTHER-branch taus/f0e BUGGY, ρ/K/qs
+fine). Hr_adversarial floors: n3 +2e-4, n4 +1.7e-2, n5 +1.6e-2 (n6 running, log_Hr_n6_s42.txt).
+Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
 
 ## Epoch-5 late findings (2026-07-21, after Landen theorem)
 - Landen theorem BANKED (proof/landen_theorem.md): sym3 ρ = 1 − π/(2K(k₁)) classical-complete.
@@ -52,30 +63,30 @@ n3 +2e-4, n4 +1.7e-2, n5 +1.6e-2 (n6 job may be incomplete).
   proof/D2_landscape.md. Remaining route: deformation-path (dV/dk ≤ 0 with explicit
   kernel functional on elliptic velocity field). GATE-CHECK PASSED: dV/dk < 0 strictly on full grid (−1.5e-3..−3.7e-2, bounded away from 0 in interior) — robust target.
 
-## Next five concrete actions
-1. sym4 closure — SHARPENED by final Epoch-5 data (sym4_sweep_s61.jsonl, 20/20 ρ>0):
-   NO equioscillation — K = ‖A₊F(N_even)‖ alone (single active 2×2 block, verified 5 digits;
-   other block 4–400× smaller). ODD phase (16/20): B odd, zeros {0,±α}, α interlaces (τ₂,τ₁)
-   [13/16; check 3 exceptions]. EVEN phase (4/20): sym3-like, q=1/2 exact. So: single-block 2-node
-   problem with F_j = B(τ_j)/e_j linked through α; stationarity dK/dα = 0 on the 2×2
-   K(α) = ‖A₊(F₁Q₁+F₂Q₂)‖; then ρ = Re[B(τ₁)g₀(e₁)q₁ + B(τ₂)g₀(e₂)q₂] ≥ 0 via
-   interlacing sign structure. Beware: the critical domain is NOT elliptic — the ζ-domain conformal
-   data (g₀-values) needs the bi-conic Kippenhahn structure (det even in t: t⁴+c₂t²+c₄).
-   This would be the FIRST NEW Crouzeix class of the campaign.
-2. Sym4 sweep (adapt sym3_sweep.py) to gather (zeros, ρ, block data); verify collapse numerically
-   before proving.
-3. Rigor debts: 2×2 α=0; ellipse-squared analytic; read GKL arXiv:1701.01365 (compare mechanism —
-   their cb-proof vs our ρ-proof) and de Vries thesis.
-4. De-symmetrization: perturb off the symmetric slice; use ρ-margin + smoothness to extend H-r
-   locally (stability analysis around solved families).
-5. General-n parity induction: zero-diag tridiagonal n×n (Greenbaum–Overton's empirical hard
-   configurations are exactly weighted-shift-like!): the graded collapse f₀(A) = A·F(A²) is
-   dimension-generic — chase the induction.
+## Next five concrete actions (refreshed 2026-07-21 late; old items 1–2 DONE → L15/L16/EL4)
+1. **EL4 deformation-path derivation** (top): compute dV/dk analytically for the ellipse family —
+   the kernel functional dV = h'(v) − (Möbius-Jacobian two-interval average of h')
+   (proof/D2_landscape.md, last section) applied to the elliptic velocity field h = ∂ψ_k/∂k;
+   prove dV/dk ≤ 0 (gate check: strictly negative on full grid). Then lift to the squared-ellipse
+   (EL4 proper: proves even-phase slice H-r) and bi-conic domains (general level-4 even phase =
+   FIRST NEW Crouzeix class).
+2. **Odd-phase level-4 positivity**: ρ = B₁g₁q₁+B₂g₂q₂ ≥ 0 under the L15 stationarity law
+   (slice_closed_form.md §3; interlacing τ₂ < α < τ₁, dominant positive outer term observed).
+   Try the same kernel/deformation machinery; the Möbius-equality structure should persist.
+3. **Collect n=6 Hr_adversarial** (running since 2026-07-21 22:06; experiments/log_Hr_n6_s42.txt).
+4. Rigor debts: 2×2 α=0 symbolic step; contact-degeneracy write-up; ellipse-squared analytic
+   proof; read GKL arXiv:1701.01365 + UW thesis (novelty calibration for elliptic n≥4).
+5. General-n: L16 mechanism is dimension-generic (any 2-dim active block) — formulate the
+   even-phase tower induction; n=6 even phase = deg-2-in-χ two-zero problem (next rung).
+   De-symmetrize using ρ-margins (free-node robustness on ellipse/sq-ellipse = stability budget).
 
 ## Paste-ready continuation instruction
 "Continue the Crouzeix campaign in /home/liam/Downloads/crouzeix (git repo; commit+push after each
-task). Read RESEARCH_STATE.md, then proof/sym3_reduction.md and proof/rho_positivity_program.md.
-Resume at Epoch 5 action 1 (sym4 closure). Respect APPROACH_LEDGER.md pitfalls P1–P4: every
+task). Read RESEARCH_STATE.md (NEWEST section first), then proof/slice_closed_form.md and
+proof/D2_landscape.md; master program in proof/rho_positivity_program.md. Resume at restart-packet
+action 1 (EL4 deformation-path derivation). Respect APPROACH_LEDGER.md pitfalls P1–P6: every
 numerical claim needs the certificate battery; treat any apparent violation as artifact until it
-survives strict re-evaluation and an independent implementation. Do not re-open dead ends listed
-in the ledgers. The stop-condition remains: rigorous general proof or certified counterexample."
+survives strict re-evaluation and an independent implementation; cross-check extremal phases with
+best_extremal (P5); verify analyticity/univalence of probe map families (P6). Do not re-open dead
+ends listed in the ledgers (esp. soft D2 classes — all falsified with certificates). The
+stop-condition remains: rigorous general proof or certified counterexample."

@@ -23,13 +23,22 @@ A candidate R(A,p) > 2 counts ONLY after: increased precision, conditioning anal
 | scalar_adv (b=.6,.3,.15) | scalar L10 | Nelder-Mead | none certified | superseded by targeted construction |
 | odd_symmetric_test | scalar L10, odd-symmetric | targeted (theory-driven) | **L10 violated +0.33** (not a Crouzeix c.e. — scalar lemma only) | mechanism documented in LEMMA_LEDGER |
 | epoch2/L12 extremal probes | true extremal pairs, ψ-domains | Blaschke-zero opt | L7@ext/P2 hold everywhere; c ≤ 0.006 | data in RESEARCH_STATE |
+| direct n=6 (2026-07-21) | n=6, deg ≤ 6, multistart | L-BFGS on R_inner, outer-verify | R = 1.148 | nothing near 2 |
+| direct n=7 (2026-07-21) | n=7, deg ≤ 6, multistart | same | R = 1.465 | nothing near 2 |
+| Hr_adversarial n=3 | min ρ over certified extremal pairs | multistart + certificate battery | min ρ = +2e-4 | H-r floor POSITIVE |
+| Hr_adversarial n=4 | same | same | min ρ = +1.7e-2 (run2: +7.2e-2) | POSITIVE |
+| Hr_adversarial n=5 | same | same | min ρ = +1.6e-2 (run2: +1.8e-2) | POSITIVE (weaker search) |
+| Hr_adversarial n=6 s42 | same | same | RUNNING (started 2026-07-21 22:06, log_Hr_n6_s42.txt) | collect on completion |
 
 ## Near misses
 None above 2. Best R = 1.9747 (converging to Crabb-type equality configuration, R → 2⁻).
 
-## Coverage gaps (honest accounting)
+## Coverage gaps (honest accounting, refreshed 2026-07-21)
 - Matrices with nonsmooth W(A) (flat portions / corners): rejected by certificates in operator
   pipeline; not yet searched. Plan: smoothed support-function domains or near-polygon ψ-families.
-- Dimensions ≥ 6, high polynomial degrees: unsearched.
-- Ω strictly = W(A) (not a neighborhood): extremal machinery currently uses Ω ⊋ σ(A) smooth; the
-  2×2 sandbox (Epoch 3) uses Ω = W(A) ellipse directly.
+- Dimensions ≥ 8, polynomial degrees > 6: unsearched (n=6,7 now covered at low degree).
+- Complex-eigenvalue sectors of the sym-tower (imaginary pairs, probe case C): treated separately,
+  lightly probed only.
+- Ω strictly = W(A) (not a neighborhood): exact machinery exists for 2×2 (ellipse_sandbox) and
+  the elliptic sym4 slice (slice_exact); general domains still use inflate > 0 (theodorsen) —
+  K(inflate→0) convergence verified on the slice (monotone from below, ~1%/0.005 inflate).

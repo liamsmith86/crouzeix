@@ -48,6 +48,11 @@ Papers, theorems, assumptions, possible gaps. Status verified via web 2026-07-20
 - [x] Schwenninger–de Vries arXiv:2409.15954 (pp. 15–20) — see table (P1 baseline).
 
 ## To read next
+- [ ] GKL arXiv:1701.01365 (Glader–Kurula–Lindström 2018, 3×3 tridiagonal elliptic W(A)) —
+  novelty calibration vs our sym3 ρ-proof (their mechanism is cb/dilation-based; ours is new)
+- [ ] UW thesis "Crouzeix's Conjecture and Beyond for Special Classes of Matrices" — check
+  whether the elliptic sym4 slice class (n≥4, elliptic W(A)) is already covered anywhere
+- [ ] de Vries thesis (SV24 companion) — extremal-pair machinery details
 - [ ] MMOR 2024 (C_N < 1+√2) — equality-case analysis of C–P (relevant to P2 stability)
 - [ ] SV24 full §§1–5 (their Prop 2.4, 2.8, 3.5 used in §6; Berger–Stampfli generalization)
 - [ ] R–S Question 4.1 citation trail — is unitality known to be insufficient? (still undetermined)

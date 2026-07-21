@@ -65,10 +65,13 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
 - ζ = z²-collapse ≡ Landen transformation ⟹ **Landen-tower conjecture** for the symmetric
   tridiagonal family (induction over levels; needs elliptic range at each level).
 - **Elliptic sym4 slice found analytically: b_j = c·a_j** (= c-deformed weighted shifts!);
-  W(A) exact ellipse (verified 3e-15), foci² = e₁²+e₂² (new confocal pattern). ρ > 0 on slice;
-  naive single-Landen formula does NOT match — multi-node (two-pair) formula is the open target.
+  W(A) exact ellipse (verified 3e-15). [CORRECTED later: foci = ±e₁ = OUTER eigenvalue pair,
+  τ₁ = √k — see proof/landen_theorem.md; an earlier foci² = e₁²+e₂² note was an algebra slip.]
+  ρ > 0 on slice; no pure-modulus Landen formula (marked point breaks second descent) — the
+  correct closed form is EL4's ρ = 1 − Θ(k,U₂) (see NEWEST above).
 - Adversarial H-r floors (all positive): n=3 +2e-4, n=4 +1.7e-2/+7.2e-2, n=5 +1.6e-2/+1.8e-2
-  (n=6 running). Direct ratio searches at n=6,7 running.
+  (n=6 running as of 2026-07-21, bash job in experiments/log_Hr_n6_s42.txt). Direct ratio
+  searches DONE: n=6 best 1.148, n=7 best 1.465 — nothing near 2.
 
 ## MILESTONES (Epoch 4, 2026-07-20)
 - **sym3 (= GKL 2018 class, real slice) H-r PROVED-by-reduction**: exact ζ = z² transform onto the
@@ -82,27 +85,40 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   Blaschke is ODD ({0,±α} zeros) ⟹ f₀ = z·F(z²) collapse exists; squared boundary NOT elliptic
   (resid 1e-4–1e-3).** Next: close sym4 analytically = first new Crouzeix class in campaign.
 
-## Current next actions (Epoch 5)
-1. sym4 collapse: A² block-decomposes on even/odd sublattices (2×2 blocks); derive the K- and
-   ρ-formulas via odd functional calculus f₀(A) = A·F(A²); find stationarity law (midpoint analog
-   for the pair {e₁², e₂²}?); determine the ζ-domain confocal structure (foci of the ζ-Kippenhahn
-   curve); attempt reduction to 2×2-theorem-type elliptic inequality. Handle the C-case sector
-   (imaginary eigenvalue pairs) separately.
-2. n=6 adversarial result (bg job bj2wx10ia; check log_Hr_n6_s42.txt).
-3. Rigor debts (unchanged): 2×2 α=0 step; contact-degeneracy write-up; mpmath independent
-   recheck; ellipse-squared analytic proof (elementary); GKL comparison read (1701.01365).
-4. General-n program: parity-collapse induction for zero-diag tridiagonal families (weighted-shift
-   perturbations = Greenbaum–Overton's hardest empirical configurations!); then de-symmetrization
-   (deformation off the symmetric slice, using the ρ-margin as stability budget).
-5. Keep committing after each task (user instruction).
+## Current next actions (Epoch 5, refreshed 2026-07-21 late — items 1–2 of the old list DONE, see NEWEST)
+1. **EL4 via deformation path** (top target): derive dV/dk analytically — kernel functional
+   (Möbius-Jacobian two-interval average, formula in proof/D2_landscape.md) applied to the
+   elliptic velocity field ∂ψ_k/∂k; prove its sign. Gate check passed (dV/dk < 0 strictly,
+   bounded away from 0). Do plain-ellipse family first, then squared-ellipse (= EL4 proper),
+   then bi-conic (general level-4 even phase).
+2. **Odd phase positivity**: ρ = B₁g₁q₁+B₂g₂q₂ ≥ 0 given the L15 stationarity law
+   (3-parameter; interlacing τ₂ < α < τ₁; term-1 dominance observed). Try the same
+   deformation/kernel machinery.
+3. n=6 adversarial result (running; check experiments/log_Hr_n6_s42.txt; harness will notify).
+4. Rigor debts: 2×2 α=0 step; contact-degeneracy write-up; ellipse-squared analytic proof;
+   GKL comparison read (arXiv:1701.01365); UW thesis check (elliptic n≥4 novelty — is the
+   elliptic sym4 slice class already in literature?).
+5. General-n: parity-collapse induction (L16 mechanism is dimension-generic for 2-dim active
+   blocks; n=6 even phase = deg-2-in-χ, needs the next rung); de-symmetrization using ρ-margins.
+Keep committing+pushing after each task (user instruction).
 
-## Files map
-proof/: track_A_crouzeix_palencia.md, refined_master_inequality.md, epoch2_extremal_structure.md,
-P2_target.md, strategy_S.md, rho_2x2_theorem.md, rho_positivity_program.md (MASTER).
-experiments/: crouzeix.py (basics), extremal_pullback.py (ψ-domain exact machinery),
-theodorsen.py (+GeneralPullback: arbitrary convex domains), ellipse_sandbox.py (2×2 exact),
-minkowski_test.py (best_extremal solver + Minkowski families), Hr_test.py / Hr_adversarial.py,
-sym3_structure.py, zero_geometry.py, L12_test.py, sanity.py; searches: search.py, adversarial_L7.py,
-scalar stuff (L10_test, scalar_adv, odd_symmetric_test — historical).
-Ledgers: LEMMA_LEDGER.md, APPROACH_LEDGER.md (pitfalls P1–P4!), LITERATURE_LEDGER.md,
-COUNTEREXAMPLE_SEARCH.md. Audit: chatgpt/FABLE_RESEARCH_AUDIT.md (reconciled 2026-07-20).
+## Files map (handoff-ready, 2026-07-21)
+proof/ — read in this order for the current frontier:
+  rho_positivity_program.md (MASTER program), slice_closed_form.md (level-4 theory: L15/L16/EL4/
+  D2-crit), D2_landscape.md (soft-class falsifications + deformation route), landen_theorem.md
+  (sym3 closed form), sym3_reduction.md (collapse theorem), sym4_program.md (family setup),
+  rho_2x2_theorem.md (n=2 base), graded_induction_skeleton.md (general-n plan);
+  background: strategy_S.md, P2_target.md, refined_master_inequality.md,
+  epoch2_extremal_structure.md, track_A_crouzeix_palencia.md.
+experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_matrix),
+  extremal_pullback.py (ψ-domain exact machinery), theodorsen.py (+GeneralPullback: arbitrary
+  convex domains, unitality certificate), minkowski_test.py (best_extremal — THE solver; always
+  use it to cross-check phases), ellipse_sandbox.py (2×2 exact), slice_exact.py (elliptic sym4
+  slice, 25 dps; family-restricted — see pitfall P5), slice_invariants.py (L15 invariant
+  formulas + verifications), sym3_structure/sweep/analysis.py, sym4_probe/sweep.py (OTHER-branch
+  taus/f0e fields BUGGY — pitfall P5), Hr_test.py / Hr_adversarial.py (certified min-ρ search),
+  zero_geometry.py (phi_of_points); historical: L10/L12/scalar/adversarial_L7/search.py.
+Data: sym3_sweep_s51.jsonl (40 rec), sym4_sweep_s61.jsonl (20 rec, ρ column trustworthy).
+Ledgers: LEMMA_LEDGER.md, APPROACH_LEDGER.md (pitfalls P1–P6 — READ BEFORE ANY SEARCH),
+LITERATURE_LEDGER.md, COUNTEREXAMPLE_SEARCH.md. Audit: chatgpt/FABLE_RESEARCH_AUDIT.md
+(reconciled 2026-07-20). Restart: checkpoints/RESTART_PACKET.md (paste-ready instruction).
