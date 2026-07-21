@@ -1,0 +1,227 @@
+You are beginning or resuming a long-horizon mathematical research program whose sole objective is to RESOLVE CROUZEIX’S CONJECTURE—either by a rigorous general proof or by a rigorously certified counterexample.
+
+Do not treat this as a question-answering task, literature-summary task, or single proof attempt. Treat it as a persistent research campaign. A failed approach, absence of immediate progress, or recognition that the conjecture is difficult is not a terminal condition.
+
+THE CONJECTURE
+
+For every complex (n\times n) matrix (A) and every complex polynomial (p),
+
+[
+|p(A)|*2\leq 2\max*{z\in W(A)}|p(z)|,
+]
+
+where
+
+[
+W(A)={x^*Ax:x\in\mathbb C^n,\ |x|_2=1}
+]
+
+is the numerical range and (|\cdot|_2) is the spectral operator norm.
+
+Define
+
+[
+R(A,p)=\frac{|p(A)|*2}{\max*{z\in W(A)}|p(z)|}.
+]
+
+The conjecture is (R(A,p)\leq2) universally. Be careful because some papers define the reciprocal ratio.
+
+The constant (2) is known to be sharp. For example, the matrix
+
+[
+A=\begin{pmatrix}0&2\0&0\end{pmatrix}
+]
+
+with (p(z)=z) attains equality. Therefore, equality at (2) is not a counterexample; disproof requires a rigorously certified value strictly greater than (2).
+
+TERMINAL CONDITIONS
+
+You may terminate the research program only if:
+
+1. You have produced a complete proof valid for every finite dimension, every complex square matrix, and every polynomial; or
+2. You have produced an explicit matrix (A) and polynomial (p) for which (R(A,p)>2), with rigorous certification; or
+3. The platform forcibly reaches a runtime, context, or tool limit that you cannot control.
+
+Condition 3 is not research completion. If it occurs, use the remaining context to create a detailed restart checkpoint, not a conventional “I was unable to solve it” conclusion.
+
+Do not voluntarily stop merely because:
+
+* the conjecture remains open in the literature;
+* several approaches failed;
+* you obtained only numerical evidence;
+* you obtained a partial theorem;
+* you cannot immediately see the next step;
+* the remaining work appears difficult;
+* your first research plan was exhausted.
+
+Instead, generate a materially new plan, consult additional literature, delegate independent approaches, modify the formulation, or search computationally for new structure.
+
+PERSISTENT RESEARCH STATE
+
+If filesystem tools are available, immediately create and continuously maintain:
+
+* `RESEARCH_STATE.md` — current knowledge, active directions, and exact next actions;
+* `LITERATURE_LEDGER.md` — papers, theorems, assumptions, and possible gaps;
+* `APPROACH_LEDGER.md` — every attempted approach and why it succeeded or failed;
+* `LEMMA_LEDGER.md` — candidate lemmas classified as proved, disproved, numerical, heuristic, or unresolved;
+* `COUNTEREXAMPLE_SEARCH.md` — search spaces, algorithms, seeds, near misses, and certification status;
+* `proof/` — evolving proof drafts;
+* `experiments/` — reproducible code and outputs;
+* `checkpoints/` — restart packets for future runs.
+
+At the beginning of any resumed run, inspect these materials and continue from the frontier. Do not spend the new run merely summarizing previous work.
+
+CURRENT BASELINE TO VERIFY
+
+Do not rely solely on this prompt; verify the current literature yourself. At minimum, study:
+
+* Michel Crouzeix’s original 2004 formulation;
+* Crouzeix’s 2007 bound;
+* Crouzeix–Palencia’s proof of the (1+\sqrt2) bound;
+* Ransford–Schwenninger’s analysis showing that an abstract lemma used in that method is sharp in its abstract setting;
+* numerical investigations by Greenbaum and Overton;
+* work using extremal pairs and singular vectors;
+* proofs for normal matrices, (2\times2) matrices, weighted shifts, nearly Jordan matrices, and special (3\times3) classes;
+* the 2024 result giving (C_N<1+\sqrt2) for each fixed dimension;
+* 2025–2026 work on configuration constants, double-layer potentials, KLS matrices, and complete (2)-spectral-set results for weighted shifts.
+
+The best established dimension-independent constant is currently believed to be (1+\sqrt2). Confirm that no newer proof or counterexample exists before proceeding.
+
+RESEARCH ORGANIZATION
+
+Run several independent research tracks. If subagents are available, assign them genuinely different approaches and prevent them from anchoring on one another’s conclusions.
+
+Track A — Improve the Crouzeix–Palencia method
+
+Reconstruct the (1+\sqrt2) proof line by line. Identify exactly where the constant enters. Determine which matrix-specific, numerical-range-specific, positivity, extremality, or Cauchy-transform structure is discarded by the abstract lemma. Because the abstract lemma is sharp in isolation, do not merely attempt to strengthen it without additional structure. Search for the missing structural constraint that could reduce (1+\sqrt2) to (2).
+
+Track B — Extremal-pair and variational analysis
+
+Assume a worst-case or minimal counterexample exists after appropriate normalization. Derive necessary first- and second-order optimality conditions for (A) and (p). Analyze left and right singular vectors of (p(A)), boundary contact points of (|p|) on (W(A)), nonsmooth stationarity, and perturbations of (A) modulo unitary similarity and affine transformations. Attempt to prove that every extremizer reduces to a known equality case.
+
+Track C — Counterexample discovery
+
+Search directly for (R(A,p)>2). Begin with (3\times3), (4\times4), and (5\times5) nonnormal matrices and increase dimension only when justified. Include nearly defective matrices, matrices with flat portions or corners in their numerical ranges, irreducible matrices, structured perturbations of equality cases, and combinations of known difficult families.
+
+Use nonsmooth global optimization, randomized restarts, interval methods, high precision, symbolic reconstruction, semidefinite relaxations, and adversarial perturbation. Do not report a floating-point value slightly above (2) as a counterexample. Such a candidate must survive increased precision, conditioning analysis, exact or interval certification, and independent implementations.
+
+Track D — Finite-dimensional reduction
+
+Investigate whether a minimal counterexample must have bounded dimension or a restricted polynomial degree. Use Cayley–Hamilton carefully: although (p(A)) has a representative of degree below (n), replacing (p) may alter its supremum over (W(A)). Do not make an invalid degree-reduction argument. Seek valid compactness, compression, dilation, direct-sum, or minimality reductions.
+
+Track E — Geometry of the numerical range
+
+Use the convexity of (W(A)), conformal mappings, Blaschke products, boundary integral representations, double-layer potentials, Neumann–Poincaré operators, configuration constants, and spectral-set theory. Determine whether the geometry of a genuine worst case must be smooth, polygonal, elliptic, or degenerate. Seek a geometric inequality whose sharp constant is exactly (2).
+
+Track F — Stronger and equivalent formulations
+
+Investigate complete spectral-set formulations, matrix-valued polynomials, dilation-theoretic statements, and functional-calculus formulations. Determine carefully which are equivalent, stronger, or merely sufficient. A proof of an unnecessarily stronger statement may be impossible even when the scalar conjecture is true, so do not conflate them.
+
+Track G — Proof and literature auditor
+
+Maintain an adversarial agent that does not generate the main proof. Its job is to locate hidden assumptions, incorrect norm inequalities, unjustified boundary reductions, nonuniform dimension dependence, misuse of maximum-modulus arguments, faulty compactness, and numerical artifacts.
+
+COMPUTATIONAL REQUIREMENTS
+
+For a candidate pair ((A,p)):
+
+1. Compute (p(A)) and its operator norm with high precision.
+2. Compute or enclose (W(A)) rigorously.
+3. Parameterize the supporting boundary using the largest eigenvalue of
+   [
+   \operatorname{Re}(e^{-i\theta}A),
+   ]
+   while handling eigenvalue crossings, corners, and flat portions.
+4. Bound (\max_{z\in W(A)}|p(z)|) rigorously, using the maximum-modulus principle only where its hypotheses apply.
+5. Recompute using an independent implementation.
+6. Use interval arithmetic or an exact analytic argument to certify any strict inequality.
+7. Save code, precision settings, seeds, candidate data, and error bounds.
+
+Numerical experiments may guide conjectures and identify extremal structure, but they are not themselves a proof.
+
+PROOF STANDARDS
+
+A claimed proof must cover all dimensions with one logically valid argument. A dimension-dependent constant (C_N<1+\sqrt2), a proof for another matrix family, or a bound (2+\varepsilon) is valuable progress but does not resolve the conjecture.
+
+For every proposed lemma:
+
+* state all hypotheses precisely;
+* test small, singular, defective, and highly nonnormal matrices;
+* test equality cases;
+* search numerically for counterexamples;
+* compare it with known theorems;
+* determine whether its constants depend secretly on dimension;
+* classify it honestly in `LEMMA_LEDGER.md`.
+
+Never silently infer a global operator-norm statement from pointwise scalar estimates. Never assume normal-matrix behavior for nonnormal matrices. Never exchange suprema, norms, integrals, or limits without justification.
+
+PERSISTENCE PROTOCOL
+
+Organize the work into research epochs. Each epoch must:
+
+1. Select a concrete obstruction or subproblem.
+2. Attempt at least two genuinely different attacks.
+3. Test the central idea computationally or against known examples when possible.
+4. Submit every apparent lemma to adversarial review.
+5. Record what was learned.
+6. Choose the next epoch based on evidence, not repetition.
+
+When an approach fails, extract the exact failure condition and ask whether that condition suggests either:
+
+* a restricted theorem;
+* a candidate counterexample family;
+* a strengthened hypothesis;
+* a different representation;
+* an overlooked extremal condition.
+
+Do not repeatedly paraphrase the same failed strategy.
+
+PARTIAL RESULTS
+
+New partial results should be proved and preserved because they may unlock the full problem. However, do not treat them as permission to end the program. After recording a partial result, immediately ask how it narrows the remaining space and begin the next research epoch.
+
+SOLUTION-VERIFICATION PHASE
+
+If you believe you have a proof or counterexample, suspend celebratory language and enter a separate verification phase.
+
+For a proof:
+
+* rewrite it self-contained from definitions;
+* identify every external theorem used and verify its precise statement;
+* have independent agents reconstruct the argument without access to your confidence assessment;
+* attempt to generate counterexamples to every new lemma;
+* test the argument on known equality cases;
+* verify that no constant or compactness step depends on dimension;
+* formalize crucial finite-dimensional algebra in Lean, Isabelle, or another proof assistant when feasible.
+
+For a counterexample:
+
+* provide explicit entries and polynomial coefficients;
+* provide a rigorous enclosure proving (R(A,p)>2);
+* reproduce it in two independent systems;
+* analyze whether rounding or numerical-range approximation can erase the violation;
+* simplify or rationally reconstruct the example where possible.
+
+Do not announce resolution until this verification phase succeeds.
+
+FORCED-STOP PROCEDURE
+
+If a hard system limit is approaching, reserve enough time to update all persistent files and output a restart packet containing:
+
+* the exact current frontier;
+* strongest proved lemmas;
+* failed approaches that must not be repeated;
+* unresolved candidate lemmas;
+* best numerical candidates with file locations;
+* the next five concrete actions;
+* a paste-ready continuation instruction.
+
+Title that output:
+
+“CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT”
+
+Do not frame forced stopping as giving up. The next run must be able to resume without reconstructing the project.
+
+Begin now. First verify the literature baseline, establish the persistent research state, and then proceed into parallel proof and counterexample tracks. Do not ask me for permission to continue and do not stop after the literature review.
+
+Track your work in this folder. Python is available, and you can create a venv to install anything you need. Keep a running report in .md as you work.

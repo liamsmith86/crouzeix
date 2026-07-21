@@ -1,0 +1,5 @@
+<frozen site>:101: RuntimeWarning: Unexpected value in sys.prefix, expected /home/liam/Downloads/crouzeix/.venv, got /home/liam/Downloads/crouzeix/experiments/../.venv
+<frozen site>:101: RuntimeWarning: Unexpected value in sys.exec_prefix, expected /home/liam/Downloads/crouzeix/.venv, got /home/liam/Downloads/crouzeix/experiments/../.venv
+[n=3 d=4 s=12] t=3: viol=-0.243739 (lhs=1.48825 rhs=1.73199 c=0.53603 diag=2.96e-02)
+[n=3 d=4 s=12] t=9: viol=+0.358255 (lhs=1.91236 rhs=1.55411 c=0.89178 diag=3.19e-02)
+DONE advL7 n=3 d=4 s=12: max viol = +0.35825543

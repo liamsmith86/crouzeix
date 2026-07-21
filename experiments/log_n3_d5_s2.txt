@@ -1,0 +1,6 @@
+[n=3 d=5 s=2] trial 0: R_inner=1.00000000 R_outer=1.00000000
+[n=3 d=5 s=2] trial 1: R_inner=1.00093167 R_outer=1.00092480
+[n=3 d=5 s=2] trial 10: R_inner=1.32473920 R_outer=1.32473355
+[n=3 d=5 s=2] trial 14: R_inner=1.79397187 R_outer=1.79395447
+[n=3 d=5 s=2] trial 22: R_inner=1.83975576 R_outer=1.83974347
+DONE n=3 d=5 seed=2: best R_inner(1024) = 1.8397557579

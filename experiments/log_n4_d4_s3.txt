@@ -1,0 +1,4 @@
+[n=4 d=4 s=3] trial 0: R_inner=1.00000000 R_outer=1.00000000
+[n=4 d=4 s=3] trial 1: R_inner=1.68481027 R_outer=1.68478983
+[n=4 d=4 s=3] trial 10: R_inner=1.94632041 R_outer=1.94631541
+DONE n=4 d=4 seed=3: best R_inner(1024) = 1.9463204148
