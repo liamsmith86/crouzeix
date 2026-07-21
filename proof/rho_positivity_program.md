@@ -41,6 +41,20 @@ egg-shaped Ω ⊋ W(A)). The n ≥ 3 proof must encode "Ω = W(A)" the way confo
 - Minkowski path W(A)→disk: ρ monotone ↓ to 0 (crabb case textbook; random case needs
   pipeline accuracy fix — flagged).
 
+## Epoch-4 additions (derived 2026-07-20, after sym3 reduction)
+- Annihilation counting: exact g₀(σ(A)) = 0 is 2n real conditions vs 2(n−1) zero-freedoms — always
+  2 short. K-maximization drives toward the annihilation manifold; ρ is LINEAR in the residuals
+  (g₀(λⱼ)-values) with coefficients from the extremal frame ⟹ positivity must come from a
+  KKT/multiplier alignment: **conjectured proof shape: ρ = (multiplier ≥ 0)·(slack) via the
+  constrained-optimality of the extremal Blaschke.** NEXT: write the full stationarity system
+  (∂K/∂αᵢ = 0) and check whether it forces the sign of Σ coeffⱼ·g₀(λⱼ).
+- Third measure ρ̂ ≥ 0 (mixed): ⟨q(A)x₀,u₀⟩ = K∫q·conj(f₀)dρ̂ (from additive-perturbation
+  stationarity; f̄₀ = 1/f₀ on ∂Ω). Boundary density J := φ·(log B)'∘φ = Σᵢ(1−|αᵢ|²)/|φ−αᵢ|² > 0
+  (angular derivative; |f₀'| = J·|φ'| on ∂Ω).
+- Löwner structure: under domain inflation, δφ = −φ·H (H Herglotz); frozen-B derivative of K² is
+  −2K·Re⟨(B'(φ)φH)(A)x₀,u₀⟩ = −2K²∫J·ReH dρ̂ ≤ 0 automatically (ReH|∂ = delta-type ≥ 0) —
+  K-monotonicity constraints carry NO extra info (dead end, recorded to avoid repetition).
+
 ## Open determinations / next attacks (Epoch 4 candidates)
 1. Rigorous write-up: contact-degeneracy lemma; α=0 for 2×2; the K ≤ 2 (2×2) elliptic re-derivation.
 2. Hadamard system: δ(f₀,x₀,K,ρ) under support variation; sign of dρ/dt — first do it numerically
