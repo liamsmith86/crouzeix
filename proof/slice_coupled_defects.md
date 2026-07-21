@@ -234,7 +234,7 @@ single sufficient theorem
 
 \[
  \boxed{\|\mathscr R_{a,b}(T)\|\le2
- \quad\text{for every }(a,b)\in[-1,1]^2} \tag{RT}
+ \quad\text{for every }$a,b$\in[-1,1]^2} \tag{RT}
 \]
 
 closes the rank-one/rank-one face and therefore proves `L20`.
@@ -289,9 +289,74 @@ sharp on the two default rank-one/rank-one SDP cases: the squared transfer
 norms \(3.136329347\) and \(2.491664377\) reproduce the primal-dual optima.
 This sharpness is evidence only, not the proof of (RT).
 
-## 6. Remaining target
+## 6. Polynomial transfer defect
 
-The live theorem is now (RT), with the special conformal coupling
+There is a second exact simplification which removes all resolvents from the
+norm-two test.  Put $X_0=I-AT$.  Expanding both sides and using that $A$
+commutes with $S=(I-A^2)^{1/2}$ gives the operator-ball identity
+
+\[
+ I-\mathscr R_{a,b}(T)^*\mathscr R_{a,b}(T)
+ =S X_0^{-*}(I-T^*T)X_0^{-1}S. \tag{24}
+\]
+
+Indeed, after multiplying by $X_0^*$ and $X_0$, the identity reduces to
+
+\[
+ X_0^*S^{-2}X_0-(T^*-A)S^{-2}(T-A)=I-T^*T, \tag{25}
+\]
+
+whose mixed terms cancel and whose two remaining coefficients use
+$S^{-2}(I-A^2)=I$.  With $Y=X_0^{-1}S$, (24) implies
+
+\[
+ 4I-\mathscr R_{a,b}(T)^*\mathscr R_{a,b}(T)
+ =Y^*\mathcal Q_{a,b}(T)Y,
+ \qquad
+ \mathcal Q_{a,b}(T)=I-T^*T+3X_0^*S^{-2}X_0. \tag{26}
+\]
+
+Thus (RT) is equivalent in the open parameter square to
+$\mathcal Q_{a,b}(T)\succeq0$.  Multiplication by the positive scalar
+$s^2t^2$ makes this a polynomial LMI.  In parity blocks it is
+
+\[
+ s^2t^2\mathcal Q_{a,b}(T)=
+ \begin{bmatrix}E_o&-3J\\-3J^T&E_e\end{bmatrix}, \tag{27}
+\]
+
+where
+
+\[
+ \begin{aligned}
+ E_o&=t^2(4-a^2)I+s^2(4b^2-1)C^*C,\\
+ E_e&=s^2(4-b^2)I+t^2(4a^2-1)B^*B,\\
+ J&=at^2B+bs^2C^*.
+ \end{aligned} \tag{28}
+\]
+
+Both diagonal blocks are already positive semidefinite from L24 and L26.  For
+example, if $4b^2-1\ge0$, positivity of $E_o$ is immediate.  Otherwise
+$C^*C\preceq4I$, so
+
+\[
+ E_o\succeq3(a^2+4b^2-5a^2b^2)I\succeq0. \tag{29}
+\]
+
+The last scalar expression is bilinear in $a^2,b^2\in[0,1]$ and is
+nonnegative at all four corners.  Swapping $a,b$ gives
+$E_e\succeq3(4a^2+b^2-5a^2b^2)I\succeq0$ in its only nontrivial sign
+range.
+
+Therefore the remaining content is precisely the off-diagonal Schur
+inequality in (27), not positivity of its diagonal pieces.  This formulation
+has no elliptic resolvents and is only quartic in $a,b$; it is the preferred
+starting point for using the modal relation (23).  The exact audit of (24)--
+(28) is included in `experiments/slice_rank_one_transfer.py`.
+
+## 7. Remaining target
+
+The live theorem is now (27), equivalently (RT), with the special conformal coupling
 
 \[
  \tan v=r\tan u,\qquad r=H(p),\qquad p=\tau_2/\tau_1. \tag{23}

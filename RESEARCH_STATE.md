@@ -104,6 +104,11 @@
   determinant `(ab−z²)/(1−abz²)`. Proving `||R_{a,b}(T)||≤2` uniformly would prove L20.
   The boundary reduces to the proved scalar even sector, but numerical maxima can occur in the
   genuinely matrix-valued interior, so a scalar-only argument is insufficient.
+- **L41 removes the transfer resolvents.** The exact operator-ball defect identity makes
+  `||R_{a,b}(T)||≤2` equivalent to a quartic polynomial `4×4` LMI. L24/L26 and two bilinear
+  scalar estimates prove both `2×2` diagonal blocks positive semidefinite for every `a,b`.
+  The sole content left is its explicit off-diagonal Schur inequality, with coupling
+  `3[a(1−b²)B+b(1−a²)C*]`. This is the preferred form for the conformal-node attack.
 
 ## Previous Epoch-6 milestone — EL4 PROVED
 - **EL4 is now an analytic theorem**, not a grid conjecture. New L17: `SG ≥ 0` on the real
@@ -215,8 +220,8 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
 ## Current next actions (Epoch 6, refreshed 2026-07-21)
 1. **Prove L40's transfer theorem.** Show `||R_{a,b}(T)||≤2` for the explicit
    Blaschke--Potapov transfer in `proof/slice_coupled_defects.md`. Preserve the matrix-valued
-   interior: a boundary/scalar reduction is numerically false. First derive the `4I−R*R`
-   Schur complement in modal coordinates and use `tan(v)=H(p)tan(u)` before any interval split.
+   interior: a boundary/scalar reduction is numerically false. Use L41's polynomial Schur
+   complement in modal coordinates and `tan(v)=H(p)tan(u)` before any interval split.
    This one theorem would prove L20 for the complete elliptic 4×4 slice.
 2. **Shifted Möbius phase**: derive its exact stationarity/rho formula (Kenan-Li quartic analog)
    and prove rho≥0 or K≤2. Definite parity is false.

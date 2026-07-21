@@ -116,7 +116,10 @@ closed square `(a,b)∈[−1,1]²`. In symmetric modal coordinates the two nodes
 `(ab−z²)/(1−abz²)`. The boundary is in the proved even sector; the interior is genuinely
 matrix-valued and can beat all scalar lines. The only remaining L20 theorem is
 `||R_{a,b}(T)||≤2`. Exact audit and sharp default-case regression:
-`experiments/slice_rank_one_transfer.py`; proof: `proof/slice_coupled_defects.md` §4–6.
+`experiments/slice_rank_one_transfer.py`; proof: `proof/slice_coupled_defects.md` §4–7.
+L41 further removes both transfer resolvents: the norm test is equivalent to a quartic
+polynomial `4×4` LMI. Its two diagonal `2×2` blocks are already PSD by L24/L26 and elementary
+bilinear estimates, leaving only one explicit off-diagonal Schur inequality.
 
 ## Strongest proved lemmas
 P1 (K²+ρ ≤ Kq), L13 (Clark-type transition ⟨q(A)x₀,u₀⟩ = K∫q·conj(f₀)dμ), L14 + collapse theorem
