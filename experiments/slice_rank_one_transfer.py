@@ -21,9 +21,14 @@ from math import exp, log, pi, sqrt
 import numpy as np
 import sympy as sp
 from scipy.optimize import differential_evolution
+from scipy.special import ellipk
 
 from slice_cb_sdp import DEFAULT_CASES, solve_similarity_sdp
-from slice_similarity_duality import modal_slice, modal_slice_from_weights
+from slice_similarity_duality import (
+    elliptic_modulus,
+    modal_slice,
+    modal_slice_from_weights,
+)
 
 
 RANK_TOLERANCE = 2e-6
@@ -469,12 +474,112 @@ def maximize_global_block_energy(maximum_iterations: int) -> tuple[float, np.nda
     return -float(result.fun), parameters
 
 
+def envelope_operator(
+    c: float,
+    node_ratio: float,
+    envelope_coordinate: float,
+    left_angle: float,
+) -> tuple[np.ndarray, float]:
+    """Construct a modal operator at a point of the cubic conformal envelope."""
+
+    modulus = elliptic_modulus(c)
+    k = sqrt(modulus)
+    s_zero = pi / (2.0 * float(ellipk(modulus)))
+    cubic_coefficient = s_zero * (1.0 + modulus - s_zero**2) / 6.0
+    lower_ratio = s_zero * node_ratio + cubic_coefficient * node_ratio**3
+    upper_ratio = (
+        s_zero * node_ratio + (1.0 - s_zero) * node_ratio**3
+    )
+    eigenvalue_ratio = lower_ratio + envelope_coordinate * (
+        upper_ratio - lower_ratio
+    )
+    tangent = np.tan(left_angle)
+    denominator = sqrt(
+        (1.0 + tangent**2)
+        * (1.0 + eigenvalue_ratio**2 * tangent**2)
+    )
+    h = k / c
+    upper = sqrt(h) / denominator * np.array(
+        [
+            [
+                1.0 + node_ratio * eigenvalue_ratio * tangent**2,
+                tangent * (eigenvalue_ratio - node_ratio) / c,
+            ],
+            [
+                c * tangent * (1.0 - node_ratio * eigenvalue_ratio),
+                node_ratio + eigenvalue_ratio * tangent**2,
+            ],
+        ]
+    )
+    lower = c * sqrt(h) / denominator * np.array(
+        [
+            [
+                1.0 + node_ratio * eigenvalue_ratio * tangent**2,
+                tangent * (1.0 - node_ratio * eigenvalue_ratio) / c,
+            ],
+            [
+                c * tangent * (eigenvalue_ratio - node_ratio),
+                node_ratio + eigenvalue_ratio * tangent**2,
+            ],
+        ]
+    )
+    zero = np.zeros((2, 2))
+    return np.block([[zero, upper], [lower, zero]]), eigenvalue_ratio
+
+
+def maximize_envelope_block_energy(
+    maximum_iterations: int,
+) -> tuple[float, np.ndarray]:
+    """Search the stronger cubic-envelope version of (BE)."""
+
+    def objective(parameters: np.ndarray) -> float:
+        (
+            log_c,
+            node_ratio,
+            envelope_coordinate,
+            left_angle,
+            odd_parameter,
+            even_parameter,
+        ) = parameters
+        operator, _ = envelope_operator(
+            exp(log_c), node_ratio, envelope_coordinate, left_angle
+        )
+        return -block_norm_energy(
+            small_gain_matrix(operator, odd_parameter, even_parameter)
+        )
+
+    result = differential_evolution(
+        objective,
+        [
+            (log(0.003), log(0.63)),
+            (0.002, 0.998),
+            (0.0, 1.0),
+            (0.002, pi / 2 - 0.002),
+            (-0.999999, 0.999999),
+            (-0.999999, 0.999999),
+        ],
+        seed=20260721,
+        popsize=22,
+        maxiter=maximum_iterations,
+        tol=1e-9,
+        polish=True,
+    )
+    parameters = result.x.copy()
+    parameters[0] = exp(parameters[0])
+    return -float(result.fun), parameters
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--global-energy",
         action="store_true",
         help="run the optional five-parameter numerical search for (BE)",
+    )
+    parser.add_argument(
+        "--envelope-energy",
+        action="store_true",
+        help="search (BE) on the full rigorous cubic conformal envelope",
     )
     parser.add_argument("--maxiter", type=int, default=500)
     arguments = parser.parse_args()
@@ -490,6 +595,15 @@ def main() -> None:
         )
         if energy > 1.0 + OPTIMIZATION_TOLERANCE:
             raise AssertionError("the global search found a block-energy violation")
+    if arguments.envelope_energy:
+        energy, parameters = maximize_envelope_block_energy(arguments.maxiter)
+        print(
+            "envelope block-energy search: "
+            f"energy={energy:.12f} "
+            f"(c,p,t,u,a,b)={tuple(float(value) for value in parameters)}"
+        )
+        if energy > 1.0 + OPTIMIZATION_TOLERANCE:
+            raise AssertionError("the envelope search found a block-energy violation")
 
 
 if __name__ == "__main__":

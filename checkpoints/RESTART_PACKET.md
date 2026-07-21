@@ -125,7 +125,8 @@ physical similarity has condition `c^(−3/2)≤2`. Only the lower-nome Schur in
 L43 then square-completes that Schur coupling: it is equivalent to norm at most one for an
 explicit four-block small-gain matrix with contracted parameters `u=3a/(4−a²)`,
 `v=3b/(4−b²)`. The stronger scalar block-energy target `Σ||S_ij||²≤1` (L44) implies the
-result and is globally search-supported, but is not yet proved.
+result and is search-supported on the entire rigorous cubic conformal envelope, but is not yet
+proved. The softer strip `s₀p≤r≤p` fails, so retain the cubic envelope.
 
 ## Strongest proved lemmas
 P1 (K²+ρ ≤ Kq), L13 (Clark-type transition ⟨q(A)x₀,u₀⟩ = K∫q·conj(f₀)dμ), L14 + collapse theorem

@@ -454,9 +454,20 @@ norm.  Thus (BE) would prove (RT).  It is stronger than necessary, but it is
 numerically robust: deterministic global searches over all five live real
 parameters approach one only at the already sharp $c\to0$, $a,b\to0$
 boundary.  The default rank-one/rank-one cases give $0.790699$ and $0.742709$.
-This is evidence, not a certificate.  Formulae (30)--(34) are exact and are
-audited by `experiments/slice_rank_one_transfer.py`; the optional search is
-reproduced with `--global-energy`.
+More strongly, the search still passes when the exact conformal ratio $r=H(p)$
+is replaced by every point of its rigorous cubic envelope
+
+\[
+ s_0p+a_3p^3\le r\le s_0p+(1-s_0)p^3. \tag{35}
+\]
+
+The cubic information is essential: the looser strip $s_0p\le r\le p$ has
+numerical values as large as $1.3067$.  Thus a proof of (BE) may use only the
+same algebraic theta data as L29, but cannot fall back to the soft inequality
+$r\le p$.  This is evidence, not a certificate.  Formulae (30)--(34) are
+exact and are audited by `experiments/slice_rank_one_transfer.py`; the two
+optional searches are reproduced with `--global-energy` and
+`--envelope-energy`.
 
 ## 7. Remaining target
 

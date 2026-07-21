@@ -116,8 +116,10 @@
 - **L43 square-completes the remaining coupling.** The polynomial core is PSD exactly when
   an explicit four-block small-gain matrix has norm at most one. Its only resolvents are those
   of `BC,CB` at contracted parameters `u=3a/(4−a²)`, `v=3b/(4−b²)`. The stronger scalar
-  target L44, `Σ||S_ij||²≤1`, implies the theorem and survives global searches, approaching
-  equality only on the known `c→0,a,b→0` boundary. L44 remains numerical, not proved.
+  target L44, `Σ||S_ij||²≤1`, implies the theorem and survives global searches even over the
+  full rigorous cubic envelope for `r=H(p)`, approaching equality only on the known
+  `c→0,a,b→0` boundary. The softer strip `s₀p≤r≤p` is false (value `1.3067`), so the cubic
+  conformal input is essential. L44 remains numerical, not proved.
 
 ## Previous Epoch-6 milestone — EL4 PROVED
 - **EL4 is now an analytic theorem**, not a grid conjecture. New L17: `SG ≥ 0` on the real
