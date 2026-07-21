@@ -219,9 +219,10 @@ Several simple metric ansatzes fail before the true SDP optimum reaches four: di
 one-step observability Gramians, and forcing either contraction inequality in (13) to equality.
 Those failures show that the remaining result is not a one-line Lyapunov estimate.
 
-Subsequent exact progress is in `proof/slice_boundary_theorems.md`: the full bound is proved on
-the sharp (c\to0) weighted-shift face, one modal block satisfies (\|C\|\le2) everywhere, and the
-focus node obeys (k/c\le4/(1+c^2)^2).  The upper-block displacement and coupled dual phases remain.
+Subsequent exact progress is in `proof/slice_boundary_theorems.md` and
+`proof/slice_upper_block_theorem.md`: the full bound is proved on the sharp (c\to0)
+weighted-shift face, both modal blocks satisfy (\|B\|,\|C\|\le2) everywhere, and the focus node
+obeys (k/c\le4/(1+c^2)^2).  Genuinely coupled dual phases remain.
 
 The live analytic target is now the explicit cone inequality
 

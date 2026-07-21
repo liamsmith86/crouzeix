@@ -149,9 +149,9 @@ Thus (9) is nonnegative for every (x\ge0).  Finally,
 (|\det C|=ckp<1), so both singular values cannot simultaneously exceed two.  Therefore
 (|C|\le2).  (□)
 
-The transpose-position block (B) also satisfies (|B|\le2) on every numerical test, but the
-same proof leaves one genuine conformal distortion term, ((p-r)/c).  It requires more than the
-soft bounds (5), so it remains explicitly unclaimed here.
+The transpose-position block (B) requires a genuine conformal distortion estimate beyond the
+soft bounds (5).  That debt is subsequently closed in `slice_upper_block_theorem.md`, which
+proves (\|B\|\le2) via an inverse-ellipse Möbius barrier.
 
 ## 4. The complete similarity bound on the (c\to0) face
 
@@ -212,7 +212,8 @@ near-four values of the modal SDP as (c\downarrow0).
 
 ## 5. Remaining obstruction
 
-Equations (1), (8), and (17) remove the lower-block and singular-boundary obstructions.  The
-interior proof still has to control either the upper block's conformal displacement
-((p-r)/c) or genuinely coupled dual witnesses with both (Z_o,Z_e\ne0).  Numerically, the
-latter are exactly the phases where (t_*(T)) is larger than (max(\|B\|^2,\|C\|^2)).
+Equations (1), (8), and (17) remove the lower-block and singular-boundary obstructions, and
+`slice_upper_block_theorem.md` subsequently removes the upper-block displacement.  The interior
+proof still has to control genuinely coupled dual witnesses with both (Z_o,Z_e\ne0).
+Numerically, these are exactly the phases where (t_*(T)) is larger than
+(max(\|B\|^2,\|C\|^2)).

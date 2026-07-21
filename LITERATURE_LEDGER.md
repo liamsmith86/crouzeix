@@ -54,7 +54,9 @@ Papers, theorems, assumptions, possible gaps. Status verified via web 2026-07-20
   two-node estimate is imported.
 - [x] Kanas--Sugawa (2006), *On conformal representations of the interior of an ellipse* — the
   centered inverse ellipse map has positive odd Taylor coefficients; an alternative precise
-  justification of `r≤p` and a possible source for the remaining `(p−r)/c` bound.
+  justification of `r≤p`. L26 uses this coefficient positivity to obtain the cubic minorant
+  that closes the `(p−r)/c` upper-block bound; the subsequent Möbius barrier and theta
+  certificate are campaign-derived.
 - [x] Crouzeix--Greenbaum, arXiv:2508.12768 (2025/26) — for scalar cyclic weighted shifts the
   disk complete bound equals the largest consecutive weight product via an explicit diagonal
   similarity. L25 uses the elementary nilpotent specialization on the `c→0` face; the paper's

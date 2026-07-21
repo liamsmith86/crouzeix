@@ -45,9 +45,14 @@ failed; attack extreme dual block pairs rather than repeating blind primal ansat
 **Next proved pieces (L23–L25):** `proof/slice_boundary_theorems.md` proves the sharp nome bound
 `k/c≤4/(1+c²)²`, uses it to prove one full modal-block estimate `||C||≤2`, and proves L20
 on the singular `c→0` face by reducing to a nilpotent scalar weighted shift. The boundary constant
-is sharp at the Crabb weights `(√2,1,√2)`. The opposite block's tested bound `||B||≤2` leaves
-one genuine scalar distortion `(p−r)/c`, and coupled dual witnesses remain even after both
-one-block phases are controlled. Regression: `experiments/slice_boundary_check.py`.
+is sharp at the Crabb weights `(√2,1,√2)`.
+
+**L26 now proves the opposite block:** `proof/slice_upper_block_theorem.md` proves `||B||≤2` by
+factoring the reciprocal-orientation determinant, converting its upper root to a Möbius barrier,
+and minorizing the inverse ellipse map by its positive-coefficient cubic. Three scalar theta
+inequalities are certified by exact rational bounds plus 13,500 outward-rounded algebraic
+interval boxes (`experiments/slice_upper_block_certificate.py`). Thus all one-block dual phases
+are closed; genuinely coupled witnesses remain.
 
 ## Strongest proved lemmas
 P1 (K²+ρ ≤ Kq), L13 (Clark-type transition ⟨q(A)x₀,u₀⟩ = K∫q·conj(f₀)dμ), L14 + collapse theorem
@@ -107,8 +112,8 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
 1. **Prove L20' analytically**: use L21/L22 to characterize extreme parity-block dual pairs
    `Z_o,Z_e≥0` and prove `tr(Z−TZT*)_-≤4 tr(Z−TZT*)_+` from the explicit relations
    `tan(v)=r tan(u)` and the coupled elliptic nodes. This would close the whole elliptic slice
-   completely bounded. First finish `||B||≤2` by proving the remaining `(p−r)/c` conformal
-   inequality isolated in `proof/slice_boundary_theorems.md`; do not redo `||C||` or `c→0`.
+   completely bounded. Both modal norms are already proved by L24/L26; attack the genuinely
+   coupled rank-one/rank-one and rank-one/full dual phases, not another one-block estimate.
 2. **Shifted degree-one Möbius phase**: derive its stationarity/rho formula and prove positivity
    (or K≤2) independently, both as a fallback and as a guide to the metric.
 3. **Bi-conic Schwarzian route**: compute `SG` for the off-slice collapsed map on its critical
@@ -129,8 +134,9 @@ proof/el4_schwarzian_theorem.md,
 proof/even_pick_globality.md, proof/slice_closed_form.md, and proof/D2_landscape.md; master program in
 proof/rho_positivity_program.md. Resume at restart-packet action 1 (analytic L20 similarity metric
 for the elliptic slice). EL4 and even-sector midpoint globality are proved; definite parity is
-false. L20 is now exactly a 2×2-block dual trace inequality; do not redo the SDP duality or blind
-metric ansatzes. Respect APPROACH_LEDGER.md pitfalls P1–P7: every
+false. L20 is now exactly a 2×2-block dual trace inequality, and both individual modal blocks are
+bounded by two; do not redo the SDP duality, modal norms, or blind metric ansatzes. Respect
+APPROACH_LEDGER.md pitfalls P1–P7: every
 numerical claim needs the certificate battery; treat any apparent violation as artifact until it
 survives strict re-evaluation and an independent implementation; cross-check extremal phases with
 best_extremal (P5); verify analyticity/univalence of probe map families (P6). Do not re-open dead

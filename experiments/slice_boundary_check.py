@@ -29,7 +29,7 @@ def run_grid(c_count: int, ratio_count: int, angle_count: int) -> None:
     largest_nome_ratio = 0.0
     largest_lower_norm = 0.0
     largest_limit_product = 0.0
-    largest_unproved_upper_norm = 0.0
+    largest_upper_norm = 0.0
     for c in np.geomspace(1e-3, 0.8, c_count):
         for eigenvalue_ratio in np.linspace(0.002, 0.998, ratio_count):
             for left_angle in np.linspace(0.002, pi / 2 - 0.002, angle_count):
@@ -40,9 +40,7 @@ def run_grid(c_count: int, ratio_count: int, angle_count: int) -> None:
                 upper = data.operator[:2, 2:]
                 lower = data.operator[2:, :2]
                 largest_lower_norm = max(largest_lower_norm, np.linalg.norm(lower, 2))
-                largest_unproved_upper_norm = max(
-                    largest_unproved_upper_norm, np.linalg.norm(upper, 2)
-                )
+                largest_upper_norm = max(largest_upper_norm, np.linalg.norm(upper, 2))
                 largest_limit_product = max(
                     largest_limit_product,
                     limit_weight_products(float(eigenvalue_ratio), float(left_angle)).max(),
@@ -51,11 +49,13 @@ def run_grid(c_count: int, ratio_count: int, angle_count: int) -> None:
     print(f"largest nome-bound ratio:       {largest_nome_ratio:.12f}")
     print(f"largest proved lower norm:      {largest_lower_norm:.12f}")
     print(f"largest c=0 weight product:     {largest_limit_product:.12f}")
-    print(f"largest upper norm (unproved):  {largest_unproved_upper_norm:.12f}")
+    print(f"largest proved upper norm:      {largest_upper_norm:.12f}")
     if largest_nome_ratio > 1 + 2e-11:
         raise AssertionError("the nome product bound failed numerically")
     if largest_lower_norm > 2 + 2e-10:
         raise AssertionError("the proved lower-block norm bound failed numerically")
+    if largest_upper_norm > 2 + 2e-10:
+        raise AssertionError("the proved upper-block norm bound failed numerically")
     if largest_limit_product > 2 + 2e-10:
         raise AssertionError("the c=0 weighted-shift product bound failed numerically")
 
