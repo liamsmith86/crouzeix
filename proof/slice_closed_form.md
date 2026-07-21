@@ -116,9 +116,12 @@ bi-conic verified (sign/order). FALSE without foci-pinning (§4(vi)). The abstra
 "why do Kippenhahn-foci nodes make it true" is the distilled deep quest for the even sector.
 
 ## 6. Reduced open targets (ranked)
-1. Classify and prove positivity/bound 2 for shifted degree-one Möbius phases. Definite parity is
+1. Complete the phase-free similarity route `L20'`: `proof/slice_similarity_duality.md` proves
+   that the optimal similarity constant is an exact dual trace ratio and reduces the slice to
+   three modal parameters. Prove `tr(Z−TZT*)_-≤4 tr(Z−TZT*)_+` for the resulting 2×2 blocks.
+2. Classify and prove positivity/bound 2 for shifted degree-one Möbius phases. Definite parity is
    false, so the full four-node problem must explicitly include this symmetry-breaking sector.
-2. Odd-phase positivity: ρ = B₁g₁q₁+B₂g₂q₂ ≥ 0 given §3 stationarity (3-parameter).
-3. Möbius-phase positivity (deg-1 f₀ = φ on ellipse domains — may admit a general theorem
+3. Odd-phase positivity: ρ = B₁g₁q₁+B₂g₂q₂ ≥ 0 given §3 stationarity (3-parameter).
+4. Möbius-phase positivity (deg-1 f₀ = φ on ellipse domains — may admit a general theorem
    beyond 4×4: only uses domain ellipse + deg-1 extremal + nodal weights).
-4. De-symmetrize off the slice (bi-conic Kippenhahn data replaces the exact ellipse).
+5. De-symmetrize off the slice (bi-conic Kippenhahn data replaces the exact ellipse).

@@ -28,6 +28,20 @@ sectors. Its rho is positive. Do not attempt to prove definite parity.
 All 80 random slice cases gave `t<4` (worst 3.92642). A uniform analytic metric proves the
 complete-2 bound for the entire elliptic slice via von Neumann and avoids all phase bookkeeping.
 
+## Epoch-6 addition (2026-07-21): exact similarity duality and modal reduction
+`proof/slice_similarity_duality.md` proves two new exact lemmas. L21 gives, for strictly stable
+`T`,
+
+`t*(T) = max(1, sup_{Z≥0} tr(Z−TZT*)_-/tr(Z−TZT*)_+)`.
+
+L22 puts every elliptic-slice `T=φ(A)` into a three-parameter modal form `(c,r,u)` with
+`tan(v)=r tan(u)` and reduces the primal to coupled 2×2 metric LMIs. Chiral averaging reduces
+the dual to two 2×2 PSD blocks. Therefore L20 is exactly the concrete trace inequality
+`tr D_-≤4 tr D_+`. A 1215-point deterministic grid passes (max `t=3.999771308` at the singular
+corner `(.001,.97,.03)`), but this is not a proof. Reproducer:
+`experiments/slice_similarity_duality.py`. Simple diagonal/Gramian/equality metrics have already
+failed; attack extreme dual block pairs rather than repeating blind primal ansatzes.
+
 ## Strongest proved lemmas
 P1 (K²+ρ ≤ Kq), L13 (Clark-type transition ⟨q(A)x₀,u₀⟩ = K∫q·conj(f₀)dμ), L14 + collapse theorem
 (sym3: v = α², ρ = (α²/2)(g₀(e)−g₀(0))), **Landen theorem** (sym3 ρ = 1 − π/(2K(k₁))),
@@ -83,9 +97,10 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
 ## Next five concrete actions (refreshed 2026-07-21, Epoch 6)
-1. **Prove L20 analytically**: use the SDP-discovered parity-block metric structure for `T=φ(A)`;
-   derive `P` in closed form and prove its condition bound `t≤4`. This would close the whole
-   elliptic slice completely bounded.
+1. **Prove L20' analytically**: use L21/L22 to characterize extreme parity-block dual pairs
+   `Z_o,Z_e≥0` and prove `tr(Z−TZT*)_-≤4 tr(Z−TZT*)_+` from the explicit relations
+   `tan(v)=r tan(u)` and the coupled elliptic nodes. This would close the whole elliptic slice
+   completely bounded.
 2. **Shifted degree-one Möbius phase**: derive its stationarity/rho formula and prove positivity
    (or K≤2) independently, both as a fallback and as a guide to the metric.
 3. **Bi-conic Schwarzian route**: compute `SG` for the off-slice collapsed map on its critical
@@ -100,11 +115,13 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
 
 ## Paste-ready continuation instruction
 "Continue the Crouzeix campaign in /home/liam/Downloads/crouzeix (git repo; commit+push after each
-task). Read RESEARCH_STATE.md (NEWEST section first), then proof/el4_schwarzian_theorem.md,
+task). Read RESEARCH_STATE.md (NEWEST section first), then proof/slice_similarity_duality.md,
+proof/el4_schwarzian_theorem.md,
 proof/even_pick_globality.md, proof/slice_closed_form.md, and proof/D2_landscape.md; master program in
 proof/rho_positivity_program.md. Resume at restart-packet action 1 (analytic L20 similarity metric
 for the elliptic slice). EL4 and even-sector midpoint globality are proved; definite parity is
-false. Do not redo those routes. Respect APPROACH_LEDGER.md pitfalls P1–P7: every
+false. L20 is now exactly a 2×2-block dual trace inequality; do not redo the SDP duality or blind
+metric ansatzes. Respect APPROACH_LEDGER.md pitfalls P1–P7: every
 numerical claim needs the certificate battery; treat any apparent violation as artifact until it
 survives strict re-evaluation and an independent implementation; cross-check extremal phases with
 best_extremal (P5); verify analyticity/univalence of probe map families (P6). Do not re-open dead

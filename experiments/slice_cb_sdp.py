@@ -14,6 +14,7 @@ t <= 4 is the proof target; solver output alone is not a certificate.
 from __future__ import annotations
 
 import argparse
+from dataclasses import dataclass
 
 import cvxpy as cp
 import numpy as np
@@ -29,38 +30,93 @@ DEFAULT_CASES = (
 )
 
 
+@dataclass(frozen=True)
+class SimilarityCertificate:
+    """Numerical primal/dual output for the similarity SDP."""
+
+    bound: float
+    metric: np.ndarray
+    dual_witness: np.ndarray
+    contraction_slack: float
+    dual_ratio: float
+    solver: str
+
+
 def conformal_matrix(weights: tuple[float, float, float, float]) -> np.ndarray:
     model = NodalModel.build(weights)
     return np.real_if_close(model.calculus(model.disk_nodes)).real
 
 
-def similarity_sdp(weights: tuple[float, float, float, float]) -> tuple[float, float, float]:
-    operator = conformal_matrix(weights)
+def trace_ratio(operator: np.ndarray, witness: np.ndarray) -> float:
+    """Return tr(D_-)/tr(D_+) for D = Z - T Z T*.
+
+    The ratio is the exact dual quantity from ``proof/slice_similarity_duality.md``.  Inputs here
+    are floating-point solver output, so the result is a regression diagnostic, not a certificate.
+    """
+
+    difference = witness - operator @ witness @ operator.T
+    eigenvalues = np.linalg.eigvalsh((difference + difference.T) / 2)
+    positive_trace = float(np.maximum(eigenvalues, 0).sum())
+    negative_trace = float(np.maximum(-eigenvalues, 0).sum())
+    if positive_trace == 0:
+        return np.inf if negative_trace > 0 else 0.0
+    return negative_trace / positive_trace
+
+
+def solve_similarity_sdp(operator: np.ndarray) -> SimilarityCertificate:
+    """Solve the SDP, with a robust fallback for nearly degenerate slice corners."""
+
     size = operator.shape[0]
     identity = np.eye(size)
     metric = cp.Variable((size, size), symmetric=True)
     bound = cp.Variable()
+    constraints = [
+        metric - identity >> 0,
+        bound * identity - metric >> 0,
+        metric - operator.T @ metric @ operator >> 0,
+    ]
     problem = cp.Problem(
         cp.Minimize(bound),
-        [
-            metric - identity >> 0,
-            bound * identity - metric >> 0,
-            metric - operator.T @ metric @ operator >> 0,
-        ],
+        constraints,
     )
-    problem.solve(
-        solver="CLARABEL",
-        tol_gap_abs=1e-9,
-        tol_gap_rel=1e-9,
-        tol_feas=1e-9,
-        max_iter=500,
-    )
-    if problem.status != cp.OPTIMAL:
-        raise RuntimeError(f"SDP failed for {weights}: {problem.status}")
+
+    solver = "CLARABEL"
+    try:
+        problem.solve(
+            solver=solver,
+            tol_gap_abs=1e-9,
+            tol_gap_rel=1e-9,
+            tol_feas=1e-9,
+            max_iter=500,
+        )
+    except cp.error.SolverError:
+        pass
+    if problem.status not in (cp.OPTIMAL, cp.OPTIMAL_INACCURATE):
+        solver = "SCS"
+        problem.solve(solver=solver, eps=2e-7, max_iters=100_000, verbose=False)
+    if problem.status not in (cp.OPTIMAL, cp.OPTIMAL_INACCURATE):
+        raise RuntimeError(f"similarity SDP failed: {problem.status}")
+
+    metric_value = np.asarray(metric.value)
+    dual_witness = np.asarray(constraints[2].dual_value)
     contraction_slack = np.min(
-        np.linalg.eigvalsh(metric.value - operator.T @ metric.value @ operator)
+        np.linalg.eigvalsh(metric_value - operator.T @ metric_value @ operator)
     )
-    return float(bound.value), float(np.sqrt(bound.value)), float(contraction_slack)
+    return SimilarityCertificate(
+        bound=float(bound.value),
+        metric=metric_value,
+        dual_witness=dual_witness,
+        contraction_slack=float(contraction_slack),
+        dual_ratio=trace_ratio(operator, dual_witness),
+        solver=solver,
+    )
+
+
+def similarity_sdp(weights: tuple[float, float, float, float]) -> tuple[float, float, float]:
+    """Compatibility wrapper used by the original command-line report."""
+
+    result = solve_similarity_sdp(conformal_matrix(weights))
+    return result.bound, float(np.sqrt(result.bound)), result.contraction_slack
 
 
 def random_cases(count: int, seed: int) -> list[tuple[float, float, float, float]]:
@@ -82,11 +138,13 @@ def main() -> None:
     cases = list(DEFAULT_CASES) + random_cases(arguments.random, arguments.seed)
     largest_bound = 0.0
     for weights in cases:
-        bound, condition, slack = similarity_sdp(weights)
-        largest_bound = max(largest_bound, bound)
+        result = solve_similarity_sdp(conformal_matrix(weights))
+        condition = float(np.sqrt(result.bound))
+        largest_bound = max(largest_bound, result.bound)
         print(
-            f"weights={weights} t={bound:.9f} sqrt(t)={condition:.9f} "
-            f"contraction_slack={slack:+.2e}"
+            f"weights={weights} t={result.bound:.9f} sqrt(t)={condition:.9f} "
+            f"dual_ratio={result.dual_ratio:.9f} "
+            f"contraction_slack={result.contraction_slack:+.2e} solver={result.solver}"
         )
     print(f"largest t: {largest_bound:.9f}")
 

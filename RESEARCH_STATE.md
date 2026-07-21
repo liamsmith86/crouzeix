@@ -1,8 +1,31 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-21 (Epoch 6 — EL4 proved by Schwarzian comparison)
+**Last updated:** 2026-07-21 (Epoch 6 — exact similarity duality and modal slice reduction)
 
-## NEWEST (2026-07-21, Epoch 6) — EL4 PROVED
+## NEWEST (2026-07-21, Epoch 6) — L20 reduced to an explicit trace-cone inequality
+- **L21 PROVED (dimension-independent):** for every strictly stable matrix `T`, the least
+  similarity-square in `I≤P≤tI`, `T*PT≤P` is exactly
+  `max(1, sup_{Z≥0} tr(Z−TZT*)_-/tr(Z−TZT*)_+)`. The proof is an explicit Slater/SDP-dual
+  calculation followed by positive-part minimization; it is not a numerical inference.
+- **L22 PROVED (slice-specific):** diagonal symmetrization plus the SVD of the 2×2 bidiagonal
+  block puts every elliptic-slice `T=φ(A)` in a three-real-parameter form `(c,r,u)`, with
+  `tan(v)=r tan(u)` and the two conformal nodes explicit in Jacobi `sn`. The metric problem is
+  exactly four coupled 2×2 modal LMIs. Independent nodal reconstruction agrees to `8.9e-15`.
+- Chiral symmetry permits both primal metrics and sharp dual certificates to be parity-block
+  diagonal. Thus **L20 is now exactly** `tr(Z−TZT*)_- ≤ 4 tr(Z−TZT*)_+` for two coupled
+  2×2 positive blocks and the explicit modal `T`; no optimization or phase classification remains
+  in the statement.
+- Numerical stress test only: all `15×9×9=1215` deterministic modal-grid cases pass; largest
+  `t=3.999771308` at `(c,r,u)=(.001,.97,.03)`. Primal and dual values agree to `1.1e-9` on the
+  default cases. The near-four singular corner shows that a proof must be sharp and uniform.
+  Proof and reproducer: `proof/slice_similarity_duality.md`,
+  `experiments/slice_similarity_duality.py`.
+- Failed construction audit: diagonal metrics, short observability Gramians, and forcing one
+  modal contraction inequality to equality all fail before the true optimum reaches four. The
+  next attack should characterize extreme dual block pairs (low rank/boundary numerically) and
+  prove their trace ratio directly from the conformal coupling of the two nodes.
+
+## Previous Epoch-6 milestone — EL4 PROVED
 - **EL4 is now an analytic theorem**, not a grid conjecture. New L17: `SG ≥ 0` on the real
   node interval implies D2, by converting to hyperbolic coordinates and comparing the associated
   Dirichlet form against the constant Schwarzian `−2` Möbius model.
@@ -110,9 +133,10 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   (resid 1e-4–1e-3).** Next: close sym4 analytically = first new Crouzeix class in campaign.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-21)
-1. **Prove the complete-2 similarity L20 on the elliptic slice**: exploit the parity-block form of
-   `T=φ(A)` and the SDP pattern (`P` is parity-block diagonal with paired eigenvalues `{1,1,t,t}`).
-   Derive a closed-form metric P and prove `t≤4` from the ellipse/focus parameters.
+1. **Prove the explicit L20' trace inequality** from `proof/slice_similarity_duality.md`:
+   characterize the extreme parity-block dual pairs `Z_o,Z_e≥0` (numerically low-rank/boundary),
+   then prove `tr D_-≤4 tr D_+` using `tan v=r tan u` and the coupled Jacobi-`sn` nodes. This is
+   now preferable to guessing a closed-form primal metric.
 2. **Shifted Möbius phase**: derive its exact stationarity/rho formula (Kenan-Li quartic analog)
    and prove rho≥0 or K≤2. Definite parity is false.
 3. **Bi-conic Schwarzian test**: compute `SG` for the off-slice collapsed map on the critical
@@ -144,7 +168,8 @@ experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_
   taus/f0e fields BUGGY — pitfall P5), Hr_test.py / Hr_adversarial.py (certified min-ρ search),
   zero_geometry.py (phi_of_points); historical: L10/L12/scalar/adversarial_L7/search.py.
   Epoch-6: el4_schwarzian_check.py, even_pick_globality_check.py, slice_phase_audit.py,
-  slice_cb_sdp.py (requires cvxpy; exploratory similarity SDP).
+  slice_cb_sdp.py (requires cvxpy; exploratory similarity SDP),
+  slice_similarity_duality.py (exact modal reconstruction + primal/dual regression + grid).
 Data: sym3_sweep_s51.jsonl (40 rec), sym4_sweep_s61.jsonl (20 rec, ρ column trustworthy).
 Ledgers: LEMMA_LEDGER.md, APPROACH_LEDGER.md (pitfalls P1–P7 — READ BEFORE ANY SEARCH),
 LITERATURE_LEDGER.md, COUNTEREXAMPLE_SEARCH.md. Audit: chatgpt/FABLE_RESEARCH_AUDIT.md
