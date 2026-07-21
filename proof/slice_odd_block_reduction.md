@@ -365,14 +365,14 @@ The derivative decreases thereafter, so (13u) implies \(F_-\le0\), and
 quadratic orientation identity propagates the vertex bound to all
 orientations.  Therefore L29 is already proved whenever \(c\ell\ge1\).
 The five-factor truncation of the product (3) in the L26 note gives this for
-\(63/100\le c<1\).  Indeed, after clearing the positive denominator,
+\(12599/20000\le c<1\).  Indeed, after clearing the positive denominator,
 \(cP_5-1=(1-c)Q(c)/(\text{positive})\), where \(Q'(c)\) has nonnegative
-coefficients and \(Q(63/100)>0\).  The exact polynomial audit is included
+coefficients and \(Q(12599/20000)>0\).  The exact polynomial audit is included
 in `experiments/slice_odd_block_check.py`.  Thus the square target (13t)
 need only be certified on
 
 \[
- 0<c<63/100. \tag{13y}
+ 0<c<12599/20000. \tag{13y}
 \]
 
 For a finite certificate, (13r) has a second cancellation-free form.  Put
@@ -667,7 +667,7 @@ than expect a uniform positive margin.
 ## 5. Remaining proof debt
 
 1. Prove the square distortion inequality (13t) on its branch (13o), at the
-   two envelope endpoints, only for \(0<c<63/100\).  This is exactly the
+   two envelope endpoints, only for \(0<c<12599/20000\).  This is exactly the
    discriminant (13p); the high-nome complement is closed by (13u)--(13y).
    The sharp tube \(0<c\le1/20\), \(|(p-p_*)/c^4|\le4\), is closed by
    (13ah)--(13ao).  Interval-certify its complement, using the exact centered

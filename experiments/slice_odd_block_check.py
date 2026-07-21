@@ -113,7 +113,7 @@ def audit_high_nome_factorization() -> None:
 
 
 def certify_high_nome_threshold() -> sp.Rational:
-    """Prove c*ell >= 1 above 63/100 using five product factors."""
+    """Prove c*ell >= 1 above 12599/20000 using five product factors."""
     c = sp.symbols("c", positive=True)
     q = c**2
     product = sp.prod(
@@ -125,7 +125,7 @@ def certify_high_nome_threshold() -> sp.Rational:
     derivative = sp.Poly(sp.diff(quotient.as_expr(), c), c)
     if any(coefficient < 0 for coefficient in derivative.all_coeffs()):
         raise AssertionError("the five-factor quotient is not increasing")
-    threshold_value = sp.factor(quotient.eval(sp.Rational(63, 100)))
+    threshold_value = sp.factor(quotient.eval(sp.Rational(12599, 20000)))
     if not threshold_value > 0:
         raise AssertionError("the high-nome threshold is not certified")
     return threshold_value
@@ -447,7 +447,7 @@ def audit(seed: int = 20260721, count: int = 20_000) -> None:
     print("F1 completed-square factorization: exact")
     print("high-nome opposite-vertex factorization: exact")
     print(
-        "five-factor threshold quotient at c=63/100: "
+        "five-factor threshold quotient at c=12599/20000: "
         f"{float(high_nome_threshold):.12g}"
     )
     print(f"random cases: {count}")

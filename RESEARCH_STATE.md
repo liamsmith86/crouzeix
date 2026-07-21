@@ -74,8 +74,8 @@
   `D=(r−p)−c²(1−pr)+λ(1−r)`; direct endpoint formulas for `p−r` avoid catastrophic
   cancellation. Separately, if `cℓ≥1`, convexity of the full nodal rectangle plus an exact
   opposite-sign vertex factorization proves every upper block is ≤2. L26's product bound gives
-  `cℓ≥1` for `c≥63/100` via a five-factor exact polynomial audit. Thus L29's live square
-  certificate is restricted to `0<c<63/100`, with the cancellation-free form preferred for
+  `cℓ≥1` for `c≥12599/20000` via a five-factor exact polynomial audit. Thus L29's live square
+  certificate is restricted to `0<c<12599/20000`, with the cancellation-free form preferred for
   intervals. L34 further factors `F₁` through a quadratic with exact vertex
   `p*=(g²−4c²)/(2g²(1−2c²g))=1/2+3c²/2+O(c⁶)`. This explains the sharp
   small-nome ridge and supplies the stable coordinate `p=p*+c⁴x`; the identity itself makes
@@ -85,7 +85,7 @@
   `|p−p*|≤4c⁴`. The regenerated upper numerator has leading form
   `c¹⁰ K[2x²+4x+3]`; the lower has a strictly positive `c⁸` lead. No sampled or saved
   coefficients are trusted. Remaining L29 domain: the complement of this tube in
-  `0<c<63/100` (subject only to the discriminant branch).
+  `0<c<12599/20000` (subject only to the discriminant branch).
 
 ## Previous Epoch-6 milestone — EL4 PROVED
 - **EL4 is now an analytic theorem**, not a grid conjecture. New L17: `SG ≥ 0` on the real
@@ -197,7 +197,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
 ## Current next actions (Epoch 6, refreshed 2026-07-21)
 1. **Prove L31/L32's low-nome square distortion bound.** Use equations (13q)–(13ad) in
    `proof/slice_odd_block_reduction.md`: certify
-   `rF₁F₂−g²D²≥0` for `0<c<63/100`, only where `A>0, |B|<2A`, at `r=L(p),U(p)`.
+   `rF₁F₂−g²D²≥0` for `0<c<12599/20000`, only where `A>0, |B|<2A`, at `r=L(p),U(p)`.
    L35 already closes `0<c≤1/20`, `|p−p*|≤4c⁴`; use branch-aware intervals on its complement.
    This closes the generic rank-one/full face. Then return to L27's
    rank-one/rank-one coupled face.
