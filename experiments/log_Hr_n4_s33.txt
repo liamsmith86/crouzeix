@@ -1,0 +1,17 @@
+<frozen site>:101: RuntimeWarning: Unexpected value in sys.prefix, expected /home/liam/Downloads/crouzeix/.venv, got /home/liam/Downloads/crouzeix/experiments/../.venv
+<frozen site>:101: RuntimeWarning: Unexpected value in sys.exec_prefix, expected /home/liam/Downloads/crouzeix/.venv, got /home/liam/Downloads/crouzeix/experiments/../.venv
+[n=4 t=0.005 s=33] init: ReC=+0.073647 K=1.61887
+[n=4 t=0.005 s=33] it=0: ReC=+0.066739 K=1.62365 s_phase=+0.36840
+[n=4 t=0.005 s=33] it=1: ReC=+0.058119 K=1.62580 s_phase=+0.36721
+[n=4 t=0.005 s=33] it=3: ReC=+0.046071 K=1.61857 s_phase=+0.37576
+[n=4 t=0.005 s=33] it=7: ReC=+0.039461 K=1.63240 s_phase=+0.36294
+[n=4 t=0.005 s=33] it=9: ReC=+0.037762 K=1.65985 s_phase=+0.33612
+[n=4 t=0.005 s=33] it=10: ReC=+0.032062 K=1.68433 s_phase=+0.31255
+[n=4 t=0.005 s=33] it=15: ReC=+0.028345 K=1.68609 s_phase=+0.31118
+[n=4 t=0.005 s=33] it=18: ReC=+0.025057 K=1.64858 s_phase=+0.34870
+[n=4 t=0.005 s=33] it=20: ReC=+0.023266 K=1.66041 s_phase=+0.33712
+[n=4 t=0.005 s=33] it=23: ReC=+0.022829 K=1.65552 s_phase=+0.34196
+[n=4 t=0.005 s=33] it=24: ReC=+0.021883 K=1.65733 s_phase=+0.34019
+[n=4 t=0.005 s=33] it=25: ReC=+0.019196 K=1.68739 s_phase=+0.31063
+[n=4 t=0.005 s=33] it=26: ReC=+0.017036 K=1.65452 s_phase=+0.34353
+DONE n=4 t=0.005 s=33: min ReC = +0.01703598 (K=1.65452, s_phase=+0.34353)
