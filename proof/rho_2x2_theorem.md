@@ -9,10 +9,12 @@ equality iff W(A) is a disk.
    ρ is affine-invariant). W(A_h) = ellipse, foci ±1, semi-axes (√(1+h²), h).
 2. Riemann map φ: Ω → D: φ(z) = √k·sn((2K/π)arcsin z, k), k = √m, K'(k)/K(k) = 4·artanh(b/a)/π
    [self-calibrated numerically: boundary defect 3e-31]. Eigenvalue images φ(±1) = ±√k·sn(±K) = ±√k.
-3. **[ASSUMPTION TO PROVE — numerically confirmed for all h tested: extremal Blaschke has α = 0,
-   i.e. f₀ = φ]**. Expected via the double symmetry (z ↦ z̄ and z ↦ −z leave the configuration
-   invariant up to conjugation; extremal α must be fixed by both ⟹ α = 0). TODO: rigorous proof
-   incl. uniqueness of extremal.
+3. **[α = 0 step — status upgraded 2026-07-20]**: numerically established as STRICT GLOBAL max of
+   K(α) over the disk THROUGHOUT THE K > 1 REGIME (62 (k,h)-grid points × 600 α-samples; worst
+   deficit −2.3e-5 near α = 0, quadratic). IMPORTANT: for √k(h+√(1+h²)) < 1 (K ≤ 1), α = 0 is NOT
+   optimal (near-boundary α do better) — the theorem must carry the hypothesis K > 1, which is
+   also what H-r/Prop-1 need. Symbolic proof still desirable: maximize
+   K(α)² = ½(F² + √(F⁴−4|det|²)), F² = tr(M*M), |det| = |α²−k|/|1−ᾱ²k|, M = b_α(N).
 4. Since f₀(±1) = ±√k (odd values): f₀(A_h) = √k·A_h. Hence x₀ = top right singular vector of A_h,
    K = √k·(h + √(1+h²)).
 5. Zero of f₀: z₁ = 0; residue of 1/f₀ at 0: r₁ = 1/f₀'(0) = 1/φ'(0); φ'(0) = √k·(2K/π).
