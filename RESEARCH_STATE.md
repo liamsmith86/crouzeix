@@ -1,8 +1,14 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-21 (Epoch 6 — L47/L48 block-product milestone)
+**Last updated:** 2026-07-21 (Epoch 6 — L49/L50 zero-node milestone)
 
 ## AUDIT-GATE OUTCOME (2026-07-21, after L48 and external steering review)
+- **L49 finds the sharp nome estimate required by the zero-node ridge:**
+  `k≤4c/(1+4c²)` for `c≤1/2`.  Two Jacobi-product factors suffice, and the
+  remaining degree-23 polynomial has 24 positive exact Bernstein coefficients.  On `p=0`,
+  L50 reduces BE to one scalar inequality and closes its full `c≥1/2` half with 125 exact
+  Bernstein coefficients.  The low-half equality mechanism is now localized exactly at
+  `b=1,a=2c`; uncentered interval boxes are the wrong coordinate there.
 - **L47 proves the new sharp block tradeoff `||B|| ||C||≤2`.** The two matrix
   traces and determinants compress to one orientation scalar; a universal 2×2 singular-value
   majorant reduces the claim to a four-variable rational polynomial. Elementary nome bounds,
@@ -175,6 +181,11 @@
   `H(p)≥p(1−c⁴)²/(1+2c²−c⁴)²` suffice. Four blow-up charts resolve the only equality corner
   with exact nonpositive integer Bernstein coefficients. Factoring `R_{a,0}` through an
   orthogonal block, then swapping parity, proves (RT) whenever `ab=0`.
+- **L49/L50 isolate and partly close the zero-node boundary.**  The strengthened nome bound
+  `k≤4c/(1+4c²)` is exact-certified on `c≤1/2`.  At `p=0`, every small-gain block is rank one;
+  BE becomes (55), and `k≤1` plus a 125-coefficient exact Bernstein certificate proves it for
+  `c≥1/2`.  The remaining low-half chart is sharp on the curve `b=1,a=2c`, not only at the
+  old `a=b=0` corner.
 
 ## Previous Epoch-6 milestone — EL4 PROVED
 - **EL4 is now an analytic theorem**, not a grid conjecture. New L17: `SG ≥ 0` on the real
@@ -328,7 +339,8 @@ experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_
   slice_upper_block_certificate.py (exact factorization + finite scalar certificate for L26),
   slice_coupled_defects.py (L27 reconstruction and KKT rank regression),
   slice_odd_block_check.py (L28 identities and L29 floating-point stress test),
-  slice_block_product_certificate.py (L47 exact integer Bernstein certificate).
+  slice_block_product_certificate.py (L47 exact integer Bernstein certificate),
+  slice_sharp_nome_certificate.py (L49/L50 exact zero-node certificates).
 Data: sym3_sweep_s51.jsonl (40 rec), sym4_sweep_s61.jsonl (20 rec, ρ column trustworthy).
 Ledgers: LEMMA_LEDGER.md, APPROACH_LEDGER.md (pitfalls P1–P8 — READ BEFORE ANY SEARCH),
 LITERATURE_LEDGER.md, COUNTEREXAMPLE_SEARCH.md. Audit: chatgpt/FABLE_RESEARCH_AUDIT.md

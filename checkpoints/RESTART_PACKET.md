@@ -29,6 +29,12 @@ proves (RT) on both complete axes `a=0` and `b=0`. The remaining transfer obstru
 `ab≠0`; see `proof/slice_coupled_defects.md` §6.3 and
 `experiments/slice_block_product_certificate.py`.
 
+**New zero-node milestone:** L49 proves the sharper nome estimate
+`k≤4c/(1+4c²)` on `c≤1/2` by retaining two Jacobi-product factors; the residual has 24 positive
+exact Bernstein coefficients.  L50 then proves BE/RT on `p=0,c≥1/2` after an exact rank-one
+reduction (125 nonnegative coefficients).  The remaining low-half ridge is exactly
+`p=0,b=1,a=2c`; any certificate must center there rather than use raw parameter boxes.
+
 L45's convex-in-`a` branch is common (772,130 of 2,000,000 random quadratic-form probes) but its
 discriminant remained positive in the sample; no concavity-only shortcut exists.
 
