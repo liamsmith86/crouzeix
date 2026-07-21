@@ -31,6 +31,16 @@ extremal_pullback.py + theodorsen.py + minkowski_test.best_extremal = exact extr
 sym4_probe.py = new-territory probe (ρ > 0: +1.3e-4, +1.9e-3, +4.5e-4). Hr_adversarial floors:
 n3 +2e-4, n4 +1.7e-2, n5 +1.6e-2 (n6 job may be incomplete).
 
+## Epoch-5 late findings (2026-07-21, after Landen theorem)
+- Landen theorem BANKED (proof/landen_theorem.md): sym3 ρ = 1 − π/(2K(k₁)) classical-complete.
+- Elliptic sym4 slice b_j = c·a_j: W(A) exact ellipse CONFOCAL WITH OUTER EIGENVALUES ±e₁
+  (τ₁ = √k focus-image law persists); inner pair ±e₂ interior nodes.
+- Level-4 stationarity: c₁·∂_αB(τ₁)/e₁ + c₂·∂_αB(τ₂)/e₂ = 0 with frame coefficients
+  c_j = (h_jx₀)⟨g_j,y₀⟩; NEAR-balance c₁ ≈ −c₂ (⟺ ⟨Ax₀,u₀⟩ ≈ 0 via L13 moment condition,
+  0.2–3%) but NOT exact — frame-free law loses 2e-5–6e-4 in K. Exact closed form must carry the
+  algebraic frame system (heavier than sym3 but finite).
+- Tools: experiments/slice_exact.py (exact elliptic slice machinery, 25 dps).
+
 ## Next five concrete actions
 1. sym4 closure — SHARPENED by final Epoch-5 data (sym4_sweep_s61.jsonl, 20/20 ρ>0):
    NO equioscillation — K = ‖A₊F(N_even)‖ alone (single active 2×2 block, verified 5 digits;
