@@ -284,6 +284,20 @@ def exact_algebra_audit() -> None:
     ) != sp.zeros(4):
         raise AssertionError("the polynomial core formula failed")
 
+    first_column = identity_two.col_join(-odd_parameter * upper.T)
+    second_column = (-even_parameter * lower.T).col_join(identity_two)
+    central_defect = sp.diag(
+        identity_two - lower.T * lower,
+        identity_two - upper.T * upper,
+    )
+    defect_square_form = (
+        3 * (1 - even_square) * first_column * first_column.T
+        + 3 * (1 - odd_square) * second_column * second_column.T
+        + (1 - odd_square) * (1 - even_square) * central_defect
+    )
+    if sp.simplify(polynomial - defect_square_form) != sp.zeros(4):
+        raise AssertionError("the two-square transfer decomposition failed")
+
     odd_coefficient = 2 * (4 - odd_square) / (1 - odd_square)
     even_coefficient = 2 * (4 - even_square) / (1 - even_square)
     odd_linear = 6 * odd_parameter / (1 - odd_square)

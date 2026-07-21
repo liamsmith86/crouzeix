@@ -373,6 +373,45 @@ nonnegative at all four corners.  Swapping $a,b$ gives
 $E_e\succeq3(4a^2+b^2-5a^2b^2)I\succeq0$ in its only nontrivial sign
 range.
 
+There is also a direct two-square decomposition of the entire polynomial
+core.  For column vectors $x,y$, expansion of (27)--(28) gives
+
+\[
+\begin{aligned}
+ \left\langle
+ \begin{bmatrix}E_o&-3J\\-3J^T&E_e\end{bmatrix}
+ \binom{x}{y},\binom{x}{y}\right\rangle
+={}&3t^2\|x-aBy\|^2+3s^2\|y-bCx\|^2\\
+ &+s^2t^2\bigl(\|x\|^2-\|Cx\|^2
+                    +\|y\|^2-\|By\|^2\bigr).
+                                                        \tag{29a}
+\end{aligned}
+\]
+
+Equivalently, with column concatenation understood,
+
+\[
+\begin{aligned}
+ s^2t^2\mathcal Q_{a,b}(T)
+={}&3t^2
+ \binom{I}{-aB^T}\begin{bmatrix}I&-aB\end{bmatrix}
+ +3s^2
+ \binom{-bC^T}{I}\begin{bmatrix}-bC&I\end{bmatrix}\\
+ &+s^2t^2\operatorname{diag}(I-C^TC,I-B^TB).
+                                                        \tag{29b}
+\end{aligned}
+\]
+
+This identity is exact and remains meaningful on the parameter boundary.
+It immediately recovers the already closed edges: if $a=\pm1$, only the
+first square remains, and if $b=\pm1$, only the second remains.  At
+$a=b=0$, (29b) reduces to
+$\operatorname{diag}(4I-C^TC,4I-B^TB)\succeq0$ by L24 and L26.  In the
+interior, it isolates the sole possible loss as the central Stein-type
+block defect $\operatorname{diag}(I-C^TC,I-B^TB)$; the two residual squares
+must compensate for block singular values above one.  The identity is
+symbolically audited in `experiments/slice_rank_one_transfer.py`.
+
 Therefore the remaining content is precisely the off-diagonal Schur
 inequality in (27), not positivity of its diagonal pieces.  This formulation
 has no elliptic resolvents and is only quartic in $a,b$; it is the preferred

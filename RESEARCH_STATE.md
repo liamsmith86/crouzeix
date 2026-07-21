@@ -120,6 +120,14 @@
   full rigorous cubic envelope for `r=H(p)`, approaching equality only on the known
   `c→0,a,b→0` boundary. The softer strip `s₀p≤r≤p` is false (value `1.3067`), so the cubic
   conformal input is essential. L44 remains numerical, not proved.
+- **L45 splits the polynomial core into two exact residual squares plus one central defect.**
+  Its quadratic form is
+  `3(1−b²)||x−aBy||²+3(1−a²)||y−bCx||²`
+  `+(1−a²)(1−b²)(||x||²−||Cx||²+||y||²−||By||²)`.
+  This proves the full parameter boundary and the center directly and isolates the only possible
+  interior loss as `diag(I−C*C,I−B*B)`. The next analytic attack should exploit the separate
+  quadratic dependence on `a` or `b`, reducing any convex vertex branch to a discriminant as in
+  L30 rather than attempting another free block-norm bound.
 
 ## Previous Epoch-6 milestone — EL4 PROVED
 - **EL4 is now an analytic theorem**, not a grid conjecture. New L17: `SG ≥ 0` on the real
@@ -232,7 +240,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
 1. **Prove L40's transfer theorem.** Show `||R_{a,b}(T)||≤2` for the explicit
    Blaschke--Potapov transfer in `proof/slice_coupled_defects.md`. Preserve the matrix-valued
    interior: a boundary/scalar reduction is numerically false. Use L41's polynomial Schur
-   complement or L44's block-energy form for `c<2^(−2/3)` and use
+   complement, L45's two-square form, or L44's block-energy form for `c<2^(−2/3)` and use
    `tan(v)=H(p)tan(u)` before any interval split.
    This one theorem would prove L20 for the complete elliptic 4×4 slice.
 2. **Shifted Möbius phase**: derive its exact stationarity/rho formula (Kenan-Li quartic analog)

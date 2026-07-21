@@ -127,6 +127,12 @@ explicit four-block small-gain matrix with contracted parameters `u=3a/(4−a²)
 `v=3b/(4−b²)`. The stronger scalar block-energy target `Σ||S_ij||²≤1` (L44) implies the
 result and is search-supported on the entire rigorous cubic conformal envelope, but is not yet
 proved. The softer strip `s₀p≤r≤p` fails, so retain the cubic envelope.
+L45 gives a complementary exact identity: the polynomial core quadratic form is
+`3(1−b²)||x−aBy||²+3(1−a²)||y−bCx||²`
+`+(1−a²)(1−b²)(||x||²−||Cx||²+||y||²−||By||²)`.
+It closes all `a,b` edges and the center and isolates the interior loss. For fixed `b` it is a
+quadratic in `a`; use its two square endpoint values and reduce only the convex vertex branch to
+a discriminant, mirroring L30.
 
 ## Strongest proved lemmas
 P1 (K²+ρ ≤ Kq), L13 (Clark-type transition ⟨q(A)x₀,u₀⟩ = K∫q·conj(f₀)dμ), L14 + collapse theorem
