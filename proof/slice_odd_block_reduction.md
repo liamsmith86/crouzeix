@@ -417,6 +417,47 @@ it is \((1-s_0)p(1-p^2)\) for \(U\), and
 quantities separately and avoids the subtraction of two order-one squares
 in (13r); it is the preferred interval-certificate form.
 
+There is a further exact normalization which locates the only sharp
+small-nome ridge.  Substitute
+
+\[
+ d={cg^2(1-p^2)\over1-c^2g^4p^2}
+\]
+
+in \(F_1\), and put
+
+\[
+ \begin{aligned}
+ G_1(p)={}&g^3(1-2c^2g)p^2+(4c^2g-g^3)p+2-4c^2g,\\
+ H={}&32c^4g^3-16c^4-24c^2g^2-g^4+8g.
+ \end{aligned} \tag{13ae}
+\]
+
+Then direct cancellation gives
+
+\[
+ F_1={cg(1+p)\over1-c^2g^4p^2}G_1(p),
+ \qquad \operatorname{disc}_pG_1=-g^2H. \tag{13af}
+\]
+
+Away from \(1-2c^2g=0\), this is the completed square
+
+\[
+ G_1(p)=g^3(1-2c^2g)(p-p_*)^2
+       +{H\over4g(1-2c^2g)},
+ \quad
+ p_*={g^2-4c^2\over2g^2(1-2c^2g)}. \tag{13ag}
+\]
+
+The polynomial identity (13af), not the divided form (13ag), is used at
+the exceptional parameter.  From the defining theta series,
+\(p_*=1/2+3c^2/2+O(c^6)\).  Thus the previously observed sharp corner is
+not an arbitrary guessed center: it is the exact vertex of the \(F_1\)
+quadratic.  The remaining certificate should use \(p=p_*+c^4x\), rather
+than axis-aligned boxes in \((c,p)\).  The identities (13af)--(13ag) are
+exactly audited in `experiments/slice_odd_block_check.py`; no sign claim
+about \(H\) is being assumed here.
+
 The **lower odd block is already proved**.  For fixed modal parameters its
 matrix is linear in \((q_1,q_2)\), and the operator norm is convex.  Since
 \(|q_i|\le\tau_i\), it is enough to check the four vertices of the rectangle
@@ -531,6 +572,8 @@ than expect a uniform positive margin.
 1. Prove the square distortion inequality (13t) on its branch (13o), at the
    two envelope endpoints, only for \(0<c<63/100\).  This is exactly the
    discriminant (13p); the high-nome complement is closed by (13u)--(13y).
+   Use the exact centered coordinate \(p=p_*+c^4x\) from (13ag) near
+   \(c=0\), rather than an axis-aligned interval box.
    The older equivalent route is \(\mathcal N\ge0\) under (14), but it
    retains an unnecessary Blaschke parameter.
 2. Treat the rank-one/rank-one coupled face after this rank-one/full sector.

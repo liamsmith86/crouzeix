@@ -66,6 +66,33 @@ def audit_discriminant_factorization() -> None:
     if sp.factor(1 - d_value**2 - positive_factor) != 0:
         raise AssertionError("the exact 1-d^2 factorization failed")
 
+    d_conformal = k_from_g * (1 - p**2) / (1 - k_from_g**2 * p**2)
+    f1_conformal = sp.factor(f1.subs(d, d_conformal))
+    f1_quadratic = (
+        g**3 * (1 - 2 * c**2 * g) * p**2
+        + (4 * c**2 * g - g**3) * p
+        + 2
+        - 4 * c**2 * g
+    )
+    f1_factored = (
+        c
+        * g
+        * (1 + p)
+        * f1_quadratic
+        / (1 - c**2 * g**4 * p**2)
+    )
+    if sp.factor(f1_conformal - f1_factored) != 0:
+        raise AssertionError("the exact F1 quadratic factorization failed")
+    h_value = (
+        32 * c**4 * g**3
+        - 16 * c**4
+        - 24 * c**2 * g**2
+        - g**4
+        + 8 * g
+    )
+    if sp.factor(sp.discriminant(f1_quadratic, p) + g**2 * h_value) != 0:
+        raise AssertionError("the exact F1 completed-square discriminant failed")
+
 
 def audit_high_nome_factorization() -> None:
     """Verify the opposite-sign rectangle factorization in (13w)."""
@@ -417,6 +444,7 @@ def audit(seed: int = 20260721, count: int = 20_000) -> None:
 
     print("discriminant square factorization: exact")
     print("cancellation-free square factorization: exact")
+    print("F1 completed-square factorization: exact")
     print("high-nome opposite-vertex factorization: exact")
     print(
         "five-factor threshold quotient at c=63/100: "
