@@ -364,11 +364,15 @@ The derivative decreases thereafter, so (13u) implies \(F_-\le0\), and
 (13w) is nonnegative.  As before \(|\det M|=hp<4\), and the reciprocal-
 quadratic orientation identity propagates the vertex bound to all
 orientations.  Therefore L29 is already proved whenever \(c\ell\ge1\).
-The exact two-factor estimate from L26 gives this for
-\(13/20\le c<1\); the square target (13t) need only be certified on
+The five-factor truncation of the product (3) in the L26 note gives this for
+\(63/100\le c<1\).  Indeed, after clearing the positive denominator,
+\(cP_5-1=(1-c)Q(c)/(\text{positive})\), where \(Q'(c)\) has nonnegative
+coefficients and \(Q(63/100)>0\).  The exact polynomial audit is included
+in `experiments/slice_odd_block_check.py`.  Thus the square target (13t)
+need only be certified on
 
 \[
- 0<c<13/20. \tag{13y}
+ 0<c<63/100. \tag{13y}
 \]
 
 For a finite certificate, (13r) has a second cancellation-free form.  Put
@@ -525,7 +529,7 @@ than expect a uniform positive margin.
 ## 5. Remaining proof debt
 
 1. Prove the square distortion inequality (13t) on its branch (13o), at the
-   two envelope endpoints, only for \(0<c<13/20\).  This is exactly the
+   two envelope endpoints, only for \(0<c<63/100\).  This is exactly the
    discriminant (13p); the high-nome complement is closed by (13u)--(13y).
    The older equivalent route is \(\mathcal N\ge0\) under (14), but it
    retains an unnecessary Blaschke parameter.

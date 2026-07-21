@@ -85,6 +85,25 @@ def audit_high_nome_factorization() -> None:
         raise AssertionError("the exact high-nome vertex factorization failed")
 
 
+def certify_high_nome_threshold() -> sp.Rational:
+    """Prove c*ell >= 1 above 63/100 using five product factors."""
+    c = sp.symbols("c", positive=True)
+    q = c**2
+    product = sp.prod(
+        ((1 + q ** (2 * n - 1)) / (1 + q ** (2 * n))) ** 2
+        for n in range(1, 6)
+    )
+    numerator = sp.cancel(c * product - 1).as_numer_denom()[0]
+    quotient = sp.Poly(sp.cancel(numerator / (1 - c)), c)
+    derivative = sp.Poly(sp.diff(quotient.as_expr(), c), c)
+    if any(coefficient < 0 for coefficient in derivative.all_coeffs()):
+        raise AssertionError("the five-factor quotient is not increasing")
+    threshold_value = sp.factor(quotient.eval(sp.Rational(63, 100)))
+    if not threshold_value > 0:
+        raise AssertionError("the high-nome threshold is not certified")
+    return threshold_value
+
+
 def inverse_ellipse_map(p: float, modulus: float) -> float:
     scale = pi / (2 * ellipk(modulus))
     return float(sin(scale * ellipkinc(asin(p), modulus)))
@@ -152,6 +171,7 @@ def direct_block(
 def audit(seed: int = 20260721, count: int = 20_000) -> None:
     audit_discriminant_factorization()
     audit_high_nome_factorization()
+    high_nome_threshold = certify_high_nome_threshold()
     generator = np.random.default_rng(seed)
     largest_upper = (0.0, None)
     largest_lower = (0.0, None)
@@ -398,6 +418,10 @@ def audit(seed: int = 20260721, count: int = 20_000) -> None:
     print("discriminant square factorization: exact")
     print("cancellation-free square factorization: exact")
     print("high-nome opposite-vertex factorization: exact")
+    print(
+        "five-factor threshold quotient at c=63/100: "
+        f"{float(high_nome_threshold):.12g}"
+    )
     print(f"random cases: {count}")
     print(f"largest upper odd block: {largest_upper}")
     print(f"largest lower odd block: {largest_lower}")

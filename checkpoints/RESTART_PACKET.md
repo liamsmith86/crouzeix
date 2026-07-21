@@ -95,7 +95,8 @@ The expression is concave in `r`, so endpoint reduction is automatic. The exact 
 `c²(1+r)²(4AC−B²)=4[rF₁F₂−g²D²]`; evaluate `p−r` from its endpoint formula rather
 than subtracting. If `cℓ≥1`, convexity reduces the entire nodal rectangle to four vertices and
 an exact opposite-sign determinant factor proves all of them norm≤2. The existing L26 product
-certificate gives `cℓ≥1` for `c≥13/20`. Only `0<c<13/20` remains for intervals/asymptotics.
+five-factor product certificate gives `cℓ≥1` for `c≥63/100`. Only `0<c<63/100` remains for
+intervals/asymptotics.
 
 ## Strongest proved lemmas
 P1 (K²+ρ ≤ Kq), L13 (Clark-type transition ⟨q(A)x₀,u₀⟩ = K∫q·conj(f₀)dμ), L14 + collapse theorem
@@ -153,7 +154,7 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
 
 ## Next five concrete actions (refreshed 2026-07-21, Epoch 6)
 1. **Prove L31/L32's low-nome square inequality**: certify
-   `rF₁F₂−g²D²≥0` from (13z)–(13ad) for `0<c<13/20`, only on `A>0, |B|<2A`, at
+   `rF₁F₂−g²D²≥0` from (13z)–(13ad) for `0<c<63/100`, only on `A>0, |B|<2A`, at
    `r=L(p),U(p)`. Isolate the small-nome ridge `p=1/2+3c²/2+…` analytically and
    interval-certify the compact remainder. This closes the generic rank-one/full face. Then
    attack L27's rank-one/rank-one face. Do not repeat the already-proved one-block, lower-odd,
