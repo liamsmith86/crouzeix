@@ -10,3 +10,4 @@
 [8] K=1.7291 rho=+0.000016 formula=+0.000016 (err 2.2e-07) OTHER sub=even q1=+0.500 q2=+0.500
 [9] K=1.7789 rho=+0.000087 formula=+0.000087 (err 2.3e-07) OTHER sub=even q1=+0.500 q2=+0.500
 [10] K=1.7610 rho=+0.001374 formula=+0.001374 (err 9.0e-10) ODD sub=even q1=+0.624 q2=+0.376
+[11] K=1.5442 rho=+0.000232 formula=+0.000232 (err 6.0e-10) ODD sub=even q1=+0.508 q2=+0.492
