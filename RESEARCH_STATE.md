@@ -55,6 +55,13 @@
   also disappears exactly, leaving one determinant `N(c,p,H(p),a)≥0`. The rigorous envelope
   `s₀p+a₃p³≤H(p)≤s₀p+(1−s₀)p³` contains the target and passes global searches; the unproved
   sharp ridge is `c→0, p→1/2, a∼3c`. `proof/slice_odd_block_reduction.md`.
+- **L30 removes the Blaschke parameter from L29.** At reciprocal orientation the upper odd
+  block has equal diagonal, so `||M||≤2` is exactly `det(M)+2|M₁₂+M₂₁|≤4`. In the inner-node
+  value coordinate `t`, the two signed residuals are quadratics. The minus-sign quadratic is
+  concave and is therefore closed by its `t=±1` endpoints (L26). The plus-sign quadratic can
+  fail only on `A>0, |B|<2A`, where the complete remaining condition is `4AC−B²≥0` at the lower
+  and upper cubic-envelope values of `r`. Thus both orientation and `t` are gone: L29 is now a
+  two-variable `(c,p)` theta inequality with a sharply localized branch.
 
 ## Previous Epoch-6 milestone — EL4 PROVED
 - **EL4 is now an analytic theorem**, not a grid conjecture. New L17: `SG ≥ 0` on the real
@@ -164,10 +171,10 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   (resid 1e-4–1e-3).** Next: close sym4 analytically = first new Crouzeix class in campaign.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-21)
-1. **Prove L29's scalar odd-block determinant.** Start from equation (12) and the two-sided
-   envelope (14) in `proof/slice_odd_block_reduction.md`. Minimize the quadratic in `r` at the
-   envelope endpoints, isolate the small-nome square ridge `p=1/2, a∼3c`, then certify the
-   remaining compact region. This closes the generic rank-one/full face. Afterward return to
+1. **Prove L30's final two-variable discriminant.** Use equations (13m)–(13p) in
+   `proof/slice_odd_block_reduction.md`: certify `4AC−B²≥0` only where `A>0, |B|<2A`, at
+   `r=L(p),U(p)`. Isolate the small-nome ridge (`p=1/2+3c²/2+…`) analytically and use intervals
+   only on the compact remainder. This closes the generic rank-one/full face. Then return to
    L27's rank-one/rank-one coupled face.
 2. **Shifted Möbius phase**: derive its exact stationarity/rho formula (Kenan-Li quartic analog)
    and prove rho≥0 or K≤2. Definite parity is false.

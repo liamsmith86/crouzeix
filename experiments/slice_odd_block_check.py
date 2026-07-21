@@ -88,10 +88,14 @@ def audit(seed: int = 20260721, count: int = 20_000) -> None:
     largest_orientation_relative_error = 0.0
     largest_determinant_error = 0.0
     largest_colligation_error = 0.0
+    largest_singular_formula_error = 0.0
+    largest_quadratic_error = 0.0
     smallest_envelope_slack = np.inf
     smallest_determinant = np.inf
     smallest_endpoint_determinant = np.inf
     smallest_convex_linear_coefficient = np.inf
+    smallest_j_minus = np.inf
+    smallest_branched_discriminant = np.inf
 
     for _ in range(count):
         c = float(np.exp(generator.uniform(np.log(1e-3), np.log(0.8))))
@@ -153,6 +157,21 @@ def audit(seed: int = 20260721, count: int = 20_000) -> None:
                 np.linalg.det(4 * np.eye(2) - midpoint.T @ midpoint)
                 - determinant_formula
             ),
+        )
+
+        alpha = midpoint[0, 0]
+        beta = midpoint[0, 1]
+        gamma = midpoint[1, 0]
+        eta = beta + gamma
+        determinant = q1 * q2 / c
+        singular_formula = (
+            abs(eta) + sqrt(max(0.0, eta * eta + 4 * determinant))
+        ) / 2
+        largest_singular_formula_error = max(
+            largest_singular_formula_error,
+            abs(singular_formula - np.linalg.norm(midpoint, 2)),
+            abs(np.linalg.det(midpoint) - determinant),
+            abs(alpha * alpha - beta * gamma - determinant),
         )
 
         if abs(parameter) < 0.99:
@@ -225,6 +244,59 @@ def audit(seed: int = 20260721, count: int = 20_000) -> None:
                 linear_coefficient,
             )
 
+        g = sqrt(k / c)
+        d = k * (1 - p * p) / (1 - k * k * p * p)
+        inner_value = (k * p * p - parameter) / (
+            1 - parameter * k * p * p
+        )
+        x_value = g * (inner_value + d) / (1 + d * inner_value)
+        y_value = g * p * inner_value
+        for endpoint_r in (lower_envelope, upper_envelope):
+            endpoint_eta = (
+                (endpoint_r + c * c) * x_value
+                - (1 + c * c * endpoint_r) * y_value
+            ) / (c * (1 + endpoint_r))
+            endpoint_determinant = x_value * y_value
+            j_plus = 4 - endpoint_determinant - 2 * endpoint_eta
+            j_minus = 4 - endpoint_determinant + 2 * endpoint_eta
+            smallest_j_minus = min(smallest_j_minus, j_minus)
+
+            coefficient_a = (
+                g
+                * p
+                * (
+                    2 * d * (1 + c * c * endpoint_r)
+                    - c * g * (1 + endpoint_r)
+                )
+                / (c * (1 + endpoint_r))
+            )
+            coefficient_b = (
+                2 * c * c * g * p * endpoint_r
+                - 2 * c * c * g
+                - c * d * g * g * p * (1 + endpoint_r)
+                + 4 * c * d * (1 + endpoint_r)
+                + 2 * g * p
+                - 2 * g * endpoint_r
+            ) / (c * (1 + endpoint_r))
+            coefficient_c = 4 - (
+                2 * d * g * (c * c + endpoint_r)
+                / (c * (1 + endpoint_r))
+            )
+            rebuilt_plus = (
+                coefficient_a * inner_value * inner_value
+                + coefficient_b * inner_value
+                + coefficient_c
+            ) / (1 + d * inner_value)
+            largest_quadratic_error = max(
+                largest_quadratic_error,
+                abs(rebuilt_plus - j_plus),
+            )
+            if coefficient_a > 2e-10 and abs(coefficient_b) < 2 * coefficient_a:
+                smallest_branched_discriminant = min(
+                    smallest_branched_discriminant,
+                    4 * coefficient_a * coefficient_c - coefficient_b**2,
+                )
+
     if largest_reciprocal_error > 2e-11:
         raise AssertionError("the reciprocal block formula failed")
     if largest_orientation_relative_error > 2e-10:
@@ -233,6 +305,10 @@ def audit(seed: int = 20260721, count: int = 20_000) -> None:
         raise AssertionError("the midpoint determinant formula failed")
     if largest_colligation_error > 2e-7:
         raise AssertionError("the orthogonal-colligation construction failed")
+    if largest_singular_formula_error > 2e-8:
+        raise AssertionError("the equal-diagonal singular-value formula failed")
+    if largest_quadratic_error > 2e-7:
+        raise AssertionError("the signed quadratic reduction failed")
     if smallest_envelope_slack < -2e-13:
         raise AssertionError("the two-sided conformal envelope failed numerically")
     if largest_upper[0] > 2 + 2e-9 or largest_lower[0] > 2 + 2e-9:
@@ -243,6 +319,10 @@ def audit(seed: int = 20260721, count: int = 20_000) -> None:
         raise AssertionError("the cubic-envelope endpoint target failed numerically")
     if smallest_convex_linear_coefficient < -2e-12:
         raise AssertionError("the convex-quadratic endpoint reduction failed numerically")
+    if smallest_j_minus < -2e-10:
+        raise AssertionError("the concave signed half failed numerically")
+    if smallest_branched_discriminant < -2e-7:
+        raise AssertionError("the final branched discriminant failed numerically")
 
     print(f"random cases: {count}")
     print(f"largest upper odd block: {largest_upper}")
@@ -254,12 +334,19 @@ def audit(seed: int = 20260721, count: int = 20_000) -> None:
     )
     print(f"largest determinant identity error: {largest_determinant_error:.3e}")
     print(f"largest colligation identity error: {largest_colligation_error:.3e}")
+    print(f"largest singular-formula error: {largest_singular_formula_error:.3e}")
+    print(f"largest signed-quadratic error: {largest_quadratic_error:.3e}")
     print(f"smallest envelope slack: {smallest_envelope_slack:.3e}")
     print(f"smallest determinant numerator: {smallest_determinant:.3e}")
     print(f"smallest envelope-endpoint numerator: {smallest_endpoint_determinant:.3e}")
     print(
         "smallest B_r when A_r is positive: "
         f"{smallest_convex_linear_coefficient:.3e}"
+    )
+    print(f"smallest J_minus endpoint value: {smallest_j_minus:.3e}")
+    print(
+        "smallest final branched discriminant: "
+        f"{smallest_branched_discriminant:.3e}"
     )
 
 

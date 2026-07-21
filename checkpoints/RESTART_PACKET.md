@@ -75,6 +75,13 @@ the reciprocal-quadratic orientation identity leaves one explicit determinant nu
 yet proved. Its sharp ridge is `c→0, p→1/2, a∼3c`. See
 `proof/slice_odd_block_reduction.md` and `experiments/slice_odd_block_check.py`.
 
+**L30 further removes the Blaschke parameter.** The reciprocal upper block has equal diagonal,
+so its norm-two condition is exactly `det(M)+2|M12+M21|≤4`. In the inner-node value coordinate
+`t`, both signed residuals are quadratics. One is concave and is completely closed by L26 at
+`t=±1`. The other only needs `4AC−B²≥0` on `A>0, |B|<2A`, at the two cubic-envelope endpoints.
+This is a two-variable `(c,p)` theta inequality; the old `(c,p,a)` determinant is obsolete as
+the primary certificate target. Equations (13m)–(13p) contain the exact coefficients.
+
 ## Strongest proved lemmas
 P1 (K²+ρ ≤ Kq), L13 (Clark-type transition ⟨q(A)x₀,u₀⟩ = K∫q·conj(f₀)dμ), L14 + collapse theorem
 (sym3: v = α², ρ = (α²/2)(g₀(e)−g₀(0))), **Landen theorem** (sym3 ρ = 1 − π/(2K(k₁))),
@@ -130,11 +137,11 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
 ## Next five concrete actions (refreshed 2026-07-21, Epoch 6)
-1. **Prove the L29 upper odd-block determinant**: use equation (12) and envelope (14) of
-   `proof/slice_odd_block_reduction.md`; reduce the quadratic in `r` to its envelope endpoints,
-   isolate the `p=1/2, a∼3c` small-nome square, and interval-certify only the compact remainder.
-   This closes the generic rank-one/full face. Then attack L27's rank-one/rank-one face. Do not
-   repeat the already-proved one-block or lower-odd estimates.
+1. **Prove L30's final two-variable discriminant**: certify `4AC−B²≥0` from equations
+   (13m)–(13p) only on `A>0, |B|<2A`, at `r=L(p),U(p)`. Isolate the small-nome ridge
+   `p=1/2+3c²/2+…` analytically and interval-certify the compact remainder. This closes the
+   generic rank-one/full face. Then attack L27's rank-one/rank-one face. Do not repeat the
+   already-proved one-block, lower-odd, or concave-sign estimates.
 2. **Shifted degree-one Möbius phase**: derive its stationarity/rho formula and prove positivity
    (or K≤2) independently, both as a fallback and as a guide to the metric.
 3. **Bi-conic Schwarzian route**: compute `SG` for the off-slice collapsed map on its critical

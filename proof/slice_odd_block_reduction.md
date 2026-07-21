@@ -166,6 +166,39 @@ Also \(|\det M_*|=|q_1q_2|/c\le kp/c<4\), so nonnegativity of
 to one explicit three-parameter scalar inequality: substitute (7),
 \(\tau_1^2=k\), \(\tau_2^2=kp^2\), and \(r=H(p)\) into (12).
 
+There is a substantially simpler equivalent test.  Write (11) as
+
+\[
+ M_*=\begin{pmatrix}\alpha&\beta\\\gamma&\alpha\end{pmatrix},
+ \qquad \eta=\beta+\gamma,
+ \qquad \delta=\det M_*={q_1q_2\over c}. \tag{13g}
+\]
+
+The two singular values of any real equal-diagonal matrix obey
+
+\[
+ \sigma_{\max}={|\eta|+\sqrt{\eta^2+4\delta}\over2}. \tag{13h}
+\]
+
+Here \(|\delta|<4\), by L23.  Squaring (13h), with the sign justified by
+that determinant bound, shows the exact equivalence
+
+\[
+ \boxed{\|M_*\|\le2\quad\Longleftrightarrow\quad
+ \delta+2|\eta|\le4,} \tag{13i}
+\]
+
+where
+
+\[
+ \eta={(r+c^2)q_1-(1+c^2r)q_2\over c\sqrt c(1+r)}. \tag{13j}
+\]
+
+Thus the quartic determinant numerator (12) can be replaced by two signed
+bilinear inequalities.  Moreover, (13j) is monotone in \(r\): its derivative
+has the sign of \((1-c^2)(q_1+q_2)\).  Consequently the envelope (14) again
+reduces the full conformal displacement to its two cubic endpoints.
+
 For certification it is better to replace the Blaschke zero \(a\) by its
 value at the inner squared node,
 
@@ -184,6 +217,58 @@ The automorphism addition law then removes both rational denominators:
 Thus the final compact variables can be taken as \((c,p,t)\), with only the
 complete theta quantities \(k(c),s_0(c)\) left transcendental.  The sharp
 ridge becomes \(p\to1/2\), \(t\sim-2c\).
+
+In these variables put \(g=\sqrt{k/c}=2/\ell\),
+\(X=q_1/\sqrt c=g(t+d)/(1+dt)\), and \(Y=q_2/\sqrt c=gpt\).  For
+\(\varepsilon=\pm1\), define
+
+\[
+ J_\varepsilon=4-XY-2\varepsilon
+ { (r+c^2)X-(1+c^2r)Y\over c(1+r)}. \tag{13k}
+\]
+
+Equation (13i) is exactly \(J_+,J_-\ge0\).  Multiplication by the positive
+factor \(1+dt\) gives a quadratic
+
+\[
+ (1+dt)J_+=A t^2+B t+C, \tag{13l}
+\]
+
+with
+
+\[
+ \begin{aligned}
+ A={}&{gp[2d(1+c^2r)-cg(1+r)]\over c(1+r)},\\
+ B={}&{2c^2gpr-2c^2g-cdg^2p(1+r)+4cd(1+r)
+          +2gp-2gr\over c(1+r)},\\
+ C={}&4-{2dg(c^2+r)\over c(1+r)}. \tag{13m}
+ \end{aligned}
+\]
+
+For \(J_-\), the quadratic coefficient is
+
+\[
+ -{gp[2d(1+c^2r)+cg(1+r)]\over c(1+r)}<0. \tag{13n}
+\]
+
+It is therefore concave in \(t\), and its minimum is at \(t=\pm1\), where
+the block is \(\pm B\) and L26 applies.  Hence **the entire \(J_-\) half is
+proved**.  The \(J_+\) quadratic also has nonnegative endpoints.  It can dip
+inside \([-1,1]\) only when
+
+\[
+ A>0,\qquad |B|<2A. \tag{13o}
+\]
+
+On precisely that branch, the last upper-odd target is
+
+\[
+ \boxed{4AC-B^2\ge0} \tag{13p}
+\]
+
+at \(r=L(p)\) and \(r=U(p)\).  This removes both the orientation and the
+Blaschke parameter from the remaining certificate: (13p) depends only on
+\((c,p)\) and complete theta quantities.
 
 The **lower odd block is already proved**.  For fixed modal parameters its
 matrix is linear in \((q_1,q_2)\), and the operator norm is convex.  Since
@@ -250,7 +335,7 @@ for \(r=H(p)\).  This survived random and differential-evolution searches;
 it is not yet a certificate.  Proving this envelope version would establish
 (OB) without interval evaluation of an incomplete elliptic integral.
 
-There is one further exact simplification.  As a polynomial in \(r\), write
+For comparison with the original determinant route, as a polynomial in \(r\), write
 \(\mathcal N=A_r r^2+B_r r+C_r\), where
 
 \[
@@ -296,9 +381,9 @@ than expect a uniform positive margin.
 
 ## 5. Remaining proof debt
 
-1. Prove \(\mathcal N\ge0\) under the envelope (14), preferably by minimizing
-   the quadratic in \(r\) at the two envelope endpoints and finding the
-   small-nome square structure.
+1. Prove the two-variable discriminant (13p) on its branch (13o), at the two
+   envelope endpoints.  The older equivalent route is \(\mathcal N\ge0\)
+   under (14), but it retains an unnecessary Blaschke parameter.
 2. Treat the rank-one/rank-one coupled face after this rank-one/full sector.
 
 `experiments/slice_odd_block_check.py` audits (5)--(13), the conformal
