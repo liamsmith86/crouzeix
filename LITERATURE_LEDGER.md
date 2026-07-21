@@ -48,6 +48,17 @@ Papers, theorems, assumptions, possible gaps. Status verified via web 2026-07-20
 - [x] Schwenninger–de Vries arXiv:2409.15954 (pp. 15–20) — see table (P1 baseline).
 - [x] NIST DLMF §23.8.1 — Weierstrass Fourier expansion used to prove the positive series in
   EL4; combined with `wp(x)=1/sn²(x|m)−(1+m)/3` for half-periods `(K,iK′)`.
+- [x] Mashreghi--Moucha--O'Loughlin--Ransford--Roth, arXiv:2506.23831 — Schwarz--Jack
+  convexity: the inverse Riemann map of a bi-circular domain (hence an ellipse) is convex on the
+  positive radius, so the direct map is concave. Used only for `r≤p` in L24; no quantitative
+  two-node estimate is imported.
+- [x] Kanas--Sugawa (2006), *On conformal representations of the interior of an ellipse* — the
+  centered inverse ellipse map has positive odd Taylor coefficients; an alternative precise
+  justification of `r≤p` and a possible source for the remaining `(p−r)/c` bound.
+- [x] Crouzeix--Greenbaum, arXiv:2508.12768 (2025/26) — for scalar cyclic weighted shifts the
+  disk complete bound equals the largest consecutive weight product via an explicit diagonal
+  similarity. L25 uses the elementary nilpotent specialization on the `c→0` face; the paper's
+  general theorem does not cover the interior block-weighted slice.
 
 ## To read next
 - [ ] GKL arXiv:1701.01365 (Glader–Kurula–Lindström 2018, 3×3 tridiagonal elliptic W(A)) —

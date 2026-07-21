@@ -42,6 +42,13 @@ corner `(.001,.97,.03)`), but this is not a proof. Reproducer:
 `experiments/slice_similarity_duality.py`. Simple diagonal/Gramian/equality metrics have already
 failed; attack extreme dual block pairs rather than repeating blind primal ansatzes.
 
+**Next proved pieces (L23–L25):** `proof/slice_boundary_theorems.md` proves the sharp nome bound
+`k/c≤4/(1+c²)²`, uses it to prove one full modal-block estimate `||C||≤2`, and proves L20
+on the singular `c→0` face by reducing to a nilpotent scalar weighted shift. The boundary constant
+is sharp at the Crabb weights `(√2,1,√2)`. The opposite block's tested bound `||B||≤2` leaves
+one genuine scalar distortion `(p−r)/c`, and coupled dual witnesses remain even after both
+one-block phases are controlled. Regression: `experiments/slice_boundary_check.py`.
+
 ## Strongest proved lemmas
 P1 (K²+ρ ≤ Kq), L13 (Clark-type transition ⟨q(A)x₀,u₀⟩ = K∫q·conj(f₀)dμ), L14 + collapse theorem
 (sym3: v = α², ρ = (α²/2)(g₀(e)−g₀(0))), **Landen theorem** (sym3 ρ = 1 − π/(2K(k₁))),
@@ -100,7 +107,8 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
 1. **Prove L20' analytically**: use L21/L22 to characterize extreme parity-block dual pairs
    `Z_o,Z_e≥0` and prove `tr(Z−TZT*)_-≤4 tr(Z−TZT*)_+` from the explicit relations
    `tan(v)=r tan(u)` and the coupled elliptic nodes. This would close the whole elliptic slice
-   completely bounded.
+   completely bounded. First finish `||B||≤2` by proving the remaining `(p−r)/c` conformal
+   inequality isolated in `proof/slice_boundary_theorems.md`; do not redo `||C||` or `c→0`.
 2. **Shifted degree-one Möbius phase**: derive its stationarity/rho formula and prove positivity
    (or K≤2) independently, both as a fallback and as a guide to the metric.
 3. **Bi-conic Schwarzian route**: compute `SG` for the off-slice collapsed map on its critical
@@ -116,6 +124,7 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
 ## Paste-ready continuation instruction
 "Continue the Crouzeix campaign in /home/liam/Downloads/crouzeix (git repo; commit+push after each
 task). Read RESEARCH_STATE.md (NEWEST section first), then proof/slice_similarity_duality.md,
+proof/slice_boundary_theorems.md,
 proof/el4_schwarzian_theorem.md,
 proof/even_pick_globality.md, proof/slice_closed_form.md, and proof/D2_landscape.md; master program in
 proof/rho_positivity_program.md. Resume at restart-packet action 1 (analytic L20 similarity metric

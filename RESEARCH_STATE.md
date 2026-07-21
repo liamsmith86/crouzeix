@@ -24,6 +24,16 @@
   modal contraction inequality to equality all fail before the true optimum reaches four. The
   next attack should characterize extreme dual block pairs (low rank/boundary numerically) and
   prove their trace ratio directly from the conformal coupling of the two nodes.
+- **Boundary/modal progress (L23–L25 PROVED):** Jacobi's product gives the sharp focus-node bound
+  `k/c ≤ 4/(1+c²)²`. Using the reciprocal-quadratic dependence on `tan²u`, this proves
+  `||C||≤2` for one entire off-diagonal modal block. On the singular `c→0` face, `T` becomes
+  a nilpotent scalar weighted shift; every consecutive weight product is ≤2, so an explicit
+  diagonal similarity proves `t*≤4`, sharply at the Crabb weights `(√2,1,√2)`.
+  `proof/slice_boundary_theorems.md`; regression `experiments/slice_boundary_check.py`.
+- The other block is also ≤2 on every test, but its proof leaves the non-soft ellipse distortion
+  `(p−r)/c`, `p=τ₂/τ₁`; this is now the smallest scalar special-function obstruction.
+  Even both block norms ≤2 would not alone handle the observed coupled dual phases, so the trace
+  route must still carry a second step after that lemma.
 
 ## Previous Epoch-6 milestone — EL4 PROVED
 - **EL4 is now an analytic theorem**, not a grid conjecture. New L17: `SG ≥ 0` on the real
@@ -137,6 +147,8 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    characterize the extreme parity-block dual pairs `Z_o,Z_e≥0` (numerically low-rank/boundary),
    then prove `tr D_-≤4 tr D_+` using `tan v=r tan u` and the coupled Jacobi-`sn` nodes. This is
    now preferable to guessing a closed-form primal metric.
+   Immediate scalar subtarget: prove the tested upper-block inequality `||B||≤2` by controlling
+   `(p−r)/c`; L23/L24 show exactly why only that conformal displacement remains.
 2. **Shifted Möbius phase**: derive its exact stationarity/rho formula (Kenan-Li quartic analog)
    and prove rho≥0 or K≤2. Definite parity is false.
 3. **Bi-conic Schwarzian test**: compute `SG` for the off-slice collapsed map on the critical
@@ -169,7 +181,8 @@ experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_
   zero_geometry.py (phi_of_points); historical: L10/L12/scalar/adversarial_L7/search.py.
   Epoch-6: el4_schwarzian_check.py, even_pick_globality_check.py, slice_phase_audit.py,
   slice_cb_sdp.py (requires cvxpy; exploratory similarity SDP),
-  slice_similarity_duality.py (exact modal reconstruction + primal/dual regression + grid).
+  slice_similarity_duality.py (exact modal reconstruction + primal/dual regression + grid),
+  slice_boundary_check.py (L23–L25 stress regression).
 Data: sym3_sweep_s51.jsonl (40 rec), sym4_sweep_s61.jsonl (20 rec, ρ column trustworthy).
 Ledgers: LEMMA_LEDGER.md, APPROACH_LEDGER.md (pitfalls P1–P7 — READ BEFORE ANY SEARCH),
 LITERATURE_LEDGER.md, COUNTEREXAMPLE_SEARCH.md. Audit: chatgpt/FABLE_RESEARCH_AUDIT.md
