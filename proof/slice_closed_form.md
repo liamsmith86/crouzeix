@@ -43,9 +43,30 @@ with nodes u_j = τ_j². On the slice u₁ = τ₁² = k exactly (focus law).
     x₀ᵀRx₀ = 0 (symbolic identity), hence q_j = x₀ᵀQ_jx₀ = 1/2 exactly.
 (iii) **ρ-form**: g₀ = 1/f₀ − 2r₊z₁/(z²−z₁²), r₊ = ψ'(α)/(c·B_e'(α)), B_e'(α) = 2α/(1−α⁴),
     z₁ = ψ(α). With (i)+(ii):
-    **ρ = 1 − B₁·r₊·z₁·(e₁²−e₂²)/((e₁²−z₁²)(z₁²−e₂²))** — the sym3-shaped target;
-    positivity ⟺ one explicit elliptic-function inequality in (k, u₂) [OPEN, next task].
-    Slice data: (1.5,2.0,0.9,c=.12): ρ=+7.65e-4; (1.2,1.7,2.1,c=.06): ρ=+4.19e-5.
+    **ρ = 1 − B₁·r₊·z₁·(e₁²−e₂²)/((e₁²−z₁²)(z₁²−e₂²))** — the sym3-shaped target.
+    VALIDATED vs exact machinery to 6-7 digits: (1.5,2.0,0.9,c=.12): ρ=+7.65e-4;
+    (1.2,1.7,2.1,c=.06): ρ=+4.19e-5.
+(iv) **EL4 (the even-phase inequality, uniformizer form)**. Parametrize by U ∈ (0,K):
+    w = √k·sn(U,m), z = f·sin(sU), s = π/(2K), m = k². Node U₂ ∈ (0,K), outer node pinned
+    at U₁ = K (focus law τ₁ = √k). v = pseudo-hyp midpoint of (k, k·sn²U₂) [quadratic formula;
+    NOT arithmetic in U — tested false], W = sn⁻¹(√(v/k), m), B₁ = (k−v)/(1−kv). Then
+    **ρ = 1 − Θ, Θ = B₁·s(1−v²)·sin(sW)cos²(sU₂) / [2k·snW·cnW·dnW·cos(sW)·(sin²sW−sin²sU₂)]**
+    Target: Θ ≤ 1 on (k,U₂) ∈ (0,1)×(0,K). STATUS: verified 50×50 grid (0 negatives,
+    min 1−Θ = 2.4e-15 at degenerate corner); edge asymptotics 1−Θ ~ c·ε⁴ at U₂=(1−ε)K
+    (checked dps 50/80: +7.9e-19, +7.9e-27 — dps-25 sign flips were cancellation noise, P3);
+    **U₂→0 edge = sym3/Landen theorem EXACTLY** (Θ(k,0⁺) = π/(2K(k₁)), 12 digits).
+    So EL4 is the 2-parameter generalization of the Landen theorem with a marked point.
+(v) Effective-modulus structure: κ_eff (K(κ_eff)=π/(2Θ)) ≈ k₁·cd²((1+k′)U₂/2, m₁) to 4–6
+    digits but NOT exact (Û/K₁ − U₂/K ~ 1e-3): the second Landen descent is leading-order
+    only — the marked point breaks it. No clean pure-modulus closed form exists.
+(vi) **D2-convex FALSIFIED** (important negative result): the coordinate-free form
+    ρ = 1 − (δ/2)[1/(ζ₁−ζ₀)+1/(ζ₀−ζ₂)]/h'(ζ₀) with h:Ω̃→D, h(ζ₀)=0, h(ζ±)=±δ suggests the
+    "harmonic-mean-of-difference-quotients ≤ derivative" inequality for convex Ω̃. It is FALSE:
+    Koebe violates (univalent case, 1+δ²); z+z²/4 violates exactly (V = 1/(1−δ²/16)); 55+/60
+    random Herglotz-generated convex maps violate (up to 1.26). Equality holds for ALL Möbius h
+    (proved via midpoint relation — disk rigidity ρ=0). The truth requires the criticality
+    coupling: outer node PINNED to the focus image (U₁ = K endpoint). Fourth confirmation of
+    the "no soft proof" phenomenon (after L10, free-S≤1, L12-strong).
 
 ## 5. Phase geography (slice, empirics via full solver best_extremal)
 - ODD interior phase (e.g. (2.0,1.2,1.6,.08), (1.8,1.0,1.4,.15)): zeros {0,±α}, α ∈ (τ₂,τ₁);
@@ -60,8 +81,11 @@ with nodes u_j = τ_j². On the slice u₁ = τ₁² = k exactly (focus law).
   inflate .02→.0005), same α. Validates slice_exact against the certified pipeline.
 
 ## 6. Reduced open targets (ranked)
-1. Even-phase positivity inequality (§4(iii)) — 2-parameter, u₁ = k exact, fully explicit:
-   the level-4 analog of the Landen/sym3 endgame. CLOSEST TO CLOSURE.
+1. PROVE EL4 (§4(iv)) — 2-parameter explicit elliptic inequality, tight on both edges
+   (U₂→0: Landen theorem, proved; U₂→K: quartic degeneracy). Candidate routes: monotonicity
+   ∂Θ/∂U₂ ≥ 0 via symbolic differentiation; integral representation with positive integrand;
+   AGM/mean-inequality form (sym3 case: ρ = 1 − AGM(1,k₁′) ≥ 0 trivially — hunt the
+   2-parameter mean analog). NO soft/convexity route exists (§4(vi)).
 2. Odd-phase positivity: ρ = B₁g₁q₁+B₂g₂q₂ ≥ 0 given §3 stationarity (3-parameter).
 3. Möbius-phase positivity (deg-1 f₀ = φ on ellipse domains — may admit a general theorem
    beyond 4×4: only uses domain ellipse + deg-1 extremal + nodal weights).
