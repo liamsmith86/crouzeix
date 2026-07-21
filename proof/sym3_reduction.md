@@ -27,6 +27,18 @@ Extremal (numerics): f₀ = B∘φ, B(w) = (w²−α²)/(1−α²w²), α real (
   "capacity" inequality; the two equality mechanisms (disk: g const; critical: g(σ)≈0) must be
   unified limits.
 
+## Three-factor formula (derived + numerically confirmed 2026-07-20)
+Using E·M = −α²·E (E = P₀ in the orthonormal 2-frame) and ⟨Mx₀,x₀⟩ = 0 (Prop 1):
+**ρ = α² · (g₀(e) − g₀(0)) · Re⟨P₀x₀,x₀⟩**, with P₀ = I − A²/e² (polynomial in A!), so
+Re⟨P₀x₀,x₀⟩ = Re[1 − ⟨A²x₀,x₀⟩/e²] = Re∫(1−z²/e²)dμ.
+- By D2 symmetry: Re⟨P₀x₀,x₀⟩ = Re⟨P₀u₀,u₀⟩ at extremals (new identity, if g_e ≠ g_0).
+- H-r(sym3) ⟺ sign correlation: (g₀(e) − g₀(0))·Re⟨P₀x₀,x₀⟩ ≥ 0.
+- Sweep data (sym3_sweep): g₀(0) ≤ 0 ≤ g₀(e) consistently (sign weakens only at degenerate
+  α→0/κ→∞ corners); Re⟨P₀x₀,x₀⟩ ≈ 0.5. **Conjecured mechanism: interlacing — the even real
+  function g₀ = Φ(f₀) has a real zero strictly between the eigenvalues 0 and e at criticality.**
+- Degenerate corner α → 0 (double zero, Crabb-like): use confluent formulas (g₀ = −1/α² + 2r₁/z₁
+  is a difference of large terms — numerically fragile; derive the limit separately).
+
 ## Next
 1. α-stationarity dK/dα = 0 explicitly (one real equation) → eliminate α.
 2. Express the criticality constraint: for the family, parameterize W(A) (Kippenhahn) and get
