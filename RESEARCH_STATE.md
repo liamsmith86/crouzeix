@@ -24,10 +24,10 @@
   minor order `c^2`) and now factors every exceptional face exposed by the remainder charts.
   Exact rational terms through order 15 plus parity-aware Arb tails close det0's main-orientation
   chart and, on `[0,.01]`, four widened charts at its `a=0` corner. One main-axis equality line
-  remains there. Det1 now has two more exact blow-ups ending in the positive quadratic (23); a
-  59-chart, 84-minute directed run certifies its complete positive-sign main chart on `[0,.005]`.
-  The negative sign must still regenerate, and neither the low minors nor a bridge to `.01` is
-  claimed. Next rerun det1 negative, then factor the det0 axis rather than subdividing onto it.
+  remains there. Det1 now has two more exact blow-ups ending in the positive quadratic (23);
+  two 59-chart directed runs certify its complete main chart for both signs on `[0,.005]`
+  (84 minutes positive, 76 minutes negative). Neither the low minors nor a bridge to `.01` is
+  claimed. Next factor the det0 axis rather than subdividing onto it, then close those gaps.
 - **L49 finds the sharp nome estimate required by the zero-node ridge:**
   `k≤4c/(1+4c²)` for `c≤1/2`.  Two Jacobi-product factors suffice, and the
   remaining degree-23 polynomial has 24 positive exact Bernstein coefficients.  On `p=0`,

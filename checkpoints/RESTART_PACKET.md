@@ -68,9 +68,9 @@ and identify the det1 hierarchy (20)--(23) and det0 `a=0` forms (24)--(25) in
 `proof/slice_core_projective_reduction.md`.
 The det0 main-orientation chart and four widened corner charts certify; one main-axis equality
 line is still open. Det1's endpoint hierarchy now ends in an exact positive-definite quadratic.
-A 59-chart directed run certifies the full positive-sign det1 main chart on `[0,.005]` in about
-84 minutes; rerun the negative sign before promoting this to a two-sign theorem. No interval
-touching zero is yet proved. Then factor the det0 line rather than using raw dense subdivision.
+Two 59-chart directed runs certify the full det1 main chart for both signs on `[0,.005]` (about
+84 and 76 minutes). No complete interval touching zero is yet proved because det0's equality
+line and the low minors remain. Factor the det0 line rather than using raw dense subdivision.
 
 L45's convex-in-`a` branch is common (772,130 of 2,000,000 random quadratic-form probes) but its
 discriminant remained positive in the sample; no concavity-only shortcut exists.

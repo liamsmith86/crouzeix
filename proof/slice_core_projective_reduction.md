@@ -378,14 +378,13 @@ the final quadratic is
 \]
 
 Thus the last det1 face is positive definite in its four transverse variables.
-For the positive sign, the analytic-tail enclosure on $0\leq c\leq.005$
-certifies this complete hierarchy: four first endpoint charts; ten centered
-$P$-models for each second chart; and four half-box models for each final
-chart. All 59 charts pass (the nontrivial nome charts use at most nine leaves;
-the rest are root or small certificates). The full regeneration takes about
-84 minutes and peaks at 11.1 GB. This proves the positive-sign det1 main chart
-on that interval. The negative-sign tail regeneration is still required; the
-exact identities (20)--(23) already pass for both signs.
+The analytic-tail enclosure on $0\leq c\leq.005$ certifies this complete
+hierarchy for both signs: four first endpoint charts; ten centered $P$-models
+for each second chart; and four half-box models for each final chart. All 59
+charts per sign pass. The positive sign takes about 84 minutes and uses at most
+nine leaves; the negative sign takes about 76 minutes and every chart passes
+at the root. Peak memory is 11.25 GB without swap. Thus the complete det1 main
+chart is proved on that interval for both signs.
 
 The other cancellation-sensitive face occurs in the top `one-minus-ratio`
 chart at the already-proved parameter face $a=0$. After centering its three
@@ -439,9 +438,9 @@ the preferred route.
 ## 7. Next exact target
 
 Extend L54's four-box adaptive cover across the compact range, keeping $c$ as
-a shared Bernstein coordinate. At $c=0$, rerun det1's new positive-sign
-endpoint certificate for the negative sign. Then attack the remaining det0
-$U$-axis equality line of (25) by an exact factor/ideal decomposition; four transverse
+a shared Bernstein coordinate. At $c=0$, attack the remaining det0 $U$-axis
+equality line of (25) by an exact factor/ideal decomposition; four transverse
 charts are already enclosed, and further raw dense subdivision only converges
-onto the zero line. Success proves (RT) and therefore completes the elliptic
+onto the zero line. Then certify the three low minor charts and bridge
+$[.005,.01]$. Completing all three tasks proves (RT) and therefore the elliptic
 $4\times4$ slice, but not the general Crouzeix conjecture.
