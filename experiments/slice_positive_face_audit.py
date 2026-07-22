@@ -10,7 +10,7 @@ from the integer core records and audits the l1 norm of all terms of total
 
 from __future__ import annotations
 
-from math import comb
+from math import comb, prod
 from typing import TypeAlias
 
 from slice_projective_core import load_records
@@ -153,11 +153,61 @@ def collected_deficit(table: ChartTable, a_power: int, b_power: int) -> ExactPol
     }
 
 
+def evaluate_modular(
+    polynomial: ExactPolynomial, values: tuple[int, ...], modulus: int
+) -> int:
+    """Evaluate an integer sparse polynomial in one finite field."""
+
+    return (
+        sum(
+            coefficient
+            * prod(
+                pow(value, exponent, modulus)
+                for value, exponent in zip(values, monomial)
+            )
+            for monomial, coefficient in polynomial.items()
+        )
+        % modulus
+    )
+
+
+def audit_deficit_reconstruction(
+    table: ChartTable,
+    deficit_maps: dict[tuple[int, int], ExactPolynomial],
+) -> None:
+    """Cross-check the full binomial transform at two finite-field points."""
+
+    original_values = (2, 3, 5, 7, 11, 13, 17, 19, 23, 29)
+    factor_values = (*original_values[:3], *original_values[5:])
+    for modulus in (1_000_000_007, 2_147_483_647):
+        expected = evaluate_modular(table.records, original_values, modulus)
+        a_deficit = (1 - original_values[3]) % modulus
+        b_deficit = (1 - original_values[4]) % modulus
+        actual = (
+            sum(
+                evaluate_modular(records, factor_values, modulus)
+                * pow(a_deficit, a_power, modulus)
+                * pow(b_deficit, b_power, modulus)
+                for (a_power, b_power), records in deficit_maps.items()
+            )
+            % modulus
+        )
+        if actual != expected:
+            raise AssertionError(
+                f"{table.label}: deficit reconstruction failed modulo {modulus}"
+            )
+
+
 def audit_table(table: ChartTable, chart: int) -> None:
     face, first_deficit = expected_face(chart)
-    actual_face = collected_deficit(table, 0, 0)
-    actual_a = collected_deficit(table, 1, 0)
-    actual_b = collected_deficit(table, 0, 1)
+    deficit_maps = {
+        (a_power, b_power): collected_deficit(table, a_power, b_power)
+        for a_power in range(5)
+        for b_power in range(5)
+    }
+    actual_face = deficit_maps[0, 0]
+    actual_a = deficit_maps[1, 0]
+    actual_b = deficit_maps[0, 1]
     if actual_face != face:
         raise AssertionError(f"{table.label}: face factorization failed")
     if actual_a != first_deficit or actual_b != first_deficit:
@@ -169,14 +219,13 @@ def audit_table(table: ChartTable, chart: int) -> None:
             if a_power + b_power >= 2:
                 remainder_l1 += sum(
                     abs(coefficient)
-                    for coefficient in collected_deficit(
-                        table, a_power, b_power
-                    ).values()
+                    for coefficient in deficit_maps[a_power, b_power].values()
                 )
     if remainder_l1 != EXPECTED_REMAINDER_L1:
         raise AssertionError(
             f"{table.label}: remainder l1 {remainder_l1} != {EXPECTED_REMAINDER_L1}"
         )
+    audit_deficit_reconstruction(table, deficit_maps)
     print(
         f"PASS {table.label}: face_terms={len(face)}, "
         f"first_terms={len(first_deficit)}, remainder_l1={remainder_l1}"

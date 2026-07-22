@@ -619,6 +619,32 @@ $41235531913$ in both charts.  The remaining certificate task is to retain
 the correlated nome/spatial cancellation in that higher-order remainder;
 using the global l1 norm directly is rigorous but much too coarse.
 
+There is a second exact structure at the sharp projective corner.  Set
+$X=R=Y=1$, write $S=A+B$ and $P=AB$, and use
+$\gamma_+-\gamma_-=1-s-\gamma_-$.  Both determinant charts become the same
+perfect square
+
+\[
+ D_0=D_1=c^7F(A,B,c,k)^2, \tag{40}
+\]
+
+where
+
+\[
+\begin{aligned}
+F={}&[4k(1+c^2)-c(1+16k^2)](P^2-2PS)
+ +3c(1-4k^2)S^2\\
+&+[16k(1+c^2)+18ck-10c-40ck^2]P
+ +6c(k-1)(4k+1)S-9c(k-1)^2.
+\end{aligned} \tag{41}
+\]
+
+This explains the later binary64 stalls: the checker is converging toward a
+small positive square, not a negative determinant.  The exact audit
+`experiments/slice_positive_corner_audit.py` substitutes directly in every
+integer record and verifies the common $207$-term square against the explicit
+$30$-term root, without symbolic factorization or floating-point decisions.
+
 ## 6. Shortcuts falsified during this reduction
 
 Three tempting simplifications fail numerically and should not be retried:
