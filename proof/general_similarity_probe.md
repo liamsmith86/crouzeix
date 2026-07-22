@@ -60,6 +60,13 @@ Every recalculation passed at boundary resolution 1024 with primal/dual gaps
 below `4e-8`.  The sequence approaches four from below rather than crossing
 it, exactly the behavior expected near the sharp Crabb configuration.
 
+The three strongest accepted triangular `n=3` samples were also recomputed
+on the same offset ladder.  Fourteen of fifteen records passed every gate;
+the single rejection was an inaccurate SDP at offset `.005`, not a value
+above four.  The largest accepted triangular value was `3.807797994233` at
+offset `.00125`.  Thus the best non-Crabb family in the initial sweep also
+remained below four as the outer domain shrank.
+
 ## Verdict and limitations
 
 The similarity route survives its first reliable test away from the elliptic
@@ -121,4 +128,10 @@ Reproduction:
   --inflates 0.02 0.01 0.005 0.0025 0.00125 \
   --resolution 512 --max-resolution 8192 \
   --output experiments/general_similarity_inflate_sensitivity_s20260721.jsonl
+.venv/bin/python -u experiments/general_similarity_sdp.py \
+  --per-family 5 \
+  --case 3:triangular:0 --case 3:triangular:1 --case 3:triangular:2 \
+  --inflates 0.02 0.01 0.005 0.0025 0.00125 \
+  --resolution 512 --max-resolution 8192 \
+  --output experiments/general_similarity_triangular_sensitivity_s20260721.jsonl
 ```
