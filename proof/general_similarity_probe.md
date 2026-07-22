@@ -108,14 +108,60 @@ functional \(\beta\), their theorem and Paulsen similarity give
  \leq\max\{1,\lVert\theta_T+\beta I\rVert_{cb}\}. \tag{2}
 \]
 
-Thus a geometrically natural scalar shift with cb norm at most two would
-prove the general L21 target.  The theorem does not replace the
-operator-valued conjugate-Cauchy correction in the Crouzeix--Palencia map by
-a scalar functional, so (2) is a route, not a solution.  The first gate
-remains adversarial optimization of (1), especially on the previously
-rejected nearly normal/flat-range cases and reducible matrices with small
-coupling.  A certified violation would kill only the stronger completely
-bounded route; the scalar H-r program would remain live.
+If \(\lVert\theta_T\rVert_{cb}>1\), (2) and the choice \(\beta=0\) in fact
+give the exact identity
+
+\[
+ \inf_\beta\lVert\theta_T+\beta I\rVert_{cb}
+ =\lVert\theta_T\rVert_{cb}. \tag{3}
+\]
+
+Consequently, finding a scalar shift of cb norm at most two is equivalent to
+the L21 target, not a relaxation of it.  Crouzeix--Palencia does not supply
+such a shift in general: after pullback it controls
+
+\[
+ \theta(f)+R(f),\qquad R(f)=\theta(\alpha(f))^*, \tag{4}
+\]
+
+where \(R\) is linear but operator-valued.  At matrix level its entries are
+full operator blocks, while Hartz--McCarthy allows only
+\([\beta(f_{ij})]\otimes I\).  The two coincide when
+\(\theta\mathbin\circ\alpha\) has scalar range, including the disk case, but
+not for a general numerical-range domain.  Nor can a unital complete
+contraction postprocess (4) while fixing \(\theta\): such a map is completely
+positive and star-preserving, hence it fixes \(R\) as well.
+
+A reproducible numerical probe also rules out the most natural attempted
+collapse of (4).  For every state \(Q\succeq0\), \(\operatorname{tr}Q=1\), set
+\(\beta_Q(f)=\operatorname{tr}(QR(f))\).  If
+\((\theta+\beta_QI)/2\) were completely contractive, all its
+operator-valued Toeplitz moment matrices would be positive semidefinite.  On
+the normalized dense \(3\times3\) seed-`20260721` sample with outer offset
+`.01`, maximizing the least eigenvalue of the order-three matrix over *all*
+states gave:
+
+| boundary resolution | best possible least eigenvalue |
+|---:|---:|
+| 512 | -0.01552653 |
+| 1024 | -0.01553114 |
+| 2048 | -0.01553144 |
+| 4096 | -0.01553149 |
+| 8192 | -0.01553153 |
+
+SCS and Clarabel agree at resolution 4096 to \(2\times10^{-9}\); the conformal
+map diagnostics and an independent numerical rebuild are recorded with every
+row.  This is stable numerical evidence, not an interval certificate.  It
+closes positive-state scalarization (including normalized trace) as a
+promising shortcut.  Hartz--McCarthy currently explains exactly why the
+scalar-range disk case works, rather than reducing the general problem.
+
+The live gate remains adversarial optimization of (1), especially on
+reducible equality blocks with small generic/noncommuting coupling.  A
+certified violation would kill only the stronger completely bounded route;
+the scalar H-r program would remain live.  A possible CP-based alternative is
+to retain the full correction moments in (4) and ask whether L21's trace
+inequality follows from their block-Toeplitz positivity.
 
 Reproduction:
 
@@ -134,4 +180,10 @@ Reproduction:
   --inflates 0.02 0.01 0.005 0.0025 0.00125 \
   --resolution 512 --max-resolution 8192 \
   --output experiments/general_similarity_triangular_sensitivity_s20260721.jsonl
+.venv/bin/python -u experiments/general_similarity_scalarization_probe.py \
+  --resolutions 512 1024 2048 4096 8192 --solver CLARABEL \
+  --output experiments/general_similarity_scalarization_s20260721.jsonl
+.venv/bin/python -u experiments/general_similarity_scalarization_probe.py \
+  --resolutions 4096 --solver SCS \
+  --output experiments/general_similarity_scalarization_cross_solver_s20260721.jsonl
 ```
