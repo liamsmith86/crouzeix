@@ -72,6 +72,23 @@ Papers, theorems, assumptions, possible gaps. Status verified via web 2026-07-22
   disk complete bound equals the largest consecutive weight product via an explicit diagonal
   similarity. L25 uses the elementary nilpotent specialization on the `c→0` face; the paper's
   general theorem does not cover the interior block-weighted slice.
+- [x] Lewis--Overton, arXiv:1901.00050 / SIMAX 2020, *Partial Smoothness of the Numerical
+  Radius at Matrices Whose Fields of Values are Disks* — proves that disk matrices form a local
+  analytic manifold and the numerical radius is partly smooth at every nonzero scalar
+  superdiagonal matrix, including a single Crabb block; gives explicit tangent/normal spaces
+  under a simple support-eigenvalue hypothesis. This is directly relevant to classifying
+  L61's zero-Jensen-gap directions. It does **not** analyze repeated support multiplicity, the
+  conformally pulled-back L21 similarity square, or the closed tangent value (16), so no direct
+  overlap with the new first-order theorem was found.
+- [x] Greenbaum--Lewis--Overton, *Variational Analysis of the Crouzeix Ratio*, Math.
+  Programming 2017 — proves Clarke regularity and nonnegative directional derivative of the
+  **scalar Crouzeix ratio** at the Crabb/monomial candidate `(p(z)=z^(n−1), A=Crabb⊕0)`, while
+  explicitly leaving second-order analysis on the active manifold open. This is the closest
+  conceptual precedent for L61. It does not treat repeated Crabb support multiplicity, the
+  domain-dependent Riemann pullback, the completely bounded similarity optimum `t_*`, or
+  L61's density-matrix/Jensen closed form. Phrase novelty narrowly: L61 appears to be a new
+  first-order theorem for the stronger L21 quantity, not the first variational stationarity
+  result at a Crabb configuration.
 
 ## To read next
 - [ ] GKL arXiv:1701.01365 (Glader–Kurula–Lindström 2018, 3×3 tridiagonal elliptic W(A)) —

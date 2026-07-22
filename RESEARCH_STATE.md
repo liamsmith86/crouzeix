@@ -369,12 +369,20 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   Blaschke is ODD ({0,±α} zeros) ⟹ f₀ = z·F(z²) collapse exists; squared boundary NOT elliptic
   (resid 1e-4–1e-3).** This was the initial signal; L59 now proves the complete slice by the
   independent contraction-similarity route, without resolving each H-r phase separately.
+- **GENERAL EQUALITY-LOCUS FIRST ORDER (L61):** at every repeated Crabb disk block, the
+  conformal tangent is finite by nilpotence and the L21 tangent SDP has exact value `−4` times
+  a support-compression Jensen gap. Hence its value is nonpositive in every direction; under a
+  uniform conformal expansion, the upper Dini derivative of `t*` is nonpositive. This is a
+  local first-order theorem, not a neighbourhood theorem; equality directions need second
+  order and nonsmooth crossings need a regularity argument.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-22)
-1. **Turn the equality-locus slopes into a local theorem.** Linearize the conformal map and
-   L21 SDP at `C_p⊗I_m`; characterize the degenerate optimal primal/dual faces and prove the
-   directional derivative of `t*` is nonpositive for transverse perturbations. The observed
-   cross-direction slopes `1.557/1.637` are targets to reproduce, not assumptions.
+1. **Classify equality in the new local first-order theorem.** L61 derives the finite conformal
+   tangent at `C_p⊗I_m`, solves its L21 SDP dual as `d_E=-4` times a support-compression Jensen
+   gap, and proves `d_E≤0` for every perturbation. A strict feasible-metric lift gives the same
+   upper Dini bound under uniform conformal expansion. Determine whether every zero-gap
+   direction is tangent to an exact equality orbit; compute second order for any transverse
+   survivors, and separately handle nonsmooth compression-eigenvalue crossings.
 2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
    trace inequality can instead be derived from the block-Toeplitz positivity of the full
    operator-valued correction moments. Do not retry trace/positive-state scalarizations.
@@ -423,11 +431,13 @@ experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_
   slice_positive_tail_certificate.py (L59 full regenerating tail certificate),
   general_similarity_sdp.py (general L21 probe),
   general_similarity_scalarization_probe.py (CP-to-HM state-scalarization falsification),
-  general_similarity_equality_probe.py (repeated-Crabb general gate).
+  general_similarity_equality_probe.py (repeated-Crabb general gate),
+  general_similarity_tangent_probe.py (L61 finite conformal/tangent-SDP reduction).
 Proof artifact: experiments/positive_tail_full_20260722.log (L59 clean 10-box run).
 Data: sym3_sweep_s51.jsonl (40 rec), sym4_sweep_s61.jsonl (20 rec, ρ column trustworthy),
 general_similarity_equality_s9173401.jsonl plus its `sensitivity` and `ultralocal` companions
-(L21 equality gate).
+(L21 equality gate); general_similarity_tangent_s9173401.jsonl and
+general_similarity_tangent_all_s9173401.jsonl (L61 cross-solver tangent data).
 Ledgers: LEMMA_LEDGER.md, APPROACH_LEDGER.md (pitfalls P1–P8 — READ BEFORE ANY SEARCH),
 LITERATURE_LEDGER.md, COUNTEREXAMPLE_SEARCH.md. Audit: chatgpt/FABLE_RESEARCH_AUDIT.md
 (reconciled 2026-07-20). Restart: checkpoints/RESTART_PACKET.md (paste-ready instruction).

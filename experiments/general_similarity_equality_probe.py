@@ -34,6 +34,7 @@ from general_similarity_sdp import evaluate_case, normalize_numerical_range
 
 
 PERTURBATION_FAMILIES = ("full", "cross", "operator_weight")
+COPY_PHASE_STEP = 0.37
 
 
 def normalized_direction(matrix: np.ndarray) -> np.ndarray:
@@ -73,7 +74,7 @@ def copy_major_base(block_size: int, multiplicity: int) -> np.ndarray:
     """Return rotated copies of a Crabb equality block."""
 
     crabb = crabb_matrix(block_size - 1)
-    phases = np.exp(0.37j * np.arange(multiplicity))
+    phases = np.exp(COPY_PHASE_STEP * 1j * np.arange(multiplicity))
     return block_diagonal([phase * crabb for phase in phases])
 
 

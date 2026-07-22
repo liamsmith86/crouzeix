@@ -27,6 +27,17 @@ stable first-order drops `1.557/1.637`. This supports, but does not prove, local
 Reproducer and data are in `experiments/general_similarity_equality_probe.py` and the three
 `general_similarity_equality*_s9173401.jsonl` files.
 
+**Local first-order theorem:** L61 computes the exact one-sided support derivative at a
+repeated Crabb block and, because the block is nilpotent, reduces the conformal operator
+tangent to only `p−1` support Fourier coefficients. Its active-kernel SDP dual collapses to one
+density matrix and has exact value `−4` times a support-compression Jensen gap, hence is
+nonpositive for every perturbation. A strict feasible-metric lift proves the same upper Dini
+bound under a uniform conformal expansion. Clarabel/SCS and the closed form agree on 12
+directions within `3.17e-8`; nonlinear slopes agree to relative error `≤1.20e-4`. This is only
+first order, not a full neighbourhood theorem. Next classify zero-gap directions, calculate
+second order where needed, and close nonsmooth map regularity. See
+`proof/general_similarity_tangent.md`.
+
 ## Immediate audit gate (2026-07-21, post-L45)
 **Load-bearing audit passed:** L17's exact ground-state identity with
 `y=1/sqrt(g')` fixes the Dirichlet-form direction, and L21's parity restriction follows by

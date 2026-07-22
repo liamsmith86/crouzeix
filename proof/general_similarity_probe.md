@@ -118,6 +118,22 @@ stable first-order *decrease*.  This is strong numerical evidence that the
 repeated Crabb locus is a local maximum in the tested directions, not a proof
 of local maximality and not an exhaustive general-matrix gate.
 
+### Analytic first-order follow-up
+
+L61 subsequently explains and proves the sign of these slopes.  Degenerate
+support perturbation and the Schwarz integral reduce the conformal operator
+tangent to finitely many Fourier coefficients.  The active-kernel L21 tangent
+SDP then has a closed dual: its value is `-4` times the Jensen gap between the
+mean of the maximum eigenvalue of the repeated support compression and the
+maximum eigenvalue of its mean.  It is therefore nonpositive for every
+perturbation, not just the sampled families.  Under a uniform conformal
+expansion, a strict feasible-metric lift gives the corresponding upper Dini
+derivative bound for `t_*`.  See `proof/general_similarity_tangent.md`.
+
+This settles only first order.  A full neighbourhood theorem still requires
+classifying zero-Jensen-gap directions and treating second order there, as
+well as closing conformal regularity at compression-eigenvalue crossings.
+
 ## Verdict and limitations
 
 The similarity route survives its first reliable test away from the elliptic
@@ -207,8 +223,9 @@ closes positive-state scalarization (including normalized trace) as a
 promising shortcut.  Hartz--McCarthy currently explains exactly why the
 scalar-range disk case works, rather than reducing the general problem.
 
-The live gate remains adversarial optimization of (1), especially on
-reducible equality blocks with small generic/noncommuting coupling.  A
+The live general gate remains adversarial optimization of (1), while the
+local equality-block gate has moved to zero-Jensen-gap classification and
+second order.  A
 certified violation would kill only the stronger completely bounded route;
 the scalar H-r program would remain live.  A possible CP-based alternative is
 to retain the full correction moments in (4) and ask whether L21's trace
