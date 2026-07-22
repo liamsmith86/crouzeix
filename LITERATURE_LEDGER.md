@@ -23,6 +23,9 @@ Papers, theorems, assumptions, possible gaps. Status verified via web 2026-07-22
 - Nearly Jordan blocks (Choi–Greenbaum).
 - Weighted shift matrices (Choi; complete 2-spectral via arXiv:2508.12768 Aug 2025).
 - Certain 3×3: tridiagonal with elliptic W(A) centered at eigenvalue; 3×3 KLS matrices (2025-26 work).
+- The Crabb-derived elliptic family `A=(C+bC*)/(2sqrt(b))`, where `C` has the fixed
+  superdiagonal weights `(sqrt(2),1,...,1,sqrt(2))`: Kenan Li's 2021 thesis, Chapter 3,
+  gives an explicit contraction similarity of condition at most two in every dimension.
 - Compressions of the shift / model space operators with certain Blaschke conditions (Bickel–Gorkin school).
 - Matrices attaining ‖A‖ = numerical radius conditions (Crabb-type equality cases).
 
@@ -66,12 +69,15 @@ Papers, theorems, assumptions, possible gaps. Status verified via web 2026-07-22
 ## To read next
 - [ ] GKL arXiv:1701.01365 (Glader–Kurula–Lindström 2018, 3×3 tridiagonal elliptic W(A)) —
   novelty calibration vs our sym3 ρ-proof (their mechanism is cb/dilation-based; ours is new)
-- [x] Kenan Li, 2021 UW thesis, Chapter 2.3 — for the proportional 3×3 elliptic family it
-  explicitly identifies three extremal phases: centered degree 1, shifted real Möbius degree 1,
-  and even degree 2. This invalidates any symmetry-only parity inference and directly predicts
-  the shifted phase now found on the 4×4 slice. The thesis discusses `A=C+bC*` as the general
-  construction of elliptic numerical ranges but does not visibly prove the arbitrary 4×4
-  weighted-shift slice; a more targeted novelty audit remains.
+- [x] Kenan Li, 2021 UW thesis, Chapters 2.3 and 3 — Chapter 2.3 identifies three extremal
+  phases for a proportional 3×3 elliptic family: centered degree 1, shifted real Möbius degree
+  1, and even degree 2. Chapter 3 proves the conjecture for the all-dimensional but
+  one-parameter Crabb-derived family `A=(C+bC*)/(2sqrt(b))`, using an explicit contraction
+  similarity with condition `sqrt(k(b^(2n-2))/b^(n-1))<=2`. Its 4×4 member has the fixed
+  weight ratio `(sqrt(2),1,sqrt(2))`; it does not cover arbitrary positive weights
+  `(a1,a2,a3)`. The thesis explicitly leaves the general elliptical-numerical-range problem
+  open. This calibrates the closest known overlap with the current 4×4 slice; a broader
+  publication-level novelty search is still required.
 - [ ] de Vries thesis (SV24 companion) — extremal-pair machinery details
 - [ ] MMOR 2024 (C_N < 1+√2) — equality-case analysis of C–P (relevant to P2 stability)
 - [ ] SV24 full §§1–5 (their Prop 2.4, 2.8, 3.5 used in §6; Berger–Stampfli generalization)
