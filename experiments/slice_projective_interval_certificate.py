@@ -448,16 +448,34 @@ def multiply_positive_scalar(
     return IntervalTensor(lower, upper)
 
 
-def power_to_bernstein_tensor(tensor: IntervalTensor) -> IntervalTensor:
+def power_to_bernstein_tensor(
+    tensor: IntervalTensor, *, axis_order: tuple[int, ...] | None = None
+) -> IntervalTensor:
+    if axis_order is None:
+        axis_order = tuple(range(tensor.lower.ndim))
+    if sorted(axis_order) != list(range(tensor.lower.ndim)):
+        raise ValueError("axis order must be a permutation of the tensor axes")
     output = tensor
-    for axis in range(tensor.lower.ndim):
+    for axis in axis_order:
         output = power_to_bernstein_axis(output, axis)
     return output
 
 
+def collapse_bernstein_axis(tensor: IntervalTensor, axis: int) -> IntervalTensor:
+    """Enclose a Bernstein coordinate by its convex hull of control balls."""
+
+    return IntervalTensor(
+        np.min(tensor.lower, axis=axis, keepdims=True),
+        np.max(tensor.upper, axis=axis, keepdims=True),
+    )
+
+
 def power_to_bernstein_axis(tensor: IntervalTensor, axis: int) -> IntervalTensor:
-    lower = np.moveaxis(tensor.lower, axis, 0)
-    upper = np.moveaxis(tensor.upper, axis, 0)
+    # Projective charts can put degree O(10^2) on a late, highly strided axis.
+    # Materializing that axis first avoids repeating large arithmetic on
+    # noncontiguous slices; the copied binary64 values are unchanged.
+    lower = np.ascontiguousarray(np.moveaxis(tensor.lower, axis, 0))
+    upper = np.ascontiguousarray(np.moveaxis(tensor.upper, axis, 0))
     degree = lower.shape[0] - 1
     output_lower = np.zeros_like(lower)
     output_upper = np.zeros_like(upper)
@@ -477,7 +495,8 @@ def power_to_bernstein_axis(tensor: IntervalTensor, axis: int) -> IntervalTensor
                 output_upper[bernstein_index], term.upper, True
             )
     return IntervalTensor(
-        np.moveaxis(output_lower, 0, axis), np.moveaxis(output_upper, 0, axis)
+        np.ascontiguousarray(np.moveaxis(output_lower, 0, axis)),
+        np.ascontiguousarray(np.moveaxis(output_upper, 0, axis)),
     )
 
 

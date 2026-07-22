@@ -364,8 +364,28 @@ For the second chart, centering $P=1-Q$ gives the next forms
 All displayed factors are nonnegative. For det0, the weighted $S$-chart has
 two endpoint zeros; exact affine endpoint neighborhoods certify directly, and
 the remaining chart closes in 22 leaves. For det1, (21) identifies the endpoint
-hierarchy exactly, but a complete analytic-tail enclosure of those orientation
-charts has not yet been banked.
+hierarchy exactly. In its $P$-dominant chart the next transverse form is
+
+\[
+64(16C^2+3D^2+3B^2+4P^2S). \tag{22}
+\]
+
+Only the $S$-dominant chart at $P=0$ survives. If $s$ is its radial coordinate,
+the final quadratic is
+
+\[
+64(1+s^2)\{16C^2+3B^2+3(D+sP)^2+4(1+s^2)P^2\}. \tag{23}
+\]
+
+Thus the last det1 face is positive definite in its four transverse variables.
+For the positive sign, the analytic-tail enclosure on $0\leq c\leq.005$
+certifies this complete hierarchy: four first endpoint charts; ten centered
+$P$-models for each second chart; and four half-box models for each final
+chart. All 59 charts pass (the nontrivial nome charts use at most nine leaves;
+the rest are root or small certificates). The full regeneration takes about
+84 minutes and peaks at 11.1 GB. This proves the positive-sign det1 main chart
+on that interval. The negative-sign tail regeneration is still required; the
+exact identities (20)--(23) already pass for both signs.
 
 The other cancellation-sensitive face occurs in the top `one-minus-ratio`
 chart at the already-proved parameter face $a=0$. After centering its three
@@ -373,14 +393,14 @@ upper coordinates, give $(Z,U,R,A,B)$ weights $(1,2,2,2,1)$. Its exact leading
 form is
 
 \[
-16(3B^2+16Z^2)(3B^2+16Z^2+4R+4U). \tag{22}
+16(3B^2+16Z^2)(3B^2+16Z^2+4R+4U). \tag{24}
 \]
 
 In the $U$-dominant chart, after replacing the even radial variable by its
 square, the transverse leading form is
 
 \[
-64(16Z^2+3B^2+3sA^2+4sR). \tag{23}
+64(16Z^2+3B^2+3sA^2+4sR). \tag{25}
 \]
 
 With the analytic tail enclosure on $0\leq c\leq.01$, the nome-, $R$-, $A$-,
@@ -388,7 +408,7 @@ and $B$-dominant charts certify even after all ratios are enlarged to $[0,2]$.
 The remaining $U$-axis equality line is the current low-nome certificate debt.
 Direct values there are positive away from the exact limiting zero, but raw
 Bernstein subdivision converges onto the zero line and is not accepted as a
-proof. Equations (20)--(23) are checked as exact rational sparse-map identities
+proof. Equations (20)--(25) are checked as exact rational sparse-map identities
 by `--audit-ridge`.
 
 For the analytic tails, exact rational coefficients are retained through
@@ -419,9 +439,9 @@ the preferred route.
 ## 7. Next exact target
 
 Extend L54's four-box adaptive cover across the compact range, keeping $c$ as
-a shared Bernstein coordinate. At $c=0$, first enclose det1's factorized
-orientation endpoints from (21). Then attack the remaining det0 $U$-axis
-equality line of (23) by an exact factor/ideal decomposition; four transverse
+a shared Bernstein coordinate. At $c=0$, rerun det1's new positive-sign
+endpoint certificate for the negative sign. Then attack the remaining det0
+$U$-axis equality line of (25) by an exact factor/ideal decomposition; four transverse
 charts are already enclosed, and further raw dense subdivision only converges
 onto the zero line. Success proves (RT) and therefore completes the elliptic
 $4\times4$ slice, but not the general Crouzeix conjecture.

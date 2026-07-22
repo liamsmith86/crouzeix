@@ -39,6 +39,7 @@ from slice_projective_interval_certificate import (
     arb_map_to_tensor,
     as_arb_jet,
     certify,
+    collapse_bernstein_axis,
     factor_jets_from_data,
     final_chart_tables,
     interval_tensor_for_chart,
@@ -93,6 +94,10 @@ LOW_DEVIATION_SERIES = (
 SparseCoefficient = fmpq | arb
 SparseMap = dict[tuple[int, ...], SparseCoefficient]
 ORIENTATION_CORNER_SCALE = Fraction(1, 2)
+SECOND_DETERMINANT_RADIAL_MODELS = tuple(
+    (Fraction(index, 10), Fraction(1, 10), degree)
+    for index, degree in enumerate((8, 8, 8, 8, 10, 12, 14, 16, 20, 24), start=1)
+)
 
 
 def low_nome_table(table: ChartTable) -> ChartTable:
@@ -407,6 +412,91 @@ def coefficient_contains_zero(value: SparseCoefficient) -> bool:
     return value.contains(0) if isinstance(value, arb) else value == 0
 
 
+def fraction_as_fmpq(value: Fraction) -> fmpq:
+    """Convert a standard-library rational without passing through binary64."""
+
+    return fmpq(value.numerator, value.denominator)
+
+
+def centered_sparse_axis_model(
+    power_map: SparseMap,
+    axis: int,
+    *,
+    upper: Fraction,
+    width: Fraction,
+    degree: int,
+) -> SparseMap:
+    """Taylor-enclose one power axis on ``[upper-width, upper]``.
+
+    Terms below ``degree`` are shifted exactly.  The remaining binomial tail
+    is stored as one Arb coefficient multiplying the final unit-coordinate
+    power.  This preserves low-order cancellations without retaining a large
+    projective degree.
+    """
+
+    if not 0 < width <= upper <= 1 or degree < 1:
+        raise ValueError("require 0 < width <= upper <= 1 and positive degree")
+    grouped: defaultdict[tuple[int, ...], list[tuple[int, SparseCoefficient]]] = (
+        defaultdict(list)
+    )
+    for monomial, coefficient in power_map.items():
+        target = list(monomial)
+        target[axis] = 0
+        grouped[tuple(target)].append((monomial[axis], coefficient))
+
+    maximum_exponent = max(monomial[axis] for monomial in power_map)
+    tail_weights: dict[int, fmpq] = {}
+    for exponent in range(maximum_exponent + 1):
+        weight = sum(
+            (
+                Fraction(comb(exponent, order))
+                * upper ** (exponent - order)
+                * width**order
+                for order in range(degree, exponent + 1)
+            ),
+            Fraction(),
+        )
+        tail_weights[exponent] = fraction_as_fmpq(weight)
+
+    center = fraction_as_fmpq(upper)
+    negative_width = -fraction_as_fmpq(width)
+    output: SparseMap = {}
+    for monomial, terms in grouped.items():
+        for order in range(degree):
+            coefficient = (
+                sum(
+                    (
+                        value * comb(exponent, order) * center ** (exponent - order)
+                        for exponent, value in terms
+                        if exponent >= order
+                    ),
+                    fmpq(0),
+                )
+                * negative_width**order
+            )
+            if coefficient_is_zero(coefficient):
+                continue
+            target = list(monomial)
+            target[axis] = order
+            output[tuple(target)] = coefficient
+
+        radius = sum(
+            (
+                abs(value if isinstance(value, arb) else arb(value))
+                * arb(tail_weights[exponent])
+                for exponent, value in terms
+                if exponent >= degree
+            ),
+            arb(0),
+        )
+        if radius.is_zero():
+            continue
+        target = list(monomial)
+        target[axis] = degree
+        output[tuple(target)] = (-radius).union(radius)
+    return output
+
+
 def projective_sparse_map(
     power_map: SparseMap,
     projective_axes: tuple[int, ...],
@@ -566,6 +656,66 @@ def audit_orientation_hierarchy(table: ChartTable) -> None:
             raise AssertionError(
                 f"unexpected second-chart endpoint-face form in {table.label}"
             )
+
+        endpoint_main_chart = projective_sparse_map(
+            ratio_one,
+            endpoint_axes,
+            2,
+            order=4,
+            weights=endpoint_weights,
+        )
+        transverse_axes = (0, 1, 4, 5)
+        transverse_weights = (1, 2, 1, 1)
+        transverse_leading = {
+            monomial: coefficient
+            for monomial, coefficient in endpoint_main_chart.items()
+            if sum(
+                weight * monomial[axis]
+                for axis, weight in zip(transverse_axes, transverse_weights)
+            )
+            == 2
+        }
+        expected_transverse: SparseMap = {
+            (2, 0, 0, 0, 0, 0): fmpq(1_024),
+            (0, 0, 0, 0, 2, 0): fmpq(192),
+            (0, 0, 0, 0, 0, 2): fmpq(192),
+            (0, 1, 2, 0, 0, 0): fmpq(256),
+        }
+        if transverse_leading != expected_transverse:
+            raise AssertionError(
+                f"unexpected second-chart transverse form in {table.label}"
+            )
+
+        transverse_main_chart = projective_sparse_map(
+            endpoint_main_chart,
+            transverse_axes,
+            1,
+            order=2,
+            weights=transverse_weights,
+        )
+        final_axes = (0, 2, 4, 5)
+        final_leading = {
+            monomial: coefficient
+            for monomial, coefficient in transverse_main_chart.items()
+            if sum(monomial[axis] for axis in final_axes) == 2
+        }
+        expected_final: SparseMap = {
+            (2, 0, 0, 0, 0, 0): fmpq(1_024),
+            (2, 2, 0, 0, 0, 0): fmpq(1_024),
+            (0, 0, 2, 0, 0, 0): fmpq(256),
+            (0, 1, 1, 0, 1, 0): fmpq(384),
+            (0, 2, 0, 0, 0, 2): fmpq(192),
+            (0, 2, 0, 0, 2, 0): fmpq(192),
+            (0, 2, 2, 0, 0, 0): fmpq(704),
+            (0, 3, 1, 0, 1, 0): fmpq(384),
+            (0, 4, 2, 0, 0, 0): fmpq(448),
+            (0, 0, 0, 0, 0, 2): fmpq(192),
+            (0, 0, 0, 0, 2, 0): fmpq(192),
+        }
+        if final_leading != expected_final:
+            raise AssertionError(
+                f"unexpected second-chart final quadratic in {table.label}"
+            )
         return
     expected_endpoint: SparseMap = {
         (2, 0, 0, 0, 0, 0): fmpq(1_024),
@@ -705,7 +855,9 @@ def compress_even_sparse_map_axis(power_map: SparseMap, axis: int) -> SparseMap:
     return output
 
 
-def sparse_map_bernstein_tensor(power_map: SparseMap) -> IntervalTensor:
+def sparse_map_bernstein_tensor(
+    power_map: SparseMap, *, axis_order: tuple[int, ...] | None = None
+) -> IntervalTensor:
     """Convert one exact/Arb sparse map to a directed Bernstein tensor."""
 
     dimensions = tuple(max(key[axis] for key in power_map) + 1 for axis in range(6))
@@ -713,7 +865,22 @@ def sparse_map_bernstein_tensor(power_map: SparseMap) -> IntervalTensor:
         key: value if isinstance(value, arb) else arb(value)
         for key, value in power_map.items()
     }
-    return power_to_bernstein_tensor(arb_map_to_tensor(interval_map, dimensions))
+    return power_to_bernstein_tensor(
+        arb_map_to_tensor(interval_map, dimensions), axis_order=axis_order
+    )
+
+
+def collapsed_sparse_map_bernstein_tensor(
+    power_map: SparseMap, primary_axis: int
+) -> IntervalTensor:
+    """Convert a chart efficiently and enclose its irrelevant envelope axis."""
+
+    axis_order = (primary_axis,) + tuple(
+        axis for axis in range(6) if axis != primary_axis
+    )
+    return collapse_bernstein_axis(
+        sparse_map_bernstein_tensor(power_map, axis_order=axis_order), 3
+    )
 
 
 def orientation_endpoint_maps(
@@ -903,6 +1070,177 @@ def iter_asymptotic_chart_maps(
     yield (
         label,
         projective_sparse_map(power_map, projective_axes, chart_axis, order=1),
+    )
+
+
+def certify_sparse_chart(
+    label: str,
+    power_map: SparseMap,
+    primary_axis: int,
+    *,
+    max_depth: int,
+    max_leaves: int,
+) -> None:
+    """Build, print, and require one envelope-collapsed sparse certificate."""
+
+    tensor = collapsed_sparse_map_bernstein_tensor(power_map, primary_axis)
+    result = certify(tensor, max_depth=max_depth, max_leaves=max_leaves)
+    print(
+        f"{label}: shape={tensor.lower.shape}, pass={result.passed}, "
+        f"leaves={result.leaves}, depth={result.depth}, "
+        f"lower={result.minimum_lower:.3e}",
+        flush=True,
+    )
+    if not result.passed:
+        print(
+            f"  failure_box={result.failure_box}, index={result.failure_index}",
+            flush=True,
+        )
+        raise SystemExit(1)
+
+
+def second_determinant_endpoint_map(power_map: SparseMap) -> SparseMap:
+    """Center the det1 orientation endpoint before its order-four blow-up."""
+
+    axes = (0, 1, 2, 4, 5)
+    centered = projective_sparse_map(power_map, axes, 1, order=1)
+    for axis in (1, 2, 4):
+        centered = affine_sparse_map_axis(centered, axis, Fraction(1), Fraction(-1))
+    return affine_sparse_map_axis(centered, 2, Fraction(1), Fraction(-1))
+
+
+def certify_second_determinant_orientation(
+    source: ChartTable,
+    c_upper: Fraction,
+    *,
+    max_depth: int,
+    max_leaves: int,
+) -> None:
+    """Certify the exact det1 endpoint hierarchy on the asymptotic nome box."""
+
+    if not source.label.startswith("det-1"):
+        raise ValueError("the endpoint hierarchy is specific to det1")
+    if c_upper > Fraction(1, 200):
+        raise ValueError("the audited det1 tail hierarchy requires c_upper <= 1/200")
+
+    started = time.monotonic()
+    power_map = asymptotic_power_map(low_nome_table(source), c_upper)
+    endpoint = second_determinant_endpoint_map(power_map)
+    endpoint_axes = (0, 1, 2, 4, 5)
+    endpoint_weights = (1, 2, 2, 1, 1)
+    labels = {0: "nome", 1: "S", 4: "D", 5: "B"}
+    for axis, axis_label in labels.items():
+        chart = projective_sparse_map(
+            endpoint,
+            endpoint_axes,
+            axis,
+            order=4,
+            weights=endpoint_weights,
+        )
+        certify_sparse_chart(
+            f"{source.label}-det1-endpoint-{axis_label}",
+            chart,
+            axis,
+            max_depth=max_depth,
+            max_leaves=max_leaves,
+        )
+        del chart
+        gc.collect()
+
+    endpoint_main = projective_sparse_map(
+        endpoint,
+        endpoint_axes,
+        2,
+        order=4,
+        weights=endpoint_weights,
+    )
+    del endpoint, power_map
+    gc.collect()
+
+    transverse_axes = (0, 1, 4, 5)
+    transverse_weights = (1, 2, 1, 1)
+    transverse_labels = {0: "nome", 1: "S", 4: "D", 5: "B"}
+    for axis, axis_label in transverse_labels.items():
+        chart = projective_sparse_map(
+            endpoint_main,
+            transverse_axes,
+            axis,
+            order=2,
+            weights=transverse_weights,
+        )
+        radial_models = (
+            SECOND_DETERMINANT_RADIAL_MODELS[1:]
+            if axis == 1
+            else SECOND_DETERMINANT_RADIAL_MODELS
+        )
+        for upper, width, degree in radial_models:
+            modeled = centered_sparse_axis_model(
+                chart,
+                2,
+                upper=upper,
+                width=width,
+                degree=degree,
+            )
+            certify_sparse_chart(
+                f"{source.label}-det1-transverse-{axis_label}-"
+                f"P-{upper - width}-{upper}",
+                modeled,
+                axis,
+                max_depth=max_depth,
+                max_leaves=max_leaves,
+            )
+            del modeled
+            gc.collect()
+
+        if axis != 1:
+            del chart
+            gc.collect()
+            continue
+
+        low_radial = affine_sparse_map_axis(chart, 2, Fraction(0), Fraction(1, 10))
+        final_axes = (0, 2, 4, 5)
+        for final_axis, final_label in zip(final_axes, ("nome", "P", "D", "B")):
+            final_chart = projective_sparse_map(
+                low_radial, final_axes, final_axis, order=2
+            )
+            for s_upper in (Fraction(1, 2), Fraction(1)):
+                s_modeled = centered_sparse_axis_model(
+                    final_chart,
+                    1,
+                    upper=s_upper,
+                    width=Fraction(1, 2),
+                    degree=8,
+                )
+                for p_upper in (Fraction(1, 2), Fraction(1)):
+                    modeled = centered_sparse_axis_model(
+                        s_modeled,
+                        2,
+                        upper=p_upper,
+                        width=Fraction(1, 2),
+                        degree=8,
+                    )
+                    certify_sparse_chart(
+                        f"{source.label}-det1-final-{final_label}-"
+                        f"S-{s_upper - Fraction(1, 2)}-{s_upper}-"
+                        f"P-{p_upper - Fraction(1, 2)}-{p_upper}",
+                        modeled,
+                        final_axis,
+                        max_depth=max_depth,
+                        max_leaves=max_leaves,
+                    )
+                    del modeled
+                    gc.collect()
+                del s_modeled
+                gc.collect()
+            del final_chart
+            gc.collect()
+        del low_radial, chart
+        gc.collect()
+
+    print(
+        f"{source.label}: det1 endpoint hierarchy PASS in "
+        f"{time.monotonic() - started:.2f}s",
+        flush=True,
     )
 
 
@@ -1162,6 +1500,11 @@ def parse_args() -> argparse.Namespace:
         help="run the five Taylor/projective determinant remainder charts",
     )
     parser.add_argument(
+        "--certify-det1-orientation",
+        action="store_true",
+        help="run the factorized second-determinant endpoint hierarchy",
+    )
+    parser.add_argument(
         "--asymptotic-chart",
         choices=("c", "main", "one-minus-ratio", "one-minus-a", "abs-b"),
         help="run only one top-level asymptotic chart",
@@ -1191,6 +1534,20 @@ def main() -> None:
         selected = [table for table in selected if args.chart in table.label]
     if not selected:
         raise SystemExit("no chart matched")
+    if args.certify_det1_orientation:
+        if args.lower != 0:
+            raise SystemExit("the det1 endpoint charts require lower=0")
+        det1_sources = [table for table in selected if table.label.startswith("det-1")]
+        if not det1_sources:
+            raise SystemExit("no det1 chart matched")
+        for source in det1_sources:
+            certify_second_determinant_orientation(
+                source,
+                args.upper,
+                max_depth=args.max_depth,
+                max_leaves=args.max_leaves,
+            )
+        return
     if args.certify_asymptotic:
         if args.lower != 0:
             raise SystemExit("the asymptotic charts require lower=0")

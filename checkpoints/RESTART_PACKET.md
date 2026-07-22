@@ -64,11 +64,13 @@ L55 performs the exact normalization: determinant order `c^9`, final-minor order
 `main_w=0, ratio=1, a=1, b=0` its first two exceptional coefficients are
 `1536(A+3U)` and `192[8A2+24U2+3V²+18(B−2σ)²]`; the sole surviving positive-sign ridge
 `B=b/c=2` starts with `46080c^4`. Further exact products close the main-orientation remainder
-and identify the `a=0` corner forms (20)--(23) in `proof/slice_core_projective_reduction.md`.
+and identify the det1 hierarchy (20)--(23) and det0 `a=0` forms (24)--(25) in
+`proof/slice_core_projective_reduction.md`.
 The det0 main-orientation chart and four widened corner charts certify; one main-axis equality
-line is still open. Det1's orientation endpoints are factorized exactly but still need finite
-tail enclosures. Thus no interval touching zero is proved. Enclose det1's endpoints, then factor
-the det0 line algebraically rather than using raw dense subdivision.
+line is still open. Det1's endpoint hierarchy now ends in an exact positive-definite quadratic.
+A 59-chart directed run certifies the full positive-sign det1 main chart on `[0,.005]` in about
+84 minutes; rerun the negative sign before promoting this to a two-sign theorem. No interval
+touching zero is yet proved. Then factor the det0 line rather than using raw dense subdivision.
 
 L45's convex-in-`a` branch is common (772,130 of 2,000,000 random quadratic-form probes) but its
 discriminant remained positive in the sample; no concavity-only shortcut exists.
