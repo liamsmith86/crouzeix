@@ -1,9 +1,10 @@
 # Projective reduction of the remaining elliptic transfer core
 
-**Status (2026-07-21):** exact reductions and the two orientation faces are
-proved; global interior positivity is still open. The fixed-parameter
-Bernstein results below are falsification evidence, not a certificate over the
-continuous nome parameter.
+**Status (2026-07-22):** the exact reductions, both orientation faces, the
+continuous intervals $0\leq c\leq.005$ and $.01\leq c\leq.020736$, and the
+high-nome range $c\geq2^{-2/3}$ are proved. The bridge $.005<c<.01$ and the
+compact interval $.020736<c<2^{-2/3}$ remain open. Fixed-parameter Bernstein
+passes in those gaps are falsification evidence, not continuous certificates.
 
 ## 1. The two minors that remain
 
@@ -535,8 +536,9 @@ These degeneracies are not evidence of a negative determinant. Factoring the
 arms, rather than accepting tiny negative interval bounds or moving a cutoff,
 is exactly what closes the low chart. Combining the determinant result above
 with the three complete minor certificates proves the full polynomial core on
-$0\leq c\leq.005$ for both signs. The bridge $.005\to.01$, and hence (RT),
-remain open.
+$0\leq c\leq.005$ for both signs. The bridge $.005\to.01$ remains open. Closing
+it connects the low theorem to L54, but does not by itself prove (RT): L54 ends
+at $c=.020736$, while L42 begins only at $c=2^{-2/3}$.
 
 ## 6. Shortcuts falsified during this reduction
 
@@ -555,6 +557,8 @@ the preferred route.
 ## 7. Next exact target
 
 Bridge $[.005,.01]$ with a shared nome coordinate, reusing the now-complete
-low arm cover at the left endpoint and L54 at the right endpoint. This proves
-(RT) and therefore the elliptic $4\times4$ slice, but not the general Crouzeix
-conjecture.
+low arm cover at the left endpoint and L54 at the right endpoint. Then extend
+the directed five-chart certificate from $.020736$ through the compact range
+below $2^{-2/3}$, where L42 takes over. Both steps are required to prove (RT)
+and therefore the elliptic $4\times4$ slice; neither resolves the general
+Crouzeix conjecture.

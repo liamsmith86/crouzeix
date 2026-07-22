@@ -39,7 +39,9 @@
   charts pass at the root; the complete positive main-dominant chart and a cap-`1/2` negative
   equality tube certify; and the global complements close in `235/399` leaves at depths `8/9`.
   Consequently L55 proves the complete polynomial core, every chart and both signs, on
-  `[0,.005]`. Only the `.005→.01` bridge remains on this route to (RT).
+  `[0,.005]`. Audit correction: bridging `.005→.01` connects this low theorem to L54, but does
+  **not** complete (RT). L54 stops at `.020736` and L42 begins at `2^(−2/3)≈.62996`; the
+  continuous compact interval between them remains unproved despite successful fixed-`c` tests.
 - **L49 finds the sharp nome estimate required by the zero-node ridge:**
   `k≤4c/(1+4c²)` for `c≤1/2`.  Two Jacobi-product factors suffice, and the
   remaining degree-23 polynomial has 24 positive exact Bernstein coefficients.  On `p=0`,

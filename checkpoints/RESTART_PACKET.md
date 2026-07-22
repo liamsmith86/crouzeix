@@ -76,7 +76,9 @@ final minors for both signs on `[0,.005]` (global leaves `81/32/184` positive an
 `71/32/188` negative). Scale-free nome/main arm charts remove the det0 cutoff; exact extraction
 shows that the apparent `S=1/2` transition was only a centered-model seam. The det0 global
 complements close in `235/399` leaves at depths `8/9`. Thus L55 proves the complete core on
-`[0,.005]`, every chart and both signs. Only the `.005→.01` bridge remains on this route to (RT).
+`[0,.005]`, every chart and both signs. The `.005→.01` bridge is the next low-nome gap, but an
+audit caught an additional theorem gap: L54 ends at `.020736`, whereas L42 starts at
+`2^(−2/3)≈.62996`. Fixed-nome tests in between are not a continuous certificate.
 
 L45's convex-in-`a` branch is common (772,130 of 2,000,000 random quadratic-form probes) but its
 discriminant remained positive in the sample; no concavity-only shortcut exists.
@@ -270,10 +272,11 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
 ## Next five concrete actions (refreshed 2026-07-21, Epoch 6)
-1. **Bridge `.005→.01` in the exact transfer core.** Reuse L55's complete low arm cover at the
-   left endpoint and L54's shared-coordinate certificate at the right; do not rebuild the now-
-   proved low determinants or minors. This is the only remaining certificate gap on the slice
-   route to (RT). Do not restart the rank-one/full, one-block, lower-odd, or concave-sign work.
+1. **Bridge `.005→.01`, then certify the compact nome gap in the exact transfer core.** Reuse
+   L55's complete low arm cover at the left endpoint and L54's shared-coordinate certificate at
+   the right. After the bridge, extend the directed five-chart cover from `.020736` to
+   `2^(−2/3)`; do not mistake fixed-`c` passes for a continuous theorem. Do not restart the
+   rank-one/full, one-block, lower-odd, or concave-sign work.
 2. **Shifted degree-one Möbius phase**: derive its stationarity/rho formula and prove positivity
    (or K≤2) independently, both as a fallback and as a guide to the metric.
 3. **Bi-conic Schwarzian route**: compute `SG` for the off-slice collapsed map on its critical
@@ -292,8 +295,8 @@ task). Read RESEARCH_STATE.md (NEWEST section first), then proof/slice_similarit
 proof/slice_boundary_theorems.md,
 proof/el4_schwarzian_theorem.md,
 proof/even_pick_globality.md, proof/slice_closed_form.md, and proof/D2_landscape.md; master program in
-proof/rho_positivity_program.md. Resume at restart-packet action 1 (bridge `.005→.01` in the
-exact transfer core). EL4 and even-sector midpoint globality are proved;
+proof/rho_positivity_program.md. Resume at restart-packet action 1 (bridge `.005→.01`, then cover
+the remaining compact nome interval in the exact transfer core). EL4 and even-sector midpoint globality are proved;
 definite parity is false. L20 is now exactly a 2×2-block dual trace inequality, both individual
 modal blocks are bounded by two, and all low minors are certified; do not redo the SDP duality,
 modal norms, minor charts, or blind metric ansatzes. Respect
