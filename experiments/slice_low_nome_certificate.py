@@ -19,11 +19,11 @@ full low-nome interval; a failed command is diagnostic, not a counterexample.
 from __future__ import annotations
 
 import argparse
-from collections.abc import Iterator
+from collections.abc import Callable, Iterator
 from collections import defaultdict
 from fractions import Fraction
 import gc
-from math import comb
+from math import comb, inf, nextafter
 import time
 
 from flint import arb, ctx, fmpq
@@ -96,6 +96,10 @@ SparseCoefficient = fmpq | arb
 SparseMap = dict[tuple[int, ...], SparseCoefficient]
 ORIENTATION_CORNER_SCALE = Fraction(1, 2)
 ZERO_PARAMETER_CORNER_SCALE = Fraction(1, 4)
+ZERO_PARAMETER_NOME_ARM_CAP = Fraction(1, 2)
+POSITIVE_ZERO_PARAMETER_MAIN_ARM_CAP = Fraction(1)
+NEGATIVE_ZERO_PARAMETER_MAIN_ARM_CAP = Fraction(1, 2)
+ZERO_PARAMETER_MAIN_ARM_LOWER = Fraction(1, 32)
 MINOR_CORNER_SCALE = Fraction(1, 4)
 SECOND_DETERMINANT_RADIAL_MODELS = tuple(
     (Fraction(index, 10), Fraction(1, 10), degree)
@@ -1278,20 +1282,24 @@ def orientation_endpoint_maps(
         yield label, restricted, box
 
 
+def restricted_zero_parameter_map(power_map: SparseMap, scale: Fraction) -> SparseMap:
+    """Center and scale the five active det0 zero-parameter coordinates."""
+
+    restricted = power_map
+    for axis in (0, 5):
+        restricted = affine_sparse_map_axis(restricted, axis, Fraction(0), scale)
+    for axis in (1, 2, 4):
+        restricted = affine_sparse_map_axis(restricted, axis, Fraction(1), -(scale**2))
+    return restricted
+
+
 def widened_zero_parameter_corner_tensors(
     power_map: SparseMap,
 ) -> Iterator[tuple[str, IntervalTensor]]:
     """Build four overlapping weighted charts around the ``a=0`` corner."""
 
     scale = ZERO_PARAMETER_CORNER_SCALE
-    squared_scale = scale**2
-    restricted = power_map
-    for axis in (0, 5):
-        restricted = affine_sparse_map_axis(restricted, axis, Fraction(0), scale)
-    for axis in (1, 2, 4):
-        restricted = affine_sparse_map_axis(
-            restricted, axis, Fraction(1), -squared_scale
-        )
+    restricted = restricted_zero_parameter_map(power_map, scale)
 
     axes = (0, 1, 2, 4, 5)
     weights = (1, 2, 2, 2, 1)
@@ -1455,17 +1463,13 @@ def second_determinant_endpoint_map(power_map: SparseMap) -> SparseMap:
     return affine_sparse_map_axis(centered, 2, Fraction(1), Fraction(-1))
 
 
-def first_determinant_zero_parameter_main_map(ratio_chart: SparseMap) -> SparseMap:
+def first_determinant_zero_parameter_main_map(
+    ratio_chart: SparseMap, *, scale: Fraction = ZERO_PARAMETER_CORNER_SCALE
+) -> SparseMap:
     """Build the hard U-dominant chart from the det0 ratio chart."""
 
     axes = (0, 1, 2, 4, 5)
-    scale = ZERO_PARAMETER_CORNER_SCALE
-    for axis in (0, 5):
-        ratio_chart = affine_sparse_map_axis(ratio_chart, axis, Fraction(0), scale)
-    for axis in (1, 2, 4):
-        ratio_chart = affine_sparse_map_axis(
-            ratio_chart, axis, Fraction(1), -(scale**2)
-        )
+    ratio_chart = restricted_zero_parameter_map(ratio_chart, scale)
     main_chart = projective_sparse_map(
         ratio_chart,
         axes,
@@ -1584,6 +1588,170 @@ def certify_first_determinant_zero_parameter_main(
         f"{time.monotonic() - started:.2f}s",
         flush=True,
     )
+
+
+def first_determinant_zero_parameter_nome_arm_map(
+    ratio_chart: SparseMap,
+) -> SparseMap:
+    """Factor the complete nome-dominant equality arm in the det0 top chart."""
+
+    axes = (0, 1, 2, 4, 5)
+    chart = projective_sparse_map(
+        restricted_zero_parameter_map(ratio_chart, Fraction(1)),
+        axes,
+        0,
+        order=4,
+        weights=(1, 2, 2, 2, 1),
+    )
+    for axis in (1, 2, 4, 5):
+        chart = affine_sparse_map_axis(
+            chart, axis, Fraction(0), ZERO_PARAMETER_NOME_ARM_CAP
+        )
+    return compress_even_sparse_map_axis(chart, 0)
+
+
+def certify_first_determinant_zero_parameter_nome_arm(
+    source: ChartTable,
+    ratio_chart: SparseMap,
+    *,
+    max_depth: int,
+    max_leaves: int,
+) -> None:
+    """Certify a uniform narrow tube around the full nome equality arm."""
+
+    chart = first_determinant_zero_parameter_nome_arm_map(ratio_chart)
+    certify_sparse_chart(
+        f"{source.label}-det0-nome-arm",
+        chart,
+        0,
+        max_depth=max_depth,
+        max_leaves=max_leaves,
+        collapse_envelope_early=True,
+    )
+
+
+def iter_first_determinant_zero_parameter_main_arm_maps(
+    ratio_chart: SparseMap, cap: Fraction
+) -> Iterator[tuple[str, SparseMap, int]]:
+    """Yield a finite cover of the full main-dominant equality arm."""
+
+    transverse_axes = (0, 2, 4, 5)
+    weights = (1, 2, 1, 1)
+    main_chart = first_determinant_zero_parameter_main_map(
+        ratio_chart, scale=Fraction(1)
+    )
+    for axis in transverse_axes:
+        main_chart = affine_sparse_map_axis(main_chart, axis, Fraction(0), cap)
+
+    for selected_axis, label in zip(
+        transverse_axes, ("nome", "ratio-radius", "a", "abs-b")
+    ):
+        chart = projective_sparse_map(
+            main_chart,
+            transverse_axes,
+            selected_axis,
+            order=2,
+            weights=weights,
+        )
+        model_axes: tuple[tuple[int, str], ...] = (
+            (selected_axis, "radial"),
+            (2, "R"),
+        )
+        if selected_axis in (2, 4):
+            chart = affine_sparse_map_axis(
+                chart,
+                1,
+                ZERO_PARAMETER_MAIN_ARM_LOWER,
+                1 - ZERO_PARAMETER_MAIN_ARM_LOWER,
+            )
+        if selected_axis == 4:
+            model_axes += ((4, "A"),)
+        for suffix, modeled in iter_half_axis_models(chart, model_axes):
+            yield f"{label}{suffix}", modeled, selected_axis
+
+
+def certify_first_determinant_zero_parameter_main_arm(
+    source: ChartTable,
+    ratio_chart: SparseMap,
+    cap: Fraction,
+    *,
+    max_depth: int,
+    max_leaves: int,
+) -> None:
+    """Certify a largest-coordinate region around the full main equality arm."""
+
+    started = time.monotonic()
+    for (
+        label,
+        chart,
+        selected_axis,
+    ) in iter_first_determinant_zero_parameter_main_arm_maps(ratio_chart, cap):
+        certify_sparse_chart(
+            f"{source.label}-det0-main-arm-{label}",
+            chart,
+            selected_axis,
+            max_depth=max_depth,
+            max_leaves=max_leaves,
+            collapse_envelope_early=True,
+        )
+        del chart
+        gc.collect()
+    print(
+        f"{source.label}: det0 main-arm cover PASS in "
+        f"{time.monotonic() - started:.2f}s",
+        flush=True,
+    )
+
+
+def rounded_up(value: float) -> float:
+    """Round one binary64 diagnostic bound conservatively upward."""
+
+    return nextafter(value, inf)
+
+
+def rounded_down(value: float) -> float:
+    """Round one binary64 diagnostic bound conservatively downward."""
+
+    return nextafter(value, -inf)
+
+
+def inside_zero_parameter_nome_arm(box: Box) -> bool:
+    """Recognize boxes contained in the certified nome-arm tube."""
+
+    c_lower = box[0][0]
+    if c_lower <= 0:
+        return False
+    cap = float(ZERO_PARAMETER_NOME_ARM_CAP)
+    linear_limit = rounded_down(cap * c_lower)
+    square_limit = rounded_down(cap * c_lower * c_lower)
+    if box[5][1] > linear_limit:
+        return False
+    return all(rounded_up(1 - box[axis][0]) <= square_limit for axis in (1, 2, 4))
+
+
+def inside_zero_parameter_main_arm(box: Box, cap: Fraction) -> bool:
+    """Recognize boxes contained in the certified main-arm region."""
+
+    main_lower = rounded_down(1 - box[1][1])
+    if main_lower < float(ZERO_PARAMETER_MAIN_ARM_LOWER):
+        return False
+    cap_float = float(cap)
+    linear_limit = rounded_down(cap_float * main_lower)
+    square_limit = rounded_down(cap_float * cap_float * main_lower)
+    if rounded_up(box[0][1] * box[0][1]) > square_limit:
+        return False
+    if rounded_up(box[5][1] * box[5][1]) > square_limit:
+        return False
+    return all(rounded_up(1 - box[axis][0]) <= linear_limit for axis in (2, 4))
+
+
+def zero_parameter_main_arm_region(cap: Fraction) -> Callable[[Box], bool]:
+    """Return the box predicate associated with one proved arm cap."""
+
+    def contains(box: Box) -> bool:
+        return inside_zero_parameter_main_arm(box, cap)
+
+    return contains
 
 
 def minor_corner_configuration(
@@ -2284,6 +2452,7 @@ def certify_asymptotic_determinant(
             power_map, chart_axis, label, c_upper
         ):
             prevalidated_boxes: list[Box] = []
+            prevalidated_regions: list[Callable[[Box], bool]] = []
             local_maps: list[
                 tuple[str, SparseMap, tuple[tuple[float, float], ...]]
             ] = []
@@ -2314,6 +2483,11 @@ def certify_asymptotic_determinant(
                 del local_tensor, local_map
                 gc.collect()
             if is_zero_parameter_chart:
+                main_arm_cap = (
+                    POSITIVE_ZERO_PARAMETER_MAIN_ARM_CAP
+                    if source.label.endswith("sign-+1")
+                    else NEGATIVE_ZERO_PARAMETER_MAIN_ARM_CAP
+                )
                 for (
                     corner_label,
                     corner_tensor,
@@ -2344,10 +2518,29 @@ def certify_asymptotic_determinant(
                     max_leaves=max_leaves,
                     ratio_chart=chart_map,
                 )
+                certify_first_determinant_zero_parameter_nome_arm(
+                    source,
+                    chart_map,
+                    max_depth=max_depth,
+                    max_leaves=max_leaves,
+                )
+                certify_first_determinant_zero_parameter_main_arm(
+                    source,
+                    chart_map,
+                    main_arm_cap,
+                    max_depth=max_depth,
+                    max_leaves=max_leaves,
+                )
                 # One of c, |b|, sqrt(1-u), sqrt(1-v), or sqrt(1-a)
                 # is largest, so the four widened charts plus the U chart
                 # cover this entire Cartesian corner box.
                 prevalidated_boxes.append(zero_parameter_corner_box())
+                prevalidated_regions.extend(
+                    (
+                        inside_zero_parameter_nome_arm,
+                        zero_parameter_main_arm_region(main_arm_cap),
+                    )
+                )
             tensor = sparse_map_bernstein_tensor(chart_map)
             built = time.monotonic()
             result = certify(
@@ -2355,6 +2548,7 @@ def certify_asymptotic_determinant(
                 max_depth=max_depth,
                 max_leaves=max_leaves,
                 prevalidated_boxes=tuple(prevalidated_boxes),
+                prevalidated_regions=tuple(prevalidated_regions),
             )
             print(
                 f"{source.label}-asymptotic-{chart_label}: "

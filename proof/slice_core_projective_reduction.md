@@ -404,8 +404,8 @@ square, the transverse leading form is
 
 For the positive sign, the analytic tail enclosure on $0\leq c\leq.01$
 certifies the nome-, $R$-, $A$-, and $B$-dominant charts even after all ratios
-are enlarged to $[0,2]$. Their negative-sign counterparts still need a clean
-integrated regeneration.
+are enlarged to $[0,2]$. The four negative-sign counterparts have now also
+been regenerated on $0\leq c\leq.005$ and pass at the root.
 The $U$-axis equality line has one further finite hierarchy. In the
 $R$-dominant transverse chart its equality face vanishes identically, and the
 next form is
@@ -428,6 +428,25 @@ nested $R$, and twelve nested $A$ boxes, all at the root. The negative run took
 $3032.81$ seconds (50m33s), peaked at 11.02 GB, and used no swap. Equations
 (20)--(27) are checked as exact rational sparse-map identities by
 `--audit-ridge`.
+
+The Cartesian cutoff is not intrinsic. The exact transverse quadratic (25)
+has no zero at $s=1/2$; that apparent transition was only a centered-model
+seam. Two scale-free arm charts remove the cutoff completely. First, a
+nome-dominant chart allows each remaining normalized ratio up to $1/2$ and
+certifies the entire nome radial interval for both signs. Second, the
+$U$-dominant chart retains its radial variable in exact degree-73 Bernstein
+form, factors the four transverse variables, and models only their selected
+radial and ratio coordinates. Twenty boxes cover the complete positive-sign
+largest-coordinate chart; for the negative sign the same boxes cover the
+ratio cap $1/2$, which is enough for the equality tube while the strict
+complement remains global. All local boxes pass (all negative boxes at the
+root).
+
+After admitting the proved Cartesian corner and the two arm regions, the top
+det0 global complement certifies in 235 leaves at depth 8 for the positive
+sign and 399 leaves at depth 9 for the negative sign. Hence the formerly open
+det0 `one-minus-ratio` chart, and therefore every low determinant chart, is
+proved for both signs on $0\leq c\leq.005$.
 
 ### Complete low-nome minor certificates
 
@@ -512,19 +531,12 @@ respectively. This preserves the parity needed by the weighted charts. Only
 the genuine remainder is interval-valued; exact Taylor cancellations are no
 longer performed between Arb balls.
 
-These degeneracies are not evidence of a negative determinant. Any rigorous
-continuation must factor or blow them up and must not accept a small negative
-interval bound as rounding error.
-
-The low determinant is not yet globally integrated. Reusing the proved
-Cartesian corner in the top det0 chart drives the global solver to further
-exact-equality arms rather than to a negative value: first a nome-dominant arm
-just outside the local cutoff (lower bound about $-10^{-17}$), then a
-main-dominant arm meeting the normalized $S=1/2$ transition. Narrow widened
-charts certify neighborhoods of each observed arm for both signs, but no
-finite sound union covering all their intersections has yet been encoded.
-Accordingly the determinant, the bridge $.005\to.01$, and hence (RT) remain
-open even though all three low minors are now proved.
+These degeneracies are not evidence of a negative determinant. Factoring the
+arms, rather than accepting tiny negative interval bounds or moving a cutoff,
+is exactly what closes the low chart. Combining the determinant result above
+with the three complete minor certificates proves the full polynomial core on
+$0\leq c\leq.005$ for both signs. The bridge $.005\to.01$, and hence (RT),
+remain open.
 
 ## 6. Shortcuts falsified during this reduction
 
@@ -542,8 +554,7 @@ the preferred route.
 
 ## 7. Next exact target
 
-Factor the intersecting det0 equality arms globally, especially the
-main-dominant $S=1/2$ transition, rather than extending another arbitrary
-Cartesian cutoff. Integrate that finite cover into the top chart, then bridge
-$[.005,.01]$. These two tasks prove (RT) and therefore the elliptic
-$4\times4$ slice, but not the general Crouzeix conjecture.
+Bridge $[.005,.01]$ with a shared nome coordinate, reusing the now-complete
+low arm cover at the left endpoint and L54 at the right endpoint. This proves
+(RT) and therefore the elliptic $4\times4$ slice, but not the general Crouzeix
+conjecture.

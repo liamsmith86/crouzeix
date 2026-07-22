@@ -22,10 +22,10 @@
   Bernstein proof of the full transfer theorem on `c∈[.01,.020736]`, all final charts and both
   signs, in four rational boxes. L55 normalizes the low-nome algebra (determinant order `c^9`,
   minor order `c^2`) and now factors every exceptional face exposed by the remainder charts.
-  Exact rational terms through order 15 plus parity-aware Arb tails close det0's main-orientation
-  chart and, for the positive sign on `[0,.01]`, four widened charts at its `a=0` corner. Det1 has two more exact
-  blow-ups ending in the positive quadratic (23); two 59-chart directed runs certify its
-  complete main chart for both signs on `[0,.005]`
+  Exact rational terms through order 15 plus parity-aware Arb tails close det0's
+  main-orientation chart and, for the positive sign on `[0,.01]`, four widened charts at its
+  `a=0` corner. Det1 has two more exact blow-ups ending in the positive quadratic (23); two
+  59-chart directed runs certify its complete main chart for both signs on `[0,.005]`
   (84 minutes positive, 76 minutes negative). Det0's former `U`-axis line now ends in two
   coefficient-positive exact forms; the complete 26-chart hierarchy passes at the root for
   both signs on `[0,.005]` (the negative regeneration took 3033 seconds, 11.02 GB, no swap).
@@ -33,10 +33,13 @@
   `a=2c` ridge and tertiary-one ratio-zero face, now support complete local-plus-global
   certificates for all three final minors and both signs on `[0,.005]`. Positive global leaf
   counts are `81/32/184`; negative counts are `71/32/188`. Independent full regeneration took
-  10m19s and 3m52s respectively. The remaining det0 global chart does not reveal a negative
-  value: it follows intersecting exact-equality arms, first nome-dominant and then main-dominant
-  at normalized `S=1/2`. Those arms still need a finite integrated factor cover. Neither the
-  determinant nor the bridge to `.01` is therefore claimed.
+  10m19s and 3m52s respectively. Scale-free nome/main arm charts now remove the det0
+  Cartesian cutoff. Exact extraction confirms that the apparent normalized `S=1/2` feature was
+  only a centered-model seam: (25) is uniformly transverse there. The four negative widened
+  charts pass at the root; the complete positive main-dominant chart and a cap-`1/2` negative
+  equality tube certify; and the global complements close in `235/399` leaves at depths `8/9`.
+  Consequently L55 proves the complete polynomial core, every chart and both signs, on
+  `[0,.005]`. Only the `.005→.01` bridge remains on this route to (RT).
 - **L49 finds the sharp nome estimate required by the zero-node ridge:**
   `k≤4c/(1+4c²)` for `c≤1/2`.  Two Jacobi-product factors suffice, and the
   remaining degree-23 polynomial has 24 positive exact Bernstein coefficients.  On `p=0`,
