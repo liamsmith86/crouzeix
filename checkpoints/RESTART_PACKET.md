@@ -55,8 +55,12 @@ order, so do not use the old `/tmp` polynomial cache as a source of truth.  The 
 prototype also incorrectly replaced the zeroth term by the interval between zero and its
 value.  After retaining that term and making `c` a common Bernstein axis, determinant and
 final minor charts pass continuous boxes `[.01,.0101]` and `[.1,.101]`.  Next implement the
-directed, memory-bounded finite cover.  Treat `c→0` separately after normalizing
+directed, memory-bounded finite cover.  This implementation is now committed as
+`slice_projective_interval_certificate.py`, and L54 rigorously closes the larger complete box
+`[.01,.012]` (all five final charts, both signs).  Treat `c→0` separately after normalizing
 `k/c`, `gamma_-/c²`, and `(gamma_+−gamma_-)/c⁴`; two further determinant powers cancel there.
+The first newly exposed low-nome exceptional ridge has leading coordinate `b/c=2` at
+`main_w=0, ratio=1, a=1`.
 
 L45's convex-in-`a` branch is common (772,130 of 2,000,000 random quadratic-form probes) but its
 discriminant remained positive in the sample; no concavity-only shortcut exists.

@@ -18,8 +18,10 @@
   A new deterministic generator rebuilds all 49,448/197,563 envelope records and all chart
   orders from the original `4×4` core.  The earlier continuous-nome prototype also had a real
   implementation bug: it allowed the zeroth Taylor term to vanish.  Correcting that and
-  keeping the Taylor coordinate correlated certifies complete local nome intervals; the
-  remaining work is a finite directed cover and a separately normalized `c→0` face.
+  keeping the Taylor coordinate correlated led to L54: an 80-digit Arb plus directed
+  Bernstein proof of the full transfer theorem on `c∈[.01,.012]`, all final charts and both
+  signs.  The remaining work is a finite compact cover and a separately normalized `c→0`
+  face; a sharp exceptional-divisor ridge has leading coordinate `b/c=2`.
 - **L49 finds the sharp nome estimate required by the zero-node ridge:**
   `k≤4c/(1+4c²)` for `c≤1/2`.  Two Jacobi-product factors suffice, and the
   remaining degree-23 polynomial has 24 positive exact Bernstein coefficients.  On `p=0`,

@@ -233,14 +233,46 @@ polynomials from (2)--(4), verifies the main orders $3,4$, and verifies both
 subsequent order-one blow-ups exactly. The cache is deliberately generated and
 git-ignored rather than checked in.
 
-A corrected Taylor prototype also identified a separate numerical issue in
+A corrected Taylor implementation also identified a separate numerical issue in
 the first continuous-$c$ attempt: it enclosed the zeroth Taylor term between
 zero and its value instead of retaining the value exactly. Preserving the
 Taylor coordinate as a common Bernstein axis removes that dependency loss.
-With this correction, all determinant charts and the secondary/tertiary minor
-charts certify on the continuous test intervals $[.01,.0101]$ and
-$[.1,.101]$. This remains evidence until the directed-rounding implementation
-and a finite cover of the entire nome range are committed and audited.
+`experiments/slice_projective_interval_certificate.py` now implements the
+result with Arb balls for the cancellation-sensitive scalar coefficients and
+one-ulp outward binary64 arithmetic for the large Bernstein tensors and every
+de Casteljau subdivision. Theta tails and Taylor remainders are enclosed
+explicitly. More precisely, if the first omitted theta-series exponent is
+$E_M$, its order-$j$ Taylor coefficient is bounded by the first omitted term
+times the geometric factor
+
+\[
+ \left(1-4^j c_+^{,4M+2}\right)^{-1}. \tag{13}
+\]
+
+This dominates both exponent sequences used by $\theta_3$ and the auxiliary
+series. Arb automatic differentiation propagates those coefficient balls
+through $k,s,\gamma_-,\gamma_+-\gamma_-$. On a rational nome box with midpoint
+$c_0$ and radius $h$, the implementation retains Taylor orders $0$ through
+$9$ as one Bernstein coordinate and encloses the order-$10$ remainder by
+$F^{(10)}([c_0-h,c_0+h])h^{10}/10!$. Exact rational change-of-basis constants
+are rounded outwards to binary64; the same is true of every subsequent sum,
+product, and de Casteljau half-sum. Thus a nonnegative terminal Bernstein box
+is an enclosure proof, not a floating-point sign test.
+
+All determinant and final minor charts, both signs, certify on
+
+\[
+ .01\le c\le .012. \tag{14}
+\]
+
+For the positive sign, the five leaf counts are respectively
+$4,127,7,129,3,436,144,575$; for the negative sign they are
+$1,3,5,2,4$. Thus (RT) is proved on the continuous nome interval (13), not
+merely sampled there. This local certificate is L54. It is not yet a finite
+cover of the entire nome range.
+
+The certificate is reproduced by running the script twice, with
+`--sign 1` and `--sign -1`, on the exact decimal endpoints `0.01 0.012`.
 
 These degeneracies are not evidence of a negative determinant. Any rigorous
 continuation must factor or blow them up and must not accept a small negative
@@ -262,9 +294,8 @@ the preferred route.
 
 ## 7. Next exact target
 
-Build the directed $c$-certificate from the reproducible record generator,
-keeping $c$ as a shared Bernstein coordinate. The compact range away from
-$c=0$ is now locally certified. At $c=0$, normalize
+Extend L54 to a finite adaptive cover of the compact range, keeping $c$ as a
+shared Bernstein coordinate. At $c=0$, normalize
 $k/c$, $\gamma_-/c^2$, and $(\gamma_+-\gamma_-)/c^4$ before applying a final
 asymptotic chart cover; raw determinant records have two additional cancelling
 powers of $c$. Success proves (RT) and therefore completes the elliptic
