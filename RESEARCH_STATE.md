@@ -23,11 +23,17 @@
   The closest-source audit found only Kenan Li's all-dimensional Crabb-derived family with
   fixed weights; no prior arbitrary-weight 4×4 theorem was found. Call L59 apparently new
   pending a publication-level novelty audit.
-- **General frontier resumes now.** Do not begin a 5×5 slice grind. The primary gate is L21 on
-  general matrices, especially small generic/noncommuting couplings of repeated Crabb equality
-  blocks. Hartz--McCarthy scalar shifts are now audited as an exact restatement, not a shortcut;
-  every positive-state scalarization of the CP correction is numerically ruled out on one
-  reproducible dense 3×3 example.
+- **The repeated-Crabb general gate also survives.** A new harness tests block sizes 3/4,
+  multiplicities 2/3, three transverse perturbation types, and a `1e-4→1e-2` ladder. Of 120
+  perturbed records, 118 pass every map/SDP/support-gap gate and none exceeds four; max
+  `3.999844312562`. The two rejected records have bad primal/dual gaps. The strongest cross
+  directions remain below four down to `delta=1e-5`, with stable first-order drops
+  `(4−t*)/delta≈1.557,1.637`. This is numerical evidence, not a local theorem.
+- **General frontier remains active.** Do not begin a 5×5 slice grind. Hartz--McCarthy scalar
+  shifts are an exact restatement, not a shortcut; every positive-state scalarization of the CP
+  correction is numerically ruled out on one dense 3×3 example. The next analytic target is to
+  retain the full correction moments and derive L21's trace inequality from their block-Toeplitz
+  positivity, or extract a local inequality from the equality-locus first variation.
 
 ## AUDIT-GATE OUTCOME (2026-07-21, after L48 and external steering review)
 - **L51 compresses the live interior theorem to two projective polynomial
@@ -365,11 +371,10 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   independent contraction-similarity route, without resolving each H-r phase separately.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-22)
-1. **General L21 equality-locus gate.** Probe `C_p⊗I_m` for `p=3,4`, `m=2,3`, under generic
-   full, cross-block, and noncommuting operator-weight perturbations on a `10^-4→10^-2`
-   ladder. Record support-eigenvalue gaps and require the existing map-resolution and SDP
-   primal/dual gates. Any apparent `t*>4` needs interval re-evaluation; otherwise use the data
-   to identify a local inequality for `3||D||_1+5tr(D)≥0`.
+1. **Turn the equality-locus slopes into a local theorem.** Linearize the conformal map and
+   L21 SDP at `C_p⊗I_m`; characterize the degenerate optimal primal/dual faces and prove the
+   directional derivative of `t*` is nonpositive for transverse perturbations. The observed
+   cross-direction slopes `1.557/1.637` are targets to reproduce, not assumptions.
 2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
    trace inequality can instead be derived from the block-Toeplitz positivity of the full
    operator-valued correction moments. Do not retry trace/positive-state scalarizations.
@@ -417,9 +422,12 @@ experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_
   slice_positive_corner_audit.py, slice_positive_face_certificate.py,
   slice_positive_tail_certificate.py (L59 full regenerating tail certificate),
   general_similarity_sdp.py (general L21 probe),
-  general_similarity_scalarization_probe.py (CP-to-HM state-scalarization falsification).
+  general_similarity_scalarization_probe.py (CP-to-HM state-scalarization falsification),
+  general_similarity_equality_probe.py (repeated-Crabb general gate).
 Proof artifact: experiments/positive_tail_full_20260722.log (L59 clean 10-box run).
-Data: sym3_sweep_s51.jsonl (40 rec), sym4_sweep_s61.jsonl (20 rec, ρ column trustworthy).
+Data: sym3_sweep_s51.jsonl (40 rec), sym4_sweep_s61.jsonl (20 rec, ρ column trustworthy),
+general_similarity_equality_s9173401.jsonl plus its `sensitivity` and `ultralocal` companions
+(L21 equality gate).
 Ledgers: LEMMA_LEDGER.md, APPROACH_LEDGER.md (pitfalls P1–P8 — READ BEFORE ANY SEARCH),
 LITERATURE_LEDGER.md, COUNTEREXAMPLE_SEARCH.md. Audit: chatgpt/FABLE_RESEARCH_AUDIT.md
 (reconciled 2026-07-20). Restart: checkpoints/RESTART_PACKET.md (paste-ready instruction).

@@ -67,6 +67,57 @@ above four.  The largest accepted triangular value was `3.807797994233` at
 offset `.00125`.  Thus the best non-Crabb family in the initial sweep also
 remained below four as the outer domain shrank.
 
+## Repeated-equality-block gate (2026-07-22)
+
+The first general sweep did not directly attack multiplicity at the exact
+equality locus.  `experiments/general_similarity_equality_probe.py` now tests
+Crabb blocks of sizes three and four with multiplicities two and three.  It
+uses three independently seeded transverse perturbation types: full dense,
+cross-copy coupling, and noncommuting operator weights/diagonal blocks.  The
+perturbation ladder is `1e-4,3e-4,1e-3,3e-3,1e-2`, at offsets zero and
+`.000625`.  In addition to every earlier gate, a 4096-angle minimum gap between
+the two top support eigenvalues checks that a perturbation has left the
+support-multiplicity locus.
+
+The main sweep has 128 records: eight exact repeated-block calibrations and
+120 perturbed cases.  All calibrations pass the gates.  At zero offset their
+primal values are `4.0000000008` through `4.0000000924`, while their dual
+ratios remain below four; this known exact-equality overshoot measures the SDP
+noise floor and is not a violation.  Of the perturbed records, 118 pass every
+gate and none exceeds four:
+
+| perturbation | accepted | largest `t_*` |
+|---|---:|---:|
+| full dense | 40/40 | 3.999751968486 |
+| cross-copy | 40/40 | 3.999844312562 |
+| operator weight | 38/40 | 3.999799090562 |
+
+The two rejected records are one operator-weight matrix evaluated at both
+offsets; its primal/dual gaps are too large, and neither record is counted.
+Every perturbed matrix has a positive sampled support gap.  The strongest case
+is the size-three, multiplicity-two cross coupling at `delta=1e-4`, zero
+offset.
+
+A second 48-record run recomputes every `delta=1e-4` direction with boundary
+resolution 512→1024, support resolution 16384, and four offsets.  Forty-six
+records pass; no accepted value exceeds four.  The strongest case agrees with
+the main run within `5e-9`.  Finally, a 65536-angle, boundary-resolution
+1024→2048 run follows the two strongest cross directions down to `delta=1e-5`:
+
+| Crabb block size | `delta` | `t_*` | `(4-t_*)/delta` |
+|---:|---:|---:|---:|
+| 3 | 1e-5 | 3.999984429891 | 1.557011 |
+| 3 | 3e-5 | 3.999953290384 | 1.556987 |
+| 3 | 1e-4 | 3.999844312558 | 1.556874 |
+| 4 | 1e-5 | 3.999983630407 | 1.636959 |
+| 4 | 3e-5 | 3.999950891493 | 1.636950 |
+| 4 | 1e-4 | 3.999836310481 | 1.636895 |
+
+Thus these genuinely transverse directions leave the equality value with a
+stable first-order *decrease*.  This is strong numerical evidence that the
+repeated Crabb locus is a local maximum in the tested directions, not a proof
+of local maximality and not an exhaustive general-matrix gate.
+
 ## Verdict and limitations
 
 The similarity route survives its first reliable test away from the elliptic
@@ -186,4 +237,16 @@ Reproduction:
 .venv/bin/python -u experiments/general_similarity_scalarization_probe.py \
   --resolutions 4096 --solver SCS \
   --output experiments/general_similarity_scalarization_cross_solver_s20260721.jsonl
+.venv/bin/python -u experiments/general_similarity_equality_probe.py \
+  --output experiments/general_similarity_equality_s9173401.jsonl
+.venv/bin/python -u experiments/general_similarity_equality_probe.py \
+  --deltas .0001 --inflates 0 .00015625 .0003125 .000625 \
+  --no-include-base --resolution 512 --max-resolution 4096 \
+  --support-resolution 16384 \
+  --output experiments/general_similarity_equality_sensitivity_s9173401.jsonl
+.venv/bin/python -u experiments/general_similarity_equality_probe.py \
+  --block-sizes 3 4 --multiplicities 2 --families cross \
+  --deltas .00001 .00003 .0001 --inflates 0 --no-include-base \
+  --resolution 1024 --max-resolution 8192 --support-resolution 65536 \
+  --output experiments/general_similarity_equality_ultralocal_s9173401.jsonl
 ```

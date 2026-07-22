@@ -19,6 +19,14 @@ Hartz--McCarthy scalar shifts are an exact restatement of the cb target, not a C
 reproducible order-three Toeplitz SDP also numerically rules out all positive-state
 scalarizations on one dense 3×3 case. See `proof/general_similarity_probe.md`.
 
+**General gate update:** the repeated-Crabb experiment is now complete. It tests block sizes
+3/4, multiplicities 2/3, dense/cross/operator-weight perturbations, and accepts 118/120
+perturbed records with no value above four (max `3.999844312562`). The two rejects have bad
+primal/dual gaps. Two ultralocal cross directions remain below four to `delta=1e-5`, with
+stable first-order drops `1.557/1.637`. This supports, but does not prove, local maximality.
+Reproducer and data are in `experiments/general_similarity_equality_probe.py` and the three
+`general_similarity_equality*_s9173401.jsonl` files.
+
 ## Immediate audit gate (2026-07-21, post-L45)
 **Load-bearing audit passed:** L17's exact ground-state identity with
 `y=1/sqrt(g')` fixes the Dirichlet-form direction, and L21's parity restriction follows by
@@ -303,10 +311,10 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
 ## Next five concrete actions (refreshed 2026-07-22, Epoch 6)
-1. **General L21 equality-locus gate.** Test `C_p⊗I_m`, `p=3,4`, `m=2,3`, under generic,
-   cross-block, and noncommuting operator-weight perturbations on a `10^-4→10^-2` ladder.
-   Add dense support-eigenvalue-gap diagnostics and retain every map/primal/dual gate. Any
-   apparent `t*>4` requires independent interval re-evaluation.
+1. **Equality-locus local theorem.** Linearize the conformal map and L21 SDP at
+   `C_p⊗I_m`; characterize its degenerate primal/dual optimal faces and prove the directional
+   derivative of `t*` is nonpositive. Reproduce the observed slopes from the formulas rather
+   than fitting them.
 2. **Full CP-correction moments.** Do not retry scalar shifts or positive-state scalarizations.
    Test whether the L21 trace inequality follows from the block-Toeplitz positivity already
    supplied by the full operator-valued Crouzeix--Palencia correction.
@@ -325,8 +333,8 @@ task). Read RESEARCH_STATE.md (NEWEST section first), then proof/slice_similarit
 proof/slice_boundary_theorems.md,
 proof/el4_schwarzian_theorem.md,
 proof/even_pick_globality.md, proof/slice_closed_form.md, and proof/D2_landscape.md; master program in
-proof/rho_positivity_program.md. Resume at restart-packet action 1: the general L21 equality-locus
-gate near repeated Crabb blocks. The complete elliptic 4×4 slice is
+proof/rho_positivity_program.md. Resume at restart-packet action 1: turn the completed repeated-
+Crabb L21 gate into a local directional theorem. The complete elliptic 4×4 slice is
 proved by L59; do not start a 5×5 slice grind or redo its SDP duality, modal norms, projective
 charts, or certificate. EL4 and even-sector midpoint globality are proved; definite parity is
 false. Respect
