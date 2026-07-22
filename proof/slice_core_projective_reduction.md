@@ -203,7 +203,7 @@ refused to certify boxes meeting further degenerate intersections:
 * the coordinate axes and $p=0$ face are already closed by L48/L50, but their
   intersections still appear as zero Bernstein coefficients.
 
-The first intersection has an exact order-one secondary blow-up. Put
+The first intersection begins with an exact order-one secondary blow-up. Put
 $|b|=1-q$ in the second chart and use
 
 \[
@@ -213,6 +213,34 @@ $|b|=1-q$ in the second chart and use
 after division by $w$. Both charts pass every fixed-$c$ test above, for both
 signs of $b$ and the complete cubic envelope. This is still finite evidence
 until the continuous-$c$ enclosure is regenerated in these coordinates.
+
+The first secondary chart retains one smaller exact intersection. On its
+$w=0$ face, setting the secondary ratio $h=0$ leaves a factor $1-a^2$; in
+particular, the common zero is $(h,1-a)=(0,0)$. Put $z=1-a$ and apply
+
+\[
+ (h,z)=(w,wj),\qquad(h,z)=(wj,w),
+\]
+
+again dividing by $w$. Exact coefficient collection gives order one. The two
+tertiary charts pass the same complete fixed-$c$ tests. For the positive sign,
+the worst low-nome test at $c=.001$ uses 1,408 leaves; the negative sign uses
+at most four. Thus the previously observed interval stall is explained by a
+specific nested boundary intersection, not a negative minor.
+
+`experiments/slice_projective_core.py` regenerates the complete sparse
+polynomials from (2)--(4), verifies the main orders $3,4$, and verifies both
+subsequent order-one blow-ups exactly. The cache is deliberately generated and
+git-ignored rather than checked in.
+
+A corrected Taylor prototype also identified a separate numerical issue in
+the first continuous-$c$ attempt: it enclosed the zeroth Taylor term between
+zero and its value instead of retaining the value exactly. Preserving the
+Taylor coordinate as a common Bernstein axis removes that dependency loss.
+With this correction, all determinant charts and the secondary/tertiary minor
+charts certify on the continuous test intervals $[.01,.0101]$ and
+$[.1,.101]$. This remains evidence until the directed-rounding implementation
+and a finite cover of the entire nome range are committed and audited.
 
 These degeneracies are not evidence of a negative determinant. Any rigorous
 continuation must factor or blow them up and must not accept a small negative
@@ -234,8 +262,10 @@ the preferred route.
 
 ## 7. Next exact target
 
-Rerun the directed $c$-certificate in the secondary order-one charts. Near
-$P=1,o=0$, use the strict scalar factors (8)--(12) to normalize the Taylor
-model rather than enclosing their cancellation term by term. Success for
-these charts proves (RT) and therefore completes the elliptic $4\times4$
-slice, but not the general Crouzeix conjecture.
+Build the directed $c$-certificate from the reproducible record generator,
+keeping $c$ as a shared Bernstein coordinate. The compact range away from
+$c=0$ is now locally certified. At $c=0$, normalize
+$k/c$, $\gamma_-/c^2$, and $(\gamma_+-\gamma_-)/c^4$ before applying a final
+asymptotic chart cover; raw determinant records have two additional cancelling
+powers of $c$. Success proves (RT) and therefore completes the elliptic
+$4\times4$ slice, but not the general Crouzeix conjecture.

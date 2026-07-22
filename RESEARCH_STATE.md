@@ -13,6 +13,13 @@
   L52 then closes both extreme-orientation faces by an elementary scalar factorization and
   proves that the apparent square at `P=1,o=0` has no moving interior zero.  Its factor is
   strictly negative for every nondegenerate nome.  `proof/slice_core_projective_reduction.md`.
+- **L53 resolves the nested minor degeneracies exactly:** after the main order-3 chart, the
+  intersections `(v,1−|b|)=(0,0)` and then `(h,1−a)=(0,0)` each have exact order one.
+  A new deterministic generator rebuilds all 49,448/197,563 envelope records and all chart
+  orders from the original `4×4` core.  The earlier continuous-nome prototype also had a real
+  implementation bug: it allowed the zeroth Taylor term to vanish.  Correcting that and
+  keeping the Taylor coordinate correlated certifies complete local nome intervals; the
+  remaining work is a finite directed cover and a separately normalized `c→0` face.
 - **L49 finds the sharp nome estimate required by the zero-node ridge:**
   `k≤4c/(1+4c²)` for `c≤1/2`.  Two Jacobi-product factors suffice, and the
   remaining degree-23 polynomial has 24 positive exact Bernstein coefficients.  On `p=0`,

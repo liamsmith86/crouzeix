@@ -49,6 +49,15 @@ zero curve.  Use these strict factors to normalize the next directed Taylor cert
 were falsified and should not be retried.  (Only the claim that BE is maximized at orientation
 endpoints was falsified; the exact transfer theorem on those faces is now L52.)
 
+L53 adds a tertiary exact order-one blow-up at `(h,1−a)=(0,0)` in the first secondary
+chart.  `experiments/slice_projective_core.py` now regenerates every core record and chart
+order, so do not use the old `/tmp` polynomial cache as a source of truth.  The first Taylor
+prototype also incorrectly replaced the zeroth term by the interval between zero and its
+value.  After retaining that term and making `c` a common Bernstein axis, determinant and
+final minor charts pass continuous boxes `[.01,.0101]` and `[.1,.101]`.  Next implement the
+directed, memory-bounded finite cover.  Treat `c→0` separately after normalizing
+`k/c`, `gamma_-/c²`, and `(gamma_+−gamma_-)/c⁴`; two further determinant powers cancel there.
+
 L45's convex-in-`a` branch is common (772,130 of 2,000,000 random quadratic-form probes) but its
 discriminant remained positive in the sample; no concavity-only shortcut exists.
 
