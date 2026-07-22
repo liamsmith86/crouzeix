@@ -1,8 +1,16 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-21 (Epoch 6 — L50 complete zero-node face)
+**Last updated:** 2026-07-21 (Epoch 6 — L51 projective full-core reduction)
 
 ## AUDIT-GATE OUTCOME (2026-07-21, after L48 and external steering review)
+- **L51 compresses the live interior theorem to two projective polynomial
+  inequalities.**  Strict positivity of the first diagonal block leaves one leading `3×3`
+  minor and the full determinant.  In `P=p²,t=1−o`, their exact orders at the zero-node/
+  orientation intersection are 3 and 4, so two largest-coordinate charts remove that
+  singularity.  Full cubic-envelope Bernstein tests pass at every fixed `c` tested from
+  `.001` to `.629`; this is strong evidence, not yet a continuous-`c` certificate.  Directed
+  Taylor boxes locate the remaining exact moving zero intersections rather than a negative
+  determinant.  `proof/slice_core_projective_reduction.md`.
 - **L49 finds the sharp nome estimate required by the zero-node ridge:**
   `k≤4c/(1+4c²)` for `c≤1/2`.  Two Jacobi-product factors suffice, and the
   remaining degree-23 polynomial has 24 positive exact Bernstein coefficients.  On `p=0`,

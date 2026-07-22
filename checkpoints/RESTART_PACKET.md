@@ -36,6 +36,16 @@ rank-one reduction.  The high half uses 125 nonnegative coefficients.  The low h
 by a finite exact cover centered on `b=1,a=2c`, with largest-coordinate blow-ups at the origin.
 The next live chart is an interior neighbourhood with `p>0`, still centered on that ridge.
 
+**New full-core reduction:** L51 uses `E_o≻0` to reduce the remaining PSD theorem to one
+leading `3×3` minor and the full determinant.  Set `P=p²,t=1−o`, retain the complete cubic
+envelope through `r=p(s+γP)`, and use `(P,t)=(w,wv)` or `(wv,w)`.  Exact coefficient
+collection gives common orders 3 and 4, respectively.  Fixed-`c` Bernstein tests pass for
+the complete envelope at every tested `c=.001,...,.629`, but this is not yet a theorem over
+continuous `c`.  The directed Taylor audit stalls only at exact intersections
+`v=0,|b|=1` and `P=1,o=0,F(a,b,c,k)=0`.  Center/factor those next; see
+`proof/slice_core_projective_reduction.md`.  Frobenius, L47's rational norm majorant, and
+orientation-endpoint reductions were all falsified and should not be retried.
+
 L45's convex-in-`a` branch is common (772,130 of 2,000,000 random quadratic-form probes) but its
 discriminant remained positive in the sample; no concavity-only shortcut exists.
 
