@@ -44,9 +44,18 @@ coefficient to three finite affine block LMIs in the metric coefficients. A two-
 two-solver run on 12 full/structured `p=3,4` directions gives only negative coefficients,
 `−3.94535170≤e≤−.00284309`; analytic and independently fitted gauges agree within `3.57e-7`.
 The second support variation, normal-angle correction, and Schwarz integral now give `H` in
-finite analytic form. This is still a reduction, not a sign theorem. The live task is to dualize
-the second-order SDP, starting with the nearly flat structured `p=3` face. See
+finite analytic form. This is still a general-`p` reduction, not a universal sign theorem. See
 `proof/general_similarity_second_order.md`.
+
+**Exact `3×3` and `4×4` second variations:** L63 gives
+`e₃(E)=−2(Re(E01−E12))²−21|E20|²/4≤0`; L64 gives the rank-eight five-square identity
+(28). Regenerating SymPy checkers start from all 18/32 real coordinates, verify the exact support
+eigenpairs, rebuild both conformal coefficients, eliminate the metric variables, and prove the
+residuals identically zero. Thus the upper second-order Dini change of `t*` is nonpositive at
+both low-order Crabb blocks, strict off their displayed equality spaces. Next seek the
+arbitrary-`p` factorization and classify those equality directions before going to third order.
+See `proof/general_similarity_second_order.md` §§8–9 and `experiments/p3_second_order_identity.py`,
+`experiments/p4_second_order_identity.py`.
 
 ## Immediate audit gate (2026-07-21, post-L45)
 **Load-bearing audit passed:** L17's exact ground-state identity with

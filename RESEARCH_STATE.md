@@ -380,14 +380,23 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   LMIs. The second support variation and Schwarz integral give the conformal coefficient in
   finite form. All 12 `p=3,4` test directions have negative quadratic coefficient, stable across
   solvers, map resolutions, analytic/fitted gauges, and fit step. The universal sign remains open.
+- **EXACT `3×3` SECOND VARIATION (L63):** eliminating the L62 metric variables gives
+  `e₃(E)=−2(Re(E01−E12))²−21|E20|²/4≤0` for every complex perturbation. A regenerating
+  18-real-variable symbolic audit proves the identity exactly. Thus the upper second-order Dini
+  change of the stronger L21 quantity is nonpositive at the `3×3` Crabb block. The displayed
+  equality space still needs third order or an exact-orbit classification.
+- **EXACT `4×4` SECOND VARIATION (L64):** the same elimination gives the rank-eight,
+  five-square identity (28), so `e₄(E)≤0` for every complex perturbation. A regenerating
+  32-real-variable symbolic audit proves it exactly, and all six saved `p=4` SDP cases agree
+  within `3.17e-8`. The low-order pattern is now proved at `p=3,4`, but no uniform-`p` theorem or
+  complete local-neighbourhood theorem on the equality spaces has been established.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-22)
-1. **Prove the sign of the new second-order Crabb SDP.** L61 classifies first-order equality by
-   a common maximizing support-compression vector. L62 now reduces the foundational
-   single-block face to three finite second-order Schur-complement LMIs; all 12 tested
-   coefficients are negative, including two nearly flat structured `p=3` cases. The second
-   conformal coefficient is now finite and analytic; dualize L62 and prove `e≤0` or falsify it.
-   Separately handle nonsmooth compression-eigenvalue crossings.
+1. **Find the uniform Crabb second-variation mechanism.** L63–L64 prove complete negative-square
+   identities at `p=3,4`. Derive the metric elimination for arbitrary Crabb weights and seek a
+   general factorization/duality argument rather than grinding dimensions. In parallel classify
+   the `p=3,4` equality spaces modulo exact disk/equality orbits before attempting third order.
+   Separately handle nonsmooth repeated-compression crossings.
 2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
    trace inequality can instead be derived from the block-Toeplitz positivity of the full
    operator-valued correction moments. Do not retry trace/positive-state scalarizations.
@@ -438,7 +447,10 @@ experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_
   general_similarity_scalarization_probe.py (CP-to-HM state-scalarization falsification),
   general_similarity_equality_probe.py (repeated-Crabb general gate),
   general_similarity_tangent_probe.py (L61 finite conformal/tangent-SDP reduction),
-  general_similarity_second_order_probe.py (L62 single-Crabb second-order SDP).
+  general_similarity_second_order_probe.py (L62 single-Crabb second-order SDP),
+  crabb_second_order_symbolic.py (shared exact conformal derivation),
+  p3_second_order_identity.py (L63 exact 18-variable regeneration),
+  p4_second_order_identity.py (L64 exact 32-variable regeneration).
 Proof artifact: experiments/positive_tail_full_20260722.log (L59 clean 10-box run).
 Data: sym3_sweep_s51.jsonl (40 rec), sym4_sweep_s61.jsonl (20 rec, ρ column trustworthy),
 general_similarity_equality_s9173401.jsonl plus its `sensitivity` and `ultralocal` companions

@@ -140,8 +140,15 @@ and second-order Schur complements give three finite affine block LMIs.  Twelve
 `p=3,4` directions all have negative quadratic coefficients, including two
 nearly flat structured cases.  Second support perturbation and the Schwarz
 integral now give the conformal coefficient in finite analytic form; the
-universal SDP sign remains open.  See
+arbitrary-`p` SDP sign remains open.  See
 `proof/general_similarity_second_order.md`.
+
+For single `3×3` and `4×4` Crabb blocks, L63–L64 subsequently eliminate that SDP
+exactly.  The `p=3` value is `-2(Re(E01-E12))^2-21|E20|^2/4`; the `p=4`
+value is the five-term negative sum of squares (28).  Hence the stronger
+similarity square has nonpositive upper second-order change in every direction
+at both low-order blocks.  Equality still leaves large spaces requiring higher
+order or an exact-orbit argument, and the arbitrary-`p` sign remains open.
 
 ## Verdict and limitations
 

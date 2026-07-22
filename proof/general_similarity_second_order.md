@@ -8,8 +8,9 @@ scalar, so that gap vanishes in every direction.  This is also the basic unresol
 repeated block after a common maximizing copy-vector has been selected.
 
 This note derives both the finite second conformal coefficient and the finite second-order
-metric SDP, then validates them numerically.  The SDP's universal sign is not proved.  Thus
-this is a **proved reduction plus numerical sign evidence**, not a local-neighbourhood theorem.
+metric SDP, then validates them numerically.  Its sign is proved exactly below for `p=3,4`,
+but remains open for arbitrary block size.  Even at those two sizes, equality directions need
+higher order.  Thus this is not yet a complete local-neighbourhood theorem.
 
 ## 2. Expansions and first-order complementarity
 
@@ -212,7 +213,7 @@ fitted-gauge SDP values agree to the solver/map accuracy reported below.
 `experiments/general_similarity_second_order_probe.py` constructs (11)--(16), samples each map
 at `epsilon=(-2,-1,0,1,2)h`, independently fits through degree four, and solves (8)--(10) in
 both gauges with Clarabel and SCS.
-The main run uses `h=.005`, boundary resolutions 2048 and 4096, and support resolution 65536.
+The main run uses `h=.005`, boundary resolutions 2048 and 4096, and support resolution 256.
 It tests `p=3,4`, three full directions and three structured tridiagonal/operator-weight
 directions at each size: 12 cases and 24 cross-solver records.
 
@@ -252,10 +253,171 @@ Reproduction:
   --output experiments/general_similarity_second_order_halfstep_s9173401.jsonl
 ```
 
-## 8. Next analytic target
+## 8. Exact `p=3` sign theorem
 
-Dualize (8)--(10) after substituting the finite formulas (11)--(16), and expose its dependence
-on the support data as L61 did at first order.  The immediate falsification target is the nearly
-flat structured `p=3` face.  A universal `e<=0`, combined with L61, would prove second-order
-local nonincrease at single and repeated Crabb blocks; zero values would still need the next
-nonvanishing order or an exact equality-orbit classification.
+For `p=3`, write
+
+\[
+ A=\begin{bmatrix}0&\sqrt2&0\\0&0&\sqrt2\\0&0&0\end{bmatrix},
+ \qquad P_0=\operatorname{diag}(1,2,4),
+\]
+
+and put `Q=G^*P_0A+A^*P_0G`.  The first-order equalities (5) leave only two free complex
+entries `x=X_01` and `z=X_02`:
+
+\[
+ X(x,z)=
+ \begin{bmatrix}
+ 0&x&z\\
+ \bar x&Q_{11}&2x+Q_{12}\\
+ \bar z&2\bar x+Q_{21}&0
+ \end{bmatrix}. \tag{18}
+\]
+
+The lower Schur complement gives
+
+\[
+ Y_{00}\ge |x|^2+\frac13|z|^2,
+\]
+
+while the upper one contributes `|z|^2/3+|2x+Q_12|^2/2`.  The Stein Schur complement
+recursively eliminates `Y_11,Y_22`; its off-diagonal entry is free through `Y_12-2Y_01`.
+After this elimination the objective is an unconstrained real quadratic in `(x,z)` whose
+quadratic part is
+
+\[
+ 8|x|^2+\frac83|z|^2. \tag{19}
+\]
+
+Thus it has a unique explicit minimizer.  Substituting the finite conformal coefficients
+(11)--(16), minimizing (19), and collecting all 18 real coordinates of a general complex
+perturbation gives the exact identity
+
+\[
+ \boxed{
+ e_3(E)=-2\bigl(\operatorname{Re}(E_{01}-E_{12})\bigr)^2
+         -\frac{21}{4}|E_{20}|^2\le0.} \tag{20}
+\]
+
+`experiments/p3_second_order_identity.py` regenerates `s,q,F,K,G,H`, the scalar elimination,
+and proves symbolically that the residual from (20) is the zero polynomial.  No floating-point
+coefficient recognition is used.
+
+Combining (20) with the strict feasible-metric lift proves, in the canonical Crabb basis,
+
+\[
+ \limsup_{\epsilon\downarrow0}
+ \frac{t_*(\phi_\epsilon(A+\epsilon E))-4}{\epsilon^2}
+ \le e_3(E)\le0. \tag{21}
+\]
+
+The decrease is strict unless
+
+\[
+ E_{20}=0,\qquad \operatorname{Re}E_{01}=\operatorname{Re}E_{12}. \tag{22}
+\]
+
+This explains both nearly flat structured directions in the numerical sweep.  Equation (21)
+is a second-order local theorem, not a complete neighbourhood result on the 15-real-dimensional
+equality space (22); that space requires third order or an exact-orbit argument.
+
+Reproduction:
+
+```bash
+.venv/bin/python -u experiments/p3_second_order_identity.py
+```
+
+## 9. Exact `p=4` sign theorem
+
+For `p=4`, use weights `(sqrt(2),1,sqrt(2))` and
+
+\[
+ P_0=\operatorname{diag}(1,2,2,4).
+\]
+
+Again put `Q=G^*P_0A+A^*P_0G`.  The first-order active equalities leave the three complex
+entries `x=X_01`, `y=X_02`, and `z=X_03`; every other entry is forced:
+
+\[
+\begin{gathered}
+ X_{11}=Q_{11},\qquad X_{22}=Q_{11}+Q_{22},\qquad X_{33}=0,\\
+ X_{12}=\sqrt2x+Q_{12},\quad X_{13}=2y+Q_{13},\quad
+ X_{23}=2x+\sqrt2Q_{12}+Q_{23}. \tag{23}
+\end{gathered}
+\]
+
+The lower and upper metric Schur complements respectively contribute
+
+\[
+ Y_{00}\ge |x|^2+|y|^2+\frac13|z|^2, \tag{24}
+\]
+
+\[
+ e-Y_{33}\ge \frac13|z|^2+\frac12|2y+Q_{13}|^2
+ +\frac12|2x+\sqrt2Q_{12}+Q_{23}|^2. \tag{25}
+\]
+
+Let `R` denote the five forcing terms subtracted from `Y-A^*YA` in (4), and put
+`d=(D_1)_{K_D,0}` and `C=R_{K_DK_D}+dd^*`.  Equality in the Stein Schur complement can be
+solved recursively, including its off-diagonal entries.  On the diagonal it gives
+
+\[
+ Y_{33}=4Y_{00}+2C_{11}+2C_{22}+C_{33}. \tag{26}
+\]
+
+Substituting (23)--(26) leaves an unconstrained real quadratic in `(x,y,z)` with positive
+quadratic part
+
+\[
+ 8|x|^2+8|y|^2+\frac83|z|^2. \tag{27}
+\]
+
+Define
+
+\[
+ \Lambda(E)=E_{00}+2E_{11}-2E_{22}-E_{33}
+             +\sqrt2(\overline{E_{02}}-\overline{E_{13}}).
+\]
+
+Inserting (11)--(16) and minimizing (27) gives the exact identity
+
+\[
+\boxed{\begin{aligned}
+e_4(E)={}&-\frac12|\Lambda(E)|^2
+-4\bigl(\operatorname{Re}(E_{01}-E_{23})\bigr)^2\\
+&-\frac49\bigl(\operatorname{Re}(E_{01}-2\sqrt2E_{12}+E_{23})\bigr)^2
+-\frac29|E_{20}+E_{31}|^2-\frac{52}{9}|E_{30}|^2\le0.
+\end{aligned}} \tag{28}
+\]
+
+`experiments/p4_second_order_identity.py` starts with all 32 real coordinates of `E`, checks
+the four exact support eigenpairs, reconstructs `G,H`, performs the metric elimination, checks
+the Hessian (27), and proves that the residual from (28) is the zero polynomial.  No numerical
+coefficient recognition enters the certificate.  All six saved `p=4` SDP cases agree with
+(28) within `3.17e-8`.
+
+As in (21), the strict feasible-metric lift proves
+
+\[
+ \limsup_{\epsilon\downarrow0}
+ \frac{t_*(\phi_\epsilon(A+\epsilon E))-4}{\epsilon^2}
+ \le e_4(E)\le0. \tag{29}
+\]
+
+The rank of (28) is eight, so its equality space has 24 real dimensions.  Explicitly, all five
+displayed square arguments must vanish.  This is again a second-order local theorem, not a
+complete neighbourhood result on that equality space.
+
+Reproduction:
+
+```bash
+.venv/bin/python -u experiments/p4_second_order_identity.py
+```
+
+## 10. Next analytic target
+
+Derive (23)--(27) for arbitrary Crabb weights and seek a uniform factorization of the resulting
+quadratic form, rather than extracting one dimension at a time.  In parallel, quotient the
+`p=3,4` equality spaces by infinitesimal disk automorphisms, unitary similarity, scaling, and
+exact Crabb-family motions.  Only the residual equality directions should be sent to third
+order.  The nonsmooth repeated-block compression crossings remain a separate regularity debt.

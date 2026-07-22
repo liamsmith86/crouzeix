@@ -584,7 +584,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--fit-step", type=float, default=0.005)
     parser.add_argument("--coarse-resolution", type=int, default=2048)
     parser.add_argument("--fine-resolution", type=int, default=4096)
-    parser.add_argument("--support-resolution", type=int, default=65536)
+    parser.add_argument("--support-resolution", type=int, default=256)
     parser.add_argument(
         "--solvers",
         nargs="+",
@@ -605,8 +605,10 @@ def main() -> None:
         raise ValueError("fit step must be positive")
     if args.coarse_resolution >= args.fine_resolution:
         raise ValueError("coarse resolution must be smaller than fine resolution")
-    if args.support_resolution < 64:
-        raise ValueError("support resolution must be at least 64")
+    if args.support_resolution < 8 * max(args.block_sizes):
+        raise ValueError(
+            "support resolution must be at least eight times the largest block"
+        )
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
     with args.output.open("w") as output:
