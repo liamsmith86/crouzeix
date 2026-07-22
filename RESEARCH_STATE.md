@@ -23,13 +23,20 @@
   signs, in four rational boxes. L55 normalizes the low-nome algebra (determinant order `c^9`,
   minor order `c^2`) and now factors every exceptional face exposed by the remainder charts.
   Exact rational terms through order 15 plus parity-aware Arb tails close det0's main-orientation
-  chart and, on `[0,.01]`, four widened charts at its `a=0` corner. Det1 has two more exact
+  chart and, for the positive sign on `[0,.01]`, four widened charts at its `a=0` corner. Det1 has two more exact
   blow-ups ending in the positive quadratic (23); two 59-chart directed runs certify its
   complete main chart for both signs on `[0,.005]`
-  (84 minutes positive, 76 minutes negative). Neither the low minors nor a bridge to `.01` is
-  claimed. Det0's former `U`-axis line now ends in two coefficient-positive exact forms; a
-  26-chart, 47-minute run closes that local hierarchy for the positive sign on `[0,.005]`.
-  Rerun det0 negative and integrate the local cover before closing the minor/bridge gaps.
+  (84 minutes positive, 76 minutes negative). Det0's former `U`-axis line now ends in two
+  coefficient-positive exact forms; the complete 26-chart hierarchy passes at the root for
+  both signs on `[0,.005]` (the negative regeneration took 3033 seconds, 11.02 GB, no swap).
+  The new exact minor corner and midpoint forms (28)--(33), including the positive secondary
+  `a=2c` ridge and tertiary-one ratio-zero face, now support complete local-plus-global
+  certificates for all three final minors and both signs on `[0,.005]`. Positive global leaf
+  counts are `81/32/184`; negative counts are `71/32/188`. Independent full regeneration took
+  10m19s and 3m52s respectively. The remaining det0 global chart does not reveal a negative
+  value: it follows intersecting exact-equality arms, first nome-dominant and then main-dominant
+  at normalized `S=1/2`. Those arms still need a finite integrated factor cover. Neither the
+  determinant nor the bridge to `.01` is therefore claimed.
 - **L49 finds the sharp nome estimate required by the zero-node ridge:**
   `k≤4c/(1+4c²)` for `c≤1/2`.  Two Jacobi-product factors suffice, and the
   remaining degree-23 polynomial has 24 positive exact Bernstein coefficients.  On `p=0`,

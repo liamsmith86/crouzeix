@@ -19,7 +19,7 @@ full low-nome interval; a failed command is diagnostic, not a counterexample.
 from __future__ import annotations
 
 import argparse
-from collections.abc import Callable, Iterator
+from collections.abc import Iterator
 from collections import defaultdict
 from fractions import Fraction
 import gc
@@ -44,6 +44,7 @@ from slice_projective_interval_certificate import (
     final_chart_tables,
     interval_tensor_for_chart,
     parse_fraction,
+    power_to_bernstein_axis,
     power_to_bernstein_tensor,
 )
 
@@ -94,6 +95,8 @@ LOW_DEVIATION_SERIES = (
 SparseCoefficient = fmpq | arb
 SparseMap = dict[tuple[int, ...], SparseCoefficient]
 ORIENTATION_CORNER_SCALE = Fraction(1, 2)
+ZERO_PARAMETER_CORNER_SCALE = Fraction(1, 4)
+MINOR_CORNER_SCALE = Fraction(1, 4)
 SECOND_DETERMINANT_RADIAL_MODELS = tuple(
     (Fraction(index, 10), Fraction(1, 10), degree)
     for index, degree in enumerate((8, 8, 8, 8, 10, 12, 14, 16, 20, 24), start=1)
@@ -302,7 +305,259 @@ def audit_determinant_ridge() -> None:
                 raise AssertionError(
                     f"the c^2 leading minor vanished in {source.label}"
                 )
-            print(f"{source.label}: exact c^2 normalization PASS", flush=True)
+            audit_minor_corner_hierarchy(table)
+            print(
+                f"{source.label}: exact c^2 normalization and corner form PASS",
+                flush=True,
+            )
+
+
+def audit_minor_corner_hierarchy(table: ChartTable) -> None:
+    """Verify the exact quadratic at each final minor's sharp corner."""
+
+    power_map = exact_centered_taylor_map(table, degree=2)
+    for axis in (1, 3):
+        power_map = affine_sparse_map_axis(power_map, axis, Fraction(1), Fraction(-1))
+
+    if table.label.startswith("minor-secondary"):
+        transverse_axes = (0, 1, 2, 3, 5)
+        expected: SparseMap = {
+            (2, 0, 0, 0, 0, 0): fmpq(256),
+            (0, 2, 0, 0, 0, 0): fmpq(64),
+            (0, 1, 1, 0, 0, 0): fmpq(64),
+            (0, 1, 0, 1, 0, 0): fmpq(64),
+            (0, 0, 2, 0, 0, 0): fmpq(48),
+            (0, 0, 0, 0, 0, 2): fmpq(48),
+        }
+    else:
+        transverse_axes = (0, 1, 2, 3, 4)
+        expected = {
+            (2, 0, 0, 0, 0, 0): fmpq(256),
+            (0, 2, 0, 0, 0, 0): fmpq(64),
+            (0, 1, 1, 0, 0, 0): fmpq(64),
+            (0, 0, 2, 0, 0, 0): fmpq(48),
+            (0, 0, 1, 1, 0, 0): fmpq(96),
+            (0, 0, 0, 2, 0, 0): fmpq(96),
+            (0, 0, 0, 1, 1, 0): fmpq(96),
+            (0, 0, 0, 0, 2, 0): fmpq(48),
+        }
+        if table.label.startswith("minor-tertiary-1"):
+            expected[(0, 0, 1, 0, 1, 0)] = fmpq(96)
+
+    leading = {
+        monomial: coefficient
+        for monomial, coefficient in power_map.items()
+        if sum(monomial[axis] for axis in transverse_axes) == 2
+    }
+    if leading != expected:
+        raise AssertionError(f"unexpected minor corner form in {table.label}")
+    if any(
+        coefficient
+        for monomial, coefficient in power_map.items()
+        if all(monomial[axis] == 0 for axis in transverse_axes)
+    ):
+        raise AssertionError(f"minor corner did not vanish in {table.label}")
+
+    if table.label.startswith("minor-secondary"):
+        ratio_chart = projective_sparse_map(power_map, transverse_axes, 3, order=2)
+        final_axes = (0, 1, 2, 5)
+        final_weights = (1, 2, 1, 1)
+        final_leading = {
+            monomial: coefficient
+            for monomial, coefficient in ratio_chart.items()
+            if sum(
+                weight * monomial[axis]
+                for axis, weight in zip(final_axes, final_weights)
+            )
+            == 2
+        }
+        expected_final: SparseMap = {
+            (2, 0, 0, 0, 0, 0): fmpq(256),
+            (0, 1, 0, 0, 0, 0): fmpq(64),
+            (0, 0, 2, 0, 0, 0): fmpq(48),
+            (0, 0, 0, 0, 0, 2): fmpq(48),
+        }
+        if final_leading != expected_final:
+            raise AssertionError(
+                f"unexpected secondary-minor final form in {table.label}"
+            )
+        away = exact_centered_taylor_map(table, degree=2)
+        away = affine_sparse_map_axis(away, 1, Fraction(1), Fraction(-1))
+        away_axes = (0, 1, 2, 5)
+        away_weights = (1, 2, 1, 1)
+        away_leading = {
+            monomial: coefficient
+            for monomial, coefficient in away.items()
+            if sum(
+                weight * monomial[axis] for axis, weight in zip(away_axes, away_weights)
+            )
+            == 2
+        }
+        expected_away: SparseMap = {
+            (2, 0, 0, 0, 0, 0): fmpq(256),
+            (0, 1, 0, 0, 0, 0): fmpq(64),
+            (0, 1, 0, 1, 0, 0): fmpq(-64),
+            (0, 0, 2, 0, 0, 0): fmpq(48),
+            (0, 0, 0, 0, 0, 2): fmpq(48),
+        }
+        if away_leading != expected_away:
+            raise AssertionError(
+                f"unexpected secondary-minor ratio-away form in {table.label}"
+            )
+        origin = exact_centered_taylor_map(table, degree=2)
+        origin_axes = (0, 1, 2, 3, 5)
+        origin_weights = (1, 2, 1, 2, 1)
+        origin_leading = {
+            monomial: coefficient
+            for monomial, coefficient in origin.items()
+            if sum(
+                weight * monomial[axis]
+                for axis, weight in zip(origin_axes, origin_weights)
+            )
+            == 2
+        }
+        expected_origin: SparseMap = {
+            (2, 0, 0, 0, 0, 0): fmpq(256),
+            (0, 1, 0, 0, 0, 0): fmpq(64),
+            (0, 0, 2, 0, 0, 0): fmpq(48),
+            (0, 0, 0, 1, 0, 0): fmpq(64),
+            (0, 0, 0, 0, 0, 2): fmpq(48),
+        }
+        if origin_leading != expected_origin:
+            raise AssertionError(
+                f"unexpected secondary-minor origin form in {table.label}"
+            )
+
+    midpoint = exact_centered_taylor_map(table, degree=2)
+    midpoint = affine_sparse_map_axis(midpoint, 1, Fraction(1, 2), Fraction(1))
+    midpoint = affine_sparse_map_axis(midpoint, 2, Fraction(1), Fraction(-1))
+    if not table.label.startswith("minor-secondary"):
+        midpoint = affine_sparse_map_axis(midpoint, 3, Fraction(1), Fraction(-1))
+    midpoint_axes, _, _, _, _ = minor_midpoint_configuration(table)
+    midpoint_weights = tuple(2 if axis == 2 else 1 for axis in midpoint_axes)
+    midpoint_leading = {
+        monomial: coefficient
+        for monomial, coefficient in midpoint.items()
+        if sum(
+            weight * monomial[axis]
+            for axis, weight in zip(midpoint_axes, midpoint_weights)
+        )
+        == 2
+    }
+    sign = 1 if "sign-+1" in table.label else -1
+    expected_midpoint: SparseMap = {
+        (2, 0, 0, 0, 0, 0): fmpq(720),
+        (0, 2, 0, 0, 0, 0): fmpq(384),
+        (0, 0, 1, 0, 0, 0): fmpq(160),
+    }
+    if table.label.startswith("minor-secondary"):
+        expected_midpoint = {
+            (2, 0, 0, 0, 0, 0): fmpq(576),
+            (2, 0, 0, 1, 0, 0): fmpq(144),
+            (0, 2, 0, 0, 0, 0): fmpq(384),
+            (0, 0, 1, 0, 0, 0): fmpq(64),
+            (0, 0, 1, 1, 0, 0): fmpq(96),
+            (0, 0, 0, 0, 0, 2): fmpq(144),
+            (1, 0, 0, 0, 0, 1): fmpq(-576 * sign),
+        }
+    elif table.label.startswith("minor-tertiary-0"):
+        expected_midpoint.update(
+            {
+                (0, 0, 0, 2, 0, 0): fmpq(144),
+                (1, 0, 0, 1, 0, 0): fmpq(-576 * sign),
+                (0, 0, 0, 0, 2, 0): fmpq(144),
+                (0, 0, 0, 1, 1, 0): fmpq(288),
+                (1, 0, 0, 0, 1, 0): fmpq(-576 * sign),
+            }
+        )
+    else:
+        expected_midpoint = {
+            (0, 0, 0, 2, 0, 0): fmpq(144),
+            (0, 0, 0, 2, 1, 0): fmpq(-144),
+            (0, 0, 1, 0, 0, 0): fmpq(160),
+            (0, 0, 1, 0, 1, 0): fmpq(-224),
+            (0, 0, 1, 0, 2, 0): fmpq(64),
+            (0, 2, 0, 0, 0, 0): fmpq(384),
+            (0, 2, 0, 0, 1, 0): fmpq(-384),
+            (1, 0, 0, 1, 0, 0): fmpq(-576 * sign),
+            (1, 0, 0, 1, 1, 0): fmpq(576 * sign),
+            (2, 0, 0, 0, 0, 0): fmpq(720),
+            (2, 0, 0, 0, 1, 0): fmpq(-576),
+        }
+    if midpoint_leading != expected_midpoint:
+        raise AssertionError(f"unexpected minor midpoint form in {table.label}")
+
+    if table.label.startswith("minor-tertiary-1"):
+        ratio_zero = exact_centered_taylor_map(table, degree=2)
+        ratio_zero = affine_sparse_map_axis(ratio_zero, 4, Fraction(1), Fraction(-1))
+        ratio_zero = projective_sparse_map(
+            ratio_zero, (0, 4), 4, order=2, weights=(1, 2)
+        )
+        for axis in (2, 3):
+            ratio_zero = affine_sparse_map_axis(
+                ratio_zero, axis, Fraction(1), Fraction(-1)
+            )
+        ratio_zero = affine_sparse_map_axis(ratio_zero, 1, Fraction(1, 2), Fraction(1))
+        ratio_axes = (0, 1, 2, 3)
+        ratio_weights = (1, 1, 2, 1)
+        ratio_leading = {
+            monomial: coefficient
+            for monomial, coefficient in ratio_zero.items()
+            if sum(
+                weight * monomial[axis]
+                for axis, weight in zip(ratio_axes, ratio_weights)
+            )
+            == 2
+        }
+        expected_ratio: SparseMap = {
+            (2, 0, 0, 0, 0, 0): fmpq(144),
+            (2, 0, 0, 0, 2, 0): fmpq(576),
+            (1, 0, 0, 1, 1, 0): fmpq(-576 * sign),
+            (0, 2, 0, 0, 0, 0): fmpq(384),
+            (0, 0, 1, 0, 0, 0): fmpq(96),
+            (0, 0, 1, 0, 2, 0): fmpq(64),
+            (0, 0, 0, 2, 0, 0): fmpq(144),
+        }
+        if ratio_leading != expected_ratio:
+            raise AssertionError(
+                f"unexpected tertiary ratio-zero form in {table.label}"
+            )
+
+    if table.label.startswith("minor-secondary") and sign == 1:
+        ridge = exact_centered_taylor_map(table, degree=4, nome_scale=Fraction(1, 200))
+        ridge = affine_sparse_map_axis(ridge, 2, Fraction(1), -(MINOR_CORNER_SCALE**2))
+        ridge = affine_sparse_map_axis(ridge, 5, Fraction(0), MINOR_CORNER_SCALE)
+        ridge = affine_sparse_map_axis(ridge, 1, Fraction(1, 2), -MINOR_CORNER_SCALE)
+        ridge = projective_sparse_map(
+            ridge,
+            (0, 1, 2, 5),
+            0,
+            order=2,
+            weights=(1, 1, 2, 1),
+        )
+        ridge = affine_sparse_map_axis(ridge, 5, Fraction(1, 25), Fraction(1))
+        ridge_axes = (0, 1, 2, 3, 5)
+        ridge_weights = (1, 1, 2, 2, 1)
+        ridge_leading = {
+            monomial: coefficient
+            for monomial, coefficient in ridge.items()
+            if sum(
+                weight * monomial[axis]
+                for axis, weight in zip(ridge_axes, ridge_weights)
+            )
+            == 2
+        }
+        expected_ridge: SparseMap = {
+            (2, 0, 0, 0, 0, 0): fmpq(3, 12_500_000),
+            (0, 2, 0, 0, 0, 0): fmpq(24),
+            (0, 0, 1, 0, 0, 0): fmpq(4),
+            (0, 0, 0, 1, 0, 0): fmpq(9, 2_500),
+            (0, 0, 0, 0, 0, 2): fmpq(9),
+        }
+        if ridge_leading != expected_ridge:
+            raise AssertionError(
+                f"unexpected secondary-minor ridge form in {table.label}"
+            )
 
 
 def add_centered_parameter_term(
@@ -961,15 +1216,34 @@ def sparse_map_bernstein_tensor(
 
 
 def collapsed_sparse_map_bernstein_tensor(
-    power_map: SparseMap, primary_axis: int
+    power_map: SparseMap,
+    primary_axis: int,
+    *,
+    envelope_axis: int = 3,
+    collapse_envelope_early: bool = False,
 ) -> IntervalTensor:
     """Convert a chart efficiently and enclose its irrelevant envelope axis."""
 
     axis_order = (primary_axis,) + tuple(
         axis for axis in range(6) if axis != primary_axis
     )
+    non_envelope_order = (primary_axis,) + tuple(
+        axis for axis in range(6) if axis not in (primary_axis, envelope_axis)
+    )
+    if collapse_envelope_early:
+        dimensions = tuple(max(key[axis] for key in power_map) + 1 for axis in range(6))
+        interval_map = {
+            key: value if isinstance(value, arb) else arb(value)
+            for key, value in power_map.items()
+        }
+        tensor = arb_map_to_tensor(interval_map, dimensions)
+        tensor = power_to_bernstein_axis(tensor, envelope_axis)
+        tensor = collapse_bernstein_axis(tensor, envelope_axis)
+        for axis in non_envelope_order:
+            tensor = power_to_bernstein_axis(tensor, axis)
+        return tensor
     return collapse_bernstein_axis(
-        sparse_map_bernstein_tensor(power_map, axis_order=axis_order), 3
+        sparse_map_bernstein_tensor(power_map, axis_order=axis_order), envelope_axis
     )
 
 
@@ -1006,10 +1280,10 @@ def orientation_endpoint_maps(
 
 def widened_zero_parameter_corner_tensors(
     power_map: SparseMap,
-) -> Iterator[tuple[str, IntervalTensor, int]]:
+) -> Iterator[tuple[str, IntervalTensor]]:
     """Build four overlapping weighted charts around the ``a=0`` corner."""
 
-    scale = Fraction(1, 4)
+    scale = ZERO_PARAMETER_CORNER_SCALE
     squared_scale = scale**2
     restricted = power_map
     for axis in (0, 5):
@@ -1032,47 +1306,22 @@ def widened_zero_parameter_corner_tensors(
                     chart, ratio_axis, Fraction(0), Fraction(2)
                 )
         chart = compress_even_sparse_map_axis(chart, selected_axis)
-        yield labels[selected_axis], sparse_map_bernstein_tensor(chart), selected_axis
+        yield labels[selected_axis], sparse_map_bernstein_tensor(chart)
 
 
-def widened_zero_parameter_region_contains(box: Box, selected_axis: int) -> bool:
-    """Test containment in one factor-two weighted corner chart."""
+def zero_parameter_corner_box() -> Box:
+    """Return the top-chart box covered by all five weighted corner charts."""
 
-    scale = Fraction(1, 4)
-    ratio_bound = 2
-    coordinates = tuple(
-        tuple(Fraction.from_float(endpoint) for endpoint in interval)
-        for interval in box
-    )
-    nome_upper = coordinates[0][1]
-    abs_b_upper = coordinates[5][1]
-
-    if selected_axis in (0, 5):
-        selected_lower = coordinates[selected_axis][0]
-        selected_upper = coordinates[selected_axis][1]
-        if selected_upper > scale:
-            return False
-        other_linear_upper = abs_b_upper if selected_axis == 0 else nome_upper
-        if other_linear_upper > ratio_bound * selected_lower:
-            return False
-        squared_selected = selected_lower**2
-        return all(
-            1 - coordinates[axis][0] <= ratio_bound * squared_selected
-            for axis in (1, 2, 4)
-        )
-
-    selected_defect_lower = 1 - coordinates[selected_axis][1]
-    selected_defect_upper = 1 - coordinates[selected_axis][0]
-    if selected_defect_upper > scale**2:
-        return False
-    if nome_upper**2 > ratio_bound**2 * selected_defect_lower:
-        return False
-    if abs_b_upper**2 > ratio_bound**2 * selected_defect_lower:
-        return False
-    return all(
-        1 - coordinates[axis][0] <= ratio_bound * selected_defect_lower
-        for axis in (1, 2, 4)
-        if axis != selected_axis
+    scale = float(ZERO_PARAMETER_CORNER_SCALE)
+    squared_scale = float(ZERO_PARAMETER_CORNER_SCALE**2)
+    upper_defect = (1.0 - squared_scale, 1.0)
+    return (
+        (0.0, scale),
+        upper_defect,
+        upper_defect,
+        (0.0, 1.0),
+        upper_defect,
+        (0.0, scale),
     )
 
 
@@ -1170,10 +1419,17 @@ def certify_sparse_chart(
     *,
     max_depth: int,
     max_leaves: int,
+    envelope_axis: int = 3,
+    collapse_envelope_early: bool = False,
 ) -> None:
     """Build, print, and require one envelope-collapsed sparse certificate."""
 
-    tensor = collapsed_sparse_map_bernstein_tensor(power_map, primary_axis)
+    tensor = collapsed_sparse_map_bernstein_tensor(
+        power_map,
+        primary_axis,
+        envelope_axis=envelope_axis,
+        collapse_envelope_early=collapse_envelope_early,
+    )
     result = certify(tensor, max_depth=max_depth, max_leaves=max_leaves)
     print(
         f"{label}: shape={tensor.lower.shape}, pass={result.passed}, "
@@ -1199,12 +1455,11 @@ def second_determinant_endpoint_map(power_map: SparseMap) -> SparseMap:
     return affine_sparse_map_axis(centered, 2, Fraction(1), Fraction(-1))
 
 
-def first_determinant_zero_parameter_main_map(power_map: SparseMap) -> SparseMap:
-    """Build the hard U-dominant chart at the det0 ``a=0`` corner."""
+def first_determinant_zero_parameter_main_map(ratio_chart: SparseMap) -> SparseMap:
+    """Build the hard U-dominant chart from the det0 ratio chart."""
 
     axes = (0, 1, 2, 4, 5)
-    ratio_chart = projective_sparse_map(power_map, axes, 2, order=1)
-    scale = Fraction(1, 4)
+    scale = ZERO_PARAMETER_CORNER_SCALE
     for axis in (0, 5):
         ratio_chart = affine_sparse_map_axis(ratio_chart, axis, Fraction(0), scale)
     for axis in (1, 2, 4):
@@ -1227,6 +1482,7 @@ def certify_first_determinant_zero_parameter_main(
     *,
     max_depth: int,
     max_leaves: int,
+    ratio_chart: SparseMap | None = None,
 ) -> None:
     """Certify the final det0 U-dominant corner hierarchy."""
 
@@ -1236,10 +1492,12 @@ def certify_first_determinant_zero_parameter_main(
         raise ValueError("the audited det0 main tail requires c_upper <= 1/200")
 
     started = time.monotonic()
-    power_map = asymptotic_power_map(low_nome_table(source), c_upper)
-    main_chart = first_determinant_zero_parameter_main_map(power_map)
-    del power_map
-    gc.collect()
+    if ratio_chart is None:
+        power_map = asymptotic_power_map(low_nome_table(source), c_upper)
+        ratio_chart = projective_sparse_map(power_map, (0, 1, 2, 4, 5), 2, order=1)
+        del power_map
+        gc.collect()
+    main_chart = first_determinant_zero_parameter_main_map(ratio_chart)
 
     transverse_axes = (0, 2, 4, 5)
     transverse_weights = (1, 2, 1, 1)
@@ -1324,6 +1582,546 @@ def certify_first_determinant_zero_parameter_main(
     print(
         f"{source.label}: det0 zero-parameter main hierarchy PASS in "
         f"{time.monotonic() - started:.2f}s",
+        flush=True,
+    )
+
+
+def minor_corner_configuration(
+    source: ChartTable,
+) -> tuple[tuple[int, ...], tuple[str, ...], tuple[int, ...], tuple[int, ...], int]:
+    """Return projective axes, labels, upper/lower defects, and envelope axis."""
+
+    if source.label.startswith("minor-secondary"):
+        return (
+            (0, 1, 2, 5, 3),
+            ("nome", "main", "secondary", "a", "ratio"),
+            (1, 3),
+            (2, 5),
+            4,
+        )
+    if source.label.startswith("minor-tertiary"):
+        return (
+            (0, 1, 2, 3, 4),
+            ("nome", "main", "secondary", "tertiary", "ratio"),
+            (1, 3),
+            (2, 4),
+            5,
+        )
+    raise ValueError(f"unsupported minor chart {source.label}")
+
+
+def restricted_minor_corner_map(
+    power_map: SparseMap, upper_axes: tuple[int, ...], lower_axes: tuple[int, ...]
+) -> SparseMap:
+    """Restrict one normalized minor map to its sharp parameter corner."""
+
+    restricted = power_map
+    for axis in upper_axes:
+        restricted = affine_sparse_map_axis(
+            restricted, axis, Fraction(1), -MINOR_CORNER_SCALE
+        )
+    for axis in lower_axes:
+        restricted = affine_sparse_map_axis(
+            restricted, axis, Fraction(0), MINOR_CORNER_SCALE
+        )
+    return restricted
+
+
+def minor_corner_box(source: ChartTable) -> Box:
+    """Return the original minor-coordinate box covered by its local charts."""
+
+    _, _, upper_axes, lower_axes, _ = minor_corner_configuration(source)
+    box: list[tuple[float, float]] = [(0.0, 1.0) for _ in range(6)]
+    scale = float(MINOR_CORNER_SCALE)
+    for axis in upper_axes:
+        box[axis] = (1.0 - scale, 1.0)
+    for axis in lower_axes:
+        box[axis] = (0.0, scale)
+    return tuple(box)
+
+
+def certify_secondary_minor_ratio_chart(
+    source: ChartTable,
+    ratio_chart: SparseMap,
+    *,
+    max_depth: int,
+    max_leaves: int,
+) -> None:
+    """Resolve the secondary minor's sole equality line in its ratio chart."""
+
+    axes = (0, 1, 2, 5)
+    weights = (1, 2, 1, 1)
+    for selected_axis, label in zip(axes, ("nome", "main", "secondary", "a")):
+        chart = projective_sparse_map(
+            ratio_chart, axes, selected_axis, order=2, weights=weights
+        )
+        certify_sparse_chart(
+            f"{source.label}-minor-ratio-final-{label}",
+            chart,
+            selected_axis,
+            max_depth=max_depth,
+            max_leaves=max_leaves,
+            envelope_axis=4,
+            collapse_envelope_early=True,
+        )
+        del chart
+        gc.collect()
+
+
+def certify_secondary_corner_ratio_away(
+    source: ChartTable,
+    power_map: SparseMap,
+    *,
+    max_depth: int,
+    max_leaves: int,
+) -> None:
+    """Certify the secondary corner uniformly away from ratio one."""
+
+    restricted = affine_sparse_map_axis(
+        power_map, 1, Fraction(1), -(MINOR_CORNER_SCALE**2)
+    )
+    for axis in (2, 5):
+        restricted = affine_sparse_map_axis(
+            restricted, axis, Fraction(0), MINOR_CORNER_SCALE
+        )
+    restricted = affine_sparse_map_axis(
+        restricted, 3, Fraction(0), 1 - MINOR_CORNER_SCALE
+    )
+    axes = (0, 1, 2, 5)
+    weights = (1, 2, 1, 1)
+    for selected_axis, label in zip(axes, ("nome", "main", "secondary", "a")):
+        chart = projective_sparse_map(
+            restricted, axes, selected_axis, order=2, weights=weights
+        )
+        certify_sparse_chart(
+            f"{source.label}-minor-corner-ratio-away-{label}",
+            chart,
+            selected_axis,
+            max_depth=max_depth,
+            max_leaves=max_leaves,
+            envelope_axis=4,
+            collapse_envelope_early=True,
+        )
+        del chart
+        gc.collect()
+
+
+def secondary_corner_ratio_away_box() -> Box:
+    """Return the secondary-corner box with ratio bounded away from one."""
+
+    scale = float(MINOR_CORNER_SCALE)
+    squared_scale = float(MINOR_CORNER_SCALE**2)
+    return (
+        (0.0, 1.0),
+        (1.0 - squared_scale, 1.0),
+        (0.0, scale),
+        (0.0, 1.0 - scale),
+        (0.0, 1.0),
+        (0.0, scale),
+    )
+
+
+def certify_secondary_origin_corner(
+    source: ChartTable,
+    power_map: SparseMap,
+    *,
+    max_depth: int,
+    max_leaves: int,
+) -> None:
+    """Certify the secondary chart's all-lower weighted corner."""
+
+    restricted = power_map
+    for axis in (1, 3):
+        restricted = affine_sparse_map_axis(
+            restricted, axis, Fraction(0), MINOR_CORNER_SCALE**2
+        )
+    for axis in (2, 5):
+        restricted = affine_sparse_map_axis(
+            restricted, axis, Fraction(0), MINOR_CORNER_SCALE
+        )
+    axes = (0, 1, 2, 3, 5)
+    weights = (1, 2, 1, 2, 1)
+    labels = ("nome", "main", "secondary", "ratio", "a")
+    for selected_axis, label in zip(axes, labels):
+        chart = projective_sparse_map(
+            restricted, axes, selected_axis, order=2, weights=weights
+        )
+        certify_sparse_chart(
+            f"{source.label}-minor-origin-{label}",
+            chart,
+            selected_axis,
+            max_depth=max_depth,
+            max_leaves=max_leaves,
+            envelope_axis=4,
+            collapse_envelope_early=True,
+        )
+        del chart
+        gc.collect()
+
+
+def secondary_origin_corner_box() -> Box:
+    """Return the all-lower secondary-minor corner box."""
+
+    scale = float(MINOR_CORNER_SCALE)
+    squared_scale = float(MINOR_CORNER_SCALE**2)
+    return (
+        (0.0, 1.0),
+        (0.0, squared_scale),
+        (0.0, scale),
+        (0.0, squared_scale),
+        (0.0, 1.0),
+        (0.0, scale),
+    )
+
+
+def certify_tertiary_one_ratio_zero(
+    source: ChartTable,
+    power_map: SparseMap,
+    *,
+    max_depth: int,
+    max_leaves: int,
+) -> None:
+    """Certify tertiary chart one's complete ratio-zero boundary box."""
+
+    restricted = affine_sparse_map_axis(
+        power_map, 4, Fraction(1), -(MINOR_CORNER_SCALE**2)
+    )
+    nome_chart = projective_sparse_map(restricted, (0, 4), 0, order=2, weights=(1, 2))
+    certify_sparse_chart(
+        f"{source.label}-minor-ratio-zero-nome",
+        nome_chart,
+        0,
+        max_depth=max_depth,
+        max_leaves=max_leaves,
+        envelope_axis=5,
+        collapse_envelope_early=True,
+    )
+    del nome_chart
+    gc.collect()
+
+    ratio_chart = projective_sparse_map(restricted, (0, 4), 4, order=2, weights=(1, 2))
+    for axis in (2, 3):
+        ratio_chart = affine_sparse_map_axis(
+            ratio_chart, axis, Fraction(1), Fraction(-1)
+        )
+    axes = (0, 1, 2, 3)
+    weights = (1, 1, 2, 1)
+    labels = ("nome", "main", "secondary", "tertiary")
+    for side, slope in (("left", Fraction(-1, 2)), ("right", Fraction(1, 2))):
+        centered = affine_sparse_map_axis(ratio_chart, 1, Fraction(1, 2), slope)
+        for selected_axis, label in zip(axes, labels):
+            chart = projective_sparse_map(
+                centered, axes, selected_axis, order=2, weights=weights
+            )
+            certify_sparse_chart(
+                f"{source.label}-minor-ratio-zero-{side}-{label}",
+                chart,
+                selected_axis,
+                max_depth=max_depth,
+                max_leaves=max_leaves,
+                envelope_axis=5,
+                collapse_envelope_early=True,
+            )
+            del chart
+            gc.collect()
+        del centered
+        gc.collect()
+
+
+def tertiary_one_ratio_zero_box() -> Box:
+    """Return tertiary chart one's complete ratio-zero boundary box."""
+
+    squared_scale = float(MINOR_CORNER_SCALE**2)
+    box: list[tuple[float, float]] = [(0.0, 1.0) for _ in range(6)]
+    box[4] = (1.0 - squared_scale, 1.0)
+    return tuple(box)
+
+
+def minor_midpoint_configuration(
+    source: ChartTable,
+) -> tuple[tuple[int, ...], tuple[str, ...], tuple[int, ...], tuple[int, ...], int]:
+    """Return the transverse coordinates for a minor's midpoint ridge."""
+
+    if source.label.startswith("minor-secondary"):
+        return (0, 1, 2, 5), ("nome", "main", "secondary", "a"), (), (5,), 4
+    if source.label.startswith("minor-tertiary-0"):
+        return (
+            (0, 1, 2, 3, 4),
+            ("nome", "main", "secondary", "tertiary", "ratio"),
+            (3,),
+            (4,),
+            5,
+        )
+    if source.label.startswith("minor-tertiary-1"):
+        return (
+            (0, 1, 2, 3),
+            ("nome", "main", "secondary", "tertiary"),
+            (3,),
+            (),
+            5,
+        )
+    raise ValueError(f"unsupported minor chart {source.label}")
+
+
+def iter_minor_midpoint_corner_maps(
+    source: ChartTable, power_map: SparseMap
+) -> Iterator[tuple[str, SparseMap]]:
+    """Build the two signed-main charts around a minor midpoint ridge."""
+
+    _, _, upper_axes, lower_axes, _ = minor_midpoint_configuration(source)
+    base = affine_sparse_map_axis(power_map, 2, Fraction(1), -(MINOR_CORNER_SCALE**2))
+    for axis in upper_axes:
+        base = affine_sparse_map_axis(base, axis, Fraction(1), -MINOR_CORNER_SCALE)
+    for axis in lower_axes:
+        base = affine_sparse_map_axis(base, axis, Fraction(0), MINOR_CORNER_SCALE)
+    if source.label.startswith("minor-tertiary-1"):
+        base = affine_sparse_map_axis(base, 4, Fraction(0), 1 - MINOR_CORNER_SCALE**2)
+    for side, slope in (
+        ("left", -MINOR_CORNER_SCALE),
+        ("right", MINOR_CORNER_SCALE),
+    ):
+        yield side, affine_sparse_map_axis(base, 1, Fraction(1, 2), slope)
+
+
+def certify_secondary_midpoint_nome_chart(
+    source: ChartTable,
+    nome_chart: SparseMap,
+    *,
+    side: str,
+    c_upper: Fraction,
+    max_depth: int,
+    max_leaves: int,
+) -> None:
+    """Resolve the positive-sign secondary midpoint's ``a=2c`` ridge."""
+
+    ridge_center = 2 * c_upper / MINOR_CORNER_SCALE
+    axes = (0, 1, 2, 3, 5)
+    weights = (1, 1, 2, 2, 1)
+    labels = ("radial", "main", "secondary", "ratio", "a-offset")
+    for offset_side, slope in (
+        ("left", -ridge_center),
+        ("right", 1 - ridge_center),
+    ):
+        centered = affine_sparse_map_axis(nome_chart, 5, ridge_center, slope)
+        for selected_axis, label in zip(axes, labels):
+            chart = projective_sparse_map(
+                centered, axes, selected_axis, order=2, weights=weights
+            )
+            certify_sparse_chart(
+                f"{source.label}-minor-midpoint-{side}-nome-ridge-"
+                f"{offset_side}-{label}",
+                chart,
+                selected_axis,
+                max_depth=max_depth,
+                max_leaves=max_leaves,
+                envelope_axis=4,
+                collapse_envelope_early=True,
+            )
+            del chart
+            gc.collect()
+        del centered
+        gc.collect()
+
+
+def certify_minor_midpoint_corner(
+    source: ChartTable,
+    power_map: SparseMap,
+    *,
+    c_upper: Fraction,
+    max_depth: int,
+    max_leaves: int,
+) -> None:
+    """Certify the weighted corner at secondary=0 and main=1/2."""
+
+    axes, labels, _, _, envelope_axis = minor_midpoint_configuration(source)
+    weights = tuple(2 if axis == 2 else 1 for axis in axes)
+    for side, corner_map in iter_minor_midpoint_corner_maps(source, power_map):
+        for selected_axis, label in zip(axes, labels):
+            chart = projective_sparse_map(
+                corner_map, axes, selected_axis, order=2, weights=weights
+            )
+            if (
+                source.label.startswith("minor-secondary")
+                and source.label.endswith("sign-+1")
+                and label == "nome"
+            ):
+                certify_secondary_midpoint_nome_chart(
+                    source,
+                    chart,
+                    side=side,
+                    c_upper=c_upper,
+                    max_depth=max_depth,
+                    max_leaves=max_leaves,
+                )
+                del chart
+                gc.collect()
+                continue
+            certify_sparse_chart(
+                f"{source.label}-minor-midpoint-{side}-{label}",
+                chart,
+                selected_axis,
+                max_depth=max_depth,
+                max_leaves=max_leaves,
+                envelope_axis=envelope_axis,
+                collapse_envelope_early=True,
+            )
+            del chart
+            gc.collect()
+        del corner_map
+        gc.collect()
+
+
+def minor_midpoint_corner_boxes(source: ChartTable) -> tuple[Box, Box]:
+    """Return the two original-coordinate boxes around the midpoint ridge."""
+
+    _, _, upper_axes, lower_axes, _ = minor_midpoint_configuration(source)
+    scale = float(MINOR_CORNER_SCALE)
+    squared_scale = float(MINOR_CORNER_SCALE**2)
+    shared: list[tuple[float, float]] = [(0.0, 1.0) for _ in range(6)]
+    shared[2] = (1.0 - squared_scale, 1.0)
+    for axis in upper_axes:
+        shared[axis] = (1.0 - scale, 1.0)
+    for axis in lower_axes:
+        shared[axis] = (0.0, scale)
+    if source.label.startswith("minor-tertiary-1"):
+        shared[4] = (0.0, 1.0 - squared_scale)
+    left = list(shared)
+    right = list(shared)
+    left[1] = (0.5 - scale, 0.5)
+    right[1] = (0.5, 0.5 + scale)
+    return tuple(left), tuple(right)
+
+
+def minor_prevalidated_boxes(source: ChartTable) -> tuple[Box, ...]:
+    """Return the Cartesian regions covered by a minor's local charts."""
+
+    boxes = [minor_corner_box(source), *minor_midpoint_corner_boxes(source)]
+    if source.label.startswith("minor-secondary"):
+        boxes.extend((secondary_corner_ratio_away_box(), secondary_origin_corner_box()))
+    if source.label.startswith("minor-tertiary-1"):
+        boxes.append(tertiary_one_ratio_zero_box())
+    return tuple(boxes)
+
+
+def certify_low_minor_corner(
+    source: ChartTable,
+    c_upper: Fraction,
+    *,
+    max_depth: int,
+    max_leaves: int,
+    power_map: SparseMap | None = None,
+) -> None:
+    """Certify both projective boundary covers for one low-nome minor."""
+
+    if c_upper > Fraction(1, 200):
+        raise ValueError("the audited minor tail requires c_upper <= 1/200")
+    axes, labels, upper_axes, lower_axes, envelope_axis = minor_corner_configuration(
+        source
+    )
+    started = time.monotonic()
+    if power_map is None:
+        power_map = asymptotic_power_map(low_nome_table(source), c_upper)
+    corner_map = restricted_minor_corner_map(power_map, upper_axes, lower_axes)
+    for selected_axis, label in zip(axes, labels):
+        chart = projective_sparse_map(corner_map, axes, selected_axis, order=2)
+        if source.label.startswith("minor-secondary") and label == "ratio":
+            certify_secondary_minor_ratio_chart(
+                source,
+                chart,
+                max_depth=max_depth,
+                max_leaves=max_leaves,
+            )
+            del chart
+            gc.collect()
+            continue
+        certify_sparse_chart(
+            f"{source.label}-minor-corner-{label}",
+            chart,
+            selected_axis,
+            max_depth=max_depth,
+            max_leaves=max_leaves,
+            envelope_axis=envelope_axis,
+            collapse_envelope_early=True,
+        )
+        del chart
+        gc.collect()
+    del corner_map
+    gc.collect()
+    if source.label.startswith("minor-secondary"):
+        certify_secondary_corner_ratio_away(
+            source,
+            power_map,
+            max_depth=max_depth,
+            max_leaves=max_leaves,
+        )
+        certify_secondary_origin_corner(
+            source,
+            power_map,
+            max_depth=max_depth,
+            max_leaves=max_leaves,
+        )
+    if source.label.startswith("minor-tertiary-1"):
+        certify_tertiary_one_ratio_zero(
+            source,
+            power_map,
+            max_depth=max_depth,
+            max_leaves=max_leaves,
+        )
+    certify_minor_midpoint_corner(
+        source,
+        power_map,
+        c_upper=c_upper,
+        max_depth=max_depth,
+        max_leaves=max_leaves,
+    )
+    print(
+        f"{source.label}: low-minor local cover PASS in "
+        f"{time.monotonic() - started:.2f}s",
+        flush=True,
+    )
+
+
+def certify_asymptotic_minor(
+    source: ChartTable,
+    c_upper: Fraction,
+    *,
+    max_depth: int,
+    max_leaves: int,
+) -> None:
+    """Certify one complete final minor on a low-nome interval."""
+
+    started = time.monotonic()
+    power_map = asymptotic_power_map(low_nome_table(source), c_upper)
+    certify_low_minor_corner(
+        source,
+        c_upper,
+        max_depth=max_depth,
+        max_leaves=max_leaves,
+        power_map=power_map,
+    )
+    tensor = sparse_map_bernstein_tensor(power_map)
+    built = time.monotonic()
+    result = certify(
+        tensor,
+        max_depth=max_depth,
+        max_leaves=max_leaves,
+        prevalidated_boxes=minor_prevalidated_boxes(source),
+    )
+    print(
+        f"{source.label}-minor-global: shape={tensor.lower.shape}, "
+        f"pass={result.passed}, leaves={result.leaves}, depth={result.depth}, "
+        f"lower={result.minimum_lower:.3e}, "
+        f"chart={time.monotonic() - built:.2f}s",
+        flush=True,
+    )
+    if not result.passed:
+        print(
+            f"  failure_box={result.failure_box}, index={result.failure_index}",
+            flush=True,
+        )
+        raise SystemExit(1)
+    print(
+        f"{source.label}: complete low-minor PASS in {time.monotonic() - started:.2f}s",
         flush=True,
     )
 
@@ -1486,10 +2284,12 @@ def certify_asymptotic_determinant(
             power_map, chart_axis, label, c_upper
         ):
             prevalidated_boxes: list[Box] = []
-            prevalidated_regions: list[Callable[[Box], bool]] = []
             local_maps: list[
                 tuple[str, SparseMap, tuple[tuple[float, float], ...]]
             ] = []
+            is_zero_parameter_chart = (
+                source.label.startswith("det-0") and chart_label == "one-minus-ratio"
+            )
             if chart_label.endswith("orientation-weighted4-one-minus-main"):
                 local_maps.extend(orientation_endpoint_maps(chart_map))
             for local_label, local_map, local_box in local_maps:
@@ -1513,11 +2313,10 @@ def certify_asymptotic_determinant(
                 prevalidated_boxes.append(local_box)
                 del local_tensor, local_map
                 gc.collect()
-            if source.label == "det-0-sign-+1" and chart_label == "one-minus-ratio":
+            if is_zero_parameter_chart:
                 for (
                     corner_label,
                     corner_tensor,
-                    selected_axis,
                 ) in widened_zero_parameter_corner_tensors(chart_map):
                     corner_result = certify(
                         corner_tensor,
@@ -1536,13 +2335,19 @@ def certify_asymptotic_determinant(
                     )
                     if not corner_result.passed:
                         raise SystemExit(1)
-                    prevalidated_regions.append(
-                        lambda box, axis=selected_axis: (
-                            widened_zero_parameter_region_contains(box, axis)
-                        )
-                    )
                     del corner_tensor
                     gc.collect()
+                certify_first_determinant_zero_parameter_main(
+                    source,
+                    c_upper,
+                    max_depth=max_depth,
+                    max_leaves=max_leaves,
+                    ratio_chart=chart_map,
+                )
+                # One of c, |b|, sqrt(1-u), sqrt(1-v), or sqrt(1-a)
+                # is largest, so the four widened charts plus the U chart
+                # cover this entire Cartesian corner box.
+                prevalidated_boxes.append(zero_parameter_corner_box())
             tensor = sparse_map_bernstein_tensor(chart_map)
             built = time.monotonic()
             result = certify(
@@ -1550,7 +2355,6 @@ def certify_asymptotic_determinant(
                 max_depth=max_depth,
                 max_leaves=max_leaves,
                 prevalidated_boxes=tuple(prevalidated_boxes),
-                prevalidated_regions=tuple(prevalidated_regions),
             )
             print(
                 f"{source.label}-asymptotic-{chart_label}: "
@@ -1729,6 +2533,16 @@ def parse_args() -> argparse.Namespace:
         help="run the final first-determinant U-dominant corner hierarchy",
     )
     parser.add_argument(
+        "--certify-minor-corners",
+        action="store_true",
+        help="run the low-nome projective corner covers for the final minors",
+    )
+    parser.add_argument(
+        "--certify-asymptotic-minors",
+        action="store_true",
+        help="run the integrated low-nome certificates for the final minors",
+    )
+    parser.add_argument(
         "--asymptotic-chart",
         choices=("c", "main", "one-minus-ratio", "one-minus-a", "abs-b"),
         help="run only one top-level asymptotic chart",
@@ -1780,6 +2594,27 @@ def main() -> None:
             raise SystemExit("no det0 chart matched")
         for source in det0_sources:
             certify_first_determinant_zero_parameter_main(
+                source,
+                args.upper,
+                max_depth=args.max_depth,
+                max_leaves=args.max_leaves,
+            )
+        return
+    if args.certify_minor_corners or args.certify_asymptotic_minors:
+        if args.lower != 0:
+            raise SystemExit("the low-minor charts require lower=0")
+        minor_sources = [
+            table for table in selected if table.label.startswith("minor-")
+        ]
+        if not minor_sources:
+            raise SystemExit("no minor chart matched")
+        certificate = (
+            certify_asymptotic_minor
+            if args.certify_asymptotic_minors
+            else certify_low_minor_corner
+        )
+        for source in minor_sources:
+            certificate(
                 source,
                 args.upper,
                 max_depth=args.max_depth,

@@ -402,8 +402,10 @@ square, the transverse leading form is
 64(16Z^2+3B^2+3sA^2+4sR). \tag{25}
 \]
 
-With the analytic tail enclosure on $0\leq c\leq.01$, the nome-, $R$-, $A$-,
-and $B$-dominant charts certify even after all ratios are enlarged to $[0,2]$.
+For the positive sign, the analytic tail enclosure on $0\leq c\leq.01$
+certifies the nome-, $R$-, $A$-, and $B$-dominant charts even after all ratios
+are enlarged to $[0,2]$. Their negative-sign counterparts still need a clean
+integrated regeneration.
 The $U$-axis equality line has one further finite hierarchy. In the
 $R$-dominant transverse chart its equality face vanishes identically, and the
 next form is
@@ -421,12 +423,87 @@ In the $A$-dominant chart the corresponding form is
 
 Both are coefficient-positive on the unit cube and strict in their three
 transverse variables. On $0\leq c\leq.005$, 26 centered-model charts certify
-the complete positive-sign $U$-dominant hierarchy: four nome, four $B$, six
-nested $R$, and twelve nested $A$ boxes, all at the root. Regeneration takes
-about 47 minutes and peaks at 12.72 GB without swap. The negative-sign run and
-integration of this local chart into the global top chart remain pending.
-Equations (20)--(27) are checked as exact rational sparse-map identities by
+the complete $U$-dominant hierarchy for both signs: four nome, four $B$, six
+nested $R$, and twelve nested $A$ boxes, all at the root. The negative run took
+$3032.81$ seconds (50m33s), peaked at 11.02 GB, and used no swap. Equations
+(20)--(27) are checked as exact rational sparse-map identities by
 `--audit-ridge`.
+
+### Complete low-nome minor certificates
+
+The three normalized final minors have two sharp mechanisms: the original
+corner and the midpoint face where the main coordinate is $1/2$. At the first
+corner, use $C$ for the scaled nome. For the secondary minor put
+$U=1-u$, $V=v$, $Y=1-y$, and $A=a$. Its exact transverse quadratic is
+
+\[
+ 256C^2+64U^2+64UV+64UY+48V^2+48A^2. \tag{28}
+\]
+
+For the tertiary minors put $R=1-r$ and retain $A$ for the lower ratio. The
+common form is
+
+\[
+ 256C^2+64U^2+64UV+48V^2+96VR+96R^2+96RA+48A^2, \tag{29}
+\]
+
+and tertiary chart one has the additional nonnegative term $96VA$. The sole
+secondary equality line after selecting $Y$ has the positive-definite
+transverse form
+
+\[
+ 256C^2+64U+48V^2+48A^2. \tag{30}
+\]
+
+Two more secondary boxes are needed to cover the ends of that line. Their
+leading forms are respectively
+
+\[
+ 256C^2+48V^2+48A^2+64U(1-q),\qquad
+ 256C^2+64U+48V^2+64q+48A^2. \tag{31}
+\]
+
+At the midpoint write $M=u-1/2$ and $S=1-v$. With the remaining chart
+coordinates denoted as in the checker, the three exact forms are
+
+\[
+\begin{aligned}
+ H_{\rm sec}&=144(A-2\sigma C)^2+144qC^2+384M^2+(64+96q)S,\\
+ H_{\rm ter0}&=144(T+R-2\sigma C)^2+144C^2+384M^2+160S,\\
+ H_{\rm ter1}&=144C^2+(1-R)
+ \{144(T-2\sigma C)^2+384M^2+32(5-2R)S\}.
+\end{aligned} \tag{32}
+\]
+
+The positive secondary chart has one further ridge, $q=0,A=2C$. In the actual
+$c\leq1/200$ scaling its leading form is
+
+\[
+ {3\over12500000}Z^2+24M^2+4S+{9\over2500}q+9D^2, \tag{33}
+\]
+
+where $Z,D$ are the radial and $A-2C$ blow-up coordinates. Tertiary chart one
+also degenerates when $R=1$; its separate ratio-zero chart has leading form
+$144(T-2\sigma Cr)^2+144C^2+384M^2+(96+64r^2)S$.
+
+The exact audit regenerates (28)--(33) for both signs. The interval checker
+then certifies all local charts and the global complement on
+$0\leq c\leq.005$. The global leaf counts for the secondary, tertiary-zero,
+and tertiary-one minors are respectively $81,32,184$ for the positive sign and
+$71,32,188$ for the negative sign, at maximum depths four, four, and five.
+Complete self-contained regeneration took 10m19s and 8.13 GB for the positive
+sign, and 3m52s and 5.77 GB for the negative sign, with no swap:
+
+```text
+slice_low_nome_certificate.py 0 .005 --certify-asymptotic-minors --sign 1
+slice_low_nome_certificate.py 0 .005 --certify-asymptotic-minors --sign -1
+```
+
+For memory control, an irrelevant envelope axis is converted to Bernstein
+form and collapsed before the remaining axes. This is rigorous: the envelope
+control balls are replaced by their convex hull, and every subsequent
+power-to-Bernstein conversion is a positive linear map, so it preserves that
+inclusion. It is not a sampled or floating-point shortcut.
 
 For the analytic tails, exact rational coefficients are retained through
 order 15. Since each normalized scalar factor is $c^p$ times an even analytic
@@ -438,6 +515,16 @@ longer performed between Arb balls.
 These degeneracies are not evidence of a negative determinant. Any rigorous
 continuation must factor or blow them up and must not accept a small negative
 interval bound as rounding error.
+
+The low determinant is not yet globally integrated. Reusing the proved
+Cartesian corner in the top det0 chart drives the global solver to further
+exact-equality arms rather than to a negative value: first a nome-dominant arm
+just outside the local cutoff (lower bound about $-10^{-17}$), then a
+main-dominant arm meeting the normalized $S=1/2$ transition. Narrow widened
+charts certify neighborhoods of each observed arm for both signs, but no
+finite sound union covering all their intersections has yet been encoded.
+Accordingly the determinant, the bridge $.005\to.01$, and hence (RT) remain
+open even though all three low minors are now proved.
 
 ## 6. Shortcuts falsified during this reduction
 
@@ -455,9 +542,8 @@ the preferred route.
 
 ## 7. Next exact target
 
-Extend L54's four-box adaptive cover across the compact range, keeping $c$ as
-a shared Bernstein coordinate. At $c=0$, regenerate the det0 $U$-hierarchy
-for the negative sign and integrate its five local corner charts into the
-global top chart. Then certify the three low minor charts and bridge
-$[.005,.01]$. Completing all three tasks proves (RT) and therefore the elliptic
+Factor the intersecting det0 equality arms globally, especially the
+main-dominant $S=1/2$ transition, rather than extending another arbitrary
+Cartesian cutoff. Integrate that finite cover into the top chart, then bridge
+$[.005,.01]$. These two tasks prove (RT) and therefore the elliptic
 $4\times4$ slice, but not the general Crouzeix conjecture.

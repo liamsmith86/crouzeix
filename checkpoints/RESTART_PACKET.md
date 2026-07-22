@@ -66,13 +66,17 @@ L55 performs the exact normalization: determinant order `c^9`, final-minor order
 `B=b/c=2` starts with `46080c^4`. Further exact products close the main-orientation remainder
 and identify the det1 hierarchy (20)--(23) and det0 `a=0` forms (24)--(27) in
 `proof/slice_core_projective_reduction.md`.
-The det0 main-orientation chart and four widened corner charts certify. Its former equality
-line ends in coefficient-positive forms (26)--(27), and 26 charts close the positive sign on
-`[0,.005]`; rerun the negative sign and integrate this local cover. Det1's endpoint hierarchy
-ends in an exact positive-definite quadratic.
+The det0 main-orientation chart and the four positive-sign widened corner charts certify. Its
+former equality line ends in coefficient-positive forms (26)--(27), and all 26 charts close both signs on
+`[0,.005]`; the negative run took 3033 seconds and every chart passed at the root. Det1's
+endpoint hierarchy ends in an exact positive-definite quadratic.
 Two 59-chart directed runs certify the full det1 main chart for both signs on `[0,.005]` (about
-84 and 76 minutes). No complete interval touching zero is yet proved because det0 integration
-and the low minors remain.
+84 and 76 minutes). Exact minor forms (28)--(33) and full integrated runs now certify all three
+final minors for both signs on `[0,.005]` (global leaves `81/32/184` positive and
+`71/32/188` negative). No complete interval touching zero is yet proved because the det0 global
+chart follows intersecting exact-equality arms, including a normalized `S=1/2` transition, and
+the `.005→.01` bridge also remains. Factor those arms; do not accept their tiny negative
+interval lower bounds as rounding error and do not merely move the local cutoff.
 
 L45's convex-in-`a` branch is common (772,130 of 2,000,000 random quadratic-form probes) but its
 discriminant remained positive in the sample; no concavity-only shortcut exists.
@@ -266,11 +270,11 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
 ## Next five concrete actions (refreshed 2026-07-21, Epoch 6)
-1. **Close L27's rank-one/rank-one face.** Derive the exact KKT equations for both defect
-   directions and their relative scale. Search first for an orthogonal-colligation/finite-
-   Blaschke interpretation analogous to L28; do not launch a free four-coordinate certificate
-   before using complementary slackness. This is the only remaining KKT face for L20. Do not
-   repeat the now-proved rank-one/full, one-block, lower-odd, or concave-sign estimates.
+1. **Finish the exact transfer core already derived from L27.** Factor the det0 top chart's
+   intersecting equality arms, especially the main-dominant normalized `S=1/2` transition, and
+   integrate their finite local cover on `[0,.005]`; then bridge `.005→.01`. All low minors,
+   det1, and the det0 local `U` hierarchy are already closed for both signs. Do not move another
+   arbitrary cutoff or restart the rank-one/full, one-block, lower-odd, or concave-sign work.
 2. **Shifted degree-one Möbius phase**: derive its stationarity/rho formula and prove positivity
    (or K≤2) independently, both as a fallback and as a guide to the metric.
 3. **Bi-conic Schwarzian route**: compute `SG` for the off-slice collapsed map on its critical
@@ -289,10 +293,11 @@ task). Read RESEARCH_STATE.md (NEWEST section first), then proof/slice_similarit
 proof/slice_boundary_theorems.md,
 proof/el4_schwarzian_theorem.md,
 proof/even_pick_globality.md, proof/slice_closed_form.md, and proof/D2_landscape.md; master program in
-proof/rho_positivity_program.md. Resume at restart-packet action 1 (analytic L20 similarity metric
-for the elliptic slice). EL4 and even-sector midpoint globality are proved; definite parity is
-false. L20 is now exactly a 2×2-block dual trace inequality, and both individual modal blocks are
-bounded by two; do not redo the SDP duality, modal norms, or blind metric ansatzes. Respect
+proof/rho_positivity_program.md. Resume at restart-packet action 1 (factor and integrate the det0
+equality arms, then bridge the low-nome gap). EL4 and even-sector midpoint globality are proved;
+definite parity is false. L20 is now exactly a 2×2-block dual trace inequality, both individual
+modal blocks are bounded by two, and all low minors are certified; do not redo the SDP duality,
+modal norms, minor charts, or blind metric ansatzes. Respect
 APPROACH_LEDGER.md pitfalls P1–P8: every
 numerical claim needs the certificate battery; treat any apparent violation as artifact until it
 survives strict re-evaluation and an independent implementation; cross-check extremal phases with
