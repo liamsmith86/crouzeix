@@ -2,8 +2,9 @@
 
 This note isolates the exact analytic content of the complete-2 route `L20`.  It proves an
 SDP-dual trace criterion valid for every strictly stable matrix and then reduces the elliptic
-slice to three real parameters.  The final trace inequality is **not yet proved**; the numerical
-evidence recorded below is only a guide to that remaining step.
+slice to three real parameters.  The final trace inequality is now **proved for this slice** by
+the downstream rank-face reductions and L59's full transfer certificate.  The numerical
+evidence below is retained as the historical guide which led to that proof.
 
 ## 1. The similarity constant and its exact dual
 
@@ -86,8 +87,8 @@ If (3) has a solution with (t\le4), then (S=P^{1/2}) satisfies
 \]
 
 For (T=\phi(A)), von Neumann's inequality therefore gives the complete Crouzeix bound on the
-corresponding ellipse.  Thus (2), proved uniformly for the slice below, would close that entire
-matrix family without classifying its extremal Blaschke phases.
+corresponding ellipse.  Thus (2), now proved uniformly for the slice by L27--L59, closes that
+entire matrix family without classifying its extremal Blaschke phases.
 
 ## 2. Parity reduction
 
@@ -203,11 +204,11 @@ Substitution of (12) shows that the (4\times4) SDP is exactly the following pair
  \end{aligned} \tag{13}
 \]
 
-Equations (2), (8), and (11)-(13) are three exact equivalent formulations of the remaining
-slice theorem.  They expose where a proof must use the conformal coupling: arbitrary choices of
+Equations (2), (8), and (11)-(13) are three exact equivalent formulations of the slice
+theorem.  They expose where its proof uses the conformal coupling: arbitrary choices of
 the two rotations and two diagonal entries in (12) do not satisfy the bound.
 
-## 5. Numerical audit and remaining theorem
+## 5. Numerical audit and downstream completion
 
 `experiments/slice_similarity_duality.py` verifies (12) against the independent nodal functional
 calculus and compares the primal optimum with the trace ratio obtained from its SDP dual witness.
@@ -226,12 +227,19 @@ obeys (k/c\le4/(1+c^2)^2).  `proof/slice_coupled_defects.md` then eliminates the
 contraction LMIs by a two-node Stein-kernel formula and reduces any hypothetical optimum above
 four to rank-one/rank-one or rank-one/full coupled KKT faces.
 
-The live analytic target is now the explicit cone inequality
+The explicit cone inequality identified here is
 
 \[
  \boxed{\operatorname{tr}D_-\le4\operatorname{tr}D_+
  \quad\text{for (8), with (B,C) constrained by (10)-(12).}} \tag{L20'}
 \]
 
-Proving `L20'` closes the elliptic 4x4 slice completely boundedly.  It remains a partial result
-toward, not a resolution of, the general Crouzeix conjecture.
+L27 reduces a hypothetical violation to rank-one/full or rank-one/rank-one Stein-defect faces.
+L29 closes the first type.  L40 bounds the second by the matrix-valued transfer (RT), and
+L41--L43 plus L45--L58 reduce that transfer to five projective polynomial charts.  L59 certifies the last
+positive-sign interval and overlaps the analytic high-nome theorem L42.  Consequently `L20'`
+and `L20` are proved for every nondegenerate elliptic-slice parameter.
+
+For $A=S_a+cS_a^T$, $a_1,a_2,a_3>0$, $0<c<1$, the numerical-range ellipse is therefore a
+complete $2$-spectral set.  This is a partial result toward, not a resolution of, the general
+Crouzeix conjecture.

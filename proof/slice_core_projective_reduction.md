@@ -1,11 +1,10 @@
-# Projective reduction of the remaining elliptic transfer core
+# Projective proof of the elliptic transfer core
 
-**Status (2026-07-22):** the exact reductions, both orientation faces, the
-complete continuous interval $0\leq c\leq.020736$, and the high-nome range
-$c\geq2^{-2/3}$ are proved. In the compact interval, the negative sign is
-certified through $.63$ and the positive sign through
-$c_+=.5566585294072849\ldots$. Thus only the positive-sign window
-$c_+<c<2^{-2/3}$ remains open.
+**Status (2026-07-22): PROVED.** L59's full deficit-centered certificate
+closes the former positive-sign window from
+$c_+=.5566585294072849\ldots$ through $.63$, overlapping the analytic
+high-nome theorem.  Together with the reductions in this note, this proves
+(RT) and L20 for the complete elliptic $4\times4$ slice.
 
 ## 1. The two minors that remain
 
@@ -570,8 +569,8 @@ ratio-$6/5,11/10,21/20,41/40,81/80$ covers through
 \]
 
 These are continuous interval certificates, not fixed-$c$ samples.  Since
-$(63/100)^3=250047/10^6>1/4$, the negative cover overlaps L42.  Only the
-positive-sign tail after (35) remains.
+$(63/100)^3=250047/10^6>1/4$, the negative cover overlaps L42.  At the L57
+stage only the positive-sign tail after (35) remained; L59 below closes it.
 
 ### Exact factorization of the sharp positive face
 
@@ -645,6 +644,64 @@ small positive square, not a negative determinant.  The exact audit
 integer record and verifies the common $207$-term square against the explicit
 $30$-term root, without symbolic factorization or floating-point decisions.
 
+### Full positive tail certificate
+
+L59 closes the tail without bounding the higher-deficit remainder separately.
+For each determinant, collect the *complete* polynomial in
+$A=1-a,B=1-b$ (degrees zero through four in each variable), set
+$A=u,B=v$ with $u,v\in[0,1]$, and preserve all correlations with $X,R,Y$.
+Thus the certified slab is the full deficit square, not a neighbourhood of
+$a=b=1$.  On each nome box the construction retains Taylor orders zero through
+nine, encloses the order-ten remainder with Arb, converts the nome and all five
+spatial variables to Bernstein form, and rounds every binary64 endpoint
+outward.
+
+At the last five boxes the global centered tensor has tiny negative lower
+bounds near the exact square (40).  This is representation overestimation, not
+a tolerated sign error.  A bounded depth-one recentering enlarges each failed
+leaf to a dyadic ancestor, transports that ancestor back to an exact rational
+physical box, rebuilds a fresh Arb/Bernstein tensor there, and certifies it
+independently.  Only a recentered box which passes is removed from the global
+subdivision.  The machinery has separate dyadic-ancestry, affine-transport,
+and Bernstein-evaluation audits.
+
+Ten exactly adjacent ratio-$81/80$ rational boxes cover
+
+\[
+ [c_+,63/100]. \tag{42}
+\]
+
+Both determinant charts and all three final-minor charts pass on every box.
+The run was forced to regenerate both $197563$-record tables, both
+$207$-term corner squares, and all certificate machinery before starting the
+cover.  It used Python 3.14.6, python-flint 0.9.0, and NumPy 2.5.1, and ended
+with `BOX PASS 10/10` and `EXIT_STATUS 0`.  The complete 130-line provenance
+log is `experiments/positive_tail_full_20260722.log` (SHA-256
+`fb79b2dfc652062307d69d26a00d82ff20c4133a0043eb6077458ea7cf70928c`);
+the certified code commit is
+`3dd51884dec8f18fc54cc5c10692ecd97cb2bf28`.
+
+Reproduction from that commit:
+
+```bash
+.venv/bin/python -u experiments/slice_positive_tail_certificate.py \
+  --regenerate-records
+```
+
+Finally,
+
+\[
+ (63/100)^3-1/4={47\over10^6}>0, \tag{43}
+\]
+
+so (42) overlaps L42's $c\geq2^{-2/3}$ theorem.  Together with
+L54--L57, both signs are now covered for every $0<c<1$.  Hence (RT) is proved
+on the full parameter cube.  L27--L29 close the other KKT faces, so the dual
+trace inequality L20' and the condition-two contraction similarity follow for
+the complete nondegenerate elliptic $4\times4$ slice.  The auxiliary closed
+chart faces used in the reduction are included by the proved boundary cases
+and continuity.
+
 ## 6. Shortcuts falsified during this reduction
 
 Three tempting simplifications fail numerically and should not be retried:
@@ -659,11 +716,18 @@ Three tempting simplifications fail numerically and should not be retried:
 The exact polynomial core, not another uncoupled norm majorant, is therefore
 the preferred route.
 
-## 7. Next exact target
+## 7. Result and next general target
 
-Close the positive-sign tail (35) to $2^{-2/3}$ by using the exact face value
-and positive first variation (37)--(39), while keeping the higher-order
-deficit coefficients correlated in the nome and the three surviving
-projective variables.  Do not accept a tolerance or repeat unbounded raw
-subdivision.  Completing this tail proves (RT), hence the complete elliptic
-$4\times4$ slice; it still does not resolve the general Crouzeix conjecture.
+The full rank-one transfer theorem (RT), and therefore L20, is proved for
+
+\[
+ A=S_a+cS_a^T,\qquad a_1,a_2,a_3>0,\qquad0<c<1.
+\]
+
+Equivalently, the numerical-range ellipse is a complete $2$-spectral set for
+this arbitrary-weight $4\times4$ tridiagonal family.  The closest-source audit
+indicates an apparently new special class, pending a publication-level audit;
+it is not the general Crouzeix conjecture and not a theorem for arbitrary
+$4\times4$ matrices.  The campaign should now return to the dimension-free
+L21 trace inequality and the H-r extremal route; it should not begin a
+$5\times5$ slice certificate grind.

@@ -1,0 +1,130 @@
+START 2026-07-22T13:38:41-07:00
+COMMIT 3dd51884dec8f18fc54cc5c10692ecd97cb2bf28
+PYTHON 3.14.6
+PYTHON_FLINT 0.9.0
+NUMPY 2.5.1
+PASS det-0-sign-+1: face_terms=3555, first_terms=3555, remainder_l1=41235531913
+PASS det-1-sign-+1: face_terms=3555, first_terms=3555, remainder_l1=41235531913
+PASS det-0-sign-+1: corner_terms=207, square_root_terms=30
+PASS det-1-sign-+1: corner_terms=207, square_root_terms=30
+BOX 1/10 7471344308886696360166308338925321050191281742307131164807/13421772800000000000000000000000000000000000000000000000000 605178889019822405173470975452951005065493821126877624349367/1073741824000000000000000000000000000000000000000000000000000
+  det-0-sign-+1: slab_root=-1.775e-05, slab_leaves=3, recentered=0, depth=1, time=16.46s
+  det-1-sign-+1: slab_root=2.081e-12, slab_leaves=1, recentered=0, depth=0, time=29.20s
+  minor-secondary-q-sign-+1: pass=True, leaves=1, depth=0, time=1.63s
+  minor-tertiary-0-sign-+1: pass=True, leaves=1, depth=0, time=1.23s
+  minor-tertiary-1-sign-+1: pass=True, leaves=1, depth=0, time=1.16s
+BOX PASS 1/10 time=50.26s
+BOX 2/10 605178889019822405173470975452951005065493821126877624349367/1073741824000000000000000000000000000000000000000000000000000 49019490010605614819051149011689031410304999511277087572298727/85899345920000000000000000000000000000000000000000000000000000
+  det-0-sign-+1: slab_root=2.550e-15, slab_leaves=1, recentered=0, depth=0, time=16.11s
+  det-1-sign-+1: slab_root=1.053e-12, slab_leaves=1, recentered=0, depth=0, time=28.40s
+  minor-secondary-q-sign-+1: pass=True, leaves=1, depth=0, time=1.28s
+  minor-tertiary-0-sign-+1: pass=True, leaves=1, depth=0, time=1.45s
+  minor-tertiary-1-sign-+1: pass=True, leaves=1, depth=0, time=1.17s
+BOX PASS 2/10 time=49.03s
+BOX 3/10 49019490010605614819051149011689031410304999511277087572298727/85899345920000000000000000000000000000000000000000000000000000 3970578690859054800343143069946811544234704960413444093356196887/6871947673600000000000000000000000000000000000000000000000000000
+  det-0-sign-+1: slab_root=1.076e-15, slab_leaves=1, recentered=0, depth=0, time=16.28s
+  det-1-sign-+1: slab_root=4.871e-13, slab_leaves=1, recentered=0, depth=0, time=28.81s
+  minor-secondary-q-sign-+1: pass=True, leaves=1, depth=0, time=1.26s
+  minor-tertiary-0-sign-+1: pass=True, leaves=1, depth=0, time=1.30s
+  minor-tertiary-1-sign-+1: pass=True, leaves=1, depth=0, time=1.39s
+BOX PASS 3/10 time=49.60s
+BOX 4/10 3970578690859054800343143069946811544234704960413444093356196887/6871947673600000000000000000000000000000000000000000000000000000 321616873959583438827794588665691735083011101793488971561851947847/549755813888000000000000000000000000000000000000000000000000000000
+  det-0-sign-+1: slab_root=4.301e-16, slab_leaves=1, recentered=0, depth=0, time=16.28s
+  det-1-sign-+1: slab_root=1.783e-13, slab_leaves=1, recentered=0, depth=0, time=29.34s
+  minor-secondary-q-sign-+1: pass=True, leaves=1, depth=0, time=1.38s
+  minor-tertiary-0-sign-+1: pass=True, leaves=1, depth=0, time=1.17s
+  minor-tertiary-1-sign-+1: pass=True, leaves=1, depth=0, time=1.18s
+BOX PASS 4/10 time=49.91s
+BOX 5/10 321616873959583438827794588665691735083011101793488971561851947847/549755813888000000000000000000000000000000000000000000000000000000 26050966790726258545051361681921030541723899245272606696510007775607/43980465111040000000000000000000000000000000000000000000000000000000
+  det-0-sign-+1: slab_root=1.580e-16, slab_leaves=1, recentered=0, depth=0, time=16.83s
+  det-1-sign-+1: slab_root=5.006e-15, slab_leaves=1, recentered=0, depth=0, time=29.30s
+  minor-secondary-q-sign-+1: pass=True, leaves=1, depth=0, time=1.34s
+  minor-tertiary-0-sign-+1: pass=True, leaves=1, depth=0, time=1.20s
+  minor-tertiary-1-sign-+1: pass=True, leaves=1, depth=0, time=1.15s
+BOX PASS 5/10 time=50.39s
+BOX 6/10 26050966790726258545051361681921030541723899245272606696510007775607/43980465111040000000000000000000000000000000000000000000000000000000 2110128310048826942149160296235603473879635838867081142417310629824167/3518437208883200000000000000000000000000000000000000000000000000000000
+  RECENTER det-0-sign-+1: index=1, box=((0.5, 1.0), (0.5, 1.0), (0.5, 1.0), (0.5, 1.0), (0.0, 0.5), (0.0, 0.5)), root=1.846e-14, pass=True, leaves=1
+  RECENTER det-0-sign-+1: index=2, box=((0.0, 0.5), (0.5, 1.0), (0.5, 1.0), (0.5, 1.0), (0.0, 0.5), (0.0, 0.5)), root=2.797e-14, pass=True, leaves=1
+  det-0-sign-+1: slab_root=-1.037e-13, slab_leaves=44, recentered=2, depth=5, time=77.57s
+  RECENTER det-1-sign-+1: index=1, box=((0.5, 1.0), (0.5, 1.0), (0.5, 1.0), (0.5, 1.0), (0.0, 0.5), (0.0, 0.5)), root=5.679e-14, pass=True, leaves=1
+  RECENTER det-1-sign-+1: index=2, box=((0.0, 0.5), (0.5, 1.0), (0.5, 1.0), (0.5, 1.0), (0.0, 0.5), (0.0, 0.5)), root=8.527e-14, pass=True, leaves=1
+  det-1-sign-+1: slab_root=-1.037e-13, slab_leaves=19, recentered=2, depth=5, time=159.06s
+  minor-secondary-q-sign-+1: pass=True, leaves=1, depth=0, time=1.25s
+  minor-tertiary-0-sign-+1: pass=True, leaves=1, depth=0, time=1.20s
+  minor-tertiary-1-sign-+1: pass=True, leaves=1, depth=0, time=1.21s
+BOX PASS 6/10 time=240.86s
+BOX 7/10 2110128310048826942149160296235603473879635838867081142417310629824167/3518437208883200000000000000000000000000000000000000000000000000000000 170920393113954982314081983995083881384250502948233572535802161015757527/281474976710656000000000000000000000000000000000000000000000000000000000
+  RECENTER det-0-sign-+1: index=1, box=((0.5, 1.0), (0.5, 1.0), (0.5, 1.0), (0.5, 1.0), (0.0, 0.5), (0.0, 0.5)), root=7.744e-15, pass=True, leaves=1
+  RECENTER det-0-sign-+1: index=2, box=((0.0, 0.5), (0.5, 1.0), (0.5, 1.0), (0.5, 1.0), (0.0, 0.5), (0.0, 0.5)), root=1.201e-14, pass=True, leaves=1
+  RECENTER det-0-sign-+1: index=3, box=((0.5, 1.0), (0.5, 1.0), (0.5, 1.0), (0.0, 0.5), (0.0, 0.5), (0.0, 0.5)), root=2.893e-15, pass=True, leaves=1
+  RECENTER det-0-sign-+1: index=4, box=((0.5, 1.0), (0.5, 1.0), (0.0, 0.5), (0.5, 1.0), (0.0, 0.5), (0.0, 0.5)), root=1.552e-15, pass=True, leaves=1
+  RECENTER det-0-sign-+1: index=5, box=((0.0, 0.5), (0.5, 1.0), (0.0, 0.5), (0.5, 1.0), (0.0, 0.5), (0.0, 0.5)), root=2.452e-15, pass=True, leaves=1
+  det-0-sign-+1: slab_root=-1.885e-13, slab_leaves=131, recentered=5, depth=5, time=172.10s
+  RECENTER det-1-sign-+1: index=1, box=((0.5, 1.0), (0.5, 1.0), (0.5, 1.0), (0.5, 1.0), (0.0, 0.5), (0.0, 0.5)), root=2.424e-14, pass=True, leaves=1
+  RECENTER det-1-sign-+1: index=2, box=((0.0, 0.5), (0.5, 1.0), (0.5, 1.0), (0.5, 1.0), (0.0, 0.5), (0.0, 0.5)), root=3.728e-14, pass=True, leaves=1
+  RECENTER det-1-sign-+1: index=3, box=((0.5, 1.0), (0.5, 1.0), (0.5, 1.0), (0.0, 0.5), (0.0, 0.5), (0.0, 0.5)), root=2.430e-14, pass=True, leaves=1
+  det-1-sign-+1: slab_root=-1.885e-13, slab_leaves=29, recentered=3, depth=5, time=225.43s
+  minor-secondary-q-sign-+1: pass=True, leaves=1, depth=0, time=1.35s
+  minor-tertiary-0-sign-+1: pass=True, leaves=1, depth=0, time=1.15s
+  minor-tertiary-1-sign-+1: pass=True, leaves=1, depth=0, time=1.15s
+BOX PASS 7/10 time=401.75s
+BOX 8/10 170920393113954982314081983995083881384250502948233572535802161015757527/281474976710656000000000000000000000000000000000000000000000000000000000 13844551842230353567440640703601794392124290738806919375399975042276359687/22517998136852480000000000000000000000000000000000000000000000000000000000
+  RECENTER det-0-sign-+1: index=1, box=((0.5, 1.0), (0.5, 1.0), (0.5, 1.0), (0.5, 1.0), (0.0, 0.5), (0.0, 0.5)), root=3.091e-15, pass=True, leaves=1
+  RECENTER det-0-sign-+1: index=2, box=((0.0, 0.5), (0.5, 1.0), (0.5, 1.0), (0.5, 1.0), (0.0, 0.5), (0.0, 0.5)), root=4.917e-15, pass=True, leaves=1
+  RECENTER det-0-sign-+1: index=3, box=((0.5, 1.0), (0.5, 1.0), (0.5, 1.0), (0.0, 0.5), (0.0, 0.5), (0.0, 0.5)), root=1.144e-15, pass=True, leaves=1
+  RECENTER det-0-sign-+1: index=4, box=((0.0, 0.5), (0.5, 1.0), (0.5, 1.0), (0.0, 0.5), (0.0, 0.5), (0.0, 0.5)), root=1.828e-15, pass=True, leaves=1
+  RECENTER det-0-sign-+1: index=5, box=((0.5, 1.0), (0.5, 1.0), (0.0, 0.5), (0.5, 1.0), (0.0, 0.5), (0.0, 0.5)), root=5.964e-16, pass=True, leaves=1
+  RECENTER det-0-sign-+1: index=6, box=((0.0, 0.5), (0.5, 1.0), (0.0, 0.5), (0.5, 1.0), (0.0, 0.5), (0.0, 0.5)), root=9.668e-16, pass=True, leaves=1
+  RECENTER det-0-sign-+1: index=7, box=((0.5, 1.0), (0.5, 1.0), (0.0, 0.5), (0.0, 0.5), (0.0, 0.5), (0.0, 0.5)), root=7.569e-18, pass=True, leaves=1
+  RECENTER det-0-sign-+1: index=8, box=((0.0, 0.5), (0.5, 1.0), (0.0, 0.5), (0.0, 0.5), (0.0, 0.5), (0.0, 0.5)), root=1.316e-17, pass=True, leaves=1
+  det-0-sign-+1: slab_root=-2.740e-13, slab_leaves=720, recentered=8, depth=9, time=275.72s
+  RECENTER det-1-sign-+1: index=1, box=((0.5, 1.0), (0.5, 1.0), (0.5, 1.0), (0.5, 1.0), (0.0, 0.5), (0.0, 0.5)), root=9.809e-15, pass=True, leaves=1
+  RECENTER det-1-sign-+1: index=2, box=((0.0, 0.5), (0.5, 1.0), (0.5, 1.0), (0.5, 1.0), (0.0, 0.5), (0.0, 0.5)), root=1.551e-14, pass=True, leaves=1
+  RECENTER det-1-sign-+1: index=3, box=((0.5, 1.0), (0.5, 1.0), (0.5, 1.0), (0.0, 0.5), (0.0, 0.5), (0.0, 0.5)), root=9.885e-15, pass=True, leaves=1
+  RECENTER det-1-sign-+1: index=4, box=((0.0, 0.5), (0.5, 1.0), (0.5, 1.0), (0.0, 0.5), (0.0, 0.5), (0.0, 0.5)), root=1.558e-14, pass=True, leaves=1
+  det-1-sign-+1: slab_root=-2.740e-13, slab_leaves=29, recentered=4, depth=5, time=292.29s
+  minor-secondary-q-sign-+1: pass=True, leaves=1, depth=0, time=1.28s
+  minor-tertiary-0-sign-+1: pass=True, leaves=1, depth=0, time=1.16s
+  minor-tertiary-1-sign-+1: pass=True, leaves=1, depth=0, time=1.19s
+BOX PASS 8/10 time=572.20s
+BOX 9/10 13844551842230353567440640703601794392124290738806919375399975042276359687/22517998136852480000000000000000000000000000000000000000000000000000000000 1121408699220658638962691896991745345762067549843360469407397978424385134647/1801439850948198400000000000000000000000000000000000000000000000000000000000
+  RECENTER det-0-sign-+1: index=1, box=((0.5, 1.0), (0.5, 1.0), (0.5, 1.0), (0.5, 1.0), (0.0, 0.5), (0.0, 0.5)), root=1.169e-15, pass=True, leaves=1
+  RECENTER det-0-sign-+1: index=2, box=((0.0, 0.5), (0.5, 1.0), (0.5, 1.0), (0.5, 1.0), (0.0, 0.5), (0.0, 0.5)), root=1.911e-15, pass=True, leaves=1
+  RECENTER det-0-sign-+1: index=3, box=((0.5, 1.0), (0.5, 1.0), (0.5, 1.0), (0.0, 0.5), (0.0, 0.5), (0.0, 0.5)), root=4.295e-16, pass=True, leaves=1
+  RECENTER det-0-sign-+1: index=4, box=((0.0, 0.5), (0.5, 1.0), (0.5, 1.0), (0.0, 0.5), (0.0, 0.5), (0.0, 0.5)), root=7.049e-16, pass=True, leaves=1
+  RECENTER det-0-sign-+1: index=5, box=((0.5, 1.0), (0.5, 1.0), (0.0, 0.5), (0.5, 1.0), (0.0, 0.5), (0.0, 0.5)), root=2.171e-16, pass=True, leaves=1
+  RECENTER det-0-sign-+1: index=6, box=((0.0, 0.5), (0.5, 1.0), (0.0, 0.5), (0.5, 1.0), (0.0, 0.5), (0.0, 0.5)), root=3.618e-16, pass=True, leaves=1
+  RECENTER det-0-sign-+1: index=7, box=((0.5, 1.0), (0.5, 1.0), (0.0, 0.5), (0.0, 0.5), (0.0, 0.5), (0.0, 0.5)), root=2.383e-18, pass=True, leaves=1
+  RECENTER det-0-sign-+1: index=8, box=((0.0, 0.5), (0.5, 1.0), (0.0, 0.5), (0.0, 0.5), (0.0, 0.5), (0.0, 0.5)), root=4.272e-18, pass=True, leaves=1
+  det-0-sign-+1: slab_root=-3.776e-13, slab_leaves=711, recentered=8, depth=9, time=276.64s
+  RECENTER det-1-sign-+1: index=1, box=((0.5, 1.0), (0.5, 1.0), (0.5, 1.0), (0.5, 1.0), (0.0, 0.5), (0.0, 0.5)), root=3.704e-15, pass=True, leaves=1
+  RECENTER det-1-sign-+1: index=2, box=((0.0, 0.5), (0.5, 1.0), (0.5, 1.0), (0.5, 1.0), (0.0, 0.5), (0.0, 0.5)), root=6.074e-15, pass=True, leaves=1
+  RECENTER det-1-sign-+1: index=3, box=((0.5, 1.0), (0.5, 1.0), (0.5, 1.0), (0.0, 0.5), (0.0, 0.5), (0.0, 0.5)), root=3.806e-15, pass=True, leaves=1
+  RECENTER det-1-sign-+1: index=4, box=((0.0, 0.5), (0.5, 1.0), (0.5, 1.0), (0.0, 0.5), (0.0, 0.5), (0.0, 0.5)), root=6.168e-15, pass=True, leaves=1
+  det-1-sign-+1: slab_root=-3.776e-13, slab_leaves=29, recentered=4, depth=5, time=294.48s
+  minor-secondary-q-sign-+1: pass=True, leaves=1, depth=0, time=1.25s
+  minor-tertiary-0-sign-+1: pass=True, leaves=1, depth=0, time=1.19s
+  minor-tertiary-1-sign-+1: pass=True, leaves=1, depth=0, time=1.20s
+BOX PASS 9/10 time=575.32s
+BOX 10/10 1121408699220658638962691896991745345762067549843360469407397978424385134647/1801439850948198400000000000000000000000000000000000000000000000000000000000 63/100
+  RECENTER det-0-sign-+1: index=1, box=((0.5, 1.0), (0.5, 1.0), (0.5, 1.0), (0.5, 1.0), (0.0, 0.5), (0.0, 0.5)), root=4.330e-16, pass=True, leaves=1
+  RECENTER det-0-sign-+1: index=2, box=((0.0, 0.5), (0.5, 1.0), (0.5, 1.0), (0.5, 1.0), (0.0, 0.5), (0.0, 0.5)), root=7.159e-16, pass=True, leaves=1
+  RECENTER det-0-sign-+1: index=3, box=((0.5, 1.0), (0.5, 1.0), (0.5, 1.0), (0.0, 0.5), (0.0, 0.5), (0.0, 0.5)), root=1.583e-16, pass=True, leaves=1
+  RECENTER det-0-sign-+1: index=4, box=((0.0, 0.5), (0.5, 1.0), (0.5, 1.0), (0.0, 0.5), (0.0, 0.5), (0.0, 0.5)), root=2.622e-16, pass=True, leaves=1
+  RECENTER det-0-sign-+1: index=5, box=((0.5, 1.0), (0.5, 1.0), (0.0, 0.5), (0.5, 1.0), (0.0, 0.5), (0.0, 0.5)), root=7.759e-17, pass=True, leaves=1
+  RECENTER det-0-sign-+1: index=6, box=((0.0, 0.5), (0.5, 1.0), (0.0, 0.5), (0.5, 1.0), (0.0, 0.5), (0.0, 0.5)), root=1.306e-16, pass=True, leaves=1
+  RECENTER det-0-sign-+1: index=7, box=((0.5, 1.0), (0.5, 1.0), (0.0, 0.5), (0.0, 0.5), (0.0, 0.5), (0.0, 0.5)), root=7.354e-19, pass=True, leaves=1
+  RECENTER det-0-sign-+1: index=8, box=((0.0, 0.5), (0.5, 1.0), (0.0, 0.5), (0.0, 0.5), (0.0, 0.5), (0.0, 0.5)), root=1.333e-18, pass=True, leaves=1
+  det-0-sign-+1: slab_root=-3.265e-13, slab_leaves=791, recentered=8, depth=9, time=276.59s
+  RECENTER det-1-sign-+1: index=1, box=((0.5, 1.0), (0.5, 1.0), (0.5, 1.0), (0.5, 1.0), (0.0, 0.5), (0.0, 0.5)), root=1.346e-15, pass=True, leaves=1
+  RECENTER det-1-sign-+1: index=2, box=((0.0, 0.5), (0.5, 1.0), (0.5, 1.0), (0.5, 1.0), (0.0, 0.5), (0.0, 0.5)), root=2.271e-15, pass=True, leaves=1
+  RECENTER det-1-sign-+1: index=3, box=((0.5, 1.0), (0.5, 1.0), (0.5, 1.0), (0.0, 0.5), (0.0, 0.5), (0.0, 0.5)), root=1.435e-15, pass=True, leaves=1
+  RECENTER det-1-sign-+1: index=4, box=((0.0, 0.5), (0.5, 1.0), (0.5, 1.0), (0.0, 0.5), (0.0, 0.5), (0.0, 0.5)), root=2.353e-15, pass=True, leaves=1
+  det-1-sign-+1: slab_root=-3.265e-13, slab_leaves=29, recentered=4, depth=5, time=290.30s
+  minor-secondary-q-sign-+1: pass=True, leaves=1, depth=0, time=1.26s
+  minor-tertiary-0-sign-+1: pass=True, leaves=1, depth=0, time=1.18s
+  minor-tertiary-1-sign-+1: pass=True, leaves=1, depth=0, time=1.16s
+BOX PASS 10/10 time=571.03s
+PASS positive tail: boxes=10, start=7471344308886696360166308338925321050191281742307131164807/13421772800000000000000000000000000000000000000000000000000, stop=63/100, elapsed=2610.36s
+EXIT_STATUS 0
+END 2026-07-22T14:24:11-07:00

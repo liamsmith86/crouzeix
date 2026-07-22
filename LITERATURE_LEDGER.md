@@ -26,6 +26,13 @@ Papers, theorems, assumptions, possible gaps. Status verified via web 2026-07-22
 - The Crabb-derived elliptic family `A=(C+bC*)/(2sqrt(b))`, where `C` has the fixed
   superdiagonal weights `(sqrt(2),1,...,1,sqrt(2))`: Kenan Li's 2021 thesis, Chapter 3,
   gives an explicit contraction similarity of condition at most two in every dimension.
+- **Campaign L59 (2026-07-22):** the arbitrary-weight 4×4 elliptic family
+  `A=S_a+cS_a^T`, with three independent positive weights in `S_a`, has a condition-two
+  contraction similarity and hence a complete 2-spectral numerical-range ellipse.  The
+  closest-source audit found no prior arbitrary-weight theorem: Li's thesis fixes the Crabb
+  weights and explicitly leaves the general elliptical problem open.  Treat this as apparently
+  new pending a publication-level literature audit; it is not a result for arbitrary 4×4
+  matrices.  Proof chain L20/L21/L27--L59; `proof/slice_core_projective_reduction.md`.
 - Compressions of the shift / model space operators with certain Blaschke conditions (Bickel–Gorkin school).
 - Matrices attaining ‖A‖ = numerical radius conditions (Crabb-type equality cases).
 

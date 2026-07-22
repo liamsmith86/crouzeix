@@ -1,24 +1,33 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-22 (Epoch 6 — L56/L58 compact transfer frontier)
+**Last updated:** 2026-07-22 (Epoch 6 — L59 elliptic 4×4 slice theorem)
 
-## NEWEST (2026-07-22): bridge closed; only the positive compact tail remains
-- **L56 closes the former `.005→.01` gap.** Four shared-nome boxes certify both
-  determinant charts and all three final-minor charts for both signs. Together with L55 and
-  L54, (RT) is now proved continuously on `0≤c≤.020736`.
-- **L57 advances the compact interval rigorously, not by fixed-nome sampling.** The negative
-  sign passes through `.63`, overlapping L42 because `.63>2^(−2/3)`. The positive sign passes
-  through the exact rational `c+=.5566585294072849…`. Therefore the sole missing interval for
-  the full elliptic `4×4` slice is the positive-sign tail
-  `c+<c<2^(−2/3)≈.6299605`.
-- **L58 identifies why raw subdivision stalls there.** At `a=b=1`, each positive determinant
-  chart is `81c^9` times explicit squares and a fourth power. In the inward deficits
-  `A=1−a,B=1−b`, the two linear coefficients coincide and are nonnegative; their only
-  non-square factor is `2+3k+3Zk−8Zk²≥0`. Exact regeneration checks all 197,563 records in
-  each chart. Higher total deficit degree has exact collected l1 norm `41,235,531,913`, but
-  that uncorrelated bound is too coarse. The next certificate should keep those higher
-  coefficients correlated in the nome and the three surviving projective variables, rather
-  than add a tolerance or continue raw binary64 subdivision.
+## NEWEST (2026-07-22): L20/L59 prove the complete elliptic 4×4 slice
+- **The last positive compact tail is closed rigorously.** L59 collects the complete
+  determinant in `A=1−a,B=1−b`, retains its shared correlations with `c,X,R,Y`, and uses
+  order-0--9 Taylor/Arb order-10 remainder bounds followed by outward Bernstein conversion.
+  Ten exactly adjacent ratio-`81/80` rational boxes certify both determinant and all three
+  final-minor charts from the old `c+` frontier through `.63`. Bounded recentering rebuilds
+  exact rational physical subboxes and certifies them independently; no tolerance is used.
+- **The clean forced-regeneration run passed 10/10 and exited zero.** It first regenerated and
+  audited both 197,563-record determinant tables, both 207-term corner squares, and the
+  Bernstein/recenter machinery. Provenance: commit `3dd51884…`, Python 3.14.6,
+  python-flint 0.9.0, NumPy 2.5.1; 130-line log
+  `experiments/positive_tail_full_20260722.log`, SHA-256
+  `fb79b2dfc652062307d69d26a00d82ff20c4133a0043eb6077458ea7cf70928c`.
+- **This proves the theorem for the slice.** Since `.63³−1/4=47/10^6>0`, L59 overlaps L42.
+  L27--L29 close the other KKT faces, so `t*(φ(A))≤4` and a condition-two contraction
+  similarity hold for every `A=S_a+cS_a^T`, arbitrary positive weights
+  `(a1,a2,a3)`, `0<c<1`. Thus its numerical-range ellipse is a complete 2-spectral set.
+- **Scope and novelty:** this is not all 4×4 matrices and not the general Crouzeix conjecture.
+  The closest-source audit found only Kenan Li's all-dimensional Crabb-derived family with
+  fixed weights; no prior arbitrary-weight 4×4 theorem was found. Call L59 apparently new
+  pending a publication-level novelty audit.
+- **General frontier resumes now.** Do not begin a 5×5 slice grind. The primary gate is L21 on
+  general matrices, especially small generic/noncommuting couplings of repeated Crabb equality
+  blocks. Hartz--McCarthy scalar shifts are now audited as an exact restatement, not a shortcut;
+  every positive-state scalarization of the CP correction is numerically ruled out on one
+  reproducible dense 3×3 example.
 
 ## AUDIT-GATE OUTCOME (2026-07-21, after L48 and external steering review)
 - **L51 compresses the live interior theorem to two projective polynomial
@@ -57,8 +66,8 @@
   charts pass at the root; the complete positive main-dominant chart and a cap-`1/2` negative
   equality tube certify; and the global complements close in `235/399` leaves at depths `8/9`.
   Consequently L55 proves the complete polynomial core, every chart and both signs, on
-  `[0,.005]`. The later L56 bridge connects it to L54, while L57 supplies the current compact
-  frontiers stated above.
+  `[0,.005]`. The later L56 bridge connects it to L54, L57 supplies the former compact
+  frontiers, and L59 completes the cover.
 - **L49 finds the sharp nome estimate required by the zero-node ridge:**
   `k≤4c/(1+4c²)` for `c≤1/2`.  Two Jacobi-product factors suffice, and the
   remaining degree-23 polynomial has 24 positive exact Bernstein coefficients.  On `p=0`,
@@ -98,8 +107,8 @@
   `(-1,1)`; none had a negative discriminant (smallest sampled margin `5.48e-5`). Thus the new
   identity does not collapse merely by concavity. The discriminant route remains well supported,
   but it must retain the conformal coupling.
-- The exact frontier is still (RT), but L47/L48 remove two complete one-parameter sections of
-  its square and provide a new coupled invariant likely useful in the interior.
+- At the L47/L48 stage the exact frontier was (RT); those lemmas removed two complete
+  one-parameter sections and supplied the coupled invariant later used by L59.
 
 ## NEWEST (2026-07-21, Epoch 6) — L20 reduced to an explicit trace-cone inequality
 - **L21 PROVED (dimension-independent):** for every strictly stable matrix `T`, the least
@@ -194,13 +203,13 @@
   bisections, none unresolved). L36 supplies `1/12≤c≤12599/20000` (32,641
   bisections), and L33 supplies the rest. Thus L30–L32 prove the upper odd block ≤2 for every
   parameter. The lower odd block was already analytic, so L28's rank-one/full face is done.
-  **Only L27's rank-one/rank-one coupled face remains for the L20 elliptic-slice theorem.**
+  **At this stage only L27's rank-one/rank-one coupled face remained; L59 later closes it.**
 - **L40 now reduces that last face to one matrix-valued inner theorem.** Two spectral
   row-Gram rotations give the transfer
   `R_{a,b}(T)=−S⁻¹(T−A)(I−AT)⁻¹S`; every rank-one/rank-one trace ratio is at most
   `||R_{a,b}(T)||²`. A cancellation-free block formula extends to the closed parameter square.
   In symmetric modal coordinates its node function is a `2×2` rational inner function with
-  determinant `(ab−z²)/(1−abz²)`. Proving `||R_{a,b}(T)||≤2` uniformly would prove L20.
+  determinant `(ab−z²)/(1−abz²)`. L59 later proves `||R_{a,b}(T)||≤2` uniformly and hence L20.
   The boundary reduces to the proved scalar even sector, but numerical maxima can occur in the
   genuinely matrix-valued interior, so a scalar-only argument is insufficient.
 - **L41 removes the transfer resolvents.** The exact operator-ball defect identity makes
@@ -254,11 +263,13 @@
   `8s² Σ n q^(2n)/(1−q^(2n))(1−cos(2nsx))`. Therefore `Theta≤1` and `rho≥0` throughout the
   nondegenerate even midpoint phase. Proof: `proof/el4_schwarzian_theorem.md`; 70-dps regression:
   `experiments/el4_schwarzian_check.py`.
-- **Scope audit:** this does not yet prove the whole elliptic 4×4 slice. L16 proves midpoint
+- **Historical scope audit (superseded independently by L59):** EL4 alone did not prove the
+  whole elliptic 4×4 slice. L16 proves midpoint
   stationarity and conditional `q1=q2=1/2`. **The globality debt is now closed by L18**:
   `sup ||F(u1)Q1+F(u2)Q2||=max(1,d||Q1−Q2||)`, and for norm>1 the midpoint automorphism is the
   unique nonconstant global even maximizer up to phase (`proof/even_pick_globality.md`). Thus the
-  complete even sector of the elliptic slice has rho≥0. Odd and degree-one phases remain.
+  complete even sector of the elliptic slice has rho≥0. Odd and degree-one phases remain only
+  for a phase-by-phase H-r proof; L59 already proves the slice inequality by similarity.
 - **Immediate correction (same epoch): parity is false on the elliptic slice.** Exact nodal
   search at weights `(.8,2.4,1.1,.3)` finds shifted `b_β`, β=.65306547, K=1.569762, above odd
   numerical 1.511514 and even global 1.489136; diag=1.8e-8 and rho=+0.15504. This mirrors Kenan
@@ -350,23 +361,28 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
 - L13 Clark-type transition proved; L14 three-factor formula; collapse theorem v = α².
 - **sym4 = FIRST BEYOND-LITERATURE TERRITORY: ρ > 0 confirmed numerically (3 cases); extremal
   Blaschke is ODD ({0,±α} zeros) ⟹ f₀ = z·F(z²) collapse exists; squared boundary NOT elliptic
-  (resid 1e-4–1e-3).** Next: close sym4 analytically = first new Crouzeix class in campaign.
+  (resid 1e-4–1e-3).** This was the initial signal; L59 now proves the complete slice by the
+  independent contraction-similarity route, without resolving each H-r phase separately.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-22)
-1. **Close L57's positive compact tail.** Keep L58's exact `a=b=1` face and positive inward
-   first variation intact, and certify only the quadratic-and-higher `(1−a,1−b)` remainder
-   with a shared Bernstein nome coordinate and the surviving `X,R,Y` variables. The raw global
-   coefficient l1 norm is rigorous but too coarse. Do not resume tolerance-based subdivision;
-   the target is only `c+<c<2^(−2/3)`. This proves L20 for the complete elliptic `4×4` slice.
-2. **Shifted Möbius phase**: derive its exact stationarity/rho formula (Kenan-Li quartic analog)
-   and prove rho≥0 or K≤2. Definite parity is false.
-3. **Bi-conic Schwarzian test**: compute `SG` for the off-slice collapsed map on the critical
+1. **General L21 equality-locus gate.** Probe `C_p⊗I_m` for `p=3,4`, `m=2,3`, under generic
+   full, cross-block, and noncommuting operator-weight perturbations on a `10^-4→10^-2`
+   ladder. Record support-eigenvalue gaps and require the existing map-resolution and SDP
+   primal/dual gates. Any apparent `t*>4` needs interval re-evaluation; otherwise use the data
+   to identify a local inequality for `3||D||_1+5tr(D)≥0`.
+2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
+   trace inequality can instead be derived from the block-Toeplitz positivity of the full
+   operator-valued correction moments. Do not retry trace/positive-state scalarizations.
+3. **Shifted Möbius H-r fallback**: derive its exact stationarity/rho formula (Kenan-Li quartic
+   analog) and prove rho≥0 or K≤2. Definite parity is false.
+4. **Bi-conic Schwarzian test**: compute `SG` for the off-slice collapsed map on the critical
    real interval. `SG≥0` would extend L17 immediately; otherwise test the weaker Sturm-potential
    comparison that the proof actually needs.
-4. **Odd phase positivity**: ρ = B₁g₁q₁+B₂g₂q₂ ≥ 0 given the L15 stationarity law
+5. **Odd phase positivity**: ρ = B₁g₁q₁+B₂g₂q₂ ≥ 0 given the L15 stationarity law
    (3-parameter; interlacing τ₂ < α < τ₁; term-1 dominance observed). Try the same
    deformation/kernel machinery.
-5. Rigor debts: n=6 structured floor; 2×2 α=0; contact degeneracy; novelty audit.
+6. Rigor debts: n=6 structured floor; 2×2 α=0; contact degeneracy; L59 publication-level
+   novelty audit.
    General-n work must include symmetry-breaking phases; the former parity-collapse induction
    remains valid only inside a chosen parity sector.
 Keep committing+pushing after each task (user instruction).
@@ -397,7 +413,12 @@ experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_
   slice_odd_block_check.py (L28 identities and L29 floating-point stress test),
   slice_block_product_certificate.py (L47 exact integer Bernstein certificate),
   slice_sharp_nome_certificate.py (L49/L50 exact zero-node certificates),
-  slice_positive_face_audit.py (L58 exact positive-face/first-deficit audit).
+  slice_positive_face_audit.py (L58 exact positive-face/first-deficit audit),
+  slice_positive_corner_audit.py, slice_positive_face_certificate.py,
+  slice_positive_tail_certificate.py (L59 full regenerating tail certificate),
+  general_similarity_sdp.py (general L21 probe),
+  general_similarity_scalarization_probe.py (CP-to-HM state-scalarization falsification).
+Proof artifact: experiments/positive_tail_full_20260722.log (L59 clean 10-box run).
 Data: sym3_sweep_s51.jsonl (40 rec), sym4_sweep_s61.jsonl (20 rec, ρ column trustworthy).
 Ledgers: LEMMA_LEDGER.md, APPROACH_LEDGER.md (pitfalls P1–P8 — READ BEFORE ANY SEARCH),
 LITERATURE_LEDGER.md, COUNTEREXAMPLE_SEARCH.md. Audit: chatgpt/FABLE_RESEARCH_AUDIT.md

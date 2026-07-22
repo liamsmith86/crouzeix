@@ -2,9 +2,10 @@
 
 The two modal norm bounds close every dual ray supported on one parity block.
 This note eliminates the remaining contraction LMIs and classifies the possible
-rank faces of a genuinely coupled optimum.  The result does not yet prove
-`L20`; it reduces the live part to two positive \(2\times2\) defect matrices,
-with rank at most one on every dual-active block.
+rank faces of a genuinely coupled optimum.  It reduces the live part to two
+positive \(2\times2\) defect matrices, with rank at most one on every
+dual-active block.  The downstream projective reductions and L59 certificate
+now prove the resulting transfer theorem and hence `L20`.
 
 ## 1. Exact defect coordinates
 
@@ -825,23 +826,19 @@ The ridge $b=1$, $a=2c$ remains the correct centered coordinate for a
 neighbourhood with small positive $p$; the sharp boundary is not confined to
 $a=b=0$.
 
-## 7. Remaining target
+## 7. Downstream completion
 
-The live theorem is now (27), equivalently (RT), with the special conformal coupling
+The theorem left by this note was (27), equivalently (RT), with the special conformal coupling
 
 \[
  \tan v=r\tan u,\qquad r=H(p),\qquad p=\tau_2/\tau_1. \tag{23}
 \]
 
-Arbitrary rotations and node pairs do not obey the factor-four bound.  A
-scalar reduction is also insufficient: numerical interior maxima can exceed
-all scalar-automorphism boundary values.  A proof must retain the
-Blaschke--Potapov structure (21) while using (23).  The preferred targets are
-either the polynomial Schur complement (27) or the stronger four-block energy
-inequality (BE).  L47--L48 remove the complete axes $a=0$ and $b=0$;
-L49--L50 add the sharper small-nome estimate and close the complete $p=0$
-face.  The live transfer square is genuinely two-parameter with
-$abp\ne0$, and a neighbourhood of its singular boundary must retain
-$b\to1$, $a-2c\to0$, $p\to0$.  Proving
-(RT) completes the elliptic \(4\times4\) slice; it does not by itself settle the
-general conjecture.
+Arbitrary rotations and node pairs do not obey the factor-four bound, and a
+scalar reduction is insufficient: numerical interior maxima can exceed all
+scalar-automorphism boundary values.  L47--L50 close the axes and zero-node
+face.  L51--L58 retain the Blaschke--Potapov/conformal coupling and reduce the
+interior to five projective polynomial charts.  L59's full deficit-centered
+certificate closes the last positive-sign interval through $.63$, overlapping
+L42.  Therefore (RT) and `L20` are proved for the complete elliptic
+\(4\times4\) slice.  This does not settle the general conjecture.

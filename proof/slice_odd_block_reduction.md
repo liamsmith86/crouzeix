@@ -4,8 +4,9 @@ This note identifies and proves the exact scalar theorem hidden in the
 generic rank-one/full KKT face of `slice_coupled_defects.md`.  It turns the
 coupled dual matrix problem into one explicit odd finite-Blaschke block,
 removes the orientation and Blaschke parameters, and certifies the remaining
-two-variable endpoint inequalities.  It does **not** close the separate
-rank-one/rank-one face or prove L20.
+two-variable endpoint inequalities.  By itself it does **not** close the
+separate rank-one/rank-one face; the downstream L40--L59 chain now closes that
+face and proves L20.
 
 ## 1. A rank-one boundary is an orthogonal colligation
 
@@ -801,8 +802,9 @@ Blaschke parameter and orientation.  Consequently
 \]
 
 so **L29 is proved** and the generic rank-one/full KKT face in L28 is
-closed.  This is a theorem for that coupled face of the elliptic \(4\times4\)
-slice, not yet a proof of L20 or of Crouzeix's conjecture.
+closed.  By itself this is only a theorem for that coupled face of the
+elliptic \(4\times4\) slice; the downstream L40--L59 chain now proves L20.
+Neither result proves the general Crouzeix conjecture.
 
 The **lower odd block is already proved**.  For fixed modal parameters its
 matrix is linear in \((q_1,q_2)\), and the operator norm is convex.  Since

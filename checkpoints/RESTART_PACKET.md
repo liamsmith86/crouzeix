@@ -1,6 +1,24 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
+## Latest completion (2026-07-22): elliptic 4×4 slice proved
+
+L59 closes the final positive-sign interval with a full deficit-centered
+Arb/Bernstein certificate. Ten exactly adjacent rational boxes cover `c+→.63`; both determinant
+and all three final-minor charts pass. The clean run forced regeneration of both 197,563-record
+tables and both 207-term corner squares, passed 10/10, and exited zero. Provenance artifact:
+`experiments/positive_tail_full_20260722.log`, SHA-256
+`fb79b2dfc652062307d69d26a00d82ff20c4133a0043eb6077458ea7cf70928c`, certified code commit
+`3dd51884…`. Because `.63³−1/4=47/10^6>0`, it overlaps L42. Hence L20 is proved for every
+`A=S_a+cS_a^T` with arbitrary positive three-weight `S_a`, `0<c<1`: its numerical-range ellipse
+is a complete 2-spectral set. This is apparently new versus the closest audited fixed-Crabb-weight
+theorem, but it is **not** arbitrary 4×4 and not the general conjecture.
+
+The campaign now returns to the general L21/H-r frontier. Do not start a 5×5 slice grind.
+Hartz--McCarthy scalar shifts are an exact restatement of the cb target, not a CP bridge; a
+reproducible order-three Toeplitz SDP also numerically rules out all positive-state
+scalarizations on one dense 3×3 case. See `proof/general_similarity_probe.md`.
+
 ## Immediate audit gate (2026-07-21, post-L45)
 **Load-bearing audit passed:** L17's exact ground-state identity with
 `y=1/sqrt(g')` fixes the Dirichlet-form direction, and L21's parity restriction follows by
@@ -79,8 +97,8 @@ complements close in `235/399` leaves at depths `8/9`. Thus L55 proves the compl
 `[0,.005]`, every chart and both signs. L56 subsequently closes `.005→.01` in four directed
 boxes, so L55+L56+L54 now prove (RT) continuously through `.020736`. L57 certifies the compact
 negative sign through `.63` (overlapping L42) and the positive sign through the exact rational
-`c+=.5566585294072849…`. Only the positive tail `c+<c<2^(−2/3)` remains for the complete
-elliptic-slice theorem.
+`c+=.5566585294072849…`. At that stage only the positive tail
+`c+<c<2^(−2/3)` remained; L59 now closes it.
 
 L58 factors the sharp positive determinant face. At `a=b=1`, chart zero is
 `81c^9(1−k)^2(1−kX)^2[R+(1−RX)C^2]^4`; chart one has the analogous
@@ -109,7 +127,8 @@ sharp lemma is `SG≥0 ⇒ D2`, proved by Schwarzian/Dirichlet-form comparison; 
 map has `SG≥0` because its gap is a positive Weierstrass Fourier series. The 70-dps regression is
 `experiments/el4_schwarzian_check.py`. Do not redo the modulus-deformation derivative.
 
-This is not yet the 4×4 theorem. Midpoint globality is now proved by L18 in
+**Historical EL4-only status (superseded by L59):** this was not yet the 4×4 theorem.
+Midpoint globality is proved by L18 in
 `proof/even_pick_globality.md`, but parity/symmetry-breaking and the odd/Möbius phases remain.
 Symmetry of the objective does not by itself prove that every maximizer has definite parity.
 
@@ -198,7 +217,8 @@ the worst correction ratio is `0.907895`. L39 interval-certifies the bridge comp
 `1/20≤c≤1/12` with 15,267 bisections and no unresolved boxes. L36 covers
 `1/12≤c≤12599/20000`, and L33 covers the range above. Therefore L30–L32 prove the upper odd
 block ≤2 for every parameter. Together with the analytic lower block, the generic rank-one/full
-KKT face is closed; only L27's rank-one/rank-one face remains for L20.
+KKT face is closed; at this stage only L27's rank-one/rank-one face remained for L20. L59 later
+closes it.
 
 **L40 reduces the final rank-one/rank-one face to a matrix-valued inner transfer.** If
 `Z_o=xx^T` and `Z_e=yy^T`, spectral positive/negative factors and two row-Gram rotations give
@@ -207,8 +227,8 @@ KKT face is closed; only L27's rank-one/rank-one face remains for L20.
 closed square `(a,b)∈[−1,1]²`. In symmetric modal coordinates the two nodes see
 `K_{a,b}(z)=[[a−bz²,−stz],[-stz,b−az²]]/(1−abz²)`, a rational inner matrix with determinant
 `(ab−z²)/(1−abz²)`. The boundary is in the proved even sector; the interior is genuinely
-matrix-valued and can beat all scalar lines. The only remaining L20 theorem is
-`||R_{a,b}(T)||≤2`. Exact audit and sharp default-case regression:
+matrix-valued and can beat all scalar lines. At this stage the remaining L20 theorem was
+`||R_{a,b}(T)||≤2`; L59 later proves it. Exact audit and sharp default-case regression:
 `experiments/slice_rank_one_transfer.py`; proof: `proof/slice_coupled_defects.md` §4–7.
 L41 further removes both transfer resolvents: the norm test is equivalent to a quartic
 polynomial `4×4` LMI. Its two diagonal `2×2` blocks are already PSD by L24/L26 and elementary
@@ -283,22 +303,21 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
 ## Next five concrete actions (refreshed 2026-07-22, Epoch 6)
-1. **Close L57's positive compact tail using L58.** The only missing elliptic-slice interval is
-   `c+<c<2^(−2/3)`. Use the exact positive face and inward first variation, and certify the
-   correlated quadratic-and-higher deficit remainder in `c,X,R,Y`. Do not restart the bridge,
-   negative sign, rank-one/full, one-block, lower-odd, or concave-sign work; do not replace the
-   correlation by the coarse global l1 norm or a numerical tolerance.
-2. **Shifted degree-one Möbius phase**: derive its stationarity/rho formula and prove positivity
-   (or K≤2) independently, both as a fallback and as a guide to the metric.
-3. **Bi-conic Schwarzian route**: compute `SG` for the off-slice collapsed map on its critical
+1. **General L21 equality-locus gate.** Test `C_p⊗I_m`, `p=3,4`, `m=2,3`, under generic,
+   cross-block, and noncommuting operator-weight perturbations on a `10^-4→10^-2` ladder.
+   Add dense support-eigenvalue-gap diagnostics and retain every map/primal/dual gate. Any
+   apparent `t*>4` requires independent interval re-evaluation.
+2. **Full CP-correction moments.** Do not retry scalar shifts or positive-state scalarizations.
+   Test whether the L21 trace inequality follows from the block-Toeplitz positivity already
+   supplied by the full operator-valued Crouzeix--Palencia correction.
+3. **Shifted degree-one Möbius H-r phase**: derive its stationarity/rho formula and prove
+   positivity (or K≤2) independently as the scalar-conjecture fallback.
+4. **Bi-conic Schwarzian route**: compute `SG` for the off-slice collapsed map on its critical
    real interval. If nonnegative, L17 gives D2 immediately; otherwise compare its Sturm potential
    directly with `−1`.
-4. **Odd-phase level-4 positivity**: ρ = B₁g₁q₁+B₂g₂q₂ ≥ 0 under the L15 stationarity law
+5. **Odd-phase level-4 positivity**: ρ = B₁g₁q₁+B₂g₂q₂ ≥ 0 under the L15 stationarity law
    (slice_closed_form.md §3; interlacing τ₂ < α < τ₁, dominant positive outer term observed).
    Try the same kernel/deformation machinery; the Möbius-equality structure should persist.
-5. **n=6 H-r floor, redesigned** (old dense run KILLED as futile — pitfall P7): run the
-   adversarial min-ρ search on STRUCTURED n=6 families (zero-diag tridiagonal; graded collapse
-   makes extremality certifiable via blocks), or upgrade the solver first.
 
 ## Paste-ready continuation instruction
 "Continue the Crouzeix campaign in /home/liam/Downloads/crouzeix (git repo; commit+push after each
@@ -306,11 +325,11 @@ task). Read RESEARCH_STATE.md (NEWEST section first), then proof/slice_similarit
 proof/slice_boundary_theorems.md,
 proof/el4_schwarzian_theorem.md,
 proof/even_pick_globality.md, proof/slice_closed_form.md, and proof/D2_landscape.md; master program in
-proof/rho_positivity_program.md. Resume at restart-packet action 1 (close L57's remaining
-positive compact tail using L58's exact face expansion). EL4 and even-sector midpoint globality are proved;
-definite parity is false. L20 is now exactly a 2×2-block dual trace inequality, both individual
-modal blocks are bounded by two, and all low minors are certified; do not redo the SDP duality,
-modal norms, minor charts, or blind metric ansatzes. Respect
+proof/rho_positivity_program.md. Resume at restart-packet action 1: the general L21 equality-locus
+gate near repeated Crabb blocks. The complete elliptic 4×4 slice is
+proved by L59; do not start a 5×5 slice grind or redo its SDP duality, modal norms, projective
+charts, or certificate. EL4 and even-sector midpoint globality are proved; definite parity is
+false. Respect
 APPROACH_LEDGER.md pitfalls P1–P8: every
 numerical claim needs the certificate battery; treat any apparent violation as artifact until it
 survives strict re-evaluation and an independent implementation; cross-check extremal phases with

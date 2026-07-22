@@ -36,8 +36,10 @@ PROVIDED the level's numerical range is elliptic (exact ellipse needed for the c
   switch or even-phase competition; handle sectors separately.
 
 ## Next-level targets
-- Determine the elliptic-W slice of sym4 (quartic degenerates to conic ⟺ weight condition);
-  test the DOUBLE-Landen prediction ρ = 1 − π/(2K(k₂)).
-- Literature check: is Crouzeix known for n ≥ 4 with elliptic numerical range? If open, the
-  elliptic-sym4 Landen theorem = first fully-new class.
+- **Resolved by a different route:** the elliptic-W sym4 slice is
+  `A=S_a+cS_a^T`, and L20/L59 now prove the complete 2-spectral bound for arbitrary positive
+  weights. The pure double-Landen formula is not needed and is not supported once the marked
+  inner node breaks the second descent.
+- Closest-source audit found only Kenan Li's fixed-Crabb-weight all-dimensional family. Treat
+  the arbitrary-weight 4×4 theorem as apparently new pending a publication-level audit.
 - Non-elliptic sym4: perturbative closure off the elliptic slice (margin vs deviation δ).
