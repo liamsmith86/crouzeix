@@ -71,6 +71,45 @@ map-resolution limitation.  A future apparent value above four must survive
 the same map, primal/dual, resolution, and offset checks before it is logged as
 evidence against the route.
 
+## Exact margin for the next adversarial gate
+
+For a normalized witness `tr(Z)=1`, put
+
+\[
+ D=Z-TZT^*.
+\]
+
+Writing \(p=\operatorname{tr}D_+\) and
+\(n=\operatorname{tr}D_-\), L21's target \(n\leq4p\) is exactly
+
+\[
+ \boxed{3\lVert D\rVert_1+5\operatorname{tr}D\geq0}, \tag{1}
+\]
+
+because the left side is (8p-2n).  This is one compact nonsmooth
+objective for a joint search over general \(A\) and \(Z\succeq0\).  A negative
+floating-point value is not a counterexample: the conformal map, the strict
+outer domain, positivity of (Z), and the trace-norm eigenvalue split would
+all need independent interval enclosures.
+
+Hartz--McCarthy (arXiv:2606.02922, June 2026) supplies a second exact lens.
+For the disk-algebra functional calculus \(\theta_T\) and every scalar
+functional \(\beta\), their theorem and Paulsen similarity give
+
+\[
+ \sqrt{t_*(T)}=\lVert\theta_T\rVert_{cb}
+ \leq\max\{1,\lVert\theta_T+\beta I\rVert_{cb}\}. \tag{2}
+\]
+
+Thus a geometrically natural scalar shift with cb norm at most two would
+prove the general L21 target.  The theorem does not replace the
+operator-valued conjugate-Cauchy correction in the Crouzeix--Palencia map by
+a scalar functional, so (2) is a route, not a solution.  The first gate
+remains adversarial optimization of (1), especially on the previously
+rejected nearly normal/flat-range cases and reducible matrices with small
+coupling.  A certified violation would kill only the stronger completely
+bounded route; the scalar H-r program would remain live.
+
 Reproduction:
 
 ```bash

@@ -1,6 +1,6 @@
 # LITERATURE_LEDGER.md
 
-Papers, theorems, assumptions, possible gaps. Status verified via web 2026-07-20.
+Papers, theorems, assumptions, possible gaps. Status verified via web 2026-07-22.
 
 ## Core chain
 | Ref | Result | Method | Notes / gaps to exploit |
@@ -14,6 +14,7 @@ Papers, theorems, assumptions, possible gaps. Status verified via web 2026-07-20
 | Schwenninger–de Vries, arXiv:2409.15954 "DLP for spectral constants revisited" | §6: ρ(f₀,x₀) := ∫Re(K_Ω(f₀)*f₀)dμ₀ = ReC; **K² + ρ ≤ 2K** (Thm 6.1: K ≤ 1+√(1−ρ)); ρ ≥ −1 (convex); ρ ≥ 0 ⟹ Crouzeix; disk ⟹ (K−1)ρ = 0; \|ρ\| ≤ a(Ω) (Rem 6.2) | Extremal pair + DLP | READ & VERIFIED (pp. 15–17). Closest baseline to campaign's P1; our increment = β-subtraction (q < 2). Also: Appendix A smooth-approximation lemma (useful for Ω ↓ W(A) rigor); Prop A.2 spectral-constant equivalence |
 | arXiv:2410.10678 | "The algebraic numerical range as a spectral set in Banach algebras" | — | CORRECTED ID (audit): earlier ledger entry misattributed this ID to a parameterized C–P extension |
 | O'Loughlin–Rani, arXiv:2603.15536 (2026) "q-Numerical Ranges and Spectral Sets" | Bound K = t + √(t²+a(Ω)), t = 1+γ(1)/2 | q-numerical range | CAUTION (audit): sentence after Thm 3.3 claiming K<2-type conclusion may be typo/gap — verify before use |
+| Hartz–McCarthy, arXiv:2606.02922 (2026) "From Clouâtre–Ostermann–Ransford to Okubo–Ando" | For a continuous unital operator-algebra homomorphism `theta` and every scalar functional `beta`, `||theta^(n)|| <= max(1,||(theta+beta I)^(n)||)` at every matrix level; recovers the sharp Okubo–Ando similarity theorem | Potapov–Möbius variational argument at matrix levels | HIGHLY RELEVANT TO L21: a scalar functional shift with cb norm at most two would prove the complete target. It does **not** prove the Clouâtre–Ostermann–Ransford conjecture when the anti-linear correction has non-scalar operator range, so it does not resolve Crouzeix. |
 
 ## Special cases proved (constant 2)
 - Normal matrices (trivial: R ≤ 1; equality-2 impossible). von Neumann: W(A) ⊇ spectrum.
