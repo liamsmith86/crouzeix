@@ -375,14 +375,19 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   uniform conformal expansion, the upper Dini derivative of `t*` is nonpositive. This is a
   local first-order theorem, not a neighbourhood theorem; equality directions need second
   order and nonsmooth crossings need a regularity argument.
+- **SINGLE-CRABB SECOND-ORDER REDUCTION (L62):** first-order complementarity and a general
+  second-order PSD Schur lemma reduce the zero-Jensen-gap face to three finite affine block
+  LMIs. The second support variation and Schwarz integral give the conformal coefficient in
+  finite form. All 12 `p=3,4` test directions have negative quadratic coefficient, stable across
+  solvers, map resolutions, analytic/fitted gauges, and fit step. The universal sign remains open.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-22)
-1. **Classify equality in the new local first-order theorem.** L61 derives the finite conformal
-   tangent at `C_p⊗I_m`, solves its L21 SDP dual as `d_E=-4` times a support-compression Jensen
-   gap, and proves `d_E≤0` for every perturbation. A strict feasible-metric lift gives the same
-   upper Dini bound under uniform conformal expansion. Determine whether every zero-gap
-   direction is tangent to an exact equality orbit; compute second order for any transverse
-   survivors, and separately handle nonsmooth compression-eigenvalue crossings.
+1. **Prove the sign of the new second-order Crabb SDP.** L61 classifies first-order equality by
+   a common maximizing support-compression vector. L62 now reduces the foundational
+   single-block face to three finite second-order Schur-complement LMIs; all 12 tested
+   coefficients are negative, including two nearly flat structured `p=3` cases. The second
+   conformal coefficient is now finite and analytic; dualize L62 and prove `e≤0` or falsify it.
+   Separately handle nonsmooth compression-eigenvalue crossings.
 2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
    trace inequality can instead be derived from the block-Toeplitz positivity of the full
    operator-valued correction moments. Do not retry trace/positive-state scalarizations.
@@ -432,12 +437,14 @@ experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_
   general_similarity_sdp.py (general L21 probe),
   general_similarity_scalarization_probe.py (CP-to-HM state-scalarization falsification),
   general_similarity_equality_probe.py (repeated-Crabb general gate),
-  general_similarity_tangent_probe.py (L61 finite conformal/tangent-SDP reduction).
+  general_similarity_tangent_probe.py (L61 finite conformal/tangent-SDP reduction),
+  general_similarity_second_order_probe.py (L62 single-Crabb second-order SDP).
 Proof artifact: experiments/positive_tail_full_20260722.log (L59 clean 10-box run).
 Data: sym3_sweep_s51.jsonl (40 rec), sym4_sweep_s61.jsonl (20 rec, ρ column trustworthy),
 general_similarity_equality_s9173401.jsonl plus its `sensitivity` and `ultralocal` companions
 (L21 equality gate); general_similarity_tangent_s9173401.jsonl and
-general_similarity_tangent_all_s9173401.jsonl (L61 cross-solver tangent data).
+general_similarity_tangent_all_s9173401.jsonl (L61 cross-solver tangent data);
+general_similarity_second_order_all_s9173401.jsonl and its `halfstep` companion (L62 data).
 Ledgers: LEMMA_LEDGER.md, APPROACH_LEDGER.md (pitfalls P1–P8 — READ BEFORE ANY SEARCH),
 LITERATURE_LEDGER.md, COUNTEREXAMPLE_SEARCH.md. Audit: chatgpt/FABLE_RESEARCH_AUDIT.md
 (reconciled 2026-07-20). Restart: checkpoints/RESTART_PACKET.md (paste-ready instruction).

@@ -38,6 +38,16 @@ first order, not a full neighbourhood theorem. Next classify zero-gap directions
 second order where needed, and close nonsmooth map regularity. See
 `proof/general_similarity_tangent.md`.
 
+**Second-order reduction:** for a single Crabb block the L61 Jensen gap is identically zero.
+L62 uses first-order complementarity and a second-order PSD Schur lemma to reduce the next
+coefficient to three finite affine block LMIs in the metric coefficients. A two-resolution,
+two-solver run on 12 full/structured `p=3,4` directions gives only negative coefficients,
+`−3.94535170≤e≤−.00284309`; analytic and independently fitted gauges agree within `3.57e-7`.
+The second support variation, normal-angle correction, and Schwarz integral now give `H` in
+finite analytic form. This is still a reduction, not a sign theorem. The live task is to dualize
+the second-order SDP, starting with the nearly flat structured `p=3` face. See
+`proof/general_similarity_second_order.md`.
+
 ## Immediate audit gate (2026-07-21, post-L45)
 **Load-bearing audit passed:** L17's exact ground-state identity with
 `y=1/sqrt(g')` fixes the Dirichlet-form direction, and L21's parity restriction follows by

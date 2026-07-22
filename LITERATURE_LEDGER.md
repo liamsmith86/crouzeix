@@ -88,7 +88,8 @@ Papers, theorems, assumptions, possible gaps. Status verified via web 2026-07-22
   domain-dependent Riemann pullback, the completely bounded similarity optimum `t_*`, or
   L61's density-matrix/Jensen closed form. Phrase novelty narrowly: L61 appears to be a new
   first-order theorem for the stronger L21 quantity, not the first variational stationarity
-  result at a Crabb configuration.
+  result at a Crabb configuration. Campaign L62 now gives a finite second-order
+  conformal/metric-SDP reduction for that stronger quantity, but not yet the sign theorem.
 
 ## To read next
 - [ ] GKL arXiv:1701.01365 (Glader–Kurula–Lindström 2018, 3×3 tridiagonal elliptic W(A)) —

@@ -134,6 +134,15 @@ This settles only first order.  A full neighbourhood theorem still requires
 classifying zero-Jensen-gap directions and treating second order there, as
 well as closing conformal regularity at compression-eigenvalue crossings.
 
+L62 now performs the next reduction on the foundational single-block face,
+where the Jensen gap vanishes in every direction.  First-order complementarity
+and second-order Schur complements give three finite affine block LMIs.  Twelve
+`p=3,4` directions all have negative quadratic coefficients, including two
+nearly flat structured cases.  Second support perturbation and the Schwarz
+integral now give the conformal coefficient in finite analytic form; the
+universal SDP sign remains open.  See
+`proof/general_similarity_second_order.md`.
+
 ## Verdict and limitations
 
 The similarity route survives its first reliable test away from the elliptic
