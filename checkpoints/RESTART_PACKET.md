@@ -57,10 +57,13 @@ value.  After retaining that term and making `c` a common Bernstein axis, determ
 final minor charts pass continuous boxes `[.01,.0101]` and `[.1,.101]`.  Next implement the
 directed, memory-bounded finite cover.  This implementation is now committed as
 `slice_projective_interval_certificate.py`, and L54 rigorously closes the larger complete box
-`[.01,.012]` (all five final charts, both signs).  Treat `c→0` separately after normalizing
+`[.01,.0144]` with two boxes (all five final charts, both signs).  Treat `c→0` separately after normalizing
 `k/c`, `gamma_-/c²`, and `(gamma_+−gamma_-)/c⁴`; two further determinant powers cancel there.
-The first newly exposed low-nome exceptional ridge has leading coordinate `b/c=2` at
-`main_w=0, ratio=1, a=1`.
+L55 performs the exact normalization: determinant order `c^9`, final-minor order `c^2`.  At
+`main_w=0, ratio=1, a=1, b=0` its first two exceptional coefficients are
+`1536(A+3U)` and `192[8A2+24U2+3V²+18(B−2σ)²]`; the sole surviving positive-sign ridge
+`B=b/c=2` starts with `46080c^4`.  Build the finite remainder charts around these already-known
+equality forms rather than using raw low-nome boxes.
 
 L45's convex-in-`a` branch is common (772,130 of 2,000,000 random quadratic-form probes) but its
 discriminant remained positive in the sample; no concavity-only shortcut exists.

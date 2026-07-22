@@ -19,9 +19,11 @@
   orders from the original `4×4` core.  The earlier continuous-nome prototype also had a real
   implementation bug: it allowed the zeroth Taylor term to vanish.  Correcting that and
   keeping the Taylor coordinate correlated led to L54: an 80-digit Arb plus directed
-  Bernstein proof of the full transfer theorem on `c∈[.01,.012]`, all final charts and both
-  signs.  The remaining work is a finite compact cover and a separately normalized `c→0`
-  face; a sharp exceptional-divisor ridge has leading coordinate `b/c=2`.
+  Bernstein proof of the full transfer theorem on `c∈[.01,.0144]`, all final charts and both
+  signs.  L55 now resolves the low-nome algebra: determinant order `c^9`, minor order `c^2`,
+  followed by two nonnegative exceptional forms; the sole final positive-sign ridge is
+  `b/c=2` and begins with the strict term `46080c^4`.  The remaining work is to certify the
+  finite low-ridge remainders and extend the compact cover.
 - **L49 finds the sharp nome estimate required by the zero-node ridge:**
   `k≤4c/(1+4c²)` for `c≤1/2`.  Two Jacobi-product factors suffice, and the
   remaining degree-23 polynomial has 24 positive exact Bernstein coefficients.  On `p=0`,

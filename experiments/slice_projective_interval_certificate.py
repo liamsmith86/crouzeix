@@ -18,7 +18,7 @@ from fractions import Fraction
 from math import comb
 import math
 import time
-from typing import TypeAlias
+from typing import Callable, TypeAlias
 
 import numpy as np
 from numpy.typing import NDArray
@@ -47,6 +47,10 @@ from slice_projective_core import (
 
 
 FloatArray: TypeAlias = NDArray[np.float64]
+FactorJets: TypeAlias = dict[tuple[int, ...], tuple["ArbTaylorJet", "ArbTaylorJet"]]
+FactorJetProvider: TypeAlias = Callable[
+    [tuple[Fraction, Fraction], set[tuple[int, ...]], int], FactorJets
+]
 
 
 @dataclass(frozen=True, slots=True)
@@ -214,14 +218,14 @@ def _arb_theta_data_from_ball(
     theta_coefficients = list(theta.coefficients)
     r_coefficients = list(r_series.coefficients)
     for derivative in range(degree + 1):
-        theta_coefficients[derivative] += _arb_series_tail(
+        theta_coefficients[derivative] += arb_positive_series_tail(
             2,
             2 * first_omitted * first_omitted,
             derivative,
             c_ball,
             first_omitted,
         )
-        r_coefficients[derivative] += _arb_series_tail(
+        r_coefficients[derivative] += arb_positive_series_tail(
             1,
             2 * first_omitted * (first_omitted + 1),
             derivative,
@@ -238,7 +242,7 @@ def _arb_theta_data_from_ball(
     return c, k, s, gamma_lower, gamma_width
 
 
-def _arb_series_tail(
+def arb_positive_series_tail(
     coefficient: int,
     exponent: int,
     derivative: int,
@@ -268,11 +272,22 @@ def factor_jets(
     box: tuple[Fraction, Fraction],
     keys: set[tuple[int, ...]],
     degree: int,
-) -> dict[tuple[int, ...], tuple[ArbTaylorJet, ArbTaylorJet]]:
+) -> FactorJets:
     midpoint = (box[0] + box[1]) / 2
     center = arb_theta_data(midpoint, degree)
     whole = arb_theta_data_box(box[0], box[1], degree)
-    output: dict[tuple[int, ...], tuple[ArbTaylorJet, ArbTaylorJet]] = {}
+    return factor_jets_from_data(center, whole, keys, degree)
+
+
+def factor_jets_from_data(
+    center: tuple[ArbTaylorJet, ...],
+    whole: tuple[ArbTaylorJet, ...],
+    keys: set[tuple[int, ...]],
+    degree: int,
+) -> FactorJets:
+    """Build products of common scalar jets for a sparse factor-key set."""
+
+    output: FactorJets = {}
     for key in keys:
         center_factor = as_arb_jet(1, degree)
         whole_factor = as_arb_jet(1, degree)
@@ -312,9 +327,11 @@ def interval_tensor_for_chart(
     table: ChartTable,
     box: tuple[Fraction, Fraction],
     degree: int,
+    *,
+    factor_provider: FactorJetProvider = factor_jets,
 ) -> IntervalTensor:
     keys = {monomial[5:] for monomial in table.records}
-    factors = factor_jets(box, keys, degree)
+    factors = factor_provider(box, keys, degree)
     dimensions = tuple(
         max(monomial[axis] for monomial in table.records) + 1 for axis in range(5)
     )
