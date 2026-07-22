@@ -83,8 +83,9 @@ overlap errors in the analytic count.
 
 ## 5. Next target
 
-Choose one explicit quotient representative in each grade and evaluate the first nonzero
-higher-order term there.  Preliminary nonlinear `p=3` samples show the second-order-flat
-directions decreasing at order four, with no observed positive direction.  That observation is
-only a steering gate until the affine-unitary component is removed exactly and the fourth-order
-coefficient is derived.
+L67 now chooses an explicit `p=3` mode-one representative and proves strict descent at order six
+with an exact formal Riemann/Stein certificate; see `proof/p3_crabb_higher_order.md`.  The remaining
+`p=3` target is the mixed mode-one/mode-two quotient.  Preliminary nonlinear samples show a
+negative quartic whenever mode two is nonzero, but that observation remains only a steering gate
+until the mixed coefficient and a uniform feasible metric are derived exactly.  Higher sizes then
+require the same calculation on the grade representatives classified above.
