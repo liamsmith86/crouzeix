@@ -89,11 +89,11 @@ Papers, theorems, assumptions, possible gaps. Status verified via web 2026-07-22
   L61's density-matrix/Jensen closed form. Phrase novelty narrowly: L61 appears to be a new
   first-order theorem for the stronger L21 quantity, not the first variational stationarity
   result at a Crabb configuration. Campaign L62 now gives a finite second-order
-  conformal/metric-SDP reduction for that stronger quantity, and L63–L64 prove its
-  second-order sign at the `3×3` and `4×4` Crabb blocks. No matching completely bounded
-  second-variation result was found in the targeted audit; retain the narrow novelty wording
-  pending a broader search and do not present the low-dimensional local theorems as a proof of
-  the scalar conjecture.
+  conformal/metric-SDP reduction for that stronger quantity. L63–L65 now prove its
+  second-order sign at every single Crabb block, using an arbitrary-size path-Green/mode
+  factorization. No matching completely bounded second-variation result was found in the
+  targeted audit; retain the narrow novelty wording pending a broader search and do not present
+  this local theorem as a proof of the scalar conjecture.
 
 ## To read next
 - [ ] GKL arXiv:1701.01365 (Glader–Kurula–Lindström 2018, 3×3 tridiagonal elliptic W(A)) —

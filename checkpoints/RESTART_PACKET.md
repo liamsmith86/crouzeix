@@ -57,6 +57,16 @@ arbitrary-`p` factorization and classify those equality directions before going 
 See `proof/general_similarity_second_order.md` §§8–9 and `experiments/p3_second_order_identity.py`,
 `experiments/p4_second_order_identity.py`.
 
+**Arbitrary-size second variation:** L65 now subsumes those signs for every single Crabb block.
+The support defect is an exactly factored path Laplacian. Circle grading collapses each nonzero
+mode to `−t*ᵊ t`, with `ᵊ^{-1}=(I−H_r)/4+c_kqq*` for `k≥3` and PSD limits for
+`k=1,2`; grade zero is an exact weighted shift controlled by the numerical-radius power
+inequality. The form has rank `p(p−2)`. Checks cover every mode through `p=30`, while L63–L64
+remain exact symbolic base cases. The live task is no longer the sign: classify the
+`p(p+2)`-dimensional equality space and extend to repeated common-maximizer faces. See
+`proof/general_crabb_second_variation.md` and
+`experiments/general_crabb_second_order_modes.py`.
+
 ## Immediate audit gate (2026-07-21, post-L45)
 **Load-bearing audit passed:** L17's exact ground-state identity with
 `y=1/sqrt(g')` fixes the Dirichlet-form direction, and L21's parity restriction follows by

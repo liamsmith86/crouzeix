@@ -414,10 +414,11 @@ Reproduction:
 .venv/bin/python -u experiments/p4_second_order_identity.py
 ```
 
-## 10. Next analytic target
+## 10. Arbitrary-size completion and next target
 
-Derive (23)--(27) for arbitrary Crabb weights and seek a uniform factorization of the resulting
-quadratic form, rather than extracting one dimension at a time.  In parallel, quotient the
-`p=3,4` equality spaces by infinitesimal disk automorphisms, unitary similarity, scaling, and
-exact Crabb-family motions.  Only the residual equality directions should be sent to third
-order.  The nonsmooth repeated-block compression crossings remain a separate regularity debt.
+L65 now derives (23)--(27) for every Crabb size and proves the universal single-block sign by a
+path-Green/circle-mode factorization; see `proof/general_crabb_second_variation.md`.  The live
+problem is the rank-deficient equality face.  Quotient it by infinitesimal disk automorphisms,
+unitary similarity, scaling, and exact disk-matrix motions.  Only residual equality directions
+should be sent to third order.  Repeated-block common-maximizer faces and nonsmooth compression
+crossings remain separate debts.

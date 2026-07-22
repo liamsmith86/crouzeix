@@ -148,7 +148,13 @@ exactly.  The `p=3` value is `-2(Re(E01-E12))^2-21|E20|^2/4`; the `p=4`
 value is the five-term negative sum of squares (28).  Hence the stronger
 similarity square has nonpositive upper second-order change in every direction
 at both low-order blocks.  Equality still leaves large spaces requiring higher
-order or an exact-orbit argument, and the arbitrary-`p` sign remains open.
+order or an exact-orbit argument.
+
+L65 subsequently closes the same sign in every single-block dimension.  The
+support defect is a path Laplacian, and circle grading turns every nonzero mode
+into an explicit negative kernel; the grade-zero mode is an exact weighted
+shift.  The resulting quadratic form has rank `p(p-2)`.  This remains a local
+second-order theorem, not a neighbourhood or general-matrix theorem.
 
 ## Verdict and limitations
 

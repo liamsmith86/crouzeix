@@ -390,13 +390,19 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   32-real-variable symbolic audit proves it exactly, and all six saved `p=4` SDP cases agree
   within `3.17e-8`. The low-order pattern is now proved at `p=3,4`, but no uniform-`p` theorem or
   complete local-neighbourhood theorem on the equality spaces has been established.
+- **ARBITRARY-SIZE CRABB SECOND VARIATION (L65):** the L62 optimum satisfies `e_p(E)≤0` for
+  every single Crabb block size. Circle modes reduce to explicit negative kernels whose inverse
+  is `(I−H_r)/4+c_kqq*`; the two singular low modes are PSD limits, the bottom modes are
+  negative squares, and grade zero is controlled exactly as a weighted shift. The quadratic
+  rank is `p(p−2)`. This closes the single-block second-order sign, not the equality directions,
+  repeated-block nonsmooth face, or the general conjecture.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-22)
-1. **Find the uniform Crabb second-variation mechanism.** L63–L64 prove complete negative-square
-   identities at `p=3,4`. Derive the metric elimination for arbitrary Crabb weights and seek a
-   general factorization/duality argument rather than grinding dimensions. In parallel classify
-   the `p=3,4` equality spaces modulo exact disk/equality orbits before attempting third order.
-   Separately handle nonsmooth repeated-compression crossings.
+1. **Resolve the L65 equality face.** The uniform single-block second-order sign is proved, but
+   its kernel has real dimension `p(p+2)`. Quotient it by disk automorphisms, unitary similarity,
+   scaling, and the Lewis–Overton disk-matrix tangent space; then compute the next nonzero order
+   only on residual directions. Extend the mode calculation to repeated-block common-maximizer
+   faces and separately handle nonsmooth compression-eigenvalue crossings.
 2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
    trace inequality can instead be derived from the block-Toeplitz positivity of the full
    operator-valued correction moments. Do not retry trace/positive-state scalarizations.
@@ -450,13 +456,15 @@ experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_
   general_similarity_second_order_probe.py (L62 single-Crabb second-order SDP),
   crabb_second_order_symbolic.py (shared exact conformal derivation),
   p3_second_order_identity.py (L63 exact 18-variable regeneration),
-  p4_second_order_identity.py (L64 exact 32-variable regeneration).
+  p4_second_order_identity.py (L64 exact 32-variable regeneration),
+  general_crabb_second_order_modes.py (L65 arbitrary-size mode regeneration).
 Proof artifact: experiments/positive_tail_full_20260722.log (L59 clean 10-box run).
 Data: sym3_sweep_s51.jsonl (40 rec), sym4_sweep_s61.jsonl (20 rec, ρ column trustworthy),
 general_similarity_equality_s9173401.jsonl plus its `sensitivity` and `ultralocal` companions
 (L21 equality gate); general_similarity_tangent_s9173401.jsonl and
 general_similarity_tangent_all_s9173401.jsonl (L61 cross-solver tangent data);
-general_similarity_second_order_all_s9173401.jsonl and its `halfstep` companion (L62 data).
+general_similarity_second_order_all_s9173401.jsonl and its `halfstep` companion (L62 data);
+general_crabb_second_order_modes_s70221.jsonl (L65 sizes `3..30` mode/rank audit).
 Ledgers: LEMMA_LEDGER.md, APPROACH_LEDGER.md (pitfalls P1–P8 — READ BEFORE ANY SEARCH),
 LITERATURE_LEDGER.md, COUNTEREXAMPLE_SEARCH.md. Audit: chatgpt/FABLE_RESEARCH_AUDIT.md
 (reconciled 2026-07-20). Restart: checkpoints/RESTART_PACKET.md (paste-ready instruction).
