@@ -67,6 +67,14 @@ remain exact symbolic base cases. The live task is no longer the sign: classify 
 `proof/general_crabb_second_variation.md` and
 `experiments/general_crabb_second_order_modes.py`.
 
+**Equality quotient:** L66 removes exact symmetries from the L65 kernel. The raw dimension is
+`p(p+2)`, while unitary conjugation, translation, and real scaling span an exact flat orbit of
+dimension `p²+2`; only `2p−2` real directions remain. Grade by grade this is one complex mode-1
+direction, two complex mode-2 directions, and one complex direction in each higher paired mode.
+At `p=3`, numerical fits suggest quartic decrease `−4|w|²(|w|²+|z|²)` and sixth-order
+decrease on `w=0`, but those coefficients are not proved. The live task is their exact
+derivation, not another raw-kernel scan. See `proof/crabb_second_order_equality.md`.
+
 ## Immediate audit gate (2026-07-21, post-L45)
 **Load-bearing audit passed:** L17's exact ground-state identity with
 `y=1/sqrt(g')` fixes the Dirichlet-form direction, and L21's parity restriction follows by

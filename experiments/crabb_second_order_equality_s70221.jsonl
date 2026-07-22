@@ -1,0 +1,6 @@
+{"dimension": 3, "expected_residual_dimension": 4, "kernel_dimension": 15, "orbit_dimension": 11, "orbit_quadratic_residual": 1.0806301887567232e-14, "quadratic_rank": 3, "residual_dimension": 4, "support_resolution": 64}
+{"dimension": 4, "expected_residual_dimension": 6, "kernel_dimension": 24, "orbit_dimension": 18, "orbit_quadratic_residual": 1.4385724405404842e-14, "quadratic_rank": 8, "residual_dimension": 6, "support_resolution": 64}
+{"dimension": 5, "expected_residual_dimension": 8, "kernel_dimension": 35, "orbit_dimension": 27, "orbit_quadratic_residual": 2.771853670041952e-14, "quadratic_rank": 15, "residual_dimension": 8, "support_resolution": 64}
+{"dimension": 6, "expected_residual_dimension": 10, "kernel_dimension": 48, "orbit_dimension": 38, "orbit_quadratic_residual": 4.5171647503772827e-14, "quadratic_rank": 24, "residual_dimension": 10, "support_resolution": 64}
+{"dimension": 7, "expected_residual_dimension": 12, "kernel_dimension": 63, "orbit_dimension": 51, "orbit_quadratic_residual": 7.923956060158135e-14, "quadratic_rank": 35, "residual_dimension": 12, "support_resolution": 64}
+{"dimension": 8, "expected_residual_dimension": 14, "kernel_dimension": 80, "orbit_dimension": 66, "orbit_quadratic_residual": 9.752475784924566e-14, "quadratic_rank": 48, "residual_dimension": 14, "support_resolution": 64}
