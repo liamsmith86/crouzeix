@@ -47,10 +47,17 @@ from slice_projective_core import (
 
 
 FloatArray: TypeAlias = NDArray[np.float64]
+Box: TypeAlias = tuple[tuple[float, float], ...]
 FactorJets: TypeAlias = dict[tuple[int, ...], tuple["ArbTaylorJet", "ArbTaylorJet"]]
 FactorJetProvider: TypeAlias = Callable[
     [tuple[Fraction, Fraction], set[tuple[int, ...]], int], FactorJets
 ]
+
+# A full finite-difference scan gives better subdivision choices on the compact
+# certificate tensors.  Above this size its temporary arrays dominate memory,
+# so the large weighted corner charts use a local score at the worst control
+# point instead.
+FULL_VARIATION_SCORE_MAX_SIZE = 5_000_000
 
 
 @dataclass(frozen=True, slots=True)
@@ -71,7 +78,7 @@ class CertificateResult:
     leaves: int
     depth: int
     minimum_lower: float
-    failure_box: tuple[tuple[float, float], ...] | None = None
+    failure_box: Box | None = None
     failure_index: tuple[int, ...] | None = None
 
 
@@ -346,8 +353,8 @@ def interval_tensor_for_chart(
         value = coefficient * whole_factor.coefficients[degree]
         remainder_map[index] = remainder_map.get(index, arb(0)) + value
 
-    center = [_arb_map_to_tensor(values, dimensions) for values in center_maps]
-    remainder = _arb_map_to_tensor(remainder_map, dimensions)
+    center = [arb_map_to_tensor(values, dimensions) for values in center_maps]
+    remainder = arb_map_to_tensor(remainder_map, dimensions)
     center_bernstein = [power_to_bernstein_tensor(part) for part in center]
     remainder_bernstein = power_to_bernstein_tensor(remainder)
     radius = (box[1] - box[0]) / 2
@@ -378,7 +385,7 @@ def interval_tensor_for_chart(
     return result
 
 
-def _arb_map_to_tensor(
+def arb_map_to_tensor(
     values: dict[tuple[int, ...], arb], dimensions: tuple[int, ...]
 ) -> IntervalTensor:
     lower = np.zeros(dimensions)
@@ -425,6 +432,22 @@ def multiply_scalar(tensor: IntervalTensor, scalar: Interval) -> IntervalTensor:
     return IntervalTensor(lower, upper)
 
 
+def multiply_positive_scalar(
+    tensor: IntervalTensor, scalar: Interval
+) -> IntervalTensor:
+    """Multiply by a nonnegative scalar interval without four-product storage."""
+
+    if scalar.lower < 0:
+        raise ValueError("scalar interval is not nonnegative")
+    lower_scale = np.where(tensor.lower < 0, scalar.upper, scalar.lower)
+    upper_scale = np.where(tensor.upper > 0, scalar.upper, scalar.lower)
+    lower = np.nextafter(tensor.lower * lower_scale, -math.inf)
+    upper = np.nextafter(tensor.upper * upper_scale, math.inf)
+    lower[tensor.lower == 0] = 0
+    upper[tensor.upper == 0] = 0
+    return IntervalTensor(lower, upper)
+
+
 def power_to_bernstein_tensor(tensor: IntervalTensor) -> IntervalTensor:
     output = tensor
     for axis in range(tensor.lower.ndim):
@@ -443,7 +466,7 @@ def power_to_bernstein_axis(tensor: IntervalTensor, axis: int) -> IntervalTensor
             coefficient = Fraction(
                 comb(bernstein_index, power_index), comb(degree, power_index)
             )
-            term = multiply_scalar(
+            term = multiply_positive_scalar(
                 IntervalTensor(lower[power_index], upper[power_index]),
                 fraction_interval(coefficient),
             )
@@ -464,36 +487,31 @@ def split_axis(
     lower = np.moveaxis(tensor.lower, axis, 0)
     upper = np.moveaxis(tensor.upper, axis, 0)
     degree = lower.shape[0] - 1
-    lower_levels = [lower]
-    upper_levels = [upper]
-    for _ in range(degree):
-        next_lower = directed_half_sum(
-            lower_levels[-1][:-1], lower_levels[-1][1:], False
-        )
-        next_upper = directed_half_sum(
-            upper_levels[-1][:-1], upper_levels[-1][1:], True
-        )
-        lower_levels.append(next_lower)
-        upper_levels.append(next_upper)
+    left_lower = np.empty_like(lower)
+    left_upper = np.empty_like(upper)
+    right_lower = np.empty_like(lower)
+    right_upper = np.empty_like(upper)
+    left_lower[0] = lower[0]
+    left_upper[0] = upper[0]
+    right_lower[degree] = lower[degree]
+    right_upper[degree] = upper[degree]
+
+    work_lower = lower
+    work_upper = upper
+    for level in range(1, degree + 1):
+        work_lower = directed_half_sum(work_lower[:-1], work_lower[1:], False)
+        work_upper = directed_half_sum(work_upper[:-1], work_upper[1:], True)
+        left_lower[level] = work_lower[0]
+        left_upper[level] = work_upper[0]
+        right_index = degree - level
+        right_lower[right_index] = work_lower[-1]
+        right_upper[right_index] = work_upper[-1]
+
     left = IntervalTensor(
-        np.moveaxis(np.stack([level[0] for level in lower_levels]), 0, axis),
-        np.moveaxis(np.stack([level[0] for level in upper_levels]), 0, axis),
+        np.moveaxis(left_lower, 0, axis), np.moveaxis(left_upper, 0, axis)
     )
     right = IntervalTensor(
-        np.moveaxis(
-            np.stack(
-                [lower_levels[degree - index][index] for index in range(degree + 1)]
-            ),
-            0,
-            axis,
-        ),
-        np.moveaxis(
-            np.stack(
-                [upper_levels[degree - index][index] for index in range(degree + 1)]
-            ),
-            0,
-            axis,
-        ),
+        np.moveaxis(right_lower, 0, axis), np.moveaxis(right_upper, 0, axis)
     )
     return left, right
 
@@ -506,41 +524,93 @@ def directed_half_sum(left: FloatArray, right: FloatArray, upward: bool) -> Floa
     return rounded
 
 
+def split_scores(
+    tensor: IntervalTensor,
+    depths: tuple[int, ...],
+    minimum_index: tuple[int, ...],
+) -> list[float]:
+    """Rank subdivision axes without large temporaries on oversized tensors."""
+
+    if tensor.lower.size <= FULL_VARIATION_SCORE_MAX_SIZE:
+        center = (tensor.lower + tensor.upper) * 0.5
+        return [
+            (
+                float(np.max(np.abs(np.diff(center, axis=axis)))) / 2**depth
+                if center.shape[axis] > 1
+                else -1.0
+            )
+            for axis, depth in enumerate(depths)
+        ]
+
+    scores: list[float] = []
+    for axis, (degree, depth) in enumerate(
+        zip((size - 1 for size in tensor.lower.shape), depths)
+    ):
+        if degree == 0:
+            scores.append(-1.0)
+            continue
+        left_index = list(minimum_index)
+        right_index = list(minimum_index)
+        left_index[axis] = max(0, minimum_index[axis] - 1)
+        right_index[axis] = min(degree, minimum_index[axis] + 1)
+        left = (tensor.lower[tuple(left_index)] + tensor.upper[tuple(left_index)]) * 0.5
+        right = (
+            tensor.lower[tuple(right_index)] + tensor.upper[tuple(right_index)]
+        ) * 0.5
+        scores.append(float(abs(right - left)) / 2**depth)
+    return scores
+
+
 def certify(
     root: IntervalTensor,
     *,
     max_depth: int,
     max_leaves: int,
+    prevalidated_boxes: tuple[Box, ...] = (),
+    prevalidated_regions: tuple[Callable[[Box], bool], ...] = (),
 ) -> CertificateResult:
+    """Certify a tensor, optionally reusing independently certified regions."""
+
     unit_box = tuple((0.0, 1.0) for _ in range(root.lower.ndim))
+    if any(len(box) != root.lower.ndim for box in prevalidated_boxes):
+        raise ValueError("prevalidated box dimension does not match the tensor")
     stack = [(root, (0,) * root.lower.ndim, unit_box)]
     leaves = 0
     deepest = 0
     while stack:
         tensor, depths, box = stack.pop()
-        minimum = float(np.min(tensor.lower))
+        inside_prevalidated_box = any(
+            all(
+                lower >= accepted_lower and upper <= accepted_upper
+                for (lower, upper), (accepted_lower, accepted_upper) in zip(
+                    box, accepted
+                )
+            )
+            for accepted in prevalidated_boxes
+        )
+        if inside_prevalidated_box or any(
+            contains(box) for contains in prevalidated_regions
+        ):
+            leaves += 1
+            continue
+        minimum_flat_index = int(np.argmin(tensor.lower))
+        minimum = float(tensor.lower.flat[minimum_flat_index])
         if minimum >= 0:
             leaves += 1
             continue
         if max(depths) >= max_depth or leaves + len(stack) >= max_leaves:
             failure_index = tuple(
                 int(index)
-                for index in np.unravel_index(
-                    int(np.argmin(tensor.lower)), tensor.lower.shape
-                )
+                for index in np.unravel_index(minimum_flat_index, tensor.lower.shape)
             )
             return CertificateResult(
                 False, leaves, deepest, minimum, box, failure_index
             )
-        center = (tensor.lower + tensor.upper) * 0.5
-        scores = [
-            (
-                float(np.max(np.abs(np.diff(center, axis=axis)))) / 2 ** depths[axis]
-                if center.shape[axis] > 1
-                else -1.0
-            )
-            for axis in range(center.ndim)
-        ]
+        minimum_index = tuple(
+            int(index)
+            for index in np.unravel_index(minimum_flat_index, tensor.lower.shape)
+        )
+        scores = split_scores(tensor, depths, minimum_index)
         axis = int(np.argmax(scores))
         left, right = split_axis(tensor, axis)
         new_depths = list(depths)

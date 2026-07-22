@@ -1,6 +1,6 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-21 (Epoch 6 — L51 projective full-core reduction)
+**Last updated:** 2026-07-21 (Epoch 6 — L54/L55 projective-core certification)
 
 ## AUDIT-GATE OUTCOME (2026-07-21, after L48 and external steering review)
 - **L51 compresses the live interior theorem to two projective polynomial
@@ -19,11 +19,15 @@
   orders from the original `4×4` core.  The earlier continuous-nome prototype also had a real
   implementation bug: it allowed the zeroth Taylor term to vanish.  Correcting that and
   keeping the Taylor coordinate correlated led to L54: an 80-digit Arb plus directed
-  Bernstein proof of the full transfer theorem on `c∈[.01,.0144]`, all final charts and both
-  signs.  L55 now resolves the low-nome algebra: determinant order `c^9`, minor order `c^2`,
-  followed by two nonnegative exceptional forms; the sole final positive-sign ridge is
-  `b/c=2` and begins with the strict term `46080c^4`.  The remaining work is to certify the
-  finite low-ridge remainders and extend the compact cover.
+  Bernstein proof of the full transfer theorem on `c∈[.01,.020736]`, all final charts and both
+  signs, in four rational boxes. L55 normalizes the low-nome algebra (determinant order `c^9`,
+  minor order `c^2`) and now factors every exceptional face exposed by the remainder charts.
+  Exact rational terms through order 15 plus parity-aware Arb tails close det0's main-orientation
+  chart and, on `[0,.01]`, four widened charts at its `a=0` corner. One main-axis equality line
+  remains there. Det1's orientation endpoints are factorized exactly but their full tail charts
+  are not yet enclosed, so no interval meeting `c=0` is claimed. Enclose those endpoints, then
+  factor the det0 axis algebraically rather than continue raw dense subdivision, while extending
+  the compact cover.
 - **L49 finds the sharp nome estimate required by the zero-node ridge:**
   `k≤4c/(1+4c²)` for `c≤1/2`.  Two Jacobi-product factors suffice, and the
   remaining degree-23 polynomial has 24 positive exact Bernstein coefficients.  On `p=0`,
