@@ -497,6 +497,31 @@ def centered_sparse_axis_model(
     return output
 
 
+def iter_half_axis_models(
+    power_map: SparseMap,
+    axes: tuple[tuple[int, str], ...],
+    prefix: str = "",
+) -> Iterator[tuple[str, SparseMap]]:
+    """Generate a memory-bounded Cartesian cover by half-interval models."""
+
+    if not axes:
+        yield prefix, power_map
+        return
+    (axis, label), *remaining = axes
+    for upper in (Fraction(1, 2), Fraction(1)):
+        modeled = centered_sparse_axis_model(
+            power_map,
+            axis,
+            upper=upper,
+            width=Fraction(1, 2),
+            degree=8,
+        )
+        suffix = f"{prefix}-{label}-{upper - Fraction(1, 2)}-{upper}"
+        yield from iter_half_axis_models(modeled, tuple(remaining), suffix)
+        del modeled
+        gc.collect()
+
+
 def projective_sparse_map(
     power_map: SparseMap,
     projective_axes: tuple[int, ...],
@@ -804,6 +829,71 @@ def audit_zero_parameter_hierarchy(table: ChartTable) -> None:
             f"unexpected zero-parameter transverse form in {table.label}"
         )
 
+    for selected_axis, expected_final in (
+        (
+            2,
+            {
+                (2, 0, 0, 0, 0, 0): fmpq(1_024),
+                (2, 0, 2, 0, 0, 0): fmpq(1_024),
+                (0, 0, 0, 0, 0, 2): fmpq(192),
+                (0, 0, 2, 0, 0, 2): fmpq(192),
+                (0, 1, 0, 0, 0, 0): fmpq(256),
+                (0, 1, 0, 0, 2, 0): fmpq(192),
+                (0, 1, 1, 0, 1, 0): fmpq(384),
+                (0, 1, 2, 0, 0, 0): fmpq(704),
+                (0, 1, 2, 0, 2, 0): fmpq(192),
+                (0, 1, 3, 0, 1, 0): fmpq(384),
+                (0, 1, 4, 0, 0, 0): fmpq(448),
+            },
+        ),
+        (
+            4,
+            {
+                (2, 0, 0, 0, 0, 0): fmpq(1_024),
+                (2, 0, 1, 0, 2, 0): fmpq(1_024),
+                (0, 0, 0, 0, 0, 2): fmpq(192),
+                (0, 0, 1, 0, 2, 2): fmpq(192),
+                (0, 1, 0, 0, 0, 0): fmpq(192),
+                (0, 1, 1, 0, 0, 0): fmpq(256),
+                (0, 1, 1, 0, 1, 0): fmpq(384),
+                (0, 1, 1, 0, 2, 0): fmpq(192),
+                (0, 1, 2, 0, 2, 0): fmpq(704),
+                (0, 1, 2, 0, 3, 0): fmpq(384),
+                (0, 1, 3, 0, 4, 0): fmpq(448),
+            },
+        ),
+    ):
+        selected = projective_sparse_map(
+            main_chart,
+            transverse_axes,
+            selected_axis,
+            order=2,
+            weights=transverse_weights,
+        )
+        final_axes = (0, 1, 5)
+        final_weights = (1, 2, 1)
+        final_leading = {
+            monomial: coefficient
+            for monomial, coefficient in selected.items()
+            if sum(
+                weight * monomial[axis]
+                for axis, weight in zip(final_axes, final_weights)
+            )
+            == 2
+        }
+        if final_leading != expected_final:
+            raise AssertionError(
+                f"unexpected zero-parameter final form in {table.label}"
+            )
+        if any(
+            coefficient
+            for monomial, coefficient in selected.items()
+            if monomial[0] == monomial[1] == monomial[5] == 0
+        ):
+            raise AssertionError(
+                f"zero-parameter final equality line did not vanish in {table.label}"
+            )
+
 
 def affine_sparse_map_axis(
     power_map: SparseMap,
@@ -1107,6 +1197,135 @@ def second_determinant_endpoint_map(power_map: SparseMap) -> SparseMap:
     for axis in (1, 2, 4):
         centered = affine_sparse_map_axis(centered, axis, Fraction(1), Fraction(-1))
     return affine_sparse_map_axis(centered, 2, Fraction(1), Fraction(-1))
+
+
+def first_determinant_zero_parameter_main_map(power_map: SparseMap) -> SparseMap:
+    """Build the hard U-dominant chart at the det0 ``a=0`` corner."""
+
+    axes = (0, 1, 2, 4, 5)
+    ratio_chart = projective_sparse_map(power_map, axes, 2, order=1)
+    scale = Fraction(1, 4)
+    for axis in (0, 5):
+        ratio_chart = affine_sparse_map_axis(ratio_chart, axis, Fraction(0), scale)
+    for axis in (1, 2, 4):
+        ratio_chart = affine_sparse_map_axis(
+            ratio_chart, axis, Fraction(1), -(scale**2)
+        )
+    main_chart = projective_sparse_map(
+        ratio_chart,
+        axes,
+        1,
+        order=4,
+        weights=(1, 2, 2, 2, 1),
+    )
+    return compress_even_sparse_map_axis(main_chart, 1)
+
+
+def certify_first_determinant_zero_parameter_main(
+    source: ChartTable,
+    c_upper: Fraction,
+    *,
+    max_depth: int,
+    max_leaves: int,
+) -> None:
+    """Certify the final det0 U-dominant corner hierarchy."""
+
+    if not source.label.startswith("det-0"):
+        raise ValueError("the zero-parameter main chart is specific to det0")
+    if c_upper > Fraction(1, 200):
+        raise ValueError("the audited det0 main tail requires c_upper <= 1/200")
+
+    started = time.monotonic()
+    power_map = asymptotic_power_map(low_nome_table(source), c_upper)
+    main_chart = first_determinant_zero_parameter_main_map(power_map)
+    del power_map
+    gc.collect()
+
+    transverse_axes = (0, 2, 4, 5)
+    transverse_weights = (1, 2, 1, 1)
+    for axis, label in ((0, "nome"), (5, "B")):
+        chart = projective_sparse_map(
+            main_chart,
+            transverse_axes,
+            axis,
+            order=2,
+            weights=transverse_weights,
+        )
+        for s_upper in (Fraction(1, 2), Fraction(1)):
+            s_modeled = centered_sparse_axis_model(
+                chart,
+                1,
+                upper=s_upper,
+                width=Fraction(1, 2),
+                degree=8,
+            )
+            for r_upper in (Fraction(1, 2), Fraction(1)):
+                modeled = centered_sparse_axis_model(
+                    s_modeled,
+                    2,
+                    upper=r_upper,
+                    width=Fraction(1, 2),
+                    degree=8,
+                )
+                certify_sparse_chart(
+                    f"{source.label}-det0-main-{label}-"
+                    f"S-{s_upper - Fraction(1, 2)}-{s_upper}-"
+                    f"R-{r_upper - Fraction(1, 2)}-{r_upper}",
+                    modeled,
+                    axis,
+                    max_depth=max_depth,
+                    max_leaves=max_leaves,
+                )
+                del modeled
+                gc.collect()
+            del s_modeled
+            gc.collect()
+        del chart
+        gc.collect()
+
+    final_axes = (0, 1, 5)
+    final_weights = (1, 2, 1)
+    radial_configs = (
+        (2, "R", ((2, "R"),)),
+        (4, "A", ((4, "A"), (2, "R"))),
+    )
+    for transverse_axis, transverse_label, model_axes in radial_configs:
+        transverse = projective_sparse_map(
+            main_chart,
+            transverse_axes,
+            transverse_axis,
+            order=2,
+            weights=transverse_weights,
+        )
+        for final_axis, final_label in zip(final_axes, ("nome", "S", "B")):
+            final_chart = projective_sparse_map(
+                transverse,
+                final_axes,
+                final_axis,
+                order=2,
+                weights=final_weights,
+            )
+            for suffix, modeled in iter_half_axis_models(final_chart, model_axes):
+                certify_sparse_chart(
+                    f"{source.label}-det0-{transverse_label}-final-"
+                    f"{final_label}{suffix}",
+                    modeled,
+                    final_axis,
+                    max_depth=max_depth,
+                    max_leaves=max_leaves,
+                )
+                del modeled
+                gc.collect()
+            del final_chart
+            gc.collect()
+        del transverse
+        gc.collect()
+
+    print(
+        f"{source.label}: det0 zero-parameter main hierarchy PASS in "
+        f"{time.monotonic() - started:.2f}s",
+        flush=True,
+    )
 
 
 def certify_second_determinant_orientation(
@@ -1505,6 +1724,11 @@ def parse_args() -> argparse.Namespace:
         help="run the factorized second-determinant endpoint hierarchy",
     )
     parser.add_argument(
+        "--certify-det0-zero-main",
+        action="store_true",
+        help="run the final first-determinant U-dominant corner hierarchy",
+    )
+    parser.add_argument(
         "--asymptotic-chart",
         choices=("c", "main", "one-minus-ratio", "one-minus-a", "abs-b"),
         help="run only one top-level asymptotic chart",
@@ -1542,6 +1766,20 @@ def main() -> None:
             raise SystemExit("no det1 chart matched")
         for source in det1_sources:
             certify_second_determinant_orientation(
+                source,
+                args.upper,
+                max_depth=args.max_depth,
+                max_leaves=args.max_leaves,
+            )
+        return
+    if args.certify_det0_zero_main:
+        if args.lower != 0:
+            raise SystemExit("the det0 zero-parameter charts require lower=0")
+        det0_sources = [table for table in selected if table.label.startswith("det-0")]
+        if not det0_sources:
+            raise SystemExit("no det0 chart matched")
+        for source in det0_sources:
+            certify_first_determinant_zero_parameter_main(
                 source,
                 args.upper,
                 max_depth=args.max_depth,

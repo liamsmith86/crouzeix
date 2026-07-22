@@ -23,11 +23,13 @@
   signs, in four rational boxes. L55 normalizes the low-nome algebra (determinant order `c^9`,
   minor order `c^2`) and now factors every exceptional face exposed by the remainder charts.
   Exact rational terms through order 15 plus parity-aware Arb tails close det0's main-orientation
-  chart and, on `[0,.01]`, four widened charts at its `a=0` corner. One main-axis equality line
-  remains there. Det1 now has two more exact blow-ups ending in the positive quadratic (23);
-  two 59-chart directed runs certify its complete main chart for both signs on `[0,.005]`
+  chart and, on `[0,.01]`, four widened charts at its `a=0` corner. Det1 has two more exact
+  blow-ups ending in the positive quadratic (23); two 59-chart directed runs certify its
+  complete main chart for both signs on `[0,.005]`
   (84 minutes positive, 76 minutes negative). Neither the low minors nor a bridge to `.01` is
-  claimed. Next factor the det0 axis rather than subdividing onto it, then close those gaps.
+  claimed. Det0's former `U`-axis line now ends in two coefficient-positive exact forms; a
+  26-chart, 47-minute run closes that local hierarchy for the positive sign on `[0,.005]`.
+  Rerun det0 negative and integrate the local cover before closing the minor/bridge gaps.
 - **L49 finds the sharp nome estimate required by the zero-node ridge:**
   `k≤4c/(1+4c²)` for `c≤1/2`.  Two Jacobi-product factors suffice, and the
   remaining degree-23 polynomial has 24 positive exact Bernstein coefficients.  On `p=0`,

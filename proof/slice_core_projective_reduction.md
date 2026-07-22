@@ -404,11 +404,29 @@ square, the transverse leading form is
 
 With the analytic tail enclosure on $0\leq c\leq.01$, the nome-, $R$-, $A$-,
 and $B$-dominant charts certify even after all ratios are enlarged to $[0,2]$.
-The remaining $U$-axis equality line is the current low-nome certificate debt.
-Direct values there are positive away from the exact limiting zero, but raw
-Bernstein subdivision converges onto the zero line and is not accepted as a
-proof. Equations (20)--(25) are checked as exact rational sparse-map identities
-by `--audit-ridge`.
+The $U$-axis equality line has one further finite hierarchy. In the
+$R$-dominant transverse chart its equality face vanishes identically, and the
+next form is
+
+\[
+64(1+r^2)\{16Z^2+3B^2+s(4+7r^2+6rA+3A^2)\}. \tag{26}
+\]
+
+In the $A$-dominant chart the corresponding form is
+
+\[
+64\{(1+ra^2)(16Z^2+3B^2)
+ +s(3+4r+6ra+3ra^2+11r^2a^2+6r^2a^3+7r^3a^4)\}. \tag{27}
+\]
+
+Both are coefficient-positive on the unit cube and strict in their three
+transverse variables. On $0\leq c\leq.005$, 26 centered-model charts certify
+the complete positive-sign $U$-dominant hierarchy: four nome, four $B$, six
+nested $R$, and twelve nested $A$ boxes, all at the root. Regeneration takes
+about 47 minutes and peaks at 12.72 GB without swap. The negative-sign run and
+integration of this local chart into the global top chart remain pending.
+Equations (20)--(27) are checked as exact rational sparse-map identities by
+`--audit-ridge`.
 
 For the analytic tails, exact rational coefficients are retained through
 order 15. Since each normalized scalar factor is $c^p$ times an even analytic
@@ -438,9 +456,8 @@ the preferred route.
 ## 7. Next exact target
 
 Extend L54's four-box adaptive cover across the compact range, keeping $c$ as
-a shared Bernstein coordinate. At $c=0$, attack the remaining det0 $U$-axis
-equality line of (25) by an exact factor/ideal decomposition; four transverse
-charts are already enclosed, and further raw dense subdivision only converges
-onto the zero line. Then certify the three low minor charts and bridge
+a shared Bernstein coordinate. At $c=0$, regenerate the det0 $U$-hierarchy
+for the negative sign and integrate its five local corner charts into the
+global top chart. Then certify the three low minor charts and bridge
 $[.005,.01]$. Completing all three tasks proves (RT) and therefore the elliptic
 $4\times4$ slice, but not the general Crouzeix conjecture.
