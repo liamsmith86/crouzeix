@@ -41,10 +41,13 @@ leading `3×3` minor and the full determinant.  Set `P=p²,t=1−o`, retain the 
 envelope through `r=p(s+γP)`, and use `(P,t)=(w,wv)` or `(wv,w)`.  Exact coefficient
 collection gives common orders 3 and 4, respectively.  Fixed-`c` Bernstein tests pass for
 the complete envelope at every tested `c=.001,...,.629`, but this is not yet a theorem over
-continuous `c`.  The directed Taylor audit stalls only at exact intersections
-`v=0,|b|=1` and `P=1,o=0,F(a,b,c,k)=0`.  Center/factor those next; see
-`proof/slice_core_projective_reduction.md`.  Frobenius, L47's rational norm majorant, and
-orientation-endpoint reductions were all falsified and should not be retried.
+continuous `c`.  An exact order-one secondary blow-up resolves `v=0,|b|=1` at fixed `c`.
+L52 proves both extreme-orientation faces analytically: the apparent square at `P=1,o=0`
+has scalar factor `G_x<0` throughout the nondegenerate range, so there is no moving interior
+zero curve.  Use these strict factors to normalize the next directed Taylor certificate; see
+`proof/slice_core_projective_reduction.md`.  Frobenius and L47's rational block-norm majorant
+were falsified and should not be retried.  (Only the claim that BE is maximized at orientation
+endpoints was falsified; the exact transfer theorem on those faces is now L52.)
 
 L45's convex-in-`a` branch is common (772,130 of 2,000,000 random quadratic-form probes) but its
 discriminant remained positive in the sample; no concavity-only shortcut exists.
