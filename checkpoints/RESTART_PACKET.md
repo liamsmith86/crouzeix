@@ -76,9 +76,20 @@ final minors for both signs on `[0,.005]` (global leaves `81/32/184` positive an
 `71/32/188` negative). Scale-free nome/main arm charts remove the det0 cutoff; exact extraction
 shows that the apparent `S=1/2` transition was only a centered-model seam. The det0 global
 complements close in `235/399` leaves at depths `8/9`. Thus L55 proves the complete core on
-`[0,.005]`, every chart and both signs. The `.005→.01` bridge is the next low-nome gap, but an
-audit caught an additional theorem gap: L54 ends at `.020736`, whereas L42 starts at
-`2^(−2/3)≈.62996`. Fixed-nome tests in between are not a continuous certificate.
+`[0,.005]`, every chart and both signs. L56 subsequently closes `.005→.01` in four directed
+boxes, so L55+L56+L54 now prove (RT) continuously through `.020736`. L57 certifies the compact
+negative sign through `.63` (overlapping L42) and the positive sign through the exact rational
+`c+=.5566585294072849…`. Only the positive tail `c+<c<2^(−2/3)` remains for the complete
+elliptic-slice theorem.
+
+L58 factors the sharp positive determinant face. At `a=b=1`, chart zero is
+`81c^9(1−k)^2(1−kX)^2[R+(1−RX)C^2]^4`; chart one has the analogous
+`(1−kRX)^2[1+R(1−X)Ctilde^2]^4`. The coefficients of `A=1−a` and `B=1−b`
+coincide and are nonnegative, with residual factor `2+3k+3Zk−8Zk²`. The exact checker
+`experiments/slice_positive_face_audit.py` regenerates all 197,563 records per chart and the
+higher-deficit l1 norm `41,235,531,913`. That global norm is too coarse: retain correlation in
+`c,X,R,Y` for the quadratic-and-higher remainder; do not use a tolerance or more unbounded raw
+subdivision.
 
 L45's convex-in-`a` branch is common (772,130 of 2,000,000 random quadratic-form probes) but its
 discriminant remained positive in the sample; no concavity-only shortcut exists.
@@ -271,12 +282,12 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   The former deformation route was superseded by the Schwarzian proof of EL4; see
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
-## Next five concrete actions (refreshed 2026-07-21, Epoch 6)
-1. **Bridge `.005→.01`, then certify the compact nome gap in the exact transfer core.** Reuse
-   L55's complete low arm cover at the left endpoint and L54's shared-coordinate certificate at
-   the right. After the bridge, extend the directed five-chart cover from `.020736` to
-   `2^(−2/3)`; do not mistake fixed-`c` passes for a continuous theorem. Do not restart the
-   rank-one/full, one-block, lower-odd, or concave-sign work.
+## Next five concrete actions (refreshed 2026-07-22, Epoch 6)
+1. **Close L57's positive compact tail using L58.** The only missing elliptic-slice interval is
+   `c+<c<2^(−2/3)`. Use the exact positive face and inward first variation, and certify the
+   correlated quadratic-and-higher deficit remainder in `c,X,R,Y`. Do not restart the bridge,
+   negative sign, rank-one/full, one-block, lower-odd, or concave-sign work; do not replace the
+   correlation by the coarse global l1 norm or a numerical tolerance.
 2. **Shifted degree-one Möbius phase**: derive its stationarity/rho formula and prove positivity
    (or K≤2) independently, both as a fallback and as a guide to the metric.
 3. **Bi-conic Schwarzian route**: compute `SG` for the off-slice collapsed map on its critical
@@ -295,8 +306,8 @@ task). Read RESEARCH_STATE.md (NEWEST section first), then proof/slice_similarit
 proof/slice_boundary_theorems.md,
 proof/el4_schwarzian_theorem.md,
 proof/even_pick_globality.md, proof/slice_closed_form.md, and proof/D2_landscape.md; master program in
-proof/rho_positivity_program.md. Resume at restart-packet action 1 (bridge `.005→.01`, then cover
-the remaining compact nome interval in the exact transfer core). EL4 and even-sector midpoint globality are proved;
+proof/rho_positivity_program.md. Resume at restart-packet action 1 (close L57's remaining
+positive compact tail using L58's exact face expansion). EL4 and even-sector midpoint globality are proved;
 definite parity is false. L20 is now exactly a 2×2-block dual trace inequality, both individual
 modal blocks are bounded by two, and all low minors are certified; do not redo the SDP duality,
 modal norms, minor charts, or blind metric ansatzes. Respect

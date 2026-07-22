@@ -1,10 +1,11 @@
 # Projective reduction of the remaining elliptic transfer core
 
 **Status (2026-07-22):** the exact reductions, both orientation faces, the
-continuous intervals $0\leq c\leq.005$ and $.01\leq c\leq.020736$, and the
-high-nome range $c\geq2^{-2/3}$ are proved. The bridge $.005<c<.01$ and the
-compact interval $.020736<c<2^{-2/3}$ remain open. Fixed-parameter Bernstein
-passes in those gaps are falsification evidence, not continuous certificates.
+complete continuous interval $0\leq c\leq.020736$, and the high-nome range
+$c\geq2^{-2/3}$ are proved. In the compact interval, the negative sign is
+certified through $.63$ and the positive sign through
+$c_+=.5566585294072849\ldots$. Thus only the positive-sign window
+$c_+<c<2^{-2/3}$ remains open.
 
 ## 1. The two minors that remain
 
@@ -536,9 +537,87 @@ These degeneracies are not evidence of a negative determinant. Factoring the
 arms, rather than accepting tiny negative interval bounds or moving a cutoff,
 is exactly what closes the low chart. Combining the determinant result above
 with the three complete minor certificates proves the full polynomial core on
-$0\leq c\leq.005$ for both signs. The bridge $.005\to.01$ remains open. Closing
-it connects the low theorem to L54, but does not by itself prove (RT): L54 ends
-at $c=.020736$, while L42 begins only at $c=2^{-2/3}$.
+$0\leq c\leq.005$ for both signs.
+
+### The bridge and compact directed covers
+
+The generic shared-coordinate checker closes the former bridge on the exact
+four-box cover
+
+\[
+ [.005,.006]\cup[.006,.0072]\cup[.0072,.00864]\cup[.00864,.01]. \tag{34}
+\]
+
+Every one of the two determinant and three final-minor charts passes for both
+signs.  For the positive sign, the first-box leaf counts are respectively
+$12377,20230,9192,214,1757$; the other three boxes require
+$(9071,14337,6388,196,1308)$,
+$(6850,11753,4966,160,1104)$, and
+$(5351,7554,3770,148,695)$.  The negative sign needs only the root or one
+subdivision.  Hence L55, (34), and L54 prove (RT) continuously through
+$c=.020736$; (34) is L56.
+
+On the compact range, geometric rational boxes give the current rigorous
+frontier.  The negative sign passes from $324/15625$ to $.63$ (coarse ratio
+$6/5$, followed by ratio $11/10$).  The positive sign passes successive
+ratio-$6/5,11/10,21/20,41/40,81/80$ covers through
+
+\[
+ c_+=
+ {7471344308886696360166308338925321050191281742307131164807\over
+  13421772800000000000000000000000000000000000000000000000000}.
+ \tag{35}
+\]
+
+These are continuous interval certificates, not fixed-$c$ samples.  Since
+$(63/100)^3=250047/10^6>1/4$, the negative cover overlaps L42.  Only the
+positive-sign tail after (35) remains.
+
+### Exact factorization of the sharp positive face
+
+The remaining positive determinant stalls are confined numerically to
+$a,b\to1$.  This edge is not a zero or a sign obstruction.  Let $X,R,Y$ denote
+the radial, ratio, and envelope coordinates, and put
+
+\[
+ q=\gamma_-+Y(\gamma_+-\gamma_-),\quad C=s+Xq. \tag{36}
+\]
+
+Exact collection at $a=b=1$ gives, in determinant chart zero,
+
+\[
+ D_0=81c^9(1-k)^2(1-kX)^2
+       [R+(1-RX)C^2]^4. \tag{37}
+\]
+
+In chart one, with $\widetilde C=s+RXq$,
+
+\[
+ D_1=81c^9(1-k)^2(1-kRX)^2
+       [1+R(1-X)\widetilde C^2]^4. \tag{38}
+\]
+
+Both are manifestly nonnegative.  More is true.  Write $A=1-a,B=1-b$.
+The coefficients of $A$ and $B$ are identical.  With $Z=X$ in chart zero
+and $Z=RX$ in chart one, their common value is
+
+\[
+ 54c^9(1-k)(1-kZ)
+ [2+3k+3Zk-8Zk^2]\,{\cal B}^4, \tag{39}
+\]
+
+where ${\cal B}$ is the bracket in (37) or (38).  The remaining factor is
+nonnegative: if $k\leq3/8$, minimize in $Z$ at $Z=0$; if $k\geq3/8$, minimize
+at $Z=1$ and obtain $2(1-k)(4k+1)$.  Thus moving inward from the face first
+*increases* the determinant.  This explains why raw binary64 subdivision was
+stalling on a positive edge.
+
+`experiments/slice_positive_face_audit.py` regenerates (37)--(39) from all
+$197563$ integer records in each chart.  It also collects every term of total
+$(A,B)$-degree at least two and obtains the same exact coefficient l1 norm
+$41235531913$ in both charts.  The remaining certificate task is to retain
+the correlated nome/spatial cancellation in that higher-order remainder;
+using the global l1 norm directly is rigorous but much too coarse.
 
 ## 6. Shortcuts falsified during this reduction
 
@@ -556,9 +635,9 @@ the preferred route.
 
 ## 7. Next exact target
 
-Bridge $[.005,.01]$ with a shared nome coordinate, reusing the now-complete
-low arm cover at the left endpoint and L54 at the right endpoint. Then extend
-the directed five-chart certificate from $.020736$ through the compact range
-below $2^{-2/3}$, where L42 takes over. Both steps are required to prove (RT)
-and therefore the elliptic $4\times4$ slice; neither resolves the general
-Crouzeix conjecture.
+Close the positive-sign tail (35) to $2^{-2/3}$ by using the exact face value
+and positive first variation (37)--(39), while keeping the higher-order
+deficit coefficients correlated in the nome and the three surviving
+projective variables.  Do not accept a tolerance or repeat unbounded raw
+subdivision.  Completing this tail proves (RT), hence the complete elliptic
+$4\times4$ slice; it still does not resolve the general Crouzeix conjecture.

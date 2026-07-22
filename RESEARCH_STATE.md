@@ -1,6 +1,24 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-21 (Epoch 6 — L54/L55 projective-core certification)
+**Last updated:** 2026-07-22 (Epoch 6 — L56/L58 compact transfer frontier)
+
+## NEWEST (2026-07-22): bridge closed; only the positive compact tail remains
+- **L56 closes the former `.005→.01` gap.** Four shared-nome boxes certify both
+  determinant charts and all three final-minor charts for both signs. Together with L55 and
+  L54, (RT) is now proved continuously on `0≤c≤.020736`.
+- **L57 advances the compact interval rigorously, not by fixed-nome sampling.** The negative
+  sign passes through `.63`, overlapping L42 because `.63>2^(−2/3)`. The positive sign passes
+  through the exact rational `c+=.5566585294072849…`. Therefore the sole missing interval for
+  the full elliptic `4×4` slice is the positive-sign tail
+  `c+<c<2^(−2/3)≈.6299605`.
+- **L58 identifies why raw subdivision stalls there.** At `a=b=1`, each positive determinant
+  chart is `81c^9` times explicit squares and a fourth power. In the inward deficits
+  `A=1−a,B=1−b`, the two linear coefficients coincide and are nonnegative; their only
+  non-square factor is `2+3k+3Zk−8Zk²≥0`. Exact regeneration checks all 197,563 records in
+  each chart. Higher total deficit degree has exact collected l1 norm `41,235,531,913`, but
+  that uncorrelated bound is too coarse. The next certificate should keep those higher
+  coefficients correlated in the nome and the three surviving projective variables, rather
+  than add a tolerance or continue raw binary64 subdivision.
 
 ## AUDIT-GATE OUTCOME (2026-07-21, after L48 and external steering review)
 - **L51 compresses the live interior theorem to two projective polynomial
@@ -39,9 +57,8 @@
   charts pass at the root; the complete positive main-dominant chart and a cap-`1/2` negative
   equality tube certify; and the global complements close in `235/399` leaves at depths `8/9`.
   Consequently L55 proves the complete polynomial core, every chart and both signs, on
-  `[0,.005]`. Audit correction: bridging `.005→.01` connects this low theorem to L54, but does
-  **not** complete (RT). L54 stops at `.020736` and L42 begins at `2^(−2/3)≈.62996`; the
-  continuous compact interval between them remains unproved despite successful fixed-`c` tests.
+  `[0,.005]`. The later L56 bridge connects it to L54, while L57 supplies the current compact
+  frontiers stated above.
 - **L49 finds the sharp nome estimate required by the zero-node ridge:**
   `k≤4c/(1+4c²)` for `c≤1/2`.  Two Jacobi-product factors suffice, and the
   remaining degree-23 polynomial has 24 positive exact Bernstein coefficients.  On `p=0`,
@@ -335,14 +352,12 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   Blaschke is ODD ({0,±α} zeros) ⟹ f₀ = z·F(z²) collapse exists; squared boundary NOT elliptic
   (resid 1e-4–1e-3).** Next: close sym4 analytically = first new Crouzeix class in campaign.
 
-## Current next actions (Epoch 6, refreshed 2026-07-21)
-1. **Prove L40's transfer theorem.** Show `||R_{a,b}(T)||≤2` for the explicit
-   Blaschke--Potapov transfer in `proof/slice_coupled_defects.md`. Preserve the matrix-valued
-   interior: a boundary/scalar reduction is numerically false. Use L41's polynomial Schur
-   complement, L45's two-square form, or L44's block-energy form for `c<2^(−2/3)` and use
-   `tan(v)=H(p)tan(u)` before any interval split. L47/L48 already close `ab=0`; exploit the new
-   product tradeoff in the genuinely interior Schur coupling rather than recertifying the axes.
-   This one theorem would prove L20 for the complete elliptic 4×4 slice.
+## Current next actions (Epoch 6, refreshed 2026-07-22)
+1. **Close L57's positive compact tail.** Keep L58's exact `a=b=1` face and positive inward
+   first variation intact, and certify only the quadratic-and-higher `(1−a,1−b)` remainder
+   with a shared Bernstein nome coordinate and the surviving `X,R,Y` variables. The raw global
+   coefficient l1 norm is rigorous but too coarse. Do not resume tolerance-based subdivision;
+   the target is only `c+<c<2^(−2/3)`. This proves L20 for the complete elliptic `4×4` slice.
 2. **Shifted Möbius phase**: derive its exact stationarity/rho formula (Kenan-Li quartic analog)
    and prove rho≥0 or K≤2. Definite parity is false.
 3. **Bi-conic Schwarzian test**: compute `SG` for the off-slice collapsed map on the critical
@@ -356,7 +371,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    remains valid only inside a chosen parity sector.
 Keep committing+pushing after each task (user instruction).
 
-## Files map (handoff-ready, 2026-07-21)
+## Files map (handoff-ready, 2026-07-22)
 proof/ — read in this order for the current frontier:
   rho_positivity_program.md (MASTER program), el4_schwarzian_theorem.md (EL4 proof + L17),
   even_pick_globality.md (L18), slice_closed_form.md (level-4 theory: L15/L16/EL4/D2-crit), D2_landscape.md (soft-class
@@ -381,7 +396,8 @@ experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_
   slice_coupled_defects.py (L27 reconstruction and KKT rank regression),
   slice_odd_block_check.py (L28 identities and L29 floating-point stress test),
   slice_block_product_certificate.py (L47 exact integer Bernstein certificate),
-  slice_sharp_nome_certificate.py (L49/L50 exact zero-node certificates).
+  slice_sharp_nome_certificate.py (L49/L50 exact zero-node certificates),
+  slice_positive_face_audit.py (L58 exact positive-face/first-deficit audit).
 Data: sym3_sweep_s51.jsonl (40 rec), sym4_sweep_s61.jsonl (20 rec, ρ column trustworthy).
 Ledgers: LEMMA_LEDGER.md, APPROACH_LEDGER.md (pitfalls P1–P8 — READ BEFORE ANY SEARCH),
 LITERATURE_LEDGER.md, COUNTEREXAMPLE_SEARCH.md. Audit: chatgpt/FABLE_RESEARCH_AUDIT.md
