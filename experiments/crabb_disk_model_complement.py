@@ -29,6 +29,12 @@ import numpy as np
 from scipy.linalg import eigvalsh, null_space, solve_discrete_lyapunov
 import sympy as sp
 
+from crabb_disk_exact import (
+    characteristic_factor,
+    coefficient_model as exact_coefficient_model,
+    evaluate_polynomial as evaluate_exact_polynomial,
+    solve_symmetric_stein,
+)
 
 DEFAULT_SEED = 70_223
 
@@ -167,36 +173,23 @@ def exact_counterexample() -> ExactCounterexampleRecord:
     length = 3
     dimension = length + 1
     coefficients = (sp.Rational(1, 20), sp.Rational(1, 30))
-    toeplitz = sp.zeros(dimension)
-    for index in range(length):
-        toeplitz[index, index] = sp.Rational(1, 2)
-    for offset, coefficient in enumerate(coefficients, start=1):
-        for row in range(length - offset):
-            toeplitz[row, row + offset] = coefficient
-            toeplitz[row + offset, row] = coefficient
-    shift = sp.zeros(dimension)
-    for row in range(length):
-        shift[row, row + 1] = 1
-    coordinate = toeplitz + shift.T * toeplitz * shift
-    operator = 2 * coordinate.inv() * toeplitz * shift
+    operator, coordinate, _, _ = exact_coefficient_model(coefficients)
 
     variable = sp.symbols("xi")
-    characteristic = sp.Poly(
-        operator.charpoly(variable).as_expr(),
+    factor = sp.Poly(
+        characteristic_factor(operator, variable),
         variable,
     )
-    numerator_coefficients = characteristic.all_coeffs()[:-1]
+    numerator_coefficients = factor.all_coeffs()
     denominator_coefficients = list(reversed(numerator_coefficients))
-
-    def evaluate(coefficients_: list[sp.Expr]) -> sp.Matrix:
-        result = sp.zeros(dimension)
-        identity = sp.eye(dimension)
-        for coefficient in coefficients_:
-            result = result * operator + coefficient * identity
-        return result
-
-    denominator = evaluate(denominator_coefficients)
-    numerator = evaluate(numerator_coefficients)
+    denominator = evaluate_exact_polynomial(
+        list(reversed(denominator_coefficients)),
+        operator,
+    )
+    numerator = evaluate_exact_polynomial(
+        list(reversed(numerator_coefficients)),
+        operator,
+    )
     blaschke = sp.simplify(numerator * denominator.inv())
     top_right = sp.eye(dimension)[:, -1]
     orbit = sp.Matrix.hstack(
@@ -206,26 +199,7 @@ def exact_counterexample() -> ExactCounterexampleRecord:
         ]
     )
     defect = orbit.T.nullspace()[0]
-
-    variables: list[sp.Symbol] = []
-    metric = sp.zeros(dimension)
-    for row in range(dimension):
-        for column in range(row, dimension):
-            entry = sp.symbols(f"p_{row}_{column}")
-            variables.append(entry)
-            metric[row, column] = entry
-            metric[column, row] = entry
-    stein = metric - operator.T * metric * operator - defect * defect.T
-    solution = sp.solve(
-        [
-            stein[row, column]
-            for row in range(dimension)
-            for column in range(row, dimension)
-        ],
-        variables,
-        dict=True,
-    )[0]
-    metric = sp.simplify(metric.subs(solution))
+    metric = solve_symmetric_stein(operator, defect)
 
     lower = sp.eye(dimension)[:, 0]
     lower_level = sp.simplify(

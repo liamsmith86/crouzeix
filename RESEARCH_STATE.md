@@ -2,6 +2,32 @@
 
 **Last updated:** 2026-07-23 (Epoch 6 — Faber endpoint localization)
 
+## NEWEST (2026-07-23): A101 finds the general-disk one-reflection obstruction
+- L149's one-reflection stationarity is special to the exact
+  phase-palindromic equality cone.  It does not extend identically
+  over the whole Toeplitz disk chart.
+- The first tangent can be evaluated exactly without roots:
+  `T'=A^dagger_K-A³`, while monic preparation gives
+  `n1=rem_g[w³g'-(g'-g'(0))/w+a_(L-1)w^(L-1)]`.
+  Rational Fréchet differentiation then gives the simple top
+  Blaschke-norm derivative.
+- At `(z1,z2)=(1/20,1/30)` this derivative is the explicit nonzero
+  rational number recorded in `proof/crabb_disk_one_reflection.md`,
+  about `-8.48e-6`.  Thus the second overly strong shortcut in the
+  first L153 draft is also false.
+- The corrected target survives exact adversarial tests.  Around
+  rational equality anchors in lengths three through five,
+  `partial_c R(u+epsilon v,0)/Q(u+epsilon v)` remains bounded and
+  converges as `epsilon->0`; the odd normal part starts cubically.
+  The viable lemma is therefore `|partial_c R(z,0)|<=C_L Q(z)`, not
+  exact zero.  Such a term is absorbed by L152 after multiplying by
+  its physical reflected grade `c^k`.
+- The proof gate is now precise: extend L148's companion recurrence
+  to show first-normal vanishing at every equality anchor and prove
+  the fourth-order apex jet, then repeat L152's best-phase blow-up.
+  `proof/crabb_disk_one_reflection.md`;
+  `experiments/crabb_disk_one_reflection.py`.
+
 ## NEWEST (2026-07-23): A100 falsifies exact all-disk model complementarity
 - The first L153 merger draft incorrectly promoted L145's one-line
   complementary relation to equality of the full condition number and
