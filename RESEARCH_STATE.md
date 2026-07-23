@@ -1,6 +1,22 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-22 (Epoch 6 — L70 weighted `p=3` Crabb slice)
+**Last updated:** 2026-07-22 (Epoch 6 — L71 exact `p=3` disk center)
+
+## NEWEST (2026-07-22): L71 identifies and closes L70's hidden center
+- The recentered L70 jet is not an accidental sequence of cancellations.  It is the analytic
+  root through `R=1` of `81ε⁴R²+(1152ε²−4096)R+4096=0`, with
+  `u=(3√2/64)R`, `v=−(9/64)R`, `s=0`.  Its expansion starts
+  `R=1+9ε²/32+405ε⁴/4096+...`, exactly reproducing the independent center shift.
+- Exact Kippenhahn reduction proves that every matrix on this curve has a circular numerical
+  range centered at a double eigenvalue: the homogeneous polynomial is
+  `(z−2cx)((z+cx)²−r²(x²+y²))`, and the isolated point lies inside the circle near `C3`.
+  Berger--Okubo--Ando therefore gives the complete L21 bound `t*≤4` on the whole curve.
+- This closes the center itself but not yet a full neighbourhood.  The remaining `p=3` task is
+  a uniform normal estimate for sequences approaching the disk curve faster than L70's leading
+  weighted scale, preferably via an analytic weighted Morse--Bott/splitting argument rather
+  than still higher jets.
+- The disk theorem is classical.  The new campaign contribution is the exact identification
+  of the hidden weighted center with that classical locus.
 
 ## NEWEST (2026-07-22): L70 closes the weighted leading sign at `C3`
 - L69 gives an exact seven-real-dimensional affine-unitary normal slice.  In its sharp chart
@@ -17,8 +33,8 @@
 - The last center is genuinely subtle: its fixed-center order-ten descent is cancelled exactly
   by the common recentering factor `1+9ε²/32`; the corrected certificate is flat through order
   twelve, while the remaining real transverse coordinate contributes `−8s²`.  This suggests
-  a hidden analytic equality center.  The next task is to characterize that center structurally,
-  not to infer a punctured-neighbourhood theorem from a finite jet.
+  the disk-matrix curve now identified exactly by L71.  A uniform normal estimate is still
+  needed; do not infer a punctured-neighbourhood theorem from a finite jet.
 - Scope remains the stronger L21 complete-similarity route near one `3×3` Crabb block.  It is
   neither a proof of the general scalar conjecture nor a repeated-block theorem.
 

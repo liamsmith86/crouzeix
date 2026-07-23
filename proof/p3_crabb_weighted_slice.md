@@ -91,10 +91,10 @@ gradient shifts the center by
 
 and completing (4) adds exactly `+13851/4194304`, cancelling the fixed-center
 order-ten descent.  With (6), the exact certificate remains flat through order
-twelve; the `Y` direction contributes `-8s^2` at that scale.  This strongly
-suggests a hidden analytic equality center for the rank-one certificate, not a
-positive direction.  A structural characterization is preferable to an
-indefinite sequence of higher-order expansions.
+twelve; the `Y` direction contributes `-8s^2` at that scale.  L71 subsequently
+identifies this jet with an exact disk-matrix curve and closes the complete
+bound on the center by Berger--Okubo--Ando.  A uniform normal estimate around
+that curve remains preferable to an indefinite sequence of higher orders.
 
 Section 4 records the audited frontier but is not used to upgrade the theorem
 in Section 3.  Its higher-jet regeneration is separated from the load-bearing
