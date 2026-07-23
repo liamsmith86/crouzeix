@@ -26,6 +26,94 @@ class BlaschkeSteinRecord:
     minimum_dual_lifted_eigenvalue: float
 
 
+@dataclass(frozen=True)
+class RealBlaschkeCriticalFactor:
+    """Polynomial data for the outside critical factor of a real product."""
+
+    numerator: np.ndarray
+    denominator: np.ndarray
+    wronskian: np.ndarray
+    outer_factor: np.ndarray
+    factorization_residual: float
+
+
+def real_blaschke_critical_factor(
+    zeros: tuple[complex, ...],
+) -> RealBlaschkeCriticalFactor:
+    """Factor the Wronskian into inside/outside reflected factors.
+
+    Coefficients are ascending.  A degree drop represents a projective
+    critical point at infinity.
+    """
+
+    if any(abs(zero.imag) > 1e-12 for zero in zeros):
+        raise ValueError("the real critical factor requires real zeros")
+    numerator = np.array([1.0 + 0.0j])
+    denominator = np.array([1.0 + 0.0j])
+    for zero in zeros:
+        numerator = np.polynomial.polynomial.polymul(
+            numerator,
+            np.array([-zero, 1.0]),
+        )
+        denominator = np.polynomial.polynomial.polymul(
+            denominator,
+            np.array([1.0, -np.conjugate(zero)]),
+        )
+    wronskian = np.polynomial.polynomial.polysub(
+        np.polynomial.polynomial.polymul(
+            np.polynomial.polynomial.polyder(numerator),
+            denominator,
+        ),
+        np.polynomial.polynomial.polymul(
+            numerator,
+            np.polynomial.polynomial.polyder(denominator),
+        ),
+    )
+    wronskian = np.polynomial.polynomial.polytrim(
+        wronskian,
+        tol=1e-12 * np.linalg.norm(wronskian),
+    )
+    critical_points = np.polynomial.polynomial.polyroots(wronskian)
+    if any(abs(abs(point) - 1.0) < 1e-7 for point in critical_points):
+        raise AssertionError("a numerical critical point reached the circle")
+    outer_factor = np.array([1.0 + 0.0j])
+    for point in critical_points:
+        if abs(point) > 1.0:
+            outer_factor = np.polynomial.polynomial.polymul(
+                outer_factor,
+                np.array([-point, 1.0]),
+            )
+    outer_factor /= outer_factor[0]
+    outer_factor = np.real_if_close(outer_factor, tol=1_000)
+
+    reflected_factor = np.zeros(len(zeros), dtype=complex)
+    for index, coefficient in enumerate(outer_factor):
+        reflected_factor[len(zeros) - 1 - index] = np.conjugate(
+            coefficient
+        )
+    factorized = np.polynomial.polynomial.polymul(
+        outer_factor,
+        reflected_factor,
+    )
+    padded_wronskian = np.zeros_like(factorized)
+    padded_wronskian[: len(wronskian)] = wronskian
+    factor_scale = np.vdot(factorized, padded_wronskian) / np.vdot(
+        factorized,
+        factorized,
+    )
+    residual = float(
+        np.linalg.norm(padded_wronskian - factor_scale * factorized)
+        / max(1.0, np.linalg.norm(padded_wronskian))
+    )
+    return RealBlaschkeCriticalFactor(
+        numerator=numerator,
+        denominator=denominator,
+        wronskian=wronskian,
+        outer_factor=np.asarray(outer_factor),
+        factorization_residual=residual,
+    )
+
+
 def blaschke_factor(matrix: np.ndarray, zero: complex) -> np.ndarray:
     """Evaluate one normalized Blaschke factor, omitting a unit phase."""
 

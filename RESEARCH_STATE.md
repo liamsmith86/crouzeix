@@ -2,29 +2,30 @@
 
 **Last updated:** 2026-07-23 (Epoch 6 — central dual metric lift)
 
-## NEWEST (2026-07-23): A89 constructs the full central metric from a lifted dual
+## NEWEST (2026-07-23): L130 proves the exact central metric lift
 - L127 now includes the companion positive dual transfer
   `R(Z)=sum_j f_j(T)Zf_j(T)*`, whose Stein difference is exactly
   `Z-B(T)ZB(T)*`.  The independent general-matrix audit verifies both
   primal and dual identities through dimensions three to seven and
   Blaschke degrees one to four.
-- Embed any rank-two positive dual on L126's active size-three block and
-  transfer it to the original central operator.  On the deterministic
-  degree-2--5 grid the lift has rank `2k`, hence a unique kernel vector
-  `q`.  Positivity proves that every model-space fiber
-  `q_j=f_j(T)*q` has outer component in the one-dimensional outer
-  kernel.
-- The generated full rank-one Stein metric reproduces the size-three
-  condition to `1.4e-11`; its outer/inner cross residual is at most
-  `2.1e-11`.  More importantly, the forcing cancellation persists at
-  `8.8e-14` for unrelated deterministic rank-two positive outer duals.
-  This isolates a structural, basis-independent identity rather than
-  an optimization coincidence.
-- **Not yet a lemma:** the remaining exact assertion is
-  `sum_j alpha_j w_j*=0`.  A Clark basis should turn it into the same
-  `zeta^k=xi` root-of-unity filter used by L120.  Until that algebra is
-  written, the exact local identity
-  `t_*(T_k(a,c))=t_*(T_1(a,c^k))` remains unproved.
+- For real `B=N/D`, factor its critical Wronskian as
+  `N'D−ND'=kappa Q Q#`, with `Q` carrying the outside critical points,
+  and set `F=Q/D`.  A residue calculation proves
+  `(1/k)sum_(B(t)=u)f(t)/F(t)=<f,F>/||F||²`, independently of the
+  fiber value.
+- The central pencil has the matching exact filtration:
+  `Pi P_m(S(a,c))Pi=0` for all Dickson grades `1<=m<k`, including
+  every amplitude power.  Polynomial division transfers the scalar
+  fiber trace to the physical outer block.
+- If `F=sum gamma_jf_j`, then `J=F(T)^−*O` maps the size-three defect
+  to a full defect and gives `sum gamma_jw_j=0` algebraically.  The
+  resulting full metric reduces the outer space and restricts to the
+  exact size-three optimal metric.  Its apex inner levels are all two,
+  strictly between endpoints one and four, so continuity and L129
+  prove `t_*(T_k(a,c))=t_*(T_1(a,c^k))` locally for every fixed `k`.
+- This closes the central `−64a²c^(2k)` event.  It does not yet localize
+  a noncentral offset inside a larger block or polarize different
+  coefficient grades.
   `proof/crabb_central_dual_lift.md`;
   `experiments/crabb_central_dual_lift.py`.
 
@@ -1558,15 +1559,13 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-23)
-1. **Close A89's central dual lift before returning to the full tube.**  L126--L129
-   reduce the active central face to size three, and the dual transfer now constructs
-   the numerically exact full rank-one metric without a full-dimensional optimizer.
-   Prove the sole remaining identity
-   `sum_j alpha_j w_j*=0` in `proof/crabb_central_dual_lift.md`.
-   The evidence survives unrelated rank-two outer duals, so formulate it as a
-   basis-free conditional expectation and prove it first in a Clark basis using
-   the `zeta^k=xi` root filter.  Do not promote it from A89 to a lemma based on the
-   floating-point checker.
+1. **Localize L130 from central windows to every palindromic offset.**
+   For an offset `k` in a larger `p=L+1` block, isolate the minimal
+   `2k+1` endpoint/offset path window, prove that unused tails are strictly
+   inactive in the transferred metric, and quantify the first feedback order.
+   Then polarize distinct circle grades.  The target is A84's full leading face
+   `-64a² sum_k |u_k|²c^(2k)` with a uniform weighted remainder.  Do not
+   redo the central coefficient or infer tail inactivity from numerics.
 2. **Build the L115/L117 transverse tube.**  Anchor on the exact elliptic-axis metric,
    and use L120's completed all-size absorption of L65's coercive normal complement.
    What remains is the weighted merger of the elliptic coordinate with L115's

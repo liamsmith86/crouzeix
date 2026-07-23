@@ -134,3 +134,8 @@ problem is solely quantitative:
 > without increasing its two endpoint levels at order `a^2c^(2k)`.
 
 The inactive block itself no longer needs an exact elliptic SDP.
+
+**Subsequent closure (L130).**  The outside critical factor of the
+finite Blaschke product gives an explicit lift whose metric reduces
+the outer space.  The strict apex metric gap then traps its inner
+levels, proving the exact local central identity.

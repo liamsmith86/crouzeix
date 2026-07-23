@@ -239,11 +239,11 @@ The exact formal audit gives the stronger finite observation
 where `H_(p,k)` denotes the optimized amplitude Hessian.  Equation
 (17) is evidence for a metric-fiber self-similarity, not part of L126.
 
-## 4. What remains for A84
+## 4. Subsequent metric closure and what remains for A84
 
-L126 proves the all-size polynomial descent, but (15) alone has the
-wrong direction for an upper similarity bound: a metric making `T` a
-contraction also makes `B(T)` a contraction, not conversely.
+L126 by itself has the wrong direction for an upper similarity bound:
+a metric making `T` a contraction also makes `B(T)` a contraction,
+not conversely.
 
 The exact outer summand gives
 
@@ -252,25 +252,20 @@ The exact outer summand gives
  t_*(T_1(a,c^k)),                                    \tag{18}
 \]
 
-but this is still the lower direction.  Numerical rank-one and SDP
-optimizations agree with equality in (18), to roughly `10^(-12)`,
-for `k=2,3,4`, `c` through `0.6`, and amplitudes through `0.1`.  That
-striking equality is a new metric-lift conjecture, not yet a theorem.
+but this is still only the lower direction.
 
-The next lemma must lift the active size-three rank-one metric through
-the inactive inner fibers.  At the L117 axis their generalized metric
-levels lie strictly between the two active endpoints.  The expected
-Schur/implicit-function argument is:
+**Subsequent closure (L130).**  The outside critical factor of
+`B_(k,c)` supplies an explicit full defect vector.  Its model-space
+forcing reduces `V`, its outer metric is exactly the size-three
+metric, and all inner levels remain strictly between the active
+endpoints locally.  Hence equality holds in (18) for every fixed `k`
+near the apex.
 
-1. solve the inner-fiber Stein equations using their strict endpoint
-   gaps;
-2. show that their feedback into the active block costs more than
-   `c^(2k)`;
-3. retain the size-three endpoint coefficient `-64`; and
-4. localize a noncentral offset to its central `2k+1` path window.
-
-Distinct offset grades must then be polarized.  L126 does not yet
-prove that metric-lifting statement or the uniform Newton remainder.
+What remains for A84 is no longer the central metric lift.  One must
+localize a noncentral offset in a larger block to its minimal
+`2k+1` path window, prove the unused tails inactive at the required
+weighted order, polarize distinct grades, and control the uniform
+Newton remainder.
 
 ## 5. Exact regeneration
 

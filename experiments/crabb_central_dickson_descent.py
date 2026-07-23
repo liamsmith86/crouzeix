@@ -31,6 +31,9 @@ class DicksonDescentRecord:
     inner_two_layer_identity: bool
     inner_coordinate_gramian_identity: bool
     inner_involution_identity: bool
+    subcritical_dickson_compression: bool
+    subcritical_moment_compression: bool
+    subcritical_boundary_annihilation: bool
     axis_cross_blocks_vanish: bool
     derivative_cross_blocks_vanish: bool
 
@@ -94,6 +97,26 @@ def make_record(degree: int) -> DicksonDescentRecord:
         - parameter * sp.eye(dimension)[:, degree - 1].T
     )
     direction = 2 * endpoint_difference * central_row
+
+    axis_dickson_values = [2 * sp.eye(dimension), axis]
+    pencil_dickson_values = [
+        2 * sp.eye(dimension),
+        axis + amplitude * direction,
+    ]
+    for current_degree in range(2, degree):
+        axis_dickson_values.append(
+            sp.expand(
+                axis * axis_dickson_values[-1]
+                - parameter * axis_dickson_values[-2]
+            )
+        )
+        pencil_dickson_values.append(
+            sp.expand(
+                (axis + amplitude * direction)
+                * pencil_dickson_values[-1]
+                - parameter * pencil_dickson_values[-2]
+            )
+        )
 
     value, derivative = dickson_value_and_derivative(
         axis,
@@ -251,6 +274,43 @@ def make_record(degree: int) -> DicksonDescentRecord:
         and derivative.extract(inner_indices, outer_indices)
         == sp.zeros(dimension - 3, 3)
     )
+    outer_embedding = sp.eye(dimension)[:, outer_indices]
+    subcritical_dickson_compression = all(
+        value.extract(outer_indices, outer_indices) == sp.zeros(3)
+        for value in pencil_dickson_values[1:degree]
+    )
+    subcritical_moment_compression = all(
+        ((axis + amplitude * direction) ** moment).extract(
+            outer_indices,
+            outer_indices,
+        )
+        == (
+            sp.binomial(moment, moment // 2)
+            * parameter ** (moment // 2)
+            * sp.eye(3)
+            if moment % 2 == 0
+            else sp.zeros(3)
+        )
+        for moment in range(degree)
+    )
+    endpoint_column = 2 * endpoint_difference
+    subcritical_boundary_annihilation = all(
+        (
+            central_row
+            * axis_dickson_values[current_degree]
+            * outer_embedding
+            == sp.zeros(1, 3)
+        )
+        for current_degree in range(max(0, degree - 1))
+    ) and all(
+        (
+            outer_embedding.T
+            * axis_dickson_values[current_degree]
+            * endpoint_column
+            == sp.zeros(3, 1)
+        )
+        for current_degree in range(1, degree)
+    )
     record = DicksonDescentRecord(
         degree=degree,
         dimension=dimension,
@@ -276,6 +336,15 @@ def make_record(degree: int) -> DicksonDescentRecord:
             inner_coordinate_gramian_identity
         ),
         inner_involution_identity=inner_involution_identity,
+        subcritical_dickson_compression=(
+            subcritical_dickson_compression
+        ),
+        subcritical_moment_compression=(
+            subcritical_moment_compression
+        ),
+        subcritical_boundary_annihilation=(
+            subcritical_boundary_annihilation
+        ),
         axis_cross_blocks_vanish=axis_cross_vanishes,
         derivative_cross_blocks_vanish=derivative_cross_vanishes,
     )
@@ -291,6 +360,9 @@ def make_record(degree: int) -> DicksonDescentRecord:
             record.inner_two_layer_identity,
             record.inner_coordinate_gramian_identity,
             record.inner_involution_identity,
+            record.subcritical_dickson_compression,
+            record.subcritical_moment_compression,
+            record.subcritical_boundary_annihilation,
             record.axis_cross_blocks_vanish,
             record.derivative_cross_blocks_vanish,
         )

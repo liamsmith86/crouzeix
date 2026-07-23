@@ -123,13 +123,16 @@ missing special fact much more precisely:
 3. every inner generalized eigenvalue lies strictly between the outer
    endpoints.
 
-Proving those three statements for the transfer (1), or constructing
-the same metric directly, would establish the conjectured exact
-central identity
+L130 subsequently proves those three statements for the central
+family by factoring the outside critical points of `B` and
+constructing the same metric directly.  It establishes locally
 
 \[
  t_*(T_k(a,c))=t_*(T_1(a,c^k)).                      \tag{8}
 \]
+
+The obstruction in this section remains real for a general operator;
+L130 uses the special Dickson/root-fiber filtration.
 
 ## 5. The dual transfer
 

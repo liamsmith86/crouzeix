@@ -141,6 +141,10 @@ local grid.  Equation (2) suggests proving them by a `2×2`
 operator-valued Schur complement rather than by an induction over
 `k` individual coordinates.
 
+**Subsequent closure (L130).**  The outside-critical-factor trace
+identity constructs this metric without the proposed Schur-complement
+calculation and proves all four properties locally.
+
 ## 5. Exact regeneration
 
 The L126 checker verifies (1)--(4), together with the full pencil

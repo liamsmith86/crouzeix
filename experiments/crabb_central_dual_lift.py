@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
-"""Audit the central Crabb dual-lift construction from the open L130 step.
+"""Audit the exact central Crabb metric lift from L130.
 
 The computation deliberately avoids optimizing a defect vector in the full
 ``(2k+1)``-dimensional problem.  It optimizes only the descended size-three
-problem, transfers its dual witness through the degree-``k`` Blaschke model
-space, takes the one-dimensional kernel of that positive lift, and constructs
-the resulting full rank-one Stein metric.
-
-The cross-fiber cancellation checked here is numerical evidence, not a proof.
+problem, factors the outer critical polynomial of the degree-``k`` Blaschke
+product, and uses L130's explicit multiplier to construct the full defect.
+It then compares that vector with the independently transferred dual kernel
+and constructs the resulting full rank-one Stein metric.
 """
 
 from __future__ import annotations
@@ -20,7 +19,11 @@ from pathlib import Path
 import numpy as np
 from scipy.linalg import null_space, solve_discrete_lyapunov
 
-from blaschke_stein_composition import dual_transfer, model_functions
+from blaschke_stein_composition import (
+    dual_transfer,
+    model_functions,
+    real_blaschke_critical_factor,
+)
 from crabb_central_metric_descent import central_coordinate_gramian
 from crabb_palindromic_elliptic_face import (
     disk_matrix,
@@ -44,8 +47,14 @@ class CentralDualLiftRecord:
     descended_parameter: float
     amplitude: float
     outer_image_residual: float
+    critical_factorization_residual: float
+    model_multiplier_residual: float
+    scalar_compression_residual: float
     dual_smallest_eigenvalue: float
     dual_second_eigenvalue: float
+    explicit_dual_kernel_residual: float
+    explicit_kernel_angle_residual: float
+    weighted_reconstruction_residual: float
     kernel_alignment_residual: float
     forcing_cross_residual: float
     random_dual_kernel_alignment_residual: float
@@ -117,6 +126,60 @@ def normalized_residual(value: np.ndarray, scale: float = 1.0) -> float:
     """Return a spectral-norm residual with a nonvanishing scale."""
 
     return float(np.linalg.norm(value, 2) / max(1.0, abs(scale)))
+
+
+def polynomial_matrix_value(
+    coefficients: np.ndarray,
+    matrix: np.ndarray,
+) -> np.ndarray:
+    """Evaluate an ascending-coefficient polynomial by Horner's rule."""
+
+    identity = np.eye(matrix.shape[0], dtype=complex)
+    value = np.zeros_like(matrix, dtype=complex)
+    for coefficient in coefficients[::-1]:
+        value = value @ matrix + coefficient * identity
+    return value
+
+
+def critical_multiplier(
+    operator: np.ndarray,
+    zeros: tuple[complex, ...],
+    functions: list[np.ndarray],
+) -> tuple[np.ndarray, np.ndarray, float, float]:
+    """Construct ``F=Q/D`` from the outside critical factor of ``B``."""
+
+    factorization = real_blaschke_critical_factor(zeros)
+    outer_factor = factorization.outer_factor
+    denominator = factorization.denominator
+
+    numerator_value = polynomial_matrix_value(outer_factor, operator)
+    denominator_value = polynomial_matrix_value(denominator, operator)
+    multiplier = numerator_value @ np.linalg.inv(denominator_value)
+    model_matrix = np.column_stack(
+        [function.reshape(-1) for function in functions]
+    )
+    coefficients = np.linalg.lstsq(
+        model_matrix,
+        multiplier.reshape(-1),
+        rcond=None,
+    )[0]
+    reconstructed = sum(
+        (
+            coefficient * function
+            for coefficient, function in zip(coefficients, functions)
+        ),
+        start=np.zeros_like(operator, dtype=complex),
+    )
+    model_residual = normalized_residual(
+        multiplier - reconstructed,
+        np.linalg.norm(multiplier, 2),
+    )
+    return (
+        multiplier,
+        coefficients,
+        factorization.factorization_residual,
+        model_residual,
+    )
 
 
 def fiber_cross_residuals(
@@ -231,6 +294,34 @@ def make_record(
         outer_image - phase * outer_operator,
         np.linalg.norm(outer_operator, 2),
     )
+    (
+        multiplier,
+        multiplier_coefficients,
+        critical_factorization_residual,
+        model_multiplier_residual,
+    ) = critical_multiplier(operator, zeros, functions)
+    multiplier_norm_square = float(
+        np.vdot(multiplier_coefficients, multiplier_coefficients).real
+    )
+    explicit_lift = np.linalg.solve(
+        multiplier.conj().T,
+        outer_map,
+    )
+    scalar_compression_residual = max(
+        normalized_residual(
+            outer_map.conj().T
+            @ function.conj().T
+            @ explicit_lift
+            - (
+                np.conjugate(coefficient) / multiplier_norm_square
+            )
+            * np.eye(3),
+        )
+        for function, coefficient in zip(
+            functions,
+            multiplier_coefficients,
+        )
+    )
 
     metric_values, metric_vectors = np.linalg.eigh(outer_metric)
     lower_vector = metric_vectors[:, 0]
@@ -254,7 +345,45 @@ def make_record(
     lifted_dual = dual_transfer(functions, embedded_dual)
     lifted_dual = (lifted_dual + lifted_dual.conj().T) / 2
     dual_values, dual_vectors = np.linalg.eigh(lifted_dual)
-    defect = dual_vectors[:, 0]
+    explicit_defect = explicit_lift @ outer_kernel
+    explicit_defect /= np.linalg.norm(explicit_defect)
+    explicit_dual_kernel_residual = normalized_residual(
+        lifted_dual @ explicit_defect,
+        np.linalg.norm(lifted_dual, 2),
+    )
+    explicit_kernel_angle_residual = float(
+        np.sqrt(
+            max(
+                0.0,
+                1.0
+                - abs(np.vdot(dual_vectors[:, 0], explicit_defect)) ** 2,
+            )
+        )
+    )
+    defect = explicit_defect
+    weighted_reconstruction = sum(
+        (
+            np.conjugate(coefficient)
+            * function.conj().T
+            @ defect
+            for coefficient, function in zip(
+                multiplier_coefficients,
+                functions,
+            )
+        ),
+        start=np.zeros(dimension, dtype=complex),
+    )
+    explicit_scale = np.vdot(
+        explicit_lift @ outer_kernel,
+        defect,
+    ) / np.vdot(
+        explicit_lift @ outer_kernel,
+        explicit_lift @ outer_kernel,
+    )
+    expected_reconstruction = explicit_scale * outer_map @ outer_kernel
+    weighted_reconstruction_residual = normalized_residual(
+        weighted_reconstruction - expected_reconstruction,
+    )
 
     inner_map = null_space(outer_map.conj().T)
     outer_defect_metric = solve_discrete_lyapunov(
@@ -296,8 +425,18 @@ def make_record(
         descended_parameter=descended_parameter,
         amplitude=amplitude,
         outer_image_residual=outer_image_residual,
+        critical_factorization_residual=(
+            critical_factorization_residual
+        ),
+        model_multiplier_residual=model_multiplier_residual,
+        scalar_compression_residual=scalar_compression_residual,
         dual_smallest_eigenvalue=float(abs(dual_values[0])),
         dual_second_eigenvalue=float(dual_values[1]),
+        explicit_dual_kernel_residual=explicit_dual_kernel_residual,
+        explicit_kernel_angle_residual=explicit_kernel_angle_residual,
+        weighted_reconstruction_residual=(
+            weighted_reconstruction_residual
+        ),
         kernel_alignment_residual=maximum_alignment,
         forcing_cross_residual=forcing_cross_residual,
         random_dual_kernel_alignment_residual=random_alignment,
@@ -316,10 +455,22 @@ def make_record(
 
     if record.outer_image_residual > 2e-11:
         raise AssertionError("the Blaschke image missed the outer block")
+    if record.critical_factorization_residual > 2e-10:
+        raise AssertionError("the outer critical factorization failed")
+    if record.model_multiplier_residual > 2e-10:
+        raise AssertionError("the critical multiplier left the model space")
+    if record.scalar_compression_residual > 2e-10:
+        raise AssertionError("the constant fiber trace identity failed")
     if record.dual_smallest_eigenvalue > 2e-10:
         raise AssertionError("the transferred dual lost its kernel")
     if record.dual_second_eigenvalue <= 1e-8:
         raise AssertionError("the transferred dual gained extra kernel")
+    if record.explicit_dual_kernel_residual > 2e-10:
+        raise AssertionError("the explicit defect missed the dual kernel")
+    if record.explicit_kernel_angle_residual > 2e-7:
+        raise AssertionError("the explicit and numerical kernels separated")
+    if record.weighted_reconstruction_residual > 2e-10:
+        raise AssertionError("the multiplier reconstruction identity failed")
     if record.kernel_alignment_residual > 2e-10:
         raise AssertionError("the model-space fibers lost kernel alignment")
     if record.forcing_cross_residual > 2e-10:
