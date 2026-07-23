@@ -185,7 +185,8 @@ proportional to `conj(z)`.  In particular `a_1=c conj(z)`, while
 
 for nonzero or zero star data alike.
 
-There is one further split inside (15).  A fixed orthogonal-copy vector joins
+There is one further split inside the explicit endpoint equality (15).  A
+fixed orthogonal-copy vector joins
 the selected top eigenspace exactly when
 
 \[
@@ -195,10 +196,16 @@ the selected top eigenspace exactly when
 Indeed, equality in the trace bound (13) is equivalent to fixed rank-one
 range for `R(q)`, and its mean range is the span of `conj(a_0),conj(a_2)`.
 The rank-one case (16) is unitarily a single cross pair and is closed cubically
-by L77.  Genuine rank-two data require at least two orthogonal copies; their
-selected second-order branch is the only common top branch, the odd
-three-switch compression back to it vanishes, and fourth order is the next
-live term.
+by L77.  Genuine rank-two data require at least two orthogonal copies, and the
+selected support branch is their only common top branch.
+
+This does **not** say that the optimal second-order similarity coefficient
+vanishes.  The metric tangent (7) is only one feasible choice.  A nonlinear
+Riemann-map/SDP check on the canonical orthogonal data
+`a_0=(1,0), a_2=(0,1)` gives quotients `(t_*-4)/epsilon^2` tending to about
+`-.566`, not zero.  Thus additional homogeneous first-metric tangents improve
+(8), and the full multi-copy second-order metric optimization remains active.
+The earlier inference that rank-two data first move at fourth order was false.
 
 ## 6. Scope and regeneration
 

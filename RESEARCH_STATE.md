@@ -1,8 +1,8 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-22 (Epoch 6 — L79 star equality classification)
+**Last updated:** 2026-07-22 (Epoch 6 — L79 certificate-equality correction)
 
-## NEWEST (2026-07-22): L79 isolates the genuine multi-copy flat face
+## NEWEST (2026-07-22): L79 classifies only certificate equality; fourth-order route rejected
 - The L78 effective support has block form `diag(s(q),R(q))` and the exact trace reversal
   `s(q)=trace R(-q)`.  Combining this with the endpoint's two NSD summands proves that its top
   eigenvalue is zero **exactly** when the generator-1 coefficient vector `a1` vanishes; every
@@ -10,11 +10,12 @@
 - When `a1=0`, `s(q)=trace R(q)>=lambda_max R(q)`, so the selected copy is a common top branch.
   A fixed orthogonal-copy branch ties it exactly when `span{a0,a2}` has rank at most one.  That
   rank-one case is copy-unitarily the L77 pure pair and descends cubically.
-- Genuine rank-two `(a0,a2)` data require at least two orthogonal copies.  Their selected branch
-  is the only common second-order top branch, and the odd three-switch compression back to it is
-  zero; the first live term is therefore fourth order.  This is now the sharply defined
-  higher-multiplicity target.  `proof/repeated_p3_star_second_sign.md` §5;
-  `experiments/repeated_p3_star_second_sign.py`.
+- Genuine rank-two `(a0,a2)` data require at least two orthogonal copies and have only the
+  selected common top support branch.  However, this classifies equality of the **particular
+  L78 metric**, not the optimized second-order SDP.  A nonlinear probe on orthogonal unit data
+  gives `(t_*-4)/epsilon² -> approximately -.566`, decisively rejecting the inference that the
+  first live term is fourth order.  A better homogeneous metric tangent must be optimized now.
+  `proof/repeated_p3_star_second_sign.md` §5.
 
 ## NEWEST (2026-07-22): L78 closes arbitrary star coupling at second order
 - For `m` repeated `C3` copies, collect the three L74 generator coefficients across the
@@ -583,12 +584,12 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-22)
-1. **Compute fourth order on L79's rank-two star face.** Here `a1=0` and `a0,a2` are independent;
-   all rank-one subfaces are already L77.  After its sign is known, include diagonal single-copy
-   perturbations, internal `y^perp` blocks, and the strict common-maximizer order inequality.
-   The weighted transition must combine L76's quadratic, L77's cubic, and L78's matrix Jensen
-   gaps uniformly before claiming a repeated neighbourhood.  In parallel, seek the L73
-   analytic-normal-form pattern in the `2p-2` quotient modes for `p≥4`.
+1. **Optimize the full L79 rank-two second-order metric.** Parameterize the homogeneous
+   first-metric tangent beyond L78's pairwise choice, solve its finite copy-space SDP, and prove
+   the observed strict negative coefficient.  Do not compute fourth order unless the optimized
+   coefficient still has a kernel.  Then include diagonal single-copy perturbations, internal
+   `y^perp` blocks, and the strict common-maximizer order inequality.  In parallel, seek the L73
+   analytic-normal-form pattern in the `2p-2` quotient modes for `p>=4`.
 2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
    trace inequality can instead be derived from the block-Toeplitz positivity of the full
    operator-valued correction moments. Do not retry trace/positive-state scalarizations.
