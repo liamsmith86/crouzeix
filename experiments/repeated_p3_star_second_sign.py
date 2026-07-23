@@ -110,6 +110,26 @@ def main() -> None:
         * support_perturbation
         * top_vectors
     )
+    orthogonal_support = effective_support[1:3, 1:3]
+    reversed_trace = sp.trace(orthogonal_support).subs(
+        boundary,
+        -boundary,
+    )
+    if sp.simplify(effective_support[0, 0] - reversed_trace) != 0:
+        raise AssertionError("the selected/orthogonal trace reversal failed")
+    flat_substitution = {
+        alpha[1]: 0,
+        alpha_conjugate[1]: 0,
+        beta[1]: 0,
+        beta_conjugate[1]: 0,
+    }
+    flat_trace_residual = sp.simplify(
+        (effective_support[0, 0] - sp.trace(orthogonal_support)).subs(
+            flat_substitution
+        )
+    )
+    if flat_trace_residual != 0:
+        raise AssertionError("the flat star did not have trace equality")
 
     def constant_laurent_coefficient(expression: sp.Expr) -> sp.Expr:
         shifted = sp.expand(sp.cancel(expression) * boundary**6)
@@ -281,6 +301,7 @@ def main() -> None:
     print("           - 8 * block_diag(norm(alpha_1)^2, alpha_1 Gram)")
     print("the possibly nonzero first conformal mode cancels from the endpoint")
     print("both displayed endpoint terms are negative semidefinite")
+    print("endpoint equality occurs exactly when the alpha_1 vector vanishes")
 
 
 if __name__ == "__main__":

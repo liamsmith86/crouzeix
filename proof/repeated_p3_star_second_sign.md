@@ -139,13 +139,68 @@ argument of L62 proves
 This is a matrix Jensen argument at the **effective support level**, not an
 assumption that pairwise certificates can simply be added.
 
-Equality in (10) requires a vector that is a top eigenvector of `Q(q)` for
-almost every `q` and also lies in the kernel of `B`.  This can occur, in
-particular on higher-multiplicity analogues of the L76 flat plane.  L77 treats
-the entire flat plane only when `m=2`; higher-multiplicity equality still
-needs a separate third-order analysis.
+## 5. Exact equality classification
 
-## 5. Scope and regeneration
+The star structure makes `Q(q)` block diagonal:
+
+\[
+ Q(q)=\operatorname{diag}(s(q),R(q)),\qquad R(q)\succeq0. \tag{11}
+\]
+
+Exact Laurent algebra gives the trace-reversal identity
+
+\[
+ s(q)=\operatorname{tr}R(-q).                          \tag{12}
+\]
+
+If `a_1=0`, the odd part in (12) vanishes and
+
+\[
+ s(q)=\operatorname{tr}R(q)\ge\lambda_{\max}R(q).     \tag{13}
+\]
+
+Thus the selected copy vector is a common top eigenvector of `Q(q)`, belongs
+to the kernel of `B`, and makes (8) equal to zero.  Hence
+`lambda_max(cal E)=0` whenever `a_1=0`.
+
+Conversely suppose `a_1` is nonzero and `cal E` has a null vector.  Since both
+terms in (8) are NSD, write that unit vector as `(0,z)` with
+`a_1^Tz=0`; it must also be a common top eigenvector of `Q(q)`.  Apply this at
+`q` and `-q`.  From (12),
+
+\[
+ z^*R(q)z\ge\operatorname{tr}R(-q),\qquad
+ z^*R(-q)z\ge\operatorname{tr}R(q).                   \tag{14}
+\]
+
+Each left side is at most the trace of its own PSD matrix.  Adding (14)
+forces equality everywhere.  Therefore `R(q)` has rank one with fixed range
+`span{z}`.  Its mean `G` also has that range, so (5) forces every `a_j` to be
+proportional to `conj(z)`.  In particular `a_1=c conj(z)`, while
+`a_1^Tz=c||z||^2=0`; hence `a_1=0`, a contradiction.  We have proved
+
+\[
+ \boxed{\lambda_{\max}({\cal E})=0\iff a_1=0}          \tag{15}
+\]
+
+for nonzero or zero star data alike.
+
+There is one further split inside (15).  A fixed orthogonal-copy vector joins
+the selected top eigenspace exactly when
+
+\[
+ \dim\operatorname{span}\{a_0,a_2\}\le1.             \tag{16}
+\]
+
+Indeed, equality in the trace bound (13) is equivalent to fixed rank-one
+range for `R(q)`, and its mean range is the span of `conj(a_0),conj(a_2)`.
+The rank-one case (16) is unitarily a single cross pair and is closed cubically
+by L77.  Genuine rank-two data require at least two orthogonal copies; their
+selected second-order branch is the only common top branch, the odd
+three-switch compression back to it vanishes, and fourth order is the next
+live term.
+
+## 6. Scope and regeneration
 
 The theorem covers arbitrary multiplicity but only the pure star quotient:
 there are no diagonal perturbation blocks and no blocks internal to
@@ -161,6 +216,7 @@ Run
 The checker uses two independent symbolic orthogonal copies.  It reconstructs
 the complete support mean (4)--(5), keeps an arbitrary complex first conformal
 mode in (6), builds the full second metric, and proves (8) entry by entry.
+It also proves (12) and the flat trace identity (13) exactly.
 Every entry for general `r` is a sum of diagonal terms or a polarization of
 one pair of coefficient vectors, so the two-symbolic-copy identity proves the
 dimension-independent formula.
