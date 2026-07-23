@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current repeated-C3 frontier (2026-07-22): L111
+## Current repeated-C3 frontier (2026-07-22): L112
 
 L73 proves a complete-2 neighbourhood of one `C3`; L74--L93 reduce arbitrary repeated
 copies to weighted terminal blocks, with all fixed directions closed.  L94--L100 give
@@ -34,11 +34,14 @@ cubic dominates uniformly.  The complete two-copy terminal tube is proved.
 L111 removes the first arbitrary-copy obstruction: at `Z_ir tensor I_k`, every tangent
 preserving the scalar-support relations is a unitary commutator plus the same three
 two-dimensional parameters on each multiplicity coordinate.  There is no hidden
-large-multiplicity terminal modulus.  Remaining: control collisions with the normal stratum
-and proper common-top flag spaces, then merge the resulting arbitrary-copy tube with L86's
-losing-space gaps.  Do not start a larger Schur grind.  See `RESEARCH_STATE.md`,
-`proof/repeated_p3_terminal_tube.md`, and
-`proof/repeated_p3_scalar_support_rigidity.md`.
+large-multiplicity terminal modulus.  L112 closes its normal boundary:
+at `s diag(Ip,−Iq)`, the only unitary-invariant equality tangent is the rectangular edge
+`B−C*`, whose SVD is a direct sum of L110 two-copy pairs and normal leftovers.
+Remaining: control proper common-top spaces whose L93 descending flag changes rank, then merge
+the resulting arbitrary-copy tube with L86's losing-space gaps.  Do not start a larger Schur
+grind.  See `RESEARCH_STATE.md`, `proof/repeated_p3_terminal_tube.md`,
+`proof/repeated_p3_scalar_support_rigidity.md`, and
+`proof/repeated_p3_normal_collision.md`.
 
 ## Latest completion (2026-07-22): elliptic 4×4 slice proved
 

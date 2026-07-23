@@ -1,6 +1,24 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-22 (Epoch 6 — L111 scalar-support multiplicity rigidity)
+**Last updated:** 2026-07-22 (Epoch 6 — L112 normal-collision SVD reduction)
+
+## NEWEST (2026-07-22): L112 splits every normal multiplicity collision
+- At a normal full-common-top scalar-support point, rotate and scale to
+  `Z0=s diag(Ip,−Iq)`.  For a tangent `X=[[A,B],[C,D]]`, the two linearized scalar
+  relations force exactly `A=aIp,D=−aIq`; the rectangular blocks `B,C` remain free.
+- A skew-Hermitian copy-orbit generator with upper block `L=C*/(2s)` kills the lower
+  rectangle and leaves the single invariant edge `R=B−C*`.
+- The SVD of `R` splits the tangent into independent blocks
+  `[[s+ta,t sigma_j],[0,−s−ta]]` plus unmatched normal coordinates.  These are exactly
+  L110's trace-zero two-copy terminal tubes and L88's normal stratum.
+- Exact real-linear ranks for every `1<=p,q<=4` give dimensions `4pq+2` full,
+  `4pq` homogeneous, and `2pq` unitary orbit; a symbolic `2 x 3` calculation verifies
+  the gauge identity entry by entry.
+- Together L111--L112 close all full-common-top multiplicity strata, including their normal
+  boundary.  The remaining flat-core gate is a proper common-top space with collapsing L93
+  flag ranks.
+  `proof/repeated_p3_normal_collision.md`;
+  `experiments/repeated_p3_normal_collision.py`.
 
 ## NEWEST (2026-07-22): L111 removes hidden multiplicity tangents
 - L93's full common-top blocks satisfy `Z²=alpha I` and
@@ -1144,6 +1162,7 @@ experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_
   repeated_p3_exact_metric_chart.py (L105 exact tight lower/Stein chart Jacobian),
   repeated_p3_slack_transfer.py (L109 weighted normal/transverse slack jet),
   repeated_p3_scalar_support_rigidity.py (L111 exact multiplicity-tangent ranks),
+  repeated_p3_normal_collision.py (L112 rectangular normal-collision reduction),
   repeated_p3_normal_center_probe.py (supporting two-scale regression only),
   repeated_p3_flat_metric_flag.py (L93 arbitrary-copy metric-flag derivative).
 Proof artifact: experiments/positive_tail_full_20260722.log (L59 clean 10-box run).

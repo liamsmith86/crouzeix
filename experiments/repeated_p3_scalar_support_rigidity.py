@@ -26,12 +26,14 @@ def general_complex_matrix(
     real = sp.symbols(
         " ".join(f"{prefix}_real_{index}" for index in range(size**2)),
         real=True,
+        seq=True,
     )
     imaginary = sp.symbols(
         " ".join(
             f"{prefix}_imaginary_{index}" for index in range(size**2)
         ),
         real=True,
+        seq=True,
     )
     matrix = sp.Matrix(
         size,
