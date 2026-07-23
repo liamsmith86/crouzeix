@@ -1,18 +1,29 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-22): L115
+## Current general Crabb frontier (2026-07-22): L116
 
 L114 closes the full repeated-`C3` local neighbourhood for every fixed copy multiplicity.
 L115 then returns to arbitrary block size and intersects L65's equality kernel with the
 Lewis--Overton circular-range tangent manifold.  Modulo affine-unitary motions, the tangent
 part has dimension `2p−4` out of L66's total `2p−2`; only one complex soft normal survives.
 It is mode two, represented by `C_p*`, and its exact central family satisfies
-`W(C_p+cC_p*)={z+c conjugate(z):|z|<=1}`.  Hence the next general-size task is a
-dimension-independent condition-four certificate for this Chebyshev--Lobatto elliptic family,
-then a tubular absorption using L65's coercive normal complement.  The pure family is already
-proved at `p=3` (L68--L73) and `p=4` (L20).  Do not compute all residual jets and do not begin
-a generic `5 x 5` slice grind.  See `proof/crabb_disk_tangent_intersection.md`.
+`W(C_p+cC_p*)={z+c conjugate(z):|z|<=1}`.
+
+L116 now proves the **exact lower bound**
+`t_*(phi(C_p+cC_p*))>=k(c^(2p-2))/c^(p-1)<4`: the degree-`p−1`
+Chebyshev--Blaschke product alternates on the elliptic Lobatto spectrum and DCT reversal
+turns it into `+-sqrt(k(c^(2p−2)))D J D^−1`.  Explicit rank-one Stein metrics attain
+this at `p=3,4` (the latter is Li's displayed §4.4 calculation in L116 normalization).
+Unrestricted and diagonal SDPs match it through `p=10`.
+The all-size upper bound is precisely the missing rank-one diagonal Stein identity
+`W−FWF=bb*`, equivalently an elliptic Szego-kernel/DCT quadrature formula.  Kenan Li's
+thesis proposes this metric but page 46 admits its load-bearing identities were proved
+only through size six and tested afterward; the targeted audit found no later closure.
+Attack the Chebyshev--Blaschke model/Clark weights, then build a tube using L65's coercive
+normal complement.  Do not compute all residual jets or begin a generic `5 x 5` slice
+grind.  See `proof/crabb_elliptic_axis.md` and
+`proof/crabb_disk_tangent_intersection.md`.
 
 ## Completed repeated-C3 frontier (2026-07-22): L114
 

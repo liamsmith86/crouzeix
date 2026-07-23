@@ -25,7 +25,12 @@ Papers, theorems, assumptions, possible gaps. Status verified via web 2026-07-22
 - Certain 3×3: tridiagonal with elliptic W(A) centered at eigenvalue; 3×3 KLS matrices (2025-26 work).
 - The Crabb-derived elliptic family `A=(C+bC*)/(2sqrt(b))`, where `C` has the fixed
   superdiagonal weights `(sqrt(2),1,...,1,sqrt(2))`: Kenan Li's 2021 thesis, Chapter 3,
-  gives an explicit contraction similarity of condition at most two in every dimension.
+  proposes an explicit contraction similarity with squared condition
+  `k(b^(2n-2))/b^(n-1)<4`. **Audit correction (2026-07-22):** the thesis explicitly says
+  its load-bearing identities (3.5)--(3.7) were proved only for `n=2,...,6` and tested
+  numerically beyond that; the displayed all-dimensional conclusion therefore has an
+  unclosed proof gap unless another source supplies those identities.  Do not cite it as
+  an established every-dimensional theorem.
 - **Campaign L59 (2026-07-22):** the arbitrary-weight 4×4 elliptic family
   `A=S_a+cS_a^T`, with three independent positive weights in `S_a`, has a condition-two
   contraction similarity and hence a complete 2-spectral numerical-range ellipse.  The
@@ -116,13 +121,30 @@ Papers, theorems, assumptions, possible gaps. Status verified via web 2026-07-22
   novelty calibration vs our sym3 ρ-proof (their mechanism is cb/dilation-based; ours is new)
 - [x] Kenan Li, 2021 UW thesis, Chapters 2.3 and 3 — Chapter 2.3 identifies three extremal
   phases for a proportional 3×3 elliptic family: centered degree 1, shifted real Möbius degree
-  1, and even degree 2. Chapter 3 proves the conjecture for the all-dimensional but
-  one-parameter Crabb-derived family `A=(C+bC*)/(2sqrt(b))`, using an explicit contraction
-  similarity with condition `sqrt(k(b^(2n-2))/b^(n-1))<=2`. Its 4×4 member has the fixed
-  weight ratio `(sqrt(2),1,sqrt(2))`; it does not cover arbitrary positive weights
-  `(a1,a2,a3)`. The thesis explicitly leaves the general elliptical-numerical-range problem
-  open. This calibrates the closest known overlap with the current 4×4 slice; a broader
-  publication-level novelty search is still required.
+  1, and even degree 2. Chapter 3 derives the candidate sharp contraction similarity for the
+  all-dimensional one-parameter family `A=(C+bC*)/(2sqrt(b))`, with condition
+  `sqrt(k(b^(2n-2))/b^(n-1))<=2`. Its 4×4 member has the fixed weight ratio
+  `(sqrt(2),1,sqrt(2))`; it does not cover arbitrary positive weights `(a1,a2,a3)`.
+  Crucially, page 46 states that identities (3.5)--(3.7), used to prove the similarity for
+  general parity, were proved only for `n=2,...,6` and tested numerically for larger `n`.
+  No later source closing that gap was found in a targeted exact-formula search.  Thus L20
+  remains new in arbitrary 4×4 weights, while the fixed-weight all-dimensional axis remains
+  a literature-suggested theorem rather than a fully established imported result.
+- [x] Ming-Xi Wang, 2011 ETH thesis, *Rational Points and Transcendental Points*,
+  §§2.3 and 3.1 — constructs normalized Chebyshev--Blaschke products in every degree,
+  proves their interval-preimage and nesting properties, and derives the Jacobi-`cd`
+  multiplication formula by descent of elliptic isogenies.  Applied at the elliptic
+  Lobatto points, this gives the exact alternation identity used in L116.  It does not
+  construct a contraction similarity for the Crabb matrix.
+- [x] Ng--Tsang, JCAM 277 (2015), *Chebyshev--Blaschke products: Solutions to certain
+  approximation problems and differential equations*, DOI `10.1016/j.cam.2014.08.028`
+  — proves the degree-`n` Chebyshev--Blaschke product has least deviation from zero on
+  the corresponding elliptic interval.  Müller-Hermes--Szehr,
+  arXiv:1405.4031, Lemma 2, records the exact value `sqrt(k(q^n))` and its
+  model-operator role.  Combined with Wang's nodal formula and the DCT reversal,
+  this proves L116's exact lower bound
+  `t_*(phi(C_p+cC_p*))>=k(c^(2p−2))/c^(p−1)`.  These sources do not supply
+  the matching all-size upper similarity.
 - [ ] de Vries thesis (SV24 companion) — extremal-pair machinery details
 - [ ] MMOR 2024 (C_N < 1+√2) — equality-case analysis of C–P (relevant to P2 stability)
 - [ ] SV24 full §§1–5 (their Prop 2.4, 2.8, 3.5 used in §6; Berger–Stampfli generalization)

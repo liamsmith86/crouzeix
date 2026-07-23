@@ -40,6 +40,9 @@ PROVIDED the level's numerical range is elliptic (exact ellipse needed for the c
   `A=S_a+cS_a^T`, and L20/L59 now prove the complete 2-spectral bound for arbitrary positive
   weights. The pure double-Landen formula is not needed and is not supported once the marked
   inner node breaks the second descent.
-- Closest-source audit found only Kenan Li's fixed-Crabb-weight all-dimensional family. Treat
-  the arbitrary-weight 4×4 theorem as apparently new pending a publication-level audit.
+- Closest-source audit found Kenan Li's fixed-Crabb-weight all-dimensional candidate
+  formula, but L116's reread found that its load-bearing identities were proved there only
+  through size six.  Treat the arbitrary-weight 4×4 theorem as apparently new pending a
+  publication-level audit, and do not import Li's every-size upper bound without closing
+  that gap.
 - Non-elliptic sym4: perturbative closure off the elliptic slice (margin vs deviation δ).
