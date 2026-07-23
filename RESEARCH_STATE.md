@@ -1,6 +1,23 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-22 (Epoch 6 — L75 repeated-`C3` second support)
+**Last updated:** 2026-07-22 (Epoch 6 — L76 repeated-`C3` cross sign)
+
+## NEWEST (2026-07-22): L76 proves the pure cross-pair second-order sign
+- On the three-complex-parameter L74 quotient for one selected/orthogonal copy pair, an explicit
+  Hermitian first metric tangent annihilates all lower, upper, and Stein active compressions.
+  The complete second metric is then built by the two-level Crabb Stein recurrence, including
+  both endpoint penalties and the contraction Schur penalty.
+- The upper endpoint collapses exactly to a scalar.  Substituting L75's conformal mean gives the
+  feasible coefficient
+  `e=-8|alpha1|²-(4sqrt(2)/(3pi))|3alpha0 conj(alpha1)+4alpha1 conj(alpha2)|<=0`.
+  Thus every pure cross-pair direction is nonincreasing at second order, without a discretized
+  boundary or numerical SDP.  The full symbolic checker reconstructs the second metric and
+  verifies all three Schur complements exactly in under one second.
+- Equality is exactly `alpha1=0`, leaving a two-complex-dimensional flat plane.  This is not a
+  repeated-block neighbourhood theorem: higher order on that plane, mixtures with diagonal
+  single-copy directions, common-maximizer order inequalities, and simultaneous multiplicity
+  directions remain.  `proof/repeated_p3_stein_sign.md`;
+  `experiments/repeated_p3_stein_sign.py`.
 
 ## NEWEST (2026-07-22): L75 removes the repeated-block boundary calculation
 - For one multiplicity-two L74 cross pair, the first support compression vanishes.  The exact
@@ -14,11 +31,9 @@
   exactly `T_e=A0+eE-e² kappa_hat(0) A0+o(e²)`, with
   `kappa_hat(0)=5|alpha0|²/128+|alpha1|²/4+5|alpha2|²/72
   +sqrt(2)|d|/(12pi)`.
-- Thus no boundary discretization remains: the live task is one finite `6x6` second-order
-  Stein/metric sign calculation.  Pure generator 1 numerically drops with coefficient `-8`;
-  pure 0 and 2 are second-order flat; generic mixtures tested so far descend.  These numerics
-  orient but do not prove the sign.  `proof/repeated_p3_second_support.md`;
-  `experiments/repeated_p3_second_support.py`.
+- Thus no boundary discretization remains.  L76 now solves the finite `6x6` Stein sign exactly:
+  generator 1 decreases, while the complete `(alpha0,alpha2)` plane is second-order flat.
+  `proof/repeated_p3_second_support.md`; `experiments/repeated_p3_second_support.py`.
 
 ## NEWEST (2026-07-22): L74 reduces the repeated-block exceptional cross face
 - On L61's zero-Jensen face choose the common maximizing copy vector `y`.  For each
@@ -484,7 +499,8 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   second-order PSD Schur lemma reduce the zero-Jensen-gap face to three finite affine block
   LMIs. The second support variation and Schwarz integral give the conformal coefficient in
   finite form. All 12 `p=3,4` test directions have negative quadratic coefficient, stable across
-  solvers, map resolutions, analytic/fitted gauges, and fit step. The universal sign remains open.
+  solvers, map resolutions, analytic/fitted gauges, and fit step. L65 subsequently closes the
+  universal single-block sign; repeated common-maximizer faces remain separate.
 - **EXACT `3×3` SECOND VARIATION (L63):** eliminating the L62 metric variables gives
   `e₃(E)=−2(Re(E01−E12))²−21|E20|²/4≤0` for every complex perturbation. A regenerating
   18-real-variable symbolic audit proves the identity exactly. Thus the upper second-order Dini
@@ -521,11 +537,12 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-22)
-1. **Solve the L75 finite Stein sign.** The second conformal coefficient is now one explicit
-   scalar, including the nonsmooth tie through `|d|`.  Eliminate the `6x6` second-order metric
-   variables and prove nonpositivity on all three complex cross parameters, then extend from one
-   orthogonal copy to multiplicity `m`.  In parallel, seek the L73 analytic-normal-form pattern
-   in the `2p-2` quotient modes for `p≥4`.
+1. **Resolve L76's repeated-block equality plane.** Determine whether the
+   `(alpha0,alpha2)` directions lie on an exact repeated disk-matrix center or acquire a negative
+   higher-order certificate.  Then include diagonal single-copy perturbations, the strict
+   common-maximizer order inequality, and simultaneous directions in `y^perp` before claiming a
+   repeated neighbourhood.  In parallel, seek the L73 analytic-normal-form pattern in the
+   `2p-2` quotient modes for `p≥4`.
 2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
    trace inequality can instead be derived from the block-Toeplitz positivity of the full
    operator-valued correction moments. Do not retry trace/positive-state scalarizations.
@@ -592,7 +609,8 @@ experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_
   (L73 defect Hessian/invariant audit), p3_local_theorem_probe.py
   (non-load-bearing L73 numerical smoke test), repeated_p3_common_maximizer.py
   (L74 exact repeated-block cross quotient), repeated_p3_second_support.py
-  (L75 exact effective support and conformal collapse).
+  (L75 exact effective support and conformal collapse), repeated_p3_stein_sign.py
+  (L76 exact full second-metric certificate and sign).
 Proof artifact: experiments/positive_tail_full_20260722.log (L59 clean 10-box run).
 Data: sym3_sweep_s51.jsonl (40 rec), sym4_sweep_s61.jsonl (20 rec, ρ column trustworthy),
 general_similarity_equality_s9173401.jsonl plus its `sensitivity` and `ultralocal` companions

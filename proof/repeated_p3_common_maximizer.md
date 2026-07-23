@@ -106,10 +106,12 @@ therefore contains
 
 This is substantially smaller than an arbitrary pair of cross blocks, but it
 is not empty.  Consequently the repeated-block problem does **not** reduce at
-first order to a single diagonal `C3` perturbation.  The next calculation must
-determine the second-order conformal/similarity sign of the three generator
-types (7), including mixtures across `y^perp` and the nonsmooth case where the
-diagonal support compression has no strict top gap.
+first order to a single diagonal `C3` perturbation.  L75--L76 determine the
+second-order conformal/similarity sign for one pure selected/cross-copy pair:
+it is nonpositive, with a two-complex-dimensional equality plane.  Mixtures
+across `y^perp`, diagonal perturbations, higher order on that plane, and the
+nonsmooth case where the diagonal support compression has no strict top gap
+remain.
 
 ## 5. Regeneration
 

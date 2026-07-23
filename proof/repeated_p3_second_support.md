@@ -108,10 +108,16 @@ This reduces the L74 second-order similarity question to a `6 x 6` finite Stein
 problem with the single scalar (8); no boundary discretization or infinite
 Fourier tail remains.
 
-Numerical orientation only: pure generator 1 has similarity-square coefficient
-approximately `-8`, while pure generators 0 and 2 are second-order flat; generic
-mixtures tested so far decrease.  These observations are not used in (2)--(11)
-and the universal second-order sign is not yet proved.
+L76 now solves the resulting Stein problem exactly.  Its feasible endpoint is
+
+\[
+ -8|\alpha_1|^2-\frac{4\sqrt2}{3\pi}
+ |3\alpha_0\bar\alpha_1+4\alpha_1\bar\alpha_2|\le0.
+\]
+
+Thus generator 1 decreases at second order, while the complete
+`(alpha_0,alpha_2)` plane is flat at this order.  See
+`proof/repeated_p3_stein_sign.md`; the flat plane remains a higher-order debt.
 
 ## 4. Regeneration
 

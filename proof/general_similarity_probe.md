@@ -139,9 +139,10 @@ where the Jensen gap vanishes in every direction.  First-order complementarity
 and second-order Schur complements give three finite affine block LMIs.  Twelve
 `p=3,4` directions all have negative quadratic coefficients, including two
 nearly flat structured cases.  Second support perturbation and the Schwarz
-integral now give the conformal coefficient in finite analytic form; the
-arbitrary-`p` SDP sign remains open.  See
-`proof/general_similarity_second_order.md`.
+integral now give the conformal coefficient in finite analytic form.  L65
+subsequently proves the arbitrary-`p` single-block sign; repeated
+common-maximizer faces remain separate.  See `proof/general_similarity_second_order.md`
+and `proof/general_crabb_second_variation.md`.
 
 For single `3×3` and `4×4` Crabb blocks, L63–L64 subsequently eliminate that SDP
 exactly.  The `p=3` value is `-2(Re(E01-E12))^2-21|E20|^2/4`; the `p=4`
