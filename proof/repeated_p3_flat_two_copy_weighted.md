@@ -220,15 +220,13 @@ Exact multiplication gives
 \[
 \boxed{
  K_4-\frac12\operatorname{tr}(K_4)I=0,\qquad
- \left.\partial_a\left(
- K_4(a)-\frac12\operatorname{tr}(K_4(a))I
- \right)\right|_{a=0}=0.}                              \tag{16}
+ \left.\partial_aK_4(a)\right|_{a=0}=0.}               \tag{16}
 \]
 
 Thus the weighted normal center stays copy-scalar through order four, and
-the quartic traceless coefficient begins at least quadratically in the
-nonnormal edge.  In physical normal/transverse scales `(r,delta)`, its size
-is therefore
+the complete raw support coefficient has no linear variation in the
+nonnormal edge.  In physical normal/transverse scales `(r,delta)`, its
+traceless part is therefore
 
 \[
  O\{\delta^2(r+\delta)^2\},                            \tag{17}
@@ -236,19 +234,101 @@ is therefore
 
 whereas (14) has size comparable to
 `delta(r^2+delta^2)`.  Their ratio tends to zero with `r+delta`.
-Higher coefficients may again be linear in `delta`.  At the raw Feshbach
-matrix level, subtracting the exact normal value forces at least one
-transverse factor.  The remaining terminal-tube step is to preserve that
-factor uniformly through L101's conformal response and through one
-simultaneous feasible-metric selection.
+This statement is only about the Feshbach support coefficient.  It does
+**not** imply the same quadratic transverse vanishing for the full
+similarity-metric endpoint: the inverse map and the singular lower,
+Stein, and upper metric constraints must be propagated simultaneously.
 
-## 8. Regeneration
+## 8. Fourth metric cancellation
+
+That simultaneous calculation can still be done exactly.  Work in the
+canonical real chart, obtained from the general complex chart by circle
+covariance and a diagonal copy unitary.  At the center put
+
+\[
+ m=\frac{5d^2}{64},\qquad c=\frac{9d^2}{64},\qquad
+ F_2(\zeta)=m\zeta+c\zeta^3.                           \tag{18}
+\]
+
+The cubic top-support response to a real edge `a` has the form
+
+\[
+ F_3(\zeta)
+ =a\{u_0\zeta+2u_2\zeta^3+2u_4\zeta^5\}+O(a^2),       \tag{19}
+\]
+
+because its boundary profile is real, even, and pi-periodic.  Higher
+Fourier coefficients vanish on `C_3` after taking one Fréchet derivative.
+Equation (16), together with the fact that the second support changes only
+by `a^2`, makes the edge derivative of `F_4` zero.  Keep the surviving
+normal coefficients of `F_4` abstract.
+
+Expanding the inverse map
+
+\[
+ \phi=\operatorname{id}-\epsilon^2F_2-\epsilon^3F_3
+ +\epsilon^4\{DF_2[F_2]-F_4\}+O(\epsilon^5)           \tag{20}
+\]
+
+and propagating its operator coefficients through the tight lower, Stein,
+and upper Schur complements gives, if the free order-three metric block is
+set to zero,
+
+\[
+ \left.\partial_a{\cal E}_4\right|_{a=0}
+ =\frac{25d^3}{8}
+ \begin{bmatrix}0&1\\1&0\end{bmatrix}.                \tag{21}
+\]
+
+This is the full-metric linear competitor that the support-only calculation
+in Section 7 cannot see.  It is independent of every abstract coefficient
+in (19) and of the retained normal coefficients of `F_4`.
+
+Let the free level-zero/level-one block of the third metric be
+`aU`, where `U=(u_jk)`.  The same exact propagation changes (21) to
+
+\[
+ \left.\partial_a{\cal E}_4\right|_{a=0}
+ =\frac{5d}{8}
+ \{5d^2+8\sqrt2(u_{01}-u_{10})\}
+ \begin{bmatrix}0&1\\1&0\end{bmatrix}.                \tag{22}
+\]
+
+Consequently the skew choice
+
+\[
+ \boxed{
+ U_{\rm cen}=\frac{5d^2}{16\sqrt2}
+ \begin{bmatrix}0&-1\\1&0\end{bmatrix}}               \tag{23}
+\]
+
+cancels the entire transverse fourth endpoint.  The full metric remains
+Hermitian because the opposite level block is `U_cen^*`.  The normal
+endpoint is scalar, and (23) vanishes on the normal stratum, so it is
+compatible with L88's exact normal certificate.  Transporting (23) by the
+two unitary symmetries gives the general complex chart.
+
+Thus the `O(delta r^3)` metric term exists but is removable.  After this
+metric selection, the total fourth endpoint relative to the exact normal
+stratum begins at
+
+\[
+ O\{\delta^2(r+\delta)^2\},                            \tag{24}
+\]
+
+and is absorbable by (14) in a sufficiently small tube.  This closes the
+fourth-order simultaneous-metric debt.  It does not yet factor all
+order-five-and-higher remainders or lift the terminal tube through L93's
+collapsing flag and losing-space gaps.
+
+## 9. Regeneration
 
 Run
 
 ```bash
 .venv/bin/python -u experiments/repeated_p3_flat_two_copy_weighted.py
 .venv/bin/python -u experiments/repeated_p3_flat_two_copy_fourth.py
+.venv/bin/python -u experiments/repeated_p3_flat_two_copy_fourth_metric.py
 ```
 
 The checker uses arbitrary complex `d,z,w,D_1` and real Schur edge/tangent
@@ -260,7 +340,10 @@ full third metric through the shared L77/L92 propagation module, and proves
 
 The second checker independently constructs the fourth Feshbach coefficient
 (15), including its energy correction, and proves both identities in (16)
-entry by entry as rational Laurent identities.
+entry by entry as rational Laurent identities.  The third checker retains
+arbitrary coefficients `u_0,u_2,u_4` and the surviving normal fourth
+coefficients, rebuilds the full metric through order four, proves
+(21)--(22), and verifies the exact cancellation (23).
 
 The non-load-bearing nonlinear regression is
 

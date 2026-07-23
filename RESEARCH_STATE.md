@@ -1,22 +1,39 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-22 (Epoch 6 — L102 fourth-order center persistence)
+**Last updated:** 2026-07-22 (Epoch 6 — L103 fourth metric cancellation)
 
-## NEWEST (2026-07-22): L102 rules out a quartic transverse competitor
+## NEWEST (2026-07-22): L103 cancels the full transverse fourth endpoint
+- An independent audit caught an important scope gap in L102: scalarity of the fourth
+  Feshbach **support** coefficient does not by itself control the full similarity metric.
+  With the default tight metric, exact propagation produces the linear transverse term
+  `(25d³/8)[[0,1],[1,0]]`.
+- The relevant freedom lies in the level-zero/level-one block `aU` of the **third** metric.
+  The full derivative is
+  `(5d/8){5d²+8sqrt(2)(U01−U10)}[[0,1],[1,0]]`.
+  Choosing `U=5d²[[0,−1],[1,0]]/(16sqrt(2))` cancels it exactly.
+- The identity retains arbitrary third conformal-response coefficients and the surviving
+  normal fourth coefficients; all cancel.  The normal endpoint remains scalar, so the free
+  block, which vanishes on the normal face, is compatible with L88.
+- Therefore the **total** fourth endpoint relative to the exact normal stratum starts at
+  `O(delta²(r+delta)²)` after simultaneous metric selection and is absorbable by L100's
+  `delta(r²+delta²)` cubic gap.  The remaining terminal debt is uniform factorization of all
+  order-five-and-higher remainders, followed by the L93/L86 flag lift.
+  `proof/repeated_p3_flat_two_copy_weighted.md`;
+  `experiments/repeated_p3_flat_two_copy_fourth_metric.py`.
+
+## NEWEST (2026-07-22): L102 isolates the fourth support coefficient
 - At L100's center, the full fourth Feshbach coefficient includes an energy-dependent
   `−M2 N R² N` correction in addition to the five ordinary resolvent words.
 - Exact compression proves that its traceless copy part is zero.  Differentiating the complete
-  coefficient in the nonnormal Schur edge also gives zero traceless part.
-- Hence the weighted normal chart is copy-scalar through fourth order, and quartic transverse
-  splitting is at least `O(delta²(r+delta)²)`.  This is negligible against L100's
-  `delta(r²+delta²)` cubic gap in a sufficiently small normal tube.
+  coefficient in the nonnormal Schur edge gives zero **full** derivative.
+- Hence the weighted normal chart is copy-scalar through fourth order at the support level,
+  and its raw quartic traceless splitting is at least `O(delta²(r+delta)²)`.
+  L102 alone makes no claim about the simultaneous similarity metric; L103 supplies that step.
 - A separate nonlinear probe at map resolutions 2048/4096 found
   `(4−t*)/[delta(r²+delta²)]` between `0.637` and `0.671` on seven two-scale cases, with no
   sign reversal.  This is supporting evidence only; the exact result is the Feshbach identity.
   `experiments/repeated_p3_normal_center_probe.py`.
-- The next proof step is now sharply defined: factor all order-five-and-higher endpoint
-  remainders by the transverse distance using L88/L73's exact normal certificates, then perform
-  one simultaneous feasible-metric lift. `proof/repeated_p3_flat_two_copy_weighted.md`.
+- `proof/repeated_p3_flat_two_copy_weighted.md`.
 
 ## NEWEST (2026-07-22): L101 closes the support-crossing regularity debt
 - If convex domains near the disk have
@@ -25,9 +42,11 @@
   `log(Psi_epsilon(z)/z)` then gives the normalized Riemann-map tangent used in L61.
 - The argument is uniform for compact families of continuous profiles and needs neither a
   differentiable largest-eigenvalue branch nor strict convexity of the perturbed domain.
-- At repeated Crabb blocks, finite-dimensional degenerate perturbation theory gives the support
-  expansion with uniform `O(epsilon²)` remainder, while the `lambda_max` profile is uniformly
-  Lipschitz.  Thus L61's operator tangent and Dini bound now hold even at support crossings.
+- At repeated Crabb blocks, finite-dimensional degenerate perturbation theory gives a uniform
+  `O(epsilon²)` support remainder for exact linear paths (and paths with an `O(epsilon²)`
+  matrix remainder); a general `o(epsilon)` matrix remainder gives the `o(epsilon)` support
+  remainder the theorem needs.  The `lambda_max` profile is uniformly Lipschitz, so L61's
+  operator tangent and Dini bound hold even at support crossings.
 - The radial/logarithmic argument can be reapplied after lower-order analytic recentering, so
   conformal regularity is no longer the obstruction in the weighted normal-face patch.  The
   remaining debt is to organize and absorb the finite hierarchy of endpoint remainders.
@@ -899,11 +918,12 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
 
 ## Current next actions (Epoch 6, refreshed 2026-07-22)
 1. **Finish normal-face uniformity and merge L93 back into L86.** L94--L98 now close every
-   bounded weighted chart at a nonnormal terminal block.  Treat `a->0`, where the block
-   approaches L88's exact normal direct-sum manifold; lift that transverse estimate through
-   the metric flag and couple it to the negative Gram terms, common `v` curvature, and L82's
-   losing mean gap.  Do not grind larger Schur matrices.  The target is a full repeated-`C3`
-   neighbourhood theorem.
+   bounded weighted chart at a nonnormal terminal block, while L100--L103 locate the sharp
+   normal center and cancel the complete transverse fourth endpoint.  Factor every
+   order-five-and-higher endpoint remainder by the transverse distance relative to L88's exact
+   normal certificate; then lift that tube through the metric flag and couple it to the
+   negative Gram terms, common `v` curvature, and L82's losing mean gap.  Do not grind larger
+   Schur matrices.  The target is a full repeated-`C3` neighbourhood theorem.
 2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
    trace inequality can instead be derived from the block-Toeplitz positivity of the full
    operator-valued correction moments. Do not retry trace/positive-state scalarizations.
@@ -983,6 +1003,9 @@ experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_
   repeated_p3_flat_two_copy_third.py (L92 trace-zero cubic theorem),
   repeated_p3_flat_two_copy_jensen.py (L95--L97 terminal Jensen coercivity),
   repeated_p3_flat_two_copy_weighted.py (L98 weighted terminal theorem),
+  repeated_p3_flat_two_copy_fourth.py + repeated_p3_flat_two_copy_fourth_metric.py
+  (L102 support persistence + L103 simultaneous fourth-metric cancellation),
+  repeated_p3_normal_center_probe.py (supporting two-scale regression only),
   repeated_p3_flat_metric_flag.py (L93 arbitrary-copy metric-flag derivative).
 Proof artifact: experiments/positive_tail_full_20260722.log (L59 clean 10-box run).
 Data: sym3_sweep_s51.jsonl (40 rec), sym4_sweep_s61.jsonl (20 rec, ρ column trustworthy),

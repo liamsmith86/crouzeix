@@ -1,6 +1,24 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
+## Current repeated-C3 frontier (2026-07-22): L103
+
+L73 proves a complete-2 neighbourhood of one `C3`; L74--L93 reduce arbitrary repeated
+copies to weighted terminal blocks, with all fixed directions closed.  L94--L100 give
+quantitative terminal gaps and locate the unique sharp normal center
+`w=3conj(d)^2/(8sqrt(2))`.  L101 proves the crossing-stable conformal tangent.
+
+L102 is a **support-only** identity: the fourth Feshbach coefficient is scalar at the center
+and has zero full transverse derivative.  An audit caught that the default full metric still
+has derivative `(25d^3/8)[[0,1],[1,0]]`.  L103 now cancels it exactly using the free third-metric
+block
+`aU`, `U=5d^2[[0,-1],[1,0]]/(16sqrt(2))`; arbitrary retained conformal coefficients cancel.
+Thus the total fourth transverse remainder is quadratic and absorbable by L100's cubic gap.
+The live task is to factor all order-five-and-higher remainders relative to L88's exact normal
+stratum, then lift the tube through L93's flag and L86's losing/strong gaps.  Do not start a
+larger Schur grind.  See `RESEARCH_STATE.md` and
+`proof/repeated_p3_flat_two_copy_weighted.md`.
+
 ## Latest completion (2026-07-22): elliptic 4×4 slice proved
 
 L59 closes the final positive-sign interval with a full deficit-centered

@@ -127,7 +127,8 @@ crossings.
 Let
 
 \[
- A_\epsilon=I_m\otimes C_p+\epsilon E+o(\epsilon).
+ A_\epsilon=I_m\otimes C_p+\epsilon E+R_\epsilon,
+ \qquad \|R_\epsilon\|=o(\epsilon).
 \]
 
 The top support eigenvalue of the base is one with multiplicity `m` and has
@@ -136,7 +137,7 @@ degenerate perturbation theory therefore gives
 
 \[
  h_\epsilon(t)=1+\epsilon\lambda_{\max}B_E(t)
- +O(\epsilon^2),                                      \tag{8}
+ +O(\epsilon^2)+O(\|R_\epsilon\|),                    \tag{8}
 \]
 
 where
@@ -145,9 +146,13 @@ where
  B_E(t)=V(t)^*\operatorname{Re}(e^{-it}E)V(t).
 \]
 
+For an exact linear path, or when `R_epsilon=O(epsilon^2)`, the last two
+terms in (8) combine into a uniform `O(epsilon^2)` remainder.  For the
+stated general path they give the `o(epsilon)` remainder required by (1).
 The matrix `B_E(t)` is a trigonometric matrix polynomial.  Its largest
 eigenvalue is continuous and uniformly Lipschitz in `t` on bounded sets of
-directions; eigenvalue crossings do not weaken (8).  Apply (2) with
+directions; eigenvalue crossings do not weaken this conclusion.  Apply (2)
+with
 
 \[
  s_E(t)=\lambda_{\max}B_E(t).                           \tag{9}

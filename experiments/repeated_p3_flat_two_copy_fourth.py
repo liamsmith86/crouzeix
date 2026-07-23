@@ -181,13 +181,13 @@ def main() -> None:
         * top_vectors
     )
     assert_zero_matrix(
-        traceless(edge_derivative),
-        "the fourth traceless edge derivative did not vanish",
+        edge_derivative,
+        "the full fourth edge derivative did not vanish",
     )
 
     print("PASS repeated p=3 weighted normal fourth-order persistence")
     print("the fourth effective support is scalar at the L100 center")
-    print("the fourth traceless support has zero transverse derivative")
+    print("the full fourth effective support has zero transverse derivative")
 
 
 if __name__ == "__main__":
