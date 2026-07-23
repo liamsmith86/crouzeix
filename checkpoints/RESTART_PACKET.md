@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current repeated-C3 frontier (2026-07-22): L110
+## Current repeated-C3 frontier (2026-07-22): L111
 
 L73 proves a complete-2 neighbourhood of one `C3`; L74--L93 reduce arbitrary repeated
 copies to weighted terminal blocks, with all fixed directions closed.  L94--L100 give
@@ -31,10 +31,14 @@ gap is `O(delta(r+delta))`, so `h=f_A∘f_N^−1` and its induced Stein slack ha
 degree two.  In the difference between the actual zero-slack endpoint and the inherited normal
 endpoint, every post-cubic Taylor monomial therefore has bound `C delta(r+delta)^3`; L100's
 cubic dominates uniformly.  The complete two-copy terminal tube is proved.
-Remaining: lift this whole-normal/weighted analytic construction through L93's
-arbitrary-copy metric flag, then merge it with L86's losing-space gaps.  Do not start a larger
-Schur grind.  See `RESEARCH_STATE.md`, `proof/repeated_p3_terminal_tube.md`, and
-`experiments/repeated_p3_slack_transfer.py`.
+L111 removes the first arbitrary-copy obstruction: at `Z_ir tensor I_k`, every tangent
+preserving the scalar-support relations is a unitary commutator plus the same three
+two-dimensional parameters on each multiplicity coordinate.  There is no hidden
+large-multiplicity terminal modulus.  Remaining: control collisions with the normal stratum
+and proper common-top flag spaces, then merge the resulting arbitrary-copy tube with L86's
+losing-space gaps.  Do not start a larger Schur grind.  See `RESEARCH_STATE.md`,
+`proof/repeated_p3_terminal_tube.md`, and
+`proof/repeated_p3_scalar_support_rigidity.md`.
 
 ## Latest completion (2026-07-22): elliptic 4×4 slice proved
 

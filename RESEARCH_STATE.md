@@ -1,6 +1,25 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-22 (Epoch 6 — L110 two-copy terminal tube)
+**Last updated:** 2026-07-22 (Epoch 6 — L111 scalar-support multiplicity rigidity)
+
+## NEWEST (2026-07-22): L111 removes hidden multiplicity tangents
+- L93's full common-top blocks satisfy `Z²=alpha I` and
+  `ZZ*+Z*Z=beta I`; every nonnormal irreducible is `2 x 2`.  The possible remaining
+  obstruction was a multiplicity-`k` direct sum of equivalent irreducibles.
+- Linearizing both relations at a square-zero block gives
+  `X=[[A,B],[cI,−A]]` with `B+B*=bI`.  The arbitrary `A` and skew part of `B` are a
+  unitary commutator; the real `b` and complex `c` are exactly the same three parameters on
+  every two-dimensional summand.
+- At an invertible nonnormal block, a Pauli decomposition makes the homogeneous relation
+  tangent `3k²`-dimensional.  The unitary commutator orbit also has dimension
+  `4k²−k²=3k²`, so the spaces coincide.  Allowing `dot alpha` and `dot beta` again adds only
+  three repeated single-block parameters.
+- Exact symbolic real-linear ranks verify both strata for multiplicities `1..4`.
+  Thus there is no new large-multiplicity terminal family beyond unitary basis motion and
+  L110's two-copy tube.  The next subgate is the collision with the normal stratum and proper
+  common-top metric flags.
+  `proof/repeated_p3_scalar_support_rigidity.md`;
+  `experiments/repeated_p3_scalar_support_rigidity.py`.
 
 ## NEWEST (2026-07-22): L110 closes the uniform two-copy terminal tube
 - Pinch a terminal matrix `A=N+E` to its block-diagonal normal retraction.  Since every flat
@@ -1124,6 +1143,7 @@ experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_
   (L102 support persistence + L103 simultaneous fourth-metric cancellation),
   repeated_p3_exact_metric_chart.py (L105 exact tight lower/Stein chart Jacobian),
   repeated_p3_slack_transfer.py (L109 weighted normal/transverse slack jet),
+  repeated_p3_scalar_support_rigidity.py (L111 exact multiplicity-tangent ranks),
   repeated_p3_normal_center_probe.py (supporting two-scale regression only),
   repeated_p3_flat_metric_flag.py (L93 arbitrary-copy metric-flag derivative).
 Proof artifact: experiments/positive_tail_full_20260722.log (L59 clean 10-box run).
