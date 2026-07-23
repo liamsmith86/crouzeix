@@ -1,6 +1,18 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-22 (Epoch 6 — L94 quantitative terminal coercivity)
+**Last updated:** 2026-07-22 (Epoch 6 — L95 quantitative trace-splitting gap)
+
+## NEWEST (2026-07-22): L95 quantifies the second/cubic terminal transition
+- Write a two-copy matrix as `Z=zI+[[d,a],[0,−d]]`.  The non-scalar second
+  support is a traceless Hermitian `2 x 2` curve, hence a Euclidean
+  Pauli-vector curve `B+C(q)`.
+- Exact Laurent averaging factors its angular energy perpendicular to the mean direction as
+  `9|z|⁴a²(4|d|²+a²)/(8192b0)`.  The elementary Euclidean triangle-defect identity turns this
+  into an explicit negative second endpoint whenever both `z` and `a` are nonzero.
+- L95 controls departure from the trace-zero face; L94 controls the trace-zero face cubically.
+  Their common zero `a=0` is exactly the normal stratum already controlled by L88/L73.
+  The next missing quantitative coordinate is the common flat mode `w`, followed by analytic
+  remainder absorption.  `proof/repeated_p3_flat_two_copy.md`.
 
 ## NEWEST (2026-07-22): L94 quantifies the two-copy terminal descent
 - On L93's nonnormal terminal block `Z=[[d,a],[0,−d]]`, the L92 third-support
