@@ -32,9 +32,10 @@ Then the L21 similarity square of the numerical-range Riemann pullback obeys
  \quad\text{when }(\alpha,\beta)\ne(0,0).              \tag{4}
 \]
 
-This closes the pure-pair equality plane through its first nonzero order.  It
-does not yet treat diagonal/cross mixtures or simultaneous directions in more
-than one orthogonal copy.
+This closes the pure-pair equality plane through its first nonzero order.  L78
+subsequently proves the second-order sign for simultaneous directions in any
+number of orthogonal copies, but their equality set still needs higher order.
+Diagonal/cross mixtures also remain outside the theorem.
 
 ## 2. Third effective support split
 

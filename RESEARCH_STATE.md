@@ -1,6 +1,22 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-22 (Epoch 6 — L77 repeated-`C3` cubic cross sign)
+**Last updated:** 2026-07-22 (Epoch 6 — L78 arbitrary-multiplicity star sign)
+
+## NEWEST (2026-07-22): L78 closes arbitrary star coupling at second order
+- For `m` repeated `C3` copies, collect the three L74 generator coefficients across the
+  `m-1` orthogonal copies into vectors `a0,a1,a2`.  If `Q(q)` is the resulting second effective
+  support matrix, exact averaging gives `Qbar=diag(mu,G)`, where
+  `G=5 conj(a0)a0^T/128+conj(a1)a1^T/4+5 conj(a2)a2^T/72` and `mu=trace G`.
+- A falsification check caught that `lambda_max Q(q)` is generally not pi-periodic once `m>2`;
+  its first conformal Fourier mode can be nonzero.  Retaining that `A0²` correction in the full
+  second metric shows that it cancels exactly.  The upper endpoint is
+  `16(Qbar−mean(lambda_max Q) I)−8 diag(||a1||²,conj(a1)a1^T)`.
+- Pointwise matrix order `Q(q)<=lambda_max(Q(q))I`, followed by averaging, makes the first term
+  NSD; the second is a negative Gram block.  Thus simultaneous star coupling has nonpositive
+  second-order change for every multiplicity.  Higher order on its equality set and all
+  diagonal/internal-orthogonal-copy mixtures remain.  The exact two-symbolic-copy polarization
+  audit runs in under two seconds.  `proof/repeated_p3_star_second_sign.md`;
+  `experiments/repeated_p3_star_second_sign.py`.
 
 ## NEWEST (2026-07-22): L77 closes the pure-pair flat plane cubically
 - On L76's equality plane `alpha1=0`, the second effective support matrix remains scalar.  The
@@ -13,8 +29,9 @@
   for every nonzero `(alpha0,alpha2)`.  On the pure axes it is exactly `-|alpha0|³/4` and
   `-16|alpha2|³/27`.
 - Therefore every nonzero pure multiplicity-two cross-pair direction descends, quadratically
-  off the L76 plane and cubically on it.  This still does not control diagonal/cross mixtures,
-  simultaneous orthogonal-copy directions, or the common-maximizer top-order inequality.
+  off the L76 plane and cubically on it.  L78 now controls simultaneous orthogonal-copy
+  directions at second order, but not their equality set, diagonal/cross mixtures, or the
+  common-maximizer top-order inequality.
   `proof/repeated_p3_third_sign.md`; `experiments/repeated_p3_third_sign.py`.
 
 ## NEWEST (2026-07-22): L76 proves the pure cross-pair second-order sign
@@ -552,12 +569,13 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-22)
-1. **Couple the L77 cross theorem to the rest of the repeated face.** Extend from one pure pair
-   to simultaneous directions in `y^perp`, then include diagonal single-copy perturbations and
-   the strict common-maximizer order inequality.  The weighted transition near `alpha1=0` must
-   combine L76's quadratic and L77's cubic terms uniformly before claiming a repeated
-   neighbourhood.  In parallel, seek the L73 analytic-normal-form pattern in the `2p-2`
-   quotient modes for `p≥4`.
+1. **Resolve the remaining L78 repeated-face equality.** Classify common top eigenvectors of
+   the second effective support matrix and compute third order only on that quotient.  Then
+   include diagonal single-copy perturbations, internal `y^perp` blocks, and the strict
+   common-maximizer order inequality.  The weighted transition must combine L76's quadratic,
+   L77's cubic, and L78's matrix Jensen gaps uniformly before claiming a repeated neighbourhood.
+   In parallel, seek the L73 analytic-normal-form pattern in the `2p-2` quotient modes for
+   `p≥4`.
 2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
    trace inequality can instead be derived from the block-Toeplitz positivity of the full
    operator-valued correction moments. Do not retry trace/positive-state scalarizations.
@@ -626,7 +644,8 @@ experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_
   (L74 exact repeated-block cross quotient), repeated_p3_second_support.py
   (L75 exact effective support and conformal collapse), repeated_p3_stein_sign.py
   (L76 exact full second-metric certificate and sign), repeated_p3_third_sign.py
-  (L77 exact third support split and strict cubic certificate).
+  (L77 exact third support split and strict cubic certificate),
+  repeated_p3_star_second_sign.py (L78 arbitrary-multiplicity star endpoint identity).
 Proof artifact: experiments/positive_tail_full_20260722.log (L59 clean 10-box run).
 Data: sym3_sweep_s51.jsonl (40 rec), sym4_sweep_s61.jsonl (20 rec, ρ column trustworthy),
 general_similarity_equality_s9173401.jsonl plus its `sensitivity` and `ultralocal` companions

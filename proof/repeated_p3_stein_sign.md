@@ -44,8 +44,9 @@ Consequently the L21 similarity square satisfies the one-sided bound
 Equality in this certificate occurs exactly when `alpha_1=0`; then `d=0`
 automatically.  Formula (5) handles one multiplicity-two cross pair with zero
 diagonal perturbation blocks.  L77 subsequently proves strict cubic descent
-on the flat `(alpha_0,alpha_2)` plane.  Mixtures with diagonal directions and
-arbitrary multiplicity remain open.
+on the flat `(alpha_0,alpha_2)` plane, and L78 proves the arbitrary-multiplicity
+star sign at second order.  Mixtures with diagonal directions and the
+higher-multiplicity equality set remain open.
 
 ## 2. First metric tangent
 
