@@ -27,6 +27,19 @@ disk/axis merger rather than a fixed-margin perturbation argument.  Do not compu
 residual jets or begin a generic `5 x 5` slice grind.  See `proof/crabb_elliptic_axis.md` and
 `proof/crabb_disk_tangent_intersection.md`.
 
+L118 now supplies the correct common chart.  The locally optimized rank-one Stein Gramian
+has defect-vector Hessian `diag(8,...,8,8/3)`, so it defines a unique analytic feasible
+envelope `Gamma_p`.  Its matrix Hessian is exactly L65, and its value on the elliptic axis
+is exactly L117.  Maximizing analytically in the coercive variables leaves only L115's
+`2p−4` disk-flat coordinates plus the elliptic complex normal.  On the pure elliptic face,
+the sufficient gate is
+`Proj_strong grad Gamma_p(C_p+cC_p*)=o(c^(p−1))`; then the strong optimization gain is
+`o(c^(2p−2))` and cannot erase L117's negative margin.  A sparse exact engine proves every
+dangerous coefficient vanishes in all real directions for `p=3,4,5` and on selected `p=6`
+strong modes.  Extract the arbitrary-size cancellation from the support/Stein endpoint
+path-length recurrence, then add the disk-flat variables.  Do not promote the finite
+checks to an all-size theorem.  See `proof/crabb_rank_one_envelope.md`.
+
 ## Completed repeated-C3 frontier (2026-07-22): L114
 
 L73 proves a complete-2 neighbourhood of one `C3`; L74--L93 reduce arbitrary repeated

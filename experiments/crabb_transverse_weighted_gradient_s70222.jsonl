@@ -1,0 +1,7 @@
+{"checked_order": 4, "dimension": 3, "direction": "all_real_coordinates", "first_nonzero_coefficient": null, "first_nonzero_degree": null}
+{"checked_order": 6, "dimension": 4, "direction": "all_real_coordinates", "first_nonzero_coefficient": null, "first_nonzero_degree": null}
+{"checked_order": 8, "dimension": 5, "direction": "all_real_coordinates", "first_nonzero_coefficient": null, "first_nonzero_degree": null}
+{"checked_order": 7, "dimension": 4, "direction": "bottom_grade_4", "first_nonzero_coefficient": "-16", "first_nonzero_degree": 7}
+{"checked_order": 10, "dimension": 5, "direction": "penultimate_grade_4", "first_nonzero_coefficient": "-32", "first_nonzero_degree": 10}
+{"checked_order": 10, "dimension": 6, "direction": "paired_grade_4", "first_nonzero_coefficient": null, "first_nonzero_degree": null}
+{"checked_order": 10, "dimension": 6, "direction": "bottom_grade_6", "first_nonzero_coefficient": null, "first_nonzero_degree": null}

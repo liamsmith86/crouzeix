@@ -1,6 +1,34 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-22 (Epoch 6 — L117 exact elliptic Crabb axis)
+**Last updated:** 2026-07-22 (Epoch 6 — L118 weighted transverse reduction)
+
+## NEWEST (2026-07-22): L118 puts L65 and L117 on one analytic envelope
+- For a stable pullback `T`, the rank-one Stein Gramian
+  `P(T,q)=sum_n(T*)^nqq*T^n` is a feasible similarity metric.  At `C_p,e_0`,
+  its condition number has positive defect-vector Hessian
+  `8 sum_(j<L)|q_j|²+(8/3)|q_L|²`.
+- The analytic IFT therefore selects a unique local minimizing defect vector `q_*(A)`;
+  its condition number minus four is a real-analytic feasible envelope `Gamma_p(A)`.
+- Equality in L62's Stein Schur complement proves that the matrix Hessian of `Gamma_p`
+  is exactly L65's arbitrary-size nonpositive form.  L117's globally optimal rank-one
+  metric tends to `P_0`, so it lies on this same branch and gives
+  `Gamma_p(C_p+cC_p*)=k(c^(2p−2))/c^(p−1)−4`.
+- Analytic maximization in L65's strong space leaves exactly L66's `2p−2` quotient
+  coordinates; L115 splits these as `2p−4` disk-tangent variables and the one complex
+  elliptic normal.  No independent high-dimensional metric chart remains.
+- On the pure elliptic face, it is sufficient to prove that the strong gradient is
+  `o(c^(p−1))`: completing the strong square then changes the envelope by
+  `o(c^(2p−2))`, while L117 supplies `−16c^(2p−2)+o(c^(2p−2))`.
+- A new sparse exact support-resolvent/Riemann/Stein engine proves that every dangerous
+  weighted gradient coefficient vanishes for all real directions at `p=3,4,5`, and for
+  selected grade-four/grade-six directions at `p=6`.  It exposes the first later terms
+  `−16c^7` for `c^3E_30` at `p=4` and `−32c^10` for
+  `c^4(E_30+E_41)/sqrt(2)` at `p=5`, matching independent numerical slopes.
+- **Next:** prove the cancellation for arbitrary `p` directly from the endpoint
+  path-length recurrence, then add L115's disk-flat mixed variables.  The finite checks
+  are discovery evidence, not the all-size proof.
+  `proof/crabb_rank_one_envelope.md`;
+  `experiments/general_crabb_weighted_series.py`.
 
 ## NEWEST (2026-07-22): L117 proves the exact elliptic Crabb axis in every size
 - For `T_c=phi(C_p+cC_p*)`, `L=p−1`, L116's Chebyshev--Blaschke alternation gives
@@ -1173,8 +1201,9 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
 1. **Build the L115/L117 transverse tube.**  Anchor on the exact elliptic-axis metric,
    retain L65's coercive normal complement, and seek estimates uniform as `c->0` and across
    the disk-manifold tangential directions.  The axis gap has order `c^(2p−2)`, so derive
-   the transverse variation of the rank-one Stein defect and use a weighted disk/axis
-   merger; do not rely on a fixed positive margin or compute the old `2p−2` residual jets.
+   L118's all-size endpoint path-length cancellation
+   `Proj_strong grad Gamma(C+cC*)=o(c^(p−1))`, then use the weighted disk/axis merger.
+   Do not rely on a fixed positive margin or compute the old `2p−2` residual jets.
 2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
    trace inequality can instead be derived from the block-Toeplitz positivity of the full
    operator-valued correction moments. Do not retry trace/positive-state scalarizations.
@@ -1234,6 +1263,8 @@ experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_
   crabb_disk_tangent_intersection.py (L115 arbitrary-size circular-tangent intersection),
   crabb_elliptic_axis.py (L116/L117 SDP and explicit-metric regression),
   crabb_elliptic_axis_theorem.py (L117 high-precision DCT/Jacobi identity audit),
+  general_crabb_weighted_series.py (L118 arbitrary-size sparse support/Riemann engine),
+  crabb_transverse_weighted_gradient.py (L118 exact low-size gradient cancellations),
   formal_riemann_series.py + rank_one_stein_series.py (exact higher-order helpers),
   p3_crabb_sixth_order.py + p3_crabb_quartic.py (L67/L68 exact certificates),
   p3_crabb_local_slice.py (L69 orbit-normal slice audit),
