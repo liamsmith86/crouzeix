@@ -1,6 +1,17 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-22 (Epoch 6 — L89 three-copy nonnormal flat stratum)
+**Last updated:** 2026-07-22 (Epoch 6 — L90 common-mode copy-matrix formula)
+
+## NEWEST (2026-07-22): L90 inserts the common flat mode exactly
+- With common `W(w)=w(E10+E21)`, the full effective support is
+  `Q_Z(q)+r_w(q)I+ell_w(q)Z+conj(ell_w(q))Z*`, with explicit Laurent scalars.
+  The first support compression remains scalar.
+- The `r_w I` term cannot change any eigenspace.  Every interaction between the common flat
+  mode, Schur diagonal, and nonnormal upper part is now the finite Hermitian pencil
+  `ell_w Z+conj(ell_w)Z*` plus L88's quadratic four-term polynomial.
+- This makes the next target an exact simultaneous-eigenvector classification for the Laurent
+  coefficients of a `3 x 3` upper-triangular `Z`, extending L89 beyond zero diagonal.  No
+  numerical Riemann-map fit is needed.  `proof/repeated_p3_flat_common_support.md`.
 
 ## NEWEST (2026-07-22): L89 closes the first nonnormal copy-matrix stratum
 - For `N=[[0,a,b],[0,0,c],[0,0,0]]`, the angular coefficients in L88 force any common top
@@ -807,7 +818,7 @@ experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_
   repeated_p3_radial_gap.py (L81 strict radial diagonal--cross coupling),
   repeated_p3_winner_graph_sign.py (L83--L85 complete tied-winner endpoint),
   repeated_p3_multiwinner_gap.py (L86 full winner/loser Gram penalty),
-  repeated_p3_flat_copy_matrix.py (L88 flat copy-matrix support identity),
+  repeated_p3_flat_copy_matrix.py (L88/L90 flat/common copy-matrix support),
   repeated_p3_flat_three_copy.py (L89 three-copy Schur equality split).
 Proof artifact: experiments/positive_tail_full_20260722.log (L59 clean 10-box run).
 Data: sym3_sweep_s51.jsonl (40 rec), sym4_sweep_s61.jsonl (20 rec, ρ column trustworthy),
