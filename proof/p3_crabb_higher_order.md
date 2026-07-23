@@ -1,4 +1,4 @@
-# Sixth-order descent on the residual `p=3` Crabb mode (2026-07-22)
+# Higher-order descent on the residual `p=3` Crabb quotient (2026-07-22)
 
 ## 1. Statement and scope
 
@@ -36,8 +36,10 @@ Let `phi_epsilon` be any Riemann map from `W(C_3+epsilon R_1(1))` to the disk.  
  \qquad(0<|\epsilon|<\epsilon_0) . \tag{3}
 \]
 
-This is a strict local theorem on one genuine quotient ray.  It does **not** yet treat mixtures
-with the residual mode-two direction or prove a complete neighbourhood theorem.
+Sections 2--3 prove this most degenerate ray at sixth order.  Section 4 treats every fixed
+mixture with the residual mode-two direction at fourth order.  The combined result is raywise;
+it is not yet uniform in the transition where the mode-two coordinate tends to zero with
+`epsilon`.
 
 ## 2. Exact Riemann-map expansion
 
@@ -155,17 +157,93 @@ from `P_0`.  Equations (10) and (12) therefore prove (3).  Notice that only a fe
 certificate is claimed; no unproved assertion that the rank-one defect is the globally optimal
 metric is needed.
 
-## 4. Regeneration and remaining frontier
+## 4. Quartic descent on every other residual ray
+
+The second complex quotient coordinate has representative
+
+\[
+ R_2(\omega)=
+ \begin{bmatrix}0&0&0\\ \omega&0&0\\0&\omega&0\end{bmatrix}. \tag{16}
+\]
+
+Under (2), the residual coordinates transform as
+
+\[
+ (\zeta,\omega)\longmapsto
+ (e^{-i\alpha}\zeta,e^{-2i\alpha}\omega). \tag{17}
+\]
+
+Conjugating the matrix conjugates both coordinates.  The order-`j` coefficient produced by
+the analytic rank-one Gramian branch is therefore a real homogeneous polynomial invariant
+under (17) and conjugation.  At degree three the only possible term is a multiple of
+`Re(zeta^2 conjugate(omega))`.  At degree four the only possibilities are
+
+\[
+ |\zeta|^4,\qquad |\zeta|^2|\omega|^2,\qquad |\omega|^4. \tag{18}
+\]
+
+Exact order-four calculations on the three real paths `(zeta,omega)=(1,0),(0,1),(1,1)` give
+
+\[
+ q_3=0,\qquad
+ q_4(1,0)=0,\quad q_4(0,1)=-4,\quad q_4(1,1)=-\frac{63}{8}. \tag{19}
+\]
+
+The invariant classification therefore determines the full quartic:
+
+\[
+ \boxed{q_4(\zeta,\omega)
+ =-4|\omega|^4-\frac{31}{8}|\zeta|^2|\omega|^2.} \tag{20}
+\]
+
+One equivariant beginning of the corresponding defect-vector branch is
+
+\[
+ c_\epsilon=
+ \begin{bmatrix}
+ 1\\
+ -\dfrac{\sqrt2}{24}\zeta\epsilon
+   +\dfrac12\bar\zeta\omega\epsilon^2+O(\epsilon^3)\\
+ -2\sqrt2\omega\epsilon
+   -\dfrac{193}{576}\zeta^2\epsilon^2+O(\epsilon^3)
+ \end{bmatrix}. \tag{21}
+\]
+
+Consequently, for each fixed pair with `omega != 0`,
+
+\[
+ t_*(\phi_\epsilon(C_3+\epsilon(R_1(\zeta)+R_2(\omega))))
+ \le 4-\left(4|\omega|^4+\frac{31}{8}|\zeta|^2|\omega|^2\right)\epsilon^4
+ +O(\epsilon^5)<4 \tag{22}
+\]
+
+for all sufficiently small nonzero `epsilon`.  When `omega=0`, (12) supplies the negative
+sixth-order term instead.  Thus **every fixed nontrivial straight ray in the chosen canonical
+representative space for the `p=3` residual quotient strictly descends**.
+
+This raywise result is not automatically a uniform punctured-neighbourhood theorem.  In a
+joint limit where `omega` tends to zero with `epsilon`, the quartic margin in (22) competes
+with higher-order mixed terms and the sixth-order pure-mode margin.  A weighted blow-up of
+that transition is one remaining `p=3` local debt.  A second is slice curvature: removing an
+affine-unitary tangent from an arbitrary physical path by exact symmetries generally creates
+quadratic and higher corrections to its canonical representative.  Those corrections must be
+included before promoting the straight-ray statement to all nearby matrices.
+
+## 5. Regeneration and remaining frontier
 
 Run
 
 ```bash
 .venv/bin/python -u experiments/p3_crabb_sixth_order.py
+.venv/bin/python -u experiments/p3_crabb_quartic.py
 ```
 
-The script derives all conformal and Stein coefficients from scratch, checks the independent
-L63 coefficients, and verifies (13)--(15) and (12) as exact SymPy identities.
+The scripts derive all conformal and Stein coefficients from scratch.  The sixth-order script
+checks the independent L63 coefficients and verifies (13)--(15) and (12).  The quartic script
+derives the three paths in (19), performs both levels of defect minimization exactly, and uses
+the invariant classification (18) to verify (20).
 
-The next `p=3` task is the mixed mode-one/mode-two quotient.  Preliminary floating-point data
-suggest a negative quartic whenever the mode-two component is nonzero, leaving (12) as the
-more degenerate pure-mode limit.  That suggestion is not used here and remains a proof debt.
+The next `p=3` task is the weighted transition `|omega|=O(|epsilon*zeta|)` between (20) and
+(12), together with the nonlinear affine-unitary slice curvature just noted.  Closing both
+would upgrade canonical straight-ray descent to a genuine local-neighbourhood theorem.  The
+higher-size residual modes and repeated-block faces remain separate debts.

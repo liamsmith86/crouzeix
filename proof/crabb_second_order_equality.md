@@ -83,9 +83,10 @@ overlap errors in the analytic count.
 
 ## 5. Next target
 
-L67 now chooses an explicit `p=3` mode-one representative and proves strict descent at order six
-with an exact formal Riemann/Stein certificate; see `proof/p3_crabb_higher_order.md`.  The remaining
-`p=3` target is the mixed mode-one/mode-two quotient.  Preliminary nonlinear samples show a
-negative quartic whenever mode two is nonzero, but that observation remains only a steering gate
-until the mixed coefficient and a uniform feasible metric are derived exactly.  Higher sizes then
-require the same calculation on the grade representatives classified above.
+L67 chooses an explicit `p=3` mode-one representative and proves strict descent at order six.
+L68 derives the exact invariant quartic `−4|w|⁴−31|z|²|w|²/8` on every ray with nonzero mode two.
+Thus every fixed canonical straight residual `p=3` ray descends; see
+`proof/p3_crabb_higher_order.md`.  A weighted blow-up where `w=O(epsilon*z)` and the nonlinear
+slice curvature created when exact symmetries remove orbit tangents remain before this is a
+uniform punctured-neighbourhood theorem.  Higher sizes then require the same calculation on the
+grade representatives classified above.

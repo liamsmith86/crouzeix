@@ -25,21 +25,6 @@ def laurent_modes(expression: sp.Expr, variable: sp.Symbol) -> dict[int, sp.Expr
     return {degree: value for degree, value in modes.items() if value != 0}
 
 
-def compose_laurent(
-    expression: sp.Expr,
-    variable: sp.Symbol,
-    argument: sp.Expr,
-) -> sp.Expr:
-    """Compose a finite Laurent polynomial with ``argument``."""
-
-    return sp.expand(
-        sum(
-            coefficient * argument**degree
-            for degree, coefficient in laurent_modes(expression, variable).items()
-        )
-    )
-
-
 def matrix_series_product(
     left: Sequence[sp.Matrix],
     right: Sequence[sp.Matrix],
@@ -113,13 +98,15 @@ def inverse_riemann_series(
     matrix = base + epsilon * perturbation
     support = (matrix / variable + variable * matrix.T) / 2
     spectral_parameter = sp.symbols("lambda")
+    support_characteristic = (
+        spectral_parameter * sp.eye(3) - support
+    ).det()
     support_value = sp.Integer(1)
     for degree in range(1, order + 1):
         unknown = sp.symbols(f"support_{degree}")
-        determinant = (spectral_parameter * sp.eye(3) - support).det()
         equation = sp.expand(
             sp.series(
-                determinant.subs(
+                support_characteristic.subs(
                     spectral_parameter,
                     support_value + unknown * epsilon**degree,
                 ),
@@ -136,6 +123,7 @@ def inverse_riemann_series(
     boundary_normal = sp.expand(
         variable * (support_value - variable * sp.diff(support_value, variable))
     )
+    boundary_modes = laurent_modes(boundary_normal, variable)
 
     def boundary_star(expression: sp.Expr) -> sp.Expr:
         return sp.expand(
@@ -149,18 +137,23 @@ def inverse_riemann_series(
 
     angle_shift = sp.Integer(0)
     inverse_map = [variable]
+
+    def reparameterized_boundary(maximum_degree: int) -> sp.Expr:
+        """Compose with ``w*exp(i*angle_shift)`` without rational powers."""
+
+        value = sp.Integer(0)
+        for mode, coefficient in boundary_modes.items():
+            phase = sp.series(
+                sp.exp(sp.I * mode * angle_shift),
+                epsilon,
+                0,
+                maximum_degree + 1,
+            ).removeO()
+            value += coefficient * variable**mode * phase
+        return sp.expand(value)
+
     for degree in range(1, order + 1):
-        normal_argument = variable * sp.series(
-            sp.exp(sp.I * angle_shift),
-            epsilon,
-            0,
-            degree + 1,
-        ).removeO()
-        unmatched = compose_laurent(
-            boundary_normal,
-            variable,
-            normal_argument,
-        )
+        unmatched = reparameterized_boundary(degree)
         unmatched = sp.expand(
             sp.series(unmatched, epsilon, 0, degree + 1).removeO()
         ).coeff(epsilon, degree)
@@ -174,17 +167,7 @@ def inverse_riemann_series(
             angle_shift + epsilon**degree * shift_coefficient
         )
 
-        normal_argument = variable * sp.series(
-            sp.exp(sp.I * angle_shift),
-            epsilon,
-            0,
-            degree + 1,
-        ).removeO()
-        analytic_boundary = compose_laurent(
-            boundary_normal,
-            variable,
-            normal_argument,
-        )
+        analytic_boundary = reparameterized_boundary(degree)
         coefficient = sp.expand(
             sp.series(analytic_boundary, epsilon, 0, degree + 1).removeO()
         ).coeff(epsilon, degree)

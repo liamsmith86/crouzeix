@@ -10,97 +10,20 @@ Its condition number is ``4 - 171*epsilon**6/4096 + O(epsilon**7)``.
 
 from __future__ import annotations
 
-from collections.abc import Sequence
-
 import sympy as sp
 
 from crabb_second_order_symbolic import conformal_coefficients
 from formal_riemann_series import inverse_riemann_series
+from rank_one_stein_series import gramian_condition_series
 
 
 ORDER = 6
 
 
-def matrix_power_series(
-    coefficients: Sequence[sp.Matrix],
-    epsilon: sp.Symbol,
-) -> sp.Matrix:
-    """Assemble a matrix power series as a symbolic matrix."""
-
-    value = sp.zeros(coefficients[0].rows)
-    for degree, coefficient in enumerate(coefficients):
-        value += epsilon**degree * coefficient
-    return value
-
-
-def stein_gramian_series(
-    operator: Sequence[sp.Matrix],
-    defect: sp.Matrix,
-    epsilon: sp.Symbol,
-) -> list[sp.Matrix]:
-    """Solve ``P-T.T*P*T=defect*defect.T`` through ``ORDER``."""
-
-    base = operator[0]
-    defect_square = sp.expand(defect * defect.T)
-    forcing = [
-        defect_square.applyfunc(lambda entry: entry.coeff(epsilon, degree))
-        for degree in range(ORDER + 1)
-    ]
-    gramian: list[sp.Matrix] = []
-    for degree in range(ORDER + 1):
-        right_hand_side = forcing[degree]
-        for left_degree in range(degree + 1):
-            for right_degree in range(degree + 1 - left_degree):
-                metric_degree = degree - left_degree - right_degree
-                if metric_degree < len(gramian):
-                    right_hand_side += (
-                        operator[left_degree].T
-                        * gramian[metric_degree]
-                        * operator[right_degree]
-                    )
-        coefficient = sp.zeros(3)
-        for power in range(3):
-            coefficient += (
-                (base.T**power) * right_hand_side * (base**power)
-            )
-        gramian.append(sp.simplify(coefficient))
-    return gramian
-
-
-def simple_eigenvalue_series(
-    matrix: sp.Matrix,
-    base_eigenvalue: int,
-    epsilon: sp.Symbol,
-) -> sp.Expr:
-    """Lift a simple eigenvalue of the constant matrix through ``ORDER``."""
-
-    spectral_parameter = sp.symbols("spectral_parameter")
-    series = sp.Integer(base_eigenvalue)
-    characteristic = (spectral_parameter * sp.eye(3) - matrix).det()
-    for degree in range(1, ORDER + 1):
-        unknown = sp.symbols(f"eigenvalue_{base_eigenvalue}_{degree}")
-        equation = sp.expand(
-            sp.series(
-                characteristic.subs(
-                    spectral_parameter,
-                    series + unknown * epsilon**degree,
-                ),
-                epsilon,
-                0,
-                degree + 1,
-            ).removeO()
-        ).coeff(epsilon, degree)
-        solution = sp.solve(equation, unknown)
-        if len(solution) != 1:
-            raise AssertionError("a simple Gramian eigenvalue did not lift uniquely")
-        series = sp.expand(series + solution[0] * epsilon**degree)
-    return series
-
-
 def check_second_order_regression(
     base: sp.Matrix,
     perturbation: sp.Matrix,
-    operator: Sequence[sp.Matrix],
+    operator: list[sp.Matrix],
     variable: sp.Symbol,
 ) -> None:
     """Compare the new formal map with the independent L63 derivation."""
@@ -156,13 +79,7 @@ def main() -> None:
             b2 * epsilon**2 + b4 * epsilon**4 + b6 * epsilon**6,
         ]
     )
-    gramian = stein_gramian_series(operator, defect, epsilon)
-    full_gramian = matrix_power_series(gramian, epsilon)
-    lower = simple_eigenvalue_series(full_gramian, 1, epsilon)
-    upper = simple_eigenvalue_series(full_gramian, 4, epsilon)
-    condition = sp.expand(
-        sp.series(upper / lower, epsilon, 0, ORDER + 1).removeO()
-    )
+    condition = gramian_condition_series(operator, defect, epsilon, ORDER)
 
     second = sp.factor(condition.coeff(epsilon, 2))
     expected_second = (288 * a1**2 + 24 * root_two * a1 + 1) / 36

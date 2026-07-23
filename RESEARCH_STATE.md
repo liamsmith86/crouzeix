@@ -402,16 +402,20 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
 - **PURE `p=3` RESIDUAL MODE (L67):** exact formal Riemann-map coefficients through order six,
   followed by a rank-one Stein Gramian, give the feasible condition number
   `4−171ε⁶/4096+O(ε⁷)` on the pure residual mode-one ray. This proves strict local descent on
-  that ray without assuming the Gramian is globally optimal. Preliminary nonlinear fits still
-  suggest quartic decrease `≈−4|w|²(|w|²+|z|²)` when mode two is present; that mixed statement
-  remains steering evidence, not a lemma.
+  that ray without assuming the Gramian is globally optimal.
+- **FULL `p=3` QUOTIENT, RAYWISE (L68):** circle-invariant exact calculations give quartic
+  `−4|w|⁴−31|z|²|w|²/8` whenever the mode-two coordinate is nonzero. Together with L67, every
+  fixed nontrivial canonical straight ray strictly descends. This corrects the preliminary
+  approximate coefficient `−4|w|²(|w|²+|z|²)`. The transition `w=O(εz)` still needs a weighted
+  blow-up, and exact removal of orbit tangents introduces nonlinear slice curvature; both must
+  be controlled before this becomes a uniform local-neighbourhood theorem for nearby matrices.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-22)
-1. **Finish higher order on the L66 quotient.** L67 proves the more degenerate pure `p=3`
-   mode-one ray at sixth order. Derive the apparent mixed quartic
-   `−4|w|²(|w|²+|z|²)` exactly to close the full `p=3` quotient, then seek the arbitrary-mode
-   pattern. In parallel extend L65 to repeated-block common-maximizer faces and separately
-   handle nonsmooth compression-eigenvalue crossings.
+1. **Uniformize and generalize the L66 quotient analysis.** L67/L68 prove every canonical
+   straight `p=3` quotient ray. Resolve the weighted transition `w=O(εz)` and nonlinear
+   affine-unitary slice curvature to obtain a genuine punctured neighbourhood, then seek the
+   arbitrary-mode pattern. In parallel extend L65 to repeated-block common-maximizer faces and
+   separately handle nonsmooth compression-eigenvalue crossings.
 2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
    trace inequality can instead be derived from the block-Toeplitz positivity of the full
    operator-valued correction moments. Do not retry trace/positive-state scalarizations.
@@ -468,7 +472,8 @@ experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_
   p4_second_order_identity.py (L64 exact 32-variable regeneration),
   general_crabb_second_order_modes.py (L65 arbitrary-size mode regeneration),
   crabb_second_order_equality.py (L66 exact-orbit/kernel quotient audit),
-  formal_riemann_series.py + p3_crabb_sixth_order.py (L67 exact sixth-order certificate).
+  formal_riemann_series.py + rank_one_stein_series.py (exact higher-order helpers),
+  p3_crabb_sixth_order.py + p3_crabb_quartic.py (L67/L68 exact certificates).
 Proof artifact: experiments/positive_tail_full_20260722.log (L59 clean 10-box run).
 Data: sym3_sweep_s51.jsonl (40 rec), sym4_sweep_s61.jsonl (20 rec, ρ column trustworthy),
 general_similarity_equality_s9173401.jsonl plus its `sensitivity` and `ultralocal` companions
