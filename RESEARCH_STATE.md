@@ -1,6 +1,19 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-22 (Epoch 6 — L98 weighted terminal theorem)
+**Last updated:** 2026-07-22 (Epoch 6 — L99 uniform terminal cubic)
+
+## NEWEST (2026-07-22): L99 removes cubic degeneration at the normal face
+- L94 used an off-diagonal third-support coefficient and therefore weakened as the Schur edge
+  `a->0`.  The missing normal-face coefficient is diagonal:
+  `[q³](Q3)00=3d³/128`.
+- Combining both coefficients gives
+  `m3≥(2|d|²+|a|²)^(3/2)/(192sqrt(3))`, hence a cubic endpoint at most
+  `−(2|d|²+|a|²)^(3/2)/(12sqrt(3))` on every nonzero trace-zero block.
+- Thus the unweighted terminal cubic is uniform even at `a=0`.  There the gain is caused by the
+  convex hull of the two oppositely deformed normal summands, consistent with L88.
+  The remaining normal-face task is only the weighted recentering/compactness patch when a
+  later nonnormal transverse scale is compared with the exact normal manifold.
+  `proof/repeated_p3_flat_two_copy.md`.
 
 ## NEWEST (2026-07-22): L98 closes the bounded weighted terminal chart
 - Start with a trace-zero nonnormal terminal block `D` at order `epsilon`, then let an arbitrary

@@ -117,6 +117,15 @@ def main() -> None:
         coercive_fourier_coefficient - expected_coercive_coefficient
     ) != 0:
         raise AssertionError("the coercive third Fourier mode failed")
+    diagonal_fourier_coefficient = sp.expand(
+        effective_third[0, 0]
+    ).coeff(boundary, 3)
+    expected_diagonal_coefficient = 3 * diagonal**3 / 128
+    if sp.simplify(
+        diagonal_fourier_coefficient
+        - expected_diagonal_coefficient
+    ) != 0:
+        raise AssertionError("the normal-face third Fourier mode failed")
 
     # The middle Laurent coefficient of the displayed cross entry is
     # edge*(2|edge|^2+4|diagonal|^2)/128, so it cannot vanish for a physical
@@ -174,6 +183,8 @@ def main() -> None:
     print("the third effective support is traceless and nonzero when edge != 0")
     print("the tight third metric endpoint is -16*mean(lambda_max(Q_3))*I")
     print("m_3 >= |edge|*(2|edge|^2+4|diagonal|^2)/128")
+    print("m_3 >= 3*|diagonal|^3/128 on the normal face")
+    print("m_3 >= (2|diagonal|^2+|edge|^2)^(3/2)/(192*sqrt(3))")
 
 
 if __name__ == "__main__":

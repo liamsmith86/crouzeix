@@ -168,6 +168,36 @@ This coercivity is uniform on normalized trace-zero blocks away from the
 normal face `a=0`.  It is the terminal estimate needed by L93's future
 weighted compactness argument.
 
+The normal face has its own uncancellable coefficient:
+
+\[
+ [q^3](Q_3)_{00}=\frac{3d^3}{128}.                    \tag{18}
+\]
+
+Therefore
+
+\[
+ m_3\ge\frac1{128}
+ \max\{3|d|^3,\ |a|(2|a|^2+4|d|^2)\}.                \tag{19}
+\]
+
+Put `n=2|d|^2+|a|^2`.  If `|a|>=|d|`, the second term in
+(19) is at least `2|a|^3` and `n<=3|a|^2`.  If
+`|a|<|d|`, the first is `3|d|^3` and `n<3|d|^2`.
+Thus
+
+\[
+\boxed{
+ m_3\ge\frac{n^{3/2}}{192\sqrt3},\qquad
+ \lambda_{\max}({\cal E}_3)
+ \le-\frac{n^{3/2}}{12\sqrt3}.}                       \tag{20}
+\]
+
+This is uniform on the entire unit sphere of trace-zero two-copy blocks,
+including `a=0`.  On that normal face it measures the strict gain obtained by
+taking the convex hull of the two oppositely deformed single-block numerical
+ranges; it does not contradict L88's exact direct-sum theorem.
+
 ## 4. Common-mode terminal coercivity
 
 On the trace-zero face `z=0`, L90's only non-scalar common-mode contribution
