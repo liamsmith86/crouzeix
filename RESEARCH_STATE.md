@@ -2,6 +2,29 @@
 
 **Last updated:** 2026-07-23 (Epoch 6 — Faber endpoint localization)
 
+## NEWEST (2026-07-23): L155 proves uniform division by the disk quartic
+- Let `E={z=omega J conjugate(z)}` and
+  `Q=||z||^4-|z^T Jz|²`.  If a real-analytic germ `F` starts in
+  ordinary degree four and both its value and full gradient vanish on
+  `E`, then `|F|<=C_L Q` locally.
+- The proof is short and uniform through the singular apex.  L124's
+  best-phase split gives `z=u+v`, `Q=4||u||²||v||²`, with
+  `||v||<=||u||`.  Fourth-order apex vanishing implies
+  `D²F(u)=O(||u||²)` and `D³F(u+theta v)=O(||u||)`.
+  Since `F(u)=DF(u)=0`, normal Taylor expansion is therefore bounded
+  by `C||u||²||v||²`.
+- Literal scalar divisibility by `Q` is not required; the quartic
+  face can be any quadratic form in the determinantal minors.
+- Applied grade-by-grade, L155 says a one-reflection coefficient with
+  these three jets is `O(Q)`.  Its physical factor `c^k` is then
+  absorbed by L152's `-a_L Q`.  This removes the analytic/uniform part
+  of A101: the remaining work is only to prove the full-normal
+  stationarity and fourth-order apex start in the finite companion
+  recurrence.  A shared exact truncated-series engine verifies both
+  jets through length ten without root tracking.
+  `proof/crabb_quartic_cone_division.md`;
+  `experiments/crabb_disk_one_reflection_jets.py`.
+
 ## NEWEST (2026-07-23): A101 finds the general-disk one-reflection obstruction
 - L149's one-reflection stationarity is special to the exact
   phase-palindromic equality cone.  It does not extend identically

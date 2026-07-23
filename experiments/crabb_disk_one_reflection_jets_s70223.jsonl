@@ -1,0 +1,16 @@
+{"dimension": 4, "equality_coefficients": ["1/31", "1/31"], "length": 3, "normal_derivative": "0", "normal_direction": ["2/23", "-2/23"], "value": "0"}
+{"coefficients_through_four": ["0", "0", "0", "0", "0"], "dimension": 4, "direction": [0, 3], "length": 3, "vanishes_below_degree_four": true}
+{"dimension": 5, "equality_coefficients": ["1/31", "1/18", "1/31"], "length": 4, "normal_derivative": "0", "normal_direction": ["2/23", "0", "-2/23"], "value": "0"}
+{"coefficients_through_four": ["0", "0", "0", "0", "-576"], "dimension": 5, "direction": [1, -3, 0], "length": 4, "vanishes_below_degree_four": true}
+{"dimension": 6, "equality_coefficients": ["1/31", "1/18", "1/18", "1/31"], "length": 5, "normal_derivative": "0", "normal_direction": ["2/23", "3/26", "-3/26", "-2/23"], "value": "0"}
+{"coefficients_through_four": ["0", "0", "0", "0", "1472"], "dimension": 6, "direction": [2, -2, 1, -3], "length": 5, "vanishes_below_degree_four": true}
+{"dimension": 7, "equality_coefficients": ["1/31", "1/18", "3/41", "1/18", "1/31"], "length": 6, "normal_derivative": "0", "normal_direction": ["2/23", "3/26", "0", "-3/26", "-2/23"], "value": "0"}
+{"coefficients_through_four": ["0", "0", "0", "0", "2496"], "dimension": 7, "direction": [3, -1, 2, -2, 1], "length": 6, "vanishes_below_degree_four": true}
+{"dimension": 8, "equality_coefficients": ["1/31", "1/18", "3/41", "3/41", "1/18", "1/31"], "length": 7, "normal_derivative": "0", "normal_direction": ["2/23", "3/26", "4/29", "-4/29", "-3/26", "-2/23"], "value": "0"}
+{"coefficients_through_four": ["0", "0", "0", "0", "-7680"], "dimension": 8, "direction": [-3, 0, 3, -1, 2, -2], "length": 7, "vanishes_below_degree_four": true}
+{"dimension": 9, "equality_coefficients": ["1/31", "1/18", "3/41", "2/23", "3/41", "1/18", "1/31"], "length": 8, "normal_derivative": "0", "normal_direction": ["2/23", "3/26", "4/29", "0", "-4/29", "-3/26", "-2/23"], "value": "0"}
+{"coefficients_through_four": ["0", "0", "0", "0", "0"], "dimension": 9, "direction": [-2, 1, -3, 0, 3, -1, 2], "length": 8, "vanishes_below_degree_four": true}
+{"dimension": 10, "equality_coefficients": ["1/31", "1/18", "3/41", "2/23", "2/23", "3/41", "1/18", "1/31"], "length": 9, "normal_derivative": "0", "normal_direction": ["2/23", "3/26", "4/29", "5/32", "-5/32", "-4/29", "-3/26", "-2/23"], "value": "0"}
+{"coefficients_through_four": ["0", "0", "0", "0", "-15680"], "dimension": 10, "direction": [-1, 2, -2, 1, -3, 0, 3, -1], "length": 9, "vanishes_below_degree_four": true}
+{"dimension": 11, "equality_coefficients": ["1/31", "1/18", "3/41", "2/23", "5/51", "2/23", "3/41", "1/18", "1/31"], "length": 10, "normal_derivative": "0", "normal_direction": ["2/23", "3/26", "4/29", "5/32", "0", "-5/32", "-4/29", "-3/26", "-2/23"], "value": "0"}
+{"coefficients_through_four": ["0", "0", "0", "0", "-16128"], "dimension": 11, "direction": [0, 3, -1, 2, -2, 1, -3, 0, 3], "length": 10, "vanishes_below_degree_four": true}

@@ -1,0 +1,541 @@
+#!/usr/bin/env python3
+"""Exact jet audit for the candidate one-reflection ``O(Q)`` bound.
+
+This checker uses a truncated-series ring over exact SymPy rationals.
+It verifies the two finite algebraic inputs required by L155:
+
+1. at a phase-palindromic equality anchor, the one-reflection
+   coefficient and its anti-palindromic normal derivative vanish;
+2. at the Crabb apex, the same coefficient has no disk-amplitude
+   term below degree four.
+
+The calculation implements the root-free tangent (2)--(7) from
+``proof/crabb_disk_one_reflection.md``.  Finite verification is not an
+all-size proof of the companion recurrence.
+"""
+
+from __future__ import annotations
+
+import argparse
+from dataclasses import asdict, dataclass
+import json
+from pathlib import Path
+from typing import TypeAlias
+
+import sympy as sp
+
+
+ScalarSeries: TypeAlias = list[sp.Expr]
+MatrixSeries: TypeAlias = list[sp.Matrix]
+
+
+@dataclass(frozen=True)
+class NormalJetRecord:
+    """One exact equality-normal first jet."""
+
+    length: int
+    dimension: int
+    equality_coefficients: tuple[str, ...]
+    normal_direction: tuple[str, ...]
+    value: str
+    normal_derivative: str
+
+
+@dataclass(frozen=True)
+class ApexJetRecord:
+    """One exact Crabb-apex amplitude jet."""
+
+    length: int
+    dimension: int
+    direction: tuple[int, ...]
+    coefficients_through_four: tuple[str, ...]
+    vanishes_below_degree_four: bool
+
+
+class SeriesRing:
+    """Small exact truncated-series algebra."""
+
+    def __init__(self, order: int) -> None:
+        self.order = order
+
+    @staticmethod
+    def zero_like(value: sp.Expr | sp.Matrix) -> sp.Expr | sp.Matrix:
+        """Return an additive zero with the same scalar/matrix type."""
+
+        if isinstance(value, sp.MatrixBase):
+            return sp.zeros(*value.shape)
+        return sp.Integer(0)
+
+    def constant(
+        self,
+        value: sp.Expr | sp.Matrix,
+    ) -> ScalarSeries | MatrixSeries:
+        """Embed a scalar or matrix as a constant series."""
+
+        return [
+            value,
+            *[
+                self.zero_like(value)
+                for _ in range(self.order)
+            ],
+        ]
+
+    @staticmethod
+    def add(
+        left: ScalarSeries | MatrixSeries,
+        right: ScalarSeries | MatrixSeries,
+    ) -> ScalarSeries | MatrixSeries:
+        """Add two equally truncated series."""
+
+        return [
+            left[index] + right[index]
+            for index in range(len(left))
+        ]
+
+    @staticmethod
+    def subtract(
+        left: ScalarSeries | MatrixSeries,
+        right: ScalarSeries | MatrixSeries,
+    ) -> ScalarSeries | MatrixSeries:
+        """Subtract two equally truncated series."""
+
+        return [
+            left[index] - right[index]
+            for index in range(len(left))
+        ]
+
+    def multiply(
+        self,
+        left: ScalarSeries | MatrixSeries,
+        right: ScalarSeries | MatrixSeries,
+    ) -> ScalarSeries | MatrixSeries:
+        """Multiply series by truncated convolution."""
+
+        zero = self.zero_like(left[0] * right[0])
+        return [
+            sum(
+                (
+                    left[left_degree]
+                    * right[degree - left_degree]
+                    for left_degree in range(degree + 1)
+                ),
+                zero,
+            )
+            for degree in range(self.order + 1)
+        ]
+
+    @staticmethod
+    def scale(
+        series: ScalarSeries | MatrixSeries,
+        scalar: sp.Expr,
+    ) -> ScalarSeries | MatrixSeries:
+        """Multiply every coefficient by a scalar."""
+
+        return [scalar * coefficient for coefficient in series]
+
+    @staticmethod
+    def transpose(series: MatrixSeries) -> MatrixSeries:
+        """Transpose a real matrix series."""
+
+        return [coefficient.T for coefficient in series]
+
+    @staticmethod
+    def trace(series: MatrixSeries) -> ScalarSeries:
+        """Take the trace coefficientwise."""
+
+        return [sp.trace(coefficient) for coefficient in series]
+
+    def matrix_inverse(self, series: MatrixSeries) -> MatrixSeries:
+        """Invert a matrix series recursively."""
+
+        inverse = [
+            series[0].inv(),
+            *[
+                sp.zeros(series[0].rows)
+                for _ in range(self.order)
+            ],
+        ]
+        for degree in range(1, self.order + 1):
+            convolution = sum(
+                (
+                    series[source_degree]
+                    * inverse[degree - source_degree]
+                    for source_degree in range(1, degree + 1)
+                ),
+                sp.zeros(series[0].rows),
+            )
+            inverse[degree] = -inverse[0] * convolution
+        return inverse
+
+    def scalar_inverse(self, series: ScalarSeries) -> ScalarSeries:
+        """Invert a scalar series recursively."""
+
+        inverse = [
+            1 / series[0],
+            *[sp.Integer(0) for _ in range(self.order)],
+        ]
+        for degree in range(1, self.order + 1):
+            inverse[degree] = -inverse[0] * sum(
+                series[source_degree]
+                * inverse[degree - source_degree]
+                for source_degree in range(1, degree + 1)
+            )
+        return inverse
+
+    def matrix_power(
+        self,
+        series: MatrixSeries,
+        exponent: int,
+    ) -> MatrixSeries:
+        """Raise a matrix series to a nonnegative power."""
+
+        result = self.constant(sp.eye(series[0].rows))
+        for _ in range(exponent):
+            result = self.multiply(result, series)
+        return result
+
+    def evaluate_polynomial(
+        self,
+        coefficients: list[ScalarSeries],
+        matrix: MatrixSeries,
+    ) -> MatrixSeries:
+        """Evaluate a series-coefficient polynomial."""
+
+        result = self.constant(sp.zeros(matrix[0].rows))
+        power = self.constant(sp.eye(matrix[0].rows))
+        for coefficient in coefficients:
+            result = self.add(
+                result,
+                self.multiply(coefficient, power),
+            )
+            power = self.multiply(power, matrix)
+        return result
+
+    def frechet_polynomial(
+        self,
+        coefficients: list[ScalarSeries],
+        matrix: MatrixSeries,
+        tangent: MatrixSeries,
+    ) -> MatrixSeries:
+        """Evaluate a polynomial Fréchet derivative over the ring."""
+
+        result = self.constant(sp.zeros(matrix[0].rows))
+        powers = [
+            self.matrix_power(matrix, exponent)
+            for exponent in range(len(coefficients))
+        ]
+        for exponent, coefficient in enumerate(coefficients):
+            for left_power in range(exponent):
+                term = self.multiply(
+                    powers[left_power],
+                    self.multiply(
+                        tangent,
+                        powers[exponent - 1 - left_power],
+                    ),
+                )
+                result = self.add(
+                    result,
+                    self.multiply(coefficient, term),
+                )
+        return result
+
+    def characteristic_coefficients(
+        self,
+        matrix: MatrixSeries,
+    ) -> list[ScalarSeries]:
+        """Return descending characteristic coefficients by Faddeev."""
+
+        dimension = matrix[0].rows
+        identity = self.constant(sp.eye(dimension))
+        work = identity
+        coefficients = [self.constant(sp.Integer(1))]
+        for degree in range(1, dimension + 1):
+            product = self.multiply(matrix, work)
+            coefficient = self.scale(
+                self.trace(product),
+                -sp.Rational(1, degree),
+            )
+            coefficients.append(coefficient)
+            work = self.add(
+                product,
+                [
+                    scalar * sp.eye(dimension)
+                    for scalar in coefficient
+                ],
+            )
+        return coefficients
+
+    def polynomial_remainder(
+        self,
+        dividend: list[ScalarSeries],
+        monic_divisor: list[ScalarSeries],
+    ) -> list[ScalarSeries]:
+        """Divide by a monic polynomial over the series ring."""
+
+        remainder = [coefficient[:] for coefficient in dividend]
+        zero = self.constant(sp.Integer(0))
+        while len(remainder) >= len(monic_divisor):
+            leading = remainder[-1]
+            shift = len(remainder) - len(monic_divisor)
+            for index, coefficient in enumerate(monic_divisor):
+                remainder[shift + index] = self.subtract(
+                    remainder[shift + index],
+                    self.multiply(leading, coefficient),
+                )
+            remainder.pop()
+        while len(remainder) < len(monic_divisor):
+            remainder.append(zero)
+        return remainder
+
+
+def first_reflection_series(
+    base: tuple[sp.Expr, ...],
+    direction: tuple[sp.Expr, ...],
+    order: int,
+) -> ScalarSeries:
+    """Return the disk-amplitude series of the first reflection."""
+
+    ring = SeriesRing(order)
+    length = len(base) + 1
+    dimension = length + 1
+    toeplitz_base = sp.zeros(dimension)
+    toeplitz_tangent = sp.zeros(dimension)
+    for index in range(length):
+        toeplitz_base[index, index] = sp.Rational(1, 2)
+    for offset, (value, tangent) in enumerate(
+        zip(base, direction, strict=True),
+        start=1,
+    ):
+        for row in range(length - offset):
+            toeplitz_base[row, row + offset] = value
+            toeplitz_base[row + offset, row] = value
+            toeplitz_tangent[row, row + offset] = tangent
+            toeplitz_tangent[row + offset, row] = tangent
+    shift = sp.zeros(dimension)
+    for row in range(length):
+        shift[row, row + 1] = 1
+
+    toeplitz = [
+        toeplitz_base,
+        toeplitz_tangent,
+        *[sp.zeros(dimension) for _ in range(order - 1)],
+    ]
+    shift_series = ring.constant(shift)
+    coordinate = ring.add(
+        toeplitz,
+        ring.multiply(
+            ring.transpose(shift_series),
+            ring.multiply(toeplitz, shift_series),
+        ),
+    )
+    operator = ring.scale(
+        ring.multiply(
+            ring.matrix_inverse(coordinate),
+            ring.multiply(toeplitz, shift_series),
+        ),
+        sp.Integer(2),
+    )
+
+    characteristic = ring.characteristic_coefficients(operator)
+    factor = [
+        characteristic[dimension - (power + 1)]
+        for power in range(length + 1)
+    ]
+    tangent_polynomial = [
+        ring.constant(sp.Integer(0))
+        for _ in range(length + 3)
+    ]
+    for power in range(1, length + 1):
+        tangent_polynomial[power + 2] = ring.add(
+            tangent_polynomial[power + 2],
+            ring.scale(factor[power], sp.Integer(power)),
+        )
+    for power in range(2, length + 1):
+        tangent_polynomial[power - 2] = ring.subtract(
+            tangent_polynomial[power - 2],
+            ring.scale(factor[power], sp.Integer(power)),
+        )
+    tangent_polynomial[length - 1] = ring.add(
+        tangent_polynomial[length - 1],
+        factor[length - 1],
+    )
+    prepared_tangent = ring.polynomial_remainder(
+        tangent_polynomial,
+        factor,
+    )
+
+    denominator_factor = list(reversed(factor))
+    denominator_tangent = list(reversed(prepared_tangent))
+    denominator = ring.evaluate_polynomial(
+        denominator_factor,
+        operator,
+    )
+    blaschke = ring.multiply(
+        ring.evaluate_polynomial(factor, operator),
+        ring.matrix_inverse(denominator),
+    )
+    operator_tangent = ring.subtract(
+        ring.multiply(
+            ring.matrix_inverse(coordinate),
+            ring.multiply(
+                ring.transpose(operator),
+                coordinate,
+            ),
+        ),
+        ring.matrix_power(operator, 3),
+    )
+    numerator_derivative = ring.add(
+        ring.frechet_polynomial(
+            factor,
+            operator,
+            operator_tangent,
+        ),
+        ring.evaluate_polynomial(prepared_tangent, operator),
+    )
+    denominator_derivative = ring.add(
+        ring.frechet_polynomial(
+            denominator_factor,
+            operator,
+            operator_tangent,
+        ),
+        ring.evaluate_polynomial(
+            denominator_tangent,
+            operator,
+        ),
+    )
+    inverse_denominator = ring.matrix_inverse(denominator)
+    blaschke_derivative = ring.subtract(
+        ring.multiply(numerator_derivative, inverse_denominator),
+        ring.multiply(
+            blaschke,
+            ring.multiply(
+                denominator_derivative,
+                inverse_denominator,
+            ),
+        ),
+    )
+
+    endpoint = sp.eye(dimension)[:, -1]
+    endpoint_series = ring.constant(endpoint)
+    image = ring.multiply(blaschke, endpoint_series)
+    image_derivative = ring.multiply(
+        blaschke_derivative,
+        endpoint_series,
+    )
+    numerator = ring.multiply(
+        ring.transpose(image),
+        ring.multiply(coordinate, image_derivative),
+    )
+    denominator = ring.multiply(
+        ring.transpose(endpoint_series),
+        ring.multiply(coordinate, endpoint_series),
+    )
+    numerator_scalar = [entry[0] for entry in numerator]
+    denominator_scalar = [entry[0] for entry in denominator]
+    return ring.scale(
+        ring.multiply(
+            numerator_scalar,
+            ring.scalar_inverse(denominator_scalar),
+        ),
+        sp.Integer(2),
+    )
+
+
+def equality_data(
+    length: int,
+) -> tuple[tuple[sp.Expr, ...], tuple[sp.Expr, ...]]:
+    """Return deterministic phase-one equality and normal vectors."""
+
+    size = length - 1
+    equality: list[sp.Expr | None] = [None] * size
+    normal: list[sp.Expr | None] = [None] * size
+    for index in range((size + 1) // 2):
+        partner = size - 1 - index
+        value = sp.Rational(index + 1, 31 + 5 * index)
+        equality[index] = value
+        equality[partner] = value
+        if index == partner:
+            normal[index] = sp.Integer(0)
+        else:
+            tangent = sp.Rational(index + 2, 23 + 3 * index)
+            normal[index] = tangent
+            normal[partner] = -tangent
+    return (
+        tuple(value for value in equality if value is not None),
+        tuple(value for value in normal if value is not None),
+    )
+
+
+def normal_record(length: int) -> NormalJetRecord:
+    """Return one exact equality-normal record."""
+
+    equality, normal = equality_data(length)
+    coefficients = first_reflection_series(equality, normal, 1)
+    if coefficients != [0, 0]:
+        raise AssertionError("the equality-normal jet did not vanish")
+    return NormalJetRecord(
+        length=length,
+        dimension=length + 1,
+        equality_coefficients=tuple(map(str, equality)),
+        normal_direction=tuple(map(str, normal)),
+        value="0",
+        normal_derivative="0",
+    )
+
+
+def apex_record(length: int) -> ApexJetRecord:
+    """Return one exact Crabb-apex amplitude record."""
+
+    direction = tuple(
+        ((3 * index + length) % 7) - 3
+        for index in range(length - 1)
+    )
+    if not any(direction):
+        raise AssertionError("the deterministic direction vanished")
+    coefficients = first_reflection_series(
+        tuple(sp.Integer(0) for _ in direction),
+        tuple(map(sp.Integer, direction)),
+        4,
+    )
+    if any(coefficients[:4]):
+        raise AssertionError("a subquartic apex jet survived")
+    return ApexJetRecord(
+        length=length,
+        dimension=length + 1,
+        direction=direction,
+        coefficients_through_four=tuple(map(str, coefficients)),
+        vanishes_below_degree_four=True,
+    )
+
+
+def parse_args() -> argparse.Namespace:
+    """Parse command-line arguments."""
+
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--maximum-length", type=int, default=10)
+    parser.add_argument("--output", type=Path)
+    return parser.parse_args()
+
+
+def main() -> None:
+    """Run and optionally persist the exact jet grid."""
+
+    args = parse_args()
+    records: list[NormalJetRecord | ApexJetRecord] = []
+    for length in range(3, args.maximum_length + 1):
+        records.append(normal_record(length))
+        records.append(apex_record(length))
+    lines = [
+        json.dumps(asdict(record), sort_keys=True)
+        for record in records
+    ]
+    print("\n".join(lines))
+    if args.output is not None:
+        args.output.write_text(
+            "".join(f"{line}\n" for line in lines),
+            encoding="utf-8",
+        )
+
+
+if __name__ == "__main__":
+    main()
