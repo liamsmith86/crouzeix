@@ -1,6 +1,21 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-22 (Epoch 6 — L100 weighted normal center)
+**Last updated:** 2026-07-22 (Epoch 6 — L101 nonsmooth conformal tangent)
+
+## NEWEST (2026-07-22): L101 closes the support-crossing regularity debt
+- If convex domains near the disk have
+  `h_epsilon=1+epsilon s+o(epsilon)` with merely continuous `s`, their radial functions have
+  the same first variation.  Applying the Schwarz integral to
+  `log(Psi_epsilon(z)/z)` then gives the normalized Riemann-map tangent used in L61.
+- The argument is uniform for compact families of continuous profiles and needs neither a
+  differentiable largest-eigenvalue branch nor strict convexity of the perturbed domain.
+- At repeated Crabb blocks, finite-dimensional degenerate perturbation theory gives the support
+  expansion with uniform `O(epsilon²)` remainder, while the `lambda_max` profile is uniformly
+  Lipschitz.  Thus L61's operator tangent and Dini bound now hold even at support crossings.
+- The radial/logarithmic argument can be reapplied after lower-order analytic recentering, so
+  conformal regularity is no longer the obstruction in the weighted normal-face patch.  The
+  remaining debt is to organize and absorb the finite hierarchy of endpoint remainders.
+  `proof/general_similarity_nonsmooth_tangent.md`.
 
 ## NEWEST (2026-07-22): L100 locates the sharp weighted normal center
 - On the normal terminal face `a=z=D1=0`, the diagonal traceless third support has coefficients

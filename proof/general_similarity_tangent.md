@@ -4,9 +4,10 @@
 
 This note linearizes the general L21 contraction-similarity program at a repeated Crabb
 equality block.  It gives a finite conformal tangent, solves the resulting semidefinite tangent
-program in closed form, and proves that its value is nonpositive in every direction.  Under a
-uniform first-order conformal expansion, a direct feasible-metric lift then proves that the
-upper right directional derivative of `t_*` is nonpositive.
+program in closed form, and proves that its value is nonpositive in every direction.  L101
+subsequently proves the required uniform first-order conformal expansion, including at
+support-branch crossings.  A direct feasible-metric lift therefore proves that the upper right
+directional derivative of `t_*` is nonpositive.
 
 This is a **local first-order theorem**, not a neighbourhood theorem and not a proof of
 Crouzeix's conjecture.  Directions in the equality case of the final Jensen inequality may
@@ -59,8 +60,9 @@ Consequently the numerical-range support function is
 \]
 
 If the largest eigenvalue in (1) stays simple with a uniform gap, the remainder is uniform and
-`s_E` is smooth.  Crossings require a nonsmooth shape-derivative treatment; the one-sided
-formula (1) itself remains valid.
+`s_E` is smooth.  At crossings `s_E` is only Lipschitz, but the degenerate spectral remainder
+is still uniform.  L101's radial/logarithmic shape derivative proves that this continuous
+profile gives the same conformal tangent (3), with no smooth-branch hypothesis.
 
 ## 4. Finite conformal tangent
 
@@ -224,7 +226,7 @@ level-diagonal `X` with `X_00>0`, successive inequalities
 Thus an optimizer of (7)--(8) can be perturbed by an arbitrarily small multiple of a strict
 tangent direction.
 
-Assume now that (4) holds uniformly in operator norm.  For a strict tangent solution, the
+By L101, (4) holds uniformly in operator norm.  For a strict tangent solution, the
 active kernel blocks of all three exact primal LMIs are positive at order `epsilon`; their
 inactive blocks remain uniformly positive, and the off-diagonal Schur-complement correction is
 only order `epsilon^2`.  Therefore it lifts to an exact feasible metric for all sufficiently
@@ -306,9 +308,8 @@ Equation (18) classifies first-order equality, but it does not make every equali
 exact symmetry.  The live local question is to quotient the common-maximizer directions by
 the equality-preserving orbits (unitary similarity, scalar affine changes, disk automorphisms,
 and repeated-block motion), then compute second order on any transverse remainder.  The
-single-block case necessarily lies entirely in this second-order problem.  The separate
-regularity debt is to establish (4) for nonsmooth compression-eigenvalue crossings rather than
-assuming the uniform conformal expansion.
+single-block case necessarily lies entirely in this second-order problem.  L101 closes the
+separate regularity debt at nonsmooth compression-eigenvalue crossings.
 
 ## 10. Literature calibration
 
