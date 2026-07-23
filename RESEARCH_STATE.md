@@ -1,6 +1,33 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-23 (Epoch 6 — L126 central Dickson descent)
+**Last updated:** 2026-07-23 (Epoch 6 — exact central family/metric descent)
+
+## NEWEST (2026-07-23): the central descent is exact in amplitude, and its metric target is now explicit
+- L126 is stronger than its first version.  In size `2k+1`,
+  `P_k(S+aE)=P_k(S)+aDP_k(S)[E]` **exactly**, not only modulo `a²`.
+  The outer `span{e0,e_k,e_(2k)}` block is the complete size-three
+  equality/ellipse family at parameter `r=c^k`.
+- The central Toeplitz coordinate Gramian reduces the same space and
+  restricts to the exact size-three Gramian.  Thus the proper-map image
+  has an orthogonal physical size-three summand for all admissible
+  amplitudes.
+- A new 18-case grid (`k=2,3,4`, three `c` values, two amplitudes)
+  finds
+  `t_rank1(full)=t_rank1(size3)` within `1.1e-13`; unrestricted SDP
+  values agree within solver tolerance.  More strongly, the optimized
+  full metric has outer/inner cross residual below `2.3e-7`, its outer
+  compression equals the size-three metric below `1.6e-7`, and every
+  inner generalized level is strictly between the outer endpoints.
+- L127 proves the exact finite-Blaschke Stein transfer
+  `L(X)-T*L(X)T=X-B(T)*XB(T)` and Gramian composition
+  `P_T(q)=L(P_(B(T))(q))`.  Hence upper feasibility really does lift;
+  the only missing special fact is condition control.  Prove that this
+  transfer reduces the outer space and traps all inner metric levels.
+  That would give the exact identity
+  `t_*(T_k(a,c))=t_*(T_1(a,c^k))`, not merely its Hessian.
+  `proof/crabb_central_dickson_descent.md`;
+  `proof/blaschke_stein_composition.md`;
+  `experiments/crabb_central_metric_descent.py`.
 
 ## NEWEST (2026-07-23): L126 finds the all-size source of the `-64`
 - In size `p=2k+1`, put `S=C+cJCJ` and take the central equality

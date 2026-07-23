@@ -145,6 +145,21 @@ fiber levels, prove their Schur feedback is higher order, then localize
 noncentral offsets and polarize grades.  See
 `proof/crabb_central_dickson_descent.md`.
 
+The descent has since strengthened: `P_k(S+aE)` is exactly affine in
+the equality amplitude, and the central coordinate Gramian reduces the
+same outer space with the precise size-three restriction.  Numerical
+rank-one metrics also reduce this space, agree with the size-three
+optimal metric on it, and keep every inner generalized level strictly
+between its endpoints; the resulting full/size-three bounds agree to
+`1e-13` for `k=2,3,4`.  L127 proves the general positive finite-Blaschke
+Stein transfer and rank-one Gramian composition.  The immediate gate is
+therefore not feasibility: prove that this special transfer has the
+observed reducing outer block and inner-level trapping.  That would
+establish the exact central identity
+`t_*(T_k(a,c))=t_*(T_1(a,c^k))`.  See
+`proof/blaschke_stein_composition.md` and
+`experiments/crabb_central_metric_descent.py`.
+
 ## Completed repeated-C3 frontier (2026-07-22): L114
 
 L73 proves a complete-2 neighbourhood of one `C3`; L74--L93 reduce arbitrary repeated

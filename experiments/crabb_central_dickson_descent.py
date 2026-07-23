@@ -25,6 +25,9 @@ class DicksonDescentRecord:
     outer_derivative_identity: bool
     full_axis_formula: bool
     full_derivative_formula: bool
+    exact_amplitude_linearity: bool
+    coordinate_gramian_reduces: bool
+    outer_coordinate_gramian_identity: bool
     axis_cross_blocks_vanish: bool
     derivative_cross_blocks_vanish: bool
 
@@ -74,7 +77,7 @@ def make_record(degree: int) -> DicksonDescentRecord:
 
     if degree < 1:
         raise ValueError("the Dickson degree must be positive")
-    parameter = sp.symbols("c")
+    parameter, amplitude = sp.symbols("c a")
     dimension = 2 * degree + 1
     crabb = coefficient_crabb(dimension)
     reversal = sp.eye(dimension)[:, ::-1]
@@ -92,6 +95,12 @@ def make_record(degree: int) -> DicksonDescentRecord:
     value, derivative = dickson_value_and_derivative(
         axis,
         direction,
+        parameter,
+        degree,
+    )
+    pencil_value, _ = dickson_value_and_derivative(
+        axis + amplitude * direction,
+        sp.zeros(dimension),
         parameter,
         degree,
     )
@@ -155,6 +164,25 @@ def make_record(degree: int) -> DicksonDescentRecord:
     expected_full_derivative[0, 2 * degree] = 2
     expected_full_derivative[2 * degree, 2 * degree] = -2
 
+    coordinate_gramian = sp.diag(
+        sp.Rational(1, 2),
+        *(sp.Integer(1) for _ in range(dimension - 2)),
+        sp.Rational(1, 2),
+    )
+    for row in range(degree):
+        column = row + degree
+        coordinate_gramian[row, column] += amplitude
+        coordinate_gramian[column, row] += amplitude
+        coordinate_gramian[row + 1, column + 1] += amplitude
+        coordinate_gramian[column + 1, row + 1] += amplitude
+    expected_outer_coordinate_gramian = sp.Matrix(
+        [
+            [sp.Rational(1, 2), amplitude, 0],
+            [amplitude, 1, amplitude],
+            [0, amplitude, sp.Rational(1, 2)],
+        ]
+    )
+
     axis_outer = value.extract(outer_indices, outer_indices)
     derivative_outer = derivative.extract(outer_indices, outer_indices)
     axis_cross_vanishes = (
@@ -176,6 +204,19 @@ def make_record(degree: int) -> DicksonDescentRecord:
         outer_derivative_identity=derivative_outer == expected_derivative,
         full_axis_formula=value == expected_full_axis,
         full_derivative_formula=derivative == expected_full_derivative,
+        exact_amplitude_linearity=(
+            pencil_value == value + amplitude * derivative
+        ),
+        coordinate_gramian_reduces=(
+            coordinate_gramian.extract(outer_indices, inner_indices)
+            == sp.zeros(3, dimension - 3)
+            and coordinate_gramian.extract(inner_indices, outer_indices)
+            == sp.zeros(dimension - 3, 3)
+        ),
+        outer_coordinate_gramian_identity=(
+            coordinate_gramian.extract(outer_indices, outer_indices)
+            == expected_outer_coordinate_gramian
+        ),
         axis_cross_blocks_vanish=axis_cross_vanishes,
         derivative_cross_blocks_vanish=derivative_cross_vanishes,
     )
@@ -185,6 +226,9 @@ def make_record(degree: int) -> DicksonDescentRecord:
             record.outer_derivative_identity,
             record.full_axis_formula,
             record.full_derivative_formula,
+            record.exact_amplitude_linearity,
+            record.coordinate_gramian_reduces,
+            record.outer_coordinate_gramian_identity,
             record.axis_cross_blocks_vanish,
             record.derivative_cross_blocks_vanish,
         )
