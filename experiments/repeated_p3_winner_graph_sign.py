@@ -12,7 +12,7 @@ from repeated_p3_stein_sign import assign_block
 def main() -> None:
     root_two = sp.sqrt(2)
     boundary = sp.symbols("boundary", nonzero=True)
-    conformal_mean = sp.symbols("conformal_mean", real=True)
+    top_support_mean = sp.symbols("top_support_mean", real=True)
     conformal_first = sp.symbols("conformal_first")
     conformal_first_conjugate = sp.symbols("conformal_first_conjugate")
     edges = ((0, 1), (0, 2), (1, 2))
@@ -27,6 +27,12 @@ def main() -> None:
     loop_zero = sp.symbols("loop_zero_0:3")
     loop_zero_conjugate = sp.symbols("loop_zero_conjugate_0:3")
     loop_one = sp.symbols("loop_one_0:3", real=True)
+    common_two, common_two_conjugate = sp.symbols(
+        "common_two common_two_conjugate"
+    )
+    common_three, common_three_conjugate = sp.symbols(
+        "common_three common_three_conjugate"
+    )
     adjoint_substitution: dict[sp.Symbol, sp.Symbol] = {
         conformal_first: conformal_first_conjugate,
         conformal_first_conjugate: conformal_first,
@@ -39,6 +45,14 @@ def main() -> None:
     )
     adjoint_substitution.update(
         zip(loop_zero_conjugate, loop_zero, strict=True)
+    )
+    adjoint_substitution.update(
+        {
+            common_two: common_two_conjugate,
+            common_two_conjugate: common_two,
+            common_three: common_three_conjugate,
+            common_three_conjugate: common_three,
+        }
     )
 
     def formal_adjoint(matrix: sp.Matrix) -> sp.Matrix:
@@ -54,6 +68,10 @@ def main() -> None:
     metric_tangent = sp.zeros(9)
     coefficient_matrices = [sp.zeros(3) for _ in range(3)]
     generator_pairs = generators()
+    common_motion = common_two * sp.Matrix(
+        [[0, 0, 0], [1, 0, 0], [0, 1, 0]]
+    )
+    common_motion[2, 0] += common_three
 
     def metric_cross(values: tuple[sp.Expr, sp.Expr, sp.Expr]) -> sp.Matrix:
         """Return the canonical L76 first-metric block."""
@@ -114,7 +132,9 @@ def main() -> None:
         for index, (first, second) in enumerate(generator_pairs):
             loop_direction += loop_adjoints[index] * first
             loop_direction += loop_values[index] * second
-        perturbation[copy_slice, copy_slice] = loop_direction
+        perturbation[copy_slice, copy_slice] = (
+            loop_direction + common_motion
+        )
 
         loop_block = metric_cross(loop_values)
         metric_tangent[copy_slice, copy_slice] = (
@@ -130,6 +150,57 @@ def main() -> None:
     support_adjoint = sp.Matrix(
         [[boundary, root_two, 1 / boundary]]
     ) / 2
+    common_first_support = sp.factor(
+        (
+            support_adjoint
+            * (
+                common_motion / boundary
+                + boundary * formal_adjoint(common_motion)
+            )
+            / 2
+            * support_vector
+        )[0]
+    )
+    expected_first_support = (
+        root_two
+        * (
+            common_two / boundary**2
+            + common_two_conjugate * boundary**2
+        )
+        / 4
+        + (
+            common_three / boundary**3
+            + common_three_conjugate * boundary**3
+        )
+        / 8
+    )
+    if sp.simplify(common_first_support - expected_first_support) != 0:
+        raise AssertionError("the common first-support formula failed")
+
+    first_boundary_schwarz = (
+        common_two_conjugate * boundary**2 / root_two
+        + common_three_conjugate * boundary**3 / 4
+    )
+    adjoint_boundary_schwarz = first_boundary_schwarz.xreplace(
+        adjoint_substitution
+    ).subs(boundary, 1 / boundary)
+    imaginary_boundary = (
+        first_boundary_schwarz - adjoint_boundary_schwarz
+    ) / (2 * sp.I)
+    support_derivative = (
+        sp.I * boundary * sp.diff(common_first_support, boundary)
+    )
+    normal_shift = sp.expand(imaginary_boundary - support_derivative)
+    normal_shift_square = sp.expand(normal_shift**2 * boundary**6)
+    normal_shift_mean = sp.simplify(
+        normal_shift_square.coeff(boundary, 6)
+    )
+    expected_normal_shift_mean = (
+        sp.Rational(9, 4) * common_two * common_two_conjugate
+        + sp.Rational(1, 2) * common_three * common_three_conjugate
+    )
+    if sp.simplify(normal_shift_mean - expected_normal_shift_mean) != 0:
+        raise AssertionError("the common normal-angle mean failed")
     support_perturbation = (
         perturbation / boundary
         + boundary * formal_adjoint(perturbation)
@@ -203,8 +274,19 @@ def main() -> None:
             contraction_kernel,
         )
     )
+    first_map_frechet = (common_two_conjugate / root_two) * (
+        perturbation * base**2
+        + base * perturbation * base
+        + base**2 * perturbation
+    ) + (common_three_conjugate / 4) * (
+        base * perturbation * base**2
+        + base**2 * perturbation * base
+    )
+    second_normal_mean = top_support_mean - normal_shift_mean / 2
     second_operator = (
-        -conformal_mean * base - conformal_first * base**2
+        -first_map_frechet
+        - second_normal_mean * base
+        - conformal_first * base**2
     )
     forcing = sp.simplify(
         formal_adjoint(second_operator) * metric * base
@@ -254,15 +336,20 @@ def main() -> None:
     expected_endpoint = (
         16 * support_mean
         - 8 * coefficient_matrices[1] ** 2
-        - 16 * conformal_mean * sp.eye(3)
+        - 16 * top_support_mean * sp.eye(3)
+        - sp.Rational(21, 4)
+        * common_three
+        * common_three_conjugate
+        * sp.eye(3)
     )
     if sp.simplify(endpoint - expected_endpoint) != sp.zeros(3):
         raise AssertionError("the winner-graph endpoint identity failed")
 
-    print("PASS repeated p=3 tied-winner graph-and-loop second-order sign")
-    print("endpoint = 16*(mean support - mean top support*I) - 8*H_1^2")
+    print("PASS repeated p=3 complete tied-winner second-order sign")
+    print("endpoint = 16*(mean Q - mean lambda_max(Q)*I) - 8*H_1^2")
+    print("           - 21*abs(common mode 3)^2*I/4")
     print("mean support includes orientation-dependent mixed edge paths")
-    print("the first conformal mode cancels exactly")
+    print("the first conformal mode and common flat mode cancel exactly")
     print("matrix Jensen order makes the endpoint negative semidefinite")
 
 

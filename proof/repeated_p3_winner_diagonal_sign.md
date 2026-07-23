@@ -87,12 +87,12 @@ Generic cyclic and long-path examples are strict.  Star/pair configurations
 can satisfy (8); L77 and L80 close their pure fixed rays, but a classification
 of every graph equality and its weighted mergers remains.
 
-There is also a distinct common-motion debt.  If the first support compression
+There is also a distinct common-motion term.  If the first support compression
 is a scalar `h(q)I` rather than zero, subtracting one reference diagonal block
 leaves exactly the quotient (2), but the common term `I_m tensor D` remains.
 Equation (7) does **not** yet control mixed terms between that shared single-
-block motion and the relative graph/loop data.  This is the next repeated-face
-target; it must not be silently discarded as gauge.
+block motion and the relative graph/loop data.  L85 subsequently retains and
+closes those mixed terms; they cannot be silently discarded as gauge.
 
 ## 4. Regeneration
 

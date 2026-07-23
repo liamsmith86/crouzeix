@@ -127,8 +127,8 @@ coefficients, but a full graph-equality optimization has not yet been proved.
 The theorem also assumes zero diagonal winner blocks.  L84 subsequently
 classifies every relative diagonal support-kernel residual and proves that
 adding all of them preserves (6).  Coupling the resulting graph/loop data to a
-common single-block motion, and obtaining a uniform estimate as losing sectors
-merge into the winner graph, remain.
+common single-block motion is subsequently closed by L85.  Obtaining a uniform
+estimate as losing sectors merge into the winner graph remains.
 
 ## 6. Regeneration and dimension independence
 

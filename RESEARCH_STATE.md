@@ -1,6 +1,19 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-22 (Epoch 6 — L84 relative diagonal/winner-graph sign)
+**Last updated:** 2026-07-22 (Epoch 6 — L85 complete tied-winner second-order sign)
+
+## NEWEST (2026-07-22): L85 closes the full tied-winner sector at second order
+- Global affine normalization plus L84 leaves only two new common diagonal modes:
+  `w(E10+E21)` and `vE20`.  The first inverse-map coefficient vanishes at `C3` but its
+  Frechet derivative does not; retaining it is essential.
+- The exact complete endpoint is
+  `16(mean Q−mean(lambda_max Q)I)−8H1²−21|v|²I/4<=0`.
+  The common flat `w` mode cancels against the normal-angle correction, while the `v`
+  coefficient agrees with the independently proved single-block L63 curvature.
+- L74, L84, and the two common modes exhaust the fixed tied-winner first-order quotient.
+  What remains is not another missing direction class: it is higher-order optimization on the
+  endpoint equality set and a uniform merger with L82's first-order losing sectors.
+  `proof/repeated_p3_complete_winner_sign.md`.
 
 ## NEWEST (2026-07-22): L84 adds every relative diagonal winner motion
 - The diagonal zero-support condition has real rank seven.  Its 11-dimensional kernel is the
@@ -12,8 +25,8 @@
   first conformal mode until it cancels.
 - The important remaining distinction is a **common** diagonal motion shared by all copies.
   It cannot be discarded as gauge: L84 controls the relative zero-support remainder after a
-  reference block is removed, not its coupling to that shared single-block motion.  Graph
-  equality optimization and weighted winner/loser merging also remain.
+  reference block is removed, not its coupling to that shared single-block motion.  L85 now
+  closes that coupling; graph equality optimization and weighted winner/loser merging remain.
   `proof/repeated_p3_winner_diagonal_sign.md`.
 
 ## NEWEST (2026-07-22): L83 proves the full tied-winner graph sign
@@ -664,12 +677,11 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-22)
-1. **Couple the common single-block motion and optimize L84 equality.** L84 closes every relative
-   diagonal support-kernel loop, but a scalar first-support motion shared by all copies remains
-   a genuine single-block deformation rather than gauge.  Couple it to the graph, classify
-   common top vectors of the complete effective support, and then control the weighted merger
-   with L82 losing sectors.  In parallel, seek the L73 analytic-normal-form pattern in the
-   `2p-2` quotient modes for `p>=4`.
+1. **Optimize L85 equality and merge losing sectors uniformly.** Classify common top vectors of
+   the complete effective support and improve the metric on endpoint kernels, using L77/L80
+   and L67--L73 as the pure graph/common boundary models.  Then control weighted sequences in
+   which L82's losing mean gap closes into the L85 winner sector.  In parallel, seek the L73
+   analytic-normal-form pattern in the `2p-2` quotient modes for `p>=4`.
 2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
    trace inequality can instead be derived from the block-Toeplitz positivity of the full
    operator-valued correction moments. Do not retry trace/positive-state scalarizations.
@@ -741,7 +753,7 @@ experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_
   (L77 exact third support split and strict cubic certificate),
   repeated_p3_star_second_sign.py (L78--L80 arbitrary-multiplicity star theorems),
   repeated_p3_radial_gap.py (L81 strict radial diagonal--cross coupling),
-  repeated_p3_winner_graph_sign.py (L83 complete tied-winner graph endpoint).
+  repeated_p3_winner_graph_sign.py (L83--L85 complete tied-winner endpoint).
 Proof artifact: experiments/positive_tail_full_20260722.log (L59 clean 10-box run).
 Data: sym3_sweep_s51.jsonl (40 rec), sym4_sweep_s61.jsonl (20 rec, ρ column trustworthy),
 general_similarity_equality_s9173401.jsonl plus its `sensitivity` and `ultralocal` companions
