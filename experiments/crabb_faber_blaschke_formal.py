@@ -72,6 +72,7 @@ class FormalFaberBlaschkeRecord:
     leading_coefficient: str
     predicted_coefficient: str
     lower_coefficients_vanish: bool
+    linear_eigenvalue_vanishes: bool
     first_face_tangent_matches: bool
     endpoint_alias_degree: int
     endpoint_alias_active: bool
@@ -89,6 +90,7 @@ class FormalDualCalculation:
     blaschke: AmplitudeMatrix
     coordinate_constant: Matrix
     coordinate_linear: Matrix
+    linear_eigenvalue: Series
     first_coupling: tuple[Series, ...]
     direct_rayleigh: Series
     schur: Series
@@ -767,6 +769,7 @@ def formal_dual_calculation(
         blaschke=blaschke,
         coordinate_constant=coordinate_constant,
         coordinate_linear=coordinate_linear,
+        linear_eigenvalue=linear_eigenvalue,
         first_coupling=tuple(first_coupling),
         direct_rayleigh=direct_rayleigh,
         schur=schur,
@@ -809,11 +812,15 @@ def make_record(length: int, grade: int) -> FormalFaberBlaschkeRecord:
     direct_rayleigh = calculation.direct_rayleigh
     schur = calculation.schur
     quadratic_eigenvalue = calculation.quadratic_eigenvalue
+    linear_eigenvalue_vanishes = (
+        calculation.linear_eigenvalue.valuation() == order
+    )
 
     first_nonzero = quadratic_eigenvalue.valuation()
     leading = quadratic_eigenvalue.coefficient(target_degree)
     if (
-        first_nonzero != target_degree
+        not linear_eigenvalue_vanishes
+        or first_nonzero != target_degree
         or leading != -64
         or schur.coefficient(target_degree) != 0
     ):
@@ -840,6 +847,7 @@ def make_record(length: int, grade: int) -> FormalFaberBlaschkeRecord:
             quadratic_eigenvalue.coefficient(degree) == 0
             for degree in range(target_degree)
         ),
+        linear_eigenvalue_vanishes=linear_eigenvalue_vanishes,
         first_face_tangent_matches=first_face_tangent_matches,
         endpoint_alias_degree=endpoint_alias_degree,
         endpoint_alias_active=endpoint_alias_active,
