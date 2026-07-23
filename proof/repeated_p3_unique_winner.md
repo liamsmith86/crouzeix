@@ -108,10 +108,10 @@ second order, regardless of:
 
 If the star quotient is zero, the selected diagonal block is governed by the
 single-block local theorem L73, while the losing sector has strict first-order
-metric slack.  The remaining global difficulty is consequently the
-**multiple-winner sector**, where (4) fails and all common kernel vectors must
-be promoted into the winner multiplicity before the L74--L80 analysis is
-applied.
+metric slack.  The remaining global difficulty at this stage was consequently
+the **multiple-winner sector**, where (4) fails and all common kernel vectors
+must be promoted into the winner multiplicity.  L83--L86 subsequently carry
+out that promotion and close the complete fixed-direction second-order sign.
 
 The scalar contact test
 
@@ -136,7 +136,6 @@ L61 supplies the dimension-free tangent dual/Slater argument used in section
 exact copy-block decomposition of those same three finite Schur complements,
 not a numerical extrapolation from the radial model.
 
-This theorem is a fixed-direction, unique-winner result.  It does not yet give
-a uniform neighbourhood estimate as the mean gap in (5) tends to zero.  The
-multiple-winner diagonal residuals and their weighted transition to losing
-sectors are the remaining repeated-face problem.
+This theorem is a fixed-direction, unique-winner result.  L83--L86
+subsequently close the multiple-winner fixed-direction sign.  A uniform
+neighbourhood estimate as the mean gap in (5) tends to zero remains open.

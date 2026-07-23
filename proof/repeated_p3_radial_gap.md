@@ -20,7 +20,7 @@ pullback satisfies
  \boxed{
  \limsup_{\epsilon\downarrow0}
  \frac{t_*(T_\epsilon)-4}{\epsilon^2}
- \le-rac{25}{8}|\alpha_0|^2-8|\alpha_1|^2
+ \le-\frac{25}{8}|\alpha_0|^2-8|\alpha_1|^2
        -\frac{50}{9}|\alpha_2|^2<0}                   \tag{2}
 \]
 
@@ -40,7 +40,7 @@ zero by L74.  At second order the selected effective support branch is the
 non-maximized diagonal branch from L75.  Its mean is
 
 \[
- m_0=\frac5{128}|\alpha_0|^2+rac14|\alpha_1|^2
+ m_0=\frac5{128}|\alpha_0|^2+\frac14|\alpha_1|^2
        +\frac5{72}|\alpha_2|^2,                       \tag{3}
 \]
 

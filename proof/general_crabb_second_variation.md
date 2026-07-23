@@ -55,7 +55,7 @@ The lower and upper metric Schur complements give
 \]
 
 \[
- e-Y_{LL}\ge\frac13|X_{L0}|^2+rac12\sum_{j=1}^{L-1}|X_{Lj}|^2. \tag{5}
+ e-Y_{LL}\ge\frac13|X_{L0}|^2+\frac12\sum_{j=1}^{L-1}|X_{Lj}|^2. \tag{5}
 \]
 
 Let `R` be the five forcing terms subtracted from `Y-A^*YA` in L62 equation (4), let

@@ -79,7 +79,7 @@ The two Fourier modes in (3) are orthogonal, and direct differentiation gives
 Thus, writing `lambda_0=mean lambda_max Q`,
 
 \[
- \widehat\kappa(0)=\lambda_0-rac98|w|^2-rac14|v|^2. \tag{8}
+ \widehat\kappa(0)=\lambda_0-\frac98|w|^2-\frac14|v|^2. \tag{8}
 \]
 
 ## 4. Complete endpoint identity

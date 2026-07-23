@@ -1,6 +1,19 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-22 (Epoch 6 — L85 complete tied-winner second-order sign)
+**Last updated:** 2026-07-22 (Epoch 6 — L86 complete repeated-C3 fixed-direction sign)
+
+## NEWEST (2026-07-22): L86 closes every fixed repeated-`C3` direction through second order
+- Promote all common kernel vectors into a maximal winner sector.  The complementary losing
+  mean compression is then strictly negative, so L61/L82 provide first-order Slater slack for
+  every losing internal block, even with pointwise contacts.
+- A two-winner/one-loser exact audit polarizes L81 into
+  `−25A0A0*/8−8A1A1*−50A2A2*/9`.  Adding L85 gives the total winner endpoint as its matrix
+  Jensen term, the `H1` square, the common `v` square, and these three negative Gram matrices.
+- Consequently a positive Jensen gap descends at first order, while every fixed direction on
+  its zero face is nonpositive at second order.  The remaining repeated-`C3` problem is uniform
+  higher-order control when all these second-order terms and the losing mean gap collapse
+  together—not an unclassified fixed first-order direction.
+  `proof/repeated_p3_complete_fixed_direction.md`.
 
 ## NEWEST (2026-07-22): L85 closes the full tied-winner sector at second order
 - Global affine normalization plus L84 leaves only two new common diagonal modes:
@@ -677,11 +690,12 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-22)
-1. **Optimize L85 equality and merge losing sectors uniformly.** Classify common top vectors of
-   the complete effective support and improve the metric on endpoint kernels, using L77/L80
-   and L67--L73 as the pure graph/common boundary models.  Then control weighted sequences in
-   which L82's losing mean gap closes into the L85 winner sector.  In parallel, seek the L73
-   analytic-normal-form pattern in the `2p-2` quotient modes for `p>=4`.
+1. **Resolve the L86 equality blow-up uniformly.** Classify common top vectors of the complete
+   effective support and improve the metric on endpoint kernels, using L77/L80 and L67--L73 as
+   the pure graph/common boundary models.  Control weighted sequences in which the negative
+   Gram terms, common `v` curvature, matrix-Jensen gap, and L82 losing mean gap all vanish
+   together.  In parallel, seek the L73 analytic-normal-form pattern in the `2p-2` quotient
+   modes for `p>=4`.
 2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
    trace inequality can instead be derived from the block-Toeplitz positivity of the full
    operator-valued correction moments. Do not retry trace/positive-state scalarizations.
@@ -753,7 +767,8 @@ experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_
   (L77 exact third support split and strict cubic certificate),
   repeated_p3_star_second_sign.py (L78--L80 arbitrary-multiplicity star theorems),
   repeated_p3_radial_gap.py (L81 strict radial diagonal--cross coupling),
-  repeated_p3_winner_graph_sign.py (L83--L85 complete tied-winner endpoint).
+  repeated_p3_winner_graph_sign.py (L83--L85 complete tied-winner endpoint),
+  repeated_p3_multiwinner_gap.py (L86 full winner/loser Gram penalty).
 Proof artifact: experiments/positive_tail_full_20260722.log (L59 clean 10-box run).
 Data: sym3_sweep_s51.jsonl (40 rec), sym4_sweep_s61.jsonl (20 rec, ρ column trustworthy),
 general_similarity_equality_s9173401.jsonl plus its `sensitivity` and `ultralocal` companions
