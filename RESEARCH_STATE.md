@@ -1,6 +1,34 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-23 (Epoch 6 — exact A84 Hessian recurrence audit)
+**Last updated:** 2026-07-23 (Epoch 6 — L126 central Dickson descent)
+
+## NEWEST (2026-07-23): L126 finds the all-size source of the `-64`
+- In size `p=2k+1`, put `S=C+cJCJ` and take the central equality
+  direction
+  `E=2(e0-e_(2k))(e_(k+1)^*-c e_(k-1)^*)`.
+  The degree-`k` Dickson polynomial and its derivative both reduce
+  `span{e0,e_k,e_(2k)}` exactly.
+- On that outer space they are
+  ```
+  P_k(S)       = [[0,2,0],[c^k,0,1],[0,2c^k,0]],
+  DP_k(S)[E]   = [[-2c^k,0,2],[0,0,0],[2c^k,0,-2]].
+  ```
+  These are precisely the size-three ellipse and its central
+  phase-palindromic equality tangent at descended parameter `r=c^k`.
+  Every polynomial cross block to the inner fibers is zero.
+- Dickson first-reversal path cancellation proves this in arbitrary
+  `k`; the symbolic checker regenerates it through `k=12`.
+- This explains why A85's first central Hessian term is the size-three
+  event `-64(c^k)^2`.  Exact high-order algebra also finds
+  `H_(5,2)(c)=H_(3,1)(c²) mod c^14`.
+- **Remaining direction matters:** the inner-function identity gives a
+  lower comparison automatically, but A84 needs an upper metric.
+  Lift the active size-three rank-one metric through L117's strictly
+  interior fiber levels and prove their Schur feedback is above
+  `c^(2k)`.  Then localize a noncentral offset to its `2k+1` window
+  and polarize grades.
+  `proof/crabb_central_dickson_descent.md`;
+  `experiments/crabb_central_dickson_descent.py`.
 
 ## NEWEST (2026-07-23): A85 makes the candidate `-64` face exact in finite sizes
 - A new rational formal-series engine expands the complete locally

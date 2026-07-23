@@ -134,6 +134,17 @@ stationarity recurrence for arbitrary `k`, then polarize different grades
 and establish the uniform Newton remainder.  See
 `proof/crabb_palindromic_elliptic_hessian.md`.
 
+L126 identifies the all-size terminal object behind that recurrence.
+For central offset `k` in size `2k+1`, the degree-`k` Dickson polynomial
+and its amplitude derivative have an exact reducing outer `3×3` block:
+the size-three ellipse/equality path at parameter `c^k`; all polynomial
+cross blocks vanish.  Thus the `-64c^(2k)` event genuinely descends from
+size three.  What is not automatic is the upper direction: lift the
+active size-three rank-one metric through the strictly interior L117
+fiber levels, prove their Schur feedback is higher order, then localize
+noncentral offsets and polarize grades.  See
+`proof/crabb_central_dickson_descent.md`.
+
 ## Completed repeated-C3 frontier (2026-07-22): L114
 
 L73 proves a complete-2 neighbourhood of one `C3`; L74--L93 reduce arbitrary repeated
