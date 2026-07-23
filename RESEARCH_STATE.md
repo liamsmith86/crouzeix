@@ -2,6 +2,31 @@
 
 **Last updated:** 2026-07-23 (Epoch 6 — Faber endpoint localization)
 
+## NEWEST (2026-07-23): L152 proves the uniform disk-normal tube
+- L122's canonical rank-one disk Stein metric now satisfies the
+  uniform local inequality
+  `kappa_K(M)-4 <= -a_L Q(z)`, not merely the directional expansion
+  `-32Q+O(||z||^5)`.
+- The two missing structural inputs are exact.  L123 gives value four
+  on every phase-palindromic equality branch.  At each such point, a
+  fixed characteristic Blaschke lower bound and the canonical Stein
+  upper bound touch at four; the disk spectral-set theorem makes the
+  lower bound locally maximal, so the canonical metric has zero first
+  derivative in every disk-normal direction.
+- Use L124's best-phase split `z=u+v`, for which
+  `Q=4||u||²||v||²`.  If `v` is comparable to `u`, L122's apex
+  quartic dominates its fifth-order remainder.  If `v<<u`, Taylor
+  expansion normal to the exact equality branch starts with
+  `-128||u||²||v||²`; exact branch vanishing and stationarity force
+  every remainder to retain enough `u` and `v` factors.  Compactness
+  of the phase/equality sphere makes both estimates uniform through
+  the singular apex.
+- Thus the pure disk-normal anchor is closed in every fixed size.
+  Together with L151's weighted raw elliptic Hessian and L117's axis,
+  the remaining single-Crabb gate is only the marked mixed remainder
+  and then L118's already-coercive strong variables.
+  `proof/crabb_disk_normal_tube.md`.
+
 ## NEWEST (2026-07-23): L151 proves the raw disk-flat elliptic face
 - The phase-palindromic companion pencil is invalid for a general
   Toeplitz disk coefficient.  The new checker instead expands the full
@@ -2044,10 +2069,10 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-23)
-1. **Build the complete disk-flat tube from L151.**  Combine the now
+1. **Build the complete disk-flat tube from L151--L152.**  Combine the now
    proved weighted quadratic face
-   `-sum|z_j|²c^(2(L-j))` with `-c^(2L)` and L122's
-   `-32Q(z)`.  Put the analytic remainder in the marked ideal generated
+   `-sum|z_j|²c^(2(L-j))` with `-c^(2L)` and L152's
+   uniform `-aQ(z)`.  Put the analytic remainder in the marked ideal generated
    by `r=c^L`, `y_j=c^(L-j)z_j`, and the wedge coordinates whose square
    is `Q(z)`.  Prove that mixed `y`--wedge sectors are absent or
    dominated, then absorb L118's strong variables.  L151's raw face,
@@ -2072,6 +2097,9 @@ Keep committing+pushing after each task (user instruction).
 
 ## Files map (handoff-ready, 2026-07-22)
 proof/ — read in this order for the current frontier:
+  crabb_disk_normal_tube.md (L152 uniform disk-normal anchor),
+  crabb_disk_flat_elliptic_face.md (L151 weighted raw face),
+  crabb_reflected_hardy_lift.md (L149--L150 equality tube),
   rho_positivity_program.md (MASTER program), el4_schwarzian_theorem.md (EL4 proof + L17),
   even_pick_globality.md (L18), slice_closed_form.md (level-4 theory: L15/L16/EL4/D2-crit), D2_landscape.md (soft-class
   falsifications + Schwarzian route), landen_theorem.md
