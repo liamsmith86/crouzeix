@@ -26,6 +26,7 @@ import json
 from pathlib import Path
 
 from crabb_faber_blaschke_formal import (
+    FormalDualCalculation,
     formal_dual_calculation,
     invert_constant_amplitude_matrix,
 )
@@ -125,6 +126,9 @@ def complementary_defect_tangent(
     length: int,
     grade: int,
     target_degree: int,
+    *,
+    calculation_override: FormalDualCalculation | None = None,
+    coordinate_tangent_override: Matrix | None = None,
 ) -> tuple[
     list[Series],
     Matrix,
@@ -136,10 +140,22 @@ def complementary_defect_tangent(
 ]:
     """Construct the model-space complementary defect through the face."""
 
-    calculation = formal_dual_calculation(
-        length,
-        (grade,),
-        target_degree,
+    if (
+        calculation_override is None
+    ) != (
+        coordinate_tangent_override is None
+    ):
+        raise ValueError(
+            "supply both complementary-calculation overrides together"
+        )
+    calculation = (
+        calculation_override
+        if calculation_override is not None
+        else formal_dual_calculation(
+            length,
+            (grade,),
+            target_degree,
+        )
     )
     order = target_degree + 1
     dimension = length + 1
@@ -231,14 +247,17 @@ def complementary_defect_tangent(
     if not orthogonality_vanishes:
         raise AssertionError("model-space complementarity failed")
 
-    direction = [0] * (length - 1)
-    direction[grade - 1] = 1
-    direction[length - grade - 1] = 1
-    coordinate_tangent = coordinate_metric_tangent(
-        dimension,
-        direction,
-        order,
-    )
+    if coordinate_tangent_override is None:
+        direction = [0] * (length - 1)
+        direction[grade - 1] = 1
+        direction[length - grade - 1] = 1
+        coordinate_tangent = coordinate_metric_tangent(
+            dimension,
+            direction,
+            order,
+        )
+    else:
+        coordinate_tangent = coordinate_tangent_override
     primal_hessian, _ = endpoint_condition_hessian(
         calculation.operator,
         axis_metric,

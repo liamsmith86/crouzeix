@@ -1,30 +1,40 @@
-# The raw disk-flat elliptic face (2026-07-23)
+# The raw disk-flat elliptic face (L151, 2026-07-23)
 
 ## 1. Status
 
-This note separates one new all-size endpoint lemma from the remaining
-metric statement.
+Let
+`Q_L(z;c)=[a^2]Gamma_L(az,c)` be the quadratic coefficient of L118's
+optimized rank-one envelope at the Crabb axis in a general Toeplitz
+disk-flat direction `z=(z_1,...,z_(L-1))`.  Put
 
-* **Proved below (raw Faber endpoint lemma).** A general Toeplitz disk
-  coefficient at offset `j` has reflected ellipse grade `k=L-j`.
-  Its characteristic and two Faber endpoint rows are exactly the same
-  grade-`k` data that drove L131--L146.
-* **Exact finite finding, not yet a lemma.** L118's optimized rank-one
-  amplitude Hessian appears to satisfy
+\[
+{\cal E}_c(z)=\sum_{j=1}^{L-1}|z_j|^2c^{2(L-j)}.
+\]
 
-  \[
-  Q_{L,j}(c)=-64|z_j|^2c^{2(L-j)}
-  +o(c^{2(L-j)}).                                    \tag{1}
-  \]
+Then the complete raw principal face is
 
-  Distinct raw offsets have no mixed coefficient on their first
-  possible face.
+\[
+\boxed{
+Q_L(z;c)=-64{\cal E}_c(z)
++\text{terms strictly above the diagonal face}.
+}                                                     \tag{1}
+\]
 
-The remaining proof debt is narrow: extend L145's model-complement
-recurrence from the phase-palindromic companion gauge to the raw
-coefficient gauge.  The endpoint lemma identifies the same reflected
-row, but endpoint agreement alone must not be silently promoted to
-metric complementary slackness.
+More precisely, with
+`D_c=diag(c^(L-1),...,c)`, the Hermitian Hessian matrix satisfies
+
+\[
+D_c^{-1}Q_L(c)D_c^{-1}\longrightarrow-64I
+\qquad(c\longrightarrow0).                           \tag{1a}
+\]
+
+Consequently, for every fixed `L`, it is negative definite for all
+sufficiently small nonzero `c`, with for example
+`Q_L(z;c)<=-32 E_c(z)`.
+
+The proof has three parts: the raw Faber endpoint lemma, a corrected
+raw Blaschke factor and its sparse preparation, and L145's canonical
+model-complement upper metric.
 
 ## 2. Full coefficient gauge
 
@@ -171,39 +181,162 @@ The negative Hardy row in (7) has squared norm
 16|\zeta|^2c^{2k}.                                  \tag{12}
 \]
 
-Thus L140's unique Hardy correction for this raw direction is
-`2a conjugate(zeta)c^kP_j`.  The scalar reflected data are exactly
-those that would produce the coefficient `-4` times (10), namely
-`-64|\zeta|^2c^(2k)`.
+The endpoint rows determine the grade but not, by themselves, the
+sharp scalar factor.  The raw factor is derived next.
 
-## 5. What remains before (1) is proved
+## 5. Corrected raw Blaschke factor
 
-The last sentence of Section 4 is not yet an upper certificate.
-For a proof of (1), one must do the following in the raw gauge.
+The factor that simultaneously works for `j<k`, `j=k`, and `j>k` is
 
-1. Prepare the corrected inner factor
+\[
+\boxed{
+G_{j,a,c}=P_L+2a\overline\zeta(1+c^j)P_k,
+\qquad k=L-j.
+}                                                     \tag{13}
+\]
 
-   \[
-   P_L+2a\overline\zeta\{P_k+c^kP_j\}
-   \]
+The correction is `c^jP_k`, not `c^kP_j`.  On the low-reflected side
+`j>k` it lies above the face and changes nothing; at a central
+collision it is essential; on the high-reflected side `j<k` it
+cancels every premature folded loss.  The sum of the two raw factors
+for offsets `j` and `k` reproduces L140's equality-pair correction,
+up to a term strictly above the smaller face.
 
-   and prove that all non-endpoint terms in (3) are inactive below
-   reflected weight `k`.
-2. Apply L145's orbit-complement construction to this factor and show
-   that its condition gap above the inner norm has no coefficient
-   through `a^2c^(2k)`.
-3. Polarize distinct raw grades.  L125 forces a mixed grade
-   `(k,l)` to begin no earlier than `c^(k+l)`; the endpoint rows in
-   (7) are orthogonal, but a terminal fold in the metric recurrence
-   still has to be checked.
+Compose (13) with `Psi_c`, prepare its monic degree-`L` numerator, and
+call the corresponding finite Blaschke product `B=N/N^sharp`.
+Evaluate it on the full operator (2) and write
 
-These are coefficientwise triangular recurrences, not a new
-optimization problem.  L139 supplies the positive defect Hessian and
-L145 supplies the canonical candidate defect; the missing audit is
-that the raw-gauge extra rows cannot reach the top generalized
-singular pair on the principal face.
+\[
+B(T)=B_0+aB_1+a^2B_2+O(a^3).
+\]
 
-## 6. Exact finite audit
+Weierstrass preparation is triangular in amplitude degree, scalar
+power, and `c`-degree.  Applying its coefficient recurrence to (3)
+and (13) gives, for `0<=d<k`,
+
+\[
+\boxed{
+[c^d]B_1
+=4E_{d,k-d}
+-4{\bf1}_{d\ge j}E_{d-j,k-d+j},
+}                                                     \tag{14}
+\]
+
+and at the terminal grade
+
+\[
+\boxed{
+[c^k]B_1
+=4\sum_{r=k}^{L}E_{r,r-k}
+-4{\bf1}_{k\ge j}E_{k-j,j}.
+}                                                     \tag{15}
+\]
+
+Here `E_(r,s)=e_re_s^*`.  To verify the induction, the first term in
+(14) advances one step southeast under the Dickson recurrence.  Once
+`d=j`, the `c^jP_k` correction starts the identical path with opposite
+sign.  The two paths telescope until (15); the remaining translated
+shift is the reflected endpoint row (7).  These are all terms of
+weight at most `k`, because every nonleading coefficient of `Psi_c`
+pairs with its inverse coefficient from `phi_c`, exactly as in L143.
+
+In particular,
+
+\[
+\operatorname{val}_c(B_1e_L)>2k,\qquad
+\operatorname{val}_c\{(H_1-4K_1)e_L\}>2k,            \tag{16}
+\]
+
+where `H_1` is the first amplitude derivative of `B^*KB`.  Continuing
+the same triangular recurrence one more amplitude degree gives
+
+\[
+\boxed{
+[c^d]e_0^*B_2e_L=0\ (d<2k),\qquad
+[c^{2k}]e_0^*B_2e_L=-16.
+}                                                     \tag{17}
+\]
+
+There is only one two-insertion path to the top row.  If it folds
+before grade `k`, its copy coming from `c^jP_k` has the opposite sign;
+the sole unpaired path is the terminal reflected path, whose two
+endpoint weights multiply to `-16`.  This also proves (17) when
+`j=k`; the two coincident paths combine before the terminal step.
+
+At the axis,
+`B_0e_L=2e_0` and `K_(0,00)=K_(0,LL)=1/2`.  Equations
+(15)--(17) show that the first singular-vector Schur correction is
+strictly above `2k`.  The two `B_0`--`B_2` cross terms in the top Gram
+entry give `-32c^(2k)`; division by `K_(0,LL)=1/2` gives
+
+\[
+\boxed{
+\|B(T)\|_K^2
+=4-64|\zeta|^2a^2c^{2k}
++o(a^2c^{2k}).
+}                                                     \tag{18}
+\]
+
+## 6. The raw model-complement lift
+
+Write `B=N/D`, let `x` be its simple top right singular vector, and
+choose L145's canonical defect
+
+\[
+q\perp D(T)^{-1}
+\operatorname{span}\{x,Tx,\ldots,T^{L-1}x\}.         \tag{19}
+\]
+
+The orbit is triangular and has rank `L` at the axis, so (19) defines
+an analytic line.  The model-kernel identity gives exact
+complementarity on `x`:
+
+\[
+x^*P_T(q)x=\|B(T)\|^2y^*P_T(q)y.                    \tag{20}
+\]
+
+For the coefficient assertion, differentiate the `L` equations
+(19).  Equations (14)--(16) say that every forward orbit leg below
+grade `k` is paired with its shifted negative copy.  Solving the
+triangular system therefore makes the two endpoint generalized
+eigenvector residuals have valuation greater than `k`.  Their Schur
+squares have valuation greater than `2k`.  At grade `2k`, (20) and
+(17) leave the same terminal Rayleigh coefficient on the two extreme
+eigenvalues.  Hence
+
+\[
+\boxed{
+[a^2c^d]\{\kappa(P_T(q))-\|B(T)\|^2\}=0
+\quad(0\le d\le2k).
+}                                                     \tag{21}
+\]
+
+This is the raw-gauge extension of L145 equation (44).  It supplies an
+explicit feasible rank-one Stein metric attaining (18), so the
+optimized envelope has the same one-grade face.
+
+## 7. Complex phases and distinct raw grades
+
+Equations (3), (5), and (13) are complex linear in
+`conjugate(zeta)`.  Polarizing the preparation over `zeta` and its
+conjugate replaces `zeta^2` by `|zeta|^2`; nonzero circle-grade
+monomials cannot reach the endpoint functional.  Thus (18)--(21) are
+phase isotropic on the principal face.
+
+For two raw offsets with distinct reflected grades `k` and `l`, L125
+makes every mixed coefficient divisible by `c^(k+l)`.  At that grade,
+the two translated shifts in (15) occupy distinct Fourier diagonals.
+Their top Gram product is zero.  If one path folds, its negative copy
+from the corresponding `c^jP_k` term cancels it before the endpoint.
+Therefore the corrected dual face has no mixed coefficient.
+
+Finally, the optimized primal Hessian minus the dual Hessian is
+positive semidefinite for every fixed `c`.  Scale by
+`diag(c^k)` over all raw grades.  Equation (21) makes every diagonal
+entry of the limiting difference zero; positivity makes every
+off-diagonal entry zero, exactly as in L146.  This proves (1)--(1a).
+
+## 8. Exact finite audit
 
 `experiments/crabb_disk_flat_elliptic_face.py` starts from (2), expands
 `K(a)^(-1)` before applying the exact ellipse map, and eliminates the
@@ -223,6 +356,13 @@ The persisted grid contains:
 `experiments/crabb_raw_faber_endpoint.py` independently regenerates
 (5) and (7) for both real and imaginary coefficient phases.
 
+`experiments/crabb_raw_faber_blaschke.py` independently prepares
+(13), verifies the complete sparse recurrence (14)--(15), the
+quadratic entry (17), the dual coefficient (18), the model
+orthogonality equations (19), and primal/dual equality (21).  Its
+cases include every offset on both sides of the midpoint through
+length five and an additional length-six high-reflected case.
+
 Run
 
 ```bash
@@ -232,7 +372,13 @@ PYTHONPATH=experiments .venv/bin/python -u \
 
 .venv/bin/python -u experiments/crabb_raw_faber_endpoint.py \
   --output experiments/crabb_raw_faber_endpoint_s70223.jsonl
+
+PYTHONPATH=experiments .venv/bin/python -u \
+  experiments/crabb_raw_faber_blaschke.py \
+  --output experiments/crabb_raw_faber_blaschke_s70223.jsonl
 ```
 
-The finite grids guard the algebra and indexing.  They do not replace
-the model-complement recurrence in Section 5.
+The three engines use different algebraic representations: direct
+optimized Stein elimination, raw Dickson endpoint recurrence, and
+prepared Blaschke/model complement.  Their agreement guards against a
+companion-gauge or endpoint-normalization mistake.

@@ -2,20 +2,13 @@
 
 **Last updated:** 2026-07-23 (Epoch 6 — Faber endpoint localization)
 
-## NEWEST (2026-07-23): A100 exposes the candidate raw disk-flat face
+## NEWEST (2026-07-23): L151 proves the raw disk-flat elliptic face
 - The phase-palindromic companion pencil is invalid for a general
   Toeplitz disk coefficient.  The new checker instead expands the full
   coefficient gauge
   `S(a,c)=2K(a)^(-1)(H(a)R+cR*H(a))` before applying the ellipse map.
-- For a raw offset `j` and reflected grade `k=L-j`, exact optimized
-  amplitude Hessians give zero below `c^(2k)` and coefficient `-64`
-  at `c^(2k)`.  This holds in 15 single-offset records through length
-  eight, including both sides of the midpoint.  Three distinct-grade
-  polarizations vanish through their first possible mixed face.
-- Five overlap cases independently verify that the full gauge agrees
-  coefficientwise with the older companion gauge whenever the
-  direction is phase-palindromic.
-- A new all-size raw Faber endpoint lemma is proved.  For coefficient
+- The all-size raw Faber endpoint lemma identifies the correct reflected
+  grade `k=L-j`.  For coefficient
   phase `zeta`, the disk characteristic derivative is
   `2 conjugate(zeta) xi^(L-j+1)`.  If `Y_j` is the full ellipse-pencil
   tangent and `P_m` are the Dickson polynomials, then
@@ -26,16 +19,37 @@
       =4 conjugate(zeta)c^(L-j)e_j^*.
   ```
   An explicit two-path recurrence proves this polynomially for every
-  `L,j`; a real/imaginary exact checker regenerates it.
-- **Do not yet label the full `-64` raw Hessian an all-size theorem.**
-  The remaining gate is to extend L145's orbit-complement recurrence
-  from the equality companion gauge to the raw coefficient gauge.
-  The endpoint row is now exact, but the extra non-endpoint rows must
-  be shown inactive through reflected weight `2k`.  This is the next
-  load-bearing step toward the complete disk-flat tube.
+  `L,j`.
+- The sharp raw scalar factor is
+  `G=P_L+2a(1+c^j)P_(L-j)`.  Its prepared Blaschke tangent telescopes
+  along one translated shift; the `c^j` copy cancels every premature
+  fold.  The linear top column and first singular coupling vanish
+  through `c^(2k)`, while
+  `[c^(2k)](B_2)_(0L)=-16`.  Hence the dual square loses exactly
+  `64a²c^(2k)`.
+- L145's orbit-complement defect extends to the raw gauge.  Its
+  triangular orthogonality recurrence makes the feasible Stein
+  condition square agree with the dual norm through `a²c^(2k)`.
+  Distinct reflected grades are orthogonal on their first face; the
+  PSD zero-diagonal argument from L146 closes every mixed primal
+  coefficient.
+- Therefore the complete optimized disk-flat amplitude Hessian obeys
+  ```
+  Q_L(z;c) = -64 sum_(j=1)^(L-1) |z_j|² c^(2(L-j))
+             + terms strictly above the diagonal face.
+  ```
+  After scaling by `diag(c^(L-j))` it tends to `-64I`, so the raw
+  Hessian is uniformly negative for each fixed size and small
+  nonzero `c`.
+- Three independent exact audits cover the full-gauge optimized
+  Hessian, the real/imaginary endpoint identity through length 14,
+  and the prepared dual/model-complement face on every offset through
+  length five.  The older formal and complementarity grids regenerate
+  byte-for-byte after the shared-engine refactor.
   `proof/crabb_disk_flat_elliptic_face.md`;
   `experiments/crabb_disk_flat_elliptic_face.py`;
-  `experiments/crabb_raw_faber_endpoint.py`.
+  `experiments/crabb_raw_faber_endpoint.py`;
+  `experiments/crabb_raw_faber_blaschke.py`.
 
 ## NEWEST (2026-07-23): A99 finds the corrected Faber--Blaschke dual square
 - For a noncentral grade `k`, define
@@ -2030,14 +2044,15 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-23)
-1. **Close A100's raw model-complement recurrence, then build the
-   L115/L117 transverse tube.**  For raw offset `j`, use the proved
-   reflected endpoint grade `k=L-j`; show L145's orbit-complement gap
-   vanishes through `a²c^(2k)` despite the extra raw-gauge rows, and
-   polarize distinct raw grades.  Then combine the resulting weighted
-   quadratic face with `-c^(2L)` and L122's `-32Q(z)`, before absorbing
-   L118's strong variables.  Do not infer the metric face merely from
-   endpoint agreement.
+1. **Build the complete disk-flat tube from L151.**  Combine the now
+   proved weighted quadratic face
+   `-sum|z_j|²c^(2(L-j))` with `-c^(2L)` and L122's
+   `-32Q(z)`.  Put the analytic remainder in the marked ideal generated
+   by `r=c^L`, `y_j=c^(L-j)z_j`, and the wedge coordinates whose square
+   is `Q(z)`.  Prove that mixed `y`--wedge sectors are absent or
+   dominated, then absorb L118's strong variables.  L151's raw face,
+   L147's equality tube, and the pure-axis gradient are closed; do not
+   reopen them without a concrete contradiction.
 2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
    trace inequality can instead be derived from the block-Toeplitz positivity of the full
    operator-valued correction moments. Do not retry trace/positive-state scalarizations.
@@ -2123,6 +2138,9 @@ experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_
   crabb_equality_normal_stationarity.py (L148 all-anchor normal derivative),
   crabb_finite_amplitude_dual_filtration.py (all-amplitude dual support probe),
   crabb_uniform_remainder_probe.py (candidate L147 falsification probe),
+  crabb_disk_flat_elliptic_face.py (L151 direct full-gauge Hessian audit),
+  crabb_raw_faber_endpoint.py (L151 raw characteristic/endpoint audit),
+  crabb_raw_faber_blaschke.py (L151 dual/model-complement face audit),
   formal_riemann_series.py + rank_one_stein_series.py (exact higher-order helpers),
   p3_crabb_sixth_order.py + p3_crabb_quartic.py (L67/L68 exact certificates),
   p3_crabb_local_slice.py (L69 orbit-normal slice audit),

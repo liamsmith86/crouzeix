@@ -307,13 +307,25 @@ def weierstrass_numerator_coefficients(
             ),
         )
 
-    prepared_input: dict[
-        tuple[int, int],
-        FractionPolynomial,
-    ] = {}
-    for amplitude_degree, polynomial in enumerate(
-        (constant_part, linear_part)
-    ):
+    prepared_input = amplitude_polynomial_coefficients(
+        (constant_part, linear_part),
+        series_order,
+    )
+    return prepare_weierstrass_numerator(
+        length,
+        maximum_c_degree,
+        prepared_input,
+    )
+
+
+def amplitude_polynomial_coefficients(
+    polynomials: tuple[SeriesPolynomial, ...],
+    series_order: int,
+) -> dict[tuple[int, int], FractionPolynomial]:
+    """Split amplitude polynomials into exact ellipse coefficients."""
+
+    result: dict[tuple[int, int], FractionPolynomial] = {}
+    for amplitude_degree, polynomial in enumerate(polynomials):
         for c_degree in range(series_order):
             coefficient = trim_fraction_polynomial(
                 [
@@ -322,8 +334,18 @@ def weierstrass_numerator_coefficients(
                 ]
             )
             if coefficient:
-                prepared_input[amplitude_degree, c_degree] = coefficient
+                result[amplitude_degree, c_degree] = coefficient
+    return result
 
+
+def prepare_weierstrass_numerator(
+    length: int,
+    maximum_c_degree: int,
+    prepared_input: dict[tuple[int, int], FractionPolynomial],
+) -> dict[tuple[int, int], FractionPolynomial]:
+    """Prepare a monic numerator from amplitude/ellipse coefficients."""
+
+    series_order = maximum_c_degree + 1
     numerator: dict[tuple[int, int], FractionPolynomial] = {
         (0, 0): [Fraction(0)] * length + [Fraction(1)]
     }
@@ -607,20 +629,38 @@ def formal_dual_calculation(
     length: int,
     grades: tuple[int, ...],
     maximum_c_degree: int,
+    *,
+    prepared_override: (
+        dict[tuple[int, int], FractionPolynomial] | None
+    ) = None,
+    operator_override: AmplitudeMatrix | None = None,
+    coordinate_linear_override: Matrix | None = None,
 ) -> FormalDualCalculation:
     """Return the exact quadratic dual series for a multi-grade direction."""
 
-    if (
+    overrides = (
+        prepared_override,
+        operator_override,
+        coordinate_linear_override,
+    )
+    using_overrides = all(value is not None for value in overrides)
+    if any(value is not None for value in overrides) and not using_overrides:
+        raise ValueError("supply all formal-calculation overrides together")
+    if not using_overrides and (
         not grades
         or len(set(grades)) != len(grades)
         or any(not 1 <= grade <= length / 2 for grade in grades)
     ):
         raise ValueError("grades must be distinct low representatives")
     order = maximum_c_degree + 1
-    prepared = weierstrass_numerator_coefficients(
-        length,
-        grades,
-        maximum_c_degree,
+    prepared = (
+        prepared_override
+        if prepared_override is not None
+        else weierstrass_numerator_coefficients(
+            length,
+            grades,
+            maximum_c_degree,
+        )
     )
     numerator_coefficients = matrix_polynomial_coefficients(
         prepared,
@@ -635,14 +675,25 @@ def formal_dual_calculation(
         reverse=True,
     )
     direction = [0] * (length - 1)
-    for grade in grades:
-        direction[grade - 1] = 1
-        direction[length - grade - 1] = 1
-    operator, _ = operator_expansion_from_coefficients(
-        length + 1,
-        direction,
-        order,
-    )
+    if using_overrides:
+        operator = operator_override
+        coordinate_linear = coordinate_linear_override
+    else:
+        for grade in grades:
+            direction[grade - 1] = 1
+            direction[length - grade - 1] = 1
+        operator, _ = operator_expansion_from_coefficients(
+            length + 1,
+            direction,
+            order,
+        )
+        coordinate_linear = coordinate_metric_tangent(
+            length + 1,
+            direction,
+            order,
+        )
+    if operator is None or coordinate_linear is None:
+        raise AssertionError("formal-calculation overrides were incomplete")
     powers = amplitude_matrix_powers(operator, length)
     numerator = evaluate_amplitude_polynomial(
         numerator_coefficients,
@@ -668,11 +719,6 @@ def formal_dual_calculation(
             )
             for index in range(length + 1)
         ]
-    )
-    coordinate_linear = coordinate_metric_tangent(
-        length + 1,
-        direction,
-        order,
     )
     constant_gram = weighted_gram(
         blaschke[0],
