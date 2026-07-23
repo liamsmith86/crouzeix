@@ -1,13 +1,15 @@
-# Candidate uniform weighted remainder on the Crabb equality stratum
+# Audit trail for the uniform Crabb equality-stratum remainder
 
-**Status (2026-07-23): conditional on the reflected-ideal lemma in
-Section 3.**  The quadratic Newton face and the exact absence of a
-linear equality term are proved.  The first draft promoted the
-all-amplitude support rule too quickly: L143 proves a
-second-amplitude preparation recurrence, not by itself the
-arbitrary-amplitude recentered Stein recurrence used below.
+**Resolved by L149--L150 (2026-07-23).**  This file preserves the
+audit that caught the first overpromotion and the numerical
+falsification checks.  The load-bearing proof is now
+`proof/crabb_reflected_hardy_lift.md`: it constructs the convergent
+marked Hardy algebra, kills the complete one-reflection sector by an
+explicit companion resolvent identity, and uses L145's nonnegative
+model-complement gap instead of assuming an all-amplitude optimized
+Stein recurrence.
 
-## 1. The target theorem
+## 1. The theorem
 
 Fix `p=L+1` and one phase chart of L123's exact disk equality
 family.  Use one coefficient `u_k` from each reflected pair
@@ -22,8 +24,8 @@ gauge.  Let
 and let `Gamma_eq(u,c)` be L118's locally optimized rank-one Stein
 envelope minus four on this exact family.
 
-The target is a fixed neighbourhood, independent of the relative
-sizes of `u` and `c`, in which
+There is a fixed neighbourhood, independent of the relative sizes of
+`u` and `c`, in which
 
 \[
 \boxed{
@@ -36,10 +38,10 @@ sizes of `u` and `c`, in which
 }                                                     \tag{1}
 \]
 
-At `c=0`, L123 gives equality `Gamma_eq(u,0)=0`.  Thus (1), once the
-Section 3 lemma is closed, proves a full elliptic tube over the whole
-local disk-equality stratum.  It is not the merger with directions
-normal to that stratum.
+At `c=0`, L123 gives equality `Gamma_eq(u,0)=0`.  L149--L150 prove
+(1), hence a full elliptic tube over the whole local disk-equality
+stratum.  It is not the merger with directions normal to that
+stratum.
 
 ## 2. Exact absence of a linear equality term
 
@@ -64,7 +66,7 @@ This is stronger than a high-order gradient estimate and removes any
 linear term that could require a sharp completion against the
 degenerating quadratic face.
 
-## 3. The reflected-ideal lemma: exact remaining gate
+## 3. The reflected-ideal gate identified by the audit
 
 Put
 
@@ -73,7 +75,7 @@ Put
  {\cal N}(u,c)=c^{2L}+\sum_k|w_k|^2.                 \tag{3}
 \]
 
-The missing lemma is that the analytic expansion of `Gamma_eq` obeys
+The audit isolated the lemma that the analytic expansion must obey
 the following support rule.  If a Taylor monomial contains at least
 two equality coefficients with grades `k_1,...,k_r`, ordered so that
 `k_1<=k_2<=...`, then its `c`-valuation is at least
@@ -108,7 +110,7 @@ the desired statement is
 \quad\hbox{in the convergent reflected Rees algebra}. \tag{5b}
 \]
 
-There are two proof obligations:
+The first draft listed two apparent proof obligations:
 
 1. extend L143's coefficientwise Weierstrass preparation to arbitrary
    amplitude degree and show that projection onto the degree-`<L`
@@ -117,12 +119,26 @@ There are two proof obligations:
    and prove that solving by L118's unit defect Hessian preserves
    `(r,w,conjugate(w))^2`, not merely its degree-two associated face.
 
-The heuristic is strong: a scalar endpoint contribution must leave
+The heuristic was strong: a scalar endpoint contribution must leave
 the exact equality factor and return, requiring two reflected legs,
 and products and division by units preserve their weights.  But this
 is the load-bearing all-orders induction and is not already contained
 in L143 or L146.  Until (5b) is written as that induction, (4) is a
 candidate lemma, not a proved support rule.
+
+L149--L150 close this gate without the second obligation as stated.
+L149 uses the exact resolvent
+
+\[
+q^*(zI-A)^{-1}e_L=\frac1{zB(z)}
+\]
+
+to identify every one-reflection norm derivative with the real mean
+of a logarithmic inner tangent, hence zero.  L150 then uses L145's
+explicit model-complement metric.  Its gap above the Blaschke norm is
+nonnegative and zero on the equality divisor, so ordinary analytic
+Taylor division puts that gap in the reflected ideal square.  No
+arbitrary-amplitude optimization recurrence is needed.
 
 ## 4. Consequence of the reflected-ideal lemma
 
@@ -133,8 +149,7 @@ The pure-axis expansion from L117 is
 =-16c^{2L}+O(c^{4L}).                                 \tag{6}
 \]
 
-Conditional on (4), equations (2) and L146 identify every compact
-face coefficient:
+Equations (2), (4), and L146 identify every compact face coefficient:
 
 \[
 \Gamma_{\rm eq}(u,c)
@@ -151,10 +166,10 @@ where every monomial of `R` is strictly above the Newton face in
    quadratic generator; and
 3. distinct-grade quadratic terms on the face vanish by L146.
 
-This would be the all-order statement missing from the earlier
+This is the all-order statement missing from the earlier
 coefficientwise Hessian calculations.
 
-## 5. Uniform domination once Section 3 is proved
+## 5. Uniform domination
 
 For completeness, the standard Newton estimate is elementary here.
 Choose from each monomial in `R` two amplitude occurrences of least
@@ -195,7 +210,24 @@ grade one), but their observed `c`-valuation is strictly above the
 quadratic face, as (4) predicts.  These are falsification checks, not
 a substitute for the reflected-ideal induction.
 
-After Section 3 closes, the remaining local variables are L124's
+There is also an exact finite-amplitude dual check.  Instead of
+truncating in an equality amplitude, it substitutes nonzero rational
+equality coefficients first and then expands the complete prepared
+Blaschke norm in `c`.  Seven cases through dimension nine, including
+mixed higher grades, obey
+
+\[
+\|B_c(T_c)\|^2-4=O(c^{2k})
+\]
+
+when `k` is the smallest active equality grade, and the coefficient
+at `c^(2k)` is strictly negative.  Thus no one-reflected-leg term is
+visible even after resumming every unreflected amplitude insertion.
+This is exact evidence for the dual filtration; the all-size
+Hardy/model-space identity and the matching primal lift remain the
+proof gates.
+
+The remaining local variables are L124's
 best-phase normal `v` and L118's strong directions.  On `c=0`, their
 first negative term is
 
@@ -213,4 +245,13 @@ Regenerate the persisted stress records with
 PYTHONPATH=experiments .venv/bin/python -u \
   experiments/crabb_uniform_remainder_probe.py \
   --output experiments/crabb_uniform_remainder_probe_s70223.jsonl
+```
+
+Regenerate the finite-amplitude exact dual records with
+
+```bash
+PYTHONPATH=experiments .venv/bin/python -u \
+  experiments/crabb_finite_amplitude_dual_filtration.py \
+  --output \
+  experiments/crabb_finite_amplitude_dual_filtration_s70223.jsonl
 ```

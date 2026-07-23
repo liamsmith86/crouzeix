@@ -46,6 +46,7 @@ class NormalStationarityRecord:
     symbolic: bool
     prepared_remainder_degree: int
     equality_blaschke_identity: bool
+    companion_resolvent_identity: bool
     inner_tangent_derivative: str
     operator_tangent_derivative: str
     total_derivative: str
@@ -336,6 +337,25 @@ def make_record(
     )
     if not equality_identity:
         raise AssertionError("the equality Blaschke identity failed")
+    equality_denominator = reversed_polynomial(
+        numerator,
+        variable,
+        length,
+    )
+    endpoint_resolvent = (
+        defect.T
+        * (variable * sp.eye(length + 1) - companion).inv()
+        * sp.eye(length + 1)[:, length]
+    )[0]
+    resolvent_identity = (
+        exact_zero(
+            endpoint_resolvent
+            - equality_denominator / (variable * numerator)
+        )
+        == 0
+    )
+    if not resolvent_identity:
+        raise AssertionError("the companion resolvent identity failed")
 
     def endpoint_scalar(derivative: sp.Matrix) -> sp.Expr:
         return exact_zero(
@@ -365,6 +385,7 @@ def make_record(
             variable,
         ).degree(),
         equality_blaschke_identity=equality_identity,
+        companion_resolvent_identity=resolvent_identity,
         inner_tangent_derivative=str(inner_scalar),
         operator_tangent_derivative=str(operator_scalar),
         total_derivative=str(total_scalar),

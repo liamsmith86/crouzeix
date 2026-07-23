@@ -94,13 +94,30 @@
   norm and touching Stein envelope is exactly zero.  The proof splits
   inner-function stationarity from the all-size companion endpoint
   identity for `A^dagger_K-A^3`.
-- **Audit correction:** a grade-`k` reflected leg first occurs at
-  order `c^k`, so the ordinary derivative L148 proves only the
-  grade-one member of the needed normal-jet family.  The exact
-  remaining L147 gates are (i) the analogous all-anchor endpoint
-  identity for every first grade-`k` jet and (ii) the convergent
-  reflected-Rees lift.  Only together do they force the square of the
-  reflected ideal by analytic Taylor division.
+- L149 closes the all-grade extension correctly.  L131's exact Faber
+  boundary identity supplies a convergent marked algebra in the
+  reflected variables `r=c^L`, `w_k=c^ku_k`.  The companion resolvent
+  identity `q*(zI-A)^(-1)e_L=1/(zB(z))` turns every one-reflection top
+  norm derivative into the real mean of the logarithmic tangent of a
+  fixed-degree inner function, hence zero for every grade, phase, and
+  central fold.
+- L150 supplies the primal lift without assuming that L118's optimizer
+  preserves the marking.  L145's canonical orbit-complement defect is
+  analytic at arbitrary amplitude.  Its condition gap above the
+  Blaschke norm is nonnegative and zero on the equality divisor, so it
+  belongs to the reflected ideal square automatically.  L145--L146's
+  PSD zero-diagonal argument gives the same compact face.
+- Therefore L147 is proved: the explicit model upper certificate is
+  at most `4-8|c^L|²-32sum|c^ku_k|²` in a uniform equality-stratum
+  neighbourhood.  The Faber/Blaschke remainder is no longer open.
+- A new exact finite-amplitude dual checker substitutes rational
+  equality coefficients before expanding in `c`, so it retains every
+  amplitude order.  In seven cases through dimension nine, with
+  minimum grades one through three and mixed higher grades, every
+  coefficient below `c^(2k)` vanishes exactly and the `c^(2k)`
+  coefficient is negative.  This supports the all-grade
+  Hardy/model-space stationarity mechanism on the dual side but does
+  not supply the primal reflected-Rees lift.
   `proof/crabb_faber_blaschke_dual.md`;
   `experiments/crabb_faber_blaschke_dual.py`;
   `experiments/crabb_central_faber_blaschke.py`;
@@ -1978,34 +1995,26 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-23)
-1. **Extend L148 to every reflected grade, then build the Rees lift.**
-   For each `k`, isolate the first order-`c^k` operator jet after
-   quotienting lower scalar ellipse jets and prove its top endpoint
-   derivative vanishes at every L123 equality anchor.  Then recenter
-   the arbitrary-amplitude Weierstrass and Stein recurrences and
-   extend them analytically to independent variables
-   `r=c^L`, `w_k=c^ku_k`.  L148 is only the `k=1` base case; do not
-   infer the higher jets from an ordinary first derivative.
-2. **Then build the L115/L117 transverse tube.**  Assuming L147 closes,
-   introduce L124's best-phase split `z=u+v` and classify the full
+1. **Build the L115/L117 transverse tube.**  L147 is now closed.
+   Introduce L124's best-phase split `z=u+v` and classify the full
    reflected Newton ideal in `(u,v,c)`.  The anchors are
    `-c^(2L)`, `-sum|u_k|²c^(2k)`, and
    `-||u||²||v||²`.  Prove the normal-gradient support needed to glue
    them, then absorb L118's strong variables with its already-proved
    coercive Hessian.  Do not reopen the central/noncentral face
    coefficient, pure-axis gradient, or pure disk equality calculations.
-3. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
+2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
    trace inequality can instead be derived from the block-Toeplitz positivity of the full
    operator-valued correction moments. Do not retry trace/positive-state scalarizations.
-4. **Shifted Möbius H-r fallback**: derive its exact stationarity/rho formula (Kenan-Li quartic
+3. **Shifted Möbius H-r fallback**: derive its exact stationarity/rho formula (Kenan-Li quartic
    analog) and prove rho≥0 or K≤2. Definite parity is false.
-5. **Bi-conic Schwarzian test**: compute `SG` for the off-slice collapsed map on the critical
+4. **Bi-conic Schwarzian test**: compute `SG` for the off-slice collapsed map on the critical
    real interval. `SG≥0` would extend L17 immediately; otherwise test the weaker Sturm-potential
    comparison that the proof actually needs.
-6. **Odd phase positivity**: ρ = B₁g₁q₁+B₂g₂q₂ ≥ 0 given the L15 stationarity law
+5. **Odd phase positivity**: ρ = B₁g₁q₁+B₂g₂q₂ ≥ 0 given the L15 stationarity law
    (3-parameter; interlacing τ₂ < α < τ₁; term-1 dominance observed). Try the same
    deformation/kernel machinery.
-7. Rigor debts: n=6 structured floor; 2×2 α=0; contact degeneracy; L59/L117 publication-level
+6. Rigor debts: n=6 structured floor; 2×2 α=0; contact degeneracy; L59/L117 publication-level
    novelty audit.
    General-n work must include symmetry-breaking phases; the former parity-collapse induction
    remains valid only inside a chosen parity sector.
@@ -2077,6 +2086,7 @@ experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_
   crabb_faber_blaschke_mixed.py (L144 mixed-grade polarization),
   crabb_faber_blaschke_complementarity.py (L145 primal/dual defect),
   crabb_equality_normal_stationarity.py (L148 all-anchor normal derivative),
+  crabb_finite_amplitude_dual_filtration.py (all-amplitude dual support probe),
   crabb_uniform_remainder_probe.py (candidate L147 falsification probe),
   formal_riemann_series.py + rank_one_stein_series.py (exact higher-order helpers),
   p3_crabb_sixth_order.py + p3_crabb_quartic.py (L67/L68 exact certificates),
