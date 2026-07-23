@@ -63,6 +63,17 @@ single-Crabb local obstruction is the weighted merger of the elliptic coordinate
 L115's `2p−4` exact disk-flat variables.  Do not reopen the strong-gradient problem.
 See `proof/crabb_descent_gradient.md`.
 
+L121 removes the first mixed disk-flat obstruction.  The complete endpoint functional
+has an explicit circle-grade formula; its first unrestricted coefficient is exactly
+`Y_(L0)` for odd `L` and `sqrt(2)(Y_(L-1,0)+Y_(L,1))` for even `L`.  These are L65's
+bottom equality obstructions (the exceptional `p=3` combination is killed by the
+circular-tangent equation).  Therefore every disk-flat derivative is
+`O(c^(L+floor(L/2)+1))`.  If the disk-flat anchor has a coercive negative quartic, Young
+now leaves an elliptic remainder of order strictly above `c^(2L)`, so L117 absorbs it.
+The live tasks are to prove that quartic and control the higher mixed remainder—not to
+redo the strong gradient or endpoint path count.  See
+`proof/crabb_flat_endpoint_selection.md`.
+
 ## Completed repeated-C3 frontier (2026-07-22): L114
 
 L73 proves a complete-2 neighbourhood of one `C3`; L74--L93 reduce arbitrary repeated

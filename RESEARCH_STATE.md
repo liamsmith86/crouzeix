@@ -1,6 +1,30 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-23 (Epoch 6 — L120 all-size descent gradient)
+**Last updated:** 2026-07-23 (Epoch 6 — L121 flat endpoint selection)
+
+## NEWEST (2026-07-23): L121 raises every disk-flat mixed linear term
+- For L120's endpoint functional
+  `F_c(Y)=(DP[Y])_(L0)-c^L(DP[Y])_(0L)`, root-of-unity filtering gives
+  every coefficient explicitly by the circle grade `q=m-j-1`.
+- The unrestricted first power is `c^floor(L/2)`.  If `L` is odd, its
+  coefficient is exactly `Y_(L0)`; if `L` is even, it is exactly
+  `sqrt(2)(Y_(L-1,0)+Y_(L,1))`.
+- These are precisely L65's two bottom-mode obstructions.  They vanish on
+  the full L65 equality space for `p>=4`; in the exceptional `p=3` case the
+  circular-tangent constraint kills the same combination.
+- Hence every L115 disk-flat direction satisfies
+  ```
+  F_c(Y)=O(c^(floor(L/2)+1)),
+  D Gamma_p(C+cC*)[Y]=O(c^(L+floor(L/2)+1)).
+  ```
+- Writing `m=floor(L/2)+1`, a hypothetical coercive disk-flat quartic
+  `-a||d||^4` absorbs the linear mixed term by Young because
+  `4(L+m)/3>2L`; the remainder is then smaller than L117's axis margin.
+- This proves the strict exponent for the **linear** mixed term, not the
+  required disk-flat quartic or the higher mixed remainder.  Exact symbolic
+  regeneration covers every matrix entry for `p=3,...,16`.
+  `proof/crabb_flat_endpoint_selection.md`;
+  `experiments/crabb_flat_endpoint_selection.py`.
 
 ## NEWEST (2026-07-23): L120 closes the pure elliptic strong tube in every size
 - Let `L=p−1`, `r=c^L`, and
@@ -1272,6 +1296,9 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    `2p−4` disk-flat coordinates, using the exact circular-range anchors rather than
    estimating them as generic flat Taylor directions.  Do not reopen the strong-gradient
    or differentiated-Stein calculations.
+   L121 already raises the linear disk-flat/elliptic coupling by one full power, enough
+   for Young absorption if a coercive quartic disk-flat margin is available.  Prove that
+   quartic (and its higher mixed remainder) next; do not recompute the endpoint derivative.
    Do not rely on a fixed positive margin or compute the old `2p−2` residual jets.
 2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
    trace inequality can instead be derived from the block-Toeplitz positivity of the full
@@ -1336,6 +1363,7 @@ experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_
   crabb_transverse_weighted_gradient.py (L118 exact low-size gradient cancellations),
   crabb_touching_gradient.py (L119 upper/lower derivative and polynomial-descent audit),
   crabb_descent_gradient.py (L120 exact fibre trace/quadrature/path audit),
+  crabb_flat_endpoint_selection.py (L121 exact disk-flat bottom-mode selection),
   formal_riemann_series.py + rank_one_stein_series.py (exact higher-order helpers),
   p3_crabb_sixth_order.py + p3_crabb_quartic.py (L67/L68 exact certificates),
   p3_crabb_local_slice.py (L69 orbit-normal slice audit),
