@@ -1,27 +1,38 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-22 (Epoch 6 — L116 elliptic Crabb axis)
+**Last updated:** 2026-07-22 (Epoch 6 — L117 exact elliptic Crabb axis)
 
-## NEWEST (2026-07-22): L116 isolates the exact all-size elliptic-axis identity
-- For `T_c=phi(C_p+cC_p*)`, `L=p−1`, the degree-`L` Chebyshev--Blaschke product
-  alternates on the elliptic Lobatto spectrum.  DCT reversal therefore gives the exact
-  operator value `B_L(T_c)=+-sqrt(k(c^(2L)))D J D^−1`.
-- Consequently `t_*(T_c)>=k(c^(2L))/c^L`.  Jacobi's product proves this quantity is
-  strictly below four, with expansion `4−16c^(2L)+O(c^(4L))`.
-- Explicit rank-one Stein metrics attain the lower bound for `p=3,4`; the `p=4`
-  formula is Li's fully displayed §4.4 calculation rewritten in L116's normalization.
-  L20 separately covers the larger arbitrary-weight `4 x 4` elliptic slice.
-- Unrestricted and diagonal L21 SDPs agree with the formula for `p=3,...,10` and
-  `c in {.05,.15,.4,.6}`.  The diagonal optimizer has reflection products
-  `p_jp_(L−j)=t_*` and a rank-one Stein defect.
-- The remaining all-size upper theorem is now the exact diagonal identity
-  `W−FWF=bb*`, or in the DCT/nodal basis
-  `G_ij=beta_i conjugate(beta_j)/(1−tau_i tau_j)`.  This is an elliptic
-  Szego-kernel/quadrature statement and precisely targets the gap in Kenan Li's candidate
-  formulas, rather than trusting the thesis's unproved all-size step.
-- Closing this axis is still followed by L115's uniform transverse tube; it is not the
-  general conjecture by itself.
-  `proof/crabb_elliptic_axis.md`; `experiments/crabb_elliptic_axis.py`.
+## NEWEST (2026-07-22): L117 proves the exact elliptic Crabb axis in every size
+- For `T_c=phi(C_p+cC_p*)`, `L=p−1`, L116's Chebyshev--Blaschke alternation gives
+  `t_*(T_c)>=k(c^(2L))/c^L`.
+- At the elliptic Lobatto nodes, the rank-one Szegő Gramian
+  `G_ij=beta_i beta_j/(1−x_i x_j)` obeys `G−XGX=beta beta*`.  A Jacobi addition
+  identity turns `G` into a Toeplitz-plus-Hankel kernel exactly diagonalized by DCT-I.
+- Its normalized diagonal weights are
+  `w_m=S_m/S_0`, `S_m=sum_(n in Z) sech((m+2Ln)(−log c))`.  Poisson summation
+  identifies them as complementary-modulus `dn` values and proves
+  `w_mw_(L−m)=k(c^(2L))`.
+- Therefore `P=diag(w_m/c^m)` has a rank-one positive Stein defect.  The elementary
+  termwise inequality `S_(m+1)>cS_m` proves
+  `I<=P<=k(c^(2L))c^(−L)I`, matching L116's lower bound:
+  `t_*(T_c)=k(c^(2L))/c^L<4`.
+- This closes the all-size proof gap explicitly recorded on page 46 of Kenan Li's thesis.
+  The novelty claim is narrow and pending publication-level review: the theorem concerns
+  the fixed-weight one-parameter axis, while L20 covers arbitrary weights only in `4 x 4`.
+- The SDP/eigensolver regression passes through `p=10`.  A separate 260-decimal explicit
+  DCT/Jacobi checker audits every identity through `p=30` without an SDP.
+- **Next:** combine L117's exact soft-axis certificate with L65's coercive transverse
+  complement in L115's circular-range tubular chart.  The gap
+  `4−t_*=16c^(2L)+O(c^(4L))` degenerates at the disk anchor, so the absorption must be
+  weighted rather than based on a fixed positive margin.
+  `proof/crabb_elliptic_axis.md`; `experiments/crabb_elliptic_axis_theorem.py`.
+
+## COMPLETED INPUT (2026-07-22): L116 supplies the sharp axis lower bound
+- The degree-`L` Chebyshev--Blaschke product alternates on the elliptic Lobatto spectrum,
+  and DCT reversal gives
+  `B_L(T_c)=+-sqrt(k(c^(2L)))D J D^−1`.
+- Hence `t_*(T_c)>=k(c^(2L))/c^L`; Jacobi's product makes this strictly below four.
+  L117 supplies the matching all-size upper metric.
 
 ## NEWEST (2026-07-22): L115 leaves one complex soft normal at every Crabb size
 - Lewis--Overton's local theorem says centered disk matrices near `C_p` form an analytic
@@ -762,7 +773,7 @@
   `(a1,a2,a3)`, `0<c<1`. Thus its numerical-range ellipse is a complete 2-spectral set.
 - **Scope and novelty:** this is not all 4×4 matrices and not the general Crouzeix conjecture.
   The closest-source audit found Kenan Li's all-dimensional candidate formula for the
-  fixed-weight Crabb-derived family (with the every-size proof gap now recorded in L116);
+  fixed-weight Crabb-derived family (whose every-size proof gap is now closed by L117);
   no prior arbitrary-weight 4×4 theorem was found. Call L59 apparently new pending a
   publication-level novelty audit.
 - **The repeated-Crabb general gate also survives.** A new harness tests block sizes 3/4,
@@ -1159,26 +1170,23 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-22)
-1. **Close L116's all-size diagonal Stein identity.**  Use the normalized
-   Chebyshev--Blaschke product/model operator or its Clark weights to prove
-   `W−FWF=bb*` with `w_jw_(L−j)=k(c^(2L))`.  This would establish the exact
-   similarity square `k(c^(2L))/c^L<4` on the whole fixed-weight elliptic Crabb axis.
-   Do not split into separate even/odd index grinds unless the model/quadrature route fails.
-2. **Then build the L115 transverse tube.**  Anchor on the exact elliptic-axis metric,
+1. **Build the L115/L117 transverse tube.**  Anchor on the exact elliptic-axis metric,
    retain L65's coercive normal complement, and seek estimates uniform as `c->0` and across
-   the disk-manifold tangential directions.  Do not compute the old `2p−2` residual jets.
-3. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
+   the disk-manifold tangential directions.  The axis gap has order `c^(2p−2)`, so derive
+   the transverse variation of the rank-one Stein defect and use a weighted disk/axis
+   merger; do not rely on a fixed positive margin or compute the old `2p−2` residual jets.
+2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
    trace inequality can instead be derived from the block-Toeplitz positivity of the full
    operator-valued correction moments. Do not retry trace/positive-state scalarizations.
-4. **Shifted Möbius H-r fallback**: derive its exact stationarity/rho formula (Kenan-Li quartic
+3. **Shifted Möbius H-r fallback**: derive its exact stationarity/rho formula (Kenan-Li quartic
    analog) and prove rho≥0 or K≤2. Definite parity is false.
-5. **Bi-conic Schwarzian test**: compute `SG` for the off-slice collapsed map on the critical
+4. **Bi-conic Schwarzian test**: compute `SG` for the off-slice collapsed map on the critical
    real interval. `SG≥0` would extend L17 immediately; otherwise test the weaker Sturm-potential
    comparison that the proof actually needs.
-6. **Odd phase positivity**: ρ = B₁g₁q₁+B₂g₂q₂ ≥ 0 given the L15 stationarity law
+5. **Odd phase positivity**: ρ = B₁g₁q₁+B₂g₂q₂ ≥ 0 given the L15 stationarity law
    (3-parameter; interlacing τ₂ < α < τ₁; term-1 dominance observed). Try the same
    deformation/kernel machinery.
-7. Rigor debts: n=6 structured floor; 2×2 α=0; contact degeneracy; L59 publication-level
+6. Rigor debts: n=6 structured floor; 2×2 α=0; contact degeneracy; L59/L117 publication-level
    novelty audit.
    General-n work must include symmetry-breaking phases; the former parity-collapse induction
    remains valid only inside a chosen parity sector.
@@ -1224,7 +1232,8 @@ experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_
   general_crabb_second_order_modes.py (L65 arbitrary-size mode regeneration),
   crabb_second_order_equality.py (L66 exact-orbit/kernel quotient audit),
   crabb_disk_tangent_intersection.py (L115 arbitrary-size circular-tangent intersection),
-  crabb_elliptic_axis.py (L116 exact lower-bound/diagonal-SDP regeneration),
+  crabb_elliptic_axis.py (L116/L117 SDP and explicit-metric regression),
+  crabb_elliptic_axis_theorem.py (L117 high-precision DCT/Jacobi identity audit),
   formal_riemann_series.py + rank_one_stein_series.py (exact higher-order helpers),
   p3_crabb_sixth_order.py + p3_crabb_quartic.py (L67/L68 exact certificates),
   p3_crabb_local_slice.py (L69 orbit-normal slice audit),
@@ -1265,7 +1274,8 @@ general_similarity_second_order_all_s9173401.jsonl and its `halfstep` companion 
 general_crabb_second_order_modes_s70221.jsonl (L65 sizes `3..30` mode/rank audit);
 crabb_second_order_equality_s70221.jsonl (L66 sizes `3..8` quotient audit);
 crabb_disk_tangent_intersection_s70222.jsonl (L115 sizes `3..7`);
-crabb_elliptic_axis_s70222.jsonl (L116 sizes `3..10`, four ellipse parameters).
+crabb_elliptic_axis_s70222.jsonl (L116/L117 sizes `3..10`, four ellipse parameters);
+crabb_elliptic_axis_theorem_s70222.jsonl (L117 sizes `3..30`, six ellipse parameters).
 Ledgers: LEMMA_LEDGER.md, APPROACH_LEDGER.md (pitfalls P1–P8 — READ BEFORE ANY SEARCH),
 LITERATURE_LEDGER.md, COUNTEREXAMPLE_SEARCH.md. Audit: chatgpt/FABLE_RESEARCH_AUDIT.md
 (reconciled 2026-07-20). Restart: checkpoints/RESTART_PACKET.md (paste-ready instruction).

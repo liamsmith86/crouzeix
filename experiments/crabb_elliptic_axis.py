@@ -11,11 +11,12 @@ from its exact elliptic functional calculus and compares:
 
 * the unrestricted L21 similarity SDP;
 * the same SDP restricted to diagonal metrics;
-* the Chebyshev--Blaschke lower bound ``k(c^(2p-2))/c^(p-1)``.
+* the exact L117 diagonal metric and optimal value
+  ``k(c^(2p-2))/c^(p-1)``.
 
-The SDP output is numerical evidence, not a proof of the all-size upper
-bound.  The Chebyshev--Blaschke lower bound is an exact theorem once the
-standard extremal finite-Blaschke result on an interval is imported.
+The SDP output is only an independent numerical regression.  L117 proves
+the all-size upper metric by a Jacobi/DCT identity, while L116 supplies
+the matching Chebyshev--Blaschke lower bound.
 """
 
 from __future__ import annotations
@@ -52,6 +53,8 @@ class AxisRecord:
     diagonal_stein_rank_one_error: float
     alternation_reversal_error: float
     explicit_low_size_certificate_error: float | None
+    explicit_all_size_certificate_error: float
+    explicit_all_size_reflection_error: float
     unrestricted_solver: str
     diagonal_solver: str
 
@@ -186,6 +189,72 @@ def explicit_low_size_metric(
     return None
 
 
+def stable_sech(value: float) -> float:
+    """Evaluate ``sech(value)`` without overflowing for large arguments."""
+
+    exponential = np.exp(-abs(value))
+    return float(2.0 * exponential / (1.0 + exponential**2))
+
+
+def periodized_sech(
+    index: int, length: int, logarithmic_parameter: float
+) -> float:
+    """Evaluate ``sum_n sech((index+2*length*n)*ell)`` adaptively."""
+
+    total = 0.0
+    for radius in range(100_000):
+        positive_index = index + 2 * length * radius
+        negative_index = index - 2 * length * (radius + 1)
+        increment = stable_sech(logarithmic_parameter * positive_index)
+        increment += stable_sech(logarithmic_parameter * negative_index)
+        total += increment
+        if radius > 2 and increment <= 2e-16 * total:
+            return total
+    raise RuntimeError("periodized sech sum did not converge")
+
+
+def explicit_all_size_metric(
+    dimension: int, ellipse_parameter: float
+) -> np.ndarray:
+    """Return the L117 diagonal metric from the periodized-sech formula."""
+
+    length = dimension - 1
+    logarithmic_parameter = -np.log(ellipse_parameter)
+    sums = np.array(
+        [
+            periodized_sech(index, length, logarithmic_parameter)
+            for index in range(dimension)
+        ]
+    )
+    weights = sums / sums[0]
+    return weights / ellipse_parameter ** np.arange(dimension)
+
+
+def all_size_certificate_errors(
+    operator: np.ndarray,
+    dimension: int,
+    ellipse_parameter: float,
+    predicted_bound: float,
+) -> tuple[float, float]:
+    """Check feasibility, rank-one defect, and reflection for the L117 metric."""
+
+    diagonal = explicit_all_size_metric(dimension, ellipse_parameter)
+    metric = np.diag(diagonal)
+    defect = metric - operator.T @ metric @ operator
+    eigenvalues = np.linalg.eigvalsh((defect + defect.T) / 2.0)
+    feasibility_error = max(
+        abs(diagonal[0] - 1.0),
+        abs(diagonal[-1] - predicted_bound),
+        max(0.0, 1.0 - float(diagonal.min())),
+        max(0.0, float(diagonal.max()) - predicted_bound),
+        max(0.0, -float(eigenvalues.min())),
+        float(np.max(np.abs(eigenvalues[:-1]))),
+    )
+    reflection_products = diagonal * diagonal[::-1] / predicted_bound
+    reflection_error = float(np.max(np.abs(reflection_products - 1.0)))
+    return feasibility_error, reflection_error
+
+
 def explicit_certificate_error(
     operator: np.ndarray,
     dimension: int,
@@ -250,6 +319,9 @@ def make_record(dimension: int, ellipse_parameter: float) -> AxisRecord:
     predicted = predicted_similarity_square(dimension, ellipse_parameter)
     unrestricted = solve_similarity_sdp(operator)
     diagonal = solve_diagonal_similarity_sdp(operator)
+    all_size_error, all_size_reflection_error = all_size_certificate_errors(
+        operator, dimension, ellipse_parameter, predicted
+    )
 
     unrestricted_metric = (
         unrestricted.metric + unrestricted.metric.conj().T
@@ -294,6 +366,8 @@ def make_record(dimension: int, ellipse_parameter: float) -> AxisRecord:
         explicit_low_size_certificate_error=explicit_certificate_error(
             operator, dimension, ellipse_parameter, predicted
         ),
+        explicit_all_size_certificate_error=all_size_error,
+        explicit_all_size_reflection_error=all_size_reflection_error,
         unrestricted_solver=unrestricted.solver,
         diagonal_solver=diagonal.solver,
     )
@@ -346,6 +420,12 @@ def main() -> None:
         ),
         default=0.0,
     )
+    maximum_all_size_error = max(
+        record.explicit_all_size_certificate_error for record in records
+    )
+    maximum_all_size_reflection_error = max(
+        record.explicit_all_size_reflection_error for record in records
+    )
     if maximum_prediction_error > 2e-5:
         raise RuntimeError(
             f"similarity prediction regression failed: {maximum_prediction_error:.3e}"
@@ -357,6 +437,15 @@ def main() -> None:
     if maximum_explicit_error > 2e-11:
         raise RuntimeError(
             f"explicit low-size certificate failed: {maximum_explicit_error:.3e}"
+        )
+    if maximum_all_size_error > 2e-10:
+        raise RuntimeError(
+            f"explicit all-size certificate failed: {maximum_all_size_error:.3e}"
+        )
+    if maximum_all_size_reflection_error > 2e-10:
+        raise RuntimeError(
+            "explicit all-size reflection failed: "
+            f"{maximum_all_size_reflection_error:.3e}"
         )
 
 

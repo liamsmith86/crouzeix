@@ -174,19 +174,19 @@ Do not compute all `2p-2` residual jets.  Use a tubular chart around
 1. coercive L65 quadratic normal directions;
 2. the single complex elliptic normal represented by `A*`.
 
-The pure elliptic family (3) is already covered for `p=3` by L68--L73
-and for `p=4` by the full elliptic-slice theorem L20.  Kenan Li's 2021
-thesis, Chapter 3, gives the candidate all-size diagonal certificate
-and the sharp squared condition
+L117 now covers the pure elliptic family (3) in every size and proves
+the exact squared similarity constant
 
 \[
  \frac{k(c^{2p-2})}{c^{p-1}}<4,                         \tag{7}
 \]
 
-but its page 46 explicitly records that the load-bearing elliptic
-identities were proved only through size six and merely tested beyond.
-Thus the next dimension-independent problem is to close that
-all-size certificate gap (preferably by a Chebyshev--Blaschke/model
-argument), followed by uniform transverse absorption.  Do not treat
-the thesis's displayed all-size conclusion as imported without this
-qualification.
+by a Jacobi/DCT rank-one Stein metric, thereby closing the all-size
+gap explicitly recorded on page 46 of Kenan Li's 2021 thesis.
+
+The remaining dimension-independent problem is uniform transverse
+absorption.  The margin in (7) above the disk limit is of order
+`c^(2p-2)`, so a generic continuity argument with a fixed positive
+axis gap is insufficient.  Differentiate or Schur-complement L117's
+exact metric and rank-one defect in the L65 coercive directions,
+using the exact circular-range theorem at `c=0` as the second anchor.

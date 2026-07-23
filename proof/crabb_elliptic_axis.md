@@ -1,6 +1,6 @@
-# The arbitrary-size elliptic Crabb axis (2026-07-22)
+# The exact arbitrary-size elliptic Crabb axis (2026-07-22)
 
-## 1. Status
+## 1. Theorem and status
 
 For the `p x p` Crabb block `C_p`, put
 
@@ -8,26 +8,28 @@ For the `p x p` Crabb block `C_p`, put
  A_c=C_p+cC_p^*,\qquad 0<c<1,\qquad L=p-1.
 \]
 
-The optimal L21 similarity square for the disk pullback is conjecturally
+This loses no complex soft-axis directions: diagonal unitary conjugation
+followed by a scalar rotation sends `C_p+zC_p*` to
+`C_p+|z|C_p*`.
+
+Let `phi_c` be the centered Riemann map from the interior of the
+numerical-range ellipse of `A_c` to the disk, and set `T_c=phi_c(A_c)`.
+Then, for every `p>=3`,
 
 \[
- \boxed{t_*(\phi_c(A_c))={k(c^{2L})\over c^L}<4,}       \tag{1}
+ \boxed{t_*(T_c)={k(c^{2L})\over c^L}<4,}               \tag{1}
 \]
 
 where `k(q)=(theta_2(q)/theta_3(q))^2` is Jacobi's elliptic
-modulus as a function of the nome.
+modulus as a function of the nome.  Here `t_*` is L21's optimal
+similarity square.  Consequently the numerical range of every `A_c`
+is a complete spectral set with constant strictly smaller than two.
 
-This note proves the lower bound in (1), proves the strict scalar inequality,
-and gives explicit matching upper metrics for `p=3,4`.  The
-matching diagonal upper certificate is numerically confirmed for every
-`p=3,...,10` on four ellipse parameters.
-
-The all-size upper bound is **not yet proved**.  Kenan Li's 2021 thesis
-proposes exactly this certificate, but page 46 says that the identities
-needed for its contraction property were proved only for `p=2,...,6` and
-tested numerically beyond.  No later closure was found in the targeted
-literature audit.  This is therefore a sharply isolated proof gap rather
-than an imported all-dimensional theorem.
+L116 proved the matching lower bound in (1).  The all-size diagonal
+metric below proves the upper bound and closes the gap explicitly
+recorded on page 46 of Kenan Li's 2021 thesis.  This is a theorem on
+the one-parameter fixed-weight elliptic Crabb axis, not on arbitrary
+matrices or even arbitrary elliptic weighted shifts.
 
 ## 2. Exact elliptic functional calculus
 
@@ -46,181 +48,299 @@ Then
 \]
 
 The numerical range of `A_c` is the ellipse with semiaxes `1+c` and
-`1-c` and foci `+-2sqrt(c)`.  If
+`1-c` and foci `+-2sqrt(c)`.  Put
 
 \[
- q=c^2,\quad k=k(q),\quad K=K(k^2),
+ q=c^2,\qquad k=k(q),\qquad K=K(k^2),
 \]
 
-its centered Riemann map has nodal values
+and define the endpoint factors and orthogonal DCT-I matrix
 
 \[
- \tau_j=\sqrt{k}\,
-   \operatorname{sn}\!\left(K(1-2j/L)\mid k^2\right).   \tag{3}
+ e_0=e_L=2^{-1/2},\quad e_j=1\ (0<j<L),\qquad
+ U_{mj}=\sqrt{2/L}\,e_me_j\cos(mj\pi/L).                \tag{3}
 \]
 
-Writing `U` for the orthogonal DCT-I eigenvector matrix of `H_c` and
-`F=U diag(tau_j)U^T`, functional calculus gives
+At `v_j=2Kj/L`, the disk nodes are
 
 \[
- T_c:=\phi_c(A_c)=D F D^{-1}.                           \tag{4}
+ x_j=\sqrt{k}\operatorname{cd}(v_j\mid k^2)
+     =\sqrt{k}\operatorname{sn}(K-v_j\mid k^2).         \tag{4}
 \]
 
-This supplies a dimension-independent exact construction, with no boundary
-quadrature or fitted conformal map.
+Thus, with `X=diag(x_j)` and `F=UXU^T`,
+
+\[
+ T_c=D F D^{-1}.                                       \tag{5}
+\]
+
+This is an exact finite functional calculus; no boundary quadrature or
+fitted conformal map is used.
 
 ## 3. Exact Chebyshev--Blaschke lower bound
 
 The normalized degree-`L` Chebyshev--Blaschke product for the interval
-`[-sqrt(k(q)),sqrt(k(q))]` maps the elliptic Lobatto points (3) to
+`[-sqrt(k(q)),sqrt(k(q))]` satisfies, up to a common sign,
 
 \[
- B_L(\tau_j)=(-1)^j\sqrt{k(q^L)}                       \tag{5}
+ B_L(x_j)=(-1)^j\sqrt{k(q^L)}.                         \tag{6}
 \]
 
-up to one common sign.  This follows from the standard Jacobi-`cd`
-construction and its multiplication/nesting identity.  Ng--Tsang prove its
-least-deviation property; Wang's elliptic-isogeny formula gives (5)
-directly.  Müller-Hermes--Szehr, Lemma 2, records the equivalent extremal
-value `sqrt(k(q^L))`.
-
-The DCT alternation identity is
+This is Wang's Jacobi-`cd` multiplication formula; Ng--Tsang prove the
+least-deviation property, and Müller-Hermes--Szehr record the equivalent
+extremal value.  The DCT alternation identity is
 
 \[
- U\operatorname{diag}((-1)^j)U^T=\pm J,                \tag{6}
+ U\operatorname{diag}((-1)^j)U^T=\pm J,                \tag{7}
 \]
 
-where `J` reverses coordinates.  Equations (4)--(6) therefore give
+where `J` reverses coordinates.  Therefore
 
 \[
- B_L(T_c)=\pm\sqrt{k(q^L)}\,D J D^{-1}.                 \tag{7}
-\]
-
-The largest singular value of `D J D^{-1}` is `c^{-L/2}`, so
-
-\[
+ B_L(T_c)=\pm\sqrt{k(c^{2L})}\,D J D^{-1},\qquad
  \|B_L(T_c)\|^2={k(c^{2L})\over c^L}.                  \tag{8}
 \]
 
-If `S T_c S^{-1}` is a contraction, von Neumann's inequality applied to
-`B_L` gives `||B_L(T_c)||<=cond(S)`.  Taking the infimum over similarities
-proves
+If `S T_c S^{-1}` is a contraction, von Neumann's inequality applied
+to `B_L` gives `||B_L(T_c)||<=cond(S)`.  Taking the infimum proves
 
 \[
- \boxed{t_*(T_c)\ge {k(c^{2L})\over c^L}.}              \tag{9}
+ t_*(T_c)\ge {k(c^{2L})\over c^L}.                     \tag{9}
 \]
 
-Thus any matching upper metric is automatically optimal.
+## 4. The elliptic Szegő kernel
 
-## 4. The scalar bound is strictly below four
-
-Jacobi's product is
+Write `k'=sqrt(1-k^2)` and set
 
 \[
- k(Q)=4\sqrt Q\prod_{m\ge1}
-  \left({1+Q^{2m}\over1+Q^{2m-1}}\right)^4.             \tag{10}
+ \delta_j={k'\over\operatorname{dn}(v_j\mid k^2)},\qquad
+ \beta_j=e_j\delta_j,\qquad
+ G_{ij}={\beta_i\beta_j\over1-x_ix_j}.                 \tag{10}
 \]
 
-With `Q=c^(2L)`, every factor is strictly less than one.  Hence
+By construction,
+
+\[
+ G-XGX=\beta\beta^T.                                  \tag{11}
+\]
+
+The point is that `G` has an exact DCT diagonalization.  Define
+
+\[
+ g(v)=\operatorname{dn}(v\mid k^2)+
+      k\operatorname{cn}(v\mid k^2).
+\]
+
+Jacobi's addition formulas give
+
+\[
+ {\delta(v)\delta(w)\over
+  1-k\operatorname{cd}(v)\operatorname{cd}(w)}
+ ={g(v-w)+g(v+w)\over2}.                              \tag{12}
+\]
+
+Indeed, the right side equals
+
+\[
+ {\operatorname{dn}v\operatorname{dn}w+
+   k\operatorname{cn}v\operatorname{cn}w
+  \over1-k^2\operatorname{sn}^2v\operatorname{sn}^2w},
+\]
+
+and rationalizing uses the elementary identity
+
+\[
+ (\operatorname{dn}v\operatorname{dn}w)^2
+ -k^2(\operatorname{cn}v\operatorname{cn}w)^2
+ =k'^2(1-k^2\operatorname{sn}^2v\operatorname{sn}^2w).
+\]
+
+Consequently
+
+\[
+ G_{ij}={e_ie_j\over2}\{g(v_i-v_j)+g(v_i+v_j)\}.       \tag{13}
+\]
+
+This is the standard Toeplitz-plus-Hankel kernel diagonalized by
+DCT-I.  If `hat g_m` is the length-`2L` discrete Fourier transform of
+the samples `g(2Kr/L)`, then
+
+\[
+ UGU^T=\operatorname{diag}(\widehat g_m/2)_{m=0}^L.    \tag{14}
+\]
+
+Thus (11) already supplies a positive rank-one Stein defect for a
+diagonal metric.  It remains only to identify and bound its entries.
+
+## 5. Periodized-sech and Poisson formulas
+
+Put `ell=-log(c)`.  Combining the standard Fourier series of `dn` and
+`cn`, using that their nome is `q=c^2`, gives
+
+\[
+ g(v)={\pi\over2K}\left[
+  1+2\sum_{r\ge1}\operatorname{sech}(r\ell)
+       \cos {r\pi v\over2K}\right].                   \tag{15}
+\]
+
+Sampling at `v_j=2Kj/L` and aliasing the length-`2L` Fourier series
+yields
+
+\[
+ \widehat g_m={\pi L\over K}S_m,\qquad
+ S_m=\sum_{n\in\mathbb Z}
+       \operatorname{sech}((m+2Ln)\ell).               \tag{16}
+\]
+
+Normalize
+
+\[
+ w_m={S_m\over S_0},\qquad W=\operatorname{diag}(w_m). \tag{17}
+\]
+
+Equations (11), (14), and (16) show that, for a vector `b`,
+
+\[
+ W-FWF=bb^T\succeq0.                                  \tag{18}
+\]
+
+There is also a closed Jacobi form for the weights.  Poisson summation
+with
+
+\[
+ \int_{\mathbb R}\operatorname{sech}(\ell x)e^{-i\xi x}\,dx
+ ={\pi\over\ell}\operatorname{sech}{\pi\xi\over2\ell}
+\]
+
+gives, for real `x`,
+
+\[
+ S(x)={\pi\over2L\ell}\left[
+  1+2\sum_{r\ge1}
+   \operatorname{sech}{\pi^2r\over2L\ell}
+   \cos{\pi r x\over L}\right].                       \tag{19}
+\]
+
+Let
+
+\[
+ k_0=k(c^{2L}),\qquad \widetilde k=\sqrt{1-k_0^2},
+ \qquad \widetilde K=K(\widetilde k^2).
+\]
+
+The nome of `tilde k` is `exp(-pi^2/(2L ell))`; comparison with the
+Fourier series of `dn` therefore gives
+
+\[
+ S(x)={\widetilde K\over L\ell}
+ \operatorname{dn}(\widetilde Kx/L\mid\widetilde k^2),
+ \qquad
+ w_m=\operatorname{dn}(\widetilde Km/L\mid\widetilde k^2). \tag{20}
+\]
+
+The quarter-period identity
+
+\[
+ \operatorname{dn}(\widetilde K-u\mid\widetilde k^2)
+ ={k_0\over\operatorname{dn}(u\mid\widetilde k^2)}
+\]
+
+now proves the exact reflection law
+
+\[
+ w_mw_{L-m}=k_0,\qquad w_0=1,\qquad w_L=k_0.           \tag{21}
+\]
+
+## 6. The optimal metric
+
+Define
+
+\[
+ P=D^{-1}WD^{-1}
+   =\operatorname{diag}(p_m),\qquad p_m={w_m\over c^m}. \tag{22}
+\]
+
+By (5) and (18),
+
+\[
+ P-T_c^*PT_c=D^{-1}(W-FWF)D^{-1}\succeq0.             \tag{23}
+\]
+
+Moreover, for every real `x`,
+
+\[
+ \operatorname{sech}(x+\ell)\ge
+ e^{-\ell}\operatorname{sech}(x)=c\operatorname{sech}(x),
+\]
+
+because `cosh(x+ell)<=e^ell cosh(x)`.  Applying this term by term in
+(16) gives `S_{m+1}>cS_m`, hence
+
+\[
+ 1=p_0<p_1<\cdots<p_L={k_0\over c^L}.                 \tag{24}
+\]
+
+Thus
+
+\[
+ I\le P\le {k(c^{2L})\over c^L}I,
+\]
+
+which proves the upper bound matching (9).  It also explains the
+rank-one defect and reflection products observed in every L116 SDP.
+
+Finally, Jacobi's product is
+
+\[
+ k(Q)=4\sqrt Q\prod_{r\ge1}
+  \left({1+Q^{2r}\over1+Q^{2r-1}}\right)^4.            \tag{25}
+\]
+
+Every factor is strictly below one.  With `Q=c^(2L)`,
 
 \[
  {k(c^{2L})\over c^L}<4,\qquad
- {k(c^{2L})\over c^L}=4-16c^{2L}+O(c^{4L}).             \tag{11}
+ {k(c^{2L})\over c^L}=4-16c^{2L}+O(c^{4L}),            \tag{26}
 \]
 
-The axis therefore has a positive complete-similarity gap for every fixed
-`c>0`, although the gap becomes extremely flat as either `c->0` or `p`
-increases.
+completing (1).
 
-## 5. Matching upper bound in the first two live sizes
+## 7. Independent regeneration
 
-For `p=3`, odd functional calculus makes
-
-\[
- T_c=\begin{pmatrix}0&u&0\\ l&0&u\\0&l&0\end{pmatrix},
- \quad u^2={k(c^2)\over2c},\quad l=cu.
-\]
-
-Choose `P=diag(1,r,r^2)`, where the smaller root of
-
-\[
- l^2r^2-r+u^2=0                                       \tag{12}
-\]
-
-is used.  Then `P-T_c^*P T_c` is positive semidefinite of rank one.
-The descending Landen identity gives
-
-\[
- r^2={k(c^4)\over c^2}.
-\]
-
-Thus (9) is attained.  For `p=4`, put
-
-\[
- \eta=\operatorname{sn}(K/3\mid k^2),\qquad
- P=\operatorname{diag}\left(
-  1,{k\eta\over c},{k^2\eta^3\over c^2},
-  {k^3\eta^4\over c^3}\right).                         \tag{13}
-\]
-
-The Jacobi addition formula at `K/3+2K/3=K` gives
-`k(c^6)=k^3 eta^4`.  Directly splitting
-`P^(1/2)T_cP^(-1/2)` into its two parity blocks gives singular values
-`1,1,1,k^2 eta^2`; moreover the diagonal entries in (13) increase from one
-to `k(c^6)/c^3`.  Hence (9) is attained here as well.  This is the explicit
-finite-size computation in Li's thesis §4.4, reproduced in L116's
-normalization.  L20 separately proves the condition-two statement for the
-much larger arbitrary-weight `4 x 4` elliptic slice.
-
-## 6. Numerical regeneration and the remaining identity
-
-Run
+The SDP/eigensolver checker is
 
 ```bash
 .venv/bin/python -u experiments/crabb_elliptic_axis.py \
   --output experiments/crabb_elliptic_axis_s70222.jsonl
 ```
 
-For `p=3,...,10` and `c in {0.05,0.15,0.4,0.6}`, the unrestricted L21 SDP,
-the diagonal-metric SDP, and (1) agree to maximum absolute error
-`1.66e-5` (the unrestricted error is below `5.7e-8`; the larger figure is a
-nearly singular diagonal-solver case).  Identity (6) holds to `2.8e-15`.
+For `p=3,...,10` and `c in {0.05,0.15,0.4,0.6}`, the explicit metric
+satisfies the rank-one Stein identity to at worst `6e-11` in binary64;
+the SDPs independently recover the same optimum.
 
-The diagonal optimizer `P=diag(p_0,...,p_L)` consistently has
+The separate 260-decimal checker uses explicit DCT-I/Jacobi matrices
+and no SDP:
 
-\[
- p_0=1,\quad p_L=t_*,\quad p_jp_{L-j}=t_*,             \tag{14}
-\]
+```bash
+.venv/bin/python -u experiments/crabb_elliptic_axis_theorem.py \
+  --output experiments/crabb_elliptic_axis_theorem_s70222.jsonl
+```
 
-and `P-T_c^*P T_c` is rank one, within solver accuracy.  Set
+It checks (11)--(24) for `p=3,...,30` and
+`c in {0.01,0.05,0.15,0.4,0.6,0.8}`.  In particular it compares the
+kernel diagonal, the periodized-sech series, and the complementary
+Jacobi formula through independently computed expressions.
 
-\[
- W=DPD=\operatorname{diag}(w_j),\qquad w_j=c^jp_j.
-\]
+## 8. Scope and next target
 
-Then the desired all-size certificate reduces exactly to
+This theorem closes the fixed-weight all-size gap in Li's proposed
+elliptic Crabb similarity and completes L115's sole soft normal axis.
+It does **not** prove a neighbourhood of `C_p` for `p>=4`: the margin
+in (26) tends to zero rapidly as `c->0` or `p` grows, while L65's
+coercive transverse complement must still be controlled uniformly
+against domain and metric remainders.
 
-\[
- W-FWF=bb^T\succeq0,\qquad
- w_jw_{L-j}=k(c^{2L}).                                 \tag{15}
-\]
-
-In the nodal basis, with `G=U^TWU` and `beta=U^Tb`,
-
-\[
- G_{ij}={\beta_i\beta_j\over1-\tau_i\tau_j}.            \tag{16}
-\]
-
-Equation (16) is a finite Szego-kernel Gramian.  The best next attack is to
-derive (15)--(16) from the Chebyshev--Blaschke model/Clark weights or an
-elliptic Gauss--Lobatto quadrature formula.  This targets the conceptual
-source of Li's identities instead of proving separate even/odd index
-formulas by brute force.
-
-## 7. Scope
-
-Closing (15) for every `p` would prove the complete Crouzeix bound on the
-entire pure elliptic Crabb axis and give the exact optimal constant (1).
-It would not by itself prove a neighbourhood theorem near `C_p`: L115 still
-requires uniform absorption of transverse coercive directions around this
-axis.  Nor would it prove the general Crouzeix conjecture.
+The next target is therefore a tubular certificate around this exact
+axis, using the circular-range manifold as the anchor and L65 for the
+strong transverse directions.  It is not a generic `5 x 5` slice
+calculation and not yet the general Crouzeix conjecture.

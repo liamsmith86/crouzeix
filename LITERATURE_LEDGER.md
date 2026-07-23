@@ -127,9 +127,11 @@ Papers, theorems, assumptions, possible gaps. Status verified via web 2026-07-22
   `(sqrt(2),1,sqrt(2))`; it does not cover arbitrary positive weights `(a1,a2,a3)`.
   Crucially, page 46 states that identities (3.5)--(3.7), used to prove the similarity for
   general parity, were proved only for `n=2,...,6` and tested numerically for larger `n`.
-  No later source closing that gap was found in a targeted exact-formula search.  Thus L20
-  remains new in arbitrary 4×4 weights, while the fixed-weight all-dimensional axis remains
-  a literature-suggested theorem rather than a fully established imported result.
+  No later source closing that gap was found in targeted exact-formula and citation searches.
+  Campaign L117 now supplies a different all-size proof through a rank-one Szegő kernel,
+  DCT-I diagonalization, and a periodized-sech/Poisson formula.  Treat this as an apparently
+  new closure pending publication-level review, not as an imported theorem.  L20 separately
+  remains the arbitrary-weight `4 x 4` result.
 - [x] Ming-Xi Wang, 2011 ETH thesis, *Rational Points and Transcendental Points*,
   §§2.3 and 3.1 — constructs normalized Chebyshev--Blaschke products in every degree,
   proves their interval-preimage and nesting properties, and derives the Jacobi-`cd`
@@ -145,6 +147,14 @@ Papers, theorems, assumptions, possible gaps. Status verified via web 2026-07-22
   this proves L116's exact lower bound
   `t_*(phi(C_p+cC_p*))>=k(c^(2p−2))/c^(p−1)`.  These sources do not supply
   the matching all-size upper similarity.
+- [x] Campaign L117 literature re-audit — searches for Li's exact modulus formula, elliptic
+  Crabb similarities, and post-thesis citations found the thesis itself, Li's 2020 extremal-
+  function paper, the unrelated 2023 KLS numerical-bounds paper, and the known `3 x 3`
+  Glader--Kurula--Lindström theorem, but no all-size proof of the thesis's missing identities
+  or of the equivalent periodized-sech metric.  O'Loughlin--Virtanen (LAA 697, 2024,
+  DOI `10.1016/j.laa.2023.12.008`) cites the thesis but develops different truncated-Toeplitz
+  closure classes.  This supports only the narrow phrase "apparently new closure of Li's
+  fixed-weight all-size gap"; it is not a comprehensive priority claim.
 - [ ] de Vries thesis (SV24 companion) — extremal-pair machinery details
 - [ ] MMOR 2024 (C_N < 1+√2) — equality-case analysis of C–P (relevant to P2 stability)
 - [ ] SV24 full §§1–5 (their Prop 2.4, 2.8, 3.5 used in §6; Berger–Stampfli generalization)

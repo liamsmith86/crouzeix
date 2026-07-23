@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-22): L116
+## Current general Crabb frontier (2026-07-22): L117
 
 L114 closes the full repeated-`C3` local neighbourhood for every fixed copy multiplicity.
 L115 then returns to arbitrary block size and intersects L65's equality kernel with the
@@ -10,19 +10,21 @@ part has dimension `2p−4` out of L66's total `2p−2`; only one complex soft n
 It is mode two, represented by `C_p*`, and its exact central family satisfies
 `W(C_p+cC_p*)={z+c conjugate(z):|z|<=1}`.
 
-L116 now proves the **exact lower bound**
-`t_*(phi(C_p+cC_p*))>=k(c^(2p-2))/c^(p-1)<4`: the degree-`p−1`
-Chebyshev--Blaschke product alternates on the elliptic Lobatto spectrum and DCT reversal
-turns it into `+-sqrt(k(c^(2p−2)))D J D^−1`.  Explicit rank-one Stein metrics attain
-this at `p=3,4` (the latter is Li's displayed §4.4 calculation in L116 normalization).
-Unrestricted and diagonal SDPs match it through `p=10`.
-The all-size upper bound is precisely the missing rank-one diagonal Stein identity
-`W−FWF=bb*`, equivalently an elliptic Szego-kernel/DCT quadrature formula.  Kenan Li's
-thesis proposes this metric but page 46 admits its load-bearing identities were proved
-only through size six and tested afterward; the targeted audit found no later closure.
-Attack the Chebyshev--Blaschke model/Clark weights, then build a tube using L65's coercive
-normal complement.  Do not compute all residual jets or begin a generic `5 x 5` slice
-grind.  See `proof/crabb_elliptic_axis.md` and
+L116's Chebyshev--Blaschke alternation proves the sharp lower bound.  L117 now proves the
+matching upper bound in **every size**:
+`t_*(phi(C_p+cC_p*))=k(c^(2p-2))/c^(p-1)<4`.
+The missing rank-one diagonal Stein metric comes from an elliptic Szegő Gramian.  Jacobi
+addition makes it a DCT-I Toeplitz-plus-Hankel kernel; Fourier aliasing gives
+`w_m=sum_n sech((m+2Ln)ell)/sum_n sech(2Ln ell)`, and Poisson summation yields the
+reflection products and sharp endpoints.  This closes the gap explicitly admitted on
+page 46 of Kenan Li's thesis.  The independent SDP regression passes through `p=10`, and
+the 260-decimal explicit checker audits all identities through `p=30`.
+
+The live task is now the L115 **transverse tube**, not the pure axis.  Combine L117's
+rank-one certificate with L65's coercive complement in a circular-range tubular chart.
+Because the axis gap is only `16c^(2p−2)+O(c^(4p−4))` near the disk, use a weighted
+disk/axis merger rather than a fixed-margin perturbation argument.  Do not compute all
+residual jets or begin a generic `5 x 5` slice grind.  See `proof/crabb_elliptic_axis.md` and
 `proof/crabb_disk_tangent_intersection.md`.
 
 ## Completed repeated-C3 frontier (2026-07-22): L114
