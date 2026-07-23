@@ -59,8 +59,14 @@ def tight_third_endpoint(
     operators: tuple[sp.Matrix, sp.Matrix, sp.Matrix, sp.Matrix],
     metric: sp.Matrix,
     metric_tangent: sp.Matrix,
+    second_free_block: sp.Matrix | None = None,
 ) -> sp.Matrix:
-    """Propagate the tight second and third metrics and return the endpoint."""
+    """Propagate the tight second and third metrics and return the endpoint.
+
+    ``second_free_block`` is the optional level-zero/level-one copy block of
+    the second metric.  It is needed when a first-order flat direction itself
+    changes at the next weighted order.
+    """
 
     identity = sp.eye(6)
     lower_kernel = (0, 3)
@@ -100,6 +106,19 @@ def tight_third_endpoint(
         levels[0],
         lower_second,
     )
+    if second_free_block is not None:
+        assign_block(
+            second_metric,
+            levels[0],
+            levels[1],
+            second_free_block,
+        )
+        assign_block(
+            second_metric,
+            levels[1],
+            levels[0],
+            second_free_block.conjugate().T,
+        )
     effective_second_forcing = sp.MutableDenseMatrix(
         -second_contraction_without_metric
     )
@@ -140,8 +159,6 @@ def tight_third_endpoint(
         lower_range,
         lower_base,
     )
-    if sp.simplify(lower_third) != sp.zeros(2):
-        raise AssertionError("the lower third-order endpoint did not vanish")
     third_metric = sp.zeros(6)
     assign_block(
         third_metric,

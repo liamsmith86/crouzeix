@@ -1,6 +1,22 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-22 (Epoch 6 — L97 joint terminal coercivity)
+**Last updated:** 2026-07-22 (Epoch 6 — L98 weighted terminal theorem)
+
+## NEWEST (2026-07-22): L98 closes the bounded weighted terminal chart
+- Start with a trace-zero nonnormal terminal block `D` at order `epsilon`, then let an arbitrary
+  tracezero tangent `D1`, scalar trace `z`, and common flat mode `w` enter at order `epsilon²`.
+  The complete order-two effective support remains scalar.
+- Exact order-three propagation, including the inverse-map Fréchet term and arbitrary first
+  conformal coefficient, collapses to
+  `16(mean Q3−mean(lambda_max(Q3))I)`.
+- If `z=0`, the mean vanishes and L94's uncancellable cross mode makes the endpoint strict.
+  If `z!=0`, `mean Q3` and its mode-two coefficient have commutator
+  `−15z²[D*,D]/4096`, so a nonnormal `D` cannot have a common top line.
+- Differentiating the canonical metric supplies the free second-metric block
+  `−3sqrt(2)D1/8`, and the same endpoint identity survives exactly.  Therefore every bounded
+  second-order flat recentering of a nonnormal two-copy terminal block is strictly descending.
+  Only the degeneration `a->0` onto L88's exact normal direct-sum stratum remains.
+  `proof/repeated_p3_flat_two_copy_weighted.md`.
 
 ## NEWEST (2026-07-22): L97 rules out trace/common cancellation
 - The trace-driven two-copy Pauli support is even under `q->−q`; the common-`w` support is odd.
@@ -824,13 +840,12 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-22)
-1. **Make L93 uniform and merge it back into L86.** Fixed flat directions are now classified
-   in every copy multiplicity, so do not grind larger Schur matrices.  Build a compact
-   quantitative version of the metric flag near its terminal one-/two-dimensional Clifford
-   blocks, then couple it to `w`, the negative Gram terms, common `v` curvature, and L82's
-   losing mean gap.  The target is a full repeated-`C3` neighbourhood theorem, not another
-   raywise statement.  In parallel, seek the L73 analytic-normal-form pattern in the `2p-2`
-   quotient modes for `p>=4`.
+1. **Finish normal-face uniformity and merge L93 back into L86.** L94--L98 now close every
+   bounded weighted chart at a nonnormal terminal block.  Treat `a->0`, where the block
+   approaches L88's exact normal direct-sum manifold; lift that transverse estimate through
+   the metric flag and couple it to the negative Gram terms, common `v` curvature, and L82's
+   losing mean gap.  Do not grind larger Schur matrices.  The target is a full repeated-`C3`
+   neighbourhood theorem.
 2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
    trace inequality can instead be derived from the block-Toeplitz positivity of the full
    operator-valued correction moments. Do not retry trace/positive-state scalarizations.
@@ -909,6 +924,7 @@ experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_
   repeated_p3_third_metric.py (shared L77/L92 third-metric propagation),
   repeated_p3_flat_two_copy_third.py (L92 trace-zero cubic theorem),
   repeated_p3_flat_two_copy_jensen.py (L95--L97 terminal Jensen coercivity),
+  repeated_p3_flat_two_copy_weighted.py (L98 weighted terminal theorem),
   repeated_p3_flat_metric_flag.py (L93 arbitrary-copy metric-flag derivative).
 Proof artifact: experiments/positive_tail_full_20260722.log (L59 clean 10-box run).
 Data: sym3_sweep_s51.jsonl (40 rec), sym4_sweep_s61.jsonl (20 rec, ρ column trustworthy),

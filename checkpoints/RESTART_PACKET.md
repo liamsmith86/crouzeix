@@ -309,7 +309,8 @@ P1 (K²+ρ ≤ Kq), L13 (Clark-type transition ⟨q(A)x₀,u₀⟩ = K∫q·conj
 **L15** (level-4 nodal/Pick closed form + odd stationarity law + frame identities),
 **L16** (even-phase midpoint law + q = 1/2, domain-general), ceiling K²+2ρ+G² ≤ 4,
 **L29** (generic rank-one/full elliptic-slice KKT face), **L93** (arbitrary-copy fixed flat
-core via the metric flag and two-dimensional Clifford terminal blocks), 2×2 closed form; D2 partial results
+core via the metric flag and two-dimensional Clifford terminal blocks), **L98** (every bounded
+weighted chart at a nonnormal two-copy terminal block), 2×2 closed form; D2 partial results
 (symmetric-node case, wedge family, convex trace bound).
 See LEMMA_LEDGER.md.
 
@@ -360,11 +361,11 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
 ## Next five concrete actions (refreshed 2026-07-22, Epoch 6)
-1. **Uniformize the L93 flat-copy theorem and merge it into L86.** The fixed-direction
-   classification at repeated `C3` is complete in arbitrary copy multiplicity; do not grind
-   larger Schur matrices. Quantify the metric flag near its one-/two-dimensional Clifford
-   terminal blocks, then couple it to `w`, the negative Gram/strong-mode terms, and the losing
-   first-support gap to obtain a full repeated-block neighbourhood theorem.
+1. **Finish normal-face uniformity and merge L93 into L86.** L94--L98 close every bounded
+   weighted chart at a nonnormal terminal block. Treat `a->0` onto L88's exact normal
+   direct-sum manifold, then lift the transverse estimate through the metric flag and couple
+   it to the negative Gram/strong-mode and losing-sector terms. Do not grind larger Schur
+   matrices.
 2. **Full CP-correction moments.** Do not retry scalar shifts or positive-state scalarizations.
    Test whether the L21 trace inequality follows from the block-Toeplitz positivity already
    supplied by the full operator-valued Crouzeix--Palencia correction.
@@ -385,8 +386,9 @@ proof/el4_schwarzian_theorem.md,
 proof/even_pick_globality.md, proof/slice_closed_form.md, and proof/D2_landscape.md; master program in
 proof/rho_positivity_program.md. Resume at restart-packet action 1: turn the completed repeated-
 Crabb fixed-direction/metric-flag theory (L61--L93) into a uniform repeated-`C3`
-neighbourhood theorem. Do not start a larger copy-space Schur grind: L93 reduces every terminal
-irreducible flat block to size at most two. The complete elliptic 4×4 slice is
+neighbourhood theorem. L98 already closes every bounded weighted chart off the normal terminal
+face; resume at `a->0` and the flag/strong-gap merger. Do not start a larger copy-space Schur
+grind: L93 reduces every terminal irreducible flat block to size at most two. The complete elliptic 4×4 slice is
 proved by L59; do not start a 5×5 slice grind or redo its SDP duality, modal norms, projective
 charts, or certificate. EL4 and even-sector midpoint globality are proved; definite parity is
 false. Respect
