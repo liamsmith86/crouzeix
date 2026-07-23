@@ -1,0 +1,8 @@
+{"catalan_coefficient": 1, "computed_leading_coefficient": 1, "index": 0, "next_coefficient": -2}
+{"catalan_coefficient": 1, "computed_leading_coefficient": 1, "index": 1, "next_coefficient": -5}
+{"catalan_coefficient": 2, "computed_leading_coefficient": 2, "index": 2, "next_coefficient": -17}
+{"catalan_coefficient": 5, "computed_leading_coefficient": 5, "index": 3, "next_coefficient": -61}
+{"catalan_coefficient": 14, "computed_leading_coefficient": 14, "index": 4, "next_coefficient": -224}
+{"catalan_coefficient": 42, "computed_leading_coefficient": 42, "index": 5, "next_coefficient": -834}
+{"catalan_coefficient": 132, "computed_leading_coefficient": 132, "index": 6, "next_coefficient": -3135}
+{"catalan_coefficient": 429, "computed_leading_coefficient": 429, "index": 7, "next_coefficient": -11869}

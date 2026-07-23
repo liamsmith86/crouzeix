@@ -1,6 +1,33 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-23 (Epoch 6 — L124 stratified disk normal form)
+**Last updated:** 2026-07-23 (Epoch 6 — L125 inverse-ellipse Newton edge)
+
+## NEWEST (2026-07-23): L125 proves the scalar grade-selection rule in A84
+- If the normalized disk-to-ellipse map is
+  `Psi_c(z)=sum_n b_n(c)z^(2n+1)`, then
+  ```
+  b_n(c)=c^n(Catalan_n+O(c²)).
+  ```
+  In particular its lowest bivariate edge is
+  `z+cz³+2c²z⁵+5c³z⁷+14c⁴z⁹+...`.
+- The proof differentiates the exact elliptic formula and uses
+  ```
+  (Psi')²(k-z²)(1-kz²)=alpha²(4c-Psi²).
+  ```
+  Theta identities make `k/c`, `alpha`, and the linear coefficient
+  analytic in `c²`.  The Newton blow-up `Psi=zH(c,cz²)` is therefore a
+  regular even-`c` recursion.
+- On its lowest face the recursion becomes
+  `(H+2yH')²(1-4y)=H²`; its normalized solution is the Catalan
+  generating function `2/(1+sqrt(1-4y))`.
+- This rigorously proves that an offset-`k` equality coefficient cannot
+  enter through the scalar Riemann map below elliptic grade `c^k`.
+  It does **not** yet prove A84's candidate `-64` optimized Stein
+  coefficient.  Resume by linearizing the companion-coordinate
+  operator and solving the defect-vector recurrence at this first
+  permitted grade.
+  `proof/ellipse_inverse_newton_edge.md`;
+  `experiments/ellipse_inverse_newton_edge.py`.
 
 ## NEWEST (2026-07-23): L124 resolves the singular equality cone exactly
 - Put `Cz=J conjugate(z)` on the Toeplitz coefficient space and

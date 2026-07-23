@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-22): L117
+## Current general Crabb frontier (2026-07-23): L125 / A84
 
 L114 closes the full repeated-`C3` local neighbourhood for every fixed copy multiplicity.
 L115 then returns to arbitrary block size and intersects L65's equality kernel with the
@@ -113,10 +113,15 @@ The current unproved face is now precise.  On an exact fixed-phase equality curv
 Gamma(a,c) = -16c^(2L) - 64a² sum_k |u_k|²c^(2k) + higher Newton terms.
 ```
 The weighted sum is `16||g_a−xi^L||²` on the circle of radius `c`, where `g_a` is
-L123's characteristic factor.  This is evidence, not L125.  Prove the face by expanding
-the inverse ellipse map and the optimized Stein recurrence in coefficient coordinates;
-the expected mechanism is a unique length-`k` endpoint path for `u_k`.
-See `proof/crabb_palindromic_elliptic_face.md`.
+L123's characteristic factor.  The coefficient and sign remain numerical evidence.
+L125 now proves the scalar part of the proposed mechanism:
+if `Psi_c(z)=sum b_n(c)z^(2n+1)` is the disk-to-ellipse map, then
+`b_n(c)=c^n(Catalan_n+O(c²))`.  Thus no scalar functional-calculus path from offset `k`
+can arrive below elliptic grade `c^k`.  Resume by linearizing the companion-coordinate
+operator and optimizing the rank-one defect recurrence at that first grade; only then
+attempt the Newton remainder merger.
+See `proof/crabb_palindromic_elliptic_face.md` and
+`proof/ellipse_inverse_newton_edge.md`.
 
 ## Completed repeated-C3 frontier (2026-07-22): L114
 

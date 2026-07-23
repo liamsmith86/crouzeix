@@ -150,9 +150,11 @@ condition numbers in the `K(a)` inner product.
 
 The required calculation should be organized as follows.
 
-1. Expand the inverse ellipse map, then solve
-   `Psi_c(T)=S(a,c)` coefficient by coefficient.  This avoids
-   square roots and elliptic eigenvectors.
+1. Use L125's exact inverse-map filtration
+   `Psi_c(z)=sum_k c^k(C_k+O(c²))z^(2k+1)`, then solve
+   `Psi_c(T)=S(a,c)` coefficient by coefficient.  This avoids square
+   roots and elliptic eigenvectors and proves that no scalar path can
+   arrive below its circle grade.
 2. Expand the rank-one Stein recurrence together with its unique
    defect-vector minimizer from L118.
 3. Use the companion form from L123.  A coefficient `u_k` cannot
