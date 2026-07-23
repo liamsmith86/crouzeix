@@ -1,6 +1,24 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-22 (Epoch 6 — L79 certificate-equality correction)
+**Last updated:** 2026-07-22 (Epoch 6 — L80 strict multi-copy star theorem)
+
+## NEWEST (2026-07-22): L80 closes every nonzero pure star ray
+- The nonlinear rank-two probe did more than reject fourth order: it identified a missing free
+  first-metric tangent.  On the active span of independent `a0,a2`, use
+  `U_tau=[[0,(-3sqrt(2)/8+tau)a0^T],[(1/sqrt(2)+tau)conj(a2),0]]`.
+- Exact full metric propagation gives
+  `E(0)=diag(0,-5 adj(H)/72)` and
+  `E'(0)=(5sqrt(2)/3)diag(-trace K,K)`, where
+  `H=9 conj(a0)a0^T+16 conj(a2)a2^T` and
+  `K=3 conj(a0)a0^T+4 conj(a2)a2^T`.  Rank two makes the orthogonal block at zero strictly
+  negative, while the selected derivative is strictly negative.  Hence `E(tau)<0` for all
+  sufficiently small positive `tau`.
+- Combined star classification: `a1!=0` is strict at second order by L78/L79; `a1=0` with
+  rank-two `(a0,a2)` is strict at second order by L80; rank one is copy-unitarily L77 and strict
+  at cubic order.  Thus every nonzero pure star ray at arbitrary multiplicity descends.  This is
+  still not a repeated-block neighbourhood because diagonal and internal `y^perp` blocks and
+  weighted mixtures remain.  `proof/repeated_p3_star_second_sign.md` §6;
+  `experiments/repeated_p3_star_second_sign.py`.
 
 ## NEWEST (2026-07-22): L79 classifies only certificate equality; fourth-order route rejected
 - The L78 effective support has block form `diag(s(q),R(q))` and the exact trace reversal
@@ -13,9 +31,8 @@
 - Genuine rank-two `(a0,a2)` data require at least two orthogonal copies and have only the
   selected common top support branch.  However, this classifies equality of the **particular
   L78 metric**, not the optimized second-order SDP.  A nonlinear probe on orthogonal unit data
-  gives `(t_*-4)/epsilon² -> approximately -.566`, decisively rejecting the inference that the
-  first live term is fourth order.  A better homogeneous metric tangent must be optimized now.
-  `proof/repeated_p3_star_second_sign.md` §5.
+  gave `(t_*-4)/epsilon² -> approximately -.566`, rejecting the fourth-order inference; L80 now
+  proves the missing strict second-order tangent exactly.  `proof/repeated_p3_star_second_sign.md`.
 
 ## NEWEST (2026-07-22): L78 closes arbitrary star coupling at second order
 - For `m` repeated `C3` copies, collect the three L74 generator coefficients across the
@@ -584,12 +601,11 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-22)
-1. **Optimize the full L79 rank-two second-order metric.** Parameterize the homogeneous
-   first-metric tangent beyond L78's pairwise choice, solve its finite copy-space SDP, and prove
-   the observed strict negative coefficient.  Do not compute fourth order unless the optimized
-   coefficient still has a kernel.  Then include diagonal single-copy perturbations, internal
-   `y^perp` blocks, and the strict common-maximizer order inequality.  In parallel, seek the L73
-   analytic-normal-form pattern in the `2p-2` quotient modes for `p>=4`.
+1. **Couple the completed star theorem to diagonal/internal repeated-face blocks.** Add diagonal
+   single-copy perturbations, blocks internal to `y^perp`, and the common-maximizer order
+   inequality.  Then analyze weighted mixtures approaching the L77 rank-one cubic face while
+   L80's rank-two second-order gap degenerates.  In parallel, seek the L73 analytic-normal-form
+   pattern in the `2p-2` quotient modes for `p>=4`.
 2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
    trace inequality can instead be derived from the block-Toeplitz positivity of the full
    operator-valued correction moments. Do not retry trace/positive-state scalarizations.

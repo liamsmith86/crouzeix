@@ -196,77 +196,97 @@ def main() -> None:
     contraction_range = lower_kernel
     lower_base = metric - identity
     upper_base = 4 * identity - metric
-    lower_penalty = sp.simplify(
-        metric_tangent.extract(lower_kernel, lower_range)
-        * lower_base.extract(lower_range, lower_range).inv()
-        * metric_tangent.extract(lower_range, lower_kernel)
-    )
-    upper_penalty = sp.simplify(
-        metric_tangent.extract(upper_kernel, upper_range)
-        * upper_base.extract(upper_range, upper_range).inv()
-        * metric_tangent.extract(upper_range, upper_kernel)
-    )
-    first_contraction = sp.simplify(
-        metric_tangent
-        - formal_adjoint(base) * metric_tangent * base
-        - formal_adjoint(perturbation) * metric * base
-        - formal_adjoint(base) * metric * perturbation
-    )
-    contraction_penalty = sp.simplify(
-        first_contraction.extract(contraction_kernel, contraction_range)
-        * first_contraction.extract(contraction_range, contraction_kernel)
-    )
-    second_operator = (
-        -conformal_mean * base - conformal_first * base**2
-    )
-    forcing = sp.simplify(
-        formal_adjoint(second_operator) * metric * base
-        + formal_adjoint(base) * metric * second_operator
-        + formal_adjoint(perturbation) * metric * perturbation
-        + formal_adjoint(perturbation) * metric_tangent * base
-        + formal_adjoint(base) * metric_tangent * perturbation
-    )
-    effective_forcing = sp.MutableDenseMatrix(forcing)
-    for row_index, row in enumerate(contraction_kernel):
-        for column_index, column in enumerate(contraction_kernel):
-            effective_forcing[row, column] += contraction_penalty[
-                row_index,
-                column_index,
-            ]
-
-    second_metric = sp.zeros(9)
     levels = tuple(
         tuple(3 * copy + level for copy in range(3))
         for level in range(3)
     )
-    assign_block(
-        second_metric,
-        levels[0],
-        levels[0],
-        lower_penalty,
-    )
-    for row_level in range(1, 3):
-        for column_level in range(1, 3):
-            block = sp.simplify(
-                2
-                * second_metric.extract(
-                    levels[row_level - 1],
-                    levels[column_level - 1],
+
+    def build_endpoint(
+        tangent: sp.Matrix,
+        direction: sp.Matrix,
+        second_operator: sp.Matrix,
+    ) -> sp.Matrix:
+        """Construct the tight recursive second-order upper endpoint."""
+
+        lower_penalty = sp.simplify(
+            tangent.extract(lower_kernel, lower_range)
+            * lower_base.extract(lower_range, lower_range).inv()
+            * tangent.extract(lower_range, lower_kernel)
+        )
+        upper_penalty = sp.simplify(
+            tangent.extract(upper_kernel, upper_range)
+            * upper_base.extract(upper_range, upper_range).inv()
+            * tangent.extract(upper_range, upper_kernel)
+        )
+        first_contraction = sp.simplify(
+            tangent
+            - formal_adjoint(base) * tangent * base
+            - formal_adjoint(direction) * metric * base
+            - formal_adjoint(base) * metric * direction
+        )
+        contraction_penalty = sp.simplify(
+            first_contraction.extract(
+                contraction_kernel,
+                contraction_range,
+            )
+            * first_contraction.extract(
+                contraction_range,
+                contraction_kernel,
+            )
+        )
+        forcing = sp.simplify(
+            formal_adjoint(second_operator) * metric * base
+            + formal_adjoint(base) * metric * second_operator
+            + formal_adjoint(direction) * metric * direction
+            + formal_adjoint(direction) * tangent * base
+            + formal_adjoint(base) * tangent * direction
+        )
+        effective_forcing = sp.MutableDenseMatrix(forcing)
+        for row_index, row in enumerate(contraction_kernel):
+            for column_index, column in enumerate(contraction_kernel):
+                effective_forcing[row, column] += contraction_penalty[
+                    row_index,
+                    column_index,
+                ]
+
+        second_metric = sp.zeros(9)
+        assign_block(
+            second_metric,
+            levels[0],
+            levels[0],
+            lower_penalty,
+        )
+        for row_level in range(1, 3):
+            for column_level in range(1, 3):
+                block = sp.simplify(
+                    2
+                    * second_metric.extract(
+                        levels[row_level - 1],
+                        levels[column_level - 1],
+                    )
+                    + effective_forcing.extract(
+                        levels[row_level],
+                        levels[column_level],
+                    )
                 )
-                + effective_forcing.extract(
+                assign_block(
+                    second_metric,
                     levels[row_level],
                     levels[column_level],
+                    block,
                 )
-            )
-            assign_block(
-                second_metric,
-                levels[row_level],
-                levels[column_level],
-                block,
-            )
-    endpoint = sp.simplify(
-        second_metric.extract(upper_kernel, upper_kernel)
-        + upper_penalty
+        return sp.simplify(
+            second_metric.extract(upper_kernel, upper_kernel)
+            + upper_penalty
+        )
+
+    second_operator = (
+        -conformal_mean * base - conformal_first * base**2
+    )
+    endpoint = build_endpoint(
+        metric_tangent,
+        perturbation,
+        second_operator,
     )
 
     first_type_norm = (
@@ -295,6 +315,126 @@ def main() -> None:
     if sp.simplify(endpoint - expected_endpoint) != sp.zeros(3):
         raise AssertionError("the arbitrary-star endpoint identity failed")
 
+    # On the flat alpha_1=0 face, improve the pairwise tangent by a real
+    # parameter tau.  Its selected endpoint moves strictly negative, while
+    # the orthogonal endpoint starts negative definite exactly at rank two.
+    tau = sp.symbols("tau", real=True)
+    flat_direction = perturbation.subs(flat_substitution)
+    flat_forcing = sp.simplify(
+        formal_adjoint(flat_direction) * metric * base
+        + formal_adjoint(base) * metric * flat_direction
+    )
+    free_block = sp.zeros(3)
+    free_block[0, 1] = (-3 * root_two / 8 + tau) * alpha[0]
+    free_block[0, 2] = (-3 * root_two / 8 + tau) * beta[0]
+    free_block[1, 0] = (1 / root_two + tau) * alpha_conjugate[2]
+    free_block[2, 0] = (1 / root_two + tau) * beta_conjugate[2]
+    improved_tangent = sp.zeros(9)
+    assign_block(
+        improved_tangent,
+        levels[0],
+        levels[1],
+        free_block,
+    )
+    assign_block(
+        improved_tangent,
+        levels[1],
+        levels[0],
+        formal_adjoint(free_block),
+    )
+    assign_block(
+        improved_tangent,
+        levels[1],
+        levels[1],
+        flat_forcing.extract(levels[1], levels[1]),
+    )
+    next_block = (
+        2 * free_block
+        + flat_forcing.extract(levels[1], levels[2])
+    )
+    assign_block(
+        improved_tangent,
+        levels[1],
+        levels[2],
+        next_block,
+    )
+    assign_block(
+        improved_tangent,
+        levels[2],
+        levels[1],
+        formal_adjoint(next_block),
+    )
+    flat_mean = (
+        sp.Rational(5, 128)
+        * (
+            alpha[0] * alpha_conjugate[0]
+            + beta[0] * beta_conjugate[0]
+        )
+        + sp.Rational(5, 72)
+        * (
+            alpha[2] * alpha_conjugate[2]
+            + beta[2] * beta_conjugate[2]
+        )
+    )
+    improved_endpoint = build_endpoint(
+        improved_tangent,
+        flat_direction,
+        -flat_mean * base,
+    )
+    endpoint_at_zero = sp.simplify(improved_endpoint.subs(tau, 0))
+    endpoint_derivative = sp.simplify(
+        sp.diff(improved_endpoint, tau).subs(tau, 0)
+    )
+
+    generator_zero_gram = sp.Matrix(
+        [
+            [
+                alpha_conjugate[0] * alpha[0],
+                alpha_conjugate[0] * beta[0],
+            ],
+            [
+                beta_conjugate[0] * alpha[0],
+                beta_conjugate[0] * beta[0],
+            ],
+        ]
+    )
+    generator_two_gram = sp.Matrix(
+        [
+            [
+                alpha_conjugate[2] * alpha[2],
+                alpha_conjugate[2] * beta[2],
+            ],
+            [
+                beta_conjugate[2] * alpha[2],
+                beta_conjugate[2] * beta[2],
+            ],
+        ]
+    )
+    heavy_gram = 9 * generator_zero_gram + 16 * generator_two_gram
+    light_gram = 3 * generator_zero_gram + 4 * generator_two_gram
+    heavy_adjugate = sp.Matrix(
+        [
+            [heavy_gram[1, 1], -heavy_gram[0, 1]],
+            [-heavy_gram[1, 0], heavy_gram[0, 0]],
+        ]
+    )
+    expected_zero = sp.diag(0, 1, 1)
+    expected_zero[1:3, 1:3] = -sp.Rational(5, 72) * heavy_adjugate
+    expected_derivative = sp.diag(
+        -5 * root_two * sp.trace(light_gram) / 3,
+        1,
+        1,
+    )
+    expected_derivative[1:3, 1:3] = (
+        5 * root_two * light_gram / 3
+    )
+    if sp.simplify(endpoint_at_zero - expected_zero) != sp.zeros(3):
+        raise AssertionError("the rank-two base endpoint formula failed")
+    if sp.simplify(
+        endpoint_derivative - expected_derivative
+    ) != sp.zeros(3):
+        raise AssertionError("the strict rank-two endpoint derivative failed")
+
     print("PASS repeated p=3 arbitrary-star second-order sign")
     print("mean support = block_diag(mu, weighted coefficient Gram)")
     print("endpoint = 16 * (mean support - mean top support * I)")
@@ -302,6 +442,7 @@ def main() -> None:
     print("the possibly nonzero first conformal mode cancels from the endpoint")
     print("both displayed endpoint terms are negative semidefinite")
     print("endpoint equality occurs exactly when the alpha_1 vector vanishes")
+    print("rank-two flat data admit a strictly negative perturbed endpoint")
 
 
 if __name__ == "__main__":

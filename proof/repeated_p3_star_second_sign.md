@@ -204,10 +204,64 @@ vanishes.  The metric tangent (7) is only one feasible choice.  A nonlinear
 Riemann-map/SDP check on the canonical orthogonal data
 `a_0=(1,0), a_2=(0,1)` gives quotients `(t_*-4)/epsilon^2` tending to about
 `-.566`, not zero.  Thus additional homogeneous first-metric tangents improve
-(8), and the full multi-copy second-order metric optimization remains active.
-The earlier inference that rank-two data first move at fourth order was false.
+(8).  The earlier inference that rank-two data first move at fourth order was
+false.
 
-## 6. Scope and regeneration
+## 6. Strict rank-two improvement
+
+The missed tangent can be chosen explicitly.  By a copy-unitary, restrict to
+the two-dimensional active subspace
+`S=span{a_0,a_2}` and write the free level-zero/level-one metric block as
+
+\[
+ U_\tau=\begin{bmatrix}
+ 0&(-3\sqrt2/8+\tau)a_0^T\\
+ (1/\sqrt2+\tau)\bar a_2&0_{2\times2}
+ \end{bmatrix}.                                      \tag{17}
+\]
+
+The remaining first metric blocks are forced by the active Stein recurrence;
+`U_0` is precisely the L78 pairwise choice.  Put
+
+\[
+ H=9\bar a_0a_0^T+16\bar a_2a_2^T,
+ \qquad K=3\bar a_0a_0^T+4\bar a_2a_2^T.             \tag{18}
+\]
+
+After the complete lower/Stein/upper second-metric propagation, the active
+copy-space endpoint has exact value and derivative
+
+\[
+ {\cal E}(0)=
+ \begin{bmatrix}0&0\\0&-5\operatorname{adj}(H)/72\end{bmatrix},
+ \qquad
+ {\cal E}'(0)=\frac{5\sqrt2}{3}
+ \begin{bmatrix}-\operatorname{tr}K&0\\0&K\end{bmatrix}. \tag{19}
+\]
+
+If `a_0,a_2` are independent, then `H` is positive definite, so its adjugate
+is positive definite.  Thus the orthogonal block of `cal E(0)` is strictly
+negative, while the derivative of the selected scalar is
+`-5sqrt(2) tr(K)/3<0`.  All off-diagonal selected/orthogonal blocks vanish.
+By continuity,
+
+\[
+ {\cal E}(\tau)\prec0
+ \quad\text{for every sufficiently small }\tau>0.    \tag{20}
+\]
+
+Inactive copy directions already have endpoint `-16k_0I` and stay strict.
+The strict-lift argument therefore gives a negative upper second-order Dini
+coefficient on every rank-two flat star direction.
+
+Combining (15)--(20) with L77 yields the complete fixed-ray star result:
+
+- `a_1 != 0`: strict descent at second order from (8);
+- `a_1=0` and `rank{a_0,a_2}=2`: strict descent at second order from (20);
+- `a_1=0` and `rank{a_0,a_2}=1`: strict cubic descent from L77;
+- all three vectors zero: the perturbation is zero.
+
+## 7. Scope and regeneration
 
 The theorem covers arbitrary multiplicity but only the pure star quotient:
 there are no diagonal perturbation blocks and no blocks internal to
@@ -224,6 +278,8 @@ The checker uses two independent symbolic orthogonal copies.  It reconstructs
 the complete support mean (4)--(5), keeps an arbitrary complex first conformal
 mode in (6), builds the full second metric, and proves (8) entry by entry.
 It also proves (12) and the flat trace identity (13) exactly.
+For (17)--(20), it rebuilds the complete metric with symbolic `tau` and proves
+both matrices in (19) entry by entry.
 Every entry for general `r` is a sum of diagonal terms or a polarization of
 one pair of coefficient vectors, so the two-symbolic-copy identity proves the
 dimension-independent formula.
