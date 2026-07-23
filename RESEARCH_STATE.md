@@ -1,6 +1,17 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-22 (Epoch 6 — L90 common-mode copy-matrix formula)
+**Last updated:** 2026-07-22 (Epoch 6 — L91 common-mode rigidity)
+
+## NEWEST (2026-07-22): L91 eliminates irreducible equality when `w!=0`
+- The unique non-scalar Fourier modes `+3,-3` in L90 are nonzero multiples of `Z,Z*`.
+  Any vector that is an eigenvector of the support family for every angle must therefore reduce
+  `Z`.
+- A higher-dimensional unitarily irreducible nonnormal block with `w!=0` has strict
+  matrix-Jensen descent.  Minimal reducing blocks that can carry equality are one-dimensional,
+  hence are precisely nearby single `C3` blocks controlled by L73 and domain monotonicity.
+- The common flat mode creates no new irreducible equality mechanism.  The remaining issue is
+  the weighted transition `w->0`, centered on the `w=0` nonnormal copy matrix treated at three
+  copies by L89.  `proof/repeated_p3_common_mode_rigidity.md`.
 
 ## NEWEST (2026-07-22): L90 inserts the common flat mode exactly
 - With common `W(w)=w(E10+E21)`, the full effective support is
