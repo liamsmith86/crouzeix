@@ -68,22 +68,16 @@ def loop_metric(value: sp.Expr) -> sp.Matrix:
 def weighted_problem(
     diagonal: sp.Expr,
     operator_edge: sp.Expr,
-    domain_edge: sp.Expr,
+    second_mean: sp.Expr,
+    second_cubic: sp.Expr,
     third_mean: sp.Expr,
+    conformal_first: sp.Expr,
 ) -> tuple[
     tuple[sp.Matrix, sp.Matrix, sp.Matrix, sp.Matrix],
     sp.Matrix,
     sp.Matrix,
-    sp.Matrix,
-    sp.Matrix,
 ]:
-    """Build the weighted-center operator, metric, and inherited slack.
-
-    ``operator_edge`` is the edge present in the evaluated matrix.  The
-    possibly different ``domain_edge`` records the edge that enlarged the
-    frozen Riemann-map domain.  Setting the former to zero models ``f(N)``;
-    setting both equal models ``f(A)``.
-    """
+    """Build a weighted-center operator and its canonical first metric."""
 
     root_two = sp.sqrt(2)
     crabb = sp.Matrix(
@@ -99,8 +93,6 @@ def weighted_problem(
         [[0, 0, 0], [1, 0, 0], [0, 1, 0]]
     )
     physical_second = sp.diag(common_block, common_block)
-    second_mean = 5 * (2 * diagonal**2 + domain_edge**2) / 128
-    second_cubic = 9 * diagonal**2 / 64
     operators = (
         base,
         first_operator,
@@ -108,7 +100,8 @@ def weighted_problem(
         -second_mean * first_operator
         - second_cubic
         * polynomial_derivative(base, first_operator, 3)
-        - third_mean * base,
+        - third_mean * base
+        - conformal_first * base**2,
     )
 
     edge_metric = sp.Matrix(
@@ -124,35 +117,38 @@ def weighted_problem(
     metric_tangent[0:3, 3:6] = edge_metric
     metric_tangent[3:6, 0:3] = edge_metric.T
 
-    transverse_second_mean = 5 * domain_edge**2 / 128
+    return operators, metric, metric_tangent
+
+
+def inherited_slack(
+    diagonal: sp.Expr,
+    second_mean_increment: sp.Expr,
+    third_mean_increment: sp.Expr,
+) -> tuple[sp.Matrix, sp.Matrix]:
+    """Return the frozen-normal slack created by scalar map increments."""
+
     second_slack = sp.diag(
-        4 * transverse_second_mean,
-        8 * transverse_second_mean,
-        4 * transverse_second_mean,
-        8 * transverse_second_mean,
+        4 * second_mean_increment,
+        8 * second_mean_increment,
+        4 * second_mean_increment,
+        8 * second_mean_increment,
     )
     mixed_slack = (
-        15
+        3
         * sp.sqrt(2)
-        * domain_edge**2
+        * second_mean_increment
         * diagonal
-        / 256
+        / 2
     )
     third_slack = sp.Matrix(
         [
-            [4 * third_mean, mixed_slack, 0, 0],
-            [mixed_slack, 8 * third_mean, 0, 0],
-            [0, 0, 4 * third_mean, -mixed_slack],
-            [0, 0, -mixed_slack, 8 * third_mean],
+            [4 * third_mean_increment, mixed_slack, 0, 0],
+            [mixed_slack, 8 * third_mean_increment, 0, 0],
+            [0, 0, 4 * third_mean_increment, -mixed_slack],
+            [0, 0, -mixed_slack, 8 * third_mean_increment],
         ]
     )
-    return (
-        operators,
-        metric,
-        metric_tangent,
-        second_slack,
-        third_slack,
-    )
+    return second_slack, third_slack
 
 
 def upper_endpoint_coefficients(
@@ -194,26 +190,18 @@ def upper_endpoint_coefficients(
 
 
 def weighted_endpoints(
-    diagonal: sp.Expr,
-    operator_edge: sp.Expr,
-    domain_edge: sp.Expr,
-    third_mean: sp.Expr,
+    problem: tuple[
+        tuple[sp.Matrix, sp.Matrix, sp.Matrix, sp.Matrix],
+        sp.Matrix,
+        sp.Matrix,
+    ],
+    second_slack: sp.Matrix,
+    third_slack: sp.Matrix,
     slack_fraction: sp.Expr,
 ) -> tuple[sp.Matrix, sp.Matrix]:
     """Return the quadratic and cubic weighted-center upper endpoints."""
 
-    (
-        operators,
-        metric,
-        metric_tangent,
-        second_slack,
-        third_slack,
-    ) = weighted_problem(
-        diagonal,
-        operator_edge,
-        domain_edge,
-        third_mean,
-    )
+    operators, metric, metric_tangent = problem
     second_metric, third_metric, *_ = tight_metrics_through_third(
         operators,
         metric,
@@ -230,42 +218,94 @@ def weighted_endpoints(
 
 
 def main() -> None:
-    diagonal, edge, third_mean, slack_fraction = sp.symbols(
-        "diagonal edge third_mean slack_fraction",
-        real=True,
-    )
-    actual_second, actual_third = weighted_endpoints(
+    (
         diagonal,
         edge,
+        normal_second_mean,
+        second_mean_increment,
+        second_cubic,
+        normal_third_mean,
+        third_mean_increment,
+        conformal_first,
+        slack_fraction,
+    ) = sp.symbols(
+        "diagonal edge normal_second_mean second_mean_increment "
+        "second_cubic normal_third_mean third_mean_increment "
+        "conformal_first slack_fraction",
+        real=True,
+    )
+    baseline_problem = weighted_problem(
+        diagonal,
+        0,
+        normal_second_mean,
+        second_cubic,
+        normal_third_mean,
+        conformal_first,
+    )
+    frozen_problem = weighted_problem(
+        diagonal,
+        0,
+        normal_second_mean + second_mean_increment,
+        second_cubic,
+        normal_third_mean + third_mean_increment,
+        conformal_first,
+    )
+    actual_problem = weighted_problem(
+        diagonal,
         edge,
-        third_mean,
+        normal_second_mean + second_mean_increment,
+        second_cubic,
+        normal_third_mean + third_mean_increment,
+        conformal_first,
+    )
+    second_slack, third_slack = inherited_slack(
+        diagonal,
+        second_mean_increment,
+        third_mean_increment,
+    )
+    actual_second, actual_third = weighted_endpoints(
+        actual_problem,
+        second_slack,
+        third_slack,
         slack_fraction,
     )
     frozen_second, frozen_third = weighted_endpoints(
-        diagonal,
-        0,
-        edge,
-        third_mean,
+        frozen_problem,
+        second_slack,
+        third_slack,
         slack_fraction,
     )
     expected_third = (
         -16
-        * (1 - slack_fraction)
-        * third_mean
+        * (
+            normal_third_mean
+            + (1 - slack_fraction) * third_mean_increment
+        )
         * sp.eye(2)
     )
+    expected_frozen_second = (
+        5 * diagonal**2
+        + 64
+        * (
+            (slack_fraction - 1) * second_mean_increment
+            - normal_second_mean
+        )
+    ) * sp.eye(2) / 4
+    expected_actual_second = (
+        5 * edge**2
+        + 10 * diagonal**2
+        + 128
+        * (
+            (slack_fraction - 1) * second_mean_increment
+            - normal_second_mean
+        )
+    ) * sp.eye(2) / 8
     assert_zero_matrix(
-        actual_second
-        - 5 * edge**2 * slack_fraction * sp.eye(2) / 8,
+        actual_second - expected_actual_second,
         "the actual quadratic Stein-slack transfer changed",
     )
     assert_zero_matrix(
-        frozen_second
-        + 5
-        * edge**2
-        * (1 - slack_fraction)
-        * sp.eye(2)
-        / 8,
+        frozen_second - expected_frozen_second,
         "the frozen-normal quadratic Stein-slack transfer changed",
     )
     assert_zero_matrix(
@@ -277,24 +317,13 @@ def main() -> None:
         "the frozen-normal Stein-slack transfer changed",
     )
 
-    baseline_problem = weighted_problem(diagonal, 0, 0, 0)
-    frozen_problem = weighted_problem(
-        diagonal,
-        0,
-        edge,
-        third_mean,
-    )
     baseline_metrics = tight_metrics_through_third(
-        baseline_problem[0],
-        baseline_problem[1],
-        baseline_problem[2],
+        *baseline_problem,
     )
     frozen_metrics = tight_metrics_through_third(
-        frozen_problem[0],
-        frozen_problem[1],
-        frozen_problem[2],
-        second_stein_slack=frozen_problem[3],
-        third_stein_slack=frozen_problem[4],
+        *frozen_problem,
+        second_stein_slack=second_slack,
+        third_stein_slack=third_slack,
     )
     assert_zero_matrix(
         frozen_metrics[0] - baseline_metrics[0],
@@ -305,7 +334,35 @@ def main() -> None:
         "the inherited third metric did not stay fixed",
     )
 
+    canonical_substitution = {
+        normal_second_mean: 5 * diagonal**2 / 64,
+        second_mean_increment: 5 * edge**2 / 128,
+        normal_third_mean: 0,
+        third_mean_increment: sp.Symbol("third_mean", real=True),
+    }
+    canonical_actual_second = sp.simplify(
+        actual_second.subs(canonical_substitution)
+    )
+    canonical_frozen_second = sp.simplify(
+        frozen_second.subs(canonical_substitution)
+    )
+    assert_zero_matrix(
+        canonical_actual_second
+        - 5 * edge**2 * slack_fraction * sp.eye(2) / 8,
+        "the canonical actual quadratic endpoint changed",
+    )
+    assert_zero_matrix(
+        canonical_frozen_second
+        + 5
+        * edge**2
+        * (1 - slack_fraction)
+        * sp.eye(2)
+        / 8,
+        "the canonical frozen quadratic endpoint changed",
+    )
+
     print("PASS repeated p=3 weighted terminal Stein-slack transfer")
+    print("arbitrary normal/cubic/conformal coefficients cancel as asserted")
     print("E2(A)=5*a^2*theta/8; E2(N)=-5*a^2*(1-theta)/8")
     print("E3=-16*(1-theta)*m3*I for slack fraction theta")
     print("zero slack cancels the normal/transverse quadratic endpoints")

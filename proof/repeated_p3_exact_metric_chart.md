@@ -285,9 +285,13 @@ normal metric has coefficients
 The ordering in (16) is the two active physical levels of copy one followed
 by those of copy two.  Notice that the coefficient `H_3` need not itself be
 positive; it is a coefficient of the positive analytic slack
-`H(epsilon)`.  Exact propagation shows that (16) makes the second and third
-metric coefficients identical to those of the unperturbed normal
-certificate.
+`H(epsilon)`.  More generally, if `Delta m` and `m_3` are left independent,
+then the mixed entry is `(3sqrt(2)/2)d Delta m`.  Exact propagation shows
+that these slack coefficients make the second and third metric coefficients
+identical to those of the unperturbed normal certificate.  This identity is
+independent of the normal scalar coefficients in `F_2,F_3`, of the cubic
+coefficient in `F_2`, and of an arbitrary first conformal coefficient:
+all of those common terms cancel.
 
 Retain a fraction `theta` of both coefficients in (16).  For the frozen
 normal operator `T_N=f(N)` and the actual operator `T_A=f(A)`, respectively,
@@ -334,7 +338,8 @@ remainder, after subtracting the frozen normal endpoint, is uniformly
 `o(delta(r^2+delta^2))`.  L106 supplies the transverse factor, while the
 analytic chart supplies the Taylor majorant; the remaining work is to
 organize those two facts without assuming differentiability of the varying
-Riemann map.
+Riemann map.  L110 carries out that organization using the Riemann map of
+the whole normal numerical range and proves the two-copy terminal tube.
 
 ## 9. Regeneration
 

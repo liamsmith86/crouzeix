@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current repeated-C3 frontier (2026-07-22): L109
+## Current repeated-C3 frontier (2026-07-22): L110
 
 L73 proves a complete-2 neighbourhood of one `C3`; L74--L93 reduce arbitrary repeated
 copies to weighted terminal blocks, with all fixed directions closed.  L94--L100 give
@@ -26,10 +26,14 @@ with a retained slack fraction `theta`,
 `E2(N)=−5(1−theta)a²I/8`, `E2(A)=5theta a²I/8`, and
 `E3(N)=E3(A)=−16(1−theta)m3I`.  Thus zero slack exactly cancels the normal/transverse
 quadratics and preserves L100's negative
-`−delta(delta²+2r²)I/4` cubic.  Remaining: combine L105's analytic majorant with L106's
-explicit transverse factor to prove the exact two-regime
-`o(delta(r²+delta²))` endpoint bound, then lift through L93/L86.  Do not start a larger
-Schur grind.  See `RESEARCH_STATE.md`, `proof/repeated_p3_exact_metric_chart.md`, and
+`−delta(delta²+2r²)I/4` cubic.  L110 closes the analytic remainder: the whole-normal support
+gap is `O(delta(r+delta))`, so `h=f_A∘f_N^−1` and its induced Stein slack have weighted
+degree two.  In the difference between the actual zero-slack endpoint and the inherited normal
+endpoint, every post-cubic Taylor monomial therefore has bound `C delta(r+delta)^3`; L100's
+cubic dominates uniformly.  The complete two-copy terminal tube is proved.
+Remaining: lift this whole-normal/weighted analytic construction through L93's
+arbitrary-copy metric flag, then merge it with L86's losing-space gaps.  Do not start a larger
+Schur grind.  See `RESEARCH_STATE.md`, `proof/repeated_p3_terminal_tube.md`, and
 `experiments/repeated_p3_slack_transfer.py`.
 
 ## Latest completion (2026-07-22): elliptic 4×4 slice proved

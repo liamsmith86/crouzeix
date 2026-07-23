@@ -170,10 +170,15 @@ than `delta`, one must not divide by `r`; L100's pure-edge cubic gap is
 uniform.  Proving this analytic remainder estimate is now the precise
 two-regime gate.
 
+L110 subsequently proves that gate.  Its additional observation is to use
+the Riemann map of the **whole** normal numerical range before applying the
+inclusion self-map.  The resulting Stein slack vanishes with the transverse
+edge and has norm `O(delta(r+delta))`; weighted analyticity then gives the
+required `C delta(r+delta)^3` remainder.
+
 ## 5. Scope
 
-This is an exact functional-calculus lemma, not the terminal-tube theorem.
-It does not prove (14), select the free endpoint-centering block uniformly,
-or lift through L93's collapsing metric flag.  Its role is to remove the
-false obstacle that nonsmooth dependence of the Riemann map on `A` prevents
-transverse factorization: no such differentiation is needed.
+This is the functional-calculus input, not by itself the terminal-tube
+theorem.  L110 combines it with L105 and L109 to prove (14) for the complete
+two-copy terminal chart.  The remaining scope gap is L93's arbitrary-copy
+collapsing metric flag and the later L86 lift.

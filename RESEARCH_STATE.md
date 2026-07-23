@@ -1,6 +1,31 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-22 (Epoch 6 — L109 joint terminal finite jet)
+**Last updated:** 2026-07-22 (Epoch 6 — L110 two-copy terminal tube)
+
+## NEWEST (2026-07-22): L110 closes the uniform two-copy terminal tube
+- Pinch a terminal matrix `A=N+E` to its block-diagonal normal retraction.  Since every flat
+  edge has zero compression to the base top support cluster, uniform cluster perturbation gives
+  `0<=h_A−h_N<=C delta(r+delta)`; the lower bound is the exact inclusion `W(N)⊂W(A)`.
+- Compare the Riemann maps of the **whole** normal and actual numerical ranges.
+  The inclusion-induced disk map `h=f_A∘f_N^−1` fixes zero, has
+  `h'(0)>=1−C delta(r+delta)`, and Schwarz--Pick makes it
+  `O(delta(r+delta))` from the identity on compact subdisks.
+- Apply `h` to L108's zero-slack normal certificate.  The same metric still contracts
+  `f_A(N)=h(f_N(N))` and acquires a block-diagonal PSD Stein Schur slack
+  `H_delta=O(delta(r+delta))`.  This whole-normal slack vanishes with the transverse edge,
+  unlike a per-block slack that may already be present on the normal stratum.
+- In the analytic endpoint difference between the actual zero-slack chart and that inherited
+  normal chart, every Taylor monomial contains a transverse variable or `H_delta`.  Giving
+  `H_delta` weight two, the post-cubic remainder is `C delta(r+delta)^3`.
+  L109 cancels the quadratic exactly and L100 leaves
+  `−delta(delta²+2r²)I/4`, which dominates uniformly because
+  `delta²+2r²>=(2/3)(r+delta)²`.
+- L95--L100 cover the compact complement of the sharp weighted center.  Hence the entire
+  two-copy terminal chart is now locally complete-`2`.  The next live gate is uniformizing
+  L93's arbitrary-copy metric flag and merging the resulting tube with L86's losing-space
+  gaps.
+  `proof/repeated_p3_terminal_tube.md`;
+  `experiments/repeated_p3_slack_transfer.py`.
 
 ## NEWEST (2026-07-22): L109 proves the joint normal/transverse cubic jet
 - The previous warning was essential: neither the frozen normal endpoint nor the transverse
@@ -60,12 +85,9 @@
   the resolvent Neumann series expands `f(N+E)−f(N)` into homogeneous terms with bounds
   `C1(C0||E||)^k`.  Every remainder has an explicit transverse factor, uniformly over the
   nonsmoothly varying maps.
-- A non-automorphic intervening disk self-map can create Stein slack.  L107 retains its
-  nonnegative Stein Schur complement as an exact chart parameter, resolving this compatibility
-  without tightening.
-- The remaining sharp lemma is now the quantitative two-regime endpoint estimate
-  `R=o(delta(r²+delta²))`: invert L104 when `r` dominates `delta`, and use the pure-edge
-  L99/L100 cubic without division when `r=O(delta)`.
+- A non-automorphic intervening disk self-map can create Stein slack.  L107 embeds its
+  nonnegative Stein Schur complement as an exact chart parameter; L108 safely tightens it and
+  L110 subsequently proves the quantitative two-regime endpoint estimate.
   `proof/repeated_p3_frozen_domain.md`.
 
 ## NEWEST (2026-07-22): L105 replaces forced metric series by one analytic chart
@@ -112,8 +134,8 @@
   block, which vanishes on the normal face, is compatible with L88.
 - Therefore the **total** fourth endpoint relative to the exact normal stratum starts at
   `O(delta²(r+delta)²)` after simultaneous metric selection and is absorbable by L100's
-  `delta(r²+delta²)` cubic gap.  The remaining terminal debt is uniform factorization of all
-  order-five-and-higher remainders, followed by the L93/L86 flag lift.
+  `delta(r²+delta²)` cubic gap.  L110 subsequently factors the full analytic remainder; the
+  remaining debt is the arbitrary-copy L93/L86 flag lift.
   `proof/repeated_p3_flat_two_copy_weighted.md`;
   `experiments/repeated_p3_flat_two_copy_fourth_metric.py`.
 
@@ -1013,14 +1035,12 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-22)
-1. **Finish normal-face uniformity and merge L93 back into L86.** L94--L98 now close every
-   bounded weighted chart at a nonnormal terminal block, while L100--L103 locate the sharp
-   normal center and cancel the complete transverse fourth endpoint.  L105--L106 give the exact
-   metric chart and same-map transverse factorization, L107--L108 select the safe zero-slack
-   normal certificate, and L109 proves the joint quadratic/cubic accounting.  Prove the
-   two-regime `o(delta(r²+delta²))` upper-endpoint remainder, then lift that tube through the
-   metric flag, negative Gram terms, common `v` curvature, and L82's losing mean gap.  Do not
-   grind larger Schur matrices.  The target is a full repeated-`C3` neighbourhood theorem.
+1. **Uniformize the arbitrary-copy flag and merge L93 back into L86.** L110 closes the entire
+   two-copy terminal tube, including the collapsing normal face.  Lift its whole-normal
+   composition/weighted analytic remainder through L93's metric-kernel flag, then combine the
+   resulting terminal tubes with L86's negative Gram terms, common `v` curvature, and L82's
+   losing mean gap.  Do not grind larger Schur matrices.  The target is a full repeated-`C3`
+   neighbourhood theorem.
 2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
    trace inequality can instead be derived from the block-Toeplitz positivity of the full
    operator-valued correction moments. Do not retry trace/positive-state scalarizations.
