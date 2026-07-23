@@ -462,12 +462,30 @@ def operator_expansion(
     """Return ``T_0+aT_1+a^2T_2`` in L123 coefficient coordinates."""
 
     length = dimension - 1
+    coefficients = palindromic_direction(length, first_offset)
+    return operator_expansion_from_coefficients(
+        dimension,
+        coefficients,
+        order,
+    )
+
+
+def operator_expansion_from_coefficients(
+    dimension: int,
+    coefficients: list[int],
+    order: int,
+) -> tuple[AmplitudeMatrix, list[int]]:
+    """Return the operator jet for an arbitrary real coefficient vector."""
+
+    length = dimension - 1
+    if len(coefficients) != length - 1:
+        raise ValueError("the coefficient vector has the wrong length")
+
     crabb = zero_matrix(dimension, dimension, order)
     crabb[0][1] = Series.constant(2, order)
     for column in range(2, dimension):
         crabb[column - 1][column] = one(order)
 
-    coefficients = palindromic_direction(length, first_offset)
     tangent = zero_matrix(dimension, dimension, order)
     for column in range(2, dimension):
         value = 2 * coefficients[column - 2]
@@ -805,12 +823,30 @@ def optimized_hessian(
 ) -> tuple[Series, list[Series], Matrix]:
     """Reconstruct and minimize the exact quadratic in the defect tangent."""
 
-    audit_order = order
     operator, coefficients = operator_expansion(
         dimension,
         first_offset,
         order,
     )
+    return optimized_hessian_from_operator(
+        operator,
+        coefficients,
+        order,
+    )
+
+
+def optimized_hessian_from_operator(
+    operator: AmplitudeMatrix,
+    coefficients: list[int],
+    order: int,
+) -> tuple[Series, list[Series], Matrix]:
+    """Optimize the defect tangent for a supplied exact operator jet."""
+
+    dimension = len(operator[0])
+    if len(coefficients) != dimension - 2:
+        raise ValueError("the coefficient vector has the wrong length")
+
+    audit_order = order
     axis_metric, base_defect, coordinate_diagonal = (
         axis_metric_and_defect(
             dimension,

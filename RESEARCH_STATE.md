@@ -2,6 +2,26 @@
 
 **Last updated:** 2026-07-23 (Epoch 6 — Faber endpoint localization)
 
+## NEWEST (2026-07-23): A94 isolates the distinct-grade proof gate
+- Exact polarization of L118's optimized amplitude Hessian for two
+  different real phase-palindromic grades gives zero through and
+  including the first allowed mixed weight `c^(k+l)` for every pair
+  through size seven.
+- Selected deeper runs find the complete recorded cross jet zero
+  through order 11 (size five) and order nine (sizes six/seven).
+  The same-parity pair `(1,3)` also vanishes, so this is not merely a
+  parity selection rule.
+- This is not yet L135.  The precise target is
+  `B_(k,l)(c)=O(c^(k+l+1))` in every size.
+- L125 puts the first possible interaction at weight `k+l`; L131
+  makes the two associated Faber/reflected rows orthogonal; L65 makes
+  the Crabb metric Hessian circle-mode diagonal.  The remaining proof
+  is that L118's defect-variable Schur complement commutes with this
+  associated-graded projection.  Any terminal fold/alias must be
+  shown to gain strictly higher weight.
+- `proof/crabb_mixed_grade_face.md`;
+  `experiments/crabb_mixed_grade_face.py`.
+
 ## NEWEST (2026-07-23): L134 proves complex one-grade phase isotropy
 - For the pure-imaginary first-offset coefficient
   `(u_1,u_(L-1))=(i,-i)`, exact rational real/imaginary-pair Stein
