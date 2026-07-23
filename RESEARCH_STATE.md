@@ -1,6 +1,26 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-22 (Epoch 6 — L112 normal-collision SVD reduction)
+**Last updated:** 2026-07-22 (Epoch 6 — L113 fixed-multiplicity flat-flag tube)
+
+## NEWEST (2026-07-22): L113 closes the arbitrary-copy flat core
+- For fixed copy multiplicity, iterate L93's common-top flag.  Its exact leakage form on each
+  layer has kernel equal to the next layer; the stable layer reduces `Z` and has scalar
+  support, hence splits into the one-/two-dimensional blocks closed by L110--L112.
+- L111--L112 identify the entire tangent kernel at every stable stratum as unitary/blockwise
+  motion.  On a complementary local slice, a finite hierarchical combination of L93's flag
+  forms is therefore coercive: `−c s²||R||²`.
+- The block-sign unitary fixes the block-diagonal base and sends each cross coupling
+  `R` to `−R`.  Hence active diagonal endpoints are even in `R`; there is no dangerous
+  linear transverse analytic term.  With a fixed normalized complementary support gap,
+  the whole-domain support enlargement and Stein slack are `O(s²||R||²)`, and L105's
+  post-leading remainder is `O(s³||R||²)`.
+- If the support gap collapses, its kernel is promoted into the common-top space, moving to
+  another member of the same finite flag stratification.  Compactness gives a finite cover for
+  every fixed multiplicity (the radius need not be dimension-free).
+- Thus the complete L87 flat copy core now has a genuine local complete-`2` theorem.
+  The sole repeated-`C3` gate is to glue it through L86's generator-one, common-strong,
+  winner--loser, and positive first-Jensen variables.
+  `proof/repeated_p3_flat_flag_tube.md`.
 
 ## NEWEST (2026-07-22): L112 splits every normal multiplicity collision
 - At a normal full-common-top scalar-support point, rotate and scale to
@@ -1072,12 +1092,11 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-22)
-1. **Uniformize the arbitrary-copy flag and merge L93 back into L86.** L110 closes the entire
-   two-copy terminal tube, including the collapsing normal face.  Lift its whole-normal
-   composition/weighted analytic remainder through L93's metric-kernel flag, then combine the
-   resulting terminal tubes with L86's negative Gram terms, common `v` curvature, and L82's
-   losing mean gap.  Do not grind larger Schur matrices.  The target is a full repeated-`C3`
-   neighbourhood theorem.
+1. **Merge the flat-core tube through L86.** L113 closes the full flat copy core for each fixed
+   multiplicity.  Glue that tube to L86's negative generator-one, common-strong, and
+   winner--loser Gram forms, while retaining L82's strict losing mean gap and L61's positive
+   first-Jensen descent.  Do not grind larger Schur matrices.  The target is a full
+   repeated-`C3` neighbourhood theorem.
 2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
    trace inequality can instead be derived from the block-Toeplitz positivity of the full
    operator-valued correction moments. Do not retry trace/positive-state scalarizations.

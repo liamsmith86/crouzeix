@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current repeated-C3 frontier (2026-07-22): L112
+## Current repeated-C3 frontier (2026-07-22): L113
 
 L73 proves a complete-2 neighbourhood of one `C3`; L74--L93 reduce arbitrary repeated
 copies to weighted terminal blocks, with all fixed directions closed.  L94--L100 give
@@ -37,11 +37,13 @@ two-dimensional parameters on each multiplicity coordinate.  There is no hidden
 large-multiplicity terminal modulus.  L112 closes its normal boundary:
 at `s diag(Ip,−Iq)`, the only unitary-invariant equality tangent is the rectangular edge
 `B−C*`, whose SVD is a direct sum of L110 two-copy pairs and normal leftovers.
-Remaining: control proper common-top spaces whose L93 descending flag changes rank, then merge
-the resulting arbitrary-copy tube with L86's losing-space gaps.  Do not start a larger Schur
-grind.  See `RESEARCH_STATE.md`, `proof/repeated_p3_terminal_tube.md`,
-`proof/repeated_p3_scalar_support_rigidity.md`, and
-`proof/repeated_p3_normal_collision.md`.
+L113 closes proper common-top spaces: the flag forms are coercive off the blockwise tangent
+kernel, while a block-sign unitary makes every active diagonal remainder even in the cross
+coupling.  Thus `−c s²||R||²` absorbs `C s³||R||²`, and flag rank collapse only moves to
+another member of a finite stratification.  The complete flat core is locally proved for each
+fixed multiplicity.  Remaining: merge that tube with L86's losing-space, generator-one,
+common-strong, and positive first-Jensen variables.  Do not start a larger Schur grind.
+See `RESEARCH_STATE.md` and `proof/repeated_p3_flat_flag_tube.md`.
 
 ## Latest completion (2026-07-22): elliptic 4×4 slice proved
 
