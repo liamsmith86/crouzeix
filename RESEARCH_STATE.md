@@ -2,6 +2,33 @@
 
 **Last updated:** 2026-07-23 (Epoch 6 — Faber endpoint localization)
 
+## NEWEST (2026-07-23): L132 extends central descent to every divisor grade
+- If `L=qk`, the residue-zero space
+  `V=span{e0,e_k,...,e_(qk)}` exactly reduces the degree-`k`
+  Dickson image of the phase-one equality/ellipse pencil.
+  Its block is the full size-`q+1` first-offset family at parameter
+  `r=c^k`; all polynomial cross blocks vanish and the result is exactly
+  affine in amplitude.
+- The Toeplitz coordinate Gramian reduces the same space and restricts
+  to the exact size-`q+1` Gramian.  Every subcritical Dickson grade
+  compresses to zero on `V`.  The other residue chains are unweighted
+  nilpotent shifts at the apex and are strictly inactive locally.
+- L130's outside-critical-factor trace works for outer dimension
+  `q+1`: it lifts L118's outer rank-one defect to a full defect, makes
+  the metric reduce `V`, preserves its outer condition exactly, and
+  traps all inner levels between the active endpoints.
+- The precise conclusion is the sandwich
+  `t_*(T_(q,1)) <= t_*(T_(L,k)) <= Gamma_(q+1)(T_(q,1))`.
+  Do **not** replace the right side by `t_*` for `q>2`; L118's
+  rank-one branch has not been proved globally SDP-optimal off axis.
+- The exact checker covers `k<=6,q<=6` (up to dimension 37).
+  An independent full physical/critical-factor metric checker gives
+  residuals below `8e-13` for degrees two/three, quotients three/four,
+  and two ellipse parameters, with strict inner endpoint margins.
+  `proof/crabb_divisible_dickson_descent.md`;
+  `experiments/crabb_divisible_dickson_descent.py`;
+  `experiments/crabb_divisible_metric_lift.py`.
+
 ## NEWEST (2026-07-23): L131 identifies the complete reflected Hardy vector
 - For `S0=C+cJCJ`, the physical-adjoint equality tangent attached to
   coefficient grade `j` is
