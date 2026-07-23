@@ -66,6 +66,28 @@ The complete tight third metric, including the opposite diagonal loops in
 Thus every nonnormal trace-zero two-copy flat direction descends strictly at
 cubic order.  L77 is the special case `d=0`.
 
+The middle Fourier coefficient in (6) gives a quantitative version.  Since
+the top eigenvalue of a traceless Hermitian `2 x 2` matrix dominates the
+modulus of either off-diagonal entry, and the mean modulus of a Fourier
+function dominates every Fourier coefficient,
+
+\[
+ m_3\ge
+ \frac{|a|}{128}\left(2|a|^2+4|d|^2\right).             \tag{8}
+\]
+
+Consequently
+
+\[
+ \boxed{
+ \lambda_{\max}(\mathcal E_3)
+ \le-\frac{|a|}{4}\left(|a|^2+2|d|^2\right).}           \tag{9}
+\]
+
+This coercivity is uniform on normalized trace-zero blocks away from the
+normal face `a=0`.  It is the terminal estimate needed by L93's future
+weighted compactness argument.
+
 ## 3. Restore the common mode
 
 If `w!=0`, L91 says a common top vector must reduce `Z`.  A nonnormal `2 x 2`

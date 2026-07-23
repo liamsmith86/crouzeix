@@ -1,6 +1,16 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-22 (Epoch 6 — L93 arbitrary-copy flat metric flag)
+**Last updated:** 2026-07-22 (Epoch 6 — L94 quantitative terminal coercivity)
+
+## NEWEST (2026-07-22): L94 quantifies the two-copy terminal descent
+- On L93's nonnormal terminal block `Z=[[d,a],[0,−d]]`, the L92 third-support
+  cross entry has an uncancellable Fourier coefficient
+  `a(2|a|²+4|d|²)/128`.
+- Mean top eigenvalue dominates that coefficient, so the exact cubic metric endpoint obeys
+  `lambda_max(E3)≤−|a|(|a|²+2|d|²)/4`.
+- Thus the cubic margin is uniformly coercive away from the exact normal face `a=0`.
+  The next weighted step is to combine this with the second-order flag/Jensen margin as a
+  block approaches the normal or reducible strata.  `proof/repeated_p3_flat_two_copy.md`.
 
 ## NEWEST (2026-07-22): L93 closes every fixed flat-copy direction in arbitrary multiplicity
 - The free L80 metric tangent extends from a pure star to an arbitrary copy projection `P`.
