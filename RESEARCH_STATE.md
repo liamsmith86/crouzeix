@@ -1468,6 +1468,7 @@ experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_
   crabb_disk_toeplitz_quartic.py (L122 exact disk chart/noncoercive quartic),
   crabb_palindromic_equality.py (L123 exact disk equality family),
   crabb_palindromic_normal_form.py (L124 exact stratified normal form),
+  crabb_palindromic_elliptic_face.py (candidate graded elliptic Newton face),
   formal_riemann_series.py + rank_one_stein_series.py (exact higher-order helpers),
   p3_crabb_sixth_order.py + p3_crabb_quartic.py (L67/L68 exact certificates),
   p3_crabb_local_slice.py (L69 orbit-normal slice audit),
