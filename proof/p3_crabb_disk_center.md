@@ -106,10 +106,10 @@ L70 proves strict leading feasible-certificate descent in every bounded
 weighted direction away from (4); (9) closes (4) itself.  L72 additionally
 proves that the explicit condition-four rank-one certificate is stationary
 under every complex ambient perturbation after the first conformal correction.
-These statements still do not automatically prove a full punctured
+These statements alone do not automatically prove a full punctured
 neighbourhood: a sequence can approach the disk curve faster than the leading
-weighted scale.  A uniform negative normal Hessian, or an equivalent analytic
-weighted Morse--Bott argument, is still required before making that claim.
+weighted scale.  L73 subsequently supplies the missing analytic normal-form
+argument and proves the complete-`2` bound on a full neighbourhood of `C_3`.
 
 The disk theorem is classical, not new.  The apparently new content is the
 exact identification of L70's hidden center with the disk-matrix locus in the

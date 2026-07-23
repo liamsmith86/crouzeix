@@ -16,9 +16,9 @@ first-order Riemann-map correction**.  Equivalently, the feasible-certificate
 function has zero first derivative in every ambient direction along the disk
 curve.
 
-This is the missing critical-manifold statement suggested by L70--L71.  It is not
-yet a local-neighbourhood theorem: a uniform negative normal second variation is
-still required.
+This is the critical-manifold statement suggested by L70--L71.  By itself it is
+not a local-neighbourhood theorem; L73 subsequently combines it with the
+weighted leading form and symmetry to obtain the required uniform sign.
 
 ## 2. Canonical real Schur form
 
@@ -214,10 +214,10 @@ coefficients happened to vanish.  Together with L70's negative-definite weighted
 leading form, this supplies the two ingredients expected in a weighted
 Morse--Bott argument.
 
-What remains is to justify analytic dependence of the optimized certificate and
-prove that its Hessian is uniformly negative on the five-real-dimensional normal
-bundle near `e=0`.  Only then may L70--L72 be promoted to a full neighbourhood
-theorem around the single `C_3` block.
+L73 justifies analytic dependence of the optimized certificate and uses the
+negative strong Hessian plus the soft quartic normal form to prove a uniform
+sign.  Thus L70--L72 are promoted there to a full neighbourhood theorem around
+the single `C_3` block.
 
 ## 6. Regeneration
 

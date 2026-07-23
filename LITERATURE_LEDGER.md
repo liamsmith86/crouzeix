@@ -33,6 +33,13 @@ Papers, theorems, assumptions, possible gaps. Status verified via web 2026-07-22
   weights and explicitly leaves the general elliptical problem open.  Treat this as apparently
   new pending a publication-level literature audit; it is not a result for arbitrary 4×4
   matrices.  Proof chain L20/L21/L27--L59; `proof/slice_core_projective_reduction.md`.
+- **Campaign L73 (2026-07-22):** every complex `3×3` matrix in a full neighbourhood of the
+  single Crabb block has its numerical range as a complete `2`-spectral set.  This is much wider
+  locally than the weighted-shift/perturbed-Jordan classes, but it is only a neighbourhood of one
+  equality block.  Targeted searches for "neighbourhood", Crabb perturbations, and complete
+  spectral sets found no matching theorem; the closest variational paper proves first-order
+  scalar stationarity rather than a neighbourhood inequality.  Treat L73 as apparently new
+  pending publication-level review.  `proof/p3_crabb_local_theorem.md`.
 - Compressions of the shift / model space operators with certain Blaschke conditions (Bickel–Gorkin school).
 - Matrices attaining ‖A‖ = numerical radius conditions (Crabb-type equality cases).
 
@@ -94,6 +101,13 @@ Papers, theorems, assumptions, possible gaps. Status verified via web 2026-07-22
   factorization. No matching completely bounded second-variation result was found in the
   targeted audit; retain the narrow novelty wording pending a broader search and do not present
   this local theorem as a proof of the scalar conjecture.
+- [x] Rodin, *Behavior of the Riemann Mapping Function under Complex Analytic Deformations of
+  the Domain*, Complex Variables 5 (1986), 189--195, DOI
+  `10.1080/17476938608814139`; Wu, *Analytic Dependence of Riemann Mappings for Bounded
+  Domains and Minimal Surfaces*, CPAM 46 (1993), 1303--1326, DOI
+  `10.1002/cpa.3160461002` -- normalized Riemann maps vary analytically under analytic
+  boundary deformations.  L73 needs only the elementary strictly-convex near-circle case,
+  for which the boundary equation plus Fourier splitting gives a direct Banach-IFT proof.
 
 ## To read next
 - [ ] GKL arXiv:1701.01365 (Glader–Kurula–Lindström 2018, 3×3 tridiagonal elliptic W(A)) —

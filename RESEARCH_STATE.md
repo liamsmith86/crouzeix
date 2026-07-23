@@ -1,6 +1,27 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-22 (Epoch 6 — L72 exact disk-center stationarity)
+**Last updated:** 2026-07-22 (Epoch 6 — L73 complete-`2` neighbourhood of `C3`)
+
+## NEWEST (2026-07-22): L73 closes a full neighbourhood of the single `C3` block
+- The local rank-one Stein condition is an honest real-analytic feasible certificate: its defect
+  Hessian at `C3` is `8|x|²+(8/3)|y|²>0`, so the implicit-function theorem gives a
+  unique analytic locally optimized defect.  Analyticity of the numerical-range Riemann map
+  follows here from the simple uniform support eigenvalue and the standard near-circle boundary
+  Fourier/implicit-function argument (consistent with Rodin 1986 and Wu 1993).
+- In the L69 slice, L71--L72 make the exact disk curve an ambient critical manifold.  The
+  `(s,V)` Hessian is strictly negative, so those three real normal variables can be maximized out
+  analytically.  The last complex soft germ is equivariant under `(z,U)->(e^{it}z,e^{2it}U)`.
+  Stationarity removes soft degree zero and one; symmetry leaves only `|z|²|U|²` and
+  `|U|⁴` at degree four.  L70 and L68 give their exact coefficients `-25/56` and `-4`.
+  Every higher allowed monomial is an absorbable small multiple of these negative terms.
+- Therefore the certificate is at most four on a full seven-real-dimensional slice neighbourhood;
+  L69 lifts this to every complex `3×3` matrix in a full neighbourhood of `C3`.  Hence its
+  numerical range is a **complete `2`-spectral set** there.  This is not a repeated-block,
+  larger-size, or general theorem.  Targeted literature searches found no prior full-neighbourhood
+  result; call it apparently new pending publication-level review.
+- Exact audit: `experiments/p3_disk_morse_bott.py`; proof:
+  `proof/p3_crabb_local_theorem.md`.  A non-load-bearing 18-case mixed/superweighted map probe
+  reached at most `3.999999999999` with diagnostics below `9.8e-13`.
 
 ## NEWEST (2026-07-22): L72 proves exact stationarity on the disk center
 - The L71 curve has an exact canonical Schur form
@@ -468,12 +489,10 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-22)
-1. **Close the `p=3` disk-center normal estimate.** L70 gives the negative weighted leading
-   form, L71 identifies its exact disk center, and L72 proves full ambient stationarity there.
-   Construct the analytic optimized rank-one defect by an implicit-function argument, compute
-   its normal Hessian along the curve, and prove uniform negative definiteness in the five real
-   normal variables. Then seek the arbitrary-mode pattern. In parallel extend L65 to repeated-block
-   common-maximizer faces and separately handle nonsmooth compression-eigenvalue crossings.
+1. **Extend L73 beyond one block.** The single `p=3` neighbourhood is closed.  Return to L61's
+   repeated-block equality characterization: classify common-maximizer directions, derive their
+   second-order block compression, and handle nonsmooth support-eigenvalue crossings.  In parallel,
+   seek the L73 analytic-normal-form pattern in the `2p-2` quotient modes for `p≥4`.
 2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
    trace inequality can instead be derived from the block-Toeplitz positivity of the full
    operator-valued correction moments. Do not retry trace/positive-state scalarizations.
@@ -536,7 +555,9 @@ experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_
   p3_sparse_series.py + p3_crabb_weighted_slice.py + p3_crabb_center_jet.py
   (L70 sparse exact weighted certificate), p3_crabb_disk_center.py
   (L71 disk factorization and canonical singular product), p3_disk_center_tangent.py
-  (L72 exact ambient-stationarity audit).
+  (L72 exact ambient-stationarity audit), p3_disk_morse_bott.py
+  (L73 defect Hessian/invariant audit), p3_local_theorem_probe.py
+  (non-load-bearing L73 numerical smoke test).
 Proof artifact: experiments/positive_tail_full_20260722.log (L59 clean 10-box run).
 Data: sym3_sweep_s51.jsonl (40 rec), sym4_sweep_s61.jsonl (20 rec, ρ column trustworthy),
 general_similarity_equality_s9173401.jsonl plus its `sensitivity` and `ultralocal` companions
