@@ -163,16 +163,17 @@ endpoint weights.  Formula (4) couples only its two endpoint rows
 after the diagonal gauge `D`.
 
 This proves the structural part of A98 that was previously only
-described as “restore homogeneous defect scale.”  It does **not**
-yet prove that the LDL Newton edge of (5) is
+described as “restore homogeneous defect scale.”  L139 subsequently
+uses (4)--(5) to prove that the LDL Newton edge is
 
 \[
 \frac{1+c{\cal S}^2}{1-c{\cal S}^2},
 \]
 
-nor does it insert L131's operator/Faber forcing.  Those are now
-explicit coefficient calculations in (4), rather than an unknown
-Stein-kernel transformation.
+including its terminal normalization.  The remaining step is to insert
+L131's operator/Faber forcing.  It is now an explicit endpoint
+calculation around (4), rather than an unknown Stein-kernel
+transformation.
 
 ## 5. Independent regression
 

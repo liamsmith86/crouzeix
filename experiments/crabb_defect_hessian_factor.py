@@ -12,8 +12,9 @@ The observed leading lower factor is the finite-path version of
       = 1 + 2 sum_{r>=1} c^r z^(2r).
 
 The terminal row has the expected generalized-endpoint weight 4/3.
-The finite audit identifies the spectral-factor target; it is not an
-all-size proof of the factorization.
+L139 proves this edge in every size from L138's exact modal endpoint
+formula and the Jacobi ``dn`` Fourier series.  This finite exact audit
+remains an independent regression against the original Stein recurrence.
 """
 
 from __future__ import annotations

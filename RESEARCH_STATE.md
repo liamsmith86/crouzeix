@@ -2,6 +2,31 @@
 
 **Last updated:** 2026-07-23 (Epoch 6 — Faber endpoint localization)
 
+## NEWEST (2026-07-23): L139 proves the all-size defect-Hessian LDL edge
+- L138's endpoint Schur formula depends only on the zeroth and last
+  rows of `B=D^(-1)U diag(s)U^*D`.  DCT-I endpoint
+  product-to-sum therefore makes the pure-defect Hessian exactly
+  diagonal by scalar cosine mode.
+- The corresponding modal weights have leading values
+  `4c^(-j)` for interior modes and `(8/3)c^(-L)` for the terminal
+  mode.  These are the all-size disk constants, not a finite fit.
+- Multiplication by `dn/k'` transfers coefficient coordinate `i` to
+  mode `j=i+2r` with associated coefficient `2c^r`: the two is one
+  half of Jacobi's Fourier coefficient four.  Only even Fourier
+  modes occur, so the two parity blocks separate exactly.
+- Hence the pure-defect quadratic matrix has
+  `H_(i,j)=8c^r+...` when `j=i+2r<L` and
+  `H_(i,L)=(16/3)c^r+...`.  The exact LDL recursion gives interior
+  lower coefficient `2c^r`, terminal coefficient `(4/3)c^r`, and
+  diagonal constants `4,...,4,8/3`.
+- This promotes A98's formerly finite Hessian clue to an all-size
+  theorem and proves the outer factor
+  `(I+cS^2)/(I-cS^2)`.  The remaining gate is now solely to insert
+  the operator/Faber linear and constant terms in the same modal
+  endpoint formula and prove the completed-square orientation.
+  `proof/crabb_defect_hessian_edge.md`;
+  `experiments/crabb_defect_hessian_factor.py`.
+
 ## NEWEST (2026-07-23): L138 restores the homogeneous defect coordinate exactly
 - For an arbitrary rank-one forcing `q`, put `y=R^*q`, divide its
   spectral-node values by L117's axis defect `beta`, and call the
@@ -19,9 +44,9 @@
   direction.  Its full quadratic term is now two explicit endpoint
   Schur sums in the Toeplitz-plus-Hankel matrix
   `H_s=U diag(s)U^*`.
-- This proves A98's structural normal form, but not the sign:
-  the all-size Newton-edge LDL factor, its terminal fold, and the
-  linear/constant coupling to L131's Faber row remain to be derived.
+- This proves A98's structural normal form.  L139 subsequently derives
+  the all-size Newton-edge LDL factor and terminal fold; the
+  linear/constant coupling to L131's Faber row remains.
 - A direct Stein-solve regression over sizes 4, 6, and 9 and three
   ellipse parameters confirms the normal form and the endpoint
   Hessian formula.
@@ -36,12 +61,13 @@
 - Hence the all-size associated spatial series is exactly
   `d_edge=(I-3cS^2)/(I+cS^2)`.  This promotes one of A98's two fitted
   factors to a theorem.
-- Combining it with the still-conjectural Hessian LDL edge
+- Combining it with L139's subsequently proved Hessian LDL edge
   `(I+cS^2)/(I-cS^2)` gives the whitened transported tail
   `2-4sum_(r>=1)c^rS^(2r)`, explaining the magnitude-four collision
   with L131's reflected Faber row.
-- L137 does not yet prove the LDL factor, opposite normal
-  orientation, mixed-grade isometry, or uniform remainder.
+- L137 alone does not prove the LDL factor; L139 now supplies that
+  factor.  The opposite normal orientation, Faber coupling, and
+  uniform remainder remain open.
   `proof/crabb_axis_defect_fourier.md`;
   `experiments/crabb_axis_defect_fourier.py`.
 
@@ -72,23 +98,24 @@
   Minimization gives the required
   `-64sum_j|u_j|^2c^(2j)`, and Faber-row orthogonality kills mixed
   grades at the same time.
-- The universal pure-defect Hessian has a matching exact finite LDL
-  clue: its interior lower factor begins
+- L139 proves that the universal pure-defect Hessian has interior
+  lower factor
   `I+2sum_(r>=1)c^r shift^(2r)=(I+c shift^2)/(I-c shift^2)`,
   with terminal coefficient `4/3` and diagonal endpoint weight
-  `8/3`.  This is the analytic outer factor of the Newton edge of
-  L117's Szegő weight and supplies a concrete route from the raw
-  defect quotient to L135's DST modes.
+  `8/3`.  This is the all-size analytic outer factor of the Newton
+  edge of L117's Szegő weight.
 - The coefficient arithmetic is now explained.  L137's axis-defect
   edge is `(I-3cS^2)/(I+cS^2)`.  Multiplying the transported defect
   by the LDL outer factor gives
   `2(I-3cS^2)/(I-cS^2)=2-4sum_(r>=1)c^rS^(2r)`.
   Its first reflected tail has magnitude four, opposite L131's Faber
   row of magnitude four; the gap eight costs `4*8^2=256`, while the
-  negative row energy is `-4*4^2=-64`.  The constants are no longer
-  fitted; the open work is the all-size LDL/reversal proof.
+  negative row energy is `-4*4^2=-64`.  The constants and pure-defect
+  factor are no longer fitted; the open work is the Faber/reversal
+  coupling.
 - The completed square is still a target, not a lemma.  The remaining
-  proof must derive `J_def` in L135's spectral coordinates and show
+  proof must put L131's operator and coefficient derivatives into
+  L138's modal endpoint coordinates, identify their signs, and show
   every omitted terminal fold has strictly higher weight.
   `proof/crabb_principal_face_completed_square.md`;
   `experiments/crabb_principal_face_locality.py`.

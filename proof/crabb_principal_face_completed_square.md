@@ -167,24 +167,19 @@ square cost is `4*8^2=256`; the surviving negative row energy is
 `-4*4^2=-64`.
 
 Equations (10)--(12) explain both previously mysterious constants
-`+192` and `-64`.  The remaining issue is rigor, not coefficient
-discovery: prove the LDL edge (9) all-size and verify that reversal,
-terminal weighting, and complex DST polarization implement the
+`+192` and `-64`.  L139 now proves the LDL edge (9) in every length
+from L138's endpoint modal formula and Jacobi's `dn` Fourier series.
+The remaining issue is to verify that L131's operator/Faber forcing,
+reversal, terminal weighting, and complex polarization implement the
 claimed opposite orientation without an equal-weight alias.
-
-The exact finite LDL audit does **not** prove (9) in every length.
-An all-size proof should derive (9) directly from L117's Szego kernel
-or from the Stein path recurrence, rather than extrapolate the
-factorization.
 
 ## 5. Proof obligations
 
-1. Restore the homogeneous defect variation, including its scale
-   coordinate, and write the exact axis quadratic before choosing
-   `x_0=0`.
-2. Use L135's DCT/DST coordinates to identify the quotient map
-   `J_def` and prove that it is isometric on the principal associated
-   grade.
+1. **Completed by L138--L139:** restore homogeneous defect scale and
+   prove the pure-defect quotient outer factor.
+2. Insert L131's operator and coefficient derivatives into L138's
+   endpoint modal formula and identify the principal linear and
+   constant terms, including their reversal signs.
 3. Show that every terminal fold not represented by (6) gains at
    least one additional power of `c`; this is the missing
    Schur/filtration commutation in A94.
