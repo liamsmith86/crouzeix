@@ -1,6 +1,18 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-22 (Epoch 6 — L91 common-mode rigidity)
+**Last updated:** 2026-07-22 (Epoch 6 — L92 complete two-copy flat core)
+
+## NEWEST (2026-07-22): L92 closes every fixed two-copy flat direction
+- A nonnormal `2 x 2` Schur matrix can be second-order flat at `w=0` only when `tr Z=0`.
+  Then `Z²` and `ZZ*+Z*Z` are scalar, so the second support is scalar.
+- The third effective support is traceless with an explicit cross Laurent polynomial whose
+  middle coefficient contains `2|a|²+4|d|²`; it is nonzero whenever the nonnormal edge is.
+  Refactored exact third-metric propagation gives strict endpoint
+  `−16 mean(lambda_max(Q3))I`.  This extends L77 to arbitrary opposite diagonal loops.
+- Normal cases are exact by L88; nonnormal `w!=0` cases are strict by L91; nonzero-trace
+  `w=0` cases have strict Jensen gap.  Thus no fixed two-copy flat direction remains
+  unclassified.  Only weighted uniformity and larger nonnormal copy matrices remain.
+  `proof/repeated_p3_flat_two_copy.md`.
 
 ## NEWEST (2026-07-22): L91 eliminates irreducible equality when `w!=0`
 - The unique non-scalar Fourier modes `+3,-3` in L90 are nonzero multiples of `Z,Z*`.
@@ -830,7 +842,9 @@ experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_
   repeated_p3_winner_graph_sign.py (L83--L85 complete tied-winner endpoint),
   repeated_p3_multiwinner_gap.py (L86 full winner/loser Gram penalty),
   repeated_p3_flat_copy_matrix.py (L88/L90 flat/common copy-matrix support),
-  repeated_p3_flat_three_copy.py (L89 three-copy Schur equality split).
+  repeated_p3_flat_three_copy.py (L89 three-copy Schur equality split),
+  repeated_p3_third_metric.py (shared L77/L92 third-metric propagation),
+  repeated_p3_flat_two_copy_third.py (L92 trace-zero cubic theorem).
 Proof artifact: experiments/positive_tail_full_20260722.log (L59 clean 10-box run).
 Data: sym3_sweep_s51.jsonl (40 rec), sym4_sweep_s61.jsonl (20 rec, ρ column trustworthy),
 general_similarity_equality_s9173401.jsonl plus its `sensitivity` and `ultralocal` companions
