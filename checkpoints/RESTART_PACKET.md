@@ -40,6 +40,18 @@ strong modes.  Extract the arbitrary-size cancellation from the support/Stein en
 path-length recurrence, then add the disk-flat variables.  Do not promote the finite
 checks to an all-size theorem.  See `proof/crabb_rank_one_envelope.md`.
 
+L119 removes the metric recurrence from the remaining gate.  For fixed `c`, the
+Chebyshev--Blaschke lower function `||B_c(T)||²` and the fixed-defect Stein upper
+function sandwich `t_*` and agree at the L117 operator, so their derivatives agree in
+every matrix direction.  The upper-envelope gradient is therefore exactly
+`2sqrt(k(c^(2L)))c^(−L/2) Re<e_0,D_A[B_c(phi_A(A))]e_L>`.  Jacobi multiplication
+also gives the polynomial descent
+`B_c o phi_c=phi_(c^L) o 2c^(L/2)T_L(z/(2sqrt(c)))`; at `A_c` the polynomial is a
+nested direct sum of `2 x 2` reversal blocks with outer range `E_(c^L)`.  Prove the
+observed `O(c^(L+1))` endpoint shape cancellation from support Fourier/Lobatto
+aliasing, then return to the disk-flat mixed face.  Do not differentiate the full
+Stein recurrence again.  See `proof/crabb_touching_gradient.md`.
+
 ## Completed repeated-C3 frontier (2026-07-22): L114
 
 L73 proves a complete-2 neighbourhood of one `C3`; L74--L93 reduce arbitrary repeated

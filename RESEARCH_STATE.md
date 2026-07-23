@@ -1,6 +1,40 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-22 (Epoch 6 — L118 weighted transverse reduction)
+**Last updated:** 2026-07-23 (Epoch 6 — L119 touching/endpoint reduction)
+
+## NEWEST (2026-07-23): L119 turns the transverse gradient into one scalar endpoint
+- Fix an L117 axis point `T_c`, its rank-one defect `q_c`, and L116's
+  Chebyshev--Blaschke product `B_c`.  The two differentiable functions
+  `R_c(T)=||B_c(T)||²` and `U_c(T)=kappa(P(T,q_c))` satisfy
+  `R_c<=t_*<=U_c` everywhere nearby and agree at `T_c`.
+- Therefore `D R_c(T_c)=D U_c(T_c)` in **every** matrix direction.  By the
+  envelope theorem this is also the derivative of L118's `Gamma_p+4`.
+- Since
+  `B_c(T_c)=sqrt(k(c^(2L))) diag(c^(j/2)) J diag(c^(−j/2))`
+  has the simple top singular pair `e_0,e_L`, the full gradient is
+  ```
+  D Gamma_p(A_c)[Y]
+    = 2 sqrt(k(c^(2L))) c^(−L/2)
+      Re <e_0,D_A[B_c(phi_A(A))]_(A_c)[Y]e_L>.
+  ```
+  The prefactor tends to four.  Thus L118's all-size `o(c^L)` gate is exactly
+  one endpoint functional-calculus shape derivative.
+- Jacobi multiplication gives the additional exact descent
+  `B_c o phi_c = phi_(c^L) o P_(L,c)`, where
+  `P_(L,c)(z)=2c^(L/2)T_L(z/(2sqrt(c)))`.
+  Moreover `P_(L,c)(A_c)=2c^(L/2)D J D^−1`; after permutation this is a
+  nested direct sum of `2 x 2` elliptic reversal blocks whose outer numerical
+  range is precisely `E_(c^L)`.
+- A direct checker differentiates the rational Blaschke product and the Stein
+  equation independently in 192 deterministic complex directions
+  (`p=3,...,10`), with worst binary64 derivative discrepancy `9.2e-11`;
+  it regenerates the polynomial descent to `1.8e-15`.
+- **Next:** prove that the endpoint derivative is `O(c^(L+1))` for arbitrary
+  `p`, as already seen exactly through `p=5`.  Use the support eigenvector
+  Fourier polynomial in the exterior ellipse coordinate and Lobatto/finite-path
+  aliasing; do not return to the full differentiated metric.
+  `proof/crabb_touching_gradient.md`;
+  `experiments/crabb_touching_gradient.py`.
 
 ## NEWEST (2026-07-22): L118 puts L65 and L117 on one analytic envelope
 - For a stable pullback `T`, the rank-one Stein Gramian
@@ -1197,12 +1231,14 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed 2026-07-22)
+## Current next actions (Epoch 6, refreshed 2026-07-23)
 1. **Build the L115/L117 transverse tube.**  Anchor on the exact elliptic-axis metric,
    retain L65's coercive normal complement, and seek estimates uniform as `c->0` and across
    the disk-manifold tangential directions.  The axis gap has order `c^(2p−2)`, so derive
-   L118's all-size endpoint path-length cancellation
-   `Proj_strong grad Gamma(C+cC*)=o(c^(p−1))`, then use the weighted disk/axis merger.
+   L119's all-size endpoint cancellation
+   `<e_0,D_A[B_c(phi_A(A))]e_L>=o(c^(p−1))`, then use the weighted disk/axis
+   merger.  Work through the exact Chebyshev descent/support Fourier functional,
+   not the superseded differentiated Stein recurrence.
    Do not rely on a fixed positive margin or compute the old `2p−2` residual jets.
 2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
    trace inequality can instead be derived from the block-Toeplitz positivity of the full
@@ -1265,6 +1301,7 @@ experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_
   crabb_elliptic_axis_theorem.py (L117 high-precision DCT/Jacobi identity audit),
   general_crabb_weighted_series.py (L118 arbitrary-size sparse support/Riemann engine),
   crabb_transverse_weighted_gradient.py (L118 exact low-size gradient cancellations),
+  crabb_touching_gradient.py (L119 upper/lower derivative and polynomial-descent audit),
   formal_riemann_series.py + rank_one_stein_series.py (exact higher-order helpers),
   p3_crabb_sixth_order.py + p3_crabb_quartic.py (L67/L68 exact certificates),
   p3_crabb_local_slice.py (L69 orbit-normal slice audit),
