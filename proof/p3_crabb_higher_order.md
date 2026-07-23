@@ -243,7 +243,7 @@ checks the independent L63 coefficients and verifies (13)--(15) and (12).  The q
 derives the three paths in (19), performs both levels of defect minimization exactly, and uses
 the invariant classification (18) to verify (20).
 
-The next `p=3` task is the weighted transition `|omega|=O(|epsilon*zeta|)` between (20) and
-(12), together with the exact-slice coupling problem just noted.  Closing both
-would upgrade canonical straight-ray descent to a genuine local-neighbourhood theorem.  The
-higher-size residual modes and repeated-block faces remain separate debts.
+L69 constructs the exact affine-unitary slice, and L70 proves the complete weighted leading
+form in the transition `|omega|=O(|epsilon*zeta|)`.  That form has one unique higher-order
+center, which remains before a genuine local-neighbourhood theorem.  The higher-size residual
+modes and repeated-block faces remain separate debts.

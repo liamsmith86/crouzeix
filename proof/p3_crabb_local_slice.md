@@ -101,10 +101,9 @@ provided the formal expansion confirms and eliminates every lower-weight center 
 `Y_0` is the real superdiagonal-difference direction and `Y_3` is the bottom-left direction
 from (2).
 
-The next target is to derive the complete leading form in `(w,s,v)` and prove it negative after
-all center shifts.  A positive leading form would obstruct the stronger complete-similarity
-route, while a negative one would give the first credible full-neighbourhood theorem at a Crabb
-equality point.
+L70 now derives the complete leading form and proves it nonpositive.  It has one unique weighted
+zero, so the remaining target is the analytic center through that point rather than a generic
+coupling estimate.  A punctured-neighbourhood theorem still requires controlling that center.
 
 ## 5. Audit
 

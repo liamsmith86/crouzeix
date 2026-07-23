@@ -1,6 +1,26 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-22 (Epoch 6 — L59 elliptic 4×4 slice theorem)
+**Last updated:** 2026-07-22 (Epoch 6 — L70 weighted `p=3` Crabb slice)
+
+## NEWEST (2026-07-22): L70 closes the weighted leading sign at `C3`
+- L69 gives an exact seven-real-dimensional affine-unitary normal slice.  In its sharp chart
+  `C3+εR1(1)+ε²R2(u)+ε³(sY+vV)`, L70 derives the complete rank-one feasible-certificate
+  coefficient
+  `H=−8s²−(21/4)|v+39/448+(4√2/7)u|²−(25/56)|u−3√2/64|²`.
+  Thus the feared weighted coupling is never positive and has only the center
+  `(u,v,s)=(3√2/64,−9/64,0)`.
+- The missing exact inputs are the ordinary fifth mode coefficient `−123√2/256`, the bottom
+  linear coefficient `−117/128`, and the mode/bottom coupling `−6√2`.  A new sparse exact
+  Riemann/Stein engine regenerates the whole leading certificate in about ten seconds, agrees
+  with the older implementation through order four, reproduces L67--L68, and cross-checks the
+  fifth coefficient through the older Stein engine.
+- The last center is genuinely subtle: its fixed-center order-ten descent is cancelled exactly
+  by the common recentering factor `1+9ε²/32`; the corrected certificate is flat through order
+  twelve, while the remaining real transverse coordinate contributes `−8s²`.  This suggests
+  a hidden analytic equality center.  The next task is to characterize that center structurally,
+  not to infer a punctured-neighbourhood theorem from a finite jet.
+- Scope remains the stronger L21 complete-similarity route near one `3×3` Crabb block.  It is
+  neither a proof of the general scalar conjecture nor a repeated-block theorem.
 
 ## NEWEST (2026-07-22): L20/L59 prove the complete elliptic 4×4 slice
 - **The last positive compact tail is closed rigorously.** L59 collects the complete
