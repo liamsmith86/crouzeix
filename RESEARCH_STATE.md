@@ -29,6 +29,25 @@
   `proof/blaschke_stein_composition.md`;
   `experiments/crabb_central_metric_descent.py`.
 
+## NEWEST (2026-07-23): L128 collapses every inactive central fiber to one involution
+- Order the inner coordinates in the two layers
+  `(e1,...,e_(k−1))` and `(e_(k+1),...,e_(2k−1))`.  With
+  `H=J diag(c^(k−1),...,c)` and `r=c^k`, the full descended pencil is
+  ```
+  [[H,I],[rI,H]] + 2a[[-rI,H],[H,-I]],
+  ```
+  while its coordinate Gramian is `[[I,2aI],[2aI,I]]`.
+- The decisive identity is `H²=rI`.  A diagonal gauge sends `H` to
+  `sqrt(r)J`, so algebraically the whole inactive complement contains
+  only two `2×2` fiber types.  The gauge is nonunitary in the physical
+  Gramian, so this is not yet the missing condition estimate.
+- The next calculation should formulate L127's lift as a `2×2`
+  operator Schur complement with the sole relation `H²=rI`, and show
+  that its generalized inner spectrum remains between the exact
+  size-three endpoints.  No induction over individual coordinates is
+  now justified.
+  `proof/crabb_central_inner_fibers.md`.
+
 ## NEWEST (2026-07-23): L126 finds the all-size source of the `-64`
 - In size `p=2k+1`, put `S=C+cJCJ` and take the central equality
   direction

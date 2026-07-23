@@ -160,6 +160,14 @@ establish the exact central identity
 `proof/blaschke_stein_composition.md` and
 `experiments/crabb_central_metric_descent.py`.
 
+L128 further removes the apparent high-dimensional inactive fiber.
+In two layers its entire descended pencil is
+`[[H,I],[rI,H]]+2a[[-rI,H],[H,-I]]`, its coordinate Gramian is
+`[[I,2aI],[2aI,I]]`, and `H²=rI`.  The diagonal symmetrizing gauge is
+not physical-unitary, so it does not finish the bound, but the missing
+metric lift is now a dimension-free `2×2` operator Schur complement.
+See `proof/crabb_central_inner_fibers.md`.
+
 ## Completed repeated-C3 frontier (2026-07-22): L114
 
 L73 proves a complete-2 neighbourhood of one `C3`; L74--L93 reduce arbitrary repeated

@@ -28,6 +28,9 @@ class DicksonDescentRecord:
     exact_amplitude_linearity: bool
     coordinate_gramian_reduces: bool
     outer_coordinate_gramian_identity: bool
+    inner_two_layer_identity: bool
+    inner_coordinate_gramian_identity: bool
+    inner_involution_identity: bool
     axis_cross_blocks_vanish: bool
     derivative_cross_blocks_vanish: bool
 
@@ -182,6 +185,57 @@ def make_record(degree: int) -> DicksonDescentRecord:
             [0, amplitude, sp.Rational(1, 2)],
         ]
     )
+    inner_two_layer_identity = True
+    inner_coordinate_gramian_identity = True
+    inner_involution_identity = True
+    if degree > 1:
+        layer_dimension = degree - 1
+        layer_reversal = sp.eye(layer_dimension)[:, ::-1]
+        layer_diagonal = sp.diag(
+            *(
+                parameter ** (degree - index)
+                for index in range(1, degree)
+            )
+        )
+        layer_operator = layer_reversal * layer_diagonal
+        inner_indices_ordered = [
+            *range(1, degree),
+            *range(degree + 1, 2 * degree),
+        ]
+        identity = sp.eye(layer_dimension)
+        expected_inner_pencil = sp.Matrix.vstack(
+            sp.Matrix.hstack(
+                layer_operator - 2 * amplitude * descended_parameter * identity,
+                identity + 2 * amplitude * layer_operator,
+            ),
+            sp.Matrix.hstack(
+                descended_parameter * identity
+                + 2 * amplitude * layer_operator,
+                layer_operator - 2 * amplitude * identity,
+            ),
+        )
+        expected_inner_gramian = sp.Matrix.vstack(
+            sp.Matrix.hstack(identity, 2 * amplitude * identity),
+            sp.Matrix.hstack(2 * amplitude * identity, identity),
+        )
+        inner_two_layer_identity = (
+            pencil_value.extract(
+                inner_indices_ordered,
+                inner_indices_ordered,
+            )
+            == expected_inner_pencil
+        )
+        inner_coordinate_gramian_identity = (
+            coordinate_gramian.extract(
+                inner_indices_ordered,
+                inner_indices_ordered,
+            )
+            == expected_inner_gramian
+        )
+        inner_involution_identity = (
+            layer_operator**2
+            == descended_parameter * identity
+        )
 
     axis_outer = value.extract(outer_indices, outer_indices)
     derivative_outer = derivative.extract(outer_indices, outer_indices)
@@ -217,6 +271,11 @@ def make_record(degree: int) -> DicksonDescentRecord:
             coordinate_gramian.extract(outer_indices, outer_indices)
             == expected_outer_coordinate_gramian
         ),
+        inner_two_layer_identity=inner_two_layer_identity,
+        inner_coordinate_gramian_identity=(
+            inner_coordinate_gramian_identity
+        ),
+        inner_involution_identity=inner_involution_identity,
         axis_cross_blocks_vanish=axis_cross_vanishes,
         derivative_cross_blocks_vanish=derivative_cross_vanishes,
     )
@@ -229,6 +288,9 @@ def make_record(degree: int) -> DicksonDescentRecord:
             record.exact_amplitude_linearity,
             record.coordinate_gramian_reduces,
             record.outer_coordinate_gramian_identity,
+            record.inner_two_layer_identity,
+            record.inner_coordinate_gramian_identity,
+            record.inner_involution_identity,
             record.axis_cross_blocks_vanish,
             record.derivative_cross_blocks_vanish,
         )
