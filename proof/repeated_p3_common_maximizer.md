@@ -109,9 +109,9 @@ is not empty.  Consequently the repeated-block problem does **not** reduce at
 first order to a single diagonal `C3` perturbation.  L75--L76 determine the
 second-order conformal/similarity sign for one pure selected/cross-copy pair:
 it is nonpositive, with a two-complex-dimensional equality plane.  Mixtures
-across `y^perp`, diagonal perturbations, higher order on that plane, and the
-nonsmooth case where the diagonal support compression has no strict top gap
-remain.
+across `y^perp`, diagonal perturbations, and the nonsmooth case where the
+diagonal support compression has no strict top gap remain.  L77 subsequently
+proves strict cubic descent on the pure-pair equality plane.
 
 ## 5. Regeneration
 

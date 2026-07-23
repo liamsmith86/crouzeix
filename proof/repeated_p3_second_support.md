@@ -117,7 +117,8 @@ L76 now solves the resulting Stein problem exactly.  Its feasible endpoint is
 
 Thus generator 1 decreases at second order, while the complete
 `(alpha_0,alpha_2)` plane is flat at this order.  See
-`proof/repeated_p3_stein_sign.md`; the flat plane remains a higher-order debt.
+`proof/repeated_p3_stein_sign.md`.  L77 subsequently proves strict cubic
+descent everywhere on that plane except the origin.
 
 ## 4. Regeneration
 

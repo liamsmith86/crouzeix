@@ -43,9 +43,9 @@ Consequently the L21 similarity square satisfies the one-sided bound
 
 Equality in this certificate occurs exactly when `alpha_1=0`; then `d=0`
 automatically.  Formula (5) handles one multiplicity-two cross pair with zero
-diagonal perturbation blocks.  It does **not** yet settle the flat
-`(alpha_0,alpha_2)` plane, mixtures with diagonal directions, or arbitrary
-multiplicity.
+diagonal perturbation blocks.  L77 subsequently proves strict cubic descent
+on the flat `(alpha_0,alpha_2)` plane.  Mixtures with diagonal directions and
+arbitrary multiplicity remain open.
 
 ## 2. First metric tangent
 
@@ -144,8 +144,7 @@ limiting argument of L62 then proves (5).
 
 The cancellation explains the computations after L75: generator 1 decreases
 the certificate quadratically, whereas generators 0 and 2 are genuinely
-second-order flat.  It also says exactly where higher-order work is needed,
-rather than merely reporting a numerical near-zero.
+second-order flat.  L77 computes their first nonzero term at cubic order.
 
 ## 5. Regeneration
 

@@ -1,6 +1,21 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-22 (Epoch 6 — L76 repeated-`C3` cross sign)
+**Last updated:** 2026-07-22 (Epoch 6 — L77 repeated-`C3` cubic cross sign)
+
+## NEWEST (2026-07-22): L77 closes the pure-pair flat plane cubically
+- On L76's equality plane `alpha1=0`, the second effective support matrix remains scalar.  The
+  exact third effective matrix is off-diagonal with entry `c(q)`, an explicit odd Laurent
+  polynomial, so the top third support branch is `|c(q)|`.  Its pi-periodicity removes the first
+  Fourier mode, leaving only `m3 A0` after the third Schwarz map is evaluated at `C3`.
+- The full third metric is constructed recursively with the cubic lower, Stein, and upper Schur
+  penalties.  All second-map, Frechet, and lower-metric terms cancel at the upper endpoint:
+  `e3=-16 mean_{|q|=1}|c(q)|`.  The factorization of `c` shows that this is strictly negative
+  for every nonzero `(alpha0,alpha2)`.  On the pure axes it is exactly `-|alpha0|³/4` and
+  `-16|alpha2|³/27`.
+- Therefore every nonzero pure multiplicity-two cross-pair direction descends, quadratically
+  off the L76 plane and cubically on it.  This still does not control diagonal/cross mixtures,
+  simultaneous orthogonal-copy directions, or the common-maximizer top-order inequality.
+  `proof/repeated_p3_third_sign.md`; `experiments/repeated_p3_third_sign.py`.
 
 ## NEWEST (2026-07-22): L76 proves the pure cross-pair second-order sign
 - On the three-complex-parameter L74 quotient for one selected/orthogonal copy pair, an explicit
@@ -13,10 +28,10 @@
   Thus every pure cross-pair direction is nonincreasing at second order, without a discretized
   boundary or numerical SDP.  The full symbolic checker reconstructs the second metric and
   verifies all three Schur complements exactly in under one second.
-- Equality is exactly `alpha1=0`, leaving a two-complex-dimensional flat plane.  This is not a
-  repeated-block neighbourhood theorem: higher order on that plane, mixtures with diagonal
-  single-copy directions, common-maximizer order inequalities, and simultaneous multiplicity
-  directions remain.  `proof/repeated_p3_stein_sign.md`;
+- Equality is exactly `alpha1=0`, leaving a two-complex-dimensional flat plane; L77 now proves
+  strict cubic descent on it.  This is not a repeated-block neighbourhood theorem: mixtures with
+  diagonal single-copy directions, common-maximizer order inequalities, and simultaneous
+  multiplicity directions remain.  `proof/repeated_p3_stein_sign.md`;
   `experiments/repeated_p3_stein_sign.py`.
 
 ## NEWEST (2026-07-22): L75 removes the repeated-block boundary calculation
@@ -537,12 +552,12 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-22)
-1. **Resolve L76's repeated-block equality plane.** Determine whether the
-   `(alpha0,alpha2)` directions lie on an exact repeated disk-matrix center or acquire a negative
-   higher-order certificate.  Then include diagonal single-copy perturbations, the strict
-   common-maximizer order inequality, and simultaneous directions in `y^perp` before claiming a
-   repeated neighbourhood.  In parallel, seek the L73 analytic-normal-form pattern in the
-   `2p-2` quotient modes for `p≥4`.
+1. **Couple the L77 cross theorem to the rest of the repeated face.** Extend from one pure pair
+   to simultaneous directions in `y^perp`, then include diagonal single-copy perturbations and
+   the strict common-maximizer order inequality.  The weighted transition near `alpha1=0` must
+   combine L76's quadratic and L77's cubic terms uniformly before claiming a repeated
+   neighbourhood.  In parallel, seek the L73 analytic-normal-form pattern in the `2p-2`
+   quotient modes for `p≥4`.
 2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
    trace inequality can instead be derived from the block-Toeplitz positivity of the full
    operator-valued correction moments. Do not retry trace/positive-state scalarizations.
@@ -610,7 +625,8 @@ experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_
   (non-load-bearing L73 numerical smoke test), repeated_p3_common_maximizer.py
   (L74 exact repeated-block cross quotient), repeated_p3_second_support.py
   (L75 exact effective support and conformal collapse), repeated_p3_stein_sign.py
-  (L76 exact full second-metric certificate and sign).
+  (L76 exact full second-metric certificate and sign), repeated_p3_third_sign.py
+  (L77 exact third support split and strict cubic certificate).
 Proof artifact: experiments/positive_tail_full_20260722.log (L59 clean 10-box run).
 Data: sym3_sweep_s51.jsonl (40 rec), sym4_sweep_s61.jsonl (20 rec, ρ column trustworthy),
 general_similarity_equality_s9173401.jsonl plus its `sensitivity` and `ultralocal` companions
