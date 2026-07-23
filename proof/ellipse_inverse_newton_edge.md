@@ -47,6 +47,27 @@ lowest bivariate edge is
 and every correction to the displayed coefficient at circle grade
 `n` contains at least two additional powers of `c`.
 
+Series reversion gives the equally useful direct-map form.  If
+
+\[
+ \phi_c(w)=\sum_{n\geq0}a_n(c)w^{2n+1},
+\]
+
+then
+
+\[
+ \boxed{a_n(c)=(-1)^n c^n+O(c^{n+2}).}                \tag{2a}
+\]
+
+Indeed, the Catalan identity `C(x)=1+xC(x)^2` says that the
+compositional inverse of the bottom edge
+`z C(cz^2)` is exactly
+
+\[
+ {w\over1+cw^2}
+ =w-cw^3+c^2w^5-c^3w^7+\cdots.                       \tag{2b}
+\]
+
 This is a scalar conformal-map lemma.  It supplies the graded
 propagation rule anticipated in A84, but does **not** by itself prove
 the optimized Stein deficit asserted there.
@@ -156,9 +177,10 @@ Equations (8)--(10) prove (1)--(2).
 
 In L123's companion coordinates, a coefficient at offset `k` must
 propagate through `k` odd functional-calculus steps before it can
-reach the endpoint defect.  Equation (1) makes that filtration exact:
-the first available scalar coefficient is `C_k c^k`, and no term of
-lower elliptic weight exists.
+reach the endpoint defect.  Equations (1) and (2a) make that
+filtration exact: the inverse and direct scalar coefficients begin
+with `C_k c^k` and `(-1)^k c^k`, respectively, and no term of lower
+elliptic weight exists.
 
 This proves the order-selection part of A84's proposed path argument.
 What remains is substantial:

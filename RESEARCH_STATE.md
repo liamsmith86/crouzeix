@@ -1,6 +1,34 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-23 (Epoch 6 — L125 inverse-ellipse Newton edge)
+**Last updated:** 2026-07-23 (Epoch 6 — exact A84 Hessian recurrence audit)
+
+## NEWEST (2026-07-23): A85 makes the candidate `-64` face exact in finite sizes
+- A new rational formal-series engine expands the complete locally
+  optimized rank-one Stein calculation, not merely the scalar Riemann map:
+  ```
+  T=T0+aT1+a²T2,  M=M0+aM1+a²M2,  K=K0+aK1.
+  ```
+  It reconstructs the quadratic in the defect tangent, minimizes it by
+  exact series Gaussian elimination, and perturbs both generalized metric
+  endpoints.
+- In every first-offset case through `p=7`, all coefficients below
+  `c^(2k)` vanish exactly and the first coefficient is `-64`.  Thus the
+  floating A84 law is now an exact finite recurrence, not a precision
+  artifact.
+- The optimizer itself exposes the cancellation: it starts at L123's
+  equality defect and introduces a forced `-8c` entry two coordinates
+  later.  For offset one the first endpoint metric coefficients are
+  `(48,128)`; for tested offsets two and three they are `(-16,-128)`.
+  In either case the condition ratio combines them as
+  `M2_LL-4M2_00=-64`.
+- **Do not promote this to L126.**  The remaining proof debt is an
+  arbitrary-`k` induction for the two-step stationarity/path recurrence,
+  followed by polarization of distinct coefficient grades and a uniform
+  analytic remainder.  The exact finite checker identifies those tasks
+  but does not replace them.
+  `proof/crabb_palindromic_elliptic_hessian.md`;
+  `experiments/crabb_palindromic_elliptic_hessian.py`;
+  `experiments/exact_truncated_series.py`.
 
 ## NEWEST (2026-07-23): L125 proves the scalar grade-selection rule in A84
 - If the normalized disk-to-ellipse map is

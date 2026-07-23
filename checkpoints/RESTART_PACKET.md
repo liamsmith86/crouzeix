@@ -123,6 +123,17 @@ attempt the Newton remainder merger.
 See `proof/crabb_palindromic_elliptic_face.md` and
 `proof/ellipse_inverse_newton_edge.md`.
 
+A85 now upgrades the one-coordinate Hessian evidence to exact rational
+formal algebra through every first offset in `p<=7`.  After reconstructing
+and minimizing the defect-vector quadratic, every coefficient below
+`c^(2k)` vanishes and the next is exactly `-64`.  The optimizer starts at
+the disk-equality defect and propagates a `-8c` correction two coordinates
+later; the first residual endpoint identity is
+`M2_LL-4M2_00=-64`.  This is still finite evidence.  Prove the two-step
+stationarity recurrence for arbitrary `k`, then polarize different grades
+and establish the uniform Newton remainder.  See
+`proof/crabb_palindromic_elliptic_hessian.md`.
+
 ## Completed repeated-C3 frontier (2026-07-22): L114
 
 L73 proves a complete-2 neighbourhood of one `C3`; L74--L93 reduce arbitrary repeated
