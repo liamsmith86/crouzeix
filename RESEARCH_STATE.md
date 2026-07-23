@@ -88,19 +88,19 @@
   put visible cubic/quartic terms strictly above the proposed face.
   The persisted 180-record probe has minimum half-face domination
   ratio `1.8577`.  This is adversarial evidence, not the missing proof.
-- L148 now removes the most dangerous all-amplitude obstruction.
+- L148 removes the grade-one all-amplitude obstruction.
   At every nonlinear L123 equality anchor, not only at the Crabb
   apex, the first ellipse-pullback derivative of the sharp Blaschke
   norm and touching Stein envelope is exactly zero.  The proof splits
   inner-function stationarity from the all-size companion endpoint
-  identity for `A^dagger_K-A^3`.  Thus a term with arbitrarily many
-  unreflected amplitudes and only one reflected leg cannot occur.
-- The exact remaining L147 gate is now the convergent reflected-Rees
-  lift itself.  Once the prepared functional calculus and recentered
-  Stein critical equations extend analytically to independent
-  reflection variables, L148 makes the restriction and first normal
-  derivative vanish on the exceptional divisor, forcing the square
-  of the reflected ideal by ordinary analytic Taylor division.
+  identity for `A^dagger_K-A^3`.
+- **Audit correction:** a grade-`k` reflected leg first occurs at
+  order `c^k`, so the ordinary derivative L148 proves only the
+  grade-one member of the needed normal-jet family.  The exact
+  remaining L147 gates are (i) the analogous all-anchor endpoint
+  identity for every first grade-`k` jet and (ii) the convergent
+  reflected-Rees lift.  Only together do they force the square of the
+  reflected ideal by analytic Taylor division.
   `proof/crabb_faber_blaschke_dual.md`;
   `experiments/crabb_faber_blaschke_dual.py`;
   `experiments/crabb_central_faber_blaschke.py`;
@@ -1978,15 +1978,14 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-23)
-1. **Construct L147's convergent reflected-Rees lift.**  L148 already
-   proves that the restriction and first normal derivative vanish at
-   every equality anchor.  Recenter the arbitrary-amplitude
-   Weierstrass and Stein recurrences at L123's exact factor/metric and
+1. **Extend L148 to every reflected grade, then build the Rees lift.**
+   For each `k`, isolate the first order-`c^k` operator jet after
+   quotienting lower scalar ellipse jets and prove its top endpoint
+   derivative vanishes at every L123 equality anchor.  Then recenter
+   the arbitrary-amplitude Weierstrass and Stein recurrences and
    extend them analytically to independent variables
-   `r=c^L`, `w_k=c^ku_k`.  Separate the dual preparation lift from the
-   primal critical-equation lift.  Once this extension is explicit,
-   ordinary Taylor division gives the ideal square; do not redo the
-   first-normal derivative or compact quadratic face.
+   `r=c^L`, `w_k=c^ku_k`.  L148 is only the `k=1` base case; do not
+   infer the higher jets from an ordinary first derivative.
 2. **Then build the L115/L117 transverse tube.**  Assuming L147 closes,
    introduce L124's best-phase split `z=u+v` and classify the full
    reflected Newton ideal in `(u,v,c)`.  The anchors are

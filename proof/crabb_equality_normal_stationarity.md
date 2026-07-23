@@ -57,9 +57,11 @@ rank-one Stein envelope:
 
 This is stronger than L131/L120's
 `D_u Gamma_eq(0,c)=0`: stationarity now holds all along the nonlinear
-disk-equality family.  It removes the candidate L147 obstruction in
-which arbitrarily many unreflected amplitudes multiply one reflected
-leg.  It does not by itself prove the convergent reflected-Rees lift.
+disk-equality family.  However, it is only the ordinary first
+`c`-derivative.  A grade-`k` reflected leg begins at `c^k`, so (3)
+directly removes the one-leg obstruction only at grade one.  L147
+still needs the all-grade normal-jet extension as well as the
+convergent reflected-Rees lift.
 
 ## 2. The exact first ellipse tangent
 
@@ -221,17 +223,19 @@ L147 needs the square of the reflected ideal
 {\mathfrak r}=(c^L,c^ku_k,c^k\overline {u_k})_k.
 \]
 
-L148 proves the geometric input that was absent from the first draft:
-the coefficient of one normal/reflected leg vanishes at **every**
-unreflected equality anchor.  The remaining task is algebraic rather
-than variational:
+L148 proves the first member of the geometric normal-jet family that
+was absent from the first draft.  The remaining tasks are:
 
-1. construct the convergent Rees lift of the prepared functional
+1. prove the analogous stationarity for the first independent
+   grade-`k` reflected jet at order `c^k`, for every `k`;
+2. construct the convergent Rees lift of the prepared functional
    calculus and the recentered Stein critical equations; and
-2. use (3) on its exceptional divisor to conclude membership in
+3. use the complete normal-jet family on its exceptional divisor to
+   conclude membership in
    `mathfrak r^2`.
 
-No new coefficient calculation is required after that lift.
+The grade-one member requires no further coefficient calculation;
+the higher-grade endpoint identities remain open.
 
 ## 7. Exact regeneration
 
