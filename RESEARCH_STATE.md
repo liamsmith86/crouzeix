@@ -1,6 +1,18 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-22 (Epoch 6 — L88 exact normal flat-copy stratum)
+**Last updated:** 2026-07-22 (Epoch 6 — L89 three-copy nonnormal flat stratum)
+
+## NEWEST (2026-07-22): L89 closes the first nonnormal copy-matrix stratum
+- For `N=[[0,a,b],[0,0,c],[0,0,0]]`, the angular coefficients in L88 force any common top
+  vector (when `ac!=0`) to be the middle coordinate; its constant coefficient is compatible
+  only when `b=0`.  The complement top defect then has determinant `16|ac|²>0`.
+- Thus endpoint equality requires `abc=0`.  The length-two path `b=0,ac!=0` is exactly L80's
+  rank-two star and becomes strict at optimized second order.  The square-zero face `ac=0`
+  unitarily reduces to one L77 pure pair and is strict at cubic order.  If `abc!=0`, the
+  matrix-Jensen term is already strict.
+- This completely closes the zero-diagonal, three-copy nonnormal flat core.  The next Schur
+  target is to allow nonzero diagonal/common `w`, then prove the same path/star recursion in
+  arbitrary copy size.  `proof/repeated_p3_flat_three_copy.md`.
 
 ## NEWEST (2026-07-22): L88 packages the flat core into one copy matrix
 - Every generator-zero/two edge and generator-zero loop on the L87 center is exactly
@@ -795,7 +807,8 @@ experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_
   repeated_p3_radial_gap.py (L81 strict radial diagonal--cross coupling),
   repeated_p3_winner_graph_sign.py (L83--L85 complete tied-winner endpoint),
   repeated_p3_multiwinner_gap.py (L86 full winner/loser Gram penalty),
-  repeated_p3_flat_copy_matrix.py (L88 flat copy-matrix support identity).
+  repeated_p3_flat_copy_matrix.py (L88 flat copy-matrix support identity),
+  repeated_p3_flat_three_copy.py (L89 three-copy Schur equality split).
 Proof artifact: experiments/positive_tail_full_20260722.log (L59 clean 10-box run).
 Data: sym3_sweep_s51.jsonl (40 rec), sym4_sweep_s61.jsonl (20 rec, ρ column trustworthy),
 general_similarity_equality_s9173401.jsonl plus its `sensitivity` and `ultralocal` companions
