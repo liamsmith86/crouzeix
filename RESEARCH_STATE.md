@@ -2,6 +2,67 @@
 
 **Last updated:** 2026-07-23 (Epoch 6 — Faber endpoint localization)
 
+## NEWEST (2026-07-23): A99 finds the corrected Faber--Blaschke dual square
+- For a noncentral grade `k`, define
+  `G=P_L+2a(P_k+P_(L-k))+lambda*a*c^k*P_(L-k)`, map its
+  roots from the ellipse into the disk, and use them as the zeros of
+  a degree-`L` Blaschke product.
+- This inner function specializes **exactly** to L123's
+  characteristic Blaschke product on `c=0` and to L116's
+  Chebyshev--Blaschke product on `a=0`.  A fixed Chebyshev product
+  fails the first test and has a spurious unweighted `a^2` loss.
+- Coprime exact-anchor probes expose the associated scalar square
+  `(4-||B(T)||^2)/(16a^2c^(2k))
+  ->4+|lambda-2|^2/4`.
+  Thus the natural root interpolation (`lambda=0`) gives coefficient
+  80, while the single explicit correction `lambda=2` gives the sharp
+  coefficient 64.
+- Equivalently, the corrected Faber characteristic factor is
+  `P_L+2aP_k+2a(1+c^k)P_(L-k)`.  Unrestricted numerical optimization
+  of all mixed Faber coefficients independently returns
+  `lambda_(L-k)=1.99...`; other coefficients affect only higher
+  finite-`c` orders.
+- L140 proves that `lambda=2` is the unique Hardy reflection of
+  L131's negative frequency, so the center is no longer numerical.
+- L141 also proves the entire mismatch curvature.  With
+  `epsilon=(lambda-2)ac^k`, the associated Blaschke perturbation obeys
+  the exact nilpotent identity
+  `B_epsilon(C)=(1-|epsilon|^2)C^L+epsilon*C^(L-k)`.
+  Its only top singular coupling is a two-column block, whose largest
+  eigenvalue is `4-4|epsilon|^2+O(|epsilon|^4)`.  Hence the
+  `4|lambda-2|^2a^2c^(2k)` part of the observed parabola is exact.
+- At that stage the remaining scalar content was only the corrected base
+  loss `4-||B_(lambda=2)(T)||^2=64a^2c^(2k)+o(...)`:
+  derive it by inner--outer/endpoint singular-value perturbation and
+  establish complementary slackness with L139's defect correction.
+- L142 then proves that corrected base loss on **every central
+  collision** `L=2k`.  The Dickson identity factors the corrected
+  polynomial as `Q_(a,c^k)(P_k)`, so its root inner is a degree-two
+  corrected inner composed with the degree-`k` Chebyshev--Blaschke
+  map.  L126/L129 leave one active physical size-three block.  An
+  exact polynomial-ring generalized singular calculation has no
+  mixed term below `a^2c^(2k)` and gives coefficient `-64` there.
+- This narrowed the open scalar step to proving that a
+  **noncentral** grade has the same associated active block as its
+  central `2k+1` model.  This must be a filtered localization, not an
+  all-`c` norm comparison (A97 already falsified the latter).
+- L143 closes that noncentral step by formal inner--outer preparation.
+  The exact first mixed operator coefficient is a sparse translated
+  shift, and the top singular-vector coupling begins strictly above
+  grade `k`, so its Schur square cannot reach `c^(2k)`.
+  The sole terminal fold is at `d=L-k`: its `+8c^d` numerator
+  contribution cancels the coordinate metric's `-8c^d`, including
+  when `L=3k` puts it on the target face.  The remaining top Gram
+  coefficient is `-32`; the terminal coordinate weight `1/2` gives
+  `-64`.
+- Hence L140--L143 prove the complete one-grade dual loss parabola.
+  The next gates are mixed-grade polarization, a uniform remainder,
+  and complementary slackness with L139's primal defect square.
+  `proof/crabb_faber_blaschke_dual.md`;
+  `experiments/crabb_faber_blaschke_dual.py`;
+  `experiments/crabb_central_faber_blaschke.py`;
+  `experiments/crabb_faber_blaschke_formal.py`.
+
 ## NEWEST (2026-07-23): L139 proves the all-size defect-Hessian LDL edge
 - L138's endpoint Schur formula depends only on the zeroth and last
   rows of `B=D^(-1)U diag(s)U^*D`.  DCT-I endpoint
@@ -1969,6 +2030,9 @@ experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_
   crabb_defect_hessian_factor.py (A98 universal-Hessian LDL edge audit),
   crabb_axis_defect_fourier.py (L137 reciprocal-dn defect edge),
   crabb_homogeneous_defect_normal_form.py (L138 exact DCT defect congruence),
+  crabb_faber_blaschke_dual.py (A99 corrected scalar dual square),
+  crabb_central_faber_blaschke.py (L142 central corrected dual face),
+  crabb_faber_blaschke_formal.py (L143 noncentral formal dual face),
   formal_riemann_series.py + rank_one_stein_series.py (exact higher-order helpers),
   p3_crabb_sixth_order.py + p3_crabb_quartic.py (L67/L68 exact certificates),
   p3_crabb_local_slice.py (L69 orbit-normal slice audit),
