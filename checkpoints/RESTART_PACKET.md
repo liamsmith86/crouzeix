@@ -1,7 +1,20 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current repeated-C3 frontier (2026-07-22): L114
+## Current general Crabb frontier (2026-07-22): L115
+
+L114 closes the full repeated-`C3` local neighbourhood for every fixed copy multiplicity.
+L115 then returns to arbitrary block size and intersects L65's equality kernel with the
+Lewis--Overton circular-range tangent manifold.  Modulo affine-unitary motions, the tangent
+part has dimension `2p−4` out of L66's total `2p−2`; only one complex soft normal survives.
+It is mode two, represented by `C_p*`, and its exact central family satisfies
+`W(C_p+cC_p*)={z+c conjugate(z):|z|<=1}`.  Hence the next general-size task is a
+dimension-independent condition-four certificate for this Chebyshev--Lobatto elliptic family,
+then a tubular absorption using L65's coercive normal complement.  The pure family is already
+proved at `p=3` (L68--L73) and `p=4` (L20).  Do not compute all residual jets and do not begin
+a generic `5 x 5` slice grind.  See `proof/crabb_disk_tangent_intersection.md`.
+
+## Completed repeated-C3 frontier (2026-07-22): L114
 
 L73 proves a complete-2 neighbourhood of one `C3`; L74--L93 reduce arbitrary repeated
 copies to weighted terminal blocks, with all fixed directions closed.  L94--L100 give

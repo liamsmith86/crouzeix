@@ -1,6 +1,25 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-22 (Epoch 6 — L114 repeated-`C3` local theorem)
+**Last updated:** 2026-07-22 (Epoch 6 — L115 arbitrary-size disk-tangent reduction)
+
+## NEWEST (2026-07-22): L115 leaves one complex soft normal at every Crabb size
+- Lewis--Overton's local theorem says centered disk matrices near `C_p` form an analytic
+  codimension-`2p` manifold.  Adding arbitrary centers leaves the circular-range manifold
+  of codimension `2p−2`; its tangent equations are exactly the vanishing of support Fourier
+  modes `2,...,p`.
+- Intersecting these equations with L65's nonpositive second variation gives
+  `dim((ker e_p intersect T_disk)/O_p)=2p−4`.  Since L66's full equality quotient has
+  dimension `2p−2`, only two real normal coordinates remain soft.
+- Grade by grade, mode one and every residual mode at least three are tangent to the
+  circular-range manifold.  Mode two has exactly one complex normal quotient, represented
+  by `C_p*`.
+- The central normal family is exact:
+  `W(C_p+c C_p*)={z+c conjugate(z): |z|<=1}`.  Thus the survivor is the elliptic deformation,
+  while every circular anchor is already complete-`2` by Berger--Okubo--Ando.
+- The larger-size campaign is therefore one Chebyshev--Lobatto elliptic family plus strong
+  transverse directions, not `2p−2` independent higher-order jets.  The pure family is already
+  covered at `p=3` by L68--L73 and at `p=4` by L20.  General `p` and the tubular absorption
+  remain open. `proof/crabb_disk_tangent_intersection.md`.
 
 ## NEWEST (2026-07-22): L114 proves a full repeated-`C3` neighbourhood
 - Fix any finite multiplicity `m`.  L61 gives strict first-order descent whenever the

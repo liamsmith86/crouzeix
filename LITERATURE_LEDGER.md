@@ -83,10 +83,12 @@ Papers, theorems, assumptions, possible gaps. Status verified via web 2026-07-22
   Radius at Matrices Whose Fields of Values are Disks* — proves that disk matrices form a local
   analytic manifold and the numerical radius is partly smooth at every nonzero scalar
   superdiagonal matrix, including a single Crabb block; gives explicit tangent/normal spaces
-  under a simple support-eigenvalue hypothesis. This is directly relevant to classifying
-  L61's zero-Jensen-gap directions. It does **not** analyze repeated support multiplicity, the
-  conformally pulled-back L21 similarity square, or the closed tangent value (16), so no direct
-  overlap with the new first-order theorem was found.
+  under a simple support-eigenvalue hypothesis. L115 now uses their exact codimension-`2p`
+  centered-disk tangent theorem (Theorems 6.4, 7.4, 8.7), adjoins the two translation
+  coordinates, and intersects the resulting codimension-`2p−2` circular-range tangent with
+  L65. It does **not** analyze repeated support multiplicity, the conformally pulled-back L21
+  similarity square, or this kernel intersection, so no direct overlap with the new
+  second-order reduction was found.
 - [x] Greenbaum--Lewis--Overton, *Variational Analysis of the Crouzeix Ratio*, Math.
   Programming 2017 — proves Clarke regularity and nonnegative directional derivative of the
   **scalar Crouzeix ratio** at the Crabb/monomial candidate `(p(z)=z^(n−1), A=Crabb⊕0)`, while
