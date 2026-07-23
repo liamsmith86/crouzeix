@@ -1,6 +1,20 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-22 (Epoch 6 — L73 complete-`2` neighbourhood of `C3`)
+**Last updated:** 2026-07-22 (Epoch 6 — L74 repeated-`C3` cross quotient)
+
+## NEWEST (2026-07-22): L74 reduces the repeated-block exceptional cross face
+- On L61's zero-Jensen face choose the common maximizing copy vector `y`.  For each
+  `xi perpendicular to y`, the cross blocks `(X,Y)=(E_{xi y},E_{y xi})` obey one exact
+  Laurent identity against the Crabb top support vector.  Its real constraint rank is 14, so
+  the kernel has dimension 22.
+- Infinitesimal cross-copy unitary mixing has rank 16 inside that kernel.  Exact
+  Hilbert--Schmidt quotienting leaves only **three complex directions per orthogonal copy**,
+  with sparse canonical generators.  Thus multiplicity `m` contributes `3(m-1)` complex
+  cross parameters, not two arbitrary `3x3` blocks.
+- The quotient is nonzero, so repeated blocks do not reduce to L73 at first order.  The active
+  task is their second-order effective support/Stein sign, first when `y` has a strict compressed
+  top gap and then at nonsmooth ties.  Proof: `proof/repeated_p3_common_maximizer.md`; exact audit:
+  `experiments/repeated_p3_common_maximizer.py`.
 
 ## NEWEST (2026-07-22): L73 closes a full neighbourhood of the single `C3` block
 - The local rank-one Stein condition is an honest real-analytic feasible certificate: its defect
@@ -489,10 +503,11 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-22)
-1. **Extend L73 beyond one block.** The single `p=3` neighbourhood is closed.  Return to L61's
-   repeated-block equality characterization: classify common-maximizer directions, derive their
-   second-order block compression, and handle nonsmooth support-eigenvalue crossings.  In parallel,
-   seek the L73 analytic-normal-form pattern in the `2p-2` quotient modes for `p≥4`.
+1. **Compute the L74 second-order sign.** The common-maximizer cross quotient is now three
+   complex generators per orthogonal copy.  Derive their effective second support function and
+   finite Stein tangent program, first with a strict diagonal compression gap and then at
+   nonsmooth ties.  In parallel, seek the L73 analytic-normal-form pattern in the `2p-2`
+   quotient modes for `p≥4`.
 2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
    trace inequality can instead be derived from the block-Toeplitz positivity of the full
    operator-valued correction moments. Do not retry trace/positive-state scalarizations.
@@ -557,7 +572,8 @@ experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_
   (L71 disk factorization and canonical singular product), p3_disk_center_tangent.py
   (L72 exact ambient-stationarity audit), p3_disk_morse_bott.py
   (L73 defect Hessian/invariant audit), p3_local_theorem_probe.py
-  (non-load-bearing L73 numerical smoke test).
+  (non-load-bearing L73 numerical smoke test), repeated_p3_common_maximizer.py
+  (L74 exact repeated-block cross quotient).
 Proof artifact: experiments/positive_tail_full_20260722.log (L59 clean 10-box run).
 Data: sym3_sweep_s51.jsonl (40 rec), sym4_sweep_s61.jsonl (20 rec, ρ column trustworthy),
 general_similarity_equality_s9173401.jsonl plus its `sensitivity` and `ultralocal` companions
