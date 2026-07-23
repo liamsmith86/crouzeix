@@ -1,6 +1,19 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-22 (Epoch 6 — L86 complete repeated-C3 fixed-direction sign)
+**Last updated:** 2026-07-22 (Epoch 6 — L87 exact repeated-C3 equality reduction)
+
+## NEWEST (2026-07-22): L87 isolates the true higher-order center
+- The L86 endpoint is a sum of six explicit negative PSD terms.  A null vector must be a
+  common top eigenvector of every `Q(q)`, lie in `ker(H1)` and every `ker(Aj*)`, and have
+  common strong coordinate `v=0`.
+- After a copy-unitary, the selected branch has no first-order losing coupling and no
+  generator-one coupling.  Only its generator-zero/two flat star and the common flat
+  single-block modes remain.  These are exactly the previously proved L77/L80 and L67--L73
+  boundary mechanisms.
+- The uniform blow-up therefore needs to center only on this intersection stratum.  Generic
+  graphs, winner--loser edges, generator-one data, and the common strong mode already carry a
+  strict first/second-order margin and should be treated as normal variables, not expanded
+  blindly to higher order.  `proof/repeated_p3_equality_reduction.md`.
 
 ## NEWEST (2026-07-22): L86 closes every fixed repeated-`C3` direction through second order
 - Promote all common kernel vectors into a maximal winner sector.  The complementary losing
