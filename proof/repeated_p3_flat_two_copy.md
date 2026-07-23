@@ -168,11 +168,100 @@ This coercivity is uniform on normalized trace-zero blocks away from the
 normal face `a=0`.  It is the terminal estimate needed by L93's future
 weighted compactness argument.
 
-## 4. Restore the common mode
+## 4. Common-mode terminal coercivity
 
-If `w!=0`, L91 says a common top vector must reduce `Z`.  A nonnormal `2 x 2`
-matrix is unitarily irreducible, so its matrix-Jensen gap is strict.  If `Z`
-is reducible, it is normal and L88 applies.
+On the trace-zero face `z=0`, L90's only non-scalar common-mode contribution
+is
+
+\[
+ H_w(q)=\ell_w(q)D+\overline{\ell_w(q)}D^*,\qquad
+ \ell_w(q)=\frac{\sqrt2}{16}(q^{-1}w-q^3\bar w).       \tag{18}
+\]
+
+It has zero mean.  In the Schur basis (6), its upper cross entry is exactly
+
+\[
+ (H_w(q))_{01}
+ =\frac{\sqrt2\,a}{16}(q^{-1}w-q^3\bar w).             \tag{19}
+\]
+
+The mean top eigenvalue dominates the mean modulus of (19), which in turn
+dominates either Fourier coefficient.  The canonical second endpoint is
+therefore scalar and satisfies
+
+\[
+\boxed{
+\lambda_{\max}({\cal E}_{2,w})
+\le-\sqrt2\,a|w|.}                                    \tag{20}
+\]
+
+Thus the common mode supplies a uniform second-order margin on every
+nonnormal trace-zero terminal block.  Its only zero is again the exact normal
+face `a=0`.
+
+For general `z,w`, L91 says a common top vector must reduce `Z` whenever
+`w!=0`.  A nonnormal `2 x 2` matrix is unitarily irreducible, so its
+matrix-Jensen gap is strict.  If `Z` is reducible, it is normal and L88
+applies.
+
+There is also a quantitative joint bound.  Let `H_e(q)=B+C(q)` be (7) and
+let `H_o(q)=H_w(q)`.  Their parities are
+
+\[
+ H_e(-q)=H_e(q),\qquad H_o(-q)=-H_o(q).                \tag{21}
+\]
+
+For Euclidean vectors `x,y`,
+
+\[
+ \frac{|x+y|+|x-y|}{2}\ge\max\{|x|,|y|\}.             \tag{22}
+\]
+
+Pairing `q` and `-q` therefore proves both
+
+\[
+ \delta_J(z,w)\ge\delta_J(z,0),\qquad
+ \delta_J(z,w)\ge\mathop{\rm mean}|H_o|-|B|.           \tag{23}
+\]
+
+Use (12) in the first bound.  In the second, (19) and (11) give
+
+\[
+ \delta_J(z,w)\ge
+ \frac{\sqrt2}{16}a|w|
+ -\frac{5\sqrt2}{64}|z|\sqrt n.                       \tag{24}
+\]
+
+If the second term in (24) is at most half the first, retain half of the
+common-mode margin.  Otherwise
+`|z|>2a|w|/(5sqrt(n))`, which inserted into (12) gives a trace-splitting
+margin.  Since
+
+\[
+ \frac{a^2(4|d|^2+a^2)}{(2|d|^2+a^2)^2}\le1,
+\]
+
+the two cases combine into
+
+\[
+\boxed{
+\delta_J(z,w)\ge
+\frac{9|w|a^3(4|d|^2+a^2)}
+ {1280(5\sqrt2+6)(2|d|^2+a^2)^2}.}                   \tag{25}
+\]
+
+Equivalently, the canonical second endpoint obeys
+
+\[
+\boxed{
+\lambda_{\max}({\cal E}_{2,z,w})\le
+-\frac{9|w|a^3(4|d|^2+a^2)}
+ {80(5\sqrt2+6)(2|d|^2+a^2)^2}.}                     \tag{26}
+\]
+
+Thus simultaneous trace and common modes cannot cancel one another.  The
+joint quantitative gap remains strict for every nonnormal block with
+`w!=0`, uniformly in `z`.
 
 Combining all cases closes the complete two-copy L87 flat core:
 

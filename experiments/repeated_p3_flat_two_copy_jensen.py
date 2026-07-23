@@ -108,6 +108,50 @@ def main() -> None:
     ) != 0:
         raise AssertionError("the perpendicular Jensen energy failed")
 
+    common_real, common_imaginary = sp.symbols(
+        "common_real common_imaginary",
+        real=True,
+    )
+    common = common_real + sp.I * common_imaginary
+    common_linear_coefficient = sp.sqrt(2) * (
+        boundary**-1 * common
+        - boundary**3 * sp.conjugate(common)
+    ) / 16
+    common_linear_adjoint = sp.sqrt(2) * (
+        boundary * sp.conjugate(common)
+        - boundary**-3 * common
+    ) / 16
+    common_support = (
+        common_linear_coefficient * traceless
+        + common_linear_adjoint * traceless_adjoint
+    )
+    common_cross = sp.expand(common_support[0, 1])
+    expected_common_cross = (
+        sp.sqrt(2)
+        * edge
+        * (
+            boundary**-1 * common
+            - boundary**3 * sp.conjugate(common)
+        )
+        / 16
+    )
+    if sp.simplify(common_cross - expected_common_cross) != 0:
+        raise AssertionError("the common-mode cross coefficient failed")
+    common_support_mean = common_support.applyfunc(
+        lambda entry: constant_laurent_coefficient(entry, boundary)
+    )
+    if common_support_mean != sp.zeros(2):
+        raise AssertionError("the common-mode traceless mean did not vanish")
+    even_support = mean_part + angular_part
+    if sp.simplify(
+        even_support.subs(boundary, -boundary) - even_support
+    ) != sp.zeros(2):
+        raise AssertionError("the trace-splitting support lost even parity")
+    if sp.simplify(
+        common_support.subs(boundary, -boundary) + common_support
+    ) != sp.zeros(2):
+        raise AssertionError("the common-mode support lost odd parity")
+
     print("PASS repeated p=3 two-copy trace-splitting Jensen gap")
     print("Z = scalar*I + [[diagonal,edge],[0,-diagonal]]")
     print(
@@ -116,6 +160,8 @@ def main() -> None:
         "/(8192*base_norm_square)"
     )
     print("the expression is strict exactly off scalar=0 or edge=0")
+    print("on scalar=0, common w gives endpoint <= -sqrt(2)*edge*|w|")
+    print("even/odd pairing prevents common-w cancellation for scalar != 0")
 
 
 if __name__ == "__main__":

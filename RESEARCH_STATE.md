@@ -1,6 +1,28 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-22 (Epoch 6 — L95 quantitative trace-splitting gap)
+**Last updated:** 2026-07-22 (Epoch 6 — L97 joint terminal coercivity)
+
+## NEWEST (2026-07-22): L97 rules out trace/common cancellation
+- The trace-driven two-copy Pauli support is even under `q->−q`; the common-`w` support is odd.
+  Pairing the two boundary points makes the joint mean norm dominate each component, so adding
+  `w` can never weaken L95's trace-splitting Jensen gap.
+- Combining that fact with L96 in two quantitative regimes gives a joint endpoint bound
+  proportional to
+  `−|w|a³(4|d|²+a²)/(2|d|²+a²)²`, uniformly in the scalar trace coordinate `z`.
+- L94--L97 now control every leading terminal interaction (`z`, `w`, and the cubic block) with
+  common zero only on the exact normal stratum.  The next task is no longer another leading
+  coefficient: it is analytic remainder absorption/recentering onto L88's normal direct-sum
+  manifold, then lifting the estimate through the L93 flag.  `proof/repeated_p3_flat_two_copy.md`.
+
+## NEWEST (2026-07-22): L96 quantifies the common-mode terminal transition
+- On the trace-zero terminal block, the non-scalar common-mode support has zero mean and upper
+  cross entry `sqrt(2)a(q^−1w−q³conj(w))/16`.
+- Its mean top eigenvalue dominates either Fourier coefficient, giving the exact canonical
+  endpoint bound `lambda_max(E2,w)≤−sqrt(2)|aw|`.
+- L94--L96 now give coercive margins for the terminal cubic, trace split, and common mode, all
+  with common zero only at the exact normal face.  The remaining two-copy issue is simultaneous
+  nonzero `z,w`, where even/odd support modes can interact, and then uniform analytic remainder
+  absorption.  `proof/repeated_p3_flat_two_copy.md`.
 
 ## NEWEST (2026-07-22): L95 quantifies the second/cubic terminal transition
 - Write a two-copy matrix as `Z=zI+[[d,a],[0,−d]]`.  The non-scalar second
@@ -886,6 +908,7 @@ experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_
   repeated_p3_flat_three_copy.py (L89 three-copy Schur equality split),
   repeated_p3_third_metric.py (shared L77/L92 third-metric propagation),
   repeated_p3_flat_two_copy_third.py (L92 trace-zero cubic theorem),
+  repeated_p3_flat_two_copy_jensen.py (L95--L97 terminal Jensen coercivity),
   repeated_p3_flat_metric_flag.py (L93 arbitrary-copy metric-flag derivative).
 Proof artifact: experiments/positive_tail_full_20260722.log (L59 clean 10-box run).
 Data: sym3_sweep_s51.jsonl (40 rec), sym4_sweep_s61.jsonl (20 rec, ρ column trustworthy),
