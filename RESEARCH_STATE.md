@@ -1,6 +1,37 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-23 (Epoch 6 — L122 Toeplitz disk quartic)
+**Last updated:** 2026-07-23 (Epoch 6 — L123 exact disk equality family)
+
+## NEWEST (2026-07-23): L123 identifies the entire quartic null exactly
+- L122's phase-palindromic cone is not merely fourth-order flat.  Every
+  positive point on it is an exact equality point in every size:
+  ```
+  sup_(||f||_D<=1) ||f(X(H))|| = 2,   t_*(X(H))=4.
+  ```
+- With `K=H+R*HR`, `A=2K^-1HR`, `q=He_0`, and
+  `r=J conjugate(q)`, a diagonal phase gauge exposes the companion form
+  ```
+  Ae_0=0,  Ae_1=2e_0,
+  Ae_j=e_(j-1)+2z_(j-1)(e_0-e_L).
+  ```
+- The exact metric
+  `M=K-qq*+2rr*` satisfies `M-A*MA=qq*`.  Its generalized spectrum
+  relative to `K` is `{1/2,1,...,1,2}`, so it gives the complete
+  similarity upper square four.
+- Write `det(xi I-A)=xi g(xi)`.  The observability determinant is
+  `2^(L-1)det H`, so the roots of `g` are strictly in the disk.
+  Consequently `B=g/g^sharp` is a finite Blaschke product.
+  Cayley--Hamilton and the one-dimensional left/right kernels give
+  `B(A)=4e_0r*`, whose `K`-norm is exactly two.  This is the matching
+  scalar lower bound—not just an upper certificate.
+- **Course correction completed:** there is no hidden higher-order pure
+  disk descent on the quartic null.  Treat the phase-palindromic family
+  as a stratified equality set: its fixed-phase branches meet singularly
+  at the Crabb point.  Construct a uniform stratified normal form.
+  The next gate is strict descent in the non-palindromic disk normal
+  together with the elliptic normal, including their mixed remainder.
+  `proof/crabb_palindromic_equality.md`;
+  `experiments/crabb_palindromic_equality.py`.
 
 ## NEWEST (2026-07-23): L122 disproves the coercive disk-flat quartic
 - Crouzeix/Lewis--Overton's polynomial support certificate yields an exact
@@ -33,10 +64,11 @@
   `16(|u_1|^2+|u_2|^2)+(32/3)|u_3|^2`, minimized at `u=0`.
 - Exact noninfinitesimal palindromic samples through `p=8` retain
   generalized spectrum `{1/2,1,...,1,2}`, and SDPs return four, but this
-  is finite evidence—not yet an all-size equality theorem or lower bound.
-- **Course correction:** do not seek `-a||d||^4`.  Classify the
-  phase-palindromic null stratum, determine whether it is an exact `t_*=4`
-  disk equality manifold, then analyze the elliptic normal along it.
+  was only finite evidence at L122; L123 subsequently proves the all-size
+  equality theorem and lower bound.
+- **Course correction:** do not seek `-a||d||^4`.  L123 classifies the
+  phase-palindromic null stratum as an exact `t_*=4` stratified equality
+  family; analyze the elliptic and disk normals uniformly across it.
   `proof/crabb_disk_toeplitz_quartic.md`;
   `experiments/crabb_disk_toeplitz_quartic.py`.
 
@@ -1334,10 +1366,13 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    `2p−4` disk-flat coordinates, using the exact circular-range anchors rather than
    estimating them as generic flat Taylor directions.  Do not reopen the strong-gradient
    or differentiated-Stein calculations.
-   L121 raises the linear disk-flat/elliptic coupling by one full power, but L122 proves
-   that the hoped-for coercive quartic is false.  Classify L122's phase-palindromic
-   null stratum, prove or disprove exact `t_*=4` there, and then compute the elliptic
-   normal along that stratum.  Do not recompute the endpoint derivative.
+   L121 raises the linear disk-flat/elliptic coupling by one full power, and L122 proves
+   that the hoped-for coercive quartic is false.  L123 now classifies the full
+   phase-palindromic null as an exact `t_*=4` stratified equality family.  Build a
+   fixed-phase normal form that remains uniform where all branches meet at the Crabb
+   point, and prove strict descent jointly in its non-palindromic disk normal and
+   elliptic normal.  Do not recompute the endpoint derivative or search for pure disk
+   descent along the equality tangent.
    Do not rely on a fixed positive margin or compute the old `2p−2` residual jets.
 2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
    trace inequality can instead be derived from the block-Toeplitz positivity of the full
@@ -1404,6 +1439,7 @@ experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_
   crabb_descent_gradient.py (L120 exact fibre trace/quadrature/path audit),
   crabb_flat_endpoint_selection.py (L121 exact disk-flat bottom-mode selection),
   crabb_disk_toeplitz_quartic.py (L122 exact disk chart/noncoercive quartic),
+  crabb_palindromic_equality.py (L123 exact disk equality family),
   formal_riemann_series.py + rank_one_stein_series.py (exact higher-order helpers),
   p3_crabb_sixth_order.py + p3_crabb_quartic.py (L67/L68 exact certificates),
   p3_crabb_local_slice.py (L69 orbit-normal slice audit),

@@ -77,8 +77,9 @@ Thus the remaining merger must be stratified along (6), rather than
 closed by a fictitious bound `-a||d||^4`.
 
 This note proves the disk chart and quartic identities.  It does not
-yet prove the mixed elliptic tube along the new null stratum, nor claim
-that every point of (6) is a global equality point for `t_*`.
+prove the mixed elliptic tube along the new null stratum.  Subsequent
+L123 proves that every positive point of (6) is an exact equality
+point for `t_*`; see `proof/crabb_palindromic_equality.md`.
 
 ## 2. Exact disk factorization
 
@@ -307,16 +308,13 @@ noninfinitesimal rational points on this stratum give the generalized
 metric spectrum (13) unchanged for `p=3,...,8`.  Binary64 SDP and
 rank-one optimization also return `t_*=4` to their accuracy.
 
-These observations strongly suggest an exact disk equality manifold,
-but they are not yet an all-size lower bound or an equality
-classification.  The next tasks are:
-
-1. factor the Stein metric on the palindromic stratum and decide
-   whether its condition number is exactly four in every size;
-2. construct a matching inner-function lower extremal, or find strict
-   descent beyond fourth order;
-3. only then compute the elliptic-normal derivative along that
-   stratum and merge it with L117/L121.
+These observations suggested an exact disk equality family.  L123
+subsequently proves it: the metric factors as
+`M=K-qq*+2rr*`, and the matching characteristic-polynomial Blaschke
+product has norm two.  The union over phase is stratified and singular
+at the Crabb point.  The remaining task is therefore to compute and
+control the elliptic/non-palindromic normal uniformly through that
+singular apex, then merge it with L117/L121.
 
 The former plan of proving a positive-definite quartic and applying
 Young globally must not be retried.

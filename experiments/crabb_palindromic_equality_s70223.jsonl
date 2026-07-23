@@ -1,0 +1,9 @@
+{"blaschke_identity": true, "characteristic_identity": true, "companion_identity": true, "dimension": 3, "direction_kind": "symbolic", "endpoint_gram_identity": true, "observability_identity": true, "stein_identity": true}
+{"blaschke_identity": true, "characteristic_identity": true, "companion_identity": true, "dimension": 4, "direction_kind": "symbolic", "endpoint_gram_identity": true, "observability_identity": true, "stein_identity": true}
+{"blaschke_identity": true, "characteristic_identity": true, "companion_identity": true, "dimension": 5, "direction_kind": "symbolic", "endpoint_gram_identity": true, "observability_identity": true, "stein_identity": true}
+{"blaschke_identity": true, "characteristic_identity": true, "companion_identity": true, "dimension": 6, "direction_kind": "symbolic", "endpoint_gram_identity": true, "observability_identity": true, "stein_identity": true}
+{"blaschke_identity": true, "characteristic_identity": true, "companion_identity": true, "dimension": 7, "direction_kind": "exact_rational", "endpoint_gram_identity": true, "observability_identity": true, "stein_identity": true}
+{"blaschke_identity": true, "characteristic_identity": true, "companion_identity": true, "dimension": 8, "direction_kind": "exact_rational", "endpoint_gram_identity": true, "observability_identity": true, "stein_identity": true}
+{"blaschke_identity": true, "characteristic_identity": true, "companion_identity": true, "dimension": 9, "direction_kind": "exact_rational", "endpoint_gram_identity": true, "observability_identity": true, "stein_identity": true}
+{"blaschke_identity": true, "characteristic_identity": true, "companion_identity": true, "dimension": 10, "direction_kind": "exact_rational", "endpoint_gram_identity": true, "observability_identity": true, "stein_identity": true}
+{"blaschke_identity": true, "nongauged_checked_dimensions": [3, 4, 5], "phase": "-1", "stein_identity": true}

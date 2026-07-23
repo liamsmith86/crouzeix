@@ -1,6 +1,6 @@
 # LITERATURE_LEDGER.md
 
-Papers, theorems, assumptions, possible gaps. Status verified via web 2026-07-22.
+Papers, theorems, assumptions, possible gaps. Status verified via web 2026-07-23.
 
 ## Core chain
 | Ref | Result | Method | Notes / gaps to exploit |
@@ -19,7 +19,14 @@ Papers, theorems, assumptions, possible gaps. Status verified via web 2026-07-22
 ## Special cases proved (constant 2)
 - Normal matrices (trivial: R ≤ 1; equality-2 impossible). von Neumann: W(A) ⊇ spectrum.
 - All 2×2 matrices (Crouzeix 2004).
-- n×n with W(A) a disk (Badea–Crouzeix–Delyon? — Okubo–Ando: numerical radius ≤ 1 ⇒ disk is 2-spectral... actually unit disk is a complete 2-spectral set for w(A)≤1, Okubo–Ando 1975).
+- n×n with W(A) a disk (Okubo--Ando: numerical radius at most one implies
+  similarity to a contraction with condition at most two, so the disk is a complete
+  `2`-spectral set).  Campaign L123 is not a new proof of this upper bound: it identifies
+  a concrete all-size phase-palindromic stratified family on which the upper constant is attained,
+  with an explicit rank-one metric and matching characteristic-polynomial Blaschke product.
+  Targeted searches for disk-matrix equality classifications and Blaschke extremals found no
+  matching parametrized equality theorem; treat the classification as apparently new pending
+  publication-level review.
 - Nearly Jordan blocks (Choi–Greenbaum).
 - Weighted shift matrices (Choi; complete 2-spectral via arXiv:2508.12768 Aug 2025).
 - Certain 3×3: tridiagonal with elliptic W(A) centered at eigenvalue; 3×3 KLS matrices (2025-26 work).

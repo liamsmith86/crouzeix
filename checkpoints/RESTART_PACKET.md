@@ -85,6 +85,17 @@ Determine whether the palindromic cone is an exact all-size `t_*=4` disk equalit
 manifold (finite exact spectra through `p=8` say yes), then derive the elliptic-normal
 variation along it.  See `proof/crabb_disk_toeplitz_quartic.md`.
 
+L123 proves that proposed classification exactly in every size.  On the
+phase-palindromic chart, the coefficient matrix becomes companion-like and
+`M=K−qq*+2rr*` is an exact rank-one-defect metric with generalized spectrum
+`{1/2,1,...,1,2}`.  If `det(xi I−A)=xi g(xi)`, then the finite Blaschke product
+`g/g^sharp` satisfies `B(A)=4e_0r*` and has norm two.  Hence the whole positive
+phase-palindromic family is an exact scalar/complete equality set with `t_*=4`.
+Its fixed-phase branches meet singularly at the Crabb point, so do not assume one smooth
+equality manifold or seek higher-order descent tangent to it.  The live gate is a stratified
+normal form and joint strict descent in the non-palindromic disk normal plus elliptic normal,
+with uniform mixed remainders.  See `proof/crabb_palindromic_equality.md`.
+
 ## Completed repeated-C3 frontier (2026-07-22): L114
 
 L73 proves a complete-2 neighbourhood of one `C3`; L74--L93 reduce arbitrary repeated
