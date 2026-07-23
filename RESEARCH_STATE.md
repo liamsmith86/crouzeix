@@ -1,6 +1,20 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-22 (Epoch 6 — L83 complete tied-winner graph sign)
+**Last updated:** 2026-07-22 (Epoch 6 — L84 relative diagonal/winner-graph sign)
+
+## NEWEST (2026-07-22): L84 adds every relative diagonal winner motion
+- The diagonal zero-support condition has real rank seven.  Its 11-dimensional kernel is the
+  rank-eight within-copy unitary orbit plus exactly one complex generator-zero loop and one
+  real generator-one loop.  This is a complete quotient classification, not an ansatz.
+- Adding arbitrary canonical loops to every vertex of L83's full graph leaves the exact endpoint
+  identity unchanged: `E=16(mean Q−mean(lambda_max Q)I)−8H1²<=0`, with each real loop placed
+  on `diag(H1)`.  The symbolic triangle includes all loop/edge mixed paths and retains the
+  first conformal mode until it cancels.
+- The important remaining distinction is a **common** diagonal motion shared by all copies.
+  It cannot be discarded as gauge: L84 controls the relative zero-support remainder after a
+  reference block is removed, not its coupling to that shared single-block motion.  Graph
+  equality optimization and weighted winner/loser merging also remain.
+  `proof/repeated_p3_winner_diagonal_sign.md`.
 
 ## NEWEST (2026-07-22): L83 proves the full tied-winner graph sign
 - Put arbitrary L74 quotient data on every edge of a tied winner sector and let `Q(q)` be its
@@ -650,11 +664,12 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-22)
-1. **Optimize L83 equality and add tied diagonal residuals.** Classify common top vectors of the
-   complete effective graph and improve the pairwise metric on any endpoint kernel, as L80 did
-   for a star.  Then couple winner-graph edges to diagonal tied-winner motions and control the
-   weighted merger with L82 losing sectors.  In parallel, seek the L73 analytic-normal-form
-   pattern in the `2p-2` quotient modes for `p>=4`.
+1. **Couple the common single-block motion and optimize L84 equality.** L84 closes every relative
+   diagonal support-kernel loop, but a scalar first-support motion shared by all copies remains
+   a genuine single-block deformation rather than gauge.  Couple it to the graph, classify
+   common top vectors of the complete effective support, and then control the weighted merger
+   with L82 losing sectors.  In parallel, seek the L73 analytic-normal-form pattern in the
+   `2p-2` quotient modes for `p>=4`.
 2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
    trace inequality can instead be derived from the block-Toeplitz positivity of the full
    operator-valued correction moments. Do not retry trace/positive-state scalarizations.

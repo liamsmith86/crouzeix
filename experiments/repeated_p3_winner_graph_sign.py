@@ -24,6 +24,9 @@ def main() -> None:
         tuple(sp.symbols(f"conjugate_{edge}_0:3"))
         for edge in range(3)
     )
+    loop_zero = sp.symbols("loop_zero_0:3")
+    loop_zero_conjugate = sp.symbols("loop_zero_conjugate_0:3")
+    loop_one = sp.symbols("loop_one_0:3", real=True)
     adjoint_substitution: dict[sp.Symbol, sp.Symbol] = {
         conformal_first: conformal_first_conjugate,
         conformal_first_conjugate: conformal_first,
@@ -31,6 +34,12 @@ def main() -> None:
     for values, adjoints in zip(coefficients, conjugates, strict=True):
         adjoint_substitution.update(zip(values, adjoints, strict=True))
         adjoint_substitution.update(zip(adjoints, values, strict=True))
+    adjoint_substitution.update(
+        zip(loop_zero, loop_zero_conjugate, strict=True)
+    )
+    adjoint_substitution.update(
+        zip(loop_zero_conjugate, loop_zero, strict=True)
+    )
 
     def formal_adjoint(matrix: sp.Matrix) -> sp.Matrix:
         return matrix.T.xreplace(adjoint_substitution)
@@ -44,13 +53,29 @@ def main() -> None:
     perturbation = sp.zeros(9)
     metric_tangent = sp.zeros(9)
     coefficient_matrices = [sp.zeros(3) for _ in range(3)]
+    generator_pairs = generators()
+
+    def metric_cross(values: tuple[sp.Expr, sp.Expr, sp.Expr]) -> sp.Matrix:
+        """Return the canonical L76 first-metric block."""
+
+        return sp.Matrix(
+            [
+                [0, -3 * root_two * values[0] / 8, 0],
+                [
+                    values[2] / root_two,
+                    -2 * root_two * values[1],
+                    3 * root_two * values[0] / 4,
+                ],
+                [0, -root_two * values[2], 0],
+            ]
+        )
 
     for edge_index, (left_copy, right_copy) in enumerate(edges):
         values = coefficients[edge_index]
         adjoints = conjugates[edge_index]
         cross_to_left = sp.zeros(3)
         cross_from_left = sp.zeros(3)
-        for generator_index, (first, second) in enumerate(generators()):
+        for generator_index, (first, second) in enumerate(generator_pairs):
             cross_to_left += adjoints[generator_index] * first
             cross_from_left += values[generator_index] * second
             coefficient_matrices[generator_index][left_copy, right_copy] = (
@@ -64,21 +89,38 @@ def main() -> None:
         perturbation[right_slice, left_slice] = cross_to_left
         perturbation[left_slice, right_slice] = cross_from_left
 
-        tangent_block = sp.Matrix(
-            [
-                [0, -3 * root_two * values[0] / 8, 0],
-                [
-                    values[2] / root_two,
-                    -2 * root_two * values[1],
-                    3 * root_two * values[0] / 4,
-                ],
-                [0, -root_two * values[2], 0],
-            ]
-        )
+        tangent_block = metric_cross(values)
         metric_tangent[left_slice, right_slice] = tangent_block
         metric_tangent[right_slice, left_slice] = formal_adjoint(
             tangent_block
         )
+
+    # L84's canonical diagonal support-kernel quotient consists of a complex
+    # generator-zero loop and a real generator-one loop.  The latter is split
+    # evenly between X_1 and Y_1 so its physical coefficient is loop_one.
+    for copy in range(3):
+        copy_slice = slice(3 * copy, 3 * copy + 3)
+        loop_values = (
+            loop_zero[copy],
+            loop_one[copy] / 2,
+            sp.Integer(0),
+        )
+        loop_adjoints = (
+            loop_zero_conjugate[copy],
+            loop_one[copy] / 2,
+            sp.Integer(0),
+        )
+        loop_direction = sp.zeros(3)
+        for index, (first, second) in enumerate(generator_pairs):
+            loop_direction += loop_adjoints[index] * first
+            loop_direction += loop_values[index] * second
+        perturbation[copy_slice, copy_slice] = loop_direction
+
+        loop_block = metric_cross(loop_values)
+        metric_tangent[copy_slice, copy_slice] = (
+            loop_block + formal_adjoint(loop_block)
+        )
+        coefficient_matrices[1][copy, copy] = loop_one[copy]
 
     support = (crabb / boundary + boundary * crabb.T) / 2
     reduced_resolvent = (
@@ -217,7 +259,7 @@ def main() -> None:
     if sp.simplify(endpoint - expected_endpoint) != sp.zeros(3):
         raise AssertionError("the winner-graph endpoint identity failed")
 
-    print("PASS repeated p=3 tied-winner graph second-order sign")
+    print("PASS repeated p=3 tied-winner graph-and-loop second-order sign")
     print("endpoint = 16*(mean support - mean top support*I) - 8*H_1^2")
     print("mean support includes orientation-dependent mixed edge paths")
     print("the first conformal mode cancels exactly")
