@@ -1,6 +1,24 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-22 (Epoch 6 — L74 repeated-`C3` cross quotient)
+**Last updated:** 2026-07-22 (Epoch 6 — L75 repeated-`C3` second support)
+
+## NEWEST (2026-07-22): L75 removes the repeated-block boundary calculation
+- For one multiplicity-two L74 cross pair, the first support compression vanishes.  The exact
+  reduced support resolvent `I-H/4-3H²/4` makes the second effective copy-space matrix diagonal.
+  Its largest eigenvalue is
+  `kappa(q)=M(q)+(sqrt(2)/24)|Re(q d)|`, where `M` has only Fourier modes zero and two and
+  `d=3 alpha0 conj(alpha1)+4 alpha1 conj(alpha2)`.  The absolute cosine is the complete
+  nonsmooth repeated-eigenvalue effect.
+- `kappa` is pi-periodic, so its first Fourier coefficient is zero.  Since `C3³=0`, every
+  nonconstant Fourier mode then disappears under functional calculus.  The pulled operator is
+  exactly `T_e=A0+eE-e² kappa_hat(0) A0+o(e²)`, with
+  `kappa_hat(0)=5|alpha0|²/128+|alpha1|²/4+5|alpha2|²/72
+  +sqrt(2)|d|/(12pi)`.
+- Thus no boundary discretization remains: the live task is one finite `6x6` second-order
+  Stein/metric sign calculation.  Pure generator 1 numerically drops with coefficient `-8`;
+  pure 0 and 2 are second-order flat; generic mixtures tested so far descend.  These numerics
+  orient but do not prove the sign.  `proof/repeated_p3_second_support.md`;
+  `experiments/repeated_p3_second_support.py`.
 
 ## NEWEST (2026-07-22): L74 reduces the repeated-block exceptional cross face
 - On L61's zero-Jensen face choose the common maximizing copy vector `y`.  For each
@@ -503,11 +521,11 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-22)
-1. **Compute the L74 second-order sign.** The common-maximizer cross quotient is now three
-   complex generators per orthogonal copy.  Derive their effective second support function and
-   finite Stein tangent program, first with a strict diagonal compression gap and then at
-   nonsmooth ties.  In parallel, seek the L73 analytic-normal-form pattern in the `2p-2`
-   quotient modes for `p≥4`.
+1. **Solve the L75 finite Stein sign.** The second conformal coefficient is now one explicit
+   scalar, including the nonsmooth tie through `|d|`.  Eliminate the `6x6` second-order metric
+   variables and prove nonpositivity on all three complex cross parameters, then extend from one
+   orthogonal copy to multiplicity `m`.  In parallel, seek the L73 analytic-normal-form pattern
+   in the `2p-2` quotient modes for `p≥4`.
 2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
    trace inequality can instead be derived from the block-Toeplitz positivity of the full
    operator-valued correction moments. Do not retry trace/positive-state scalarizations.
@@ -573,7 +591,8 @@ experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_
   (L72 exact ambient-stationarity audit), p3_disk_morse_bott.py
   (L73 defect Hessian/invariant audit), p3_local_theorem_probe.py
   (non-load-bearing L73 numerical smoke test), repeated_p3_common_maximizer.py
-  (L74 exact repeated-block cross quotient).
+  (L74 exact repeated-block cross quotient), repeated_p3_second_support.py
+  (L75 exact effective support and conformal collapse).
 Proof artifact: experiments/positive_tail_full_20260722.log (L59 clean 10-box run).
 Data: sym3_sweep_s51.jsonl (40 rec), sym4_sweep_s61.jsonl (20 rec, ρ column trustworthy),
 general_similarity_equality_s9173401.jsonl plus its `sensitivity` and `ultralocal` companions
