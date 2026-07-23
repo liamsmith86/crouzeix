@@ -78,6 +78,9 @@ Papers, theorems, assumptions, possible gaps. Status verified via web 2026-07-23
 - [x] Schwenninger–de Vries arXiv:2409.15954 (pp. 15–20) — see table (P1 baseline).
 - [x] NIST DLMF §23.8.1 — Weierstrass Fourier expansion used to prove the positive series in
   EL4; combined with `wp(x)=1/sn²(x|m)−(1+m)/3` for half-periods `(K,iK′)`.
+- [x] NIST DLMF §22.11.6 — reciprocal Jacobi `nd=1/dn` Fourier series.  After multiplication
+  by `k'`, DCT-I sampling at L117's elliptic Lobatto nodes gives L137's exact axis-defect
+  Newton edge `d_(2r)=4(-1)^r c^r+O(c^(r+2))`.
 - [x] Mashreghi--Moucha--O'Loughlin--Ransford--Roth, arXiv:2506.23831 — Schwarz--Jack
   convexity: the inverse Riemann map of a bi-circular domain (hence an ellipse) is convex on the
   positive radius, so the direct map is concave. Used only for `r≤p` in L24; no quantitative
@@ -137,6 +140,11 @@ Papers, theorems, assumptions, possible gaps. Status verified via web 2026-07-23
   grade and therefore does not prove A95's grade-block Hessian conjecture.  Any use here must
   explicitly derive the Crabb equality tangent-to-Schur-parameter Jacobian and the optimized
   endpoint quadratic; first-order sparsity of the CMV matrix alone is insufficient.
+- [x] O'Loughlin--Rani, arXiv:2603.15536, *q-Numerical Ranges and Spectral Sets* -- a
+  March-2026 extension of the Crouzeix--Palencia framework to scaled `q`-numerical ranges.
+  It still treats constant two for the ordinary numerical range as a conjecture and does not
+  supply a rank-one-defect Hessian, Crabb equality-stratum theorem, or complete-`2` result
+  relevant to A94--A98.  Logged as a current-status cross-check, not as an ingredient.
 
 ## To read next
 - [ ] GKL arXiv:1701.01365 (Glader–Kurula–Lindström 2018, 3×3 tridiagonal elliptic W(A)) —

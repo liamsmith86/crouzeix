@@ -1,0 +1,10 @@
+{"audit_order": 8, "checked_even_modes": 1, "dimension": 4, "leading_coefficients_match": true, "length": 3, "lower_coefficients_vanish": true, "odd_modes_vanish": true, "parity_gap_holds": true}
+{"audit_order": 8, "checked_even_modes": 1, "dimension": 5, "leading_coefficients_match": true, "length": 4, "lower_coefficients_vanish": true, "odd_modes_vanish": true, "parity_gap_holds": true}
+{"audit_order": 8, "checked_even_modes": 2, "dimension": 6, "leading_coefficients_match": true, "length": 5, "lower_coefficients_vanish": true, "odd_modes_vanish": true, "parity_gap_holds": true}
+{"audit_order": 8, "checked_even_modes": 2, "dimension": 7, "leading_coefficients_match": true, "length": 6, "lower_coefficients_vanish": true, "odd_modes_vanish": true, "parity_gap_holds": true}
+{"audit_order": 8, "checked_even_modes": 3, "dimension": 8, "leading_coefficients_match": true, "length": 7, "lower_coefficients_vanish": true, "odd_modes_vanish": true, "parity_gap_holds": true}
+{"audit_order": 8, "checked_even_modes": 3, "dimension": 9, "leading_coefficients_match": true, "length": 8, "lower_coefficients_vanish": true, "odd_modes_vanish": true, "parity_gap_holds": true}
+{"audit_order": 8, "checked_even_modes": 4, "dimension": 10, "leading_coefficients_match": true, "length": 9, "lower_coefficients_vanish": true, "odd_modes_vanish": true, "parity_gap_holds": true}
+{"audit_order": 8, "checked_even_modes": 4, "dimension": 11, "leading_coefficients_match": true, "length": 10, "lower_coefficients_vanish": true, "odd_modes_vanish": true, "parity_gap_holds": true}
+{"audit_order": 8, "checked_even_modes": 5, "dimension": 12, "leading_coefficients_match": true, "length": 11, "lower_coefficients_vanish": true, "odd_modes_vanish": true, "parity_gap_holds": true}
+{"audit_order": 8, "checked_even_modes": 5, "dimension": 13, "leading_coefficients_match": true, "length": 12, "lower_coefficients_vanish": true, "odd_modes_vanish": true, "parity_gap_holds": true}

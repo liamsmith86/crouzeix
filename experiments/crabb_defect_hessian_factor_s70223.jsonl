@@ -1,0 +1,1 @@
+{"audit_order": 6, "checked_interior_edges": 9, "checked_terminal_edges": 3, "dimension": 9, "interior_diagonal_constant": "4", "interior_edge_coefficient": "2", "length": 8, "lower_terms_vanish": true, "parity_cross_terms_vanish": true, "terminal_diagonal_constant": "8/3", "terminal_edge_coefficient": "4/3"}

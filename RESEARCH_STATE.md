@@ -2,6 +2,97 @@
 
 **Last updated:** 2026-07-23 (Epoch 6 — Faber endpoint localization)
 
+## NEWEST (2026-07-23): L138 restores the homogeneous defect coordinate exactly
+- For an arbitrary rank-one forcing `q`, put `y=R^*q`, divide its
+  spectral-node values by L117's axis defect `beta`, and call the
+  resulting multiplier `h`.  The complete physical Stein metric is
+  then exactly
+  `K_0^(-1/2)M(q)K_0^(-1/2)=D^(-1)A_h W A_h^*D^(-1)`,
+  where `A_h=U diag(h)U^*`.
+- Thus defect optimization is multiplication by a sampled scalar
+  function in the DCT-I node basis.  The missing scale direction is
+  `h=constant`; it is no longer hidden by the exact-series gauge
+  `x_0=0`.
+- Linearizing `h=1+as` gives the exact congruence
+  `P(a)=(I+aB)P_0(I+aB)^*`.  The equal squared DCT endpoint rows make
+  the condition number stationary in every homogeneous defect
+  direction.  Its full quadratic term is now two explicit endpoint
+  Schur sums in the Toeplitz-plus-Hankel matrix
+  `H_s=U diag(s)U^*`.
+- This proves A98's structural normal form, but not the sign:
+  the all-size Newton-edge LDL factor, its terminal fold, and the
+  linear/constant coupling to L131's Faber row remain to be derived.
+- A direct Stein-solve regression over sizes 4, 6, and 9 and three
+  ellipse parameters confirms the normal form and the endpoint
+  Hessian formula.
+  `proof/crabb_homogeneous_defect_normal_form.md`;
+  `experiments/crabb_homogeneous_defect_normal_form.py`.
+
+## NEWEST (2026-07-23): L137 proves the axis-defect half of the square
+- DLMF's reciprocal-`dn` Fourier series applied at L117's Lobatto
+  nodes gives only even DCT-I modes.  Conjugation back through L135's
+  eigenvector matrix yields, for `1<=r<L/2`,
+  `d_(2r)=4(-1)^r c^r+O(c^(r+2))`; odd defect coordinates vanish.
+- Hence the all-size associated spatial series is exactly
+  `d_edge=(I-3cS^2)/(I+cS^2)`.  This promotes one of A98's two fitted
+  factors to a theorem.
+- Combining it with the still-conjectural Hessian LDL edge
+  `(I+cS^2)/(I-cS^2)` gives the whitened transported tail
+  `2-4sum_(r>=1)c^rS^(2r)`, explaining the magnitude-four collision
+  with L131's reflected Faber row.
+- L137 does not yet prove the LDL factor, opposite normal
+  orientation, mixed-grade isometry, or uniform remainder.
+  `proof/crabb_axis_defect_fourier.md`;
+  `experiments/crabb_axis_defect_fourier.py`.
+
+## NEWEST (2026-07-23): A98 sharpens the missing Schur step to one square
+- The exact Hessian frontier now includes the first new coprime
+  noncentral grade-four pair `(L,k)=(9,4)`: all coefficients below
+  `c^8` vanish and the leading coefficient is exactly `-64`.
+  Its endpoint metric pair is `(48,128)`, again giving the
+  gauge-invariant combination `128-4(48)=-64`.
+- The optimized defect agrees below `c^4` with L131's natural
+  transported defect `2U(u)d_c`.  At the reflected grade their
+  difference is exactly the one-coordinate correction `-8c^4e_8`.
+  The disk defect Hessian charges that correction by
+  `4*8^2=256`; hence the transported certificate has face `+192`
+  while optimization changes it to `-64`.
+- The earlier `(L,k)=(7,3)` record has the identical completed-square
+  constants, with correction `+8c^3e_6`.
+- The raw correction is not itself universal: exact low-order scans
+  retain the grade-three `+8` correction through lengths eight to ten
+  but find no raw grade-four correction from lengths ten to twelve.
+  Terminal transport can absorb the square center, so the theorem
+  must be stated in the homogeneous defect quotient.
+- This identifies a precise conjectured associated-graded normal
+  form.  For L131's reflected row
+  `r=4sum_j u_jc^je_(L-j)*`, restore homogeneous defect scale and
+  seek an isometry `J_def` such that
+  `Q_face=4||eta-2J_def r||^2-4||r||^2`.
+  Minimization gives the required
+  `-64sum_j|u_j|^2c^(2j)`, and Faber-row orthogonality kills mixed
+  grades at the same time.
+- The universal pure-defect Hessian has a matching exact finite LDL
+  clue: its interior lower factor begins
+  `I+2sum_(r>=1)c^r shift^(2r)=(I+c shift^2)/(I-c shift^2)`,
+  with terminal coefficient `4/3` and diagonal endpoint weight
+  `8/3`.  This is the analytic outer factor of the Newton edge of
+  L117's Szegő weight and supplies a concrete route from the raw
+  defect quotient to L135's DST modes.
+- The coefficient arithmetic is now explained.  L137's axis-defect
+  edge is `(I-3cS^2)/(I+cS^2)`.  Multiplying the transported defect
+  by the LDL outer factor gives
+  `2(I-3cS^2)/(I-cS^2)=2-4sum_(r>=1)c^rS^(2r)`.
+  Its first reflected tail has magnitude four, opposite L131's Faber
+  row of magnitude four; the gap eight costs `4*8^2=256`, while the
+  negative row energy is `-4*4^2=-64`.  The constants are no longer
+  fitted; the open work is the all-size LDL/reversal proof.
+- The completed square is still a target, not a lemma.  The remaining
+  proof must derive `J_def` in L135's spectral coordinates and show
+  every omitted terminal fold has strictly higher weight.
+  `proof/crabb_principal_face_completed_square.md`;
+  `experiments/crabb_principal_face_locality.py`.
+
 ## NEWEST (2026-07-23): L136 reduces every one-grade problem to a coprime pair
 - Write `L=dq`, `k=ds`.  Degree-`d` Dickson descent preserves
   residues modulo `d` and reduces the residue-zero polynomial pencil
@@ -1842,6 +1933,15 @@ experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_
   crabb_palindromic_equality.py (L123 exact disk equality family),
   crabb_palindromic_normal_form.py (L124 exact stratified normal form),
   crabb_palindromic_elliptic_face.py (candidate graded elliptic Newton face),
+  crabb_palindromic_elliptic_hessian.py (guarded exact amplitude/defect Hessian engine),
+  crabb_mixed_grade_face.py (A94 exact finite polarization),
+  crabb_spectral_sine_modes.py (L135 DCT/DST bridge),
+  crabb_gcd_dickson_descent.py (L136 common-divisor reduction),
+  crabb_principal_face_locality.py (A98 focused coprime grade-four/completed-square audit),
+  crabb_transport_correction_scan.py (A98 raw-coordinate falsification guard),
+  crabb_defect_hessian_factor.py (A98 universal-Hessian LDL edge audit),
+  crabb_axis_defect_fourier.py (L137 reciprocal-dn defect edge),
+  crabb_homogeneous_defect_normal_form.py (L138 exact DCT defect congruence),
   formal_riemann_series.py + rank_one_stein_series.py (exact higher-order helpers),
   p3_crabb_sixth_order.py + p3_crabb_quartic.py (L67/L68 exact certificates),
   p3_crabb_local_slice.py (L69 orbit-normal slice audit),
