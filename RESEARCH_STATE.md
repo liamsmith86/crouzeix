@@ -1,6 +1,32 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-23 (Epoch 6 — exact central family/metric descent)
+**Last updated:** 2026-07-23 (Epoch 6 — central dual metric lift)
+
+## NEWEST (2026-07-23): A89 constructs the full central metric from a lifted dual
+- L127 now includes the companion positive dual transfer
+  `R(Z)=sum_j f_j(T)Zf_j(T)*`, whose Stein difference is exactly
+  `Z-B(T)ZB(T)*`.  The independent general-matrix audit verifies both
+  primal and dual identities through dimensions three to seven and
+  Blaschke degrees one to four.
+- Embed any rank-two positive dual on L126's active size-three block and
+  transfer it to the original central operator.  On the deterministic
+  degree-2--5 grid the lift has rank `2k`, hence a unique kernel vector
+  `q`.  Positivity proves that every model-space fiber
+  `q_j=f_j(T)*q` has outer component in the one-dimensional outer
+  kernel.
+- The generated full rank-one Stein metric reproduces the size-three
+  condition to `1.4e-11`; its outer/inner cross residual is at most
+  `2.1e-11`.  More importantly, the forcing cancellation persists at
+  `8.8e-14` for unrelated deterministic rank-two positive outer duals.
+  This isolates a structural, basis-independent identity rather than
+  an optimization coincidence.
+- **Not yet a lemma:** the remaining exact assertion is
+  `sum_j alpha_j w_j*=0`.  A Clark basis should turn it into the same
+  `zeta^k=xi` root-of-unity filter used by L120.  Until that algebra is
+  written, the exact local identity
+  `t_*(T_k(a,c))=t_*(T_1(a,c^k))` remains unproved.
+  `proof/crabb_central_dual_lift.md`;
+  `experiments/crabb_central_dual_lift.py`.
 
 ## NEWEST (2026-07-23): the central descent is exact in amplitude, and its metric target is now explicit
 - L126 is stronger than its first version.  In size `2k+1`,
@@ -1532,7 +1558,16 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-23)
-1. **Build the L115/L117 transverse tube.**  Anchor on the exact elliptic-axis metric,
+1. **Close A89's central dual lift before returning to the full tube.**  L126--L129
+   reduce the active central face to size three, and the dual transfer now constructs
+   the numerically exact full rank-one metric without a full-dimensional optimizer.
+   Prove the sole remaining identity
+   `sum_j alpha_j w_j*=0` in `proof/crabb_central_dual_lift.md`.
+   The evidence survives unrelated rank-two outer duals, so formulate it as a
+   basis-free conditional expectation and prove it first in a Clark basis using
+   the `zeta^k=xi` root filter.  Do not promote it from A89 to a lemma based on the
+   floating-point checker.
+2. **Build the L115/L117 transverse tube.**  Anchor on the exact elliptic-axis metric,
    and use L120's completed all-size absorption of L65's coercive normal complement.
    What remains is the weighted merger of the elliptic coordinate with L115's
    `2p−4` disk-flat coordinates, using the exact circular-range anchors rather than
@@ -1546,18 +1581,18 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    where all branches meet at the Crabb point.  Do not recompute the endpoint derivative
    or search for pure disk descent along the equality tangent.
    Do not rely on a fixed positive margin or compute the old `2p−2` residual jets.
-2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
+3. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
    trace inequality can instead be derived from the block-Toeplitz positivity of the full
    operator-valued correction moments. Do not retry trace/positive-state scalarizations.
-3. **Shifted Möbius H-r fallback**: derive its exact stationarity/rho formula (Kenan-Li quartic
+4. **Shifted Möbius H-r fallback**: derive its exact stationarity/rho formula (Kenan-Li quartic
    analog) and prove rho≥0 or K≤2. Definite parity is false.
-4. **Bi-conic Schwarzian test**: compute `SG` for the off-slice collapsed map on the critical
+5. **Bi-conic Schwarzian test**: compute `SG` for the off-slice collapsed map on the critical
    real interval. `SG≥0` would extend L17 immediately; otherwise test the weaker Sturm-potential
    comparison that the proof actually needs.
-5. **Odd phase positivity**: ρ = B₁g₁q₁+B₂g₂q₂ ≥ 0 given the L15 stationarity law
+6. **Odd phase positivity**: ρ = B₁g₁q₁+B₂g₂q₂ ≥ 0 given the L15 stationarity law
    (3-parameter; interlacing τ₂ < α < τ₁; term-1 dominance observed). Try the same
    deformation/kernel machinery.
-6. Rigor debts: n=6 structured floor; 2×2 α=0; contact degeneracy; L59/L117 publication-level
+7. Rigor debts: n=6 structured floor; 2×2 α=0; contact degeneracy; L59/L117 publication-level
    novelty audit.
    General-n work must include symmetry-breaking phases; the former parity-collapse induction
    remains valid only inside a chosen parity sector.

@@ -20,8 +20,10 @@ class BlaschkeSteinRecord:
     dimension: int
     degree: int
     transfer_stein_residual: float
+    dual_transfer_stein_residual: float
     gramian_composition_residual: float
     minimum_lifted_eigenvalue: float
+    minimum_dual_lifted_eigenvalue: float
 
 
 def blaschke_factor(matrix: np.ndarray, zero: complex) -> np.ndarray:
@@ -66,6 +68,18 @@ def transfer(
     )
 
 
+def dual_transfer(
+    functions: list[np.ndarray],
+    matrix: np.ndarray,
+) -> np.ndarray:
+    """Apply the companion transfer map in the L21 dual orientation."""
+
+    return sum(
+        (function @ matrix @ function.conj().T for function in functions),
+        np.zeros_like(matrix, dtype=complex),
+    )
+
+
 def make_record(dimension: int, degree: int) -> BlaschkeSteinRecord:
     """Audit one deterministic dimension/degree pair."""
 
@@ -90,6 +104,14 @@ def make_record(dimension: int, degree: int) -> BlaschkeSteinRecord:
         - positive
         + blaschke_value.conj().T @ positive @ blaschke_value
     )
+    dual_positive = factor @ factor.conj().T + np.eye(dimension)
+    dual_lifted = dual_transfer(functions, dual_positive)
+    dual_transfer_defect = (
+        dual_lifted
+        - matrix @ dual_lifted @ matrix.conj().T
+        - dual_positive
+        + blaschke_value @ dual_positive @ blaschke_value.conj().T
+    )
 
     defect = (
         rng.standard_normal(dimension)
@@ -110,19 +132,29 @@ def make_record(dimension: int, degree: int) -> BlaschkeSteinRecord:
         dimension=dimension,
         degree=degree,
         transfer_stein_residual=float(np.linalg.norm(transfer_defect, 2)),
+        dual_transfer_stein_residual=float(
+            np.linalg.norm(dual_transfer_defect, 2)
+        ),
         gramian_composition_residual=float(
             np.linalg.norm(direct_gramian - composed_gramian, 2)
         ),
         minimum_lifted_eigenvalue=float(
             np.linalg.eigvalsh(lifted)[0]
         ),
+        minimum_dual_lifted_eigenvalue=float(
+            np.linalg.eigvalsh(dual_lifted)[0]
+        ),
     )
     if record.transfer_stein_residual > 2e-12:
         raise AssertionError("the Blaschke transfer identity failed")
+    if record.dual_transfer_stein_residual > 2e-12:
+        raise AssertionError("the dual Blaschke transfer identity failed")
     if record.gramian_composition_residual > 2e-11:
         raise AssertionError("the Stein Gramian composition failed")
     if record.minimum_lifted_eigenvalue <= 0:
         raise AssertionError("the positive transfer lost definiteness")
+    if record.minimum_dual_lifted_eigenvalue <= 0:
+        raise AssertionError("the positive dual transfer lost definiteness")
     return record
 
 

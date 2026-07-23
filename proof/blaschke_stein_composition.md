@@ -131,7 +131,30 @@ central identity
  t_*(T_k(a,c))=t_*(T_1(a,c^k)).                      \tag{8}
 \]
 
-## 5. Deterministic audit
+## 5. The dual transfer
+
+There is a companion identity in the orientation used by L21's
+trace-ratio duality.  Define
+
+\[
+ {\cal R}_{B,T}(Z)
+ =\sum_{j=0}^{d-1}f_j(T)Zf_j(T)^*.                   \tag{9}
+\]
+
+The same kernel calculation gives
+
+\[
+\boxed{
+ {\cal R}_{B,T}(Z)-T{\cal R}_{B,T}(Z)T^*
+ =Z-B(T)ZB(T)^*.}                                    \tag{10}
+\]
+
+Thus a positive dual witness for `B(T)` lifts positively to `T` while
+preserving its Hermitian Stein difference exactly.  In particular the
+positive/negative trace ratio is unchanged.  This is the explicit
+dual mechanism behind `t_*(B(T))<=t_*(T)`.
+
+## 6. Deterministic audit
 
 Run
 
