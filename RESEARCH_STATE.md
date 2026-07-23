@@ -409,12 +409,17 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   approximate coefficient `−4|w|²(|w|²+|z|²)`. The transition `w=O(εz)` still needs a weighted
   blow-up, and an exact affine-unitary local slice must uniformly couple the residual modes to
   the negative second-order directions; both are needed for a neighbourhood theorem.
+- **EXACT `p=3` LOCAL SLICE (L69):** every nearby matrix is affine-unitarily reducible to
+  `C₃+E(z,w,s,v)` with seven real coordinates. The slice is exactly orbit-orthogonal and L63
+  becomes `−8s²−21|v|²/4`, leaving precisely the four residual `(z,w)` coordinates. Thus the
+  full local question is now one finite weighted coupling problem; there is no additional hidden
+  flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-22)
 1. **Uniformize and generalize the L66 quotient analysis.** L67/L68 prove every canonical
-   straight `p=3` quotient ray. Resolve the weighted transition `w=O(εz)` and construct an exact
-   affine-unitary slice with uniform coupling estimates to obtain a punctured neighbourhood,
-   then seek the arbitrary-mode pattern. In parallel extend L65 to repeated-block
+   straight `p=3` quotient ray, and L69 gives the exact seven-coordinate local slice. Resolve
+   its weighted coupling problem to obtain a punctured neighbourhood, then seek the
+   arbitrary-mode pattern. In parallel extend L65 to repeated-block
    common-maximizer faces and separately handle nonsmooth compression-eigenvalue crossings.
 2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
    trace inequality can instead be derived from the block-Toeplitz positivity of the full
@@ -473,7 +478,8 @@ experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_
   general_crabb_second_order_modes.py (L65 arbitrary-size mode regeneration),
   crabb_second_order_equality.py (L66 exact-orbit/kernel quotient audit),
   formal_riemann_series.py + rank_one_stein_series.py (exact higher-order helpers),
-  p3_crabb_sixth_order.py + p3_crabb_quartic.py (L67/L68 exact certificates).
+  p3_crabb_sixth_order.py + p3_crabb_quartic.py (L67/L68 exact certificates),
+  p3_crabb_local_slice.py (L69 orbit-normal slice audit).
 Proof artifact: experiments/positive_tail_full_20260722.log (L59 clean 10-box run).
 Data: sym3_sweep_s51.jsonl (40 rec), sym4_sweep_s61.jsonl (20 rec, ρ column trustworthy),
 general_similarity_equality_s9173401.jsonl plus its `sensitivity` and `ultralocal` companions
