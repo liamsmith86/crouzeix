@@ -2,6 +2,32 @@
 
 **Last updated:** 2026-07-23 (Epoch 6 — Faber endpoint localization)
 
+## NEWEST (2026-07-23): A100 falsifies exact all-disk model complementarity
+- The first L153 merger draft incorrectly promoted L145's one-line
+  complementary relation to equality of the full condition number and
+  characteristic Blaschke norm at every Toeplitz disk point.  Rank one
+  only makes the top singular line a generalized eigenline; equality
+  also requires the left singular line to be the bottom eigenline.
+- An exact rational `4 x 4` counterexample with Toeplitz coefficients
+  `(1/20,1/30)` has rank-one `B(A)` and exact model-kernel annihilation,
+  but the proposed lower endpoint has a nonzero rational generalized
+  eigenvector residual.  Therefore the orbit-complement condition is
+  strictly larger than `||B(A)||_K²`.
+- The old binary64 grid hid the failure because it sampled amplitudes
+  below `.07`, where the gap is extremely high order and at most about
+  `1e-7`.  The corrected checker starts with the exact counterexample
+  and then records visible positive gaps on general complex samples at
+  amplitudes `.12,...,.22`.
+- This does not falsify the disk-flat theorem.  It removes a shortcut.
+  The corrected route is to prove that the nonnegative model gap has
+  zero disk-normal and reflected compact faces; PSD zero-diagonal
+  polarization would then remove their mixed face, leaving only a
+  shrinkably higher marked remainder.  One must also verify the
+  dual one-reflection logarithmic identity at a general disk point and
+  prove the triangular Rees-coordinate estimate.
+  `proof/crabb_disk_flat_marked_merger.md`;
+  `experiments/crabb_disk_model_complement.py`.
+
 ## NEWEST (2026-07-23): L152 proves the uniform disk-normal tube
 - L122's canonical rank-one disk Stein metric now satisfies the
   uniform local inequality
