@@ -1,6 +1,19 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-22 (Epoch 6 — L87 exact repeated-C3 equality reduction)
+**Last updated:** 2026-07-22 (Epoch 6 — L88 exact normal flat-copy stratum)
+
+## NEWEST (2026-07-22): L88 packages the flat core into one copy matrix
+- Every generator-zero/two edge and generator-zero loop on the L87 center is exactly
+  `Z* tensor X0+Z tensor Y0` for one arbitrary copy-space matrix `Z`.  Its effective support is
+  `5(ZZ*+Z*Z)/128−3(q²Z²+q^−2(Z*)²)/128`.
+- If `Z` is normal, a copy unitary turns the full repeated matrix (including the common flat
+  `w` mode) into a direct sum of nearby single `C3` blocks.  L73 controls each block, and
+  complete-spectral-set monotonicity transfers the bound to the direct sum's convex-hull
+  numerical range.  This is an exact arbitrary-multiplicity local theorem on the normal stratum.
+- Schur form now reduces the unresolved center to a strictly upper-triangular, generator-zero
+  copy matrix.  The next target is to prove that its common-top strata reduce to L77's pair
+  cubic or L80's rank-two star improvement; otherwise (4)'s matrix-Jensen gap is already strict.
+  `proof/repeated_p3_flat_copy_matrix.md`.
 
 ## NEWEST (2026-07-22): L87 isolates the true higher-order center
 - The L86 endpoint is a sum of six explicit negative PSD terms.  A null vector must be a
@@ -781,7 +794,8 @@ experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_
   repeated_p3_star_second_sign.py (L78--L80 arbitrary-multiplicity star theorems),
   repeated_p3_radial_gap.py (L81 strict radial diagonal--cross coupling),
   repeated_p3_winner_graph_sign.py (L83--L85 complete tied-winner endpoint),
-  repeated_p3_multiwinner_gap.py (L86 full winner/loser Gram penalty).
+  repeated_p3_multiwinner_gap.py (L86 full winner/loser Gram penalty),
+  repeated_p3_flat_copy_matrix.py (L88 flat copy-matrix support identity).
 Proof artifact: experiments/positive_tail_full_20260722.log (L59 clean 10-box run).
 Data: sym3_sweep_s51.jsonl (40 rec), sym4_sweep_s61.jsonl (20 rec, ρ column trustworthy),
 general_similarity_equality_s9173401.jsonl plus its `sensitivity` and `ultralocal` companions
