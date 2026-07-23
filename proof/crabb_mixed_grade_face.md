@@ -138,8 +138,7 @@ coefficient through `c^(k+l)`.  The calculation is a regression for
 (3), not a substitute for (5).
 
 Optional `--first-grade`, `--second-grade`, and `--audit-order`
-arguments run a selected pair beyond its first face.  The persisted
-size-five deep audit is
+arguments run beyond the first face.  The persisted deep audits are
 
 ```bash
 PYTHONPATH=experiments .venv/bin/python -u \
@@ -147,4 +146,9 @@ PYTHONPATH=experiments .venv/bin/python -u \
   --minimum-size 5 --maximum-size 5 \
   --first-grade 1 --second-grade 2 --audit-order 18 \
   --output experiments/crabb_mixed_grade_deep_p5_s70223.jsonl
+
+PYTHONPATH=experiments .venv/bin/python -u \
+  experiments/crabb_mixed_grade_face.py \
+  --minimum-size 7 --maximum-size 7 --audit-order 12 \
+  --output experiments/crabb_mixed_grade_deep_p7_s70223.jsonl
 ```
