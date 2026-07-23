@@ -1,6 +1,23 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-22 (Epoch 6 — L81 radial diagonal--cross coupling)
+**Last updated:** 2026-07-22 (Epoch 6 — L82 unique-winner repeated reduction)
+
+## NEWEST (2026-07-22): L82 extends radial gaps to every unique-winner face
+- Normalize by the selected copy's first boundary motion.  The losing copy-space support
+  compression is then a continuous matrix function `B_-(q)<=0`.  If it has no vector in every
+  pointwise kernel, its mean is negative definite.  L61's exact tangent dual plus its Slater
+  construction therefore provide strict first-order metric slack on the whole losing sector,
+  even when the pointwise gap touches zero at isolated angles.
+- Copy-sector parity makes the selected second metric additive: its diagonal contribution is the
+  single-block coefficient `e_selected<=0` from L63/L65, and its winner/loser star contribution
+  is exactly L81's universal
+  `−25||a0||²/8−8||a1||²−50||a2||²/9`.  Internal losing-space blocks are absorbed by the first
+  slack and do not enter the selected endpoint.
+- Hence every fixed unique-winner direction with nonzero star coupling descends strictly at
+  second order, for arbitrary nonconstant gap shape.  The scalar touching gap `1-cos(theta)`
+  numerically converges to all three exact L81 coefficients.  The remaining repeated-face issue
+  is multiple common winners and a uniform estimate as losing gaps collapse.
+  `proof/repeated_p3_unique_winner.md`.
 
 ## NEWEST (2026-07-22): L81 proves the first diagonal--cross repeated theorem
 - In the clean strict common-maximizer model, the selected copy grows as `(1+d epsilon)C3` and
@@ -616,11 +633,12 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-22)
-1. **Extend L81 beyond radial diagonal gaps.** Parameterize the general first support-compression
-   order `C(q)<=s(q)I`, including multiple tied winners and blocks internal to `y^perp`, then
-   couple its slack to the star metric.  Analyze the weighted `d->0` transition approaching the
-   L77 cubic and L80 rank-two faces.  In parallel, seek the L73 analytic-normal-form pattern in
-   the `2p-2` quotient modes for `p>=4`.
+1. **Resolve the multiple-winner repeated face and uniform gap collapse.** Promote every common
+   kernel vector of the first support gap into the winner sector, combine its tied diagonal
+   residuals with L74--L80 star blocks, and control weighted sequences in which losing mean gaps
+   tend to zero.  This is the last repeated-`C3` face not covered fixed-directionally by L73/L82.
+   In parallel, seek the L73 analytic-normal-form pattern in the `2p-2` quotient modes for
+   `p>=4`.
 2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
    trace inequality can instead be derived from the block-Toeplitz positivity of the full
    operator-valued correction moments. Do not retry trace/positive-state scalarizations.
