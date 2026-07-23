@@ -13,25 +13,26 @@ and order the space by the three physical levels, each with copy
 multiplicity `m`.  There are neighbourhoods of `A_0`, zero, and `M` with
 the following property.
 
-For every operator `T` near `A_0` and every free complex block
+For every operator `T` near `A_0`, every free complex block
 
 \[
  B=(P_{01}\ P_{02})\in M_{m,2m}
 \]
 
-near zero, there is a unique Hermitian range block
+near zero, and every Hermitian Stein-slack parameter `H` near zero, there
+is a unique Hermitian range block
 
 \[
  C=\begin{bmatrix}P_{11}&P_{12}\\P_{21}&P_{22}\end{bmatrix}
 \]
 
-near `diag(2I,4I)` such that the lower metric constraint and the Stein
-constraint have zero Schur complements on their base kernels.  The resulting
-metric `P=P(T,B)` is real analytic in `(T,B)`.
+near `diag(2I,4I)` such that the lower metric constraint has zero Schur
+complement and the Stein constraint has Schur complement `H` on its base
+kernel.  The resulting metric `P=P(T,B,H)` is real analytic in `(T,B,H)`.
 
-Moreover, `P>=I` and `P-T^*PT>=0` hold automatically after shrinking the
-neighbourhood.  The remaining condition `P<=4I` is equivalent to one
-explicit analytic `m x m` endpoint inequality.
+Moreover, `P>=I` holds automatically, and `P-T^*PT>=0` holds whenever
+`H>=0`.  The remaining condition `P<=4I` is equivalent to one explicit
+analytic `m x m` endpoint inequality.
 
 ## 2. Tighten the lower constraint exactly
 
@@ -61,15 +62,15 @@ Let
 \]
 
 and split its physical levels as range `R={0}` and kernel `K={1,2}`.  Near
-the base, `S_RR` is positive definite.  Define the Hermitian `2m x 2m`
-equation
+the base, `S_RR` is positive definite.  For a Hermitian parameter `H`,
+consider the `2m x 2m` equation
 
 \[
  {\cal F}(T,B,C)
- =S_{KK}-S_{KR}S_{RR}^{-1}S_{RK}=0.                  \tag{3}
+ =S_{KK}-S_{KR}S_{RR}^{-1}S_{RK}=H.                  \tag{3}
 \]
 
-At `(T,B,C)=(A_0,0,diag(2I,4I))`, equation (3) holds.  If
+At `(T,B,C,H)=(A_0,0,diag(2I,4I),0)`, equation (3) holds.  If
 
 \[
  \dot C=\begin{bmatrix}X_{11}&X_{12}\\
@@ -94,17 +95,18 @@ This real-linear map on the Hermitian matrices is invertible, with inverse
 \]
 
 The finite-dimensional real-analytic implicit-function theorem therefore
-gives a unique analytic solution `C=C(T,B)` to (3).
+gives a unique analytic solution `C=C(T,B,H)` to (3).
 
 Since `S_RR` remains positive, the Schur complement in the other direction
 now gives
 
 \[
- S(T,B,C(T,B))\succeq0.                               \tag{6}
+ S(T,B,C(T,B,H))\succeq0
+ \quad\Longleftrightarrow\quad H\succeq0.             \tag{6}
 \]
 
 Equations (1)--(6) prove the asserted analytic parameterization of every
-tight lower/Stein certificate in this chart.
+lower-tight certificate with prescribed nearby Stein Schur complement.
 
 ## 4. One exact upper endpoint
 
@@ -114,23 +116,23 @@ For `Q=4I-P`, split off physical level two as its base kernel and let
 \[
  P\preceq4I
 \quad\Longleftrightarrow\quad
- {\cal E}(T,B)\preceq0,                               \tag{7}
+ {\cal E}(T,B,H)\preceq0,                             \tag{7}
 \]
 
 where
 
 \[
  \boxed{
- {\cal E}(T,B)
+ {\cal E}(T,B,H)
  =P_{22}-4I+
  P_{2L}(4I-P_{LL})^{-1}P_{L2}.}                       \tag{8}
 \]
 
 Thus the repeated-`C3` complete-similarity problem is locally reduced to
-finding the free block `B` for which the single analytic endpoint (8) is
+choosing `B` and `H>=0` for which the single analytic endpoint (8) is
 nonpositive.  No infinite forced-metric recursion remains: for any analytic
-choice of `T` and `B`, all the other metric coefficients are the convergent
-Taylor series of `C(T,B)`.
+choice of `T,B,H`, all the other metric coefficients are the convergent
+Taylor series of `C(T,B,H)`.
 
 L104's homogeneous block is exactly a Taylor coefficient of `B`; its
 propagated `P_{12}=2P_{01}` is the linearization (5).
@@ -154,7 +156,36 @@ The only nonsmooth object in this remaining step is the map
 `A -> T=phi_A(A)` at repeated support branches.  The exact metric chart
 itself is analytic in the matrix `T`.
 
-## 6. Regeneration
+## 6. Slack-compatible frozen-normal bridge
+
+The parameter `H` resolves the compatibility issue between this chart and
+L106.  Let `P_N=diag(P_j)` be L106's exact metric for
+`T_N=f(N)`.  Scale each single-block metric so that its smallest eigenvalue
+is one.  Near the Crabb metric that eigenvalue is simple, while the
+physical-level range block of `P_j-I` stays positive.  Since `P_j-I` is
+singular positive semidefinite, its level-zero Schur complement is exactly
+zero.  The same is true for their direct sum.
+
+Let `B_N` be the level-zero/range block of `P_N`, and let
+
+\[
+ H_N=S_{KK}-S_{KR}S_{RR}^{-1}S_{RK}\succeq0           \tag{9}
+\]
+
+be the Stein Schur complement of `S=P_N-T_N^*P_NT_N`.
+Then `P_N` solves (1), (3) with data `(T_N,B_N,H_N)`.  Local uniqueness gives
+
+\[
+ \boxed{P_N=P(T_N,B_N,H_N).}                          \tag{10}
+\]
+
+Thus no tightening operation is needed.  When passing from `T_N` to
+`T=f(A)`, keep `H_N` as a nonnegative parameter and use the analytic metric
+`P(T,B,H_N)`.  Lower and Stein feasibility persist exactly; the only
+remaining task is to choose `B` so that the upper endpoint (8) stays
+nonpositive.  L106 supplies a uniform transverse expansion for `T-T_N`.
+
+## 7. Regeneration
 
 Run
 
@@ -164,4 +195,5 @@ Run
 
 The checker uses a general complex `2 x 2` block `X12` and general Hermitian
 `X11,X22`, constructs the repeated `C3` Stein defect, and proves (4) entry by
-entry.  The same block multiplication is independent of copy multiplicity.
+entry.  The additive parameter `H` does not change this Jacobian.  The same
+block multiplication is independent of copy multiplicity.

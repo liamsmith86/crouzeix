@@ -137,12 +137,10 @@ Equations (7) and (13) solve the main regularity problem behind L101:
 
 Combined with L105, this removes the possibility that the forced lower or
 Stein metric coefficients diverge because of support-branch crossings.
-There is one compatibility issue: the exact metric (7) need not lie in
-L105's **tight** Stein chart.  If `g_j` is not an automorphism, disk
-functional calculus can create Stein slack.  A terminal proof must either
-use that slack directly, tighten (7) without losing `P<=4I`, or show that
-the only sharp stratum has all relevant `g_j` automorphic and hence belongs
-to the tight chart.
+If `g_j` is not an automorphism, disk functional calculus can create Stein
+slack, so (7) need not lie in the zero-slack version of L105's chart.  L107
+resolves this compatibility exactly by retaining the nonnegative Stein
+Schur complement as a parameter; no tightening operation is required.
 
 One quantitative step remains before a neighbourhood theorem.  In the
 two-copy terminal chart, write `r` for the normal split and `delta` for the
@@ -170,7 +168,6 @@ two-regime analytic gate.
 
 This is an exact functional-calculus lemma, not the terminal-tube theorem.
 It does not prove (14), select the free endpoint-centering block uniformly,
-bridge a slack normal certificate into L105's tight chart, or lift through
-L93's collapsing metric flag.  Its role is to remove the false obstacle
-that nonsmooth dependence of the Riemann map on `A` prevents transverse
-factorization: no such differentiation is needed.
+or lift through L93's collapsing metric flag.  Its role is to remove the
+false obstacle that nonsmooth dependence of the Riemann map on `A` prevents
+transverse factorization: no such differentiation is needed.

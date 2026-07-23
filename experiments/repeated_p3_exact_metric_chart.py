@@ -85,6 +85,7 @@ def main() -> None:
 
     print("PASS repeated p=3 exact metric chart linearization")
     print("D_C F(X11,X12,X22)=(X11,X12,X22-2*X11)")
+    print("a prescribed Stein Schur slack is an additive chart parameter")
     print("the Jacobian is invertible in every copy multiplicity")
 
 

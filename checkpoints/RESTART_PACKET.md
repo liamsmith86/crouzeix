@@ -19,10 +19,10 @@ traceless linear edge coefficient at **all** finite orders.  The live task is th
 another coefficient.  L105 replaces all forced lower/Stein coefficients by an exact analytic
 metric chart with one free cross block and one upper endpoint.  L106 freezes the actual
 perturbed Riemann map and proves a uniform Cauchy expansion in the transverse operator, avoiding
-all differentiation of the nonsmooth domain map.  Remaining: bridge the possibly Stein-slack
-normal certificate into the tight chart, prove the two-regime
-`o(delta(r^2+delta^2))` endpoint bound, then lift through L93/L86.  Do not start a larger
-Schur grind.  See `RESEARCH_STATE.md` and
+all differentiation of the nonsmooth domain map.  L107 retains the frozen normal
+certificate's PSD Stein Schur slack as an exact chart parameter, so no tightening is needed.
+Remaining: prove the two-regime `o(delta(r^2+delta^2))` endpoint bound, then lift through
+L93/L86.  Do not start a larger Schur grind.  See `RESEARCH_STATE.md` and
 `proof/repeated_p3_flat_two_copy_weighted.md`.
 
 ## Latest completion (2026-07-22): elliptic 4×4 slice proved
