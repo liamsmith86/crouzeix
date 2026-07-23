@@ -56,12 +56,31 @@
   coefficient is `-32`; the terminal coordinate weight `1/2` gives
   `-64`.
 - Hence L140--L143 prove the complete one-grade dual loss parabola.
-  The next gates are mixed-grade polarization, a uniform remainder,
+  L144 then polarizes it over every complex grade.  Different grades
+  occupy distinct shift/Fourier modes; the only possible mixed folds
+  are `L=2k+ell` and `L=k+2ell`, and both cancel by the same
+  `+8` numerator / `-8` coordinate-metric mechanism.
+- The complete dual principal face is therefore
+  `-64 sum_k |u_k|^2 c^(2k)`.  The next gates are a uniform remainder
   and complementary slackness with L139's primal defect square.
+- L145 supplies that complement canonically.  If `B=N/D` and `x` is
+  its top right singular vector, choose the Stein defect orthogonal to
+  `D(T)^(-1)span{x,Tx,...,T^(L-1)x}`.  The model-kernel identity makes
+  the primal metric and dual inner exactly complementary on `x`;
+  their one-grade Hessians agree through the face.
+- L146 then closes every mixed **primal** coefficient without another
+  coordinate calculation.  The optimized primal Hessian minus the
+  dual Hessian is PSD.  After grade scaling, L145 makes its diagonal
+  zero, so positivity forces the entire matrix to vanish.
+- Therefore A98/A99's complete primal/dual Newton face is proved.
+  The sole remaining local-merger gate is now a uniform analytic
+  remainder above that negative face.
   `proof/crabb_faber_blaschke_dual.md`;
   `experiments/crabb_faber_blaschke_dual.py`;
   `experiments/crabb_central_faber_blaschke.py`;
-  `experiments/crabb_faber_blaschke_formal.py`.
+  `experiments/crabb_faber_blaschke_formal.py`;
+  `experiments/crabb_faber_blaschke_mixed.py`;
+  `experiments/crabb_faber_blaschke_complementarity.py`.
 
 ## NEWEST (2026-07-23): L139 proves the all-size defect-Hessian LDL edge
 - L138's endpoint Schur formula depends only on the zeroth and last
@@ -2033,6 +2052,8 @@ experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_
   crabb_faber_blaschke_dual.py (A99 corrected scalar dual square),
   crabb_central_faber_blaschke.py (L142 central corrected dual face),
   crabb_faber_blaschke_formal.py (L143 noncentral formal dual face),
+  crabb_faber_blaschke_mixed.py (L144 mixed-grade polarization),
+  crabb_faber_blaschke_complementarity.py (L145 primal/dual defect),
   formal_riemann_series.py + rank_one_stein_series.py (exact higher-order helpers),
   p3_crabb_sixth_order.py + p3_crabb_quartic.py (L67/L68 exact certificates),
   p3_crabb_local_slice.py (L69 orbit-normal slice audit),

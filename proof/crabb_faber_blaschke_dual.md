@@ -565,11 +565,204 @@ Combining L142 and L143 proves the base term (16) for every central or
 noncentral one-grade direction.  Together with L140--L141, the full
 one-grade dual parabola (12) is now exact, not numerical.
 
-## 8. Proof obligations
+## 8. Distinct grades polarize diagonally (L144)
 
-The center, mismatch curvature, and one-grade base curvature are now
-proved.  All-grade polarization, uniform remainders, and primal
-complementary slackness remain.  The maintainable route is:
+Choose one representative `1<=k<=L/2` from each reflected pair and
+write the corrected multi-grade factor as
+
+\[
+\boxed{
+\begin{aligned}
+G_{a,c,u}
+=P_L
+2a\sum_{k<L/2}
+\{u_kP_k+\overline{u_k}(1+c^k)P_{L-k}\}\\
+\quad
+2a\,u_{L/2}(1+c^{L/2})P_{L/2}
+\qquad(L\ {\rm even}),
+\end{aligned}}                                      \tag{36}
+\]
+
+where the central coefficient is real in the fixed phase gauge.
+Map the roots as before and call the resulting inner function
+`B_(a,c,u)`.  Then its complete diagonal principal face is
+
+\[
+\boxed{
+\|B_{a,c,u}(T(a,c,u))\|^2
+=4-64a^2\sum_{k\le L/2}|u_k|^2c^{2k}
++\text{terms strictly above the diagonal face}.
+}                                                     \tag{37}
+\]
+
+Equivalently, for distinct grades `k` and `ell`,
+
+\[
+\boxed{
+[a^2c^{k+\ell}]
+\left(
+\|B_{u_k+u_\ell}(T)\|^2
+-\|B_{u_k}(T)\|^2
+-\|B_{u_\ell}(T)\|^2+4
+\right)=0.
+}                                                     \tag{38}
+\]
+
+To prove this, polarize the coefficient recurrence (28) with
+independent variables `u_k`, `overline(u_k)`.  Before a terminal fold,
+the first faces (29) occupy distinct shift diagonals.  Their
+`K_0` products therefore have zero top Fourier grade unless the two
+grades coincide.  Equation (31) separately gives first singular-vector
+valuations greater than `k` and `ell`, so a mixed Schur product has
+valuation strictly greater than `k+ell`.
+
+Only a folded endpoint could defeat that orthogonality.  For `k<ell`,
+it can land on the mixed face only in one of the two resonances
+
+\[
+L=2k+\ell,\qquad L=k+2\ell.                          \tag{39}
+\]
+
+In either case the polarized version of (30) contributes `+8` through
+the quadratic numerator and `-8` through the corresponding
+off-diagonal entry of `K_1`.  Thus it cancels exactly, just as in
+(33)--(34).  A central grade is the limiting double fold and obeys
+the same recurrence, consistent with L142.
+
+Finally, a complex cross monomial carries nonzero circle grade
+`k-ell`; the endpoint functional selects grade zero.  Hence both its
+real and imaginary polarizations vanish, proving (38) over complex
+coefficients.  The diagonal terms are L142--L143, which proves (37).
+
+## 9. A complementary rank-one Stein defect (L145)
+
+The corrected inner function also constructs the missing primal
+direction.  Write `B=N/D`, let `x,y` be its simple top right and left
+singular vectors,
+
+\[
+B(T)x=s\,y,
+\]
+
+and recall that its model space is
+
+\[
+K_B=\{p/D:\deg p<L\}.                                \tag{40}
+\]
+
+Choose a nonzero vector `q` by
+
+\[
+\boxed{
+q\perp D(T)^{-1}
+\operatorname{span}\{x,Tx,\ldots,T^{L-1}x\}.
+}                                                     \tag{41}
+\]
+
+The orbit has rank `L` at both equality axes, so (41), with one scalar
+normalization, defines an analytic one-dimensional complement locally.
+Let
+
+\[
+P_T(q)=\sum_{n\ge0}(T^*)^nqq^*T^n.
+\]
+
+For an orthonormal basis `f_0,...,f_(L-1)` of `K_B`, L127's model
+kernel identity is
+
+\[
+P_T(q)-B(T)^*P_T(q)B(T)
+=\sum_{j=0}^{L-1}f_j(T)^*qq^*f_j(T).                 \tag{42}
+\]
+
+Equation (41) makes the right side annihilate `x`.  Hence
+
+\[
+\boxed{
+x^*P_T(q)x=s^2y^*P_T(q)y.
+}                                                     \tag{43}
+\]
+
+This is exact complementary slackness, not a fitted defect ansatz.
+
+For a one-grade direction, differentiate (41) in the coefficient
+gauge.  L143's right-singular correction has valuation greater than
+`k`; the orbit equations are triangular at the disk endpoint.  Their
+unique normalized solution is the homogeneous defect tangent.  Insert
+it in the Stein recurrence and use the two simple endpoint generalized
+eigenvalues.  Coefficient induction gives
+
+\[
+\boxed{
+[a^2c^j]\{
+\kappa(P_T(q))-\|B(T)\|^2
+\}=0,\qquad 0\le j\le2k.
+}                                                     \tag{44}
+\]
+
+Thus L142--L143's dual coefficient `-64` is attained by a feasible
+rank-one Stein metric for every central and noncentral one-grade
+direction.  Formula (44) also explains the defect corrections in A98:
+they are the coefficients of the model-space complement (41), not an
+ad hoc coordinate transport.
+
+## 10. Positivity forces all mixed primal faces (L146)
+
+Let `Q_pr(c)` be the Hermitian amplitude Hessian of the locally
+optimized rank-one Stein envelope, and let `Q_du(c)` be the Hessian of
+the corrected dual inner lower bound.  For every fixed small `c`,
+
+\[
+\boxed{
+Q_{\rm pr}(c)-Q_{\rm du}(c)\succeq0,
+}                                                     \tag{45}
+\]
+
+because the primal envelope is an upper bound for `t_*` and the
+Blaschke norm is a lower bound, with equality and equal first
+derivative on the axis.
+
+L125's grade filtration, applied to the Stein and preparation
+recurrences, makes the `(k,ell)` entry divisible by `c^(k+ell)`.
+With
+
+\[
+D_c=\operatorname{diag}(c^k)_{k\le L/2},
+\]
+
+the associated limit
+
+\[
+E_0=\lim_{c\to0}
+D_c^{-1}\{Q_{\rm pr}(c)-Q_{\rm du}(c)\}D_c^{-1}
+\succeq0                                             \tag{46}
+\]
+
+therefore exists.  L145 says every diagonal entry of `E_0` is zero:
+primal and dual agree in every one-grade direction.  A positive
+semidefinite Hermitian matrix with zero diagonal is zero, since each
+`2x2` principal minor forces its off-diagonal entry to vanish.
+Consequently
+
+\[
+\boxed{
+Q_{\rm pr,face}=Q_{\rm du,face}
+=-64\sum_{k\le L/2}|u_k|^2c^{2k}.
+}                                                     \tag{47}
+\]
+
+This proves A98's completed-square **minimum and all mixed
+coefficients** without guessing a raw defect-coordinate reversal.
+The explicit minimizer is obtained recursively from (41) and L139's
+positive defect Hessian.  What remains for a local theorem is no
+longer the Hessian sign: it is the uniform analytic remainder needed
+to dominate terms above the Newton face.
+
+## 11. Proof obligations
+
+The complete primal/dual principal face and complementary defect are
+now proved coefficientwise.  Uniform remainders remain.  The
+maintainable route is:
 
 1. Inner--outer factor
 
@@ -579,14 +772,7 @@ complementary slackness remain.  The maintainable route is:
    \]
 
    and expand the outer factor in the Faber/Hardy filtration.
-2. Polarize (28)--(35) over distinct complex grades.  L131's reflected
-   rows are orthogonal, so the target is the diagonal sum of the
-   one-grade coefficients; terminal aliases must still be checked
-   when two grades fold to the same coordinate.
-3. Match the `lambda=2` dual equality conditions with L139's primal
-   homogeneous defect correction.  This is the remaining
-   complementary-slackness step needed to prove A98's completed square.
-4. Establish a uniform analytic remainder in the amplitude/ellipse
+2. Establish a uniform analytic remainder in the amplitude/ellipse
    tube, rather than only the coefficientwise formal statement.
 
 If these steps close, (3) and (12)--(16) give the sharp lower face while the
@@ -594,7 +780,7 @@ matching L138--L139 defect vector gives the upper face.  That would
 prove A84's all-grade principal coefficient rather than merely
 another sufficient estimate.
 
-## 9. Reproduction
+## 12. Reproduction
 
 Run
 
@@ -635,3 +821,28 @@ It retains rational `c`-series through `2k`, prepares the numerator by
 (28), checks (29) and the endpoint alias, and verifies that the Schur
 term vanishes on the face while the direct Rayleigh coefficient is
 `-64`.
+
+Mixed-grade polarization, including both resonances in (39), is
+
+```bash
+PYTHONPATH=experiments .venv/bin/python -u \
+  experiments/crabb_faber_blaschke_mixed.py \
+  --output experiments/crabb_faber_blaschke_mixed_s70223.jsonl
+```
+
+It subtracts the two one-grade quadratic series from the combined
+series and asserts exact zero through twice the larger grade.
+
+The model-space complementary defect and matching primal condition
+Hessian are regenerated by
+
+```bash
+PYTHONPATH=experiments .venv/bin/python -u \
+  experiments/crabb_faber_blaschke_complementarity.py \
+  --output \
+  experiments/crabb_faber_blaschke_complementarity_s70223.jsonl
+```
+
+It solves (41) over exact rational series, verifies the differentiated
+orthogonality equations, and checks (44) in central and noncentral
+grades.

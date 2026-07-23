@@ -40,7 +40,7 @@ from crabb_palindromic_elliptic_hessian import (
     matrix_multiply,
     matrix_scale,
     matrix_transpose,
-    operator_expansion,
+    operator_expansion_from_coefficients,
     zero_matrix,
 )
 from exact_truncated_series import Series
@@ -78,6 +78,21 @@ class FormalFaberBlaschkeRecord:
     first_singular_coupling_valuation: int
     direct_rayleigh_coefficient: str
     schur_coefficient: str
+
+
+@dataclass(frozen=True)
+class FormalDualCalculation:
+    """Reusable exact dual Hessian for one or several grades."""
+
+    operator: AmplitudeMatrix
+    denominator: AmplitudeMatrix
+    blaschke: AmplitudeMatrix
+    coordinate_constant: Matrix
+    coordinate_linear: Matrix
+    first_coupling: tuple[Series, ...]
+    direct_rayleigh: Series
+    schur: Series
+    quadratic_eigenvalue: Series
 
 
 def zero(order: int) -> Series:
@@ -249,30 +264,46 @@ def composed_dickson_polynomials(
 
 def weierstrass_numerator_coefficients(
     length: int,
-    grade: int,
+    grades: tuple[int, ...],
     maximum_c_degree: int,
 ) -> dict[tuple[int, int], FractionPolynomial]:
-    """Prepare the corrected scalar factor through amplitude degree two."""
+    """Prepare a corrected multi-grade factor through amplitude degree two."""
 
     series_order = maximum_c_degree + 1
     dickson = composed_dickson_polynomials(length, series_order)
     constant_part = dickson[length]
-    linear_part = add_series_polynomials(
-        scale_series_polynomial(
-            2,
-            add_series_polynomials(
+    linear_part: SeriesPolynomial = []
+    for grade in grades:
+        if not 1 <= grade <= length / 2:
+            raise ValueError("grades must be distinct low representatives")
+        if 2 * grade == length:
+            grade_part = scale_series_polynomial(
+                2,
                 dickson[grade],
+            )
+            reflected_part = scale_series_polynomial(
+                2 * Series.monomial(grade, series_order),
+                dickson[grade],
+            )
+        else:
+            grade_part = scale_series_polynomial(
+                2,
+                add_series_polynomials(
+                    dickson[grade],
+                    dickson[length - grade],
+                ),
+            )
+            reflected_part = scale_series_polynomial(
+                2 * Series.monomial(grade, series_order),
                 dickson[length - grade],
+            )
+        linear_part = add_series_polynomials(
+            linear_part,
+            add_series_polynomials(
+                grade_part,
+                reflected_part,
             ),
-        ),
-        scale_series_polynomial(
-            2 * Series.monomial(
-                grade,
-                series_order,
-            ),
-            dickson[length - grade],
-        ),
-    )
+        )
 
     prepared_input: dict[
         tuple[int, int],
@@ -570,33 +601,44 @@ def expected_first_face_tangent(
     return expected
 
 
-def make_record(length: int, grade: int) -> FormalFaberBlaschkeRecord:
-    """Construct and validate one exact noncentral face."""
+def formal_dual_calculation(
+    length: int,
+    grades: tuple[int, ...],
+    maximum_c_degree: int,
+) -> FormalDualCalculation:
+    """Return the exact quadratic dual series for a multi-grade direction."""
 
-    if not 1 <= grade < length / 2:
-        raise ValueError("the formal checker requires a noncentral grade")
-    target_degree = 2 * grade
-    order = target_degree + 1
+    if (
+        not grades
+        or len(set(grades)) != len(grades)
+        or any(not 1 <= grade <= length / 2 for grade in grades)
+    ):
+        raise ValueError("grades must be distinct low representatives")
+    order = maximum_c_degree + 1
     prepared = weierstrass_numerator_coefficients(
         length,
-        grade,
-        target_degree,
+        grades,
+        maximum_c_degree,
     )
     numerator_coefficients = matrix_polynomial_coefficients(
         prepared,
         length,
-        target_degree,
+        maximum_c_degree,
         reverse=False,
     )
     denominator_coefficients = matrix_polynomial_coefficients(
         prepared,
         length,
-        target_degree,
+        maximum_c_degree,
         reverse=True,
     )
-    operator, _ = operator_expansion(
+    direction = [0] * (length - 1)
+    for grade in grades:
+        direction[grade - 1] = 1
+        direction[length - grade - 1] = 1
+    operator, _ = operator_expansion_from_coefficients(
         length + 1,
-        grade,
+        direction,
         order,
     )
     powers = amplitude_matrix_powers(operator, length)
@@ -611,25 +653,8 @@ def make_record(length: int, grade: int) -> FormalFaberBlaschkeRecord:
     blaschke = blaschke_amplitude_coefficients(
         numerator,
         denominator,
-        target_degree,
+        maximum_c_degree,
     )
-
-    first_face = [
-        [
-            Series.constant(
-                blaschke[1][row][column].coefficient(grade),
-                order,
-            )
-            for column in range(length + 1)
-        ]
-        for row in range(length + 1)
-    ]
-    first_face_tangent_matches = (
-        first_face
-        == expected_first_face_tangent(length, grade, order)
-    )
-    if not first_face_tangent_matches:
-        raise AssertionError("the sparse first-face tangent failed")
 
     coordinate_constant = diagonal_matrix(
         [
@@ -642,16 +667,11 @@ def make_record(length: int, grade: int) -> FormalFaberBlaschkeRecord:
             for index in range(length + 1)
         ]
     )
-    direction = [
-        1 if offset in (grade, length - grade) else 0
-        for offset in range(1, length)
-    ]
     coordinate_linear = coordinate_metric_tangent(
         length + 1,
         direction,
         order,
     )
-
     constant_gram = weighted_gram(
         blaschke[0],
         coordinate_constant,
@@ -701,7 +721,6 @@ def make_record(length: int, grade: int) -> FormalFaberBlaschkeRecord:
             blaschke[1],
         ),
     )
-
     if any(
         constant_gram[row][column].valuation() != order
         for row in range(length + 1)
@@ -742,7 +761,54 @@ def make_record(length: int, grade: int) -> FormalFaberBlaschkeRecord:
             - linear_eigenvalue * coordinate_constant[top][index]
         ) * first_coupling[index]
     schur /= coordinate_constant[top][top]
-    quadratic_eigenvalue = direct_rayleigh + schur
+    return FormalDualCalculation(
+        operator=operator,
+        denominator=denominator,
+        blaschke=blaschke,
+        coordinate_constant=coordinate_constant,
+        coordinate_linear=coordinate_linear,
+        first_coupling=tuple(first_coupling),
+        direct_rayleigh=direct_rayleigh,
+        schur=schur,
+        quadratic_eigenvalue=direct_rayleigh + schur,
+    )
+
+
+def make_record(length: int, grade: int) -> FormalFaberBlaschkeRecord:
+    """Construct and validate one exact noncentral face."""
+
+    if not 1 <= grade < length / 2:
+        raise ValueError("the formal checker requires a noncentral grade")
+    target_degree = 2 * grade
+    order = target_degree + 1
+    calculation = formal_dual_calculation(
+        length,
+        (grade,),
+        target_degree,
+    )
+    blaschke = calculation.blaschke
+
+    first_face = [
+        [
+            Series.constant(
+                blaschke[1][row][column].coefficient(grade),
+                order,
+            )
+            for column in range(length + 1)
+        ]
+        for row in range(length + 1)
+    ]
+    first_face_tangent_matches = (
+        first_face
+        == expected_first_face_tangent(length, grade, order)
+    )
+    if not first_face_tangent_matches:
+        raise AssertionError("the sparse first-face tangent failed")
+
+    first_coupling = calculation.first_coupling
+    direct_rayleigh = calculation.direct_rayleigh
+    schur = calculation.schur
+    quadratic_eigenvalue = calculation.quadratic_eigenvalue
 
     first_nonzero = quadratic_eigenvalue.valuation()
     leading = quadratic_eigenvalue.coefficient(target_degree)
@@ -756,7 +822,7 @@ def make_record(length: int, grade: int) -> FormalFaberBlaschkeRecord:
     endpoint_alias_degree = length - grade
     endpoint_alias_active = endpoint_alias_degree <= target_degree
     if endpoint_alias_active:
-        alias = blaschke[1][endpoint_alias_degree][top].coefficient(
+        alias = blaschke[1][endpoint_alias_degree][length].coefficient(
             endpoint_alias_degree
         )
         if alias != -2:
