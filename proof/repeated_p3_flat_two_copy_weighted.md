@@ -343,7 +343,9 @@ lower Schur complement at order `k`.  Moreover,
 
 has zero compression to the active Stein kernel: the only propagated
 relation is `(\Delta P_k)_{12}=2(\Delta P_k)_{01}`.  Finally, (25) does not
-change the active upper endpoint at order `k`.
+change the active upper endpoint at order `k`.  These are coefficientwise
+statements through order `k`; quadratic products of (25) first appear at
+order `2k` and must be repaired by later metric coefficients.
 
 At order `k+1`, every term linear in (25) pairs it with an order-one
 coefficient.  The coefficient convolution is therefore independent of
@@ -361,10 +363,13 @@ For real canonical `d`,
 \]
 
 This map is onto the Hermitian off-diagonal copy blocks whenever `d!=0`.
-The copy involution `J=diag(1,-1)` fixes the normal direction and sends the
+Choose the recursive metric branch `J`-equivariantly; equivalently, average
+each coefficient with its transform under the copy involution
+`J=diag(1,-1)`.  The involution fixes the normal direction and sends the
 signed Schur edge to its negative.  Hence every endpoint coefficient linear
-in that edge anticommutes with `J` and is necessarily off-diagonal.  Formula
-(26) can therefore cancel that coefficient at every finite order.
+in that edge on this equivariant branch anticommutes with `J` and is
+necessarily off-diagonal.  Formula (26) can therefore cancel that
+coefficient at every finite order.
 
 We obtain a formal all-orders conclusion:
 
@@ -377,7 +382,9 @@ This is an order-by-order statement, not yet a convergent certificate.
 The remaining analytic lemma must either show that the recursively selected
 metrics converge uniformly, or directly factor the exact optimized endpoint
 by the transverse distance.  It must also retain the negative nonsmooth
-scalar Jensen term from (14) as `d->0`.
+scalar Jensen term from (14) as `d->0`.  In particular, the inverse of (26)
+has size `O(1/|d|)`; L104 neither proves divisibility by `d` nor gives a
+uniform one-chart construction at `d=0`.
 
 ## 10. Regeneration
 

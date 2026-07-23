@@ -1,6 +1,39 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-22 (Epoch 6 — L104 all-orders metric transfer)
+**Last updated:** 2026-07-22 (Epoch 6 — L106 frozen-domain factorization)
+
+## NEWEST (2026-07-22): L106 bypasses nonsmooth domain differentiation
+- For the actual perturbed matrix `A=N+E`, freeze its own Riemann map `f=phi_A` and compare
+  `f(A)` with `f(N)`.  Every diagonal block `Bj` of `N` is a compression of `A`, so
+  `W(Bj)⊂W(A)`.
+- L73 supplies a metric contracting `Sj=phi_j(Bj)`.  Since
+  `f(Bj)=(f∘phi_j^−1)(Sj)` and the composition is a disk self-map, the same metric contracts
+  `f(Bj)` by von Neumann.  Their direct sum is an exact normal certificate for `f(N)` using
+  the actual perturbed domain.
+- A fixed circle lies inside every nearby `W(A)` and surrounds both spectra.  With `|f|≤1`,
+  the resolvent Neumann series expands `f(N+E)−f(N)` into homogeneous terms with bounds
+  `C1(C0||E||)^k`.  Every remainder has an explicit transverse factor, uniformly over the
+  nonsmoothly varying maps.
+- Compatibility debt: the direct-sum normal metric can have Stein slack when the intervening
+  disk self-map is non-automorphic, so it need not lie in L105's tight chart.  Use that slack,
+  prove a safe tightening, or isolate the automorphic sharp stratum before subtracting endpoints.
+- The remaining sharp lemma is now the quantitative two-regime endpoint estimate
+  `R=o(delta(r²+delta²))`: invert L104 when `r` dominates `delta`, and use the pure-edge
+  L99/L100 cubic without division when `r=O(delta)`.
+  `proof/repeated_p3_frozen_domain.md`.
+
+## NEWEST (2026-07-22): L105 replaces forced metric series by one analytic chart
+- Fix the whole level-zero/range cross block `B` of the metric.  The exact formula
+  `P00=I+B(C−I)^−1B*` makes `P−I` tight.
+- The tight Stein Schur-complement equation has derivative
+  `(X11,X12,X22)->(X11,X12,X22−2X11)` in the remaining range block `C`, an invertible
+  real-linear map for every copy multiplicity.  The analytic implicit-function theorem
+  therefore supplies a unique `C=C(T,B)`.
+- Lower and Stein positivity are then automatic, and `P≤4I` is equivalent to one analytic
+  upper endpoint `E(T,B)≤0`.  Thus the forced metric coefficients converge for every analytic
+  choice of `T,B`; only the uniform free-block selection and scalar endpoint sign remain.
+  `proof/repeated_p3_exact_metric_chart.md`;
+  `experiments/repeated_p3_exact_metric_chart.py`.
 
 ## NEWEST (2026-07-22): L104 removes every finite-order traceless recurrence
 - At any metric order `k>=2`, the homogeneous free block
@@ -9,13 +42,13 @@
 - At order `k+1`, coefficient convolution pairs it only with the fixed first-order normal
   data.  Thus its endpoint transfer is independent of `k` and equals
   `5sqrt(2)d[[0,U01−conj(U10)],[conj(U01)−U10,0]]` in the real canonical chart.
-- Copy sign symmetry forces every coefficient linear in the transverse Schur edge to be
-  Hermitian off-diagonal.  Since the transfer is onto that space for `d!=0`, every such
-  traceless term can be canceled recursively at every finite order.
+- On a `J`-equivariant recursive branch, copy sign symmetry forces every coefficient linear
+  in the transverse Schur edge to be Hermitian off-diagonal.  Since the transfer is onto that
+  space for fixed `d!=0`, every such traceless term can be canceled at every finite order.
 - This replaces an infinite coefficient grind by one precise analytic gate: prove convergence
-  or direct transverse factorization of the recursively selected metric while retaining the
-  negative nonsmooth scalar Jensen term uniformly as `d->0`.  L104 alone is a formal
-  all-orders result, not a neighbourhood theorem.
+  or direct transverse factorization while retaining the negative nonsmooth scalar Jensen term
+  uniformly as `d->0`.  Products of a free block recur at later orders and the inverse grows
+  like `1/|d|`; L104 alone is a formal fixed-`d` result, not a neighbourhood theorem.
   `proof/repeated_p3_flat_two_copy_weighted.md`;
   `experiments/repeated_p3_flat_two_copy_fourth_metric.py`.
 
@@ -936,9 +969,10 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
 ## Current next actions (Epoch 6, refreshed 2026-07-22)
 1. **Finish normal-face uniformity and merge L93 back into L86.** L94--L98 now close every
    bounded weighted chart at a nonnormal terminal block, while L100--L103 locate the sharp
-   normal center and cancel the complete transverse fourth endpoint.  Factor every
-   order-five-and-higher endpoint remainder by the transverse distance relative to L88's exact
-   normal certificate; then lift that tube through the metric flag and couple it to the
+   normal center and cancel the complete transverse fourth endpoint.  L105--L106 give the exact
+   metric chart and same-map transverse factorization.  First resolve the slack/tight bridge
+   for the frozen normal certificate; then prove the two-regime
+   `o(delta(r²+delta²))` upper-endpoint remainder and lift that tube through the metric flag,
    negative Gram terms, common `v` curvature, and L82's losing mean gap.  Do not grind larger
    Schur matrices.  The target is a full repeated-`C3` neighbourhood theorem.
 2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
@@ -1022,6 +1056,7 @@ experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_
   repeated_p3_flat_two_copy_weighted.py (L98 weighted terminal theorem),
   repeated_p3_flat_two_copy_fourth.py + repeated_p3_flat_two_copy_fourth_metric.py
   (L102 support persistence + L103 simultaneous fourth-metric cancellation),
+  repeated_p3_exact_metric_chart.py (L105 exact tight lower/Stein chart Jacobian),
   repeated_p3_normal_center_probe.py (supporting two-scale regression only),
   repeated_p3_flat_metric_flag.py (L93 arbitrary-copy metric-flag derivative).
 Proof artifact: experiments/positive_tail_full_20260722.log (L59 clean 10-box run).

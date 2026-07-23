@@ -16,9 +16,13 @@ block
 Thus the total fourth transverse remainder is quadratic and absorbable by L100's cubic gap.
 L104 proves that the same adjacent-order free metric map is onto every symmetry-allowed
 traceless linear edge coefficient at **all** finite orders.  The live task is therefore not
-another coefficient: prove convergence/direct transverse factorization of that metric branch
-while retaining the negative scalar Jensen term, then lift the tube through L93's flag and
-L86's losing/strong gaps.  Do not start a larger Schur grind.  See `RESEARCH_STATE.md` and
+another coefficient.  L105 replaces all forced lower/Stein coefficients by an exact analytic
+metric chart with one free cross block and one upper endpoint.  L106 freezes the actual
+perturbed Riemann map and proves a uniform Cauchy expansion in the transverse operator, avoiding
+all differentiation of the nonsmooth domain map.  Remaining: bridge the possibly Stein-slack
+normal certificate into the tight chart, prove the two-regime
+`o(delta(r^2+delta^2))` endpoint bound, then lift through L93/L86.  Do not start a larger
+Schur grind.  See `RESEARCH_STATE.md` and
 `proof/repeated_p3_flat_two_copy_weighted.md`.
 
 ## Latest completion (2026-07-22): elliptic 4×4 slice proved
