@@ -170,8 +170,9 @@ L133 completes this program for real phase-one offset one.  Its
 explicit defect jet is `2e_1+2e_(L-1)-8ce_3`; the second-amplitude
 Stein forcing stabilizes at the chain ends and gives endpoint
 coefficients `(48,128)`, hence `128-4(48)=-64`.  L132 propagates that
-upper coefficient to all real phase-one divisor grades.  The live
-extension is complex/mixed polarization plus unequal-residue
+upper coefficient to all real phase-one divisor grades.  L134
+subsequently proves phase isotropy and complexifies that transfer.
+The live extension is distinct-grade polarization plus unequal-residue
 localization, followed by the uniform remainder.
 
 ## 5. How (5) would enter the final merger

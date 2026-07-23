@@ -2,8 +2,9 @@
 
 ## 1. Result
 
-Let `L=qk` with `q>=2`.  In size `L+1`, take the phase-one equality
-direction supported at coefficient grades `k` and `L-k`, and write
+Let `L=qk` with `q>=2`.  In size `L+1`, take a one-pair
+phase-palindromic equality direction supported at coefficient grades
+`k` and `L-k`, with coefficients `(u,conjugate(u))`, and write
 
 \[
 T_{L,k}(a,c)
@@ -29,6 +30,11 @@ The neighbourhood may depend on `(q,k)`.  Both comparisons in (1) are
 exact, not only amplitude-Hessian inequalities.  L130 is the special
 case `q=2`, where the outer size-three rank-one branch is known to be
 optimal and the sandwich collapses to equality.
+
+The formulas below suppress `u`.  The original checker uses `u=1`;
+the complex checker uses `u=i`.  Every algebraic step permits
+arbitrary complex `u`.  When `q=2`, the two grades coincide and phase
+palindromy forces that single central coefficient to be real.
 
 Consequently, once the offset-one coefficient is computed in every
 size, every grade dividing `L` follows automatically.  In particular
@@ -93,8 +99,8 @@ zero the product law gives exactly
 
 \[
 2(e_0-e_L)
-\{e_{k+1}^*+e_{L-k+1}^*
--c e_{k-1}^*-c e_{L-k-1}^*\}.                       \tag{4}
+\{u e_{k+1}^*+\overline u e_{L-k+1}^*
+-c u e_{k-1}^*-c\overline u e_{L-k-1}^*\}.          \tag{4}
 \]
 
 In the differentiated Dickson recurrence, the two terms at each end
@@ -170,9 +176,9 @@ O^*(f/F)(T)O
 ={\langle f,F\rangle\over\|F\|^2}I_{q+1}.            \tag{8}
 \]
 
-Now take the defect `v` selected by L118's locally optimized
+Now take the possibly complex defect `v` selected by L118's locally optimized
 rank-one-envelope branch, define `J=F(T)^{-*}O`, and set `d=Jv`.
-The identical reconstruction calculation from L130 gives
+The identical complex-linear reconstruction calculation from L130 gives
 `sum gamma_jw_j=0`, so the lifted full Stein metric reduces the outer
 space and its compression is a scalar copy of the outer rank-one
 envelope metric.
@@ -202,8 +208,10 @@ L133 subsequently discharged the offset-one debt for the real
 phase-one direction.  Its all-size Stein calculation proves the
 dimension-stable endpoint pair `(48,128)`, hence
 `128-4(48)=-64`.  By (1), every real phase-one divisor grade now has
-the corresponding rank-one upper face.  Complex-phase polarization,
-nondivisor grades, and the uniform Newton remainder remain open.
+the corresponding rank-one upper face.  L134 subsequently proves
+phase isotropy and complexifies this transfer.  Distinct-grade
+polarization, nondivisor grades, and the uniform Newton remainder
+remain open.
 
 ## 6. Exact regeneration
 
@@ -217,6 +225,15 @@ PYTHONPATH=experiments .venv/bin/python -u \
 
 The checker verifies (2)--(5), exact amplitude linearity, and the
 inactive apex shifts on the complete grid `1<=k<=6`, `2<=q<=6`.
+The nonreal-phase audit verifies the same polynomial and Hermitian
+Gramian reductions for `u=i`, `1<=k<=5`, and `3<=q<=6`:
+
+```bash
+PYTHONPATH=experiments .venv/bin/python -u \
+  experiments/crabb_divisible_complex_descent.py \
+  --output experiments/crabb_divisible_complex_descent_s70223.jsonl
+```
+
 The independent floating checker constructs the critical-factor lift
 itself and verifies scalar compression, outer/inner metric reduction,
 preservation of the outer rank-one condition, and strict inner

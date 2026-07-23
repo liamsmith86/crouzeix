@@ -2,6 +2,33 @@
 
 **Last updated:** 2026-07-23 (Epoch 6 — Faber endpoint localization)
 
+## NEWEST (2026-07-23): L134 proves complex one-grade phase isotropy
+- For the pure-imaginary first-offset coefficient
+  `(u_1,u_(L-1))=(i,-i)`, exact rational real/imaginary-pair Stein
+  arithmetic gives defect jet
+  `i(-2e_1+2e_(L-1)+8ce_3)` and the same endpoint pair `(48,128)`.
+  The optimized amplitude Hessian is again `-64c²+O(c³)`.
+- The first-face coefficient is a real quadratic form in
+  `u=x+iy`.  Entrywise conjugation maps `y` to `-y` while preserving
+  the condition number, so the mixed `xy` term vanishes.  L133 and
+  the imaginary calculation therefore prove the arbitrary-phase law
+  `-64|u|²c²`.
+- L132 complexifies without extra condition cost: Dickson paths and
+  the Hermitian coordinate Gramian reduce the one-pair coefficients
+  `(u,conjugate(u))`, while the critical-factor defect reconstruction
+  is complex-linear in the outer defect.  Thus every divisor grade
+  has rank-one upper face `-64|u|²c^(2k)`.
+- Exact complex offset-one records cover sizes four through twelve;
+  stationarity is independently reconstructed through size seven.
+  A separate `u=i` Dickson/Gramian checker covers `k<=5`,
+  `3<=q<=6`, through dimension 31.
+- Remaining coefficient gates: cross terms between **distinct**
+  grades and unequal-residue localization when `k` does not divide
+  `L`.  Uniform Newton-remainder control remains after those.
+  `proof/crabb_offset_one_complex_face.md`;
+  `experiments/crabb_offset_one_complex_face.py`;
+  `experiments/crabb_divisible_complex_descent.py`.
+
 ## NEWEST (2026-07-23): L133 proves the universal real offset-one face
 - For the real phase-one first-offset equality direction in every size
   `L+1>=3`, L118's optimized rank-one amplitude Hessian is now proved
@@ -22,9 +49,9 @@
   differs only at order `c²`, which cannot alter this coefficient.
 - Combining L133 with L132 transfers the real phase-one upper face
   `-64a²c^(2k)` to every divisor grade `k|L`.
-- Scope remains strict: complex-phase/mixed-grade polarization,
-  unequal-residue localization for `k` not dividing `L`, and a
-  dimension-uniform analytic remainder are still open.
+- L134 subsequently closes complex one-grade phase.  Mixed-grade
+  polarization, unequal-residue localization for `k` not dividing
+  `L`, and a dimension-uniform analytic remainder are still open.
   `proof/crabb_offset_one_face.md`;
   `experiments/crabb_offset_one_face.py`.
 

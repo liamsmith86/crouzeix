@@ -24,9 +24,11 @@ the rank-one upper face
 
 after degree-`k` descent to the size-`q+1` offset-one family.
 
-Equation (1) is still not the full A84 theorem.  It does not yet
-polarize complex phases or distinct grades, treat a nondivisor grade,
-or supply the uniform analytic remainder required by L124.
+L134 subsequently polarizes the imaginary phase and proves
+`-64|u|²c²` for an arbitrary complex one-pair coefficient.  Equation
+(1) by itself is still not the full A84 theorem: distinct-grade
+polarization, nondivisor localization, and the uniform analytic
+remainder required by L124 remain open.
 
 ## 2. The explicit defect jet
 
@@ -225,9 +227,8 @@ separated case.  The finite grid is a regression for the coefficient
 proof; the all-size step is the support separation leading to (12),
 not the grid itself.
 
-The remaining A84 order is now:
+After L134's complex-phase closure, the remaining A84 order is:
 
-1. extend the endpoint calculation to the imaginary phase and
-   polarize different coefficient grades;
+1. polarize different coefficient grades;
 2. prove unequal-residue localization for nondivisor grades; and
 3. prove a dimension-uniform analytic remainder above the Newton face.
