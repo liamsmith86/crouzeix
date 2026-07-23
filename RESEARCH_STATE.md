@@ -1,6 +1,23 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-22 (Epoch 6 — L103 fourth metric cancellation)
+**Last updated:** 2026-07-22 (Epoch 6 — L104 all-orders metric transfer)
+
+## NEWEST (2026-07-22): L104 removes every finite-order traceless recurrence
+- At any metric order `k>=2`, the homogeneous free block
+  `Delta Pk=[[0,U,0],[U*,0,2U],[0,2U*,0]]` preserves the active lower and
+  Stein kernel compressions and does not change the order-`k` upper endpoint.
+- At order `k+1`, coefficient convolution pairs it only with the fixed first-order normal
+  data.  Thus its endpoint transfer is independent of `k` and equals
+  `5sqrt(2)d[[0,U01−conj(U10)],[conj(U01)−U10,0]]` in the real canonical chart.
+- Copy sign symmetry forces every coefficient linear in the transverse Schur edge to be
+  Hermitian off-diagonal.  Since the transfer is onto that space for `d!=0`, every such
+  traceless term can be canceled recursively at every finite order.
+- This replaces an infinite coefficient grind by one precise analytic gate: prove convergence
+  or direct transverse factorization of the recursively selected metric while retaining the
+  negative nonsmooth scalar Jensen term uniformly as `d->0`.  L104 alone is a formal
+  all-orders result, not a neighbourhood theorem.
+  `proof/repeated_p3_flat_two_copy_weighted.md`;
+  `experiments/repeated_p3_flat_two_copy_fourth_metric.py`.
 
 ## NEWEST (2026-07-22): L103 cancels the full transverse fourth endpoint
 - An independent audit caught an important scope gap in L102: scalarity of the fourth

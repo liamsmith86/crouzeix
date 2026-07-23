@@ -14,9 +14,11 @@ has derivative `(25d^3/8)[[0,1],[1,0]]`.  L103 now cancels it exactly using the 
 block
 `aU`, `U=5d^2[[0,-1],[1,0]]/(16sqrt(2))`; arbitrary retained conformal coefficients cancel.
 Thus the total fourth transverse remainder is quadratic and absorbable by L100's cubic gap.
-The live task is to factor all order-five-and-higher remainders relative to L88's exact normal
-stratum, then lift the tube through L93's flag and L86's losing/strong gaps.  Do not start a
-larger Schur grind.  See `RESEARCH_STATE.md` and
+L104 proves that the same adjacent-order free metric map is onto every symmetry-allowed
+traceless linear edge coefficient at **all** finite orders.  The live task is therefore not
+another coefficient: prove convergence/direct transverse factorization of that metric branch
+while retaining the negative scalar Jensen term, then lift the tube through L93's flag and
+L86's losing/strong gaps.  Do not start a larger Schur grind.  See `RESEARCH_STATE.md` and
 `proof/repeated_p3_flat_two_copy_weighted.md`.
 
 ## Latest completion (2026-07-22): elliptic 4×4 slice proved

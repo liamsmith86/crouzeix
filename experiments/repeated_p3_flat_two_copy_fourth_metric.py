@@ -96,12 +96,20 @@ def main() -> None:
         "fourth_zero fourth_one",
         real=True,
     )
-    free_zero_zero, free_zero_one = sp.symbols(
-        "free_zero_zero free_zero_one",
+    free_zero_zero_real, free_zero_zero_imaginary = sp.symbols(
+        "free_zero_zero_real free_zero_zero_imaginary",
         real=True,
     )
-    free_one_zero, free_one_one = sp.symbols(
-        "free_one_zero free_one_one",
+    free_zero_one_real, free_zero_one_imaginary = sp.symbols(
+        "free_zero_one_real free_zero_one_imaginary",
+        real=True,
+    )
+    free_one_zero_real, free_one_zero_imaginary = sp.symbols(
+        "free_one_zero_real free_one_zero_imaginary",
+        real=True,
+    )
+    free_one_one_real, free_one_one_imaginary = sp.symbols(
+        "free_one_one_real free_one_one_imaginary",
         real=True,
     )
 
@@ -210,12 +218,25 @@ def main() -> None:
         "the uncancelled transverse fourth endpoint changed",
     )
 
-    general_free_block = edge * sp.Matrix(
+    free_zero_zero = (
+        free_zero_zero_real + sp.I * free_zero_zero_imaginary
+    )
+    free_zero_one = (
+        free_zero_one_real + sp.I * free_zero_one_imaginary
+    )
+    free_one_zero = (
+        free_one_zero_real + sp.I * free_one_zero_imaginary
+    )
+    free_one_one = (
+        free_one_one_real + sp.I * free_one_one_imaginary
+    )
+    general_free_matrix = sp.Matrix(
         [
             [free_zero_zero, free_zero_one],
             [free_one_zero, free_one_one],
         ]
     )
+    general_free_block = edge * general_free_matrix
     general_free_endpoint = tight_fourth_endpoint(
         operators,
         metric,
@@ -226,17 +247,23 @@ def main() -> None:
         edge,
         0,
     )
-    expected_general_derivative = (
+    free_transfer_entry = (
         5
+        * root_two
         * diagonal
-        / 8
         * (
-            5 * diagonal**2
-            + 8
-            * root_two
-            * (free_zero_one - free_one_zero)
+            free_zero_one
+            - sp.conjugate(free_one_zero)
         )
-        * sp.Matrix([[0, 1], [1, 0]])
+    )
+    free_transfer = sp.Matrix(
+        [
+            [0, free_transfer_entry],
+            [sp.conjugate(free_transfer_entry), 0],
+        ]
+    )
+    expected_general_derivative = (
+        expected_zero_free_derivative + free_transfer
     )
     assert_zero_matrix(
         general_free_derivative - expected_general_derivative,
@@ -269,6 +296,7 @@ def main() -> None:
     print("PASS repeated p=3 weighted normal fourth metric cancellation")
     print("without the free block: E4'=(25*d^3/8)*[[0,1],[1,0]]")
     print("the third-metric skew block cancels the full transverse derivative")
+    print("the adjacent-order free transfer is onto every off-diagonal Hermitian block")
     print("all abstract third/fourth conformal coefficients cancel")
 
 

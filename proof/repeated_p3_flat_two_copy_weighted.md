@@ -321,7 +321,65 @@ fourth-order simultaneous-metric debt.  It does not yet factor all
 order-five-and-higher remainders or lift the terminal tube through L93's
 collapsing flag and losing-space gaps.
 
-## 9. Regeneration
+## 9. Universal adjacent-order metric transfer
+
+The cancellation in (23) is not a fourth-order accident.  Write every metric
+in three physical levels with `2 x 2` copy blocks.  At any order `k>=2`, add
+the homogeneous free metric
+
+\[
+ \Delta P_k(U)=
+ \begin{bmatrix}
+ 0&U&0\\ U^*&0&2U\\0&2U^*&0
+ \end{bmatrix}.                                         \tag{25}
+\]
+
+Its level-zero diagonal block is zero, so it does not change the active
+lower Schur complement at order `k`.  Moreover,
+
+\[
+ \Delta P_k-C_3^*\Delta P_kC_3
+\]
+
+has zero compression to the active Stein kernel: the only propagated
+relation is `(\Delta P_k)_{12}=2(\Delta P_k)_{01}`.  Finally, (25) does not
+change the active upper endpoint at order `k`.
+
+At order `k+1`, every term linear in (25) pairs it with an order-one
+coefficient.  The coefficient convolution is therefore independent of
+`k`; it is exactly the calculation already made at orders three/four.
+For real canonical `d`,
+
+\[
+ \boxed{
+ \Delta{\cal E}_{k+1}
+ =5\sqrt2d
+ \begin{bmatrix}
+ 0&U_{01}-\overline{U_{10}}\\
+ \overline{U_{01}}-U_{10}&0
+ \end{bmatrix}.}                                      \tag{26}
+\]
+
+This map is onto the Hermitian off-diagonal copy blocks whenever `d!=0`.
+The copy involution `J=diag(1,-1)` fixes the normal direction and sends the
+signed Schur edge to its negative.  Hence every endpoint coefficient linear
+in that edge anticommutes with `J` and is necessarily off-diagonal.  Formula
+(26) can therefore cancel that coefficient at every finite order.
+
+We obtain a formal all-orders conclusion:
+
+\[
+ \boxed{\text{No finite-order traceless term linear in the transverse edge
+ is a metric obstruction at the normal center.}}        \tag{27}
+\]
+
+This is an order-by-order statement, not yet a convergent certificate.
+The remaining analytic lemma must either show that the recursively selected
+metrics converge uniformly, or directly factor the exact optimized endpoint
+by the transverse distance.  It must also retain the negative nonsmooth
+scalar Jensen term from (14) as `d->0`.
+
+## 10. Regeneration
 
 Run
 
@@ -343,7 +401,9 @@ The second checker independently constructs the fourth Feshbach coefficient
 entry by entry as rational Laurent identities.  The third checker retains
 arbitrary coefficients `u_0,u_2,u_4` and the surviving normal fourth
 coefficients, rebuilds the full metric through order four, proves
-(21)--(22), and verifies the exact cancellation (23).
+(21)--(23), and verifies (26) for a general complex `U`.  The independence
+of `k` in Section 9 follows from coefficient convolution: at the next order,
+the new order-`k` block can pair only with the fixed order-one data.
 
 The non-load-bearing nonlinear regression is
 
