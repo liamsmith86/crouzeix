@@ -147,7 +147,53 @@ On normalized blocks with `a` bounded below relative to `||D||`, and bounded
 terminal issue is the approach `a->0` to L88's exact normal direct-sum
 stratum, not another bounded weighted cancellation.
 
-## 6. Regeneration
+## 6. The sharp normal center and its transverse gap
+
+The degeneration in the last paragraph can now be located exactly.  On the
+normal face
+
+\[
+ a=0,\qquad z=0,\qquad D_1=0,
+\]
+
+write `Q_3^0=diag(h,-h)`.  Direct Laurent extraction gives
+
+\[
+\begin{aligned}
+ [q^3]h&=\frac{d(3d^2-8\sqrt2\bar w)}{128},\\
+ [q^1]h&=-\frac{\bar d(3d^2-8\sqrt2\bar w)}{128}.       \tag{12}
+\end{aligned}
+\]
+
+The negative modes are their Hermitian conjugates.  Consequently, for
+`d!=0`,
+
+\[
+ Q_3^0(q)\equiv0
+ \quad\Longleftrightarrow\quad
+ w=w_{\rm cen}(d):=\frac{3\bar d^2}{8\sqrt2}.           \tag{13}
+\]
+
+This is the unique weighted third-order center of the normal chart.  It lies
+on L88's exact normal direct-sum manifold, so zero cubic endpoint there is
+expected rather than a new equality obstruction.
+
+More importantly, (8) is independent of `w` and `D_1`.  If `z=0` and `a>0`,
+then `mean Q_3^0=0`, and the mean top eigenvalue dominates the modulus of the
+displayed cross Fourier coefficient.  Thus even at (13),
+
+\[
+ {\cal E}_3\preceq
+ -\frac{a(a^2+2|d|^2)}4 I_2.                           \tag{14}
+\]
+
+Hence the center is transversely strict, with leading margin
+`-a|d|^2/2` as `a->0` for fixed nonzero `d`.  Equations (13)--(14) identify
+the correct normal/tangential split for a tubular compactness argument.
+They do **not** by themselves absorb analytic remainders when `a` tends to
+zero on a later scale; that remains the uniformity debt.
+
+## 7. Regeneration
 
 Run
 
@@ -159,4 +205,5 @@ The checker uses arbitrary complex `d,z,w,D_1` and real Schur edge/tangent
 coordinates.  It derives (4), every identity in (8), retains an arbitrary
 complex first conformal coefficient, inserts the free block (3), rebuilds the
 full third metric through the shared L77/L92 propagation module, and proves
-(9) entry by entry.
+(9) entry by entry.  It also extracts (12), verifies the conjugated center in
+(13), and substitutes it into the full traceless support.

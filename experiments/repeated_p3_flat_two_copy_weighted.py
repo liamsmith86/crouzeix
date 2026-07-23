@@ -274,12 +274,77 @@ def main() -> None:
     ) != sp.zeros(2):
         raise AssertionError("the weighted q^2 coefficient failed")
 
+    normal_face_substitution = {
+        edge: 0,
+        scalar_real: 0,
+        scalar_imaginary: 0,
+        tangent_diagonal_real: 0,
+        tangent_diagonal_imaginary: 0,
+        tangent_edge: 0,
+    }
+    normal_diagonal_entry = sp.expand(
+        sp.cancel(
+            traceless_third[0, 0].subs(normal_face_substitution)
+        )
+        * boundary**8
+    )
+    normal_third_coefficient = normal_diagonal_entry.coeff(
+        boundary, 11
+    )
+    expected_normal_third_coefficient = (
+        diagonal
+        * (
+            3 * diagonal**2
+            - 8 * root_two * sp.conjugate(common)
+        )
+        / 128
+    )
+    if sp.simplify(
+        normal_third_coefficient
+        - expected_normal_third_coefficient
+    ) != 0:
+        raise AssertionError("the weighted normal q^3 mode failed")
+    normal_first_coefficient = normal_diagonal_entry.coeff(
+        boundary, 9
+    )
+    expected_normal_first_coefficient = (
+        -sp.conjugate(diagonal)
+        * (
+            3 * diagonal**2
+            - 8 * root_two * sp.conjugate(common)
+        )
+        / 128
+    )
+    if sp.simplify(
+        normal_first_coefficient
+        - expected_normal_first_coefficient
+    ) != 0:
+        raise AssertionError("the weighted normal q^1 mode failed")
+
+    normal_center_substitution = {
+        **normal_face_substitution,
+        common_real: 3
+        * sp.re(diagonal**2).expand(complex=True)
+        / (8 * root_two),
+        common_imaginary: -3
+        * sp.im(diagonal**2).expand(complex=True)
+        / (8 * root_two),
+    }
+    if sp.simplify(
+        traceless_third.subs(normal_center_substitution)
+    ) != sp.zeros(2):
+        raise AssertionError("the weighted normal third center failed")
+
     print("PASS repeated p=3 weighted two-copy terminal descent")
     print("the order-two effective support remains scalar")
     print("the order-three endpoint is 16*(mean Q_3 - mean top(Q_3)*I)")
     print("a second-order trace-zero tangent is absorbed by its free metric")
     print("if scalar != 0, [mean Q_3,hat Q_3(2)] detects nonnormality")
     print("if scalar = 0, the uncancellable q^1 cross mode makes it strict")
+    print(
+        "the normal weighted center is "
+        "w = 3*conjugate(diagonal)^2/(8*sqrt(2))"
+    )
 
 
 if __name__ == "__main__":

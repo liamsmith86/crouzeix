@@ -1,6 +1,20 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-22 (Epoch 6 — L99 uniform terminal cubic)
+**Last updated:** 2026-07-22 (Epoch 6 — L100 weighted normal center)
+
+## NEWEST (2026-07-22): L100 locates the sharp weighted normal center
+- On the normal terminal face `a=z=D1=0`, the diagonal traceless third support has coefficients
+  `[q³]h=d(3d²−8sqrt(2)conj(w))/128` and
+  `[q¹]h=−conj(d)(3d²−8sqrt(2)conj(w))/128`.
+- Thus its unique center for `d!=0` is
+  `w=3conj(d)²/(8sqrt(2))`.  An initial `d²` guess failed exact regeneration; the corrected
+  conjugated formula is now checked by full symbolic substitution.
+- At the center the cubic support vanishes on the exact normal direct-sum manifold, but every
+  transverse nonnormal edge still has
+  `E3≤−a(a²+2|d|²)I/4`, independent of the weighted coordinates.
+- This supplies the correct normal/tangential chart for the remaining compactness argument.
+  It does not yet control analytic remainders when the transverse edge appears at a later
+  asymptotic scale. `proof/repeated_p3_flat_two_copy_weighted.md`.
 
 ## NEWEST (2026-07-22): L99 removes cubic degeneration at the normal face
 - L94 used an off-diagonal third-support coefficient and therefore weakened as the Schur edge
