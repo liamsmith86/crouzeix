@@ -1,6 +1,23 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-22 (Epoch 6 — L82 unique-winner repeated reduction)
+**Last updated:** 2026-07-22 (Epoch 6 — L83 complete tied-winner graph sign)
+
+## NEWEST (2026-07-22): L83 proves the full tied-winner graph sign
+- Put arbitrary L74 quotient data on every edge of a tied winner sector and let `Q(q)` be its
+  complete second effective support matrix.  Summing the pairwise L76 metric blocks and
+  propagating the full second metric gives
+  `E=16(mean Q−mean(lambda_max Q)I)−8H1²`, where `H1` is the Hermitian copy matrix of
+  generator-1 edge coefficients.  Matrix Jensen order and `H1²>=0` prove `E<=0` in every
+  multiplicity; the possibly nonzero first conformal mode cancels exactly.
+- The symbolic three-copy triangle exposed a false simplification before it entered the proof:
+  on cyclic graphs, `mean Q` is not the naive weighted sum of the three coefficient-matrix
+  squares.  Oriented generator-0/2 mixed paths survive.  L83 uses the actual support mean, so
+  the sign is unaffected; the shortcut is explicitly logged as invalid.
+- Five random nonlinear full-triangle cases have stable strict quadratic coefficients from
+  about `-1.48` to `-4.20`, but equality of the explicit endpoint is not yet the optimized-SDP
+  classification.  Tied diagonal residuals and uniform winner/loser merging also remain.
+  `proof/repeated_p3_winner_graph_sign.md`;
+  `experiments/repeated_p3_winner_graph_sign.py`.
 
 ## NEWEST (2026-07-22): L82 extends radial gaps to every unique-winner face
 - Normalize by the selected copy's first boundary motion.  The losing copy-space support
@@ -633,12 +650,11 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-22)
-1. **Resolve the multiple-winner repeated face and uniform gap collapse.** Promote every common
-   kernel vector of the first support gap into the winner sector, combine its tied diagonal
-   residuals with L74--L80 star blocks, and control weighted sequences in which losing mean gaps
-   tend to zero.  This is the last repeated-`C3` face not covered fixed-directionally by L73/L82.
-   In parallel, seek the L73 analytic-normal-form pattern in the `2p-2` quotient modes for
-   `p>=4`.
+1. **Optimize L83 equality and add tied diagonal residuals.** Classify common top vectors of the
+   complete effective graph and improve the pairwise metric on any endpoint kernel, as L80 did
+   for a star.  Then couple winner-graph edges to diagonal tied-winner motions and control the
+   weighted merger with L82 losing sectors.  In parallel, seek the L73 analytic-normal-form
+   pattern in the `2p-2` quotient modes for `p>=4`.
 2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
    trace inequality can instead be derived from the block-Toeplitz positivity of the full
    operator-valued correction moments. Do not retry trace/positive-state scalarizations.
@@ -709,7 +725,8 @@ experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_
   (L76 exact full second-metric certificate and sign), repeated_p3_third_sign.py
   (L77 exact third support split and strict cubic certificate),
   repeated_p3_star_second_sign.py (L78--L80 arbitrary-multiplicity star theorems),
-  repeated_p3_radial_gap.py (L81 strict radial diagonal--cross coupling).
+  repeated_p3_radial_gap.py (L81 strict radial diagonal--cross coupling),
+  repeated_p3_winner_graph_sign.py (L83 complete tied-winner graph endpoint).
 Proof artifact: experiments/positive_tail_full_20260722.log (L59 clean 10-box run).
 Data: sym3_sweep_s51.jsonl (40 rec), sym4_sweep_s61.jsonl (20 rec, ρ column trustworthy),
 general_similarity_equality_s9173401.jsonl plus its `sensitivity` and `ultralocal` companions
