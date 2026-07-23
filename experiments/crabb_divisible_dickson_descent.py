@@ -45,6 +45,22 @@ class DivisibleDescentRecord:
     inactive_apex_shifts: bool
 
 
+@dataclass(frozen=True)
+class ResidueDescentAudit:
+    """Shared exact audit for a residue-zero Dickson reduction."""
+
+    length: int
+    dimension: int
+    outer_dimension: int
+    exact_outer_pencil: bool
+    polynomial_cross_blocks_vanish: bool
+    exact_amplitude_linearity: bool
+    coordinate_gramian_reduces: bool
+    exact_outer_coordinate_gramian: bool
+    subcritical_compression_vanishes: bool
+    inactive_apex_shifts: bool
+
+
 def reversal(dimension: int) -> sp.Matrix:
     """Return coordinate reversal."""
 
@@ -141,21 +157,27 @@ def coordinate_gramian(
     return sp.expand(toeplitz + shift.T * toeplitz * shift)
 
 
-def make_record(degree: int, quotient: int) -> DivisibleDescentRecord:
-    """Construct and audit one exact divisible-grade descent."""
+def audit_residue_descent(
+    descent_degree: int,
+    reduced_length: int,
+    reduced_grade: int,
+) -> ResidueDescentAudit:
+    """Audit a degree-``d`` reduction to one reduced grade."""
 
-    if degree < 1:
-        raise ValueError("degree must be positive")
-    if quotient < 2:
-        raise ValueError("quotient must be at least two")
-
+    if descent_degree < 1:
+        raise ValueError("the descent degree must be positive")
+    if not 1 <= reduced_grade <= reduced_length // 2:
+        raise ValueError(
+            "require 1 <= reduced grade <= floor(reduced length / 2)"
+        )
     parameter, amplitude = sp.symbols("c a")
-    length = degree * quotient
+    length = descent_degree * reduced_length
+    grade = descent_degree * reduced_grade
     dimension = length + 1
-    outer_dimension = quotient + 1
+    outer_dimension = reduced_length + 1
     axis, direction, pencil = equality_pencil(
         length,
-        degree,
+        grade,
         parameter,
         amplitude,
     )
@@ -163,25 +185,21 @@ def make_record(degree: int, quotient: int) -> DivisibleDescentRecord:
         axis,
         direction,
         parameter,
-        degree,
+        descent_degree,
     )
     pencil_value = dickson_values(
         pencil,
         parameter,
-        degree,
+        descent_degree,
     )[-1]
 
-    descended_parameter = parameter**degree
-    _, _, expected_outer = equality_pencil(
-        quotient,
-        1,
-        descended_parameter,
+    expected_outer = equality_pencil(
+        reduced_length,
+        reduced_grade,
+        parameter**descent_degree,
         amplitude,
-    )
-    outer_indices = [
-        residue * degree
-        for residue in range(quotient + 1)
-    ]
+    )[2]
+    outer_indices = list(range(0, dimension, descent_degree))
     inner_indices = [
         index
         for index in range(dimension)
@@ -200,12 +218,12 @@ def make_record(degree: int, quotient: int) -> DivisibleDescentRecord:
 
     full_gramian = coordinate_gramian(
         length,
-        degree,
+        grade,
         amplitude,
     )
     expected_outer_gramian = coordinate_gramian(
-        quotient,
-        1,
+        reduced_length,
+        reduced_grade,
         amplitude,
     )
     coordinate_cross_blocks_vanish = (
@@ -218,7 +236,7 @@ def make_record(degree: int, quotient: int) -> DivisibleDescentRecord:
     subcritical_values = dickson_values(
         pencil,
         parameter,
-        max(0, degree - 1),
+        max(0, descent_degree - 1),
     )
     subcritical_compression_vanishes = all(
         subcritical_value.extract(outer_indices, outer_indices)
@@ -227,26 +245,18 @@ def make_record(degree: int, quotient: int) -> DivisibleDescentRecord:
     )
 
     apex_value = value.subs(parameter, 0)
-    inactive_apex_shifts = True
-    expected_inactive = coefficient_crabb(quotient)
+    expected_inactive = coefficient_crabb(reduced_length)
     expected_inactive[0, 1] = 1
-    for residue in range(1, degree):
-        residue_indices = [
-            residue + step * degree
-            for step in range(quotient)
-        ]
-        inactive_apex_shifts = (
-            inactive_apex_shifts
-            and apex_value.extract(
-                residue_indices,
-                residue_indices,
-            )
-            == expected_inactive
+    inactive_apex_shifts = all(
+        apex_value.extract(residue_indices, residue_indices)
+        == expected_inactive
+        for residue in range(1, descent_degree)
+        for residue_indices in (
+            list(range(residue, dimension, descent_degree)),
         )
+    )
 
-    record = DivisibleDescentRecord(
-        degree=degree,
-        quotient=quotient,
+    audit = ResidueDescentAudit(
         length=length,
         dimension=dimension,
         outer_dimension=outer_dimension,
@@ -278,19 +288,48 @@ def make_record(degree: int, quotient: int) -> DivisibleDescentRecord:
     )
     if not all(
         (
-            record.exact_outer_pencil,
-            record.polynomial_cross_blocks_vanish,
-            record.exact_amplitude_linearity,
-            record.coordinate_gramian_reduces,
-            record.exact_outer_coordinate_gramian,
-            record.subcritical_compression_vanishes,
-            record.inactive_apex_shifts,
+            audit.exact_outer_pencil,
+            audit.polynomial_cross_blocks_vanish,
+            audit.exact_amplitude_linearity,
+            audit.coordinate_gramian_reduces,
+            audit.exact_outer_coordinate_gramian,
+            audit.subcritical_compression_vanishes,
+            audit.inactive_apex_shifts,
         )
     ):
         raise AssertionError(
             "the exact divisible-grade Dickson descent failed: "
-            f"{record}"
+            f"{audit}"
         )
+    return audit
+
+
+def make_record(degree: int, quotient: int) -> DivisibleDescentRecord:
+    """Construct and audit one exact divisible-grade descent."""
+
+    audit = audit_residue_descent(degree, quotient, 1)
+    record = DivisibleDescentRecord(
+        degree=degree,
+        quotient=quotient,
+        length=audit.length,
+        dimension=audit.dimension,
+        outer_dimension=audit.outer_dimension,
+        exact_outer_pencil=audit.exact_outer_pencil,
+        polynomial_cross_blocks_vanish=(
+            audit.polynomial_cross_blocks_vanish
+        ),
+        exact_amplitude_linearity=audit.exact_amplitude_linearity,
+        coordinate_gramian_reduces=(
+            audit.coordinate_gramian_reduces
+        ),
+        exact_outer_coordinate_gramian=(
+            audit.exact_outer_coordinate_gramian
+        ),
+        subcritical_compression_vanishes=(
+            audit.subcritical_compression_vanishes
+        ),
+        inactive_apex_shifts=audit.inactive_apex_shifts,
+    )
     return record
 
 

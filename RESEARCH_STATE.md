@@ -2,6 +2,27 @@
 
 **Last updated:** 2026-07-23 (Epoch 6 — Faber endpoint localization)
 
+## NEWEST (2026-07-23): L136 reduces every one-grade problem to a coprime pair
+- Write `L=dq`, `k=ds`.  Degree-`d` Dickson descent preserves
+  residues modulo `d` and reduces the residue-zero polynomial pencil
+  exactly to the complete size-`q+1` grade-`s` equality/ellipse family
+  at parameter `c^d`.
+- The Toeplitz coordinate Gramian reduces the same space, every
+  subcritical Dickson compression vanishes, and the polynomial is
+  exactly affine in the amplitude.
+- L132's outer-critical-factor defect reconstruction therefore applies
+  unchanged:
+  `t_*(T_(q,s)(a,c^d)) <= t_*(T_(L,k)(a,c))
+  <= Gamma_(q+1)(T_(q,s)(a,c^d))`.
+- With `d=gcd(L,k)`, the reduced pair `(q,s)` is coprime.  Hence the
+  unresolved nondivisor diagonal face can now assume
+  `gcd(L,k)=1`; all noncoprime cases lift from a smaller coprime one.
+- This is an exact rank-one sandwich, not equality of the two full
+  similarity optima in general.  It narrows but does not close the
+  unequal-residue gate.
+- `proof/crabb_gcd_dickson_descent.md`;
+  `experiments/crabb_gcd_dickson_descent.py`.
+
 ## NEWEST (2026-07-23): A95 suggests exact grade diagonality
 - The distinct-grade cancellation is much deeper than the first
   Newton face: the exact size-five `(1,2)` cross jet is zero through
