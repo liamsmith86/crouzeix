@@ -1,6 +1,28 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-22 (Epoch 6 — L113 fixed-multiplicity flat-flag tube)
+**Last updated:** 2026-07-22 (Epoch 6 — L114 repeated-`C3` local theorem)
+
+## NEWEST (2026-07-22): L114 proves a full repeated-`C3` neighbourhood
+- Fix any finite multiplicity `m`.  L61 gives strict first-order descent whenever the
+  support-compression Jensen gap is positive.
+- On the zero-Jensen face, L86's complete endpoint is a sum of the negative matrix-Jensen
+  defect, `−8H1²`, common-strong curvature, and three winner--loser Gram forms.  L87 identifies
+  every residual kernel as a reducing flat block, now covered uniformly by L113.
+- The only flat-core points with no endpoint margin are direct sums of L71's disk critical
+  manifolds (up to unitary/affine coordinates).  L72 proves ambient stationarity there.
+  Therefore on a complementary strong slice L86 is the first nonzero term and is coercive
+  after all reducing flat kernels are split off.
+- L105--L110 turn the finite jets into exact zero-slack metrics with strong-variable remainder
+  `C(s||y||²+||y||³)`.  L82 supplies strict losing-sector feasibility; when a losing,
+  winner, common-top, or flag gap collapses, its kernel is promoted to one of finitely many
+  adjacent rank strata.
+- Compactness of the normalized slice modulo copy unitaries gives a finite cover.  Hence for
+  every fixed `m`, all matrices sufficiently close to `I_m tensor C3` have their numerical
+  range as a complete `2`-spectral set.  The radius may depend on `m`.
+- This is a genuine repeated-block local theorem, but not the general Crouzeix conjecture and
+  not yet a theorem near larger `C_p` equality blocks.  The campaign now returns to the
+  general equality-set/global attack.
+  `proof/repeated_p3_local_neighbourhood.md`.
 
 ## NEWEST (2026-07-22): L113 closes the arbitrary-copy flat core
 - For fixed copy multiplicity, iterate L93's common-top flag.  Its exact leakage form on each
@@ -1092,11 +1114,12 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-22)
-1. **Merge the flat-core tube through L86.** L113 closes the full flat copy core for each fixed
-   multiplicity.  Glue that tube to L86's negative generator-one, common-strong, and
-   winner--loser Gram forms, while retaining L82's strict losing mean gap and L61's positive
-   first-Jensen descent.  Do not grind larger Schur matrices.  The target is a full
-   repeated-`C3` neighbourhood theorem.
+1. **Move beyond the repeated-`C3` local model.** L114 proves the full fixed-multiplicity
+   repeated-`C3` neighbourhood theorem.  Re-audit the global equality set for L21 and identify
+   whether the next local model is a larger Crabb block, a non-Crabb equality matrix, or a
+   route that bypasses equality classification entirely.  Do not restart a blind larger
+   Schur grind; first extract which pieces of L101/L105/L110 and the flag machinery are
+   dimension-independent.
 2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
    trace inequality can instead be derived from the block-Toeplitz positivity of the full
    operator-valued correction moments. Do not retry trace/positive-state scalarizations.
