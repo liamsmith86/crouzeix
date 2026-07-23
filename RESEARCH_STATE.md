@@ -1,6 +1,21 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-22 (Epoch 6 — L80 strict multi-copy star theorem)
+**Last updated:** 2026-07-22 (Epoch 6 — L81 radial diagonal--cross coupling)
+
+## NEWEST (2026-07-22): L81 proves the first diagonal--cross repeated theorem
+- In the clean strict common-maximizer model, the selected copy grows as `(1+d epsilon)C3` and
+  the other copies shrink as `(1-d epsilon)C3`, while the off-diagonal blocks are arbitrary L74
+  star directions.  A diagonal metric tangent `diag(d,0,-d)` makes each losing copy strict at
+  first order, with Stein slack `diag(6d,15d)`.
+- The selected second-order problem has two free cross-metric scalars.  Exact elimination gives
+  independent quadratics whose minimizers are `x=sqrt(2)/4`, `y=4sqrt(2)/3`, producing
+  `e=−25||a0||²/8−8||a1||²−50||a2||²/9<0`.  This matches nonlinear limits on all three pure
+  generators and extends by direct summation to arbitrary star multiplicity.
+- The coefficient is independent of fixed `d>0`, but the valid asymptotic neighbourhood shrinks
+  as `d->0`; that singular weighted transition must be joined to L77/L80 rather than treated as
+  a uniform gap theorem.  General diagonal shapes, internal losing-copy blocks, and multiple
+  first-order winners remain.  `proof/repeated_p3_radial_gap.md`;
+  `experiments/repeated_p3_radial_gap.py`.
 
 ## NEWEST (2026-07-22): L80 closes every nonzero pure star ray
 - The nonlinear rank-two probe did more than reject fourth order: it identified a missing free
@@ -601,11 +616,11 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-22)
-1. **Couple the completed star theorem to diagonal/internal repeated-face blocks.** Add diagonal
-   single-copy perturbations, blocks internal to `y^perp`, and the common-maximizer order
-   inequality.  Then analyze weighted mixtures approaching the L77 rank-one cubic face while
-   L80's rank-two second-order gap degenerates.  In parallel, seek the L73 analytic-normal-form
-   pattern in the `2p-2` quotient modes for `p>=4`.
+1. **Extend L81 beyond radial diagonal gaps.** Parameterize the general first support-compression
+   order `C(q)<=s(q)I`, including multiple tied winners and blocks internal to `y^perp`, then
+   couple its slack to the star metric.  Analyze the weighted `d->0` transition approaching the
+   L77 cubic and L80 rank-two faces.  In parallel, seek the L73 analytic-normal-form pattern in
+   the `2p-2` quotient modes for `p>=4`.
 2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
    trace inequality can instead be derived from the block-Toeplitz positivity of the full
    operator-valued correction moments. Do not retry trace/positive-state scalarizations.
@@ -675,7 +690,8 @@ experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_
   (L75 exact effective support and conformal collapse), repeated_p3_stein_sign.py
   (L76 exact full second-metric certificate and sign), repeated_p3_third_sign.py
   (L77 exact third support split and strict cubic certificate),
-  repeated_p3_star_second_sign.py (L78 arbitrary-multiplicity star endpoint identity).
+  repeated_p3_star_second_sign.py (L78--L80 arbitrary-multiplicity star theorems),
+  repeated_p3_radial_gap.py (L81 strict radial diagonal--cross coupling).
 Proof artifact: experiments/positive_tail_full_20260722.log (L59 clean 10-box run).
 Data: sym3_sweep_s51.jsonl (40 rec), sym4_sweep_s61.jsonl (20 rec, ρ column trustworthy),
 general_similarity_equality_s9173401.jsonl plus its `sensitivity` and `ultralocal` companions
