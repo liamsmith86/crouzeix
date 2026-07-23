@@ -127,6 +127,16 @@ Papers, theorems, assumptions, possible gaps. Status verified via web 2026-07-23
   `10.1002/cpa.3160461002` -- normalized Riemann maps vary analytically under analytic
   boundary deformations.  L73 needs only the elementary strictly-convex near-circle case,
   for which the boundary equation plus Fourier splitting gives a direct Banach-IFT proof.
+- [x] Arlinskii--Golinskii--Tsekanovskii, arXiv:math/0611439, *Contractions with rank one
+  defect operators and truncated CMV matrices* -- Theorem 6.4 models every completely
+  nonunitary contraction with one-dimensional defect spaces by a truncated CMV matrix whose
+  coefficients are the Schur parameters of its characteristic function.  This is a
+  potentially useful sparse coordinate system for L118's rank-one-defect optimizer.
+  Proposition 6.2, however, gives unitary equivalence only under multiplication of **all**
+  Schur parameters by one common phase.  It does not supply an independent phase torus by
+  grade and therefore does not prove A95's grade-block Hessian conjecture.  Any use here must
+  explicitly derive the Crabb equality tangent-to-Schur-parameter Jacobian and the optimized
+  endpoint quadratic; first-order sparsity of the CMV matrix alone is insufficient.
 
 ## To read next
 - [ ] GKL arXiv:1701.01365 (Glader–Kurula–Lindström 2018, 3×3 tridiagonal elliptic W(A)) —

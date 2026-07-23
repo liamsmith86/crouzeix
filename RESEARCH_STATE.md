@@ -33,8 +33,13 @@
   the amplitude step is halved, so it is quartic finite-difference
   contamination rather than a quadratic cross term.
 - New stronger conjecture: L118's entire amplitude Hessian on a fixed
-  phase-palindromic equality/ellipse branch is diagonal in distinct
-  Faber grades for each fixed `c`.
+  phase-palindromic equality/ellipse branch is block diagonal in
+  distinct Faber grades for each fixed `c`.
+- Mixed real/imaginary phase probes support the same cross-grade
+  cancellation.  However the real and imaginary diagonal values
+  differ at fixed nonzero `c`, so the conjecture is grade-block
+  diagonality, not all-`c` phase isotropy.  L134 supplies the needed
+  phase isotropy only on the first face.
 - The likely proof basis is L117's DCT-I diagonalization of the exact
   Toeplitz-plus-Hankel elliptic Szegő kernel.  The remaining hard step
   is to transform the optimized defect quadratic itself; Faber

@@ -56,6 +56,14 @@ The missing derivation is to carry the *optimized defect* quadratic
 through that transform.  Merely diagonalizing the scalar Faber rows
 does not establish (2a).
 
+Here “diagonal” should mean **block diagonal by grade**, not
+phase-isotropic inside each complex grade at every fixed `c`.
+Complex finite-amplitude probes also put real/imaginary cross-grade
+terms at quartic-contamination scale, but the real and imaginary
+diagonal Hessians themselves differ away from `c=0` (for example,
+in length six, grade one, at `c=.4`).  L134 proves their equality only
+on the first Newton face, which is exactly what (4) needs.
+
 ## 2. Why `k+l` is the decisive coefficient
 
 L125's inverse-map filtration says that a grade-`k` equality
