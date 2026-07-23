@@ -18,7 +18,7 @@ The exact checker proves, for every tested pair,
 All coefficients below `c^(2k)` vanish as rational numbers; the leading
 coefficient is exactly `-64`, not a fit.
 
-The deterministic audit covers every first offset in sizes `p=3,...,7`:
+The deterministic audit covers every first offset in sizes `p=3,...,8`:
 
 \[
 \begin{array}{c|c}
@@ -27,7 +27,8 @@ p&k\\ \hline
 4&1\\
 5&1,2\\
 6&1,2\\
-7&1,2,3.
+7&1,2,3\\
+8&1,2,3.
 \end{array}                                           \tag{2}
 \]
 
@@ -112,7 +113,14 @@ the coordinate metric `M_0` has generalized endpoints `2` and
  M_0-T_0^*M_0T_0=d_0d_0^*.                            \tag{10}
 \]
 
-Every identity is checked below an explicit two-order guard band.
+The odd-series reversion is performed at the internal order
+`output_order+2*maximum_scalar_degree+4`, as required by L125's
+valuation-one divisions, and only then truncated.  Thus every
+coefficient below the declared output order is audited.  An earlier
+implementation used one common truncation order; its terminal scalar
+coefficients were harmless through `p=7` but polluted the first
+`p=8,k=3` extension.  The guarded implementation reproduces all old
+records and gives the correct exact size-eight jet.
 
 ## 4. Second-order Stein and endpoint formulas
 
@@ -203,6 +211,11 @@ Run
 PYTHONPATH=experiments .venv/bin/python -u \
   experiments/crabb_palindromic_elliptic_hessian.py \
   --output experiments/crabb_palindromic_elliptic_hessian_s70223.jsonl
+
+PYTHONPATH=experiments .venv/bin/python -u \
+  experiments/crabb_palindromic_elliptic_hessian.py \
+  --minimum-size 8 --maximum-size 8 \
+  --output experiments/crabb_palindromic_elliptic_hessian_p8_s70223.jsonl
 ```
 
 The implementation uses only `fractions.Fraction`; no floating-point

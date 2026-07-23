@@ -1,6 +1,45 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-23 (Epoch 6 — central dual metric lift)
+**Last updated:** 2026-07-23 (Epoch 6 — Faber endpoint localization)
+
+## NEWEST (2026-07-23): L131 identifies the complete reflected Hardy vector
+- For `S0=C+cJCJ`, the physical-adjoint equality tangent attached to
+  coefficient grade `j` is
+  `H_j=E_j+cJE_(L-j)J=2(e0-eL)(e_(j+1)*-c e_(j-1)*)`.
+  Exact differentiated Dickson recurrence proves
+  `e0*DP_L(S0)[H_j]=eL*DP_L(S0)[H_j]=0` in every size.
+- The intermediate endpoint paths have an explicit folded formula:
+  one enters from grade `j+1`, one from grade `j-1` with weight `-c`,
+  and at Dickson grade `L` they become the identical
+  `c^j e_(L-j)*` row and cancel.
+- Therefore the Faber transform of
+  `g_a(xi)=xi^L+2a sum_j u_jxi^j` has amplitude endpoint rows
+  `4sum_j u_je_j*` and `4sum_j u_jc^je_(L-j)*`.
+  The second row has exact energy
+  `16sum_j|u_j|²c^(2j)`.  The scalar Joukowski/Fourier form gives the
+  same Parseval identity and rules out mixed circle grades.
+- This is the algebraic source of A84's candidate Hardy face,
+  including complex phase-one directions.  It is not yet the metric
+  theorem: show that all other Faber rows and the model-space lift are
+  inactive/removable to strictly higher Newton weight.  L130 supplies
+  each central one-coordinate normal and its strict inner gap.
+  `proof/crabb_faber_reflection.md`;
+  `experiments/crabb_faber_reflection.py`.
+
+## NEWEST (2026-07-23): the exact Hessian checker now has a correct internal map guard
+- Extending A85 to `p=8,k=3` exposed a checker defect: high scalar
+  coefficients of the reverted elliptic map were being computed at the
+  same truncation order as the requested matrix jet.  Their repeated
+  valuation-one divisions polluted the terminal coefficients and
+  produced a spurious huge rational instead of `-64`.
+- The map generator now computes only the required scalar degrees at
+  internal order `output+2*maximum_degree+4`, as required by L125, and
+  truncates afterward.  It regenerates every saved `p=3,...,7` record.
+  The formerly failing `p=8,k=3` jet is exactly zero through degree
+  five and exactly `-64` at degree six; its endpoint metric
+  coefficients are exactly `(-16,-128)`.
+- This strengthens the finite audit but does not replace L131's
+  all-size algebra or the remaining metric-normal-form proof.
 
 ## NEWEST (2026-07-23): L130 proves the exact central metric lift
 - L127 now includes the companion positive dual transfer

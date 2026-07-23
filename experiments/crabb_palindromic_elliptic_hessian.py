@@ -280,15 +280,18 @@ def theta_data(order: int) -> tuple[Series, Series, Series]:
 
 
 @cache
-def inverse_map_coefficients(order: int) -> tuple[Series, ...]:
-    """Solve L125's exact inverse-map ODE through the cutoff."""
+def inverse_map_coefficients(
+    maximum_degree: int,
+    work_order: int,
+) -> tuple[Series, ...]:
+    """Solve L125's inverse-map ODE with an explicit internal guard."""
 
-    modulus, period_factor, linear_coefficient = theta_data(order)
+    modulus, period_factor, linear_coefficient = theta_data(work_order)
     coefficients = [linear_coefficient]
-    for degree in range(1, order):
-        padded = [*coefficients, zero(order)]
+    for degree in range(1, maximum_degree + 1):
+        padded = [*coefficients, zero(work_order)]
         numerator = (
-            (one(order) + modulus**2)
+            (one(work_order) + modulus**2)
             * scalar_convolution(
                 coefficients,
                 degree - 1,
@@ -302,7 +305,7 @@ def inverse_map_coefficients(order: int) -> tuple[Series, ...]:
                     derivative_weights=True,
                 )
                 if degree >= 2
-                else zero(order)
+                else zero(work_order)
             )
             - period_factor**2
             * scalar_convolution(coefficients, degree - 1)
@@ -366,26 +369,36 @@ def polynomial_power(
 
 
 @cache
-def direct_map_coefficients(order: int) -> tuple[Series, ...]:
-    """Revert the inverse series to obtain the ellipse-to-disk map."""
+def direct_map_coefficients(
+    maximum_degree: int,
+    output_order: int,
+) -> tuple[Series, ...]:
+    """Revert the inverse series without contaminating terminal c-jets."""
 
-    inverse_coefficients = inverse_map_coefficients(order)
+    # The inverse-map recurrence divides by a valuation-one modulus at
+    # every scalar degree.  L125's guard calculation shows that this
+    # work order preserves every requested output coefficient.
+    work_order = output_order + 2 * maximum_degree + 4
+    inverse_coefficients = inverse_map_coefficients(
+        maximum_degree,
+        work_order,
+    )
     coefficients: list[Series] = []
-    maximum_degree = 2 * order - 1
-    for index in range(order):
+    maximum_polynomial_degree = 2 * maximum_degree + 1
+    for index in range(maximum_degree + 1):
         direct_polynomial = [
-            zero(order)
-            for _ in range(maximum_degree + 1)
+            zero(work_order)
+            for _ in range(maximum_polynomial_degree + 1)
         ]
         for known_index, coefficient in enumerate(coefficients):
             direct_polynomial[2 * known_index + 1] = coefficient
 
-        known_term = zero(order)
+        known_term = zero(work_order)
         for inverse_index in range(index + 1):
             power = polynomial_power(
                 direct_polynomial,
                 2 * inverse_index + 1,
-                maximum_degree,
+                maximum_polynomial_degree,
             )
             known_term += (
                 inverse_coefficients[inverse_index]
@@ -393,28 +406,37 @@ def direct_map_coefficients(order: int) -> tuple[Series, ...]:
             )
 
         if index == 0:
-            coefficients.append(one(order) / inverse_coefficients[0])
+            coefficients.append(
+                one(work_order) / inverse_coefficients[0]
+            )
         else:
             coefficients.append(
                 -known_term / inverse_coefficients[0]
             )
-        # The recursive divisions consume guard orders at high scalar
-        # degree.  Audit exactly the range used by the matrix Hessian;
-        # L125's dedicated checker carries a much deeper internal guard.
-        if index <= (order - 3) // 2:
-            coefficient = coefficients[-1]
-            if any(
-                coefficient.coefficient(degree)
-                for degree in range(index)
-            ):
-                raise AssertionError(
-                    "the direct ellipse map violated L125's filtration"
-                )
-            if coefficient.coefficient(index) != (-1) ** index:
-                raise AssertionError(
-                    "the direct ellipse map violated its Newton-edge sign"
-                )
-    return tuple(coefficients)
+
+    truncated = tuple(
+        Series.from_coefficients(
+            coefficient.coefficients,
+            output_order,
+        )
+        for coefficient in coefficients
+    )
+    for index, coefficient in enumerate(truncated):
+        if any(
+            coefficient.coefficient(degree)
+            for degree in range(index)
+        ):
+            raise AssertionError(
+                "the direct ellipse map violated L125's filtration"
+            )
+        if (
+            index < output_order
+            and coefficient.coefficient(index) != (-1) ** index
+        ):
+            raise AssertionError(
+                "the direct ellipse map violated its Newton-edge sign"
+            )
+    return truncated
 
 
 def reverse_matrix(matrix: Matrix) -> Matrix:
@@ -469,7 +491,9 @@ def operator_expansion(
         zero_matrix(dimension, dimension, order),
         zero_matrix(dimension, dimension, order),
     )
-    for index, coefficient in enumerate(direct_map_coefficients(order)):
+    for index, coefficient in enumerate(
+        direct_map_coefficients(order - 1, order)
+    ):
         if coefficient.valuation() == order:
             continue
         result = amplitude_add(
@@ -781,7 +805,7 @@ def optimized_hessian(
 ) -> tuple[Series, list[Series], Matrix]:
     """Reconstruct and minimize the exact quadratic in the defect tangent."""
 
-    audit_order = order - 2
+    audit_order = order
     operator, coefficients = operator_expansion(
         dimension,
         first_offset,
@@ -890,7 +914,7 @@ def make_record(
     """Run and validate one exact amplitude-Hessian audit."""
 
     target_degree = 2 * first_offset
-    if target_degree >= order - 2:
+    if target_degree >= order:
         raise ValueError(
             "increase the series order so the target lies below the audit cutoff"
         )
@@ -963,7 +987,7 @@ def main() -> None:
     for dimension in range(args.minimum_size, args.maximum_size + 1):
         length = dimension - 1
         for first_offset in range(1, length // 2 + 1):
-            if 2 * first_offset >= args.series_order - 2:
+            if 2 * first_offset >= args.series_order:
                 continue
             record = make_record(
                 dimension,

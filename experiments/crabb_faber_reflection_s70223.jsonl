@@ -1,0 +1,13 @@
+{"length": 2, "maximum_polynomial_degree": 2, "tested_imaginary_directions": 0, "tested_real_directions": 1}
+{"length": 3, "maximum_polynomial_degree": 3, "tested_imaginary_directions": 1, "tested_real_directions": 1}
+{"length": 4, "maximum_polynomial_degree": 4, "tested_imaginary_directions": 1, "tested_real_directions": 2}
+{"length": 5, "maximum_polynomial_degree": 5, "tested_imaginary_directions": 2, "tested_real_directions": 2}
+{"length": 6, "maximum_polynomial_degree": 6, "tested_imaginary_directions": 2, "tested_real_directions": 3}
+{"length": 7, "maximum_polynomial_degree": 7, "tested_imaginary_directions": 3, "tested_real_directions": 3}
+{"length": 8, "maximum_polynomial_degree": 8, "tested_imaginary_directions": 3, "tested_real_directions": 4}
+{"length": 9, "maximum_polynomial_degree": 9, "tested_imaginary_directions": 4, "tested_real_directions": 4}
+{"length": 10, "maximum_polynomial_degree": 10, "tested_imaginary_directions": 4, "tested_real_directions": 5}
+{"length": 11, "maximum_polynomial_degree": 11, "tested_imaginary_directions": 5, "tested_real_directions": 5}
+{"length": 12, "maximum_polynomial_degree": 12, "tested_imaginary_directions": 5, "tested_real_directions": 6}
+{"length": 13, "maximum_polynomial_degree": 13, "tested_imaginary_directions": 6, "tested_real_directions": 6}
+{"length": 14, "maximum_polynomial_degree": 14, "tested_imaginary_directions": 6, "tested_real_directions": 7}
