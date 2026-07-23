@@ -407,15 +407,15 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   `−4|w|⁴−31|z|²|w|²/8` whenever the mode-two coordinate is nonzero. Together with L67, every
   fixed nontrivial canonical straight ray strictly descends. This corrects the preliminary
   approximate coefficient `−4|w|²(|w|²+|z|²)`. The transition `w=O(εz)` still needs a weighted
-  blow-up, and exact removal of orbit tangents introduces nonlinear slice curvature; both must
-  be controlled before this becomes a uniform local-neighbourhood theorem for nearby matrices.
+  blow-up, and an exact affine-unitary local slice must uniformly couple the residual modes to
+  the negative second-order directions; both are needed for a neighbourhood theorem.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-22)
 1. **Uniformize and generalize the L66 quotient analysis.** L67/L68 prove every canonical
-   straight `p=3` quotient ray. Resolve the weighted transition `w=O(εz)` and nonlinear
-   affine-unitary slice curvature to obtain a genuine punctured neighbourhood, then seek the
-   arbitrary-mode pattern. In parallel extend L65 to repeated-block common-maximizer faces and
-   separately handle nonsmooth compression-eigenvalue crossings.
+   straight `p=3` quotient ray. Resolve the weighted transition `w=O(εz)` and construct an exact
+   affine-unitary slice with uniform coupling estimates to obtain a punctured neighbourhood,
+   then seek the arbitrary-mode pattern. In parallel extend L65 to repeated-block
+   common-maximizer faces and separately handle nonsmooth compression-eigenvalue crossings.
 2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
    trace inequality can instead be derived from the block-Toeplitz positivity of the full
    operator-valued correction moments. Do not retry trace/positive-state scalarizations.

@@ -224,10 +224,11 @@ representative space for the `p=3` residual quotient strictly descends**.
 This raywise result is not automatically a uniform punctured-neighbourhood theorem.  In a
 joint limit where `omega` tends to zero with `epsilon`, the quartic margin in (22) competes
 with higher-order mixed terms and the sixth-order pure-mode margin.  A weighted blow-up of
-that transition is one remaining `p=3` local debt.  A second is slice curvature: removing an
-affine-unitary tangent from an arbitrary physical path by exact symmetries generally creates
-quadratic and higher corrections to its canonical representative.  Those corrections must be
-included before promoting the straight-ray statement to all nearby matrices.
+that transition is one remaining `p=3` local debt.  A second is the full-slice problem: one must
+construct an exact local affine-unitary slice and control couplings between its uniformly
+negative second-order directions and the residual quotient.  Naively removing orbit tangents
+path by path creates higher corrections, so the linear quotient count alone does not supply
+this uniform statement.
 
 ## 5. Regeneration and remaining frontier
 
@@ -244,6 +245,6 @@ derives the three paths in (19), performs both levels of defect minimization exa
 the invariant classification (18) to verify (20).
 
 The next `p=3` task is the weighted transition `|omega|=O(|epsilon*zeta|)` between (20) and
-(12), together with the nonlinear affine-unitary slice curvature just noted.  Closing both
+(12), together with the exact affine-unitary slice/coupling problem just noted.  Closing both
 would upgrade canonical straight-ray descent to a genuine local-neighbourhood theorem.  The
 higher-size residual modes and repeated-block faces remain separate debts.

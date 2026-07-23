@@ -86,7 +86,7 @@ overlap errors in the analytic count.
 L67 chooses an explicit `p=3` mode-one representative and proves strict descent at order six.
 L68 derives the exact invariant quartic `−4|w|⁴−31|z|²|w|²/8` on every ray with nonzero mode two.
 Thus every fixed canonical straight residual `p=3` ray descends; see
-`proof/p3_crabb_higher_order.md`.  A weighted blow-up where `w=O(epsilon*z)` and the nonlinear
-slice curvature created when exact symmetries remove orbit tangents remain before this is a
-uniform punctured-neighbourhood theorem.  Higher sizes then require the same calculation on the
-grade representatives classified above.
+`proof/p3_crabb_higher_order.md`.  A weighted blow-up where `w=O(epsilon*z)` and an exact local
+affine-unitary slice with uniform coupling to the negative second-order directions remain before
+this is a punctured-neighbourhood theorem.  Higher sizes then require the same calculation on
+the grade representatives classified above.
