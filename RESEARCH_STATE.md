@@ -1,6 +1,22 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-22 (Epoch 6 — L101 nonsmooth conformal tangent)
+**Last updated:** 2026-07-22 (Epoch 6 — L102 fourth-order center persistence)
+
+## NEWEST (2026-07-22): L102 rules out a quartic transverse competitor
+- At L100's center, the full fourth Feshbach coefficient includes an energy-dependent
+  `−M2 N R² N` correction in addition to the five ordinary resolvent words.
+- Exact compression proves that its traceless copy part is zero.  Differentiating the complete
+  coefficient in the nonnormal Schur edge also gives zero traceless part.
+- Hence the weighted normal chart is copy-scalar through fourth order, and quartic transverse
+  splitting is at least `O(delta²(r+delta)²)`.  This is negligible against L100's
+  `delta(r²+delta²)` cubic gap in a sufficiently small normal tube.
+- A separate nonlinear probe at map resolutions 2048/4096 found
+  `(4−t*)/[delta(r²+delta²)]` between `0.637` and `0.671` on seven two-scale cases, with no
+  sign reversal.  This is supporting evidence only; the exact result is the Feshbach identity.
+  `experiments/repeated_p3_normal_center_probe.py`.
+- The next proof step is now sharply defined: factor all order-five-and-higher endpoint
+  remainders by the transverse distance using L88/L73's exact normal certificates, then perform
+  one simultaneous feasible-metric lift. `proof/repeated_p3_flat_two_copy_weighted.md`.
 
 ## NEWEST (2026-07-22): L101 closes the support-crossing regularity debt
 - If convex domains near the disk have
