@@ -168,6 +168,13 @@ not physical-unitary, so it does not finish the bound, but the missing
 metric lift is now a dimension-free `2×2` operator Schur complement.
 See `proof/crabb_central_inner_fibers.md`.
 
+L129 proves the inner fiber is genuinely inactive, uniformly in size.
+At the apex it is `[[0,I],[0,0]]`, and `diag(I/2,I)` has strict Stein
+slack and condition square two.  L128 makes the perturbation
+`O(|a|+c)` uniformly, while the outer size-three value remains near
+four.  Therefore `t_*(B(T))` is exactly the size-three outer value
+locally.  Only the condition cost of lifting through L127 remains.
+
 ## Completed repeated-C3 frontier (2026-07-22): L114
 
 L73 proves a complete-2 neighbourhood of one `C3`; L74--L93 reduce arbitrary repeated

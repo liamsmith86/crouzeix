@@ -48,6 +48,22 @@
   now justified.
   `proof/crabb_central_inner_fibers.md`.
 
+## NEWEST (2026-07-23): L129 proves the inner fibers cannot become active
+- At the apex L128's inner block is
+  `N=[[0,I],[0,0]]`.  The fixed metric `diag(I/2,I)` has exact Stein
+  slack `I/2` and condition square two.
+- Since `||H||=c` and `r=c^k<=c²`, the full inner disk operator is an
+  `O(|a|+c)` perturbation uniformly in `k`; its coordinate Gramian is
+  also uniformly close to identity.  The fixed metric therefore stays
+  feasible with condition below three.
+- The outer size-three value stays above three near the apex.  Hence
+  the similarity optimum of the descended direct sum is **exactly**
+  its size-three outer value.
+- This is not yet an upper bound for the original `T`: the remaining
+  gate is precisely the condition-number cost in L127's positive
+  Blaschke lift, at the `a²c^(2k)` endpoint order.
+  `proof/crabb_central_inner_inactivity.md`.
+
 ## NEWEST (2026-07-23): L126 finds the all-size source of the `-64`
 - In size `p=2k+1`, put `S=C+cJCJ` and take the central equality
   direction
