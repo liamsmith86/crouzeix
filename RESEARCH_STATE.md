@@ -2,6 +2,41 @@
 
 **Last updated:** 2026-07-23 (Epoch 6 — Faber endpoint localization)
 
+## NEWEST (2026-07-23): A100 exposes the candidate raw disk-flat face
+- The phase-palindromic companion pencil is invalid for a general
+  Toeplitz disk coefficient.  The new checker instead expands the full
+  coefficient gauge
+  `S(a,c)=2K(a)^(-1)(H(a)R+cR*H(a))` before applying the ellipse map.
+- For a raw offset `j` and reflected grade `k=L-j`, exact optimized
+  amplitude Hessians give zero below `c^(2k)` and coefficient `-64`
+  at `c^(2k)`.  This holds in 15 single-offset records through length
+  eight, including both sides of the midpoint.  Three distinct-grade
+  polarizations vanish through their first possible mixed face.
+- Five overlap cases independently verify that the full gauge agrees
+  coefficientwise with the older companion gauge whenever the
+  direction is phase-palindromic.
+- A new all-size raw Faber endpoint lemma is proved.  For coefficient
+  phase `zeta`, the disk characteristic derivative is
+  `2 conjugate(zeta) xi^(L-j+1)`.  If `Y_j` is the full ellipse-pencil
+  tangent and `P_m` are the Dickson polynomials, then
+  ```
+  e_0^*(DP_L[Y_j]+2 conjugate(zeta)P_(L-j))
+      =4 conjugate(zeta)e_(L-j)^*,
+  e_L^*(DP_L[Y_j]+2 conjugate(zeta)P_(L-j))
+      =4 conjugate(zeta)c^(L-j)e_j^*.
+  ```
+  An explicit two-path recurrence proves this polynomially for every
+  `L,j`; a real/imaginary exact checker regenerates it.
+- **Do not yet label the full `-64` raw Hessian an all-size theorem.**
+  The remaining gate is to extend L145's orbit-complement recurrence
+  from the equality companion gauge to the raw coefficient gauge.
+  The endpoint row is now exact, but the extra non-endpoint rows must
+  be shown inactive through reflected weight `2k`.  This is the next
+  load-bearing step toward the complete disk-flat tube.
+  `proof/crabb_disk_flat_elliptic_face.md`;
+  `experiments/crabb_disk_flat_elliptic_face.py`;
+  `experiments/crabb_raw_faber_endpoint.py`.
+
 ## NEWEST (2026-07-23): A99 finds the corrected Faber--Blaschke dual square
 - For a noncentral grade `k`, define
   `G=P_L+2a(P_k+P_(L-k))+lambda*a*c^k*P_(L-k)`, map its
@@ -1995,14 +2030,14 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-23)
-1. **Build the L115/L117 transverse tube.**  L147 is now closed.
-   Introduce L124's best-phase split `z=u+v` and classify the full
-   reflected Newton ideal in `(u,v,c)`.  The anchors are
-   `-c^(2L)`, `-sum|u_k|²c^(2k)`, and
-   `-||u||²||v||²`.  Prove the normal-gradient support needed to glue
-   them, then absorb L118's strong variables with its already-proved
-   coercive Hessian.  Do not reopen the central/noncentral face
-   coefficient, pure-axis gradient, or pure disk equality calculations.
+1. **Close A100's raw model-complement recurrence, then build the
+   L115/L117 transverse tube.**  For raw offset `j`, use the proved
+   reflected endpoint grade `k=L-j`; show L145's orbit-complement gap
+   vanishes through `a²c^(2k)` despite the extra raw-gauge rows, and
+   polarize distinct raw grades.  Then combine the resulting weighted
+   quadratic face with `-c^(2L)` and L122's `-32Q(z)`, before absorbing
+   L118's strong variables.  Do not infer the metric face merely from
+   endpoint agreement.
 2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
    trace inequality can instead be derived from the block-Toeplitz positivity of the full
    operator-valued correction moments. Do not retry trace/positive-state scalarizations.
