@@ -84,18 +84,40 @@ def inverse_riemann_series(
 ) -> tuple[list[sp.Expr], list[sp.Matrix]]:
     """Derive ``Psi_e`` and ``phi_e(base+eE)`` through ``order``.
 
-    ``base`` must be a real 3x3 Crabb-normalized matrix whose top support
-    eigenvalue is one.  The boundary is first represented in its normal-angle
-    parameter, then formally reparameterized until every nonanalytic Fourier
-    mode vanishes.
+    This is the straight-path wrapper around ``inverse_riemann_path_series``.
     """
 
-    if base.shape != (3, 3) or perturbation.shape != (3, 3):
+    return inverse_riemann_path_series(
+        [base, perturbation],
+        order,
+        epsilon,
+        variable,
+    )
+
+
+def inverse_riemann_path_series(
+    path: Sequence[sp.Matrix],
+    order: int,
+    epsilon: sp.Symbol,
+    variable: sp.Symbol,
+) -> tuple[list[sp.Expr], list[sp.Matrix]]:
+    """Derive the inverse map and pullback for a polynomial matrix path.
+
+    ``path[j]`` is the coefficient of ``epsilon**j``.  The base must be a real
+    3x3 Crabb-normalized matrix whose top support eigenvalue is one.  The
+    boundary is first represented in its normal-angle parameter, then formally
+    reparameterized until every nonanalytic Fourier mode vanishes.
+    """
+
+    if not path or any(coefficient.shape != (3, 3) for coefficient in path):
         raise ValueError("this exact helper is restricted to 3x3 paths")
-    if any(entry.has(sp.I) for entry in (*base, *perturbation)):
+    if any(entry.has(sp.I) for coefficient in path for entry in coefficient):
         raise ValueError("this helper expects real symbolic matrix paths")
 
-    matrix = base + epsilon * perturbation
+    base = path[0]
+    matrix = sp.zeros(3)
+    for degree, coefficient in enumerate(path):
+        matrix += epsilon**degree * coefficient
     support = (matrix / variable + variable * matrix.T) / 2
     spectral_parameter = sp.symbols("lambda")
     support_characteristic = (
@@ -192,7 +214,7 @@ def inverse_riemann_series(
                 degree - map_degree,
             )
             known += evaluated[degree - map_degree]
-        target = perturbation if degree == 1 else sp.zeros(3)
+        target = path[degree] if degree < len(path) else sp.zeros(3)
         operator.append(sp.simplify(target - known))
 
     return inverse_map, operator
