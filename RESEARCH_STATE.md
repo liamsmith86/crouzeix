@@ -2,6 +2,35 @@
 
 **Last updated:** 2026-07-23 (Epoch 6 — Faber endpoint localization)
 
+## NEWEST (2026-07-23): A95 suggests exact grade diagonality
+- The distinct-grade cancellation is much deeper than the first
+  Newton face: the exact size-five `(1,2)` cross jet is zero through
+  `c^17`, and all three exact size-seven cross jets are zero through
+  `c^11`, including same-parity `(1,3)`.
+- Finite-amplitude probes at `c=.12,.25,.4` also put the mixed Hessian
+  at optimizer tolerance.  The residual falls by a factor four when
+  the amplitude step is halved, so it is quartic finite-difference
+  contamination rather than a quadratic cross term.
+- New stronger conjecture: L118's entire amplitude Hessian on a fixed
+  phase-palindromic equality/ellipse branch is diagonal in distinct
+  Faber grades for each fixed `c`.
+- The likely proof basis is L117's DCT-I diagonalization of the exact
+  Toeplitz-plus-Hankel elliptic Szegő kernel.  The remaining hard step
+  is to transform the optimized defect quadratic itself; Faber
+  endpoint Parseval does not do this.
+- L135 now proves the exact coordinate bridge.  If
+  `R=K_0^(−1/2)DU` is the DCT-I right eigenvector matrix of the axis,
+  then the grade-`j` companion row satisfies
+  `(v_j^*R)_n=-2sqrt(2/L)eps_n c^((j+1)/2)
+  sin(j theta_n)sin(theta_n)`.  Hence the coefficient grades are
+  genuine DST-I modes in this spectral leg, with no terminal alias.
+- The remaining A95 identity is correspondingly sharp: conjugate
+  L118's defect Schur kernel into these coordinates, remove the common
+  sine factors, and prove the kernel is Toeplitz-plus-Hankel (DST-I
+  diagonal).  Its grade eigenvalues must start at `-64c^(2j)`.
+- A95 remains conjectural despite L135.  The weaker all-size
+  first-face statement in A94 remains the theorem-level gate.
+
 ## NEWEST (2026-07-23): A94 isolates the distinct-grade proof gate
 - Exact polarization of L118's optimized amplitude Hessian for two
   different real phase-palindromic grades gives zero through and

@@ -29,6 +29,33 @@ the observation.
 This note does **not** label (2) an all-size lemma.  It states the
 precise polarization theorem still to prove.
 
+### A stronger falsification target
+
+The finite data point to a substantially stronger identity:
+
+\[
+\boxed{B_{k,l}(c)\equiv0\quad(k\ne l).}              \tag{2a}
+\]
+
+For size five, the exact `(1,2)` cross jet vanishes through `c^17`.
+In size seven all three grade pairs vanish through `c^11`, including
+the same-parity pair `(1,3)`.
+Independent finite-amplitude calculations at
+`c=0.12,0.25,0.4` find the mixed Hessian at optimizer tolerance; the
+apparent residual scales quadratically with the amplitude
+finite-difference step and hence is quartic contamination, not an
+amplitude-Hessian cross term.
+
+Equation (2a) is a conjecture, not a result used below.  It suggests
+that the correct proof may diagonalize the complete Hessian rather
+than commute a single Newton face.  The likely coordinates are the
+DCT-I modes from L117's elliptic Szegő kernel: the Crabb-axis Stein
+kernel is Toeplitz-plus-Hankel and exactly DCT diagonal, while the
+linearized characteristic/Faber data are discrete cosine grades.
+The missing derivation is to carry the *optimized defect* quadratic
+through that transform.  Merely diagonalizing the scalar Faber rows
+does not establish (2a).
+
 ## 2. Why `k+l` is the decisive coefficient
 
 L125's inverse-map filtration says that a grade-`k` equality
@@ -109,3 +136,15 @@ grade pair it reconstructs the optimized Hessians of both basis
 directions and their sum, polarizes them exactly, and audits every
 coefficient through `c^(k+l)`.  The calculation is a regression for
 (3), not a substitute for (5).
+
+Optional `--first-grade`, `--second-grade`, and `--audit-order`
+arguments run a selected pair beyond its first face.  The persisted
+size-five deep audit is
+
+```bash
+PYTHONPATH=experiments .venv/bin/python -u \
+  experiments/crabb_mixed_grade_face.py \
+  --minimum-size 5 --maximum-size 5 \
+  --first-grade 1 --second-grade 2 --audit-order 18 \
+  --output experiments/crabb_mixed_grade_deep_p5_s70223.jsonl
+```

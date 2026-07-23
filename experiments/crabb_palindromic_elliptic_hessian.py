@@ -19,6 +19,7 @@ proof of its recurrence or a uniform analytic remainder theorem.
 from __future__ import annotations
 
 import argparse
+from collections.abc import Callable
 from dataclasses import asdict, dataclass
 from fractions import Fraction
 from functools import cache
@@ -31,6 +32,10 @@ from exact_truncated_series import Series
 
 Matrix: TypeAlias = list[list[Series]]
 AmplitudeMatrix: TypeAlias = tuple[Matrix, Matrix, Matrix]
+ConditionEvaluator: TypeAlias = Callable[
+    [list[Series]],
+    tuple[Series, Matrix],
+]
 
 DEFAULT_SERIES_ORDER = 10
 
@@ -835,12 +840,17 @@ def optimized_hessian(
     )
 
 
-def optimized_hessian_from_operator(
+def defect_quadratic_data(
     operator: AmplitudeMatrix,
     coefficients: list[int],
     order: int,
-) -> tuple[Series, list[Series], Matrix]:
-    """Optimize the defect tangent for a supplied exact operator jet."""
+) -> tuple[
+    Series,
+    list[Series],
+    list[list[Series]],
+    ConditionEvaluator,
+]:
+    """Reconstruct the exact quadratic in the free defect tangent."""
 
     dimension = len(operator[0])
     if len(coefficients) != dimension - 2:
@@ -914,6 +924,22 @@ def optimized_hessian_from_operator(
             quadratic[left][right] = mixed
             quadratic[right][left] = mixed
 
+    return constant, linear, quadratic, evaluate
+
+
+def optimized_hessian_from_operator(
+    operator: AmplitudeMatrix,
+    coefficients: list[int],
+    order: int,
+) -> tuple[Series, list[Series], Matrix]:
+    """Optimize the defect tangent for a supplied exact operator jet."""
+
+    constant, linear, quadratic, evaluate = defect_quadratic_data(
+        operator,
+        coefficients,
+        order,
+    )
+    variable_count = len(linear)
     optimizer = solve_series_system(
         quadratic,
         [-entry / 2 for entry in linear],
