@@ -104,7 +104,7 @@ Taking the maximum over the direct-sum blocks proves
 This is an exact local theorem on an arbitrary-multiplicity repeated-block
 stratum, not merely a Taylor-sign statement.
 
-## 4. Remaining nonnormal core
+## 4. Nonnormal core (subsequently closed raywise by L93)
 
 Every `Z` is unitarily triangularizable.  In Schur form its strictly upper
 part contributes generator-zero edges only; the diagonal is already covered
@@ -112,9 +112,12 @@ by (8).  Thus the unresolved L87 center is now a nonnormal upper-triangular
 copy matrix, with its second support governed by (4).
 
 The pure two-copy nonnormal block is L77's strict cubic model, and rank-two
-stars are closed at second order by L80.  The next target is to show that every
-nonnormal Schur stratum either has a strict matrix-Jensen gap in (4) or reduces
-on its common-top space to those pair/star mechanisms.
+stars are closed at second order by L80.  L93 subsequently avoids a
+size-by-size Schur classification: its metric-kernel flag is strict unless it
+isolates a reducing scalar-support block, and a Clifford reduction shows that
+every irreducible terminal block has size at most two.  Thus all fixed
+nonnormal directions are now closed.  The remaining problem is uniformity as
+the flag/Jensen and two-copy cubic margins collapse together.
 
 ## 5. Regeneration
 

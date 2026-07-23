@@ -1,6 +1,24 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-22 (Epoch 6 — L92 complete two-copy flat core)
+**Last updated:** 2026-07-22 (Epoch 6 — L93 arbitrary-copy flat metric flag)
+
+## NEWEST (2026-07-22): L93 closes every fixed flat-copy direction in arbitrary multiplicity
+- The free L80 metric tangent extends from a pure star to an arbitrary copy projection `P`.
+  Its exact endpoint compression is the negative Gram sum
+  `−5sqrt(2)PZ(I−P)Z*P−15sqrt(2)PZ*(I−P)ZP/4`; all internal complement
+  blocks cancel.
+- Iterating the derivative kernel produces a descending flag.  On an irreducible copy block it
+  either ends at zero, giving strict second-order descent, or fills the block.  In the latter
+  case the full effective support is scalar:
+  `Z²=alpha I`, `ZZ*+Z*Z=beta I`.
+- The scalar-support relations form a two-generator Clifford algebra.  The nilpotent case is
+  a direct sum of equal square-zero pairs; the invertible case is a direct sum of one- or
+  two-dimensional anticommuting-symmetry blocks.  Hence every irreducible residual has size at
+  most two and is already closed by L88 or L92.
+- This removes the proposed `4 x 4`, `5 x 5`, ... Schur grind and closes all **fixed** directions
+  in the flat copy core.  The remaining issue is genuinely uniform: weighted sequences where
+  Jensen/flag gaps, `w`, strong normals, losing gaps, and the cubic pair margin collapse
+  together.  `proof/repeated_p3_flat_metric_flag.md`.
 
 ## NEWEST (2026-07-22): L92 closes every fixed two-copy flat direction
 - A nonnormal `2 x 2` Schur matrix can be second-order flat at `w=0` only when `tr Z=0`.
@@ -762,12 +780,13 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-22)
-1. **Resolve the L86 equality blow-up uniformly.** Classify common top vectors of the complete
-   effective support and improve the metric on endpoint kernels, using L77/L80 and L67--L73 as
-   the pure graph/common boundary models.  Control weighted sequences in which the negative
-   Gram terms, common `v` curvature, matrix-Jensen gap, and L82 losing mean gap all vanish
-   together.  In parallel, seek the L73 analytic-normal-form pattern in the `2p-2` quotient
-   modes for `p>=4`.
+1. **Make L93 uniform and merge it back into L86.** Fixed flat directions are now classified
+   in every copy multiplicity, so do not grind larger Schur matrices.  Build a compact
+   quantitative version of the metric flag near its terminal one-/two-dimensional Clifford
+   blocks, then couple it to `w`, the negative Gram terms, common `v` curvature, and L82's
+   losing mean gap.  The target is a full repeated-`C3` neighbourhood theorem, not another
+   raywise statement.  In parallel, seek the L73 analytic-normal-form pattern in the `2p-2`
+   quotient modes for `p>=4`.
 2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
    trace inequality can instead be derived from the block-Toeplitz positivity of the full
    operator-valued correction moments. Do not retry trace/positive-state scalarizations.
@@ -844,7 +863,8 @@ experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_
   repeated_p3_flat_copy_matrix.py (L88/L90 flat/common copy-matrix support),
   repeated_p3_flat_three_copy.py (L89 three-copy Schur equality split),
   repeated_p3_third_metric.py (shared L77/L92 third-metric propagation),
-  repeated_p3_flat_two_copy_third.py (L92 trace-zero cubic theorem).
+  repeated_p3_flat_two_copy_third.py (L92 trace-zero cubic theorem),
+  repeated_p3_flat_metric_flag.py (L93 arbitrary-copy metric-flag derivative).
 Proof artifact: experiments/positive_tail_full_20260722.log (L59 clean 10-box run).
 Data: sym3_sweep_s51.jsonl (40 rec), sym4_sweep_s61.jsonl (20 rec, ρ column trustworthy),
 general_similarity_equality_s9173401.jsonl plus its `sensitivity` and `ultralocal` companions

@@ -81,7 +81,9 @@ Combining all cases closes the complete two-copy L87 flat core:
 
 The remaining weighted issue is uniformity as `w`, `tr Z`, and the cubic
 nonnormal margin tend to zero together; there is no unclassified fixed
-two-copy direction.
+two-copy direction.  L93 subsequently proves that these one-/two-dimensional
+blocks are the only irreducible terminal equality blocks in any copy
+multiplicity.
 
 ## 4. Regeneration
 

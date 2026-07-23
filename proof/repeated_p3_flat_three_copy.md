@@ -92,13 +92,14 @@ Therefore every nonzero zero-diagonal three-copy Schur direction is closed:
 - `b=0, ac!=0`: strict at optimized second order;
 - `ac=0`: strict at cubic order.
 
-## 4. Scope and next target
+## 4. Scope and later resolution
 
-This theorem closes the smallest genuinely nonnormal copy-matrix stratum.  It
-does not yet include a nonzero Schur diagonal, the common `w` mode, or larger
-strictly upper matrices.  Its proof suggests the correct general recursion:
-common-top vectors of (2) select a path/star subspace; a rank-two incidence is
-closed by L80, while a square-zero incidence decomposes into L77 pairs.
+This theorem closes the smallest genuinely nonnormal copy-matrix stratum.
+L90--L92 subsequently insert the Schur diagonal/common `w` mode and close the
+two-copy terminal block.  L93 then replaces the proposed larger-matrix
+path/star induction by a dimension-free metric-kernel flag and a
+two-dimensional Clifford terminal classification.  Thus no larger fixed
+Schur stratum remains; only the uniform gap-collapse problem does.
 
 ## 5. Regeneration
 

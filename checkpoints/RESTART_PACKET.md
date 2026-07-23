@@ -308,7 +308,8 @@ P1 (K²+ρ ≤ Kq), L13 (Clark-type transition ⟨q(A)x₀,u₀⟩ = K∫q·conj
 (sym3: v = α², ρ = (α²/2)(g₀(e)−g₀(0))), **Landen theorem** (sym3 ρ = 1 − π/(2K(k₁))),
 **L15** (level-4 nodal/Pick closed form + odd stationarity law + frame identities),
 **L16** (even-phase midpoint law + q = 1/2, domain-general), ceiling K²+2ρ+G² ≤ 4,
-**L29** (generic rank-one/full elliptic-slice KKT face), 2×2 closed form; D2 partial results
+**L29** (generic rank-one/full elliptic-slice KKT face), **L93** (arbitrary-copy fixed flat
+core via the metric flag and two-dimensional Clifford terminal blocks), 2×2 closed form; D2 partial results
 (symmetric-node case, wedge family, convex trace bound).
 See LEMMA_LEDGER.md.
 
@@ -359,10 +360,11 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
 ## Next five concrete actions (refreshed 2026-07-22, Epoch 6)
-1. **Equality-locus local theorem.** Linearize the conformal map and L21 SDP at
-   `C_p⊗I_m`; characterize its degenerate primal/dual optimal faces and prove the directional
-   derivative of `t*` is nonpositive. Reproduce the observed slopes from the formulas rather
-   than fitting them.
+1. **Uniformize the L93 flat-copy theorem and merge it into L86.** The fixed-direction
+   classification at repeated `C3` is complete in arbitrary copy multiplicity; do not grind
+   larger Schur matrices. Quantify the metric flag near its one-/two-dimensional Clifford
+   terminal blocks, then couple it to `w`, the negative Gram/strong-mode terms, and the losing
+   first-support gap to obtain a full repeated-block neighbourhood theorem.
 2. **Full CP-correction moments.** Do not retry scalar shifts or positive-state scalarizations.
    Test whether the L21 trace inequality follows from the block-Toeplitz positivity already
    supplied by the full operator-valued Crouzeix--Palencia correction.
@@ -382,7 +384,9 @@ proof/slice_boundary_theorems.md,
 proof/el4_schwarzian_theorem.md,
 proof/even_pick_globality.md, proof/slice_closed_form.md, and proof/D2_landscape.md; master program in
 proof/rho_positivity_program.md. Resume at restart-packet action 1: turn the completed repeated-
-Crabb L21 gate into a local directional theorem. The complete elliptic 4×4 slice is
+Crabb fixed-direction/metric-flag theory (L61--L93) into a uniform repeated-`C3`
+neighbourhood theorem. Do not start a larger copy-space Schur grind: L93 reduces every terminal
+irreducible flat block to size at most two. The complete elliptic 4×4 slice is
 proved by L59; do not start a 5×5 slice grind or redo its SDP duality, modal norms, projective
 charts, or certificate. EL4 and even-sector midpoint globality are proved; definite parity is
 false. Respect
