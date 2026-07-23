@@ -1,6 +1,22 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-22 (Epoch 6 — L71 exact `p=3` disk center)
+**Last updated:** 2026-07-22 (Epoch 6 — L72 exact disk-center stationarity)
+
+## NEWEST (2026-07-22): L72 proves exact stationarity on the disk center
+- The L71 curve has an exact canonical Schur form
+  `T_l=[[0,a,-2l],[0,l,a],[0,0,0]]`, `a²=2(1-l²)`.  This is not inferred from
+  the disk property alone: a new exact identity shows that the normalized product of its two
+  nonzero squared singular values is four, which selects the symmetric Schur subfamily.
+- `P=diag(1,2,4)` satisfies the rank-one Stein identity `P-T_l* P T_l=e1 e1*` on
+  the whole curve.  Exact linearization makes the condition derivative `4ℓ(Re G)`, independent
+  of the rank-one-defect adjustment.  An exact three-pole support residue calculation proves that
+  the first Riemann-map correction has precisely the same `ℓ` value for every complex ambient
+  perturbation.  Therefore every first variation cancels.
+- This establishes the critical-manifold half of the proposed weighted Morse--Bott argument.
+  It does **not** establish the local inequality: the active task is a uniform negative normal
+  Hessian (and analytic optimized-defect selection) near the curve.  The exact audit runs in
+  about one second: `experiments/p3_disk_center_tangent.py`; proof:
+  `proof/p3_disk_center_tangent.md`.
 
 ## NEWEST (2026-07-22): L71 identifies and closes L70's hidden center
 - The recentered L70 jet is not an accidental sequence of cancellations.  It is the analytic
@@ -452,10 +468,11 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-22)
-1. **Uniformize and generalize the L66 quotient analysis.** L67/L68 prove every canonical
-   straight `p=3` quotient ray, and L69 gives the exact seven-coordinate local slice. Resolve
-   its weighted coupling problem to obtain a punctured neighbourhood, then seek the
-   arbitrary-mode pattern. In parallel extend L65 to repeated-block
+1. **Close the `p=3` disk-center normal estimate.** L70 gives the negative weighted leading
+   form, L71 identifies its exact disk center, and L72 proves full ambient stationarity there.
+   Construct the analytic optimized rank-one defect by an implicit-function argument, compute
+   its normal Hessian along the curve, and prove uniform negative definiteness in the five real
+   normal variables. Then seek the arbitrary-mode pattern. In parallel extend L65 to repeated-block
    common-maximizer faces and separately handle nonsmooth compression-eigenvalue crossings.
 2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
    trace inequality can instead be derived from the block-Toeplitz positivity of the full
@@ -515,7 +532,11 @@ experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_
   crabb_second_order_equality.py (L66 exact-orbit/kernel quotient audit),
   formal_riemann_series.py + rank_one_stein_series.py (exact higher-order helpers),
   p3_crabb_sixth_order.py + p3_crabb_quartic.py (L67/L68 exact certificates),
-  p3_crabb_local_slice.py (L69 orbit-normal slice audit).
+  p3_crabb_local_slice.py (L69 orbit-normal slice audit),
+  p3_sparse_series.py + p3_crabb_weighted_slice.py + p3_crabb_center_jet.py
+  (L70 sparse exact weighted certificate), p3_crabb_disk_center.py
+  (L71 disk factorization and canonical singular product), p3_disk_center_tangent.py
+  (L72 exact ambient-stationarity audit).
 Proof artifact: experiments/positive_tail_full_20260722.log (L59 clean 10-box run).
 Data: sym3_sweep_s51.jsonl (40 rec), sym4_sweep_s61.jsonl (20 rec, ρ column trustworthy),
 general_similarity_equality_s9173401.jsonl plus its `sensitivity` and `ultralocal` companions

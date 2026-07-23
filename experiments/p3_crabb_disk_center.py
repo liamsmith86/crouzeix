@@ -165,6 +165,22 @@ def main() -> None:
         != 0
     ):
         raise AssertionError("the complete Kippenhahn factorization failed")
+
+    centered_matrix = matrix - center * sp.eye(3)
+    centered_gramian = centered_matrix.T * centered_matrix
+    rank_two_singular_product = sum(
+        centered_gramian.extract(indices, indices).det()
+        for indices in ((0, 1), (0, 2), (1, 2))
+    )
+    if (
+        polynomial_remainder(
+            rank_two_singular_product - 4 * radius_squared**2,
+            disk_relation,
+            scale,
+        )
+        != 0
+    ):
+        raise AssertionError("the centered matrix lost its canonical singular product")
     if sp.limit(radius_squared.subs(scale, analytic_scale).subs(epsilon**2, squared_parameter), squared_parameter, 0) != 1:
         raise AssertionError("the disk radius did not converge to one")
     if (
@@ -183,6 +199,7 @@ def main() -> None:
     print(f"scale series = {actual_scale_series}")
     print("Kippenhahn curve = circle(center) union one interior point")
     print("the circle center is a double eigenvalue")
+    print("the normalized rank-two singular product is four")
 
 
 if __name__ == "__main__":

@@ -103,11 +103,13 @@ recentered and remained flat.
 ## 4. Scope
 
 L70 proves strict leading feasible-certificate descent in every bounded
-weighted direction away from (4); (9) closes (4) itself.  These two statements
-do not automatically prove a full punctured neighbourhood: a sequence can
-approach the disk curve faster than the leading weighted scale.  A uniform
-normal estimate, or an analytic weighted Morse--Bott argument for the feasible
-certificate, is still required before making that claim.
+weighted direction away from (4); (9) closes (4) itself.  L72 additionally
+proves that the explicit condition-four rank-one certificate is stationary
+under every complex ambient perturbation after the first conformal correction.
+These statements still do not automatically prove a full punctured
+neighbourhood: a sequence can approach the disk curve faster than the leading
+weighted scale.  A uniform negative normal Hessian, or an equivalent analytic
+weighted Morse--Bott argument, is still required before making that claim.
 
 The disk theorem is classical, not new.  The apparently new content is the
 exact identification of L70's hidden center with the disk-matrix locus in the
@@ -121,6 +123,7 @@ Run
 .venv/bin/python -u experiments/p3_crabb_disk_center.py
 ```
 
-The script derives (2), (5)--(7), the double eigenvalue, and the series (3)
-using exact SymPy polynomial remainders.  It makes no floating-point sign or
-factorization decision.
+The script derives (2), (5)--(7), the double eigenvalue, the normalized
+rank-two singular product used by L72, and the series (3) using exact SymPy
+polynomial remainders.  It makes no floating-point sign or factorization
+decision.
