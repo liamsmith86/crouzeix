@@ -52,6 +52,17 @@ observed `O(c^(L+1))` endpoint shape cancellation from support Fourier/Lobatto
 aliasing, then return to the disk-flat mixed face.  Do not differentiate the full
 Stein recurrence again.  See `proof/crabb_touching_gradient.md`.
 
+L120 completes that all-size cancellation.  Polynomial-fibre conditional expectation
+and an arbitrary-direction root-of-unity quadrature show that the full L119 gradient
+descends exactly to the outer `2 x 2` block of `P_(L,c)(A_c)`.  Explicitly it is
+`(tau'(c^L)/2)Re((DP[Y])_(L0)−c^L(DP[Y])_(0L))`.  Dickson path counting gives
+`DP_(L0)=O(c^floor(L/2))`, while `tau'(c^L)=O(c^L)`, so the full gradient is
+`o(c^L)`.  L118 then proves strict negativity after optimizing all strong variables:
+the pure elliptic strong tube is finished for every `p`.  The only remaining
+single-Crabb local obstruction is the weighted merger of the elliptic coordinate with
+L115's `2p−4` exact disk-flat variables.  Do not reopen the strong-gradient problem.
+See `proof/crabb_descent_gradient.md`.
+
 ## Completed repeated-C3 frontier (2026-07-22): L114
 
 L73 proves a complete-2 neighbourhood of one `C3`; L74--L93 reduce arbitrary repeated

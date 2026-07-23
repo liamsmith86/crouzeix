@@ -1,0 +1,9 @@
+{"checked_monomial_degree": 6, "conditional_expectation": true, "differential_quadrature": true, "dimension": 3, "first_endpoint_power": 1, "polynomial_reversal": true, "required_endpoint_power": 1}
+{"checked_monomial_degree": 9, "conditional_expectation": true, "differential_quadrature": true, "dimension": 4, "first_endpoint_power": 1, "polynomial_reversal": true, "required_endpoint_power": 1}
+{"checked_monomial_degree": 12, "conditional_expectation": true, "differential_quadrature": true, "dimension": 5, "first_endpoint_power": 2, "polynomial_reversal": true, "required_endpoint_power": 2}
+{"checked_monomial_degree": 15, "conditional_expectation": true, "differential_quadrature": true, "dimension": 6, "first_endpoint_power": 2, "polynomial_reversal": true, "required_endpoint_power": 2}
+{"checked_monomial_degree": 18, "conditional_expectation": true, "differential_quadrature": true, "dimension": 7, "first_endpoint_power": 3, "polynomial_reversal": true, "required_endpoint_power": 3}
+{"checked_monomial_degree": 21, "conditional_expectation": true, "differential_quadrature": true, "dimension": 8, "first_endpoint_power": 3, "polynomial_reversal": true, "required_endpoint_power": 3}
+{"checked_monomial_degree": 24, "conditional_expectation": true, "differential_quadrature": true, "dimension": 9, "first_endpoint_power": 4, "polynomial_reversal": true, "required_endpoint_power": 4}
+{"checked_monomial_degree": 27, "conditional_expectation": true, "differential_quadrature": true, "dimension": 10, "first_endpoint_power": 4, "polynomial_reversal": true, "required_endpoint_power": 4}
+{"independent_sparse_coefficients": {"p3_axis": "-64*ellipse_parameter**5", "p4_bottom": "-16*ellipse_parameter**7", "p5_penultimate": "-32*ellipse_parameter**10"}}

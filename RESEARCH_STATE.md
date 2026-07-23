@@ -1,6 +1,44 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-23 (Epoch 6 — L119 touching/endpoint reduction)
+**Last updated:** 2026-07-23 (Epoch 6 — L120 all-size descent gradient)
+
+## NEWEST (2026-07-23): L120 closes the pure elliptic strong tube in every size
+- Let `L=p−1`, `r=c^L`, and
+  `P_(L,c)(z)=2c^(L/2)T_L(z/(2sqrt(c)))`.  The outer endpoint compression is
+  `Q=Pi P(A_c)Pi=[[0,2],[2r,0]]`.
+- The polynomial fibre trace `E h=(1/L)sum_(P(z)=w)h(z)` obeys the exact
+  conditional expectation `Pi h(A_c)Pi=(E h)(Q)`.
+- In the exterior ellipse coordinate, the Crabb support vectors are
+  `u(zeta)_j=d_j zeta^j/sqrt(L)`, independent of `c`.  Root-of-unity filtering
+  proves the arbitrary-direction differential quadrature
+  ```
+  v(xi)* Pi DP(A_c)[Y] Pi v(xi)
+    = (1/L) sum_(zeta_j^L=xi) P'(z_j) u(zeta_j)*Y u(zeta_j).
+  ```
+  Hence first numerical-boundary variations, and therefore first Riemann shape
+  derivatives, commute with the fibre trace (up to a harmless disk automorphism).
+- L119's full gradient consequently descends **exactly** to the classical
+  `2 x 2` elliptic gradient:
+  ```
+  D Gamma_p(A_c)[Y]
+    = (tau'(r)/2) Re((DP[Y])_(L0) − r(DP[Y])_(0L)),
+  tau(r)=k(r²)/r.
+  ```
+- Dickson recurrence paths force the bracket to be
+  `O(c^floor(L/2))`; Jacobi's product gives `tau'(c^L)=O(c^L)`.
+  Thus the full gradient is `O(c^(L+floor(L/2)))=o(c^L)`.
+- L118 now applies: optimizing every L65 coercive direction gains only
+  `o(c^(2L))`, while L117 supplies the strict `−16c^(2L)` axis margin.
+  Therefore `H_p(0,c)<0` for all sufficiently small nonzero `c`, in every size.
+- An exact checker regenerates the reversal, conditional expectation through
+  monomial degree `3L`, arbitrary-symbolic-direction quadrature, and sharp first
+  path power for `p=3,...,10`.  It also matches the independent coefficients
+  `−64c^5`, `−16c^7`, and `−32c^10`.
+- **Next:** only L115's `2p−4` disk-flat variables and their weighted mixed merger
+  with `c` remain in the single-Crabb local theorem.  Strong transverse variables
+  are finished.
+  `proof/crabb_descent_gradient.md`;
+  `experiments/crabb_descent_gradient.py`.
 
 ## NEWEST (2026-07-23): L119 turns the transverse gradient into one scalar endpoint
 - Fix an L117 axis point `T_c`, its rank-one defect `q_c`, and L116's
@@ -29,10 +67,9 @@
   equation independently in 192 deterministic complex directions
   (`p=3,...,10`), with worst binary64 derivative discrepancy `9.2e-11`;
   it regenerates the polynomial descent to `1.8e-15`.
-- **Next:** prove that the endpoint derivative is `O(c^(L+1))` for arbitrary
-  `p`, as already seen exactly through `p=5`.  Use the support eigenvector
-  Fourier polynomial in the exterior ellipse coordinate and Lobatto/finite-path
-  aliasing; do not return to the full differentiated metric.
+- **Completed by L120:** the endpoint derivative is
+  `O(c^(L+floor(L/2)))` for arbitrary `p`, via the polynomial fibre trace,
+  support quadrature, and Dickson path counting.
   `proof/crabb_touching_gradient.md`;
   `experiments/crabb_touching_gradient.py`.
 
@@ -58,9 +95,8 @@
   selected grade-four/grade-six directions at `p=6`.  It exposes the first later terms
   `−16c^7` for `c^3E_30` at `p=4` and `−32c^10` for
   `c^4(E_30+E_41)/sqrt(2)` at `p=5`, matching independent numerical slopes.
-- **Next:** prove the cancellation for arbitrary `p` directly from the endpoint
-  path-length recurrence, then add L115's disk-flat mixed variables.  The finite checks
-  are discovery evidence, not the all-size proof.
+- **Completed by L120:** the arbitrary-`p` cancellation and pure elliptic strong
+  tube are proved.  Add L115's disk-flat mixed variables next.
   `proof/crabb_rank_one_envelope.md`;
   `experiments/general_crabb_weighted_series.py`.
 
@@ -83,10 +119,8 @@
   the fixed-weight one-parameter axis, while L20 covers arbitrary weights only in `4 x 4`.
 - The SDP/eigensolver regression passes through `p=10`.  A separate 260-decimal explicit
   DCT/Jacobi checker audits every identity through `p=30` without an SDP.
-- **Next:** combine L117's exact soft-axis certificate with L65's coercive transverse
-  complement in L115's circular-range tubular chart.  The gap
-  `4−t_*=16c^(2L)+O(c^(4L))` degenerates at the disk anchor, so the absorption must be
-  weighted rather than based on a fixed positive margin.
+- **Completed by L118--L120 on the pure elliptic face:** the weighted coercive
+  absorption is proved.  L115's disk-flat mixed merger remains.
   `proof/crabb_elliptic_axis.md`; `experiments/crabb_elliptic_axis_theorem.py`.
 
 ## COMPLETED INPUT (2026-07-22): L116 supplies the sharp axis lower bound
@@ -1233,12 +1267,11 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
 
 ## Current next actions (Epoch 6, refreshed 2026-07-23)
 1. **Build the L115/L117 transverse tube.**  Anchor on the exact elliptic-axis metric,
-   retain L65's coercive normal complement, and seek estimates uniform as `c->0` and across
-   the disk-manifold tangential directions.  The axis gap has order `c^(2p−2)`, so derive
-   L119's all-size endpoint cancellation
-   `<e_0,D_A[B_c(phi_A(A))]e_L>=o(c^(p−1))`, then use the weighted disk/axis
-   merger.  Work through the exact Chebyshev descent/support Fourier functional,
-   not the superseded differentiated Stein recurrence.
+   and use L120's completed all-size absorption of L65's coercive normal complement.
+   What remains is the weighted merger of the elliptic coordinate with L115's
+   `2p−4` disk-flat coordinates, using the exact circular-range anchors rather than
+   estimating them as generic flat Taylor directions.  Do not reopen the strong-gradient
+   or differentiated-Stein calculations.
    Do not rely on a fixed positive margin or compute the old `2p−2` residual jets.
 2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
    trace inequality can instead be derived from the block-Toeplitz positivity of the full
@@ -1302,6 +1335,7 @@ experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_
   general_crabb_weighted_series.py (L118 arbitrary-size sparse support/Riemann engine),
   crabb_transverse_weighted_gradient.py (L118 exact low-size gradient cancellations),
   crabb_touching_gradient.py (L119 upper/lower derivative and polynomial-descent audit),
+  crabb_descent_gradient.py (L120 exact fibre trace/quadrature/path audit),
   formal_riemann_series.py + rank_one_stein_series.py (exact higher-order helpers),
   p3_crabb_sixth_order.py + p3_crabb_quartic.py (L67/L68 exact certificates),
   p3_crabb_local_slice.py (L69 orbit-normal slice audit),
