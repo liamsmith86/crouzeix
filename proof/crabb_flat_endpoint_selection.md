@@ -174,6 +174,12 @@ so the second term in (7) is smaller than L117's axis margin
 Equations (7)--(8) are a conditional reduction, not a proof that the
 needed quartic disk margin exists.
 
+**Subsequent correction (L122).**  The premise is false: on the exact
+Toeplitz disk chart the quartic is only
+`-32(||z||^4-|z^T Jz|^2)` and has a large phase-palindromic null cone.
+Thus (7)--(8) remain a valid conditional exponent calculation but
+cannot close the full merger.
+
 ## 5. Exact regeneration
 
 Run

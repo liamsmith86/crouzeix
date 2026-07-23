@@ -74,6 +74,17 @@ The live tasks are to prove that quartic and control the higher mixed remainderâ
 redo the strong gradient or endpoint path count.  See
 `proof/crabb_flat_endpoint_selection.md`.
 
+L122 then falsifies the premise of that conditional Young merger.  The exact disk chart is
+`K=H+R*HR`, `X(H)=2K^(-1/2)HRK^(-1/2)`; Toeplitz
+`H=I/2+sZ(z)` supplies all disk-flat quotient coordinates.  An explicit rank-one Stein
+metric has condition square
+`4-32s^4(||z||^4-|z^TJz|^2)+O(s^5)`.  This Gram determinant vanishes on the large
+phase-palindromic cone `z=omega J conjugate(z)`, and exact size-four defect optimization
+proves that the analytic envelope has the same null.  Do **not** retry a coercive quartic.
+Determine whether the palindromic cone is an exact all-size `t_*=4` disk equality
+manifold (finite exact spectra through `p=8` say yes), then derive the elliptic-normal
+variation along it.  See `proof/crabb_disk_toeplitz_quartic.md`.
+
 ## Completed repeated-C3 frontier (2026-07-22): L114
 
 L73 proves a complete-2 neighbourhood of one `C3`; L74--L93 reduce arbitrary repeated

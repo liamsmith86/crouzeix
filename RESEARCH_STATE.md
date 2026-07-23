@@ -1,6 +1,44 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-23 (Epoch 6 — L121 flat endpoint selection)
+**Last updated:** 2026-07-23 (Epoch 6 — L122 Toeplitz disk quartic)
+
+## NEWEST (2026-07-23): L122 disproves the coercive disk-flat quartic
+- Crouzeix/Lewis--Overton's polynomial support certificate yields an exact
+  normalized disk chart.  For positive Hermitian `L x L` data `H`, extend by
+  one zero coordinate and put
+  ```
+  K=H+R*HR,   X(H)=2K^(-1/2) H R K^(-1/2).
+  ```
+  The identity
+  `K-(conj(w)HR+wR*H)=(I-wR*)H(I-conj(w)R)>=0`
+  proves `W(X(H))=closed unit disk`.
+- `H=I/2` gives `C_p`.  Hermitian Toeplitz curves
+  `H=I/2+sZ(z)` form an exact `2p-4` dimensional disk submanifold tangent
+  to the whole L115 disk-flat quotient.
+- In coefficient coordinates, take `A=2K^-1HR`, `q=He_0`, and solve the
+  rank-one Stein equation `M-A*MA=qq*`.  The endpoint generalized
+  eigenvalues of `(M,K)` are
+  ```
+  lambda_-=1/2,
+  lambda_+=2-16s^4 Q_L(z)+O(s^5),
+  Q_L(z)=||z||^4-|z^T Jz|^2.
+  ```
+  Hence the feasible condition square is `4-32s^4Q_L(z)+O(s^5)`.
+- `Q_L>=0` by Cauchy--Schwarz, but it is **not coercive**:
+  `Q_L=0` iff `z=omega J conjugate(z)`.  In size four it is only
+  `(|z_1|^2-|z_2|^2)^2`.
+- An independent exact defect-vector expansion proves that optimizing
+  L118's rank-one branch in size four does not fill this null:
+  the correction is
+  `16(|u_1|^2+|u_2|^2)+(32/3)|u_3|^2`, minimized at `u=0`.
+- Exact noninfinitesimal palindromic samples through `p=8` retain
+  generalized spectrum `{1/2,1,...,1,2}`, and SDPs return four, but this
+  is finite evidence—not yet an all-size equality theorem or lower bound.
+- **Course correction:** do not seek `-a||d||^4`.  Classify the
+  phase-palindromic null stratum, determine whether it is an exact `t_*=4`
+  disk equality manifold, then analyze the elliptic normal along it.
+  `proof/crabb_disk_toeplitz_quartic.md`;
+  `experiments/crabb_disk_toeplitz_quartic.py`.
 
 ## NEWEST (2026-07-23): L121 raises every disk-flat mixed linear term
 - For L120's endpoint functional
@@ -1296,9 +1334,10 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    `2p−4` disk-flat coordinates, using the exact circular-range anchors rather than
    estimating them as generic flat Taylor directions.  Do not reopen the strong-gradient
    or differentiated-Stein calculations.
-   L121 already raises the linear disk-flat/elliptic coupling by one full power, enough
-   for Young absorption if a coercive quartic disk-flat margin is available.  Prove that
-   quartic (and its higher mixed remainder) next; do not recompute the endpoint derivative.
+   L121 raises the linear disk-flat/elliptic coupling by one full power, but L122 proves
+   that the hoped-for coercive quartic is false.  Classify L122's phase-palindromic
+   null stratum, prove or disprove exact `t_*=4` there, and then compute the elliptic
+   normal along that stratum.  Do not recompute the endpoint derivative.
    Do not rely on a fixed positive margin or compute the old `2p−2` residual jets.
 2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
    trace inequality can instead be derived from the block-Toeplitz positivity of the full
@@ -1364,6 +1403,7 @@ experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_
   crabb_touching_gradient.py (L119 upper/lower derivative and polynomial-descent audit),
   crabb_descent_gradient.py (L120 exact fibre trace/quadrature/path audit),
   crabb_flat_endpoint_selection.py (L121 exact disk-flat bottom-mode selection),
+  crabb_disk_toeplitz_quartic.py (L122 exact disk chart/noncoercive quartic),
   formal_riemann_series.py + rank_one_stein_series.py (exact higher-order helpers),
   p3_crabb_sixth_order.py + p3_crabb_quartic.py (L67/L68 exact certificates),
   p3_crabb_local_slice.py (L69 orbit-normal slice audit),

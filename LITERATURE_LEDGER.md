@@ -93,7 +93,12 @@ Papers, theorems, assumptions, possible gaps. Status verified via web 2026-07-22
   coordinates, and intersects the resulting codimension-`2p−2` circular-range tangent with
   L65. It does **not** analyze repeated support multiplicity, the conformally pulled-back L21
   similarity square, or this kernel intersection, so no direct overlap with the new
-  second-order reduction was found.
+  second-order reduction was found. L122 rewrites their polynomial support-vector
+  parametrization as the concrete chart
+  `X(H)=2(H+R*HR)^−1/2 H R (H+R*HR)^−1/2` and derives the rank-one similarity quartic on
+  its Toeplitz flat submanifold. The disk factorization is an equivalent concrete use of
+  their/Crouzeix's parametrization; the Stein quartic and its phase-palindromic null are the
+  campaign-derived additions.
 - [x] Greenbaum--Lewis--Overton, *Variational Analysis of the Crouzeix Ratio*, Math.
   Programming 2017 — proves Clarke regularity and nonnegative directional derivative of the
   **scalar Crouzeix ratio** at the Crabb/monomial candidate `(p(z)=z^(n−1), A=Crabb⊕0)`, while
