@@ -1,8 +1,41 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-22 (Epoch 6 — L107 slack-compatible metric bridge)
+**Last updated:** 2026-07-22 (Epoch 6 — L109 joint terminal finite jet)
 
-## NEWEST (2026-07-22): L107 embeds the frozen normal metric without tightening
+## NEWEST (2026-07-22): L109 proves the joint normal/transverse cubic jet
+- The previous warning was essential: neither the frozen normal endpoint nor the transverse
+  increment may be discarded.  At L100's real weighted center, the actual inherited
+  frozen-normal Stein slack begins with
+  `H2=diag(4Delta m,8Delta m,4Delta m,8Delta m)`, `Delta m=5a²/128`, and an exact mixed
+  cubic coefficient `gamma=15sqrt(2)a²d/256` in `H3`.
+- Retaining a fraction `theta` of this slack gives
+  `E2(N)=−5(1−theta)a²I/8` but `E2(A)=5theta a²I/8`.  Thus freezing the slack creates the
+  observed positive actual quadratic endpoint, while zero slack makes the negative normal
+  quadratic pay for the positive transverse quadratic exactly.
+- Both frozen-normal and actual cubic endpoints are
+  `E3=−16(1−theta)m3I`.  At zero slack this preserves L100's physical bound
+  `−delta(delta²+2r²)I/4`; full slack is flat through cubic order.
+- The checker also proves that full inherited slack reproduces the unperturbed normal metric
+  through third order.  This closes the finite-jet accounting error.  The remaining terminal
+  gate is a genuinely analytic one: combine L105's Taylor majorant with L106's explicit
+  transverse factor to make the exact remainder `o(delta(r²+delta²))`.
+  `proof/repeated_p3_exact_metric_chart.md`;
+  `experiments/repeated_p3_slack_transfer.py`.
+
+## NEWEST (2026-07-22): L108 selects the sharp zero-slack branch
+- L107 makes inherited Stein slack legal, but freezing all of it is not the sharp transverse
+  certificate.  Exact-chart probes at six terminal scales made the frozen-slack upper endpoint
+  positive, while `H=0` matched the full SDP deficit.  This is diagnostic evidence, not the proof.
+- On the block-diagonal normal anchor, the chart decouples copy by copy.  For one PSD slack
+  block `H`, the scalar upper endpoint has base derivative
+  `D_H E=h22+2h11>=tr H>=||H||`.
+- Uniform analyticity therefore gives `E(H)−E(0)>=(1−Cs)||H||>=0` nearby.  Since L106's
+  inherited endpoint `E(HN)` is nonpositive, the zero-slack endpoint is also nonpositive.
+  Direct sums make this dimension-free on the normal stratum.
+- L109 subsequently computes the complete weighted slack jet and proves the required
+  normal/transverse quadratic cancellation.
+
+## NEWEST (2026-07-22): L107 embeds the inherited frozen-normal slack
 - Extend L105's Stein Schur equation from zero to a prescribed Hermitian right side `H`.
   The implicit-function Jacobian is unchanged, and Stein positivity is now exactly `H>=0`.
 - Scale each L106 single-block metric to minimum eigenvalue one.  Near the Crabb metric the
@@ -11,8 +44,8 @@
 - Its Stein Schur complement `Hj` is PSD even when the intervening disk self-map is strict.
   Direct sums therefore give the exact identity `PN=P(TN,BN,HN)` in the extended chart.
 - Keeping `HN` fixed while moving from `TN=f(N)` to `T=f(A)` preserves lower and Stein
-  feasibility exactly.  No rank-one tightening or condition-number comparison is needed.
-  The two-regime upper-endpoint estimate is now the sole terminal two-copy gate.
+  feasibility exactly, but need not preserve the upper bound.  L108 proves that one can instead
+  tighten the normal anchor safely to `H=0`, the branch used by L98--L104.
   `proof/repeated_p3_exact_metric_chart.md`.
 
 ## NEWEST (2026-07-22): L106 bypasses nonsmooth domain differentiation
@@ -983,11 +1016,11 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
 1. **Finish normal-face uniformity and merge L93 back into L86.** L94--L98 now close every
    bounded weighted chart at a nonnormal terminal block, while L100--L103 locate the sharp
    normal center and cancel the complete transverse fourth endpoint.  L105--L106 give the exact
-   metric chart and same-map transverse factorization, and L107 embeds the slack normal
-   certificate exactly.  Prove the two-regime `o(delta(r²+delta²))` upper-endpoint remainder,
-   then lift that tube through the metric flag, negative Gram terms, common `v` curvature, and
-   L82's losing mean gap.  Do not grind larger Schur matrices.  The target is a full
-   repeated-`C3` neighbourhood theorem.
+   metric chart and same-map transverse factorization, L107--L108 select the safe zero-slack
+   normal certificate, and L109 proves the joint quadratic/cubic accounting.  Prove the
+   two-regime `o(delta(r²+delta²))` upper-endpoint remainder, then lift that tube through the
+   metric flag, negative Gram terms, common `v` curvature, and L82's losing mean gap.  Do not
+   grind larger Schur matrices.  The target is a full repeated-`C3` neighbourhood theorem.
 2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
    trace inequality can instead be derived from the block-Toeplitz positivity of the full
    operator-valued correction moments. Do not retry trace/positive-state scalarizations.
@@ -1070,6 +1103,7 @@ experiments/: crouzeix.py (basics: poly_A, nr_support, ratio_inner/outer, crabb_
   repeated_p3_flat_two_copy_fourth.py + repeated_p3_flat_two_copy_fourth_metric.py
   (L102 support persistence + L103 simultaneous fourth-metric cancellation),
   repeated_p3_exact_metric_chart.py (L105 exact tight lower/Stein chart Jacobian),
+  repeated_p3_slack_transfer.py (L109 weighted normal/transverse slack jet),
   repeated_p3_normal_center_probe.py (supporting two-scale regression only),
   repeated_p3_flat_metric_flag.py (L93 arbitrary-copy metric-flag derivative).
 Proof artifact: experiments/positive_tail_full_20260722.log (L59 clean 10-box run).

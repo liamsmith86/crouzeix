@@ -83,9 +83,41 @@ def main() -> None:
         "the exact metric-chart Jacobian changed",
     )
 
+    prescribed_slack = first_diagonal.row_join(cross).col_join(
+        cross.conjugate().T.row_join(second_diagonal)
+    )
+    inverse_direction = first_diagonal.row_join(cross).col_join(
+        cross.conjugate().T.row_join(
+            second_diagonal + 2 * first_diagonal
+        )
+    )
+    slack_metric = sp.diag(identity, sp.zeros(4))
+    slack_metric[2:6, 2:6] = (
+        sp.diag(2 * identity, 4 * identity)
+        + parameter * inverse_direction
+    )
+    slack_defect = (
+        slack_metric
+        - base.conjugate().T * slack_metric * base
+    )
+    recovered_slack = slack_defect[2:6, 2:6].diff(
+        parameter
+    ).subs(parameter, 0)
+    assert_zero_matrix(
+        recovered_slack - prescribed_slack,
+        "the prescribed Stein slack was not recovered",
+    )
+    upper_endpoint_derivative = inverse_direction[2:4, 2:4]
+    assert_zero_matrix(
+        upper_endpoint_derivative
+        - second_diagonal
+        - 2 * first_diagonal,
+        "the Stein-slack upper derivative changed",
+    )
+
     print("PASS repeated p=3 exact metric chart linearization")
     print("D_C F(X11,X12,X22)=(X11,X12,X22-2*X11)")
-    print("a prescribed Stein Schur slack is an additive chart parameter")
+    print("D_H endpoint(H)=H22+2*H11 at the Crabb base")
     print("the Jacobian is invertible in every copy multiplicity")
 
 

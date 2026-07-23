@@ -61,6 +61,8 @@ def tight_metrics_through_third(
     metric_tangent: sp.Matrix,
     second_free_block: sp.Matrix | None = None,
     third_free_block: sp.Matrix | None = None,
+    second_stein_slack: sp.Matrix | None = None,
+    third_stein_slack: sp.Matrix | None = None,
 ) -> tuple[sp.Matrix, sp.Matrix, sp.Matrix, sp.Matrix, sp.Matrix]:
     """Return tight metrics and Stein coefficients through order three.
 
@@ -68,6 +70,8 @@ def tight_metrics_through_third(
     the second metric.  It is needed when a first-order flat direction itself
     changes at the next weighted order.  ``third_free_block`` is the analogous
     block at order three; it first affects the order-four endpoint.
+    ``second_stein_slack`` and ``third_stein_slack`` are coefficients of a
+    prescribed Stein Schur complement on the active four-dimensional kernel.
     """
 
     identity = sp.eye(6)
@@ -127,6 +131,10 @@ def tight_metrics_through_third(
             effective_second_forcing[row, column] += (
                 contraction_second_penalty[row_index, column_index]
             )
+            if second_stein_slack is not None:
+                effective_second_forcing[row, column] += (
+                    second_stein_slack[row_index, column_index]
+                )
     for row_level in range(1, 3):
         for column_level in range(1, 3):
             block = sp.simplify(
@@ -151,6 +159,21 @@ def tight_metrics_through_third(
         (metric, metric_tangent, second_metric),
         2,
     )
+    if sp.simplify(
+        second_contraction.extract(
+            contraction_kernel,
+            contraction_kernel,
+        )
+        - contraction_second_penalty
+        - (
+            second_stein_slack
+            if second_stein_slack is not None
+            else sp.zeros(4)
+        )
+    ) != sp.zeros(4):
+        raise AssertionError(
+            "the second contraction Schur complement failed"
+        )
 
     lower_third = third_schur_penalty(
         metric_tangent,
@@ -200,6 +223,10 @@ def tight_metrics_through_third(
             effective_third_forcing[row, column] += (
                 contraction_third_penalty[row_index, column_index]
             )
+            if third_stein_slack is not None:
+                effective_third_forcing[row, column] += (
+                    third_stein_slack[row_index, column_index]
+                )
     for row_level in range(1, 3):
         for column_level in range(1, 3):
             block = sp.simplify(
@@ -227,6 +254,11 @@ def tight_metrics_through_third(
     if sp.simplify(
         third_contraction.extract(contraction_kernel, contraction_kernel)
         - contraction_third_penalty
+        - (
+            third_stein_slack
+            if third_stein_slack is not None
+            else sp.zeros(4)
+        )
     ) != sp.zeros(4):
         raise AssertionError("the third contraction Schur complement failed")
 
@@ -244,6 +276,8 @@ def tight_third_endpoint(
     metric: sp.Matrix,
     metric_tangent: sp.Matrix,
     second_free_block: sp.Matrix | None = None,
+    second_stein_slack: sp.Matrix | None = None,
+    third_stein_slack: sp.Matrix | None = None,
 ) -> sp.Matrix:
     """Propagate the tight metrics and return the order-three endpoint."""
 
@@ -256,6 +290,8 @@ def tight_third_endpoint(
             metric,
             metric_tangent,
             second_free_block,
+            second_stein_slack=second_stein_slack,
+            third_stein_slack=third_stein_slack,
         )
     )
     upper_base = (4 * identity - metric).extract(

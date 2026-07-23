@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current repeated-C3 frontier (2026-07-22): L103
+## Current repeated-C3 frontier (2026-07-22): L109
 
 L73 proves a complete-2 neighbourhood of one `C3`; L74--L93 reduce arbitrary repeated
 copies to weighted terminal blocks, with all fixed directions closed.  L94--L100 give
@@ -20,10 +20,17 @@ another coefficient.  L105 replaces all forced lower/Stein coefficients by an ex
 metric chart with one free cross block and one upper endpoint.  L106 freezes the actual
 perturbed Riemann map and proves a uniform Cauchy expansion in the transverse operator, avoiding
 all differentiation of the nonsmooth domain map.  L107 retains the frozen normal
-certificate's PSD Stein Schur slack as an exact chart parameter, so no tightening is needed.
-Remaining: prove the two-regime `o(delta(r^2+delta^2))` endpoint bound, then lift through
-L93/L86.  Do not start a larger Schur grind.  See `RESEARCH_STATE.md` and
-`proof/repeated_p3_flat_two_copy_weighted.md`.
+certificate's PSD Stein Schur slack as an exact chart parameter, and L108 proves that it may
+be tightened safely to zero on the normal anchor.  L109 then computes the joint weighted jet:
+with a retained slack fraction `theta`,
+`E2(N)=−5(1−theta)a²I/8`, `E2(A)=5theta a²I/8`, and
+`E3(N)=E3(A)=−16(1−theta)m3I`.  Thus zero slack exactly cancels the normal/transverse
+quadratics and preserves L100's negative
+`−delta(delta²+2r²)I/4` cubic.  Remaining: combine L105's analytic majorant with L106's
+explicit transverse factor to prove the exact two-regime
+`o(delta(r²+delta²))` endpoint bound, then lift through L93/L86.  Do not start a larger
+Schur grind.  See `RESEARCH_STATE.md`, `proof/repeated_p3_exact_metric_chart.md`, and
+`experiments/repeated_p3_slack_transfer.py`.
 
 ## Latest completion (2026-07-22): elliptic 4×4 slice proved
 

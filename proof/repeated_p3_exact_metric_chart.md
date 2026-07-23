@@ -179,21 +179,178 @@ Then `P_N` solves (1), (3) with data `(T_N,B_N,H_N)`.  Local uniqueness gives
  \boxed{P_N=P(T_N,B_N,H_N).}                          \tag{10}
 \]
 
-Thus no tightening operation is needed.  When passing from `T_N` to
-`T=f(A)`, keep `H_N` as a nonnegative parameter and use the analytic metric
-`P(T,B,H_N)`.  Lower and Stein feasibility persist exactly; the only
-remaining task is to choose `B` so that the upper endpoint (8) stays
-nonpositive.  L106 supplies a uniform transverse expansion for `T-T_N`.
+Thus no preliminary tightening is needed to place the inherited metric in
+the chart.  Holding `H_N` fixed would preserve lower and Stein feasibility,
+but need not preserve the upper bound after a transverse perturbation.  The
+next section proves that on the normal anchor one can instead move safely to
+the sharper zero-slack branch.  L106 then supplies a uniform transverse
+expansion for `T-T_N`.
 
-## 7. Regeneration
+## 7. Zero-slack tightening preserves the normal upper bound
+
+On the normal direct-sum stratum, `T_N,B_N,H_N` are block diagonal in copy
+space.  The chart and endpoint therefore split into independent
+single-copy problems.  For one copy, write
+
+\[
+ H_j=\begin{bmatrix}h_{11}&h_{12}\\\bar h_{12}&h_{22}
+ \end{bmatrix}\succeq0 .
+\]
+
+At the Crabb base, (5) and (8) give
+
+\[
+ D_H{\cal E}(H_j)=h_{22}+2h_{11}.                    \tag{11}
+\]
+
+The upper Schur penalty has zero derivative there because its cross block
+vanishes at `M`.  For a positive `2 x 2` matrix,
+
+\[
+ h_{22}+2h_{11}\ge\operatorname{tr}H_j\ge\|H_j\|.     \tag{12}
+\]
+
+Real analyticity now gives, uniformly over the single-block normal
+neighbourhood,
+
+\[
+ {\cal E}(T_j,B_j,H_j)-{\cal E}(T_j,B_j,0)
+ \ge(1-Cs)\|H_j\|,                                    \tag{13}
+\]
+
+where
+`s=||T_j-C_3||+||B_j||+||H_j||` controls the distance to the base along the
+segment from zero to `H_j`.  After shrinking so that `Cs<1`, the right side
+is nonnegative.  Since the inherited normal metric has
+
+\[
+ {\cal E}(T_j,B_j,H_j)\le0,
+\]
+
+equation (13) proves
+
+\[
+ \boxed{{\cal E}(T_j,B_j,0)\le
+ {\cal E}(T_j,B_j,H_j)\le0.}                          \tag{14}
+\]
+
+Taking direct sums proves the same statement in arbitrary copy
+multiplicity.  Thus the frozen normal certificate may be tightened all the
+way to **zero Stein Schur slack** without losing the upper bound.  This is a
+local statement on the block-diagonal normal stratum; no monotonicity is
+claimed for a general coupled `H`.
+
+Consequently the transverse construction should use the zero-slack analytic
+branch `P(T,B,0)`.  This is exactly the branch on which L98--L104 computed
+the sharp cubic and fourth-order endpoints.
+
+## 8. Weighted terminal slack transfer
+
+The zero-slack tightening does more than preserve the normal upper bound: it
+supplies exactly the quadratic margin which the transverse matrix consumes.
+Work in the real canonical two-copy chart and write
+
+\[
+ D=\begin{bmatrix}d&a\\0&-d\end{bmatrix},\qquad
+ w_{\rm cen}={3d^2\over8\sqrt2}.
+\]
+
+Along the weighted path of L100, the second inverse-map coefficient is
+
+\[
+ F_2(\zeta)=m_2\zeta+c\zeta^3,\qquad
+ m_2={5(2d^2+a^2)\over128},\quad c={9d^2\over64}.     \tag{15}
+\]
+
+Put `Delta m=5a^2/128`, and let `m_3` be the mean top-support
+coefficient from L100.  If the actual domain map is frozen and evaluated on
+the block-diagonal normal part, the Stein Schur slack of the inherited
+normal metric has coefficients
+
+\[
+\begin{aligned}
+ H_2&=\operatorname{diag}(4\Delta m,8\Delta m,
+                          4\Delta m,8\Delta m),\\
+ H_3&=\begin{bmatrix}
+ 4m_3&\gamma&0&0\\
+ \gamma&8m_3&0&0\\
+ 0&0&4m_3&-\gamma\\
+ 0&0&-\gamma&8m_3
+ \end{bmatrix},
+ \qquad
+ \gamma={15\sqrt2\,a^2d\over256}.                    \tag{16}
+\end{aligned}
+\]
+
+The ordering in (16) is the two active physical levels of copy one followed
+by those of copy two.  Notice that the coefficient `H_3` need not itself be
+positive; it is a coefficient of the positive analytic slack
+`H(epsilon)`.  Exact propagation shows that (16) makes the second and third
+metric coefficients identical to those of the unperturbed normal
+certificate.
+
+Retain a fraction `theta` of both coefficients in (16).  For the frozen
+normal operator `T_N=f(N)` and the actual operator `T_A=f(A)`, respectively,
+the upper endpoints are
+
+\[
+\begin{array}{c|cc}
+ &{\cal E}_2&{\cal E}_3\\ \hline
+ T_N&-\frac58(1-\theta)a^2I&
+       -16(1-\theta)m_3I\\[1mm]
+ T_A& \frac58\theta a^2I&
+       -16(1-\theta)m_3I .
+\end{array}                                           \tag{17}
+\]
+
+Thus freezing the inherited slack (`theta=1`) creates the positive
+quadratic transverse endpoint seen in the numerical adversary.  Tightening
+to `theta=0` gives
+
+\[
+ {\cal E}_2(T_N)=-{5a^2\over8}I,\qquad
+ {\cal E}_2(T_A)=0,\qquad
+ {\cal E}_3(T_N)={\cal E}_3(T_A)=-16m_3I.             \tag{18}
+\]
+
+The positive transverse quadratic change is therefore canceled by the
+normal tightening margin, while the sharp negative cubic survives
+unchanged.  L100 gives
+
+\[
+ m_3\ge {a(a^2+2d^2)\over64},
+\]
+
+so at physical scales `r=epsilon|d|`,
+`delta=epsilon a`, the surviving coefficient is at most
+
+\[
+ -{\delta(\delta^2+2r^2)\over4}I.                    \tag{19}
+\]
+
+This is the missing **joint finite-jet cancellation**.  It is not yet the
+full terminal-tube theorem: one must still prove that the exact chart
+remainder, after subtracting the frozen normal endpoint, is uniformly
+`o(delta(r^2+delta^2))`.  L106 supplies the transverse factor, while the
+analytic chart supplies the Taylor majorant; the remaining work is to
+organize those two facts without assuming differentiability of the varying
+Riemann map.
+
+## 9. Regeneration
 
 Run
 
 ```bash
 .venv/bin/python -u experiments/repeated_p3_exact_metric_chart.py
+.venv/bin/python -u experiments/repeated_p3_slack_transfer.py
 ```
 
 The checker uses a general complex `2 x 2` block `X12` and general Hermitian
 `X11,X22`, constructs the repeated `C3` Stein defect, and proves (4) entry by
 entry.  The additive parameter `H` does not change this Jacobian.  The same
 block multiplication is independent of copy multiplicity.
+
+The second checker independently constructs the weighted actual and
+frozen-normal jets, derives (16), verifies both rows of (17), and confirms
+that full inherited slack reproduces the unperturbed normal metric through
+third order.

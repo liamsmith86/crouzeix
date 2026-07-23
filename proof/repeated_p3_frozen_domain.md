@@ -139,8 +139,10 @@ Combined with L105, this removes the possibility that the forced lower or
 Stein metric coefficients diverge because of support-branch crossings.
 If `g_j` is not an automorphism, disk functional calculus can create Stein
 slack, so (7) need not lie in the zero-slack version of L105's chart.  L107
-resolves this compatibility exactly by retaining the nonnegative Stein
-Schur complement as a parameter; no tightening operation is required.
+first embeds that nonnegative Stein Schur complement as an exact parameter,
+and L108 then proves that it may be tightened safely to zero on the
+block-diagonal normal anchor.  L109 computes the resulting normal and
+transverse coefficients jointly.
 
 One quantitative step remains before a neighbourhood theorem.  In the
 two-copy terminal chart, write `r` for the normal split and `delta` for the
@@ -157,12 +159,16 @@ Schur edge.  The desired reduced endpoint estimate is
 where `omega(s)->0` uniformly.  The stronger bound
 `C delta(r+delta)^3` suffices.
 
-For `r` bounded below relative to `delta`, L104's off-diagonal transfer has
-an inverse of size `O(1/r)` and should center the traceless endpoint by a
-quantitative implicit-function argument.  For `r` comparable to or smaller
-than `delta`, one must not divide by `r`; L99/L100's pure-edge cubic gap is
-uniform and absorbs the bound in (14).  Proving (14) is now the precise
-two-regime analytic gate.
+L109 proves the complete finite-jet accounting behind (14): the tightened
+normal quadratic endpoint cancels the positive transverse quadratic, and
+both the frozen-normal and actual zero-slack endpoints retain L100's
+negative cubic.  What remains is to apply (13) inside L105's analytic chart
+so that the **exact** post-cubic remainder keeps its transverse factor.  For
+`r` bounded below relative to `delta`, L104's off-diagonal transfer is
+available if endpoint centering is needed.  For `r` comparable to or smaller
+than `delta`, one must not divide by `r`; L100's pure-edge cubic gap is
+uniform.  Proving this analytic remainder estimate is now the precise
+two-regime gate.
 
 ## 5. Scope
 
