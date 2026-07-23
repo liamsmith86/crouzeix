@@ -2,8 +2,10 @@
 
 ## 1. Status
 
-This note records a strong numerical law and the resulting exact proof
-target.  It is **not yet a lemma**.
+This note records the full Newton-face target.  L133 has subsequently
+proved its real phase-one offset-one coefficient in every size, and
+L132 transfers that upper face to every divisor grade.  The complete
+mixed/complex/nondivisor statement below is **not yet a lemma**.
 
 Let `p=L+1`, let `u=(u_1,...,u_(L-1))` satisfy
 
@@ -132,7 +134,7 @@ PYTHONPATH=experiments .venv/bin/python -u \
   --output experiments/crabb_palindromic_elliptic_face_s70223.jsonl
 ```
 
-## 4. Proposed proof route
+## 4. Proof route and completed offset-one step
 
 Work in L123's coefficient coordinates, avoiding matrix square roots:
 
@@ -164,8 +166,13 @@ The required calculation should be organized as follows.
 5. The two unique endpoint paths at length `k` should contribute
    `-64|u_k|^2c^(2k)`.  Distinct grades cannot mix on the first face.
 
-This is the elliptic analogue of L120--L121's endpoint path selection,
-but now at second order in the equality amplitude.
+L133 completes this program for real phase-one offset one.  Its
+explicit defect jet is `2e_1+2e_(L-1)-8ce_3`; the second-amplitude
+Stein forcing stabilizes at the chain ends and gives endpoint
+coefficients `(48,128)`, hence `128-4(48)=-64`.  L132 propagates that
+upper coefficient to all real phase-one divisor grades.  The live
+extension is complex/mixed polarization plus unequal-residue
+localization, followed by the uniform remainder.
 
 ## 5. How (5) would enter the final merger
 

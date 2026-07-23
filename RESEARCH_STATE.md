@@ -2,6 +2,32 @@
 
 **Last updated:** 2026-07-23 (Epoch 6 — Faber endpoint localization)
 
+## NEWEST (2026-07-23): L133 proves the universal real offset-one face
+- For the real phase-one first-offset equality direction in every size
+  `L+1>=3`, L118's optimized rank-one amplitude Hessian is now proved
+  to begin `-64c²+O(c³)`.
+- The disk defect tangent is `2 sum_(j in {1,L-1})e_j`.  Expanding the
+  exact defect stationarity equation one elliptic order further gives
+  the dimension-independent correction `-8ce_3`, with the obvious
+  omission/collisions on the shortest chains.
+- At second amplitude order, the coefficient-`c²` Stein forcing
+  stabilizes for `L>=7` at
+  `(48,-96,-32,16,0,...,0,16,-32,64)`.
+  The short lengths `2,...,6` have different collided diagonals but
+  the same endpoint result.  Stein inversion gives lower/upper
+  coordinate-metric coefficients `(48,128)`, and the generalized
+  condition coefficient is `128-4(48)=-64`.
+- The explicit defect-gradient residual is `O(c²)`.  L118's invertible
+  analytic defect Hessian therefore shows that the true optimizer
+  differs only at order `c²`, which cannot alter this coefficient.
+- Combining L133 with L132 transfers the real phase-one upper face
+  `-64a²c^(2k)` to every divisor grade `k|L`.
+- Scope remains strict: complex-phase/mixed-grade polarization,
+  unequal-residue localization for `k` not dividing `L`, and a
+  dimension-uniform analytic remainder are still open.
+  `proof/crabb_offset_one_face.md`;
+  `experiments/crabb_offset_one_face.py`.
+
 ## NEWEST (2026-07-23): L132 extends central descent to every divisor grade
 - If `L=qk`, the residue-zero space
   `V=span{e0,e_k,...,e_(qk)}` exactly reduces the degree-`k`

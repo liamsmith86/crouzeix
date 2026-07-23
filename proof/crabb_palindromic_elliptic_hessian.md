@@ -191,17 +191,21 @@ prefixes are:
 Those corrections cancel every putative condition term below
 `c^(2k)`.  The first residual endpoint contribution is (3).
 
-This identifies the remaining all-size task sharply:
+This identified the remaining all-size task sharply.  L133
+subsequently completed it for the real phase-one offset `k=1`:
+the explicit defect jet
+`2e_1+2e_(L-1)-8ce_3` gives the universal endpoint pair `(48,128)`
+and hence `-64c²` in every size.  For general grades the remaining
+items are:
 
-1. write the stationarity equations in circle-grade order;
-2. prove that the two-step defect propagation cancels grades
-   `0,...,2k-1`;
-3. prove the universal endpoint values in (3); and
-4. polarize different coefficient grades to obtain the diagonal Hardy
+1. extend the stationarity/endpoint recurrence beyond the offset-one
+   case or replace it by unequal-residue localization;
+2. polarize complex phases and different coefficient grades to obtain
+   the diagonal Hardy
    sum, not only the one-coordinate cases.
 
-The finite checker does not justify replacing these four steps by
-pattern extrapolation.
+The finite checker does not justify replacing these remaining steps
+by pattern extrapolation.
 
 ## 6. Exact regeneration
 

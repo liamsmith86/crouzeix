@@ -198,10 +198,12 @@ blocks.  L131 shows that their only first-face invariant is still the
 reflected coefficient `u_kc^k`; the remaining task is an
 unequal-residue Schur localization, not another divisible descent.
 
-The other immediate debt is a written all-size calculation of the
-offset-one coefficient.  Its target order is only `c^2`, and A85's
-exact records already show the dimension-stable endpoint pair
-`(48,128)`, hence `128-4(48)=-64`.
+L133 subsequently discharged the offset-one debt for the real
+phase-one direction.  Its all-size Stein calculation proves the
+dimension-stable endpoint pair `(48,128)`, hence
+`128-4(48)=-64`.  By (1), every real phase-one divisor grade now has
+the corresponding rank-one upper face.  Complex-phase polarization,
+nondivisor grades, and the uniform Newton remainder remain open.
 
 ## 6. Exact regeneration
 
