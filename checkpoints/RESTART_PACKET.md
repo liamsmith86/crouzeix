@@ -143,17 +143,49 @@ L200 makes that warning exact.  At repeated `C3`, coefficientwise
 Faber reflection survives but both raw matrix analogues of `g/g#`
 fail to be unitary for a square-zero copy coefficient.  Therefore
 L190's logarithmic inner-variation proof cannot be tensorized by
-changing scalar coefficients to matrices.  Construct the genuine
+changing scalar coefficients to matrices.  L114's repeated-`C3`
+neighbourhood theorem is unaffected because it uses a different
+metric-stratification argument.  For the all-length route, construct the genuine
 rank-`m` colligation transfer from L193, or equivalently the matrix
 Schur/Levinson recursion for the positive block Toeplitz inverse
-Gram, before deriving any reflected endpoint Gram.  See
+Gram, before deriving any reflected endpoint Gram.
+
+L201 now constructs that transfer.  The canonical equality metric
+makes `C=M^(1/2)AM^(−1/2)` a pure partial isometry, and
+
+```
+B_H(z)=W*(I−zC*)^−1V
+```
+
+is matrix inner with `B_H(0)=0`.  Its Taylor coefficients have the
+exact reflected Gram `sum |c|^(2n)B_n*B_n`; at Crabb only the
+unitary `B_L` survives, and nearby it remains invertible.  The live
+elliptic task is no longer innerness: it is the ordered bridge from
+this transfer Gram to the fully prepared rank-`m` similarity
+endpoint (matrix versions of L149 and L150).
+
+L202 also closes the ordinary physical first jet.  On every equality
+anchor the physical canonical metric is exactly
+
+```
+P=2I−VV*+2WW*
+```
+
+and the balanced disk operator is a partial isometry.  For the exact
+ellipse tangent `gamma T*−conj(gamma)T^3`, the Stein-defect
+derivative has zero compression to `V^perp`; it is only a defect-row
+motion `VC*+CV*`.  Thus the rank-`m` forcing absorbs first order with
+`P(epsilon)=P+O(epsilon^2)`.  The live calculation is the negative
+second reflected endpoint and its higher-grade preparation.  See
 `proof/crabb_block_hardy_equality.md` and
 `proof/repeated_crabb_exact_metric_chart.md` and
 `proof/repeated_crabb_first_residual_endpoint.md` and
 `proof/repeated_crabb_inverse_gram_kernel.md` and
 `proof/repeated_crabb_schur_flag.md` and
 `proof/repeated_crabb_circular_jensen.md` and
-`proof/repeated_crabb_matrix_faber_obstruction.md`.
+`proof/repeated_crabb_matrix_faber_obstruction.md` and
+`proof/repeated_crabb_inner_faber_transfer.md` and
+`proof/repeated_crabb_elliptic_first_jet.md`.
 
 ### Superseded L182 checkpoint
 

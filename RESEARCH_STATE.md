@@ -2,6 +2,50 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — repeated circular/elliptic merger)
 
+## NEWEST (2026-07-24): L202 proves equality-metric rigidity and elliptic first-jet stationarity
+- Block-Toeplitz endpoint elimination gives a stronger exact form for
+  L193's physical metric:
+  `P=2I−VV*+2WW*`, with `V,W` the initial and terminal copy
+  columns.  Its spectrum is exactly `1,2,4` everywhere on the
+  noncommuting equality manifold.
+- The balanced disk operator is a partial isometry with right defect
+  `VV*` and left defect `WW*`.
+- The centered ellipse pullback has tangent
+  `E_gamma=gamma T*−conj(gamma)T³`.  In balanced coordinates, the
+  exact three-eigenvalue formula makes the compression of the
+  Stein-defect derivative to `V^perp` vanish.
+- Hence the entire first defect jet is `VC*+CV*` and can be absorbed
+  by moving the rank-`m` defect frame.  No first-order metric or
+  upper-endpoint motion is needed at any equality anchor.
+- This supplies the physical first-jet bridge to L201.  The next
+  load-bearing calculation is the negative second reflected endpoint
+  and then its all-grade/model-complement lift.
+  `proof/repeated_crabb_elliptic_first_jet.md`;
+  `experiments/repeated_crabb_elliptic_first_jet.py`.
+
+## NEWEST (2026-07-24): L201 constructs the correct matrix-inner reflected coordinates
+- L193's canonical equality metric makes
+  `C=M^(1/2) A M^(−1/2)` a pure partial isometry with rank-`m`
+  right and left defect projections.
+- In orthonormal defect frames, the genuine transfer is
+  `B_H(z)=W*(I−zC*)^−1V`.  Its characteristic function is
+  `zB_H(z)`, so `B_H` is matrix inner.  The special disk chain
+  `AE1=2E0` also puts `V` in `ran C`, forcing `B_H(0)=0`.
+- Writing `B_H=sum B_n z^n`, the convergent matrix Dickson/Faber
+  identity is exact:
+  `F_cB_H(zeta+c/zeta)=B_H(zeta)+B_H(c/zeta)`.
+  The negative legs have the oriented Gram
+  `sum |c|^(2n) B_n*B_n`.
+- At the Crabb apex `B_H=Uz^L`; nearby `B_L` stays invertible.
+  Hence the reflected Gram retains a strictly positive terminal
+  `|c|^(2L)B_L*B_L` leg despite arbitrary noncommuting equality
+  coefficients.
+- Remaining debt: identify this inner-model Gram with the actual
+  fully prepared rank-`m` similarity endpoint by lifting L149's
+  one-reflection and L150's orbit-complement arguments.
+  `proof/repeated_crabb_inner_faber_transfer.md`;
+  `experiments/repeated_crabb_inner_faber_transfer.py`.
+
 ## NEWEST (2026-07-24): L200 blocks the naïve matrix-Faber lift
 - At repeated `C3`, the normalized inverse-block-Toeplitz equality
   anchor has an exact block companion and terminal matrix polynomial
@@ -12,10 +56,12 @@
   circle point, the first-column norm squared of `G(G#)^−1` is
   `1+t²`; reversing the order gives `1−t²+t⁴`.  Neither quotient is
   unitary.
-- This invalidates a proof route, not the elliptic bound.  SDP probes
-  still descend below four.  The correct next object is L193's
-  genuine rank-`m` unitary-colligation transfer, equivalently the
-  matrix Schur/Levinson recursion associated with the positive block
+- This invalidates a proof route, not the elliptic bound.  L114
+  already proves the full repeated-`C3` neighbourhood by a different
+  metric-stratification argument.  For an all-length replacement,
+  the correct next object is L193's genuine rank-`m`
+  unitary-colligation transfer, equivalently the matrix
+  Schur/Levinson recursion associated with the positive block
   Toeplitz inverse Gram.
   `proof/repeated_crabb_matrix_faber_obstruction.md`;
   `experiments/repeated_crabb_matrix_faber_obstruction.py`.

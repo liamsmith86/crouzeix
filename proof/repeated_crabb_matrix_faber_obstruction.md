@@ -20,10 +20,13 @@ neither is a matrix inner transfer, so L190's logarithmic inner-variation
 and model-complement argument cannot be applied to it.
 
 This disproves a **proof route**, not the desired elliptic similarity
-bound.  Numerical SDP tests continue to put the bound below four.  A valid
-lift must instead construct the genuine matrix inner transfer from the
-rank-\(m\) unitary colligation, equivalently from a matrix Schur/Toeplitz
-factorization; raw coefficientwise Faber reflection is insufficient.
+bound.  In fact L114 already proves a full neighbourhood theorem for every
+fixed repeated \(C_3\) multiplicity by a different metric-stratification
+argument.  The issue here is whether L190's shorter scalar reflected proof
+can become an all-length repeated-block mechanism.  A valid version must
+construct the genuine matrix inner transfer from the rank-\(m\) unitary
+colligation, equivalently from a matrix Schur/Toeplitz factorization; raw
+coefficientwise Faber reflection is insufficient.
 
 ## 2. Exact repeated-\(C_3\) equality companion
 
