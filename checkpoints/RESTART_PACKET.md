@@ -299,6 +299,23 @@ debt is to derive that target from the full physical Faber/Riemann jet
 and to replace exact rank-jumping kernel projections by analytic
 Schur flags.  See `proof/repeated_crabb_transfer_flag.md`.
 
+L209 gives a complementary geometric reduction.  If
+`B_j*U=0` for every `j<k`, then
+`WU,SWU,...,S^(k−1)WU` is a lossless orthogonal delay line.
+Compressing away its first `k−1` stages leaves a smaller
+partial-isometry colligation whose first transfer coefficient is
+
+```
+[ U_perp* B_1 ]
+[ U*      B_k ].
+```
+
+Thus the surviving grade-`k` row is literally promoted to grade one.
+The live interface shared by L208 and L209 is to prove that the
+prepared physical grade-`k` ellipse jet is the correctly weighted
+pullback of L207's grade-one jet on this deflated colligation.  See
+`proof/repeated_crabb_transfer_deflation.md`.
+
 L205 supplies a scalar-only alternative to that stronger complete
 gate.  The condition-two chain is sharp for a scalar Schur function
 exactly when L201's transfer has a constant one-dimensional inner
@@ -986,10 +1003,12 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
 ## Next five concrete actions (refreshed 2026-07-24, Epoch 6)
-1. **Derive the higher physical target.** L208 proves its flagged
-   channel coboundary has an explicit preimage.  Compute the complete
-   prepared Faber/Riemann jet on `ker B_1*` and prove that its first
-   surviving target has this form for `B_2`; then iterate to `B_L`.
+1. **Prove the weighted-jet interface.** L208 gives the direct
+   flagged preimage and L209 promotes a surviving `B_k` row to grade
+   one on a smaller colligation.  Compute the prepared physical jet
+   on `ker B_1*` and prove it is the weight-two pullback of L207 on
+   the deflated model; formulate the all-grade induction only after
+   this first nontrivial case closes.
 2. **Merge later circular normals.** L199 covers the first raw face
    only.  Identify the response after L197's later least-squares Schur
    quotients and combine it with the elliptic flag.
@@ -1007,10 +1026,11 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
 ## Paste-ready continuation instruction
 "Continue the Crouzeix campaign in /home/liam/Downloads/crouzeix
 (git repo; commit and push each proved milestone).  Read the newest
-RESEARCH_STATE section and L201--L208/A144--A151.  L207 gives the
+RESEARCH_STATE section and L201--L209/A144--A152.  L207 gives the
 explicit analytic grade-one correction; L208 gives the conditional
-higher flagged preimage.  Derive the actual higher Faber/Riemann
-target on the left flag, then iterate through B_2,...,B_L and
+higher flagged preimage; L209 promotes a surviving grade to a
+grade-one smaller colligation.  Prove the weight-two physical-jet
+pullback first, then iterate through B_2,...,B_L and
 merge the later L197 circular-normal
 flags.  Do not use the false raw matrix quotient, confuse B_n*B_n with
 B_nB_n*, or promote pointwise pseudoinverses through the rank jump.

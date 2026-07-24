@@ -2,6 +2,24 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — repeated circular/elliptic merger)
 
+## NEWEST (2026-07-24): L209 geometrically deflates every later transfer grade
+- If `B_j*U=0` before grade `k`, the state columns
+  `WU,SWU,...,S^(k−1)WU` form an orthonormal lossless delay line.
+- Removing its first `k−1` stages leaves an invariant smaller state
+  space.  The compressed operator is again a partial isometry, keeps
+  right defect `V`, and has left frame
+  `[WU_perp,S^(k−1)WU]`.
+- The first coefficient of the smaller transfer is
+  `[U_perp*B_1; U*B_k]`.  Thus the surviving grade-`k` row becomes a
+  genuine grade-one coefficient, providing a geometric complement
+  to L208's dual preimage formula.
+- This still does not identify the prepared physical ellipse jet
+  with the weighted pullback of L207.  That precise weighted-jet
+  identity is now the common remaining interface for both L208 and
+  L209.
+  `proof/repeated_crabb_transfer_deflation.md`;
+  `experiments/repeated_crabb_transfer_deflation.py`.
+
 ## NEWEST (2026-07-24): L208 identifies the higher flagged range mechanism
 - For every genuine transfer coefficient, an arbitrary dual Gramian
   obeys the exact ordered identity
