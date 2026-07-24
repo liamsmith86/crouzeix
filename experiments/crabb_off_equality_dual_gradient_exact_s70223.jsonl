@@ -1,0 +1,1 @@
+{"ambient_direction": "E_(1,2)", "dimension": 4, "disk_direction": ["37/1000 + 2*I/125", "11/250 + 31*I/1000"], "gradient_quadratic_coefficient": "-424/15625", "gradient_series": "-424*x**2/15625", "length": 3, "quartic_defect_coefficient": "25281/15625000000", "strict_order_separation": true}

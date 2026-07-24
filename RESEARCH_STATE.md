@@ -2,6 +2,55 @@
 
 **Last updated:** 2026-07-23 (Epoch 6 — full circular-normal merger)
 
+## NEWEST (2026-07-23): A111 falsifies the `O(Q)` ambient-gradient shortcut
+- The full target is exactly false in size four:
+  `Q=25281x^4/15625000000` while the normalized
+  characteristic-dual derivative in `E_(1,2)` is
+  `-424x²/15625`.
+- This survives projection onto the transported support-mode
+  covectors `3,...,p`: their computed rank is exactly `2p-4`, and the
+  projected norm divided by `sqrt(Q)` tends to a nonzero constant.
+- Dimensions `p=4,...,7`, four transverse scales, and FFT resolutions
+  `1024,...,8192` are stable; the equality controls are `~1e-14`.
+- L157 still makes the optimized-upper/dual gradient difference
+  `O(Q)`.  It therefore cannot cancel the leading `sqrt(Q)` term.
+  The sharp covariant Schur cancellation in L163 is necessary rather
+  than a technical detour.
+  `proof/crabb_disk_ambient_gradient_division.md`.
+
+## NEWEST (2026-07-23): L163 isolates the all-grade circular-normal proof gate
+- For reflected grade `k>=2`, the only character-eligible true
+  circular normal has mode `m=L+2-k`.
+- At the Crabb point, the first normalized normal/defect-column
+  coefficient is `2` for `k=2`,
+  `sqrt(2)(13L-9)/(8L)` for `k=3`, and
+  `sqrt(2)((2k-3)/2-(k-2)^2/L)` for `k>=4`.
+  The complete residual Stein chain also has a closed all-size
+  formula, regenerated exactly through `L=12`.
+- Audit correction: this first column does not include the mixed
+  strong coefficients at weights `d+1,...,2d` created by the inverse
+  Riemann, Stein, and endpoint recurrences.  The nonzero individual
+  grade-three endpoint shifts show those terms are real and must be
+  retained.  The earlier all-grade PROVED label was premature.
+- The obstruction is exact, not just diagnostic: for grade three the
+  ordinary L65 Hessian cross is strictly positive (generically
+  `6m(m-1)(m-2)(2-sqrt(2))/(m+1)^2`, with one explicit
+  `L=10` terminal fold), although the complete checked physical cross
+  vanishes.  Higher covariant jets must cancel this nonzero base term.
+- L161 proves the complete statement for grade two.  The corrected
+  grade-three central collision and next length cancel exactly, and
+  floating scans through grade seven support the all-grade rule.
+  These are finite evidence, not an all-size proof.
+- A stronger floating audit leaves the final defect jet free: through
+  grades two to five, the complete normal derivative is exactly the
+  same closed `gamma_(L,k)` times the matching final-defect derivative.
+  This identifies the likely theorem; defect stationarity would kill
+  it immediately once the covariant recurrence is proved.
+- The next gate is a covariant differentiated recurrence showing that
+  all mixed strong jets give equal relative endpoint shifts.  The
+  separate uniform tubular lift also remains.
+  `proof/crabb_all_grade_normal_selection.md`.
+
 ## NEWEST (2026-07-23): L162 proves all-size ambient stationarity on the equality ridge
 - At every positive phase-palindromic disk-equality anchor, fix L123's
   coefficient metric `K` and defect `q`, continue its rank-one Stein
@@ -20,8 +69,9 @@
   controls are not stationary.
 - This supplies the critical-ridge half of a tubular/Morse--Bott
   argument.  It does not prove a negative normal Hessian or the final
-  neighborhood theorem.  Next combine it with L160--L161 in a prepared
-  full-disk tubular chart.
+  neighborhood theorem.  L163 supplies a promising all-grade
+  first-column mechanism, but its covariant mixed recurrence and the
+  prepared uniform full-disk tubular chart remain.
   `proof/crabb_equality_ambient_stationarity.md`.
 
 ## NEWEST (2026-07-23): L160--L161 isolate the first circular-normal faces
@@ -2312,19 +2362,19 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-23)
-1. **Build the complete disk-flat tube from L151--L152.**  Combine the now
-   proved weighted quadratic face
-   `-sum|z_j|²c^(2(L-j))` with `-c^(2L)` and L152's
-   uniform `-aQ(z)`.  L154 controls every dual one-leg
-   `y`--wedge sector, and L157 puts the pure disk model gap at
-   `O(Q²)`; L158 closes the mixed positive gap.  A106 shows that
-   nonlinear grade aliases forbid the proposed two-sided raw Rees
-   comparison but only add prepared descent.  Next absorb L118's
-   strong variables using the prepared norm, or prove just the
-   one-sided lower comparison.
-   L151's raw face, L147's equality tube, L152's normal tube,
-   L154's one-leg bound, and L157--L158's merger are closed; do not
-   reopen them without a concrete contradiction.
+1. **Close the covariant all-grade normal recurrence, then the
+   full-disk tubular lift.**  L158 gives
+   `-aQ(z)-b||eta||²`, L160 completes grade one, L161 completes grade
+   two, and L162 gives ambient stationarity on the equality ridge.
+   L163 proves the all-grade first normal/defect column but not the
+   mixed weights through `2d`.  Differentiate the complete
+   inverse-Riemann/Stein/endpoint recurrences and prove their relative
+   endpoint shifts cancel.  A111 numerically falsifies the attempted
+   `O(Q)` ambient-gradient shortcut even after coercive-normal
+   projection, so retain the joint `sqrt(Q)` Schur structure rather
+   than retrying scalar cone division.  Do not return to raw
+   two-sided Rees comparison: A106 disproves it and prepared aliases
+   only add descent.
 2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
    trace inequality can instead be derived from the block-Toeplitz positivity of the full
    operator-valued correction moments. Do not retry trace/positive-state scalarizations.
