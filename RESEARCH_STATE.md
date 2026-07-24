@@ -2,6 +2,35 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — full circular-normal merger)
 
+## NEWEST (2026-07-24): A126 isolates the recentered sixth-order Schur face
+- The initial `p=5,6` finite data did not extrapolate: after L176's
+  exact disk recentering, the cubic true-normal response first survives
+  at `p=7`, in support mode three.  Thus the next universal face is
+  sixth order, not generically eighth order.
+- For `p=7`, with `W=z wedge J conjugate(z)`, the first complex response
+  is exactly checked as
+  `−22(6z_3W_03−5z_4W_02+2z_3W_12)/45` on five unrelated rational
+  complex rays.  Its L65 curvature is `145/2592`.
+- The canonical disk-base endpoint excess vanishes through degree five
+  and is generically negative at degree six.  A real `p=5` symbolic
+  slice factors as
+  `−128 a_2²(a_1−a_3)²(2a_1²+a_2²)/9`, exposing additional
+  terminal-only strata whose first base term is eighth order.
+- On the real `p=7` slice, the needed Schur inequality is
+  `P_6>=1089|C|²/290`.  A Gram SDP and 2,000 complex random rays plus
+  20 BFGS searches independently locate the much stronger
+  sharp-looking constant `9`; equality occurs when only the last two
+  Toeplitz coefficients remain.  This is discovery evidence, not an
+  exact SOS proof.
+- Exact canonical ratios remain favorable through `p=10`; five exact
+  `p=7` rays have maximum about `0.277`.  A separate 30-record
+  optimized nonlinear `p=7` probe has positive residual throughout and
+  maximum finite-scale ratio `0.3375`.
+- The load-bearing target is now the all-size block positivity of the
+  sixth face on `z tensor (z wedge J conjugate(z))`, followed by an
+  eighth-order analysis on its kernel.
+  `proof/crabb_full_disk_sixth_face.md`.
+
 ## NEWEST (2026-07-24): L177 proves the complete full-disk response identity
 - The unprojected degree-two characteristic/Riemann response in every
   active paired circle mode is the interval vector
@@ -2706,10 +2735,12 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    Toeplitz-disk/coercive-normal tube, L160 closes the compact
    grade-one Schur face, and L163/L172 close every higher-grade compact
    row.  L176--L177 supply the Hermitian disk-tangent correction, its
-   exact `32Q` energy, and the complete response match.  Use analytic
-   recentering to prove the genuine circular-normal response has the
-   extra ideal order suggested by L175's finite-scale data.  Then chart
-   the remaining non-Toeplitz circular-range directions as exact
+   exact `32Q` energy, and the complete response match.  A126 shows the
+   next problem is an all-size sixth-order Schur inequality: cubic
+   true-normal response begins at `p=7`, and the sixth face has further
+   terminal zero strata requiring an eighth-order fallback.  Prove that
+   block positivity and its kernel lift.  Then chart the remaining
+   non-Toeplitz circular-range directions as exact
    disk-theorem base variables, isolate where the base
    certificate can approach equality, and merge L149/L150's elliptic
    and compact deficits there.  Do not silently identify L174's slice

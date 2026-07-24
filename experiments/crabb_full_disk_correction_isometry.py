@@ -59,6 +59,43 @@ def correction_matrix(anti_diagonal: int) -> sp.Matrix:
     )
 
 
+def plucker_correction(
+    direction: tuple[sp.Expr, ...],
+) -> sp.Matrix:
+    """Assemble L176's Hermitian correction for one Toeplitz direction."""
+
+    length = len(direction)
+    coefficients = sp.Matrix(direction[1:])
+    coefficient_count = len(coefficients)
+    reversal = sp.Matrix(
+        [
+            sp.conjugate(coefficients[coefficient_count - 1 - index])
+            for index in range(coefficient_count)
+        ]
+    )
+    plucker = coefficients * reversal.T - reversal * coefficients.T
+    correction = sp.zeros(length)
+    for anti_diagonal in range(1, coefficient_count):
+        offset = coefficient_count - 1 - anti_diagonal
+        pulses = correction_matrix(anti_diagonal)
+        intrinsic = sp.Matrix(
+            [
+                sp.conjugate(
+                    plucker[left, anti_diagonal - left]
+                )
+                for left in range(pulses.cols)
+            ]
+        )
+        values = pulses * intrinsic
+        for row, value in enumerate(values):
+            correction[row, row + offset] = sp.expand(value)
+            if offset:
+                correction[row + offset, row] = sp.conjugate(
+                    correction[row, row + offset]
+                )
+    return correction
+
+
 def tangent_reduction(size: int) -> sp.Matrix:
     """Return the physical disk-tangent to L65 reduced-mode map."""
 

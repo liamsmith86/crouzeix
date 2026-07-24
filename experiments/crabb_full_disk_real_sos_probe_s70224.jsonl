@@ -1,0 +1,1 @@
+{"conjectured_constant": 9.0, "dimension": 7, "gram_size": 35, "length": 6, "minimum_gram_eigenvalue": -9.954077577473256e-07, "optimized_constant": 8.999998282900576, "required_schur_constant": 3.7551724137931033, "solver": "CLARABEL", "solver_status": "optimal_inaccurate"}

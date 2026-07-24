@@ -158,8 +158,11 @@ manifold:
 
 * use Berger--Okubo--Ando/L122 for the exact disk base;
 * use L65/L173 for the genuine coercive circular normals;
-* prove the recentered normal response has the extra ideal order
-  indicated by (6);
+* prove A126's exact sixth-order joint Schur inequality.  The cubic
+  true-normal response first survives at \(p=7\), so the earlier
+  fourth-order-gradient extrapolation from \(p=5,6\) is false;
+* stratify the kernel of that sixth face, where the terminal eighth
+  order replaces it;
 * then merge L117/L149/L150 and L160/L163 for the elliptic and compact
   variables.
 

@@ -89,14 +89,38 @@ def inverse_series(
 ) -> list[sp.Matrix]:
     """Expand ``(base+s*tangent)^-1`` through ``order``."""
 
-    coefficients = [base.inv()]
-    for _ in range(order):
-        coefficients.append(
-            (-coefficients[0] * tangent * coefficients[-1]).applyfunc(
-                sp.expand
-            )
+    return inverse_polynomial_series(
+        [
+            base,
+            tangent,
+            *[sp.zeros(base.rows) for _ in range(order - 1)],
+        ],
+        order,
+    )
+
+
+def inverse_polynomial_series(
+    coefficients: list[sp.Matrix],
+    order: int,
+) -> list[sp.Matrix]:
+    """Invert a polynomial matrix series through ``order``."""
+
+    if len(coefficients) < order + 1:
+        raise ValueError("insufficient matrix-series coefficients")
+    inverse = [coefficients[0].inv()]
+    for degree in range(1, order + 1):
+        convolution = sum(
+            (
+                coefficients[source_degree]
+                * inverse[degree - source_degree]
+                for source_degree in range(1, degree + 1)
+            ),
+            sp.zeros(coefficients[0].rows),
         )
-    return coefficients
+        inverse.append(
+            (-inverse[0] * convolution).applyfunc(sp.expand)
+        )
+    return inverse
 
 
 def lyapunov_series(
@@ -155,23 +179,57 @@ def generalized_endpoint_series(
 ) -> list[sp.Expr]:
     """Expand one simple generalized eigenvalue of ``(metric,K)``."""
 
+    metric_coefficients = [
+        metric_base,
+        metric_tangent,
+        *[sp.zeros(metric_base.rows) for _ in range(order - 1)],
+    ]
+    return generalized_endpoint_polynomial_series(
+        metric,
+        metric_coefficients,
+        endpoint,
+        initial_value,
+        order,
+    )
+
+
+def generalized_endpoint_polynomial_series(
+    metric: list[sp.Matrix],
+    metric_coefficients: list[sp.Matrix],
+    endpoint: int,
+    initial_value: sp.Rational,
+    order: int,
+) -> list[sp.Expr]:
+    """Expand a simple endpoint of a polynomial generalized pencil."""
+
+    if (
+        len(metric) < order + 1
+        or len(metric_coefficients) < order + 1
+    ):
+        raise ValueError("insufficient generalized-pencil coefficients")
+    metric_base = metric_coefficients[0]
     dimension = metric_base.rows
     eigenvalues = [initial_value]
     vectors = [sp.eye(dimension)[:, endpoint]]
     pencil_base = metric[0] - initial_value * metric_base
 
     for degree in range(1, order + 1):
-        known = (
-            metric[degree]
-            - eigenvalues[degree - 1] * metric_tangent
-        ) * vectors[0]
-        for pencil_degree in range(1, degree):
-            pencil = (
-                metric[pencil_degree]
-                - eigenvalues[pencil_degree] * metric_base
-                - eigenvalues[pencil_degree - 1] * metric_tangent
+        known = sp.zeros(dimension, 1)
+        for pencil_degree in range(1, degree + 1):
+            pencil = metric[pencil_degree].copy()
+            for eigenvalue_degree in range(pencil_degree + 1):
+                if eigenvalue_degree >= len(eigenvalues):
+                    continue
+                metric_degree = (
+                    pencil_degree - eigenvalue_degree
+                )
+                pencil -= (
+                    eigenvalues[eigenvalue_degree]
+                    * metric_coefficients[metric_degree]
+                )
+            known += (
+                pencil * vectors[degree - pencil_degree]
             )
-            known += pencil * vectors[degree - pencil_degree]
 
         eigenvalue = sp.cancel(
             known[endpoint] / metric_base[endpoint, endpoint]

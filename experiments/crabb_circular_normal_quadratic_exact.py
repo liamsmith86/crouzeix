@@ -54,29 +54,44 @@ def clean(matrix: sp.Matrix) -> sp.Matrix:
 
 
 def series_add(left: MatrixSeries, right: MatrixSeries) -> MatrixSeries:
-    """Add equal-order matrix series."""
+    """Add equal-length matrix series."""
 
+    if len(left) != len(right):
+        raise ValueError("matrix series must have equal lengths")
     return [
-        clean(left[degree] + right[degree])
-        for degree in range(SERIES_ORDER + 1)
+        clean(left_coefficient + right_coefficient)
+        for left_coefficient, right_coefficient in zip(
+            left,
+            right,
+            strict=True,
+        )
     ]
 
 
 def series_subtract(left: MatrixSeries, right: MatrixSeries) -> MatrixSeries:
-    """Subtract equal-order matrix series."""
+    """Subtract equal-length matrix series."""
 
+    if len(left) != len(right):
+        raise ValueError("matrix series must have equal lengths")
     return [
-        clean(left[degree] - right[degree])
-        for degree in range(SERIES_ORDER + 1)
+        clean(left_coefficient - right_coefficient)
+        for left_coefficient, right_coefficient in zip(
+            left,
+            right,
+            strict=True,
+        )
     ]
 
 
 def series_multiply(left: MatrixSeries, right: MatrixSeries) -> MatrixSeries:
-    """Multiply matrix series through quadratic order."""
+    """Multiply equal-length matrix series through their common order."""
 
+    if len(left) != len(right):
+        raise ValueError("matrix series must have equal lengths")
+    order = len(left) - 1
     dimension = left[0].rows
-    result = [sp.zeros(dimension) for _ in range(SERIES_ORDER + 1)]
-    for degree in range(SERIES_ORDER + 1):
+    result = [sp.zeros(dimension) for _ in range(order + 1)]
+    for degree in range(order + 1):
         for left_degree in range(degree + 1):
             result[degree] += (
                 left[left_degree] * right[degree - left_degree]
@@ -93,8 +108,8 @@ def scalar_matrix_series(
 
     identity = sp.eye(dimension)
     return [
-        sp.expand(coefficients[degree]) * identity
-        for degree in range(SERIES_ORDER + 1)
+        sp.expand(coefficient) * identity
+        for coefficient in coefficients
     ]
 
 
@@ -102,7 +117,7 @@ def series_inverse(coefficients: MatrixSeries) -> MatrixSeries:
     """Invert a matrix series whose constant term is nonsingular."""
 
     inverse = [coefficients[0].inv()]
-    for degree in range(1, SERIES_ORDER + 1):
+    for degree in range(1, len(coefficients)):
         convolution = sum(
             (
                 coefficients[source_degree]
@@ -121,8 +136,7 @@ def series_power(coefficients: MatrixSeries, exponent: int) -> MatrixSeries:
     dimension = coefficients[0].rows
     result = [
         sp.eye(dimension),
-        sp.zeros(dimension),
-        sp.zeros(dimension),
+        *[sp.zeros(dimension) for _ in coefficients[1:]],
     ]
     base = coefficients
     remaining = exponent
@@ -142,7 +156,7 @@ def polynomial_frechet_series(
     """Evaluate a varying polynomial and its matrix Frechet derivative."""
 
     dimension = operator[0].rows
-    zero = [sp.zeros(dimension) for _ in range(SERIES_ORDER + 1)]
+    zero = [sp.zeros(dimension) for _ in operator]
     value = zero
     derivative = [matrix.copy() for matrix in zero]
     for coefficient in coefficients:
@@ -198,9 +212,18 @@ def closed_quadratic_response(
 
 def disk_model_series(
     direction: Sequence[sp.Expr],
+    order: int = SERIES_ORDER,
+    correction: sp.Matrix | None = None,
 ) -> tuple[MatrixSeries, MatrixSeries]:
-    """Construct the coefficient-gauge disk operator and metric series."""
+    """Construct a coefficient-gauge disk operator and metric series.
 
+    ``correction`` is the quadratic Hermitian coefficient in
+    ``H=I/2+sZ+s^2 correction``.  The default reproduces L173's linear
+    Toeplitz ray.
+    """
+
+    if order < 0:
+        raise ValueError("series order must be nonnegative")
     length = len(direction)
     dimension = length + 1
     shift = sp.zeros(dimension)
@@ -218,23 +241,29 @@ def disk_model_series(
                 direction[offset]
             )
 
+    hermitian = [
+        base_toeplitz,
+        *[sp.zeros(dimension) for _ in range(order)],
+    ]
+    if order >= 1:
+        hermitian[1] = tangent_toeplitz
+    if correction is not None:
+        if correction.shape != (length, length):
+            raise ValueError("correction has the wrong shape")
+        if order < 2:
+            raise ValueError("a quadratic correction requires order >= 2")
+        hermitian[2][:length, :length] = correction
+
     metric = [
-        base_toeplitz + shift.T * base_toeplitz * shift,
-        tangent_toeplitz + shift.T * tangent_toeplitz * shift,
-        sp.zeros(dimension),
+        coefficient + shift.T * coefficient * shift
+        for coefficient in hermitian
     ]
     metric_inverse = series_inverse(metric)
-    toeplitz = [
-        base_toeplitz,
-        tangent_toeplitz,
-        sp.zeros(dimension),
-    ]
     operator = series_multiply(
-        series_multiply(metric_inverse, toeplitz),
+        series_multiply(metric_inverse, hermitian),
         [
             2 * shift,
-            sp.zeros(dimension),
-            sp.zeros(dimension),
+            *[sp.zeros(dimension) for _ in range(order)],
         ],
     )
     return operator, metric
@@ -256,7 +285,7 @@ def support_series(
     direction: sp.Matrix,
     boundary: sp.Symbol,
 ) -> ScalarSeries:
-    """Return the first-support variation through quadratic disk order."""
+    """Return the first-support variation through the supplied order."""
 
     dimension = direction.rows
     monomials = sp.Matrix(
@@ -269,7 +298,7 @@ def support_series(
         sp.expand(
             (adjoint_monomials * metric[degree] * monomials)[0]
         )
-        for degree in range(SERIES_ORDER + 1)
+        for degree in range(len(metric))
     ]
     analytic_numerator = [
         sp.expand(
@@ -281,7 +310,7 @@ def support_series(
                 * monomials
             )[0]
         )
-        for degree in range(SERIES_ORDER + 1)
+        for degree in range(len(metric))
     ]
     numerator = [
         sp.expand(
@@ -291,23 +320,34 @@ def support_series(
             )
             / 2
         )
-        for degree in range(SERIES_ORDER + 1)
+        for degree in range(len(metric))
     ]
 
     constant = sp.expand(denominator[0])
     if boundary in constant.free_symbols:
         raise AssertionError("the Crabb support denominator is not constant")
-    first = denominator[1]
+    denominator_inverse = [1 / constant]
+    for degree in range(1, len(denominator)):
+        convolution = sum(
+            (
+                denominator[source_degree]
+                * denominator_inverse[degree - source_degree]
+                for source_degree in range(1, degree + 1)
+            ),
+            sp.Integer(0),
+        )
+        denominator_inverse.append(
+            sp.expand(-convolution / constant)
+        )
     return [
-        sp.expand(numerator[0] / constant),
         sp.expand(
-            numerator[1] / constant
-            - numerator[0] * first / constant**2
-        ),
-        sp.expand(
-            numerator[0] * first**2 / constant**3
-            - numerator[1] * first / constant**2
-        ),
+            sum(
+                numerator[source_degree]
+                * denominator_inverse[degree - source_degree]
+                for source_degree in range(degree + 1)
+            )
+        )
+        for degree in range(len(denominator))
     ]
 
 
@@ -318,8 +358,11 @@ def polynomial_at_operator_series(
 ) -> MatrixSeries:
     """Evaluate the inverse-Riemann correction on an operator series."""
 
+    if len(scalar_coefficients) != len(operator):
+        raise ValueError("scalar and operator series must have equal lengths")
+    order = len(operator) - 1
     dimension = operator[0].rows
-    result = [sp.zeros(dimension) for _ in range(SERIES_ORDER + 1)]
+    result = [sp.zeros(dimension) for _ in range(order + 1)]
     for scalar_degree, expression in enumerate(scalar_coefficients):
         for mode, coefficient in laurent_modes(
             expression,
@@ -331,7 +374,7 @@ def polynomial_at_operator_series(
                 )
             power = series_power(operator, mode)
             for matrix_degree in range(
-                SERIES_ORDER - scalar_degree + 1
+                order - scalar_degree + 1
             ):
                 result[scalar_degree + matrix_degree] += (
                     coefficient * power[matrix_degree]
@@ -348,8 +391,8 @@ def pulled_direction_series(
 
     boundary = sp.symbols("boundary")
     support = support_series(metric, direction, boundary)
-    inverse_map = [sp.Integer(0) for _ in range(SERIES_ORDER + 1)]
-    for degree in range(SERIES_ORDER + 1):
+    inverse_map = [sp.Integer(0) for _ in operator]
+    for degree in range(len(operator)):
         modes = laurent_modes(support[degree], boundary)
         inverse_map[degree] = sp.expand(
             modes.get(0, 0) * boundary
@@ -370,20 +413,20 @@ def pulled_direction_series(
     )
     raw = [
         direction,
-        sp.zeros(direction.rows),
-        sp.zeros(direction.rows),
+        *[sp.zeros(direction.rows) for _ in operator[1:]],
     ]
     return series_subtract(raw, correction)
 
 
 def characteristic_series(operator: MatrixSeries) -> list[ScalarSeries]:
-    """Return descending characteristic coefficients through order two."""
+    """Return descending characteristic coefficients through series order."""
 
+    order = len(operator) - 1
     parameter = sp.symbols("parameter", real=True)
     matrix = sum(
         (
             parameter**degree * operator[degree]
-            for degree in range(SERIES_ORDER + 1)
+            for degree in range(order + 1)
         ),
         sp.zeros(operator[0].rows),
     )
@@ -391,7 +434,7 @@ def characteristic_series(operator: MatrixSeries) -> list[ScalarSeries]:
     return [
         [
             sp.expand(coefficient).coeff(parameter, degree)
-            for degree in range(SERIES_ORDER + 1)
+            for degree in range(order + 1)
         ]
         for coefficient in coefficients
     ]
@@ -434,10 +477,10 @@ def directional_gradient_series(
     endpoint = sp.eye(operator[0].rows)[:, -1]
     defect = [
         metric[degree] * sp.eye(operator[0].rows)[:, 0]
-        for degree in range(SERIES_ORDER + 1)
+        for degree in range(len(metric))
     ]
     result = []
-    for degree in range(SERIES_ORDER + 1):
+    for degree in range(len(operator)):
         value = sum(
             (
                 (

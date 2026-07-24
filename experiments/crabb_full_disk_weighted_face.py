@@ -173,7 +173,7 @@ def hermitian_coefficients(matrix: np.ndarray) -> np.ndarray:
 
 
 def plucker_disk_correction(direction: np.ndarray) -> np.ndarray:
-    """Return L175's conjectured explicit Hermitian disk correction."""
+    """Return L176's explicit Hermitian disk correction."""
 
     coefficients = direction[1:]
     coefficient_count = len(coefficients)
