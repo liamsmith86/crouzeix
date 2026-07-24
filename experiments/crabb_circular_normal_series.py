@@ -7,7 +7,11 @@ from collections.abc import Sequence
 
 import sympy as sp
 
-from rank_one_stein_series import diagonal_gramian_condition_series
+from rank_one_stein_series import (
+    diagonal_gramian_condition_series,
+    simple_diagonal_eigenvalue_coefficients,
+    stein_gramian_series,
+)
 
 
 def ordinary_triple_series_coefficient(
@@ -252,3 +256,39 @@ def real_circular_normal_direction(
             if grade in (mode, -mode):
                 direction[row, column] = weights[row] * weights[column]
     return direction
+
+
+def endpoint_condition_coefficients(
+    operator: Sequence[sp.Matrix],
+    defect: sp.Matrix,
+    epsilon: sp.Symbol,
+    order: int,
+) -> tuple[list[sp.Expr], list[sp.Expr], list[sp.Expr]]:
+    """Return the two Stein endpoint series and their quotient."""
+
+    gramian = stein_gramian_series(
+        operator,
+        defect,
+        epsilon,
+        order,
+    )
+    lower = simple_diagonal_eigenvalue_coefficients(
+        gramian,
+        endpoint=0,
+        base_eigenvalue=1,
+    )
+    upper = simple_diagonal_eigenvalue_coefficients(
+        gramian,
+        endpoint=gramian[0].rows - 1,
+        base_eigenvalue=4,
+    )
+    ratio = [sp.Integer(4), *[sp.Integer(0) for _ in range(order)]]
+    for degree in range(1, order + 1):
+        ratio[degree] = sp.expand(
+            upper[degree]
+            - sum(
+                lower[source_degree] * ratio[degree - source_degree]
+                for source_degree in range(1, degree + 1)
+            )
+        )
+    return lower, upper, ratio
