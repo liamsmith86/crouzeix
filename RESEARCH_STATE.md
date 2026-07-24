@@ -2,6 +2,23 @@
 
 **Last updated:** 2026-07-23 (Epoch 6 — disk-flat marked merger)
 
+## NEWEST (2026-07-23): A106 falsifies the two-sided raw Rees comparison
+- Ordinary invertibility of the characteristic coefficient map does
+  not survive the singular anisotropic pullback.
+- For `L=6` with the sole raw coefficient `z_1=t`, exact elimination
+  gives
+  `a_3=32t^7/((6t²−1)(16t⁴−14t²+1))`.  With `c=t^5`, the proposed raw
+  norm has order `t^52`, while the prepared norm contains a grade-three
+  term of order `1024t^44`; the ratio diverges.
+- This nonlinear high-to-low grade alias is favorable for L158: it
+  adds negative prepared descent, so the complete disk-flat sign still
+  pulls back physically.  What fails is only the attempted two-sided
+  quantitative comparison.
+- For the strong-variable merger, either prove the one-sided lower
+  estimate `N_prep>=c_LN_raw` or retain `N_prep` directly.  Do not use
+  an ordinary inverse-function theorem across `c=0`.
+  `proof/crabb_disk_flat_marked_merger.md`; exact coefficient model.
+
 ## NEWEST (2026-07-23): L158 closes the mixed disk/reflection model gap
 - In L149's independent real reflected-Rees polydisk, the model gap
   `Delta=U-R` is genuinely nonnegative, not merely a formal series.
@@ -18,9 +35,9 @@
   `U-4<=-a_1Q-b_1(|r|²+sum|w_k|²)`.
 - Thus the disk-normal/reflected tube is complete in the independent
   marked chart without exact all-disk complementarity and without a
-  mixed coefficient induction.  Remaining: make the triangular
-  physical pullback estimate explicit and absorb L118's strong
-  variables.
+  mixed coefficient induction.  Its sign survives physical pullback.
+  Remaining: absorb L118's strong variables, retaining the prepared
+  norm or proving only the one-sided raw comparison.
   `proof/crabb_disk_flat_marked_merger.md`.
 
 ## NEWEST (2026-07-23): L157 pushes the model gap above the disk face
@@ -180,9 +197,10 @@
   amplitudes `.12,...,.22`.
 - This does not falsify the disk-flat theorem.  It removes a shortcut.
   L154 now controls the dual one-reflection sector and L157 proves
-  that the nonnegative model gap is `O(Q²)` on the disk face.  The
-  remaining route is PSD zero-face polarization of the mixed gap,
-  followed by the triangular Rees-coordinate estimate.
+  that the nonnegative model gap is `O(Q²)` on the disk face.  L158
+  closes the mixed gap by positivity.  A106 subsequently disproves a
+  stronger two-sided raw/prepared norm comparison, which is not
+  needed for the disk-flat sign.
   `proof/crabb_disk_flat_marked_merger.md`;
   `experiments/crabb_disk_model_complement.py`.
 
@@ -2258,11 +2276,14 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    `-sum|z_j|²c^(2(L-j))` with `-c^(2L)` and L152's
    uniform `-aQ(z)`.  L154 controls every dual one-leg
    `y`--wedge sector, and L157 puts the pure disk model gap at
-   `O(Q²)`, and L158 closes the mixed positive gap.  Next establish the
-   triangular Rees-coordinate estimate and then absorb L118's strong
-   variables.  L151's raw face, L147's equality tube, L152's normal
-   tube, L154's one-leg bound, and L157--L158's model gap are closed;
-   do not reopen them without a concrete contradiction.
+   `O(Q²)`; L158 closes the mixed positive gap.  A106 shows that
+   nonlinear grade aliases forbid the proposed two-sided raw Rees
+   comparison but only add prepared descent.  Next absorb L118's
+   strong variables using the prepared norm, or prove just the
+   one-sided lower comparison.
+   L151's raw face, L147's equality tube, L152's normal tube,
+   L154's one-leg bound, and L157--L158's merger are closed; do not
+   reopen them without a concrete contradiction.
 2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
    trace inequality can instead be derived from the block-Toeplitz positivity of the full
    operator-valued correction moments. Do not retry trace/positive-state scalarizations.

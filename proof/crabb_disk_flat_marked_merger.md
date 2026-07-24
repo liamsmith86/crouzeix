@@ -364,7 +364,67 @@ neighbourhood.  This proves L158: the disk-normal and reflected faces
 merge without exact all-disk complementarity and without a separate
 mixed-face recurrence.
 
-## 7. Corrected merger architecture
+## 7. The proposed two-sided raw Rees comparison is false
+
+The physical pullback of (26) is valid without a norm comparison:
+substitution of the physical reflected coefficients into a genuine
+marked certificate preserves its sign.  A two-sided comparison with
+the raw Toeplitz grades would nevertheless have been useful for the
+final strong-variable merger.  That stronger claim is false.
+
+Take `L=6`, let the sole nonzero real Toeplitz coefficient be
+`z_1=t`, and write
+
+\[
+\det(\xi I-A)=\xi\left(\xi^6+\sum_{k=1}^5a_k(t)\xi^k\right).
+\]
+
+Exact rational elimination gives
+
+\[
+\boxed{
+a_3(t)
+={32t^7\over(6t^2-1)(16t^4-14t^2+1)}.
+}                                                     \tag{27}
+\]
+
+Thus a high raw reflected grade `L-1=5` aliases nonlinearly into
+prepared grade three.  Put `c=t^5`.  The proposed raw norm is
+
+\[
+{\cal N}_{\rm raw}
+=c^{12}+t^2c^{10}\asymp t^{52},
+\]
+
+whereas the prepared norm contains
+
+\[
+|c^3a_3(t)|^2\asymp 1024t^{44}.
+\]
+
+Consequently
+
+\[
+{{\cal N}_{\rm prep}\over{\cal N}_{\rm raw}}
+\longrightarrow\infty.                              \tag{28}
+\]
+
+The ordinary linearization
+`a_k=2conjugate(z_(L-k))+O(||z||^4)` is therefore not a
+uniform automorphism after the singular weighted pullback.  Nonlinear
+grade aliasing can make the prepared negative face much larger than
+the raw face.  This does not threaten L158; it strengthens its descent
+after physical substitution.  The correct optional target is only
+the one-sided lower comparison
+
+\[
+{\cal N}_{\rm prep}\ge c_L{\cal N}_{\rm raw},         \tag{29}
+\]
+
+or a strong-variable argument written directly in the prepared norm.
+Neither is claimed here.
+
+## 8. Corrected merger architecture
 
 The false exact identity is stronger than the local theorem needs.
 The viable replacement is a graded positive-gap argument.
@@ -400,19 +460,20 @@ The required statements are:
    continuity of the zero compact Hessian then gives (25), which is
    absorbed by the two negative faces.
 5. **Triangular marked coordinates.**
-   Prove, rather than infer from an ordinary inverse-function
-   theorem, the Rees estimate
+   **The proposed two-sided estimate is disproved by (27)--(28).**
+   A one-sided lower comparison may still hold and would suffice:
    \[
    |r|^2+\sum|w_k|^2
-   \asymp c^{2L}+\sum_j|z_j|^2c^{2(L-j)}.
+   \gtrsim c^{2L}+\sum_j|z_j|^2c^{2(L-j)}.
    \]
 
-Items one through four now give the complete disk-flat tube (26) in
-the independent marked chart.  The remaining coordinate comparison
-is useful for the final pullback and for absorbing L118's strong
-variables; it no longer hides a primal/dual equality assumption.
+Items one through four already give the complete disk-flat sign after
+physical pullback.  Item five is only a quantitative convenience for
+absorbing L118's strong variables.  The final argument may instead
+retain the prepared norm, where nonlinear aliases provide additional
+negative control.
 
-## 8. Regeneration
+## 9. Regeneration
 
 Run
 
@@ -425,9 +486,9 @@ PYTHONPATH=experiments .venv/bin/python -u \
   --output experiments/crabb_disk_one_reflection_jets_s70223.jsonl
 ```
 
-The first JSON line is the exact rational counterexample.  Remaining
-lines are finite-amplitude complex grids through the requested
-length.  The exact line is the proof artifact; the grid is only an
-adversarial regression.  The second checker verifies the full real
-first jet of (14), in both real and imaginary coefficient directions,
-through length ten.
+The first two JSON lines are exact: the rational complementarity
+counterexample and the symbolic grade alias (27).  Remaining lines are
+finite-amplitude complex grids through the requested length and serve
+only as adversarial regressions.  The second checker verifies the full
+real first jet of (14), in both real and imaginary coefficient
+directions, through length ten.

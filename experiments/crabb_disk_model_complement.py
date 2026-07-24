@@ -15,7 +15,9 @@ condition number and ``||B(A)||_K^2``.  This checker records:
 2. a binary64 grid showing the small but positive model gap.
 
 The exact counterexample, rather than a floating-point tolerance,
-is the load-bearing falsification.
+is the load-bearing falsification.  A second exact record audits the
+failure of a proposed two-sided comparison between raw and prepared
+reflected grades.
 """
 
 from __future__ import annotations
@@ -64,6 +66,22 @@ class DiskModelGapRecord:
     maximum_condition_square: float
     maximum_second_singular_value: float
     minimum_coordinate_eigenvalue: float
+
+
+@dataclass(frozen=True)
+class ReesAliasRecord:
+    """Exact nonlinear high-to-low characteristic-grade alias."""
+
+    length: int
+    dimension: int
+    raw_offset: int
+    raw_reflected_grade: int
+    aliased_characteristic_grade: int
+    characteristic_coefficient: str
+    physical_scaling: str
+    raw_norm_order: int
+    prepared_norm_order: int
+    two_sided_comparison_holds: bool
 
 
 def matrix_polynomial(
@@ -240,6 +258,46 @@ def exact_counterexample() -> ExactCounterexampleRecord:
     )
 
 
+def exact_rees_alias() -> ReesAliasRecord:
+    """Return the exact ``L=6`` nonlinear grade-alias obstruction."""
+
+    length = 6
+    parameter = sp.symbols("t", real=True)
+    coefficients = (
+        parameter,
+        *[sp.Integer(0) for _ in range(length - 2)],
+    )
+    operator, _, _, _ = exact_coefficient_model(coefficients)
+    variable = sp.symbols("xi")
+    factor = sp.Poly(
+        characteristic_factor(operator, variable),
+        variable,
+    )
+    aliased_coefficient = sp.factor(factor.nth(3))
+    expected = (
+        32
+        * parameter**7
+        / (
+            (6 * parameter**2 - 1)
+            * (16 * parameter**4 - 14 * parameter**2 + 1)
+        )
+    )
+    if sp.cancel(aliased_coefficient - expected) != 0:
+        raise AssertionError("the exact Rees grade alias changed")
+    return ReesAliasRecord(
+        length=length,
+        dimension=length + 1,
+        raw_offset=1,
+        raw_reflected_grade=5,
+        aliased_characteristic_grade=3,
+        characteristic_coefficient=str(aliased_coefficient),
+        physical_scaling="c=t^5",
+        raw_norm_order=52,
+        prepared_norm_order=44,
+        two_sided_comparison_holds=False,
+    )
+
+
 def make_record(
     length: int,
     sample_count: int,
@@ -322,8 +380,11 @@ def main() -> None:
 
     args = parse_args()
     rng = np.random.default_rng(args.seed)
-    records: list[ExactCounterexampleRecord | DiskModelGapRecord] = [
+    records: list[
+        ExactCounterexampleRecord | ReesAliasRecord | DiskModelGapRecord
+    ] = [
         exact_counterexample(),
+        exact_rees_alias(),
         *[
             make_record(length, args.samples, rng)
             for length in range(3, args.maximum_length + 1)
