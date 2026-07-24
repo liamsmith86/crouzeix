@@ -947,10 +947,11 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
 ## Next five concrete actions (refreshed 2026-07-24, Epoch 6)
-1. **Close L204 analytically.** Express its adjoint cokernel
-   `QZ_YV=0` in the genuine transfer coefficients and prove
-   `tr(YD_T)=0`, or construct a bounded correction with the block
-   Schur/Levinson recursion.  Do not infer analyticity from the
+1. **Construct the bounded grade-one selection.** L206 proves every
+   pointwise Fredholm condition, but the endpoint map changes rank at
+   Crabb.  Prove analytic divisibility in inverse-block-Toeplitz
+   coordinates or construct a bounded correction with the block
+   Schur/Levinson recursion.  Do not infer analyticity from a
    pointwise pseudoinverse.
 2. **Iterate the elliptic flag.** On the grade-one left kernel, derive
    the same oriented endpoint for `B_2`, then continue through the
@@ -969,10 +970,10 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
 ## Paste-ready continuation instruction
 "Continue the Crouzeix campaign in /home/liam/Downloads/crouzeix
 (git repo; commit and push each proved milestone).  Read the newest
-RESEARCH_STATE section and L201--L204/A144--A147.  The live gate is
-proof/repeated_crabb_elliptic_cokernel.md: prove its cokernel identity
-and bounded analytic selection from the genuine matrix-inner transfer
-or the block Schur/Levinson recursion.  Then iterate the oriented left
+RESEARCH_STATE section and L201--L206/A144--A149.  L206 proves the
+pointwise cokernel identity.  The live gate is to construct its bounded
+analytic selection through the rank jump from the genuine matrix-inner
+transfer or the block Schur/Levinson recursion.  Then iterate the oriented left
 Grams through B_2,...,B_L and merge the later L197 circular-normal
 flags.  Do not use the false raw matrix quotient, confuse B_n*B_n with
 B_nB_n*, or promote pointwise pseudoinverses through the rank jump.

@@ -86,11 +86,11 @@
 - A direct partial-isometry trace calculation proves the last negative
   square; it is not inferred from the numerical solver.
 - The stronger matrix boundary problem
-  `V*XV=0`, `W*XW=−ZZ*` is pointwise solvable in every tested
-  noncommuting anchor through lengths five and multiplicities three.
-  This remains evidence, not a proof: the linear map changes rank at
-  the Crabb apex, so a uniformly bounded real-analytic selection must
-  still be constructed before L194 can lift the jet.
+  `V*XV=0`, `W*XW=−ZZ*` was numerically solvable in every tested
+  noncommuting anchor, and L206 now proves pointwise solvability at
+  every equality anchor.  The linear map still changes rank at the
+  Crabb apex, so a uniformly bounded real-analytic selection must be
+  constructed before L194 can lift the jet.
   `proof/repeated_crabb_elliptic_second_face.md`;
   `experiments/repeated_crabb_elliptic_second_face.py`.
 

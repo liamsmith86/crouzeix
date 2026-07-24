@@ -287,7 +287,7 @@ one-dimensional scalar cokernel.  The multiplicity-three examples
 have a two-dimensional reducing cokernel, so the audit genuinely
 tests more than L203's trace direction.  The tracked dataset SHA-256
 is
-`1ed704a263f8082707891298015274e890ee834f69bfd3eda1ed77d0502e9aac`.
+`d3f81984b52e7c6261928e95a73b4ba8992c722f1027af9db26e5165ec4feb49`.
 
 ## 7. Remaining analytic gate
 
