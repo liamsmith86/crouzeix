@@ -221,6 +221,32 @@ divisibility proof that produces a bounded analytic `X,C_2`; after that,
 iterate the left Grams `B_nB_n*` on successive kernels.  See
 `proof/repeated_crabb_elliptic_second_face.md`.
 
+L204 performs the exact Lyapunov--Schmidt reduction.  With `G_T` the
+stable Stein inverse, eliminate the lower endpoint by
+
+```
+K=V*F_2V,  X_0=G_T(F_2−VKV).
+```
+
+All remaining freedom is `C perpendicular V` and the full matrix gate is
+
+```
+M_T(C)=D_T,
+M_T(C)=W*G_T(VC*+CV*)W,
+D_T=−ZZ*−W*X_0W.
+```
+
+If `Z_Y−TZ_YT*=WYW*`, the exact adjoint is
+`M_T*(Y)=2(I−VV*)Z_YV`.  Thus the analytic debt is now precisely
+`tr(YD_T)=0` on that cokernel plus a bounded analytic choice of `C`.
+The scalar condition is L203; reducible copy strata have additional
+cokernel directions.  On 48 noncommuting scaling records,
+`D_T=O(s²)` and the minimum correction is `O(s)` through the rank
+jump.  This is evidence, not the missing analytic proof.  Continue by
+rewriting the cokernel in L201's transfer coefficients or by the block
+Schur/Levinson recursion.  See
+`proof/repeated_crabb_elliptic_cokernel.md`.
+
 ### Superseded L182 checkpoint
 
 L174 proves the nonlinear Toeplitz-disk/coercive-normal slice tube.
@@ -882,21 +908,17 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
 ## Next five concrete actions (refreshed 2026-07-24, Epoch 6)
-1. **Promote the single-block theorem through collisions.** Merge
-   L192 with L73 and L86--L114's repeated-Crabb/normal-collision
-   theory through the metric flag.  First classify which losing-copy
-   and tied-winner valuations are not already strict from the
-   one-sided support derivative.  Do not grind larger copy-space
-   Schur matrices.
-2. **Audit the repeated equality stratum.** Determine whether a
-   repeated direct sum of L187 full-Hardy equality anchors has only
-   blockwise equality plus unitary copy mixing, or whether new
-   off-diagonal equality branches occur.  Use L74's quotient and
-   L86--L112's flag coordinates before computing higher jets.
-3. **Reassess the general similarity route.** Preserve the L20/L21
-   slice milestone, but keep the completely-bounded caveat.  Use the
-   existing general-matrix `t_*` adversarial data before attempting
-   any global Paulsen bridge.
+1. **Close L204 analytically.** Express its adjoint cokernel
+   `QZ_YV=0` in the genuine transfer coefficients and prove
+   `tr(YD_T)=0`, or construct a bounded correction with the block
+   Schur/Levinson recursion.  Do not infer analyticity from the
+   pointwise pseudoinverse.
+2. **Iterate the elliptic flag.** On the grade-one left kernel, derive
+   the same oriented endpoint for `B_2`, then continue through the
+   invertible terminal `B_L`.
+3. **Merge later circular normals.** L199 covers the first raw face
+   only.  Identify the response after L197's later least-squares Schur
+   quotients and combine it with the elliptic flag.
 4. **Full CP-correction moments.** Do not retry scalar shifts or
    positive-state scalarizations.  Test whether L21's trace inequality
    follows from the block-Toeplitz positivity supplied by the full
@@ -908,16 +930,15 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
 ## Paste-ready continuation instruction
 "Continue the Crouzeix campaign in /home/liam/Downloads/crouzeix
 (git repo; commit and push each proved milestone).  Read the newest
-RESEARCH_STATE section, L187--L192/A134--A135 in the ledgers, and
-proof/crabb_full_local_chart_merger.md.  The complete fixed-size
-single-Crabb chart is banked.  Resume at the repeated-block metric
-flag: combine L192 with L73 and L86--L114, classify the remaining
-tied-winner/losing-copy valuations, and determine whether the larger
-L187 equality manifold introduces new off-diagonal repeated equality
-branches.  Use the existing copy-quotient and flag structure; do not
-restart a single-block Hardy jet ladder or brute-force larger
-copy-space Schur matrices.  After the repeated local theorem, return
-to the general similarity/CP-moment and H-r routes.
+RESEARCH_STATE section and L201--L204/A144--A147.  The live gate is
+proof/repeated_crabb_elliptic_cokernel.md: prove its cokernel identity
+and bounded analytic selection from the genuine matrix-inner transfer
+or the block Schur/Levinson recursion.  Then iterate the oriented left
+Grams through B_2,...,B_L and merge the later L197 circular-normal
+flags.  Do not use the false raw matrix quotient, confuse B_n*B_n with
+B_nB_n*, or promote pointwise pseudoinverses through the rank jump.
+After the repeated local theorem, return to the general
+similarity/CP-moment and H-r routes.
 Respect pitfalls P1--P8 and the certificate discipline.  The stop
 condition remains a rigorous general proof or certified
 counterexample."

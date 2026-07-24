@@ -2,6 +2,33 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — repeated circular/elliptic merger)
 
+## NEWEST (2026-07-24): L204 isolates the exact elliptic cokernel
+- L203's full second Stein system reduces exactly to one real-linear
+  copy endpoint map.  If `G_T` is the stable Stein inverse, eliminate
+  the forced parallel defect motion with
+  `K=V*F_2V`, `X_0=G_T(F_2−VKV)`.  The remaining column
+  `C perpendicular V` acts by
+  `M_T(C)=W*G_T(VC*+CV*)W`.
+- The oriented face is now the single equation
+  `M_T(C)=D_T`, where `D_T=−ZZ*−W*X_0W`.
+- Its adjoint is explicit.  If
+  `Z_Y−TZ_YT*=WYW*`, then
+  `M_T*(Y)=2(I−VV*)Z_YV`.  Hence the exact unresolved statement is
+  `tr(YD_T)=0` for every such cokernel vector.
+- L203 proves the universal scalar cokernel condition.  Reducible
+  copy strata can have additional cokernel directions, so trace alone
+  is not sufficient.
+- A 48-case scaling audit through lengths five and multiplicities
+  three finds `D_T=O(s²)` and a minimum correction `C=O(s)` as the
+  equality amplitude `s` tends to zero.  Every additional cokernel
+  condition vanishes.  This is strong bounded-divisibility evidence,
+  not an analytic proof.
+- Next express the cokernel equation in L201's coefficients `B_n` and
+  prove it from matrix innerness, or construct the correction by the
+  block Schur/Levinson recursion.
+  `proof/repeated_crabb_elliptic_cokernel.md`;
+  `experiments/repeated_crabb_elliptic_cokernel.py`.
+
 ## NEWEST (2026-07-24): L203 proves the scalar second elliptic face
 - The second ellipse pullback coefficient is
   `E_2=2T−(T²T*+TT*T+T*T²)+T⁵`.  Together with L202's first
@@ -3221,37 +3248,32 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-24)
-1. **Promote L175--L177 to the nonlinear full circular-range tube,
-   then merge the marked variables.**
-   L174 closes the nonlinear
-   Toeplitz-disk/coercive-normal tube, L160 closes the compact
-   grade-one Schur face, and L163/L172 close every higher-grade compact
-   row.  L176--L177 supply the Hermitian disk-tangent correction, its
-   exact `32Q` energy, and the complete response match.  A126 shows the
-   next problem is an all-size sixth-order Schur inequality: cubic
-   true-normal response begins at `p=7`, and the sixth face has further
-   terminal zero strata requiring an eighth-order fallback.  Prove that
-   block positivity and its kernel lift.  Then chart the remaining
-   non-Toeplitz circular-range directions as exact
-   disk-theorem base variables, isolate where the base
-   certificate can approach equality, and merge L149/L150's elliptic
-   and compact deficits there.  Do not silently identify L174's slice
-   with the whole Lewis--Overton manifold, optimize over all raw L118
-   strong directions (A107), retry the `O(Q)` ambient shortcut (A111),
-   or replace L172 by the vague Hardy-projection slogan its audit
-   rejected.
-2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
+1. **Prove L204's analytic cokernel identity.** Rewrite
+   `Q Z_Y V=0` and `tr(YD_T)` in L201's transfer coefficients
+   `B_n`, or derive the correction from the matrix Schur/Levinson
+   recursion.  A pointwise pseudoinverse is not enough because the
+   endpoint map loses rank at Crabb.
+2. **Lift the elliptic flag through all reflected grades.** Once grade
+   one is analytic, restrict to its left-kernel and repeat the
+   cokernel construction for `B_2,...,B_L`.  Preserve multiplication
+   order; the terminal `B_L` is invertible by L201.
+3. **Finish the repeated normal/elliptic merger.** L197 closes the
+   disk Schur flag and L199 closes only its first raw circular-normal
+   face.  Prove the later Schur-orthogonal normal response, then merge
+   it with the all-grade elliptic flag without spending a negative
+   square twice.
+4. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
    trace inequality can instead be derived from the block-Toeplitz positivity of the full
    operator-valued correction moments. Do not retry trace/positive-state scalarizations.
-3. **Shifted Möbius H-r fallback**: derive its exact stationarity/rho formula (Kenan-Li quartic
+5. **Shifted Möbius H-r fallback**: derive its exact stationarity/rho formula (Kenan-Li quartic
    analog) and prove rho≥0 or K≤2. Definite parity is false.
-4. **Bi-conic Schwarzian test**: compute `SG` for the off-slice collapsed map on the critical
+6. **Bi-conic Schwarzian test**: compute `SG` for the off-slice collapsed map on the critical
    real interval. `SG≥0` would extend L17 immediately; otherwise test the weaker Sturm-potential
    comparison that the proof actually needs.
-5. **Odd phase positivity**: ρ = B₁g₁q₁+B₂g₂q₂ ≥ 0 given the L15 stationarity law
+7. **Odd phase positivity**: ρ = B₁g₁q₁+B₂g₂q₂ ≥ 0 given the L15 stationarity law
    (3-parameter; interlacing τ₂ < α < τ₁; term-1 dominance observed). Try the same
    deformation/kernel machinery.
-6. Rigor debts: n=6 structured floor; 2×2 α=0; contact degeneracy; L59/L117 publication-level
+8. Rigor debts: n=6 structured floor; 2×2 α=0; contact degeneracy; L59/L117 publication-level
    novelty audit.
    General-n work must include symmetry-breaking phases; the former parity-collapse induction
    remains valid only inside a chosen parity sector.
