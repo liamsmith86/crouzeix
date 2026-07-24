@@ -189,7 +189,13 @@ colligation transfer
 \]
 
 The feedthrough `d` retains the moving characteristic constant and
-avoids A115's fixed-zero failure.  The remaining obligation is
-precise: show that (11) is the corresponding marked real-mean
-coefficient of `dot(theta)/theta`.  Innerness then gives zero; it is
-not enough merely to observe that `theta` is inner.
+avoids A115's fixed-zero failure.  The remaining obligation at this
+stage was precise: show that (11) is the corresponding marked
+real-mean coefficient of `dot(theta)/theta`.
+
+L171 subsequently separates reflection count and proves that the
+one-reflection row has no ordinary quadratic singular-Hessian term.
+Its direct endpoint/cofactor term is reduced to L156's fully
+differentiated Hardy functional applied to L168's
+inner/optimized-defect split.  The required kernel value of that
+functional is still open.

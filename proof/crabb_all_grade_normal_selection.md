@@ -1,4 +1,4 @@
-# Candidate all-grade circular-normal selection rule (L163, 2026-07-23)
+# All-grade circular-normal selection: reduction record (L163, 2026-07-23)
 
 ## 1. Candidate and current status
 
@@ -28,26 +28,29 @@ For L115's real representative `N_m`, the desired statement is
 after inserting `s epsilon^d N_m` in the exact physical path and
 optimizing L118's rank-one defect.
 
-Equation (2) is **not yet proved in every grade**.  L161 proves it for
-`k=2`.  The maintained exact checker verifies the first central
-grade-three case and the next length; floating adversarial scans find
-the cancellation through grade seven.  Those finite calculations are
-evidence, not an all-size proof.
+This file records the reduction that preceded the current endpoint
+gate.
+Equation (2) was not proved here in every grade: L161 handled `k=2`,
+exact calculations covered initial higher cases, and L164--L170
+progressively exposed the endpoint mechanism.  L171 separates
+reflection count and kills the ordinary quadratic dual terms, but
+does not yet prove the final direct endpoint/cofactor functional.
 
 What is proved below is an all-size first normal/defect-column
 identity.  It explains the candidate cancellation and identifies the
 remaining proof gate: extend the identity covariantly through every
 mixed Riemann, Stein, and endpoint jet from weights `d+1` to `2d`.
 
-Subsequent results sharpen that gate.  L166 transfers the
+Subsequent results sharpened that gate.  L166 transfers the
 one-reflection row to the prepared Blaschke certificate.  L168 proves
 that the first normal-minus-defect endpoint response is exactly the
 logarithmic-inner tangent `k(z^(-m)-z^m)`.  L169 packages every later
 moving determinant and feedthrough coefficient into the exact inner
 colligation transfer of the optimized rank-one Stein metric.  The
-open step is to identify L166's marked Blaschke functional with the
-appropriate real-mean coefficient of that transfer; the all-grade
-vanishing is still not claimed.
+final step is to identify L166's complete differentiated marked
+Blaschke functional with the appropriate real-mean coefficient of
+that transfer.  L171 narrows this to one explicit kernel identity but
+does not yet prove it.
 
 ## 2. Exact first-column theorem
 

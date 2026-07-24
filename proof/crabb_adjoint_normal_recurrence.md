@@ -477,11 +477,16 @@ normal minus optimized symmetrized-defect response is
 `k(z^(-m)-z^m)`.  L169 then proves that the complete optimized
 rank-one Stein system has an exact scalar inner colligation transfer,
 whose feedthrough contains the later characteristic motion detected
-in (26).  These results replace the search for a cancellation by one
-remaining functional-matching problem; they do not yet prove that the
-whole convolution (27) is that inner real mean.
+in (26).  L171 removes the zero-reflection sector and the ordinary
+quadratic dual terms, but leaves the direct differentiated endpoint
+functional open.  The convolution below remains an independent
+physical-coordinate formulation of that gate.
 
 ## 9. Remaining all-grade statement
+
+**Still open after L171's sparse dual reduction.**  The formulation
+below records the exact physical-coordinate version of the remaining
+endpoint/characteristic balance.
 
 L163 is now equivalent to
 
@@ -496,13 +501,18 @@ L163 is now equivalent to
 for the sole character-eligible circular normal
 `m=L+2-k`.
 
-A valid completion should derive the circle-graded support of
+A coefficientwise completion would derive the circle-graded support of
 `M_j` from (2)--(3), transport the direct normal coefficients
 `E_(2d-j)` through the inverse-Riemann recurrence, and prove the
 boundary/characteristic balance in (19).  It no longer needs to
 propagate two endpoint eigenvectors or a free final defect jet through
-weight `2d`.  The preferred route is now to identify this convolution
-with L169's marked colligation logarithmic derivative, use L149's
-real-mean identity, and use L162 for the zero-reflection equality
-transport.  Grade one must remain outside the resulting functional
-identification.
+weight `2d`.
+
+L171 instead splits the convolution in L149's marked algebra.  L162
+kills its zero-reflection sector.  In the one-reflection sector only
+the first strong coefficient can meet the target weight; its
+quadratic singular-Hessian supports are disjoint.  The remaining
+direct endpoint term is exactly the still-open differentiated
+L156/L168 kernel identity.  Proving it would establish (27) without
+expanding every `M_j`; grade one must remain outside exactly as
+required.

@@ -2,6 +2,53 @@
 
 **Last updated:** 2026-07-23 (Epoch 6 — full circular-normal merger)
 
+## NEWEST (2026-07-23): L171 reduces the all-grade row to one endpoint kernel
+- Audit correction: L163 is **not yet proved** all-size.  The earlier
+  “positive Hardy mode is annihilated” sentence was not established
+  by L156 and has been removed rather than promoted into a lemma.
+- The rigorous part is substantial.  L149 reflection count and L162
+  kill the zero-reflection sector; L166 transfers the one-reflection
+  row to the prepared Blaschke side.
+- The ordinary dual singular Hessian is exactly sparse.  L143's
+  reflected tangent couples the top endpoint only through `L-k`;
+  `D(C^L)[E_d]` couples it only through `k-2`.  Since
+  `L-k>=k>k-2`, both the direct quadratic and eigenvector-coupling
+  terms vanish in every size.
+- L168--L170 split the only remaining direct endpoint response into
+  a logarithmic-inner tangent and an optimized-defect relative mode.
+  The precise remaining gate is to differentiate L149/L156's full
+  preparation/endpoint functional and prove that it annihilates that
+  latter mode for `m=L+2-k<=L`.
+- Grade one remains the mandatory discriminator: `m=L+1` is the
+  first terminal/feedthrough alias and L160/L165 is nonzero.
+- Exact grades two through four and floating grades through seven
+  satisfy the target.  The independent grade-four run has six
+  nonzero terms whose total cancels, ruling out termwise support.
+  `proof/crabb_all_grade_normal_bridge.md`.
+
+## NEWEST (2026-07-23): L170 removes the moving feedthrough without root tracking
+- For L169's degree-`p` characteristic inner function, put
+  `d=theta(0)` and take the first Schur iterate
+  `B=(theta-d)/(z(1-conj(d)theta))`.
+- This is a real-analytic finite Blaschke product of degree `p-1`.
+  When `d=0` it is exactly L149's prepared factor `theta/z`.
+- At the Crabb point, L167 gives a sharp discriminator.  The
+  grade-one tangent `-1+z^(2p)` maps to `dot B=0`.  Every grade
+  `k>=2` maps to
+  `dot B=-kz^(k-2)+kz^(2p-k)`, hence
+  `dot B/B=-k(z^(-m)-z^m)`.
+- This independently recovers the negative of L168's endpoint inner
+  tangent and explains why grade one has no matching degree-`p-1`
+  Blaschke motion.
+- Unlike naive division by `z`, the exact Schur formula remains
+  analytic when A115's later characteristic constant becomes
+  nonzero.  No eigenvalue or zero is selected.
+- L171 uses this leading discriminator and sparse dual support to
+  reduce L163 to one differentiated endpoint-functional identity.
+  The all-order formula remains the guard against reintroducing a
+  fixed-zero assumption.
+  `proof/crabb_characteristic_schur_step.md`.
+
 ## NEWEST (2026-07-23): L169 packages every mixed characteristic jet into one inner transfer
 - Any rank-one Stein pair
   `P-T*PT=qq*`, `P^(-1)-TP^(-1)T*=rr*` balances to a
@@ -16,12 +63,9 @@
 - The scalar feedthrough `d` is essential: it carries the moving
   constant characteristic term detected by A115.  Thus this exact
   identity survives precisely where the fixed-zero shortcut failed.
-- L168 is the first Crabb tangent of the colligation formula.  The
-  remaining L163 gate has sharpened to one functional identification:
-  prove that L166's marked one-reflection Blaschke cross is the
-  corresponding real-mean coefficient of `dot(theta)/theta`.
-  Innerness would then kill every grade at once; L162 handles the
-  separate zero-reflection equality transport.
+- L168 is the first Crabb tangent of the colligation formula.  L171
+  combines it with L162 and a sparse dual Hessian calculation, leaving
+  one direct endpoint-functional identification open.
   `proof/crabb_colligation_transfer.md`.
 
 ## NEWEST (2026-07-23): L168 exposes the leading inner endpoint tangent
@@ -40,15 +84,12 @@
   logarithmic-inner tangent, purely imaginary on the circle and with
   zero real mean.  This is the first concrete scalar bridge from
   L163 to L149 rather than a finite-grade cancellation.
-- The result is deliberately only leading order.  It does not yet
-  propagate through the mixed inverse-Riemann, moving-companion, and
-  optimized-defect coefficients at weights `d+1,...,2d`, so L163
-  remains open.
-- The next gate is to prove this identity covariantly for
-  `q*(zI-T)^(-1)e_L`, using L164 to pair endpoint/defect legs, L162
-  for zero-reflection equality transport, and L149 for the remaining
-  one-reflection real mean.  A115 forbids freezing later
-  characteristic factors.
+- The result is deliberately only leading order.  L171 shows that it
+  is the only endpoint response left after reflection-count separation
+  and sparse dual support, but evaluating the complete differentiated
+  L156 norming functional on it remains open.
+- A115 remains an important guard: later characteristic factors do
+  move, but their weights do not enter L171's one-reflection face.
   `proof/crabb_leading_endpoint_transfer.md`.
 
 ## NEWEST (2026-07-23): L166 transfers the compact normal row to the sharp dual
@@ -65,15 +106,9 @@
   one-reflection/normal coefficient of the optimized envelope equals
   the corresponding sharp prepared-Blaschke coefficient.
 - This is an all-size theorem and removes all optimizer jets from the
-  one-reflection part of L163.  It does not yet show the common dual
-  coefficient is zero, and it does not include terms nonlinear in
-  the unreflected equality amplitude; those remain under L162's
-  equality-ridge transport.
-- The concrete next gate is now scalar: combine L149's
-  logarithmic-inner one-reflection identity with L162's normalized
-  ambient Schwarz transfer.  L165's companion split identifies these
-  as the characteristic and endpoint-basis halves of the same
-  calculation.
+  one-reflection part of L163.  L171 proves that the common dual row
+  has no ordinary singular-Hessian contribution; its direct
+  endpoint/cofactor term remains open.
 - Audit warning: do not implement that bridge by freezing the zero
   characteristic root.  Grade two preserves the determinant through
   its face, but exact grade three has nonzero normal determinant
@@ -124,10 +159,10 @@
   central grade-four case is now also exact: its six nonzero adjoint
   pairings sum to zero, with boundary and characteristic totals
   `2(-607+439sqrt(2))` and its negative.
-- The remaining L163 gate is the all-grade boundary/characteristic
-  balance.  L149's logarithmic-inner mean and L162's Schwarz transfer
-  are the leading existing candidates for its scalar explanation,
-  with grade one serving as a mandatory discriminator.
+- L171 splits this convolution into marked sectors and removes all
+  ordinary dual Hessian terms, but the all-grade direct endpoint
+  balance remains open.  The exact records remain independent
+  regressions, and grade one remains the mandatory discriminator.
   `proof/crabb_adjoint_normal_recurrence.md`.
 
 ## NEWEST (2026-07-23): L164 proves reciprocal reversal of the optimized metric
@@ -200,9 +235,10 @@
   same closed `gamma_(L,k)` times the matching final-defect derivative.
   This identifies the likely theorem; defect stationarity would kill
   it immediately once the covariant recurrence is proved.
-- The next gate is a covariant differentiated recurrence showing that
-  all mixed strong jets give equal relative endpoint shifts.  The
-  separate uniform tubular lift also remains.
+- L171 subsequently reduced the coefficient further by
+  reflection-count separation and sparse dual support.  The direct
+  differentiated endpoint functional and the separate uniform
+  tubular lift remain.
   `proof/crabb_all_grade_normal_selection.md`.
 
 ## NEWEST (2026-07-23): L162 proves all-size ambient stationarity on the equality ridge
@@ -223,9 +259,9 @@
   controls are not stationary.
 - This supplies the critical-ridge half of a tubular/Morse--Bott
   argument.  It does not prove a negative normal Hessian or the final
-  neighborhood theorem.  L163 supplies a promising all-grade
-  first-column mechanism, but its covariant mixed recurrence and the
-  prepared uniform full-disk tubular chart remain.
+  neighborhood theorem.  L171 has reduced, but not closed, L163's
+  all-grade mixed selection; the prepared uniform full-disk tubular
+  chart also remains.
   `proof/crabb_equality_ambient_stationarity.md`.
 
 ## NEWEST (2026-07-23): L160--L161 isolate the first circular-normal faces
@@ -2516,19 +2552,18 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-23)
-1. **Close the covariant all-grade normal recurrence, then the
-   full-disk tubular lift.**  L158 gives
-   `-aQ(z)-b||eta||²`, L160 completes grade one, L161 completes grade
-   two, and L162 gives ambient stationarity on the equality ridge.
-   L163 proves the all-grade first normal/defect column but not the
-   mixed weights through `2d`.  Differentiate the complete
-   inverse-Riemann/Stein/endpoint recurrences and prove their relative
-   endpoint shifts cancel.  A111 numerically falsifies the attempted
-   `O(Q)` ambient-gradient shortcut even after coercive-normal
-   projection, so retain the joint `sqrt(Q)` Schur structure rather
-   than retrying scalar cone division.  Do not return to raw
-   two-sided Rees comparison: A106 disproves it and prepared aliases
-   only add descent.
+1. **Close L163's direct endpoint/cofactor functional, then build the
+   full circular-range tubular lift.**  L171 removes the
+   zero-reflection sector and every ordinary dual singular-Hessian
+   term.  Write the actual finite functional implicit in L149/L156,
+   differentiate all of numerator preparation, reversed denominator,
+   operator realization, and endpoint basis, and prove that it kills
+   L168's optimized-defect relative mode for `m<=L` while preserving
+   the grade-one `m=L+1` terminal alias.  Do not substitute the
+   unproved slogan “positive Hardy modes are projected out.”  Once
+   this closes, assemble L158, L160, L162, and L65 into a uniform
+   analytic negative estimate on the normal quotient and patch over
+   the complete circular-range manifold.
 2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
    trace inequality can instead be derived from the block-Toeplitz positivity of the full
    operator-valued correction moments. Do not retry trace/positive-state scalarizations.

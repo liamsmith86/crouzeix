@@ -200,8 +200,8 @@ fixed-zero error.
 
 L169 does not by itself prove L163.  It proves that the exact
 optimized normal/defect system has a canonical all-order inner
-transfer.  The remaining task is now an identification, not a search
-for a cancellation:
+transfer.  At this stage the remaining task was an identification,
+not a search for a cancellation:
 
 > Show that L166's transferred one-reflection Blaschke cross is the
 > real mean of the corresponding marked coefficient of
@@ -216,6 +216,13 @@ no defect coordinate `e_(L+1)`.
 This formulation is compatible with L165: its companion bottom row
 is the determinant/feedthrough part of (3), while its commutator
 boundary term is the moving state-space basis part.
+
+L171 subsequently reduces the only associated one-reflection weight
+to a direct endpoint/cofactor kernel identity and proves separately
+that every ordinary singular-Hessian term vanishes.  The complete
+differentiated L156 norming functional still has to be identified
+with the appropriate colligation coefficient; L169 alone does not
+close L163.
 
 ## 6. Exact regeneration
 

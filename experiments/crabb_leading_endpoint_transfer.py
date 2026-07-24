@@ -40,6 +40,9 @@ class EndpointTransferRecord:
     normal_mode: int
     riemann_coefficient: str
     characteristic_derivative: str
+    characteristic_inner_derivative: str
+    schur_iterate_derivative: str
+    schur_grade_discriminator_verified: bool
     endpoint_log_derivative: str
     positive_mode_coefficient: str
     symmetrized_defect_log_derivative: str | None
@@ -128,6 +131,45 @@ def make_record(length: int, grade: int) -> EndpointTransferRecord:
             "the leading characteristic derivative changed"
         )
 
+    base_inner = spectral_parameter**dimension
+    denominator_derivative = sp.factor(
+        spectral_parameter**dimension
+        * characteristic_derivative.subs(
+            spectral_parameter,
+            1 / spectral_parameter,
+        )
+    )
+    characteristic_inner_derivative = sp.factor(
+        characteristic_derivative
+        - base_inner * denominator_derivative
+    )
+    feedthrough_derivative = sp.expand(
+        characteristic_inner_derivative
+    ).coeff(spectral_parameter, 0)
+    schur_iterate_derivative = sp.factor(
+        (
+            characteristic_inner_derivative
+            - feedthrough_derivative
+        )
+        / spectral_parameter
+        + feedthrough_derivative
+        * spectral_parameter ** (2 * dimension - 1)
+    )
+    predicted_schur_derivative = (
+        sp.Integer(0)
+        if grade == 1
+        else grade
+        * (
+            -spectral_parameter ** (grade - 2)
+            + spectral_parameter ** (2 * dimension - grade)
+        )
+    )
+    schur_discriminator = sp.simplify(
+        schur_iterate_derivative - predicted_schur_derivative
+    ) == 0
+    if not schur_discriminator:
+        raise AssertionError("the Schur grade discriminator changed")
+
     beta = positive_mode_coefficient(length, grade)
     predicted_transfer = (
         grade * spectral_parameter ** (-mode)
@@ -185,6 +227,11 @@ def make_record(length: int, grade: int) -> EndpointTransferRecord:
         normal_mode=mode,
         riemann_coefficient=str(coefficient),
         characteristic_derivative=str(characteristic_derivative),
+        characteristic_inner_derivative=str(
+            characteristic_inner_derivative
+        ),
+        schur_iterate_derivative=str(schur_iterate_derivative),
+        schur_grade_discriminator_verified=schur_discriminator,
         endpoint_log_derivative=str(logarithmic_derivative),
         positive_mode_coefficient=str(beta),
         symmetrized_defect_log_derivative=(

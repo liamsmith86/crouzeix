@@ -229,8 +229,8 @@ These are precisely (6) with L163's three cases for `gamma`.
 ## 5. Scope and remaining gate
 
 Equation (7) proves the desired inner-tangent cancellation only for
-the **first strong coefficient** at the Crabb point.  It does not yet
-prove L163.  The physical reflected path produces mixed
+the **first strong coefficient** at the Crabb point.  By itself it
+does not prove L163.  The physical reflected path produces mixed
 inverse-Riemann, endpoint, characteristic, and optimized-defect
 coefficients at every weight from `d+1` through `2d`.
 
@@ -248,6 +248,15 @@ Grade one is correctly excluded: `m=L+1` is not a defect coordinate,
 and its leading characteristic derivative is the nonzero constant
 `-1`.  There is no matched positive mode, leaving the observed
 nonzero condition derivative.
+
+L171 subsequently observes that all later strong coefficients lie in
+the zero-reflection sector, which L162 kills identically.  The
+one-reflection sector already exhausts weight `2d` with `w_k` and
+the first coefficient proved here.  A sparse dual Hessian calculation
+closes every ordinary quadratic term.  The leading theorem therefore
+isolates the last object, but L163 still requires proving that L156's
+direct differentiated endpoint functional annihilates the
+optimized-defect mode in (6).
 
 ## 6. Exact regeneration
 
