@@ -7,7 +7,8 @@ There are two independent exact checks.
     shift, reversal of the inverse Stein Gramian again satisfies a
     rank-one Stein equation.
 2.  On the grade-two reflected Crabb path, the locally stationary
-    defect through jet four makes
+    defect through jet four agrees exactly with the new half-order
+    self-dual solver and makes
 
         J P(epsilon)^(-1) J = alpha(epsilon) P(epsilon)
 
@@ -24,13 +25,15 @@ import argparse
 from dataclasses import asdict, dataclass
 import json
 from pathlib import Path
-from typing import Sequence
 
 import sympy as sp
 
 from crabb_circular_normal_series import (
+    ordinary_matrix_inverse_series,
     optimized_defect_jets,
     physical_reflected_path,
+    reciprocal_reversal_defect_jets,
+    scalar_series_quotient,
 )
 from general_crabb_weighted_series import inverse_riemann_series
 from rank_one_stein_series import stein_gramian_series
@@ -52,6 +55,7 @@ class ReciprocalReversalRecord:
     optimized_jet_count: int
     scalar_coefficients: tuple[str, ...]
     identity_through_optimized_jet: bool
+    selfdual_jets_equal_optimized_jets: bool
     first_omitted_degree: int
     first_omitted_residual_nonzero_entries: int
 
@@ -63,50 +67,6 @@ def reversal_matrix(dimension: int) -> sp.Matrix:
     for index in range(dimension):
         reversal[index, dimension - 1 - index] = 1
     return reversal
-
-
-def inverse_matrix_series(
-    coefficients: Sequence[sp.Matrix],
-) -> list[sp.Matrix]:
-    """Invert an ordinary matrix power series."""
-
-    dimension = coefficients[0].rows
-    inverse = [coefficients[0].inv()]
-    for degree in range(1, len(coefficients)):
-        convolution = sum(
-            (
-                coefficients[source_degree]
-                * inverse[degree - source_degree]
-                for source_degree in range(1, degree + 1)
-            ),
-            sp.zeros(dimension),
-        )
-        inverse.append(sp.simplify(-inverse[0] * convolution))
-    return inverse
-
-
-def scalar_series_quotient(
-    numerator: Sequence[sp.Expr],
-    denominator: Sequence[sp.Expr],
-) -> list[sp.Expr]:
-    """Divide two scalar power series with nonzero denominator constant."""
-
-    quotient: list[sp.Expr] = []
-    for degree in range(len(numerator)):
-        known = sum(
-            (
-                quotient[source_degree]
-                * denominator[degree - source_degree]
-                for source_degree in range(degree)
-            ),
-            sp.Integer(0),
-        )
-        quotient.append(
-            sp.simplify(
-                (numerator[degree] - known) / denominator[0]
-            )
-        )
-    return quotient
 
 
 def rational_dual_audit() -> tuple[int, bool]:
@@ -153,7 +113,7 @@ def rational_dual_audit() -> tuple[int, bool]:
     return rank, verified
 
 
-def stationary_jet_audit() -> tuple[tuple[str, ...], int]:
+def stationary_jet_audit() -> tuple[tuple[str, ...], int, bool]:
     """Verify self-duality through every available optimizer jet."""
 
     epsilon = sp.symbols("epsilon", real=True)
@@ -172,6 +132,19 @@ def stationary_jet_audit() -> tuple[tuple[str, ...], int]:
         epsilon,
         jet_count=JET_COUNT,
     )
+    selfdual_defect = reciprocal_reversal_defect_jets(
+        operator,
+        epsilon,
+        jet_count=JET_COUNT,
+    )
+    jets_match = sp.simplify(defect - selfdual_defect) == sp.zeros(
+        DIMENSION,
+        1,
+    )
+    if not jets_match:
+        raise AssertionError(
+            "self-dual and endpoint-stationary defect jets differ"
+        )
 
     comparison_order = JET_COUNT + 1
     gramian = stein_gramian_series(
@@ -180,7 +153,7 @@ def stationary_jet_audit() -> tuple[tuple[str, ...], int]:
         epsilon,
         comparison_order,
     )
-    inverse = inverse_matrix_series(gramian)
+    inverse = ordinary_matrix_inverse_series(gramian)
     reversal = reversal_matrix(DIMENSION)
     reversed_inverse = [
         reversal * coefficient * reversal
@@ -226,6 +199,7 @@ def stationary_jet_audit() -> tuple[tuple[str, ...], int]:
     return (
         tuple(str(sp.factor(value)) for value in scalar),
         omitted_nonzero,
+        jets_match,
     )
 
 
@@ -233,7 +207,7 @@ def make_record() -> ReciprocalReversalRecord:
     """Run both exact audits."""
 
     dual_rank, dual_verified = rational_dual_audit()
-    scalar, omitted_nonzero = stationary_jet_audit()
+    scalar, omitted_nonzero, jets_match = stationary_jet_audit()
     return ReciprocalReversalRecord(
         rational_dual_rank=dual_rank,
         rational_dual_stein_verified=dual_verified,
@@ -242,6 +216,7 @@ def make_record() -> ReciprocalReversalRecord:
         optimized_jet_count=JET_COUNT,
         scalar_coefficients=scalar,
         identity_through_optimized_jet=True,
+        selfdual_jets_equal_optimized_jets=jets_match,
         first_omitted_degree=JET_COUNT + 1,
         first_omitted_residual_nonzero_entries=omitted_nonzero,
     )

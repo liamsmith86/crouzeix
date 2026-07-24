@@ -40,6 +40,50 @@ def ordinary_triple_series_coefficient(
     return sp.simplify(result)
 
 
+def ordinary_matrix_inverse_series(
+    coefficients: Sequence[sp.Matrix],
+) -> list[sp.Matrix]:
+    """Invert an ordinary matrix power series."""
+
+    dimension = coefficients[0].rows
+    inverse = [coefficients[0].inv()]
+    for degree in range(1, len(coefficients)):
+        convolution = sum(
+            (
+                coefficients[source_degree]
+                * inverse[degree - source_degree]
+                for source_degree in range(1, degree + 1)
+            ),
+            sp.zeros(dimension),
+        )
+        inverse.append(sp.simplify(-inverse[0] * convolution))
+    return inverse
+
+
+def scalar_series_quotient(
+    numerator: Sequence[sp.Expr],
+    denominator: Sequence[sp.Expr],
+) -> list[sp.Expr]:
+    """Divide two scalar power series with nonzero denominator constant."""
+
+    quotient: list[sp.Expr] = []
+    for degree in range(len(numerator)):
+        known = sum(
+            (
+                quotient[source_degree]
+                * denominator[degree - source_degree]
+                for source_degree in range(degree)
+            ),
+            sp.Integer(0),
+        )
+        quotient.append(
+            sp.simplify(
+                (numerator[degree] - known) / denominator[0]
+            )
+        )
+    return quotient
+
+
 def inverse_square_root_series(
     constant: sp.Matrix,
     tangent: sp.Matrix,
@@ -232,6 +276,86 @@ def optimized_defect_jets(
         if len(solutions) != 1:
             raise RuntimeError(
                 f"defect jet {jet} was not uniquely stationary"
+            )
+        defect = sp.simplify(trial.subs(solutions[0]))
+    return defect
+
+
+def reciprocal_reversal_defect_jets(
+    operator: Sequence[sp.Matrix],
+    epsilon: sp.Symbol,
+    jet_count: int,
+) -> sp.Matrix:
+    """Solve real persymmetric stationary defects from L164 self-duality.
+
+    At jet ``j``, impose ``J P^(-1) J = alpha P`` only through degree
+    ``j``.  Unlike :func:`optimized_defect_jets`, this requires operator
+    and Stein data only through ``j`` rather than through ``2j``.
+    """
+
+    if len(operator) <= jet_count:
+        raise ValueError("the operator series is too short for the requested jets")
+
+    dimension = operator[0].rows
+    reversal = sp.zeros(dimension)
+    for index in range(dimension):
+        reversal[index, dimension - 1 - index] = 1
+
+    if any(
+        sp.simplify(reversal * coefficient.T * reversal - coefficient)
+        != sp.zeros(dimension)
+        for coefficient in operator[: jet_count + 1]
+    ):
+        raise ValueError("reciprocal-reversal jets require a persymmetric path")
+
+    defect = sp.eye(dimension)[:, 0]
+    for jet in range(1, jet_count + 1):
+        variables = sp.symbols(
+            f"selfdual_{jet}_1:{dimension}",
+            real=True,
+        )
+        trial = defect + epsilon**jet * sp.Matrix([0, *variables])
+        gramian = stein_gramian_series(
+            operator,
+            trial,
+            epsilon,
+            jet,
+        )
+        inverse = ordinary_matrix_inverse_series(gramian)
+        reversed_inverse = [
+            reversal * coefficient * reversal
+            for coefficient in inverse
+        ]
+        scalar = scalar_series_quotient(
+            [coefficient[0, 0] for coefficient in reversed_inverse],
+            [coefficient[0, 0] for coefficient in gramian],
+        )
+        residual = sp.simplify(
+            reversed_inverse[jet]
+            - sum(
+                (
+                    scalar[source_degree]
+                    * gramian[jet - source_degree]
+                    for source_degree in range(jet + 1)
+                ),
+                sp.zeros(dimension),
+            )
+        )
+        equations = [
+            residual[row, column]
+            for row in range(dimension)
+            for column in range(row, dimension)
+            if residual[row, column] != 0
+        ]
+        solutions = sp.solve(
+            equations,
+            variables,
+            dict=True,
+            simplify=False,
+        )
+        if len(solutions) != 1:
+            raise RuntimeError(
+                f"self-dual defect jet {jet} was not uniquely determined"
             )
         defect = sp.simplify(trial.subs(solutions[0]))
     return defect

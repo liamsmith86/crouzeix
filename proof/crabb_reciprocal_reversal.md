@@ -147,7 +147,57 @@ positive defect normalization scale.  This proves (1).  Taking
 determinants in (1) gives (2), and applying (1) to an eigenvector
 gives (3).
 
-## 4. Why the first numerical audit looked imperfect
+## 4. Half-order optimizer recurrence
+
+Identity (1) also replaces the expensive endpoint-stationarity
+construction of the defect jets.  Suppose `q_1,...,q_(j-1)` are
+known and write
+
+\[
+q=q_{<j}+\epsilon^jq_j+O(\epsilon^{j+1}).
+\]
+
+The Stein coefficient `P_j` is affine in `q_j`.  Matrix-series
+inversion makes
+
+\[
+[\epsilon^j]\{JP^{-1}J-\alpha P\}=0                 \tag{11}
+\]
+
+a finite linear system for `q_j` and the scalar `alpha_j`.
+Normalization fixes `(q_j)_0=0`.
+
+The fixed-point system is nonsingular at the Crabb point.  Indeed, a
+defect tangent `h_je_j` gives
+
+\[
+(P_1)_{0j}=h_j,\qquad
+(P_1)_{L-j,L}=2h_j\quad(j<L),
+\]
+
+while `(P_1)_(0L)=h_L`.  Since
+`P_0=diag(1,2,...,2,4)` and `alpha_0=1/4`, the `(0,j)` entry of the
+linearized equation is
+
+\[
+-{h_j\over4}={h_j\over4}.
+\]
+
+Thus every `h_j` is zero.  The analytic implicit-function theorem
+gives a unique local self-dual defect branch, and L118's stationary
+branch lies on it by Section 3.
+
+Thus the stationary defect through jet `j` requires operator and
+Stein data only through degree `j`.  Direct optimization of the
+condition coefficient uses degree `2j`.  The exact half-order solver
+computes the four size-seven grade-three jets in seconds and agrees
+coefficient-for-coefficient with the direct optimizer wherever both
+are run.
+
+This is a computational corollary of the proved fixed-point theorem,
+not a second way of assuming stationarity.
+
+## 5. Why the first numerical audit looked imperfect
 
 Suppose the stationary defect series is known only through
 `epsilon^j`.  Its Gramian can satisfy (1) only through the same
@@ -164,7 +214,7 @@ Thus evaluated residuals of size `O(epsilon^(j+1))` are truncation
 errors, not evidence against (1), and must not be mistaken for
 roundoff-level confirmation through twice the face weight.
 
-## 5. Regeneration
+## 6. Regeneration
 
 Run
 
@@ -181,13 +231,15 @@ The checker has two independent exact parts.
     nilpotent shift verifies that (7) has rank one and that (8)
     solves the reversed Stein equation.
 2.  The size-five grade-two reflected path solves four stationary
-    defect jets, verifies (1) coefficientwise through degree four,
-    and confirms a nonzero residual first at the omitted fifth jet.
+    defect jets by both endpoint optimization and the half-order
+    fixed-point recurrence, verifies that they agree, checks (1)
+    coefficientwise through degree four, and confirms a nonzero
+    residual first at the omitted fifth jet.
 
 The all-size proof is Sections 2--3; the finite calculation audits the
 normalization and the important truncation boundary.
 
-## 6. Remaining L163 gate
+## 7. Remaining L163 gate
 
 Let `H` be the derivative of the optimized Gramian in a circular
 normal direction.  Differentiating (1) relates the reversed endpoint
@@ -198,10 +250,10 @@ of weight `k+1` in the adjoint envelope gradient:
 \[
 D\log\kappa(P)[H]
 ={v_+^THv_+\over\lambda_+}
- -{v_-^THv_-\over\lambda_-}.                         \tag{11}
+ -{v_-^THv_-\over\lambda_-}.                         \tag{12}
 \]
 
-Equation (3) removes one independent endpoint series from (11).  The
+Equation (3) removes one independent endpoint series from (12).  The
 next proof step must show that the complete inverse-Riemann/Stein
 normal forcing has zero coefficient in (11) for grades `k>=2`.
 The grade-one exception in L160 remains compatible with (1).

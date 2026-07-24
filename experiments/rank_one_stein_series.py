@@ -28,8 +28,6 @@ def stein_gramian_series(
 ) -> list[sp.Matrix]:
     """Solve ``P-T^*P*T=defect*defect^*`` through ``order``."""
 
-    dimension = operator[0].rows
-    base = operator[0]
     real_path = all(
         entry.is_real is True
         for coefficient in operator
@@ -46,9 +44,48 @@ def stein_gramian_series(
         )
         for degree in range(order + 1)
     ]
+    return stein_series_from_forcing(
+        operator[: order + 1],
+        forcing,
+    )
+
+
+def stein_series_from_forcing(
+    operator: Sequence[sp.Matrix],
+    forcing: Sequence[sp.Matrix],
+    *,
+    expand_only: bool = False,
+) -> list[sp.Matrix]:
+    """Solve ``P-T^*PT=F`` for two ordinary matrix series.
+
+    The constant operator is assumed nilpotent, as in every exact Crabb
+    series used here.  Passing the adjoint operator series solves the
+    adjoint orientation ``Z-TZT^*=G`` without a second recurrence.
+    """
+
+    if len(operator) < len(forcing):
+        raise ValueError("the operator series is shorter than the forcing")
+
+    order = len(forcing) - 1
+    dimension = operator[0].rows
+    base = operator[0]
+    real_path = all(
+        entry.is_real is True
+        for coefficient in operator
+        for entry in coefficient
+    ) and all(
+        entry.is_real is True
+        for coefficient in forcing
+        for entry in coefficient
+    )
+
+    def adjoint(matrix: sp.Matrix) -> sp.Matrix:
+        return matrix.T if real_path else matrix.conjugate().T
+
+    clean = sp.expand if expand_only else sp.simplify
     gramian: list[sp.Matrix] = []
     for degree in range(order + 1):
-        right_hand_side = forcing[degree]
+        right_hand_side = forcing[degree].copy()
         for left_degree in range(degree + 1):
             for right_degree in range(degree + 1 - left_degree):
                 metric_degree = degree - left_degree - right_degree
@@ -65,7 +102,7 @@ def stein_gramian_series(
                 * right_hand_side
                 * (base**power)
             )
-        gramian.append(sp.simplify(coefficient))
+        gramian.append(coefficient.applyfunc(clean))
     return gramian
 
 
@@ -103,16 +140,18 @@ def simple_eigenvalue_series(
     return series
 
 
-def simple_diagonal_eigenvalue_coefficients(
+def simple_diagonal_eigenpair_coefficients(
     matrix_coefficients: Sequence[sp.Matrix],
     endpoint: int,
     base_eigenvalue: int,
-) -> list[sp.Expr]:
-    """Lift a simple eigenvalue when the constant matrix is diagonal.
+) -> tuple[list[sp.Expr], list[sp.Matrix]]:
+    """Lift a simple eigenpair when the constant matrix is diagonal.
 
     This is the Rayleigh--Schrödinger recurrence in intermediate
-    normalization.  Unlike :func:`simple_eigenvalue_series`, it never forms
-    a symbolic determinant, so it remains practical when the matrix entries
+    normalization: the endpoint entry of every positive-order
+    eigenvector coefficient is zero.  Unlike
+    :func:`simple_eigenvalue_series`, it never forms a symbolic
+    determinant, so it remains practical when the matrix entries
     contain several auxiliary symbols.
     """
 
@@ -158,6 +197,21 @@ def simple_diagonal_eigenvalue_coefficients(
                 / (constant[index, index] - base_eigenvalue)
             )
         eigenvectors.append(eigenvector)
+    return eigenvalues, eigenvectors
+
+
+def simple_diagonal_eigenvalue_coefficients(
+    matrix_coefficients: Sequence[sp.Matrix],
+    endpoint: int,
+    base_eigenvalue: int,
+) -> list[sp.Expr]:
+    """Return only the eigenvalue part of the diagonal recurrence."""
+
+    eigenvalues, _ = simple_diagonal_eigenpair_coefficients(
+        matrix_coefficients,
+        endpoint,
+        base_eigenvalue,
+    )
     return eigenvalues
 
 

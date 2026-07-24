@@ -2,6 +2,42 @@
 
 **Last updated:** 2026-07-23 (Epoch 6 — full circular-normal merger)
 
+## NEWEST (2026-07-23): L165 reduces L163 to one half-order adjoint telescope
+- For the optimized rank-one metric, set
+  `G=v_+v_+*/lambda_+−v_-v_-*/lambda_-` and solve
+  `Z−TZT*=G`.  Exact Stein adjointness gives
+  `D log kappa[E]=2 Re tr(ZT*PE)`.
+- Defect stationarity and scale invariance give `Zq=0`, so no
+  differentiated optimizer jets occur in the normal derivative.
+  L164 also makes the operator gradient `PTZ` persymmetric.
+- The two Stein equations imply the sharper endpoint-flux identity
+  `T^*(PTZ)−(PTZ)T^*=v_+v_+^*−v_-v_-^*`.  Thus every interior
+  contribution is a commutator divergence with only two endpoint
+  sources, providing the likely algebraic origin of the telescope.
+- Canonically decomposing the normal series as `dot T=[T,X]+H`,
+  with `X` first-row normalized and `H` supported on the bottom
+  companion row, splits the target into an endpoint-basis term and a
+  characteristic-polynomial term.  This decomposition is exact and
+  coefficientwise, not a numerical fit.
+- For reflected grade `k` and `d=k+1`, the weight-`2d` normal
+  coefficient is the `d+1`-term convolution
+  `2 Re sum_(j=0)^d <[epsilon^j]PTZ,
+  [epsilon^(2d-j)]dot T>`.  The adjoint state is needed only through
+  weight `d`, rather than two endpoint states through `2d`.
+- The exact checker distinguishes all three current regimes:
+  grade one is nonzero (`D kappa=-56/3` in size four), every grade-two
+  summand vanishes separately, and grade three has five nonzero
+  terms in `Q(sqrt(2))` which telescope exactly to zero.
+- In grade three the endpoint-basis and characteristic sums are
+  respectively `-(-1060+683sqrt(2))/12` and its negative.  Grade one
+  has the nonzero sum `-7/3`.  Therefore neither support
+  disjointness nor endpoint flux alone can prove the rule.
+- The remaining L163 gate is the all-grade boundary/characteristic
+  balance.  L149's logarithmic-inner mean and L162's Schwarz transfer
+  are the leading existing candidates for its scalar explanation,
+  with grade one serving as a mandatory discriminator.
+  `proof/crabb_adjoint_normal_recurrence.md`.
+
 ## NEWEST (2026-07-23): L164 proves reciprocal reversal of the optimized metric
 - For every real persymmetric normalized operator near a Crabb block,
   the locally unique L118 rank-one metric satisfies
@@ -21,6 +57,11 @@
   coefficient.  It does **not** prove L163: self-duality controls the
   sum of relative endpoint derivatives, not the difference that must
   vanish.
+- The fixed-point equation is also a half-order optimizer solver.
+  Defect jet `j` follows from self-duality at degree `j`; its
+  fixed-point linearization is nonsingular at the Crabb block.  The
+  first four size-seven grade-three jets take seconds and agree with
+  the direct endpoint optimizer where independently compared.
   `proof/crabb_reciprocal_reversal.md`.
 
 ## NEWEST (2026-07-23): A111 falsifies the `O(Q)` ambient-gradient shortcut
