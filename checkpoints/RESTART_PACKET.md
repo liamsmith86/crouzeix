@@ -371,7 +371,33 @@ and matches the exact all-size monomial-axis metric.  The simpler
 column `2W` is universally endpoint-null but coincides with the
 delayed axis column only at the length-four apex.  Consequently the
 earlier minimum-norm fourth-order mismatch was a gauge artifact.
-Recompute the `B_2` face after L213 before judging L212's base target.
+
+L214 computes that delayed fourth-order face completely.  In L213's
+axis gauge, one polynomial preparation turns the raw face into
+
+```
+12 B_2 B_2* - 28 C(B_2* B_2),
+```
+
+and L212 then leaves `-16 B_2 B_2*`.  No transfer inverse, copy
+projection, or pseudoinverse occurs.
+
+L215 repeats this at the first genuinely new nonlinear gauge.  On
+`B_1=B_2=0`, the endpoint-null frame pair `+2QSWB_3` at order three
+and `-2QSWB_3` at order five matches the exact length-three axis.
+The complete sixth face is the same prepared base
+
+```
+12 B_3 B_3* - 28 C(B_3* B_3)
+```
+
+plus two explicit future-row endpoints; a polynomial sixth-frame
+column cancels those rows, and L212 leaves `-16 B_3 B_3*`.
+Independent implementations and 90 deterministic/random cases agree
+through singular and rank-zero strata.  This establishes two
+consecutive delayed grades, not an all-grade theorem.  The live gate
+is to derive the frame/future-row pattern from a one-delay generating
+or covariance equation rather than hand-expand grade four.
 
 L205 supplies a scalar-only alternative to that stronger complete
 gate.  The condition-two chain is sharp for a scalar Schur function
@@ -1060,12 +1086,12 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
 ## Next five concrete actions (refreshed 2026-07-24, Epoch 6)
-1. **Derive the higher delayed-gauge recursion.** L214 proves that
-   L213's axis gauge gives the exact `B_2` base
-   `12B_2B_2*−28C(B_2*B_2)` and L212 turns it into
-   `−16B_2B_2*`.  Identify the endpoint-null lower coefficients
-   before the `B_3` sixth face and seek their generating function;
-   do not substitute minimum-norm frame solutions.
+1. **Derive the one-delay physical covariance.** L214 and L215 prove
+   the same prepared base at grades two and three, and L212 turns
+   each into `−16B_kB_k*`.  Prove that adjoining/removing one
+   wandering delay stage transports the lower-tight metric, endpoint
+   Schur complement, and permissible endpoint-null gauge.  This
+   should promote L214 to every grade without a grade-four expansion.
 2. **Merge later circular normals.** L199 covers the first raw face
    only.  Identify the response after L197's later least-squares Schur
    quotients and combine it with the elliptic flag.
@@ -1083,15 +1109,16 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
 ## Paste-ready continuation instruction
 "Continue the Crouzeix campaign in /home/liam/Downloads/crouzeix
 (git repo; commit and push each proved milestone).  Read the newest
-RESEARCH_STATE section and L201--L214/A144--A157.  L207 gives the
+RESEARCH_STATE section and L201--L215/A144--A158.  L207 gives the
 explicit analytic grade-one correction; L208 gives the conditional
 higher flagged preimage; L209 promotes a surviving grade to a
 grade-one smaller colligation; L210 proves the exact transfer/Gram
 weight shift; L211 proves active-block channel covariance; L212 gives
 the universal all-grade polynomial preimage without flags; L213 fixes
 the lower-order delayed axis gauge; L214 proves the complete prepared
-`B_2` fourth face and its `−16B_2B_2*` endpoint.  Derive the
-higher endpoint-null gauge recursion and the all-grade physical base
+`B_2` fourth face; L215 proves the analogous complete `B_3` sixth
+face.  Both end at `−16B_kB_k*`.  Derive the one-delay physical
+endpoint/gauge covariance and thereby the all-grade physical base
 `12L_c−28C(R_c)` (or a one-sided smaller endpoint), and
 merge the later L197 circular-normal
 flags.  Do not use the false raw matrix quotient, confuse B_n*B_n with

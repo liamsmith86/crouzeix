@@ -2,6 +2,24 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — repeated circular/elliptic merger)
 
+## NEWEST (2026-07-24): L215 closes the twice-delayed physical face
+- On `B_1=B_2=0`, add `+2QSWB_3` to the perpendicular third-frame
+  coefficient and its negative at frame order five.  These motions
+  are endpoint-null at their own orders but essential at order six.
+- The complete sixth-order upper Schur coefficient becomes
+  `12B_3B_3*−28C(B_3*B_3)` plus two explicit future-row endpoint
+  terms involving `B_4*B_3` and `B_5*B_3`.
+- One polynomial sixth-frame preparation cancels both future rows.
+  L212 then leaves the coercive endpoint `−16B_3B_3*`.
+- The gauge matches the exact length-three elliptic-axis defect
+  frame.  No transfer inverse, kernel projection, or pseudoinverse
+  occurs, and singular/rank-zero `B_3` cases are included.
+- Grades two and three now exhibit the same prepared base.  The next
+  task is to derive the finite future-row/gauge pattern from one
+  generating colligation equation, not to hand-expand grade four.
+  `proof/repeated_crabb_grade_three_face.md`;
+  `experiments/repeated_crabb_grade_three_face.py`.
+
 ## NEWEST (2026-07-24): L214 closes the first delayed physical face
 - After L213's axis-compatible gauge, the complete fourth-order upper
   Schur coefficient on `B_1=0` reduces exactly to
