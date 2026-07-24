@@ -1,6 +1,6 @@
-# Complete Jordan absorption of repeated Crabb circular normals
+# Jordan absorption guard for repeated Crabb circular normals
 
-## 1. Result (L198, 2026-07-24)
+## 1. Conditional result and obstruction (A141, 2026-07-24)
 
 Let \(F=(F_{ab})_{1\le a,b\le L-1}\), \(F_{ab}\in M_m\), be the
 first block Hardy residual at a repeated Crabb disk point.  Its
@@ -19,22 +19,23 @@ P_k=\sum_{\substack{a<b\\a+b=r}}(b-a)D_{ab},\qquad
 C_k=\binom r3.                                      \tag{2}
 \]
 
-The correct complete amplification of L188 is **not** the one-sided
-square \(P_k^*P_k\).  The two reflected circular characters give the
-Jordan-symmetric square
+The one-sided guess \(P_k^*P_k\) is not a valid automatic
+amplification of L188.  A reflection-symmetric candidate instead uses
+the Jordan square
 
 \[
 \boxed{P_k^*P_k+P_kP_k^*.}                          \tag{3}
 \]
 
-More precisely, let \(Y_k\in M_m\) be the complex copy coordinate in
-L173's real/imaginary mode pair, and put
+Suppose, conditionally, that a block endpoint calculation produces a
+complex copy coordinate \(Y_k\in M_m\) in L173's real/imaginary mode
+pair and the paired face below.  Put
 
 \[
 \alpha_k={4(4k-1)\over L^2},\qquad G_k=\alpha_kP_k.
 \]
 
-Before scalarizing copy space, the residual/normal face is
+The candidate residual/normal face is
 
 \[
 \begin{aligned}
@@ -75,34 +76,42 @@ after the L173 null lift is retained.  Thus noncommutativity creates
 no new first-residual obstruction.  It does, however, make the
 reflection pairing in (3) load-bearing.
 
-L198 closes the **complete algebraic first-residual/circular-normal
-face**.  It does not yet prove the full repeated circular-normal tube:
-the later L197 Schur quotients must still be identified with reflected
-Hardy residuals after their analytic recenterings.
+Equations (5)--(7) rigorously prove absorption **if** (4) is the
+actual ordered block jet.  They do not prove that identification.
+Scalar L173/L188 data do not by themselves determine every
+noncommutative product order, and no independent full endpoint
+derivation of (4) has been completed.
 
-## 2. Why the block jet is Jordan-symmetric
+L199 avoids this unnecessary stronger claim.  A nonscalar normal copy
+coefficient has an earlier strict support-Jensen gap.  On a
+zero-Jensen winner it is scalar, so L188 amplifies state by state with
+no product-order ambiguity.  Therefore this note is retained as an
+adversarial guard and a useful conditional inequality, not as a
+dependency of the repeated proof.
 
-Repeat the L173/L188 coefficient paths before commuting their scalar
-amplitudes.  The grade \(L-k\) path contains \(G_k^*Y_k+Y_k^*G_k\).
-Reflection (1) sends it to the grade \(L+k\) path and reverses the
-copy-product order, giving \(G_kY_k^*+Y_kG_k^*\).  The two paths have
-the same scalar coefficient.  Dividing their sum by four gives the
-second line of (4), which reduces to
+## 2. Why the candidate is natural but not yet a theorem
+
+Formally lifting the two reflected L173/L188 character paths suggests
+that the grade \(L-k\) path contains
+\(G_k^*Y_k+Y_k^*G_k\), while grade \(L+k\) reverses the copy-product
+order and gives \(G_kY_k^*+Y_kG_k^*\).  Their equal scalar
+coefficients would give the second line of (4), reducing to
 \(\operatorname{Re}(\overline G_ky_k)\) when \(m=1\).
 
-The same precommutative lift of L173's two reflected path chains gives
+The analogous formal lift of L173's two reflected path chains gives
 
 \[
 -{b_{L,k}\over2}Y_k^*Y_k
 -{b_{L,k}\over2}Y_kY_k^*.
 \]
 
-It reduces to \(-b_{L,k}|y_k|^2\) in one copy.  Thus (4) follows from
-the actual ordered coefficient paths, not from guessing a tensor
-product of the scalar answer.
+It reduces to \(-b_{L,k}|y_k|^2\) in one copy.  However, establishing
+these ordered terms from the full repeated Riemann/metric endpoint is
+precisely the missing calculation.  The scalar restriction cannot
+exclude additional noncommutative terms which vanish when \(m=1\).
 
-At a repeated support eigenvalue, second-order numerical-range
-normalization can additionally contribute the Jensen endpoint
+At a repeated support eigenvalue, support normalization also has the
+Jensen endpoint
 
 \[
 8L\left\{\overline Q-
@@ -110,11 +119,10 @@ normalization can additionally contribute the Jensen endpoint
 \preceq0,                                           \tag{8}
 \]
 
-where \(Q(\theta)\) is the effective support matrix.  This is L61's
-tangent recurrence reapplied after the lower-order recentering.
-Dropping (8) only weakens the upper estimate, so it is not needed for
-(7).  It becomes useful when classifying equality and support-rank
-changes.
+where \(Q(\theta)\) is the effective support matrix.  L199 uses this
+term first: it is strict for nonscalar normal coefficients, and its
+zero set scalarizes the normal coefficient.  That route is both
+weaker and fully justified.
 
 ## 3. Operator completion and weighted Cauchy
 
@@ -202,7 +210,7 @@ which is indefinite.  Thus a scalar-only tensorization would have
 created a false lemma.  L173's null lift makes the correct symmetric
 face strict.
 
-## 5. Kernel compatibility with the first flag
+## 5. Conditional kernel compatibility
 
 Suppose a copy vector lies in the kernel of the complete leading
 face.  The positive null-lift difference
@@ -217,12 +225,10 @@ forces \(F_{ab}v=0\) for every block.  Reflection (1) then also gives
 \(F_{ab}^*v=0\).  Therefore the equality kernel reduces every leading
 residual and every leading circular-normal copy matrix.
 
-This is exactly the algebra needed to compress to the next copy-space
-flag.  L196 supplies the first inverse-Gram promotion.  The remaining
-proof debt is to show that L197's later Schur-orthogonal residuals,
-after each analytic recentering, retain the reflected form (1) with
-no additional mixed normal term.  Once that identification is made,
-the argument above iterates in at most \(m\) steps.
+This would be the algebra needed to compress to the next copy-space
+flag if (4) were established.  L199 proves the required reducing
+kernel directly on the scalarized zero-Jensen winner, so neither (4)
+nor a later Jordan lift is needed.
 
 ## 6. Regeneration
 
@@ -236,14 +242,14 @@ OPENBLAS_NUM_THREADS=1 .venv/bin/python -u \
 The checker:
 
 1. builds random noncommuting \(F\) with \(JF=(JF)^*\);
-2. verifies the flux-only and actual L173 Loewner inequalities;
+2. verifies the flux-only and L173-curvature conditional inequalities;
 3. constructs the sharp square-zero example (15);
 4. confirms that the symmetric flux face is exact there; and
 5. confirms that the one-sided residual has a negative eigenvalue.
 
 The standard dataset covers lengths \(6,\ldots,12\) and multiplicities
-\(2,3,4\).  The proof is equations (1)--(13); the computation is an
-indexing and noncommutativity audit.
+\(2,3,4\).  It audits equations (1)--(13), not the identification of
+(4) with the actual repeated endpoint.
 
 Its SHA-256 hash is
 

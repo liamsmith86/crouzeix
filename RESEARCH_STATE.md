@@ -1,28 +1,39 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-24 (Epoch 6 — repeated circular-normal merger)
+**Last updated:** 2026-07-24 (Epoch 6 — repeated elliptic merger)
 
-## NEWEST (2026-07-24): L198 finds the correct complete circular-normal face
-- A naïve one-sided tensorization of L188 is false for noncommuting
-  copy matrices.  A square-zero copy block makes the proposed
-  `16 P*P/C` residual indefinite.
-- The actual two reflected circular characters reverse copy-product
-  order.  Their complete gain is the Jordan-symmetric
-  `8(P*P+PP*)/C`.
-- The block Hardy reflection `JF=(JF)*` supplies both the matching
-  right and left residual Grams.  Matrix Cauchy therefore absorbs the
-  complete flux gain exactly; L173's positive null lift makes every
-  active normal face strict.
-- A common equality kernel reduces every leading residual and every
-  leading circular-normal copy matrix.  Thus the first
-  residual/normal face is compatible with compression to the next
-  copy flag.
-- Remaining debt: prove that every later L197 Schur-orthogonal
-  residual, after analytic recentering, retains the same reflected
-  Hardy form.  Recentered support-rank changes then use L61's
-  negative Jensen endpoint.
-  `proof/repeated_crabb_circular_jordan_absorption.md`;
-  `experiments/repeated_crabb_circular_jordan_absorption.py`.
+## NEWEST (2026-07-24): L199 closes the associated-graded circular-normal gate
+- L61 handles noncommuting true-normal copy coefficients before the
+  residual face: unless their first support-compression Jensen gap
+  vanishes, the similarity endpoint is already strict.
+- On a zero-Jensen maximal winner, Fourier independence of L115's
+  normal modes forces every surviving normal coefficient to be
+  scalar and removes its winner/loser cross blocks.
+- Test L195's block Hardy residual on a copy vector.  Its scalar
+  compression retains Hardy reflection, its scalar Frobenius energy
+  is bounded by the copy Gram, and L188/L173 applies without any
+  noncommutative ordering ambiguity.
+- Equality kills every normal amplitude and both the rows and columns
+  of every residual block on the kernel.  The kernel is reducing and
+  descends through L197's finite flag.  Thus true circular normals
+  create no remaining associated-graded obstruction.
+- The remaining repeated gate is the elliptic soft coordinate and
+  its operator-valued marked/Faber face over noncommuting
+  inverse-block-Toeplitz equality anchors.
+  `proof/repeated_crabb_circular_jensen.md`;
+  `experiments/repeated_crabb_circular_jensen.py`.
+
+## CORRECTION (2026-07-24): L198's stronger Jordan lift is not a dependency
+- A square-zero copy block rigorously disproves the naïve one-sided
+  gain `16P*P/C`.
+- The symmetric inequality `8(P*P+PP*)/C` is algebraically absorbed
+  by the reflected Hardy Gram, but the identification of that
+  symmetric form with the actual repeated endpoint was not
+  independently derived.  Scalar L173/L188 data cannot determine
+  every noncommutative product order.
+- The Jordan note is therefore retained only as a conditional guard.
+  L199 supplies the valid, weaker route by scalarizing normals on the
+  zero-Jensen winner.
 
 ## NEWEST (2026-07-24): L197 closes the finite repeated disk flag
 - Along any analytic block-disk path, the negative upper endpoint

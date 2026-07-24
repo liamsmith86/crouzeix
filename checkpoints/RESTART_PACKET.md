@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-24): L198 / A141
+## Current general Crabb frontier (2026-07-24): L199 / A142
 
 The complete local chart around every fixed **single** Crabb block is
 closed by L192.  L193 identifies the correct upper-equality stratum at
@@ -114,31 +114,30 @@ step, so the disk flag terminates after at most `m` stages.  Later
 residuals are precisely orthogonalized against earlier active Hardy
 ranges.
 
-L198 proves the correct complete algebraic circular-normal face at the
-first residual.  A one-sided lift `16P*P/C` is false for square-zero
-copy matrices.  The two reflected character paths instead give
+L198 records an important guard: the naïve one-sided complete gain
+`16P*P/C` is false on a square-zero copy matrix.  Its proposed
+Jordan-symmetric replacement is algebraically absorbable but was not
+independently identified with the actual repeated endpoint, so it is
+not a proof dependency.
 
-```
-8(P*P+PP*) / C.
-```
+L199 supplies the valid circular-normal merger.  L61 makes every
+nonscalar normal copy coefficient strict at the earlier
+support-Jensen order.  On a zero-Jensen winner, Fourier independence
+forces the surviving coefficient to be scalar.  Testing L195's block
+residual on each copy vector then reduces exactly to scalar
+L188/L173.  Equality kills every normal amplitude and both rows and
+columns of all residual blocks on the kernel, so L197 iterates.
 
-Block Hardy reflection supplies the matching right/left residual
-Grams, so matrix Cauchy absorbs the flux gain and L173's null lift is
-strict.  Its equality kernel reduces every leading residual and
-normal copy block.
-
-The immediate task is to identify every later L197
-Schur-orthogonal/recentered residual with the same reflected Hardy
-form.  Then use L61's recentered support-Jensen endpoint at copy-rank
-changes.  Elliptic copy data still require a separate support/Jensen
-rigidity argument; do **not** substitute a noncommuting matrix
-parameter into scalar Faber/Joukowski formulas.  See
+The immediate task is the elliptic soft coordinate over L193's
+noncommuting inverse-block-Toeplitz equality anchors.  Do **not**
+substitute a noncommuting matrix parameter into scalar
+Faber/Joukowski formulas without an operator-valued derivation.  See
 `proof/crabb_block_hardy_equality.md` and
 `proof/repeated_crabb_exact_metric_chart.md` and
 `proof/repeated_crabb_first_residual_endpoint.md` and
 `proof/repeated_crabb_inverse_gram_kernel.md` and
 `proof/repeated_crabb_schur_flag.md` and
-`proof/repeated_crabb_circular_jordan_absorption.md`.
+`proof/repeated_crabb_circular_jensen.md`.
 
 ### Superseded L182 checkpoint
 
