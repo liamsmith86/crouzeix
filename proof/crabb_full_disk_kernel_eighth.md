@@ -263,8 +263,9 @@ formula through length eight.  The independent endpoint and full
 characteristic/Riemann audit checks every reversal pair and every true
 normal through length ten.  Clean reruns must be byte-identical.
 
-The next task is not another homogeneous jet.  It is to use the exact
-Hardy residual as a nonlinear defining map, prove a uniform
-normal-gradient division by that residual across the
-phase-palindromic/pair intersection, and then complete the analytic
-normal fibres.
+L187--L189 subsequently carry this out in
+`proof/crabb_full_disk_leading_residual_tube.md`.  A transverse
+weighted correction can cancel the displayed fourth residual, so a
+finite eighth-order stopping argument is not uniform.  The full Hardy
+residual is instead a submersion onto a curved equality manifold, and
+its first eventual nonzero coefficient is absorbed in every order.

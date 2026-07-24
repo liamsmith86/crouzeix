@@ -29,13 +29,12 @@ import sympy as sp
 
 from crabb_circular_normal_quadratic_exact import (
     deterministic_disk_direction,
+    disk_model_from_hermitian_series,
 )
 from crabb_disk_toeplitz_quartic import (
     extend,
     generalized_endpoint_polynomial_series,
-    inverse_polynomial_series,
     lyapunov_series,
-    shift,
 )
 from crabb_full_disk_correction_isometry import plucker_correction
 
@@ -79,31 +78,36 @@ def endpoint_delta_series(
 
     length = len(direction)
     dimension = length + 1
-    nilpotent_shift = shift(dimension)
     hermitian = [
         extend(sp.eye(length) / 2),
         extend(toeplitz_direction(direction)),
         extend(plucker_correction(direction)),
         *[sp.zeros(dimension) for _ in range(order - 2)],
     ]
-    disk_metric = [
-        coefficient
-        + nilpotent_shift.T * coefficient * nilpotent_shift
-        for coefficient in hermitian
-    ]
-    inverse = inverse_polynomial_series(disk_metric, order)
-    operator = []
-    for degree in range(order + 1):
-        coefficient = sum(
-            (
-                inverse[left_degree]
-                * hermitian[degree - left_degree]
-                * nilpotent_shift
-                for left_degree in range(degree + 1)
-            ),
-            sp.zeros(dimension),
-        )
-        operator.append((2 * coefficient).applyfunc(sp.expand))
+    operator, disk_metric = disk_model_from_hermitian_series(
+        hermitian
+    )
+    return endpoint_delta_from_disk_series(
+        hermitian,
+        disk_metric,
+        operator,
+    )
+
+
+def endpoint_delta_from_disk_series(
+    hermitian: Sequence[sp.Matrix],
+    disk_metric: Sequence[sp.Matrix],
+    operator: Sequence[sp.Matrix],
+) -> list[sp.Expr]:
+    """Return the endpoint excess for arbitrary equal-order disk series."""
+
+    if not (
+        len(hermitian) == len(disk_metric) == len(operator)
+        and hermitian
+    ):
+        raise ValueError("disk series must have equal positive lengths")
+    order = len(operator) - 1
+    dimension = operator[0].rows
     defect = [coefficient[:, 0] for coefficient in hermitian]
     stein_metric = lyapunov_series(operator, defect, order)
     lower = generalized_endpoint_polynomial_series(

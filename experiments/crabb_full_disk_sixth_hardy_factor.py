@@ -104,8 +104,6 @@ def hardy_residual_matrices(
         raise ValueError("the recentered Hardy residual needs order >= 2")
     length = len(direction)
     dimension = length + 1
-    coefficient_count = length - 1
-    boundary = sp.symbols("hardy_boundary")
     correction = plucker_correction(direction)
     operator, _ = disk_model_series(
         direction,
@@ -119,6 +117,31 @@ def hardy_residual_matrices(
         extend(correction),
         *[sp.zeros(dimension) for _ in range(order - 2)],
     ]
+    return hardy_residual_from_disk_series(
+        tuple(hermitian),
+        tuple(operator),
+    )
+
+
+def hardy_residual_from_disk_series(
+    hermitian: tuple[sp.Matrix, ...],
+    operator: tuple[sp.Matrix, ...],
+) -> tuple[tuple[sp.Matrix, ...], bool]:
+    """Return Hardy residuals for an arbitrary disk-chart series."""
+
+    if len(hermitian) != len(operator) or len(hermitian) < 2:
+        raise ValueError("Hermitian and operator series must have equal orders")
+    dimension = hermitian[0].rows
+    if any(
+        coefficient.shape != (dimension, dimension)
+        for coefficient in (*hermitian, *operator)
+    ):
+        raise ValueError("disk series coefficients have wrong shapes")
+    order = len(operator) - 1
+    length = dimension - 1
+    coefficient_count = length - 1
+    boundary = sp.symbols("hardy_boundary")
+
     diagonal = [coefficient[0, 0] for coefficient in hermitian]
     diagonal_inverse = [1 / diagonal[0]]
     for degree in range(1, order + 1):

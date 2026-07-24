@@ -1,54 +1,41 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-24): L186 / A133
+## Current general Crabb frontier (2026-07-24): L189 / A134
 
-L183 proves the sharp kernel-observability inequality
-`sum_(j≥0)(T*)^jvv*T^j≤4||v||²I` for `w(T)≤1` and `Tv=0`, with an
-exact Berger/Hardy orbit-complement defect.  Along L176's recentered
-disk path, its first surviving transfer residual is a cubic skew
-matrix `R_L`.
+L187 identifies the finite Hardy residual `Psi(H)` on L122's general
+Hermitian disk chart.  Its Crabb differential is the Hermitian
+diagonal-difference map, of real rank `(L−1)^2` with exactly the
+Hermitian Toeplitz kernel.  Thus `Psi=0` is a curved analytic equality
+manifold of physical dimension `2L−2`.
 
-L184 proves
+Residual zero is genuine equality, not merely a canonical-metric
+artifact: the rank-one Stein condition square is four and the
+characteristic finite Blaschke product has norm two.  The normalized
+ambient derivative also vanishes on the whole manifold.  Independent
+nonlinear solves found non-Toeplitz points with both squares exactly
+four and all matrix-unit derivatives at roundoff.
 
-```
-D_(6,L)=8||R_L||²
-       ≥256 sum_k |T_(L,k)|²/binom(L-k,3).
-```
-
-Each L182 response coordinate is a weighted projection onto two
-disjoint anti-diagonals of `R_L`; the inequality is Cauchy--Schwarz.
-Its right side is exactly the completed gain using L173's flux
-curvature, and L173's actual curvature has an additional positive null
-lift.  Thus the complete sixth-order Schur face is nonnegative in
-every size.  Its exact equality set is `R_L(z)=0`.
-
-L185 writes the residual in closed Wronskian form and proves that its
-kernel has only two components: the phase-palindromic exact equality
-cone and the coordinate planes supported on one reversal pair.
-Equivalently, `R_L=0` reduces to
-`p q'−p' q=c x^(n−2)` for a polynomial and its reciprocal conjugate;
-Riemann--Hurwitz classifies the nonproportional case as a two-monomial
-reversal pair.
-
-L186 closes the pair component.  For `z_j=a,z_(n−1−j)=b` and
-`d=n−1−2j`, the exact eighth deficit is
+L188 replaces the sixth/eighth/tenth kernel ladder by one theorem.  If
+an analytic disk path first has residual `s^mF`, then
 
 ```
-D_(8,L)=512d²(|a|²−|b|²)^4/L².
+D_(2m)=4||F||_F².
 ```
 
-All true-normal responses vanish through quartic order because the
-fourth Hardy residual lies on the central anti-diagonal.  The deficit
-vanishes only at `|a|=|b|`, the phase-palindromic intersection.
+Every order-`m` circular-normal response is a weighted anti-diagonal
+projection of `(F−F^T)/2`.  Cauchy--Schwarz exactly absorbs these rows
+using L173's flux curvature, while its null lift supplies strictness.
+Exact audits cover first residual orders `1,...,5`, including the
+weighted pair whose fourth residual was canceled.
 
-The immediate frontier is now the nonlinear singular merger.  Use
-the exact Hardy residual as a defining map and prove uniform division
-of the full normal gradient by it across the equality/pair union,
-then complete the analytic normal fibres.  Do not start another
-homogeneous jet, fixed-size SOS, or `5×5` slice grind.  After this,
-merge the elliptic/compact faces.  See
-`proof/crabb_full_disk_kernel_eighth.md`.
+L189 applies analytic curve selection to prove the nonlinear tube over
+the **complete general-H disk chart** and transported true
+circular-normal fibres.  The next task is the final local-chart merger:
+combine this tube with the already proved elliptic and marked/compact
+faces, checking all two-scale intersections.  Do not resume a
+full-disk jet ladder or fixed-size SOS.  See
+`proof/crabb_full_disk_leading_residual_tube.md`.
 
 ### Superseded L182 checkpoint
 
@@ -658,7 +645,9 @@ P1 (K²+ρ ≤ Kq), L13 (Clark-type transition ⟨q(A)x₀,u₀⟩ = K∫q·conj
 **L16** (even-phase midpoint law + q = 1/2, domain-general), ceiling K²+2ρ+G² ≤ 4,
 **L29** (generic rank-one/full elliptic-slice KKT face), **L93** (arbitrary-copy fixed flat
 core via the metric flag and two-dimensional Clifford terminal blocks), **L98** (every bounded
-weighted chart at a nonnormal two-copy terminal block), 2×2 closed form; D2 partial results
+weighted chart at a nonnormal two-copy terminal block), **L187--L189** (full-disk Hardy equality
+manifold, arbitrary-order first-residual absorption, and nonlinear general-H/circular-normal
+tube), 2×2 closed form; D2 partial results
 (symmetric-node case, wedge family, convex trace bound).
 See LEMMA_LEDGER.md.
 
@@ -708,41 +697,44 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   The former deformation route was superseded by the Schwarzian proof of EL4; see
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
-## Next five concrete actions (refreshed 2026-07-22, Epoch 6)
-1. **Finish normal-face uniformity and merge L93 into L86.** L94--L98 close every bounded
-   weighted chart at a nonnormal terminal block. Treat `a->0` onto L88's exact normal
-   direct-sum manifold, then lift the transverse estimate through the metric flag and couple
-   it to the negative Gram/strong-mode and losing-sector terms. Do not grind larger Schur
-   matrices.
-2. **Full CP-correction moments.** Do not retry scalar shifts or positive-state scalarizations.
-   Test whether the L21 trace inequality follows from the block-Toeplitz positivity already
-   supplied by the full operator-valued Crouzeix--Palencia correction.
-3. **Shifted degree-one Möbius H-r phase**: derive its stationarity/rho formula and prove
-   positivity (or K≤2) independently as the scalar-conjecture fallback.
-4. **Bi-conic Schwarzian route**: compute `SG` for the off-slice collapsed map on its critical
-   real interval. If nonnegative, L17 gives D2 immediately; otherwise compare its Sturm potential
-   directly with `−1`.
-5. **Odd-phase level-4 positivity**: ρ = B₁g₁q₁+B₂g₂q₂ ≥ 0 under the L15 stationarity law
-   (slice_closed_form.md §3; interlacing τ₂ < α < τ₁, dominant positive outer term observed).
-   Try the same kernel/deformation machinery; the Möbius-equality structure should persist.
+## Next five concrete actions (refreshed 2026-07-24, Epoch 6)
+1. **Finish the single-Crabb local-chart merger.** Combine L189's
+   general-H disk/circular-normal tube with L149--L150/L158's
+   elliptic and marked/compact faces.  Audit the only equal-weight
+   mixed blocks using L160's strict grade-one face and L163's
+   higher-grade zero rows.  Use analytic curve selection rather than
+   another raw jet ladder.
+2. **Promote the single-block theorem through collisions.** Once the
+   local chart is closed, merge it with L73 and L86--L112's repeated
+   Crabb/normal-collision theory through the metric flag.  Do not
+   grind larger copy-space Schur matrices.
+3. **Reassess the general similarity route.** Preserve the L20/L21
+   slice milestone, but keep the completely-bounded caveat.  Use the
+   existing general-matrix `t_*` adversarial data before attempting
+   any global Paulsen bridge.
+4. **Full CP-correction moments.** Do not retry scalar shifts or
+   positive-state scalarizations.  Test whether L21's trace inequality
+   follows from the block-Toeplitz positivity supplied by the full
+   operator-valued Crouzeix--Palencia correction.
+5. **H-r fallback.** Continue the shifted degree-one Möbius and
+   odd-phase level-4 positivity attacks only after the local Crabb
+   merger is banked.
 
 ## Paste-ready continuation instruction
-"Continue the Crouzeix campaign in /home/liam/Downloads/crouzeix (git repo; commit+push after each
-task). Read RESEARCH_STATE.md (NEWEST section first), then proof/slice_similarity_duality.md,
-proof/slice_boundary_theorems.md,
-proof/el4_schwarzian_theorem.md,
-proof/even_pick_globality.md, proof/slice_closed_form.md, and proof/D2_landscape.md; master program in
-proof/rho_positivity_program.md. Resume at restart-packet action 1: turn the completed repeated-
-Crabb fixed-direction/metric-flag theory (L61--L93) into a uniform repeated-`C3`
-neighbourhood theorem. L98 already closes every bounded weighted chart off the normal terminal
-face; resume at `a->0` and the flag/strong-gap merger. Do not start a larger copy-space Schur
-grind: L93 reduces every terminal irreducible flat block to size at most two. The complete elliptic 4×4 slice is
-proved by L59; do not start a 5×5 slice grind or redo its SDP duality, modal norms, projective
-charts, or certificate. EL4 and even-sector midpoint globality are proved; definite parity is
-false. Respect
-APPROACH_LEDGER.md pitfalls P1–P8: every
-numerical claim needs the certificate battery; treat any apparent violation as artifact until it
-survives strict re-evaluation and an independent implementation; cross-check extremal phases with
-best_extremal (P5); verify analyticity/univalence of probe map families (P6). Do not re-open dead
-ends listed in the ledgers (esp. soft D2 classes — all falsified with certificates). The
-stop-condition remains: rigorous general proof or certified counterexample."
+"Continue the Crouzeix campaign in /home/liam/Downloads/crouzeix
+(git repo; commit and push each proved milestone).  Read the newest
+RESEARCH_STATE section, L187--L189/A134 in the ledgers,
+proof/crabb_full_disk_leading_residual_tube.md, then the elliptic and
+marked inputs proof/crabb_reflected_hardy_lift.md,
+proof/crabb_disk_flat_marked_merger.md,
+proof/crabb_circular_normal_face.md, and
+proof/crabb_dual_endpoint_residue.md.  Resume at the final
+single-Crabb chart merger: combine the proved general-H
+disk/circular-normal tube with the reflected/elliptic faces, using
+L160 for grade one and L163 for every higher grade.  Use valuation
+case-splitting plus analytic curve selection; do not restart a
+sixth/eighth/tenth Hardy jet ladder or a fixed-size SOS.  After the
+single-block theorem, lift through the repeated-block metric flag.
+Respect pitfalls P1--P8 and the certificate discipline.  The stop
+condition remains a rigorous general proof or certified
+counterexample."

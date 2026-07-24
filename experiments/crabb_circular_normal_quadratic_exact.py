@@ -226,9 +226,6 @@ def disk_model_series(
         raise ValueError("series order must be nonnegative")
     length = len(direction)
     dimension = length + 1
-    shift = sp.zeros(dimension)
-    for row in range(length):
-        shift[row, row + 1] = 1
 
     base_toeplitz = sp.zeros(dimension)
     tangent_toeplitz = sp.zeros(dimension)
@@ -254,15 +251,37 @@ def disk_model_series(
             raise ValueError("a quadratic correction requires order >= 2")
         hermitian[2][:length, :length] = correction
 
+    return disk_model_from_hermitian_series(hermitian)
+
+
+def disk_model_from_hermitian_series(
+    hermitian: MatrixSeries,
+) -> tuple[MatrixSeries, MatrixSeries]:
+    """Construct the disk operator from an arbitrary Hermitian series."""
+
+    if not hermitian:
+        raise ValueError("the Hermitian series cannot be empty")
+    dimension = hermitian[0].rows
+    order = len(hermitian) - 1
+    if any(
+        coefficient.shape != (dimension, dimension)
+        for coefficient in hermitian
+    ):
+        raise ValueError("Hermitian series coefficients have wrong shapes")
+    nilpotent_shift = sp.zeros(dimension)
+    for row in range(dimension - 1):
+        nilpotent_shift[row, row + 1] = 1
+
     metric = [
-        coefficient + shift.T * coefficient * shift
+        coefficient
+        + nilpotent_shift.T * coefficient * nilpotent_shift
         for coefficient in hermitian
     ]
     metric_inverse = series_inverse(metric)
     operator = series_multiply(
         series_multiply(metric_inverse, hermitian),
         [
-            2 * shift,
+            2 * nilpotent_shift,
             *[sp.zeros(dimension) for _ in range(order)],
         ],
     )

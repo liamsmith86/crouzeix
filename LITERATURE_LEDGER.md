@@ -1,6 +1,6 @@
 # LITERATURE_LEDGER.md
 
-Papers, theorems, assumptions, possible gaps. Status verified via web 2026-07-23.
+Papers, theorems, assumptions, possible gaps. Status verified via web 2026-07-24.
 
 ## Core chain
 | Ref | Result | Method | Notes / gaps to exploit |
@@ -15,6 +15,7 @@ Papers, theorems, assumptions, possible gaps. Status verified via web 2026-07-23
 | arXiv:2410.10678 | "The algebraic numerical range as a spectral set in Banach algebras" | — | CORRECTED ID (audit): earlier ledger entry misattributed this ID to a parameterized C–P extension |
 | O'Loughlin–Rani, arXiv:2603.15536 (2026) "q-Numerical Ranges and Spectral Sets" | Bound K = t + √(t²+a(Ω)), t = 1+γ(1)/2 | q-numerical range | CAUTION (audit): sentence after Thm 3.3 claiming K<2-type conclusion may be typo/gap — verify before use |
 | Hartz–McCarthy, arXiv:2606.02922 (2026) "From Clouâtre–Ostermann–Ransford to Okubo–Ando" | For a continuous unital operator-algebra homomorphism `theta` and every scalar functional `beta`, `||theta^(n)|| <= max(1,||(theta+beta I)^(n)||)` at every matrix level; recovers the sharp Okubo–Ando similarity theorem | Potapov–Möbius variational argument at matrix levels | AUDITED FOR L21: when `||theta||cb>1`, their inequality plus `beta=0` gives `inf_beta ||theta+beta I||cb=||theta||cb`, so scalar-shift search is an exact restatement, not a relaxation. Crouzeix–Palencia supplies an operator-valued correction `R(f)=theta(alpha(f))*`, not the required scalar range except in the disk case. A resolution/cross-solver SDP probe also numerically excludes every positive-state scalarization on one dense 3×3 test (`proof/general_similarity_probe.md`). Do not claim a general CP-to-HM bridge. |
+| Lewis–Overton 2020, "Partial Smoothness of the Numerical Radius at Matrices Whose Fields of Values Are Disks" | Under the simple polynomial boundary-eigenvector hypothesis, disk matrices form an analytic manifold of codimension `2n`; gives Crouzeix's global disk parametrization | Variational/partly-smooth numerical-radius geometry | PRIMARY SOURCE CHECKED.  This supports the ambient disk-manifold chart used in L115/L122 but does not classify which disk matrices attain scalar Crouzeix constant two or similarity square four.  Targeted equality searches still found no counterpart of L187's residual-zero submanifold. |
 
 ## Special cases proved (constant 2)
 - Normal matrices (trivial: R ≤ 1; equality-2 impossible). von Neumann: W(A) ⊇ spectrum.
@@ -22,11 +23,13 @@ Papers, theorems, assumptions, possible gaps. Status verified via web 2026-07-23
 - n×n with W(A) a disk (Okubo--Ando: numerical radius at most one implies
   similarity to a contraction with condition at most two, so the disk is a complete
   `2`-spectral set).  Campaign L123 is not a new proof of this upper bound: it identifies
-  a concrete all-size phase-palindromic stratified family on which the upper constant is attained,
-  with an explicit rank-one metric and matching characteristic-polynomial Blaschke product.
+  a concrete all-size phase-palindromic stratified family on which the upper constant is attained.
+  Campaign L187 substantially enlarges this to the analytic residual-zero manifold in L122's
+  complete general-H disk chart, of physical dimension `2L−2`, with an explicit rank-one metric,
+  matching characteristic-polynomial Blaschke product, and full normalized ambient stationarity.
   Targeted searches for disk-matrix equality classifications and Blaschke extremals found no
   matching parametrized equality theorem; treat the classification as apparently new pending
-  publication-level review.
+  publication-level review. `proof/crabb_full_disk_leading_residual_tube.md`.
 - Nearly Jordan blocks (Choi–Greenbaum).
 - Weighted shift matrices (Choi; complete 2-spectral via arXiv:2508.12768 Aug 2025).
 - Certain 3×3: tridiagonal with elliptic W(A) centered at eigenvalue; 3×3 KLS matrices (2025-26 work).

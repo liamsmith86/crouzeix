@@ -2,6 +2,42 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — full circular-normal merger)
 
+## NEWEST (2026-07-24): L187--L189 prove the first-residual tube
+- The exact disk-chart Hardy residual has a finite
+  `(L−1) x (L−1)` coordinate matrix `Psi(H)`.  At the Crabb point,
+  `D Psi(E)_(r,c)=E_(c+1,L−1−r)−E_(c,L−2−r)`.  After row reversal
+  this is the Hermitian diagonal-difference map, with real rank
+  `(L−1)^2` and kernel exactly the Hermitian Toeplitz space.
+- The implicit-function theorem therefore produces a **larger curved
+  equality manifold** through Crabb, of physical dimension `2L−2`.
+  Residual zero makes the canonical Hardy upper endpoint exactly four
+  times the lower endpoint.  The defect-one model's characteristic
+  Blaschke product simultaneously has norm exactly two, so these are
+  genuine scalar and similarity equality points.  L123's
+  phase-palindromic family is an explicit lower-dimensional section.
+- The complete pulled ambient derivative vanishes on this whole
+  manifold.  Independent nonlinear solves in lengths `3,...,6`
+  produce non-Toeplitz equality points with condition square and
+  characteristic-Blaschke norm square both `4`, top-vector overlap
+  `1`, and all real/imaginary matrix-unit derivatives at roundoff.
+- If an arbitrary analytic full-disk path first leaves the equality
+  manifold in order `m`, with Hardy residual coefficient `F`, then
+  the canonical base deficit is universally `4||F||_F^2`.  Every
+  leading circular-normal response is the weighted anti-diagonal
+  projection of the transpose-skew part `(F−F^T)/2`.
+- Anti-diagonal Cauchy--Schwarz exactly absorbs those responses using
+  L173's flux curvature; its positive null lift makes the actual
+  first-residual face strict.  This holds in **every order**, not only
+  the sixth/eighth faces.  Exact audits cover qualitatively different
+  first residual orders `1,...,5`, including the adversarial weighted
+  pair whose fourth residual was canceled exactly.
+- Analytic curve selection now proves the nonlinear tube over L122's
+  complete general-`H` disk chart and the transported true
+  circular-normal fibres.  The remaining campaign gate is no longer
+  another full-disk jet: merge this tube with the already proved
+  elliptic and marked/compact charts in the full local quotient.
+  `proof/crabb_full_disk_leading_residual_tube.md`.
+
 ## NEWEST (2026-07-24): L185--L186 classify and lift the sixth kernel
 - The cubic Hardy residual has a closed all-index formula in terms of
   L182's Wronskian fluxes
@@ -24,10 +60,10 @@
   anti-diagonal, while nonzero normal modes use the shifted
   anti-diagonals.  The eighth face is therefore strictly positive
   away from `|a|=|b|`, exactly the phase-palindromic intersection.
-- This closes the homogeneous kernel fallback.  The live task is now
-  the nonlinear singular merger: divide the full normal gradient by
-  the exact Hardy residual uniformly across the equality/pair union,
-  then complete the analytic normal fibres.
+- This closes the homogeneous kernel fallback.  L187--L189
+  subsequently replace its finite-order ladder by the full Hardy
+  equality manifold, universal first-residual absorption, and the
+  nonlinear general-`H` disk/circular-normal tube.
   `proof/crabb_full_disk_kernel_eighth.md`.
 
 ## NEWEST (2026-07-24): L183--L184 prove the all-size sixth face
