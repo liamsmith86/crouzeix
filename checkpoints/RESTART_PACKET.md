@@ -247,6 +247,32 @@ rewriting the cokernel in L201's transfer coefficients or by the block
 Schur/Levinson recursion.  See
 `proof/repeated_crabb_elliptic_cokernel.md`.
 
+L205 supplies a scalar-only alternative to that stronger complete
+gate.  The condition-two chain is sharp for a scalar Schur function
+exactly when L201's transfer has a constant one-dimensional inner
+channel:
+
+```
+B_H(z)v=g(z)u.
+```
+
+This follows from equality in scalar Hardy Parseval and matrix-inner
+Parseval.  Such a channel splits the characteristic model, the metric,
+and the disk operator into a scalar L187 equality block and a
+complement.  A generic noncommuting L193 anchor can therefore have
+complete equality without scalar equality.  For the scalar conjecture,
+the live alternative to L204 is a uniform associated-face inequality
+combining:
+
+```
+scalar-channel leakage
++ L190 reflected loss on extracted channels
++ L195 transverse Hardy-residual loss.
+```
+
+This mixed-scale estimate is not automatic from pointwise strictness.
+See `proof/repeated_crabb_scalar_channel_rigidity.md`.
+
 ### Superseded L182 checkpoint
 
 L174 proves the nonlinear Toeplitz-disk/coercive-normal slice tube.

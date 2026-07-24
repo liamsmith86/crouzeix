@@ -2,6 +2,29 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — repeated circular/elliptic merger)
 
+## NEWEST (2026-07-24): L205 separates scalar from complete equality
+- Every L193 anchor has complete similarity square four, but this does
+  not mean a scalar Schur function attains norm two.
+- Equality in the condition-two similarity chain forces
+  `f(C)Wu=Vv` between the upper and lower defect spaces.
+- With L201's coefficients `B_n=W*(C*)^nV`, scalar and matrix
+  Parseval turn that condition into
+  `B_n v=b_n u` for every `n`.  Therefore
+  `B_H(z)v=g(z)u` for a scalar inner `g` with `g(0)=0`.
+- Conversely, any such constant scalar channel supplies the sharp
+  scalar function `f=g`.
+- Boundary unitarity makes the transfer block diagonal
+  `B_H=g direct-sum B'`; the characteristic-kernel model then splits
+  `C`, the exact metric, and the physical disk operator into a scalar
+  full-Hardy equality block and a complementary matrix-inner block.
+- This opens a weaker route tailored to the scalar conjecture:
+  channel-free noncommuting anchors have a scalar gap and need not
+  satisfy L204's stronger complete matrix endpoint.  The next gate is
+  a uniform associated-face estimate combining channel leakage,
+  L190 reflection, and L195 transverse residuals.
+  `proof/repeated_crabb_scalar_channel_rigidity.md`;
+  `experiments/repeated_crabb_scalar_channel.py`.
+
 ## NEWEST (2026-07-24): L204 isolates the exact elliptic cokernel
 - L203's full second Stein system reduces exactly to one real-linear
   copy endpoint map.  If `G_T` is the stable Stein inverse, eliminate
