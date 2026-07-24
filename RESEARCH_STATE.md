@@ -2,6 +2,44 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — full circular-normal merger)
 
+## NEWEST (2026-07-24): L193 explicitly classifies the repeated block-Hardy equality manifold
+- L122/L183's disk factorization is operator-valued: replace every
+  scalar Gram entry by an `m x m` copy block and tensor the level shift
+  with `I_m`.  For `D=E0*HE0`, the normalized rank-`m` Stein defect is
+  `Q=HE0 D^(−1/2)`.  Its physical kernel columns are orthonormal, so
+  Berger dilation and operator Bessel give the exact sandwich
+  `K<=M<=4K` near the repeated Crabb point.
+- If `B=H^−1`, exact noncommutative block-row elimination gives
+  `P_I(A−S)=−(B_+−B_-)(B_++B_-)^−1P_2`.  The terminal Krylov tail is
+  invertible near Crabb.  Therefore the Hardy residual vanishes
+  exactly when `B_+=B_-`, i.e. when **the inverse Gram is Hermitian
+  block Toeplitz**.  This explicitly parameterizes the manifold,
+  rather than merely invoking IFT.
+- Its differential is the same block diagonal-difference map.  Its
+  real rank is `((L−1)m)^2`, and the manifold has dimension
+  `(2L−1)m²`.
+- On residual zero, the level-zero copy space is an exact generalized
+  eigenspace at `1` and the last-level copy space is an exact
+  generalized eigenspace at `4`.  The rank-`m` metric therefore has
+  condition square four.
+- Crucially, the inverse-block-Toeplitz coefficients are arbitrary
+  copy matrices.  Explicit constructions at multiplicities two and
+  three have **noncommuting** coefficient blocks, condition square
+  exactly four, and `M<=4K`.  The repeated equality stratum is
+  therefore larger than direct sums of scalar equality anchors.
+- This also repairs a subtle issue in L187's original presentation:
+  the row-reversed raw residual is Hermitian only to first order, so
+  a direct Hermitian-codomain IFT was not justified.  The exact
+  inverse-Toeplitz factorization proves L187's scalar manifold and
+  L193's block manifold without that shortcut.
+- This suggests a cleaner repeated strategy: use the block Hardy
+  residual Gram as the transverse form, promote its copy-space kernel
+  into a smaller-multiplicity equality block, and iterate a metric
+  flag.  The operator-valued elliptic/normal merger and convergence of
+  that flag remain open.
+  `proof/crabb_block_hardy_equality.md`;
+  `experiments/crabb_block_hardy_equality.py`.
+
 ## NEWEST (2026-07-24): L190--L192 close the single-Crabb local chart
 - L187's full equality manifold has a simpler intrinsic coordinate
   system than the old phase-palindromic section.  If
@@ -35,9 +73,9 @@
   **single** Crabb block: the explicit rank-one Stein certificate has
   condition square at most four, with equality only on the full
   circular-range equality manifold modulo symmetries.
-- This is not the global conjecture.  The live frontier is now the
-  repeated-block/normal-collision metric flag (L73, L86--L114), before
-  returning to general matrices.
+- This is not the global conjecture.  L193 now replaces the naive
+  direct-sum repeated stratum by a larger operator-valued Hardy
+  equality manifold; its metric-flag tube is the live frontier.
   `proof/crabb_full_local_chart_merger.md`;
   `experiments/crabb_full_equality_elliptic_merger.py`.
 
@@ -47,16 +85,18 @@
   `D Psi(E)_(r,c)=E_(c+1,L−1−r)−E_(c,L−2−r)`.  After row reversal
   this is the Hermitian diagonal-difference map, with real rank
   `(L−1)^2` and kernel exactly the Hermitian Toeplitz space.
-- The implicit-function theorem therefore produces a **larger curved
-  equality manifold** through Crabb, of physical dimension `2L−2`.
-  Residual zero makes the canonical Hardy upper endpoint exactly four
-  times the lower endpoint.  The defect-one model's characteristic
-  Blaschke product simultaneously has norm exactly two, so these are
-  genuine scalar and similarity equality points.  L123's
-  phase-palindromic family is an explicit lower-dimensional section.
+- The exact inverse-Gram reflection factorization now identifies this
+  manifold as `H^−1` Hermitian Toeplitz.  It is curved in the original
+  `H` coordinates and has physical dimension `2L−2`.  Residual zero
+  makes the canonical Hardy upper endpoint exactly four times the
+  lower endpoint.  The defect-one model's characteristic Blaschke
+  product simultaneously has norm exactly two, so these are genuine
+  scalar and similarity equality points.  L123's phase-palindromic
+  family is an explicit lower-dimensional section.
 - The complete pulled ambient derivative vanishes on this whole
   manifold.  Independent nonlinear solves in lengths `3,...,6`
-  produce non-Toeplitz equality points with condition square and
+  produce equality points with non-Toeplitz `H` (but Toeplitz
+  `H^−1`), condition square and
   characteristic-Blaschke norm square both `4`, top-vector overlap
   `1`, and all real/imaginary matrix-unit derivatives at roundoff.
 - If an arbitrary analytic full-disk path first leaves the equality

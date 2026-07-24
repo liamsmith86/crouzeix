@@ -33,7 +33,15 @@ The new conclusions are:
    \(\Psi^{-1}(0)\) is a real-analytic manifold of real codimension
    \((L-1)^2\).  Its tangent space at \(H_0\) is exactly the Hermitian
    Toeplitz space.  After removing the irrelevant positive scalar
-   in \(H\), its physical dimension is \(2L-2\).
+   in \(H\), its physical dimension is \(2L-2\).  More precisely,
+
+   \[
+   \boxed{\Psi(H)=0\Longleftrightarrow H^{-1}
+   \text{ is Hermitian Toeplitz}}                   \tag{3a}
+   \]
+
+   locally.  Thus the equality manifold has an explicit
+   inverse-Toeplitz parameterization.
 
    Every point of this manifold has
 
@@ -122,7 +130,49 @@ Expanding (2) gives, in the interior coordinates,
 
 The remaining coefficients obey the characteristic recurrence, so
 the first \(L-1\) rows vanish if and only if the complete
-orbit-complement Hardy residual vanishes.
+orbit-complement Hardy residual vanishes.  There is also a direct
+nonlinear factorization which makes the zero set explicit.
+
+Put \(B=H^{-1}\), and let \(B_-\) and \(B_+\) be its leading and
+trailing \((L-1)\)-square principal submatrices.  Let \(P_I\) extract
+levels \(1,\ldots,L-1\) and \(P_2\) extract levels
+\(2,\ldots,L\) from the complete coefficient space.  Block-row
+elimination in \(KA=2HS\) gives
+
+\[
+\boxed{
+P_I(A-S)=-(B_+-B_-)(B_++B_-)^{-1}P_2.}             \tag{10a}
+\]
+
+Indeed, for \(t=P_2y\), write
+\(r=(B_++B_-)^{-1}t\) and \(d=P_I(A-S)y\).
+The two overlapping coefficient equations are
+
+\[
+t+d=2B_-r,\qquad t-d=2B_+r,
+\]
+
+whose sum and difference prove (10a).
+
+Let
+
+\[
+{\cal V}=[e_L,Ae_L,\ldots,A^{L-2}e_L],
+\qquad {\cal Q}=P_2{\cal V}.
+\]
+
+Then, up to transpose,
+
+\[
+\Psi(H)=-(B_+-B_-)(B_++B_-)^{-1}{\cal Q}.          \tag{10b}
+\]
+
+At \(H_0\), \({\cal Q}\) is an invertible weighted reversal, and it
+remains invertible nearby.  Hence \(\Psi(H)=0\) exactly when
+\(B_+=B_-\), which says \(B_{i+1,j+1}=B_{ij}\), i.e. \(H^{-1}\) is
+Hermitian Toeplitz.  Matrix inversion is an analytic diffeomorphism
+on the positive cone, proving (3a) and the manifold assertion
+without an overdetermined implicit-function argument.
 
 Let \(H=I/2+sE\), where \(E\) is an arbitrary Hermitian \(L\)-square
 matrix.  Linearizing (1), or simply using (10), gives
@@ -158,9 +208,12 @@ right inverse.  Hence
  \ker D\Psi=\{\hbox{Hermitian Toeplitz matrices}\}.  \tag{14}
 \]
 
-The analytic implicit-function theorem proves the manifold statement
-in L187.  It also gives a convergent equality recentering over every
-small Toeplitz coordinate, not only the phase-palindromic ones.
+The row reversal \(J\Psi(H)\) is Hermitian only at linear order, not
+as an exact nonlinear identity.  Thus applying the real
+implicit-function theorem directly to the raw residual with a fixed
+Hermitian codomain would be invalid.  The exact inverse-Toeplitz
+factorization (10b) repairs that codomain issue and supplies the
+convergent equality recentering used below.
 
 ## 3. Why residual zero is genuine equality
 

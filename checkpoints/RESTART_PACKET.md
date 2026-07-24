@@ -1,10 +1,11 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-24): L192 / A135
+## Current general Crabb frontier (2026-07-24): L193 / A136
 
 The complete local chart around every fixed **single** Crabb block is
-now closed.
+closed by L192.  L193 identifies the correct upper-equality stratum at
+a repeated block.
 
 L187--L189 identify the full Hardy equality manifold `Psi(H)=0` in
 L122's general Hermitian disk chart and prove a nonlinear tube after
@@ -41,10 +42,54 @@ curvature is spent twice.  Analytic curve selection proves a full
 operator neighbourhood theorem for each single block, with equality
 only on the full circular-range equality manifold modulo symmetries.
 
-This is not the global conjecture.  The next live gate is to promote
-the theorem through repeated Crabb blocks and normal-block collisions
-using L73 and L86--L114's metric flag.  See
-`proof/crabb_full_local_chart_merger.md`.
+L193 tensors the disk factorization with an arbitrary copy space and
+normalizes the rank-`m` defect by `D=E0*HE0`.  Operator-valued
+Berger/Bessel gives `M<=4K`, while the first and last level copy spaces
+are exact generalized eigenspaces at one and four whenever the block
+Hardy residual vanishes.
+
+The equality graph is now explicit.  If `B=H^−1`, exact block-row
+elimination gives
+
+```
+P_I(A−S) = −(B_+−B_-)(B_++B_-)^−1 P_2.
+```
+
+The terminal Krylov tail is invertible near Crabb, so `Psi_m=0` iff
+`B_+=B_-`, exactly the condition that `B` is Hermitian block
+Toeplitz.  Its differential is the block diagonal-difference map:
+
+```
+rank D Psi_m = ((L−1)m)^2,
+ker D Psi_m = Hermitian block Toeplitz,
+dim_R ker D Psi_m = (2L−1)m^2.
+```
+
+Matrix inversion therefore explicitly parameterizes the analytic
+upper-certificate equality manifold.  Its block-Toeplitz coefficients
+can be noncommuting, so it is strictly richer than a copy-unitary
+direct sum of scalar L187 anchors.  This also repairs L187's old
+Hermitian-codomain IFT shortcut: the raw row-reversed residual is
+Hermitian only to first order.  This is not yet a scalar lower-equality
+result and not a repeated neighbourhood theorem.
+
+The immediate next lemma should construct the exact analytic
+repeated metric chart in all lengths.  At the base metric
+`diag(1,2,...,2,4) tensor I_m`, retain the level-zero-to-range metric
+row as free data and solve the Stein Schur complement on the range.
+Its linearization is the triangular block recurrence
+
+```
+(L X)_(ij) = X_(ij) − w_(i−1)w_(j−1) X_(i−1,j−1),
+```
+
+so the IFT should be elementary and all-size.  Then derive the
+operator-valued first-residual Gram face.  Kernel subspaces should be
+promoted into smaller-copy L193 equality blocks and iterated as a
+metric flag.  Elliptic copy data require a separate support/Jensen
+argument; do **not** substitute a noncommuting matrix parameter into
+the scalar Faber/Joukowski formulas.  See
+`proof/crabb_block_hardy_equality.md`.
 
 ### Superseded L182 checkpoint
 
