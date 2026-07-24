@@ -25,6 +25,49 @@
   `proof/crabb_quartic_cone_division.md`;
   `experiments/crabb_disk_one_reflection_jets.py`.
 
+## NEWEST (2026-07-23): A101 reduces the algebraic jet to an endpoint determinant
+- The root-free checker now evaluates L149's endpoint-resolvent
+  residual
+  `q_z*(xi I-A_z)^(-1)e_L-g_z#/(xi g_z)` by a cleared determinant.
+  At one generic complex phase-palindromic anchor in every length
+  three through ten, its value vanishes and its full Gram-block
+  gradient is supported only on the two endpoint diagonal directions.
+  These directions are absent from the normalized Toeplitz disk chart.
+- The stronger experimental statement is exact: the checker forms
+  the complete gradient matrix, not one sampled tangent, and evaluates
+  it at `L+1` rational resolvent points.  Since the cleared numerator
+  has degree at most `L`, this proves the polynomial first-jet identity
+  at each recorded anchor.
+- Clearing the common denominator turns the residual into the single
+  bordered-determinant identity
+  `e0*K adj(xi K-2HR) K eL - det(K-2xi R*H)`.
+  The proposed all-size formula is the cofactor-gradient identity
+  (16) in `proof/crabb_disk_one_reflection.md`.  Thus the missing
+  full-normal stationarity can be proved entirely as a Toeplitz
+  displacement/cofactor cancellation; no singular-value or root
+  perturbation remains.
+- If this numerator lies in the square of the equality-normal ideal,
+  L149's logarithmic-inner proof remains valid modulo that square.
+  L155 then converts the jet statement immediately to the required
+  `O(Q)` bound.  This is the current load-bearing algebraic target.
+  `proof/crabb_disk_one_reflection.md`;
+  `experiments/crabb_disk_one_reflection_jets.py`.
+
+## NEWEST (2026-07-23): L155 no longer needs a separate apex jet
+- First-order vanishing on the complete phase-palindromic equality
+  cone automatically removes Taylor degrees zero through three.
+  After a real-orthogonal change, the cone is the rank-one locus of a
+  generic `2 x (L-1)` matrix.  Value-plus-gradient vanishing puts each
+  homogeneous Taylor term in the second symbolic power of its
+  maximal-minor ideal; this equals the ordinary square and begins in
+  degree four.
+- Therefore L155 now needs only `F|E=0` and `DF|E=0`; the former
+  separately assumed `F=O(||z||^4)` follows.  For the one-reflection
+  merger, L149 supplies the value and L156 is the sole remaining
+  equality-jet gate.  The exact apex records remain an independent
+  audit rather than a separate proof obligation.
+  `proof/crabb_quartic_cone_division.md`.
+
 ## NEWEST (2026-07-23): A101 finds the general-disk one-reflection obstruction
 - L149's one-reflection stationarity is special to the exact
   phase-palindromic equality cone.  It does not extend identically

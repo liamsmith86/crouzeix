@@ -140,6 +140,13 @@ Papers, theorems, assumptions, possible gaps. Status verified via web 2026-07-23
   grade and therefore does not prove A95's grade-block Hessian conjecture.  Any use here must
   explicitly derive the Crabb equality tangent-to-Schur-parameter Jacobian and the optimized
   endpoint quadratic; first-order sparsity of the CMV matrix alone is insufficient.
+- [x] Bruns--Vetter, *Determinantal Rings* (Springer LNM 1327, 1988), chapters on maximal
+  minors and their powers -- the ideal of maximal minors of a generic matrix has coincident
+  symbolic and ordinary powers.  L155 uses only the elementary low-degree consequence for a
+  generic `2 x m` matrix: a polynomial whose value and gradient vanish on the rank-one cone
+  lies in `I^(2)=I^2`, so it has degree at least four.  This imported commutative-algebra fact
+  removes the formerly separate Crabb-apex jet obligation; the application to the
+  phase-palindromic cone is campaign-derived.
 - [x] O'Loughlin--Rani, arXiv:2603.15536, *q-Numerical Ranges and Spectral Sets* -- a
   March-2026 extension of the Crouzeix--Palencia framework to scaled `q`-numerical ranges.
   It still treats constant two for the ordinary numerical range as a conjecture and does not

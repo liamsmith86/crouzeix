@@ -9,6 +9,13 @@ It verifies the two finite algebraic inputs required by L155:
 2. at the Crabb apex, the same coefficient has no disk-amplitude
    term below degree four.
 
+It also audits the proposed endpoint route to the first condition:
+at one generic complex equality anchor in each length, the cleared
+resolvent numerator vanishes and its normalized Gram-block gradient
+is supported only on the two forbidden diagonal-normalization
+directions.  Polynomial interpolation in the resolvent variable and
+a full matrix-gradient calculation replace random tangent sampling.
+
 The calculation implements the root-free tangent (2)--(7) from
 ``proof/crabb_disk_one_reflection.md``.  Finite verification is not an
 all-size proof of the companion recurrence.
@@ -50,6 +57,19 @@ class ApexJetRecord:
     direction: tuple[int, ...]
     coefficients_through_four: tuple[str, ...]
     vanishes_below_degree_four: bool
+
+
+@dataclass(frozen=True)
+class ResolventSquareRecord:
+    """Full real first jet of L149's cleared endpoint residual."""
+
+    length: int
+    dimension: int
+    equality_coefficients: tuple[str, ...]
+    interpolation_points: tuple[int, ...]
+    off_diagonal_tangent_dimension: int
+    numerator_polynomial_zero: bool
+    normalized_gradient_endpoint_support: bool
 
 
 class SeriesRing:
@@ -134,10 +154,16 @@ class SeriesRing:
         return [scalar * coefficient for coefficient in series]
 
     @staticmethod
-    def transpose(series: MatrixSeries) -> MatrixSeries:
-        """Transpose a real matrix series."""
+    def adjoint(series: MatrixSeries) -> MatrixSeries:
+        """Take the Hermitian adjoint coefficientwise."""
 
-        return [coefficient.T for coefficient in series]
+        return [coefficient.conjugate().T for coefficient in series]
+
+    @staticmethod
+    def conjugate(series: ScalarSeries) -> ScalarSeries:
+        """Conjugate a scalar series in a real perturbation variable."""
+
+        return [sp.conjugate(coefficient) for coefficient in series]
 
     @staticmethod
     def trace(series: MatrixSeries) -> ScalarSeries:
@@ -288,6 +314,34 @@ class SeriesRing:
         return remainder
 
 
+def forward_shift(dimension: int) -> sp.Matrix:
+    """Return the superdiagonal forward shift."""
+
+    shift = sp.zeros(dimension)
+    for row in range(dimension - 1):
+        shift[row, row + 1] = 1
+    return shift
+
+
+def hermitian_toeplitz(
+    coefficients: tuple[sp.Expr, ...],
+    *,
+    diagonal: sp.Expr = sp.Rational(1, 2),
+) -> sp.Matrix:
+    """Extend one Hermitian Toeplitz block by a final zero coordinate."""
+
+    length = len(coefficients) + 1
+    dimension = length + 1
+    toeplitz = sp.zeros(dimension)
+    for index in range(length):
+        toeplitz[index, index] = diagonal
+    for offset, value in enumerate(coefficients, start=1):
+        for row in range(length - offset):
+            toeplitz[row, row + offset] = value
+            toeplitz[row + offset, row] = sp.conjugate(value)
+    return toeplitz
+
+
 def first_reflection_series(
     base: tuple[sp.Expr, ...],
     direction: tuple[sp.Expr, ...],
@@ -298,22 +352,12 @@ def first_reflection_series(
     ring = SeriesRing(order)
     length = len(base) + 1
     dimension = length + 1
-    toeplitz_base = sp.zeros(dimension)
-    toeplitz_tangent = sp.zeros(dimension)
-    for index in range(length):
-        toeplitz_base[index, index] = sp.Rational(1, 2)
-    for offset, (value, tangent) in enumerate(
-        zip(base, direction, strict=True),
-        start=1,
-    ):
-        for row in range(length - offset):
-            toeplitz_base[row, row + offset] = value
-            toeplitz_base[row + offset, row] = value
-            toeplitz_tangent[row, row + offset] = tangent
-            toeplitz_tangent[row + offset, row] = tangent
-    shift = sp.zeros(dimension)
-    for row in range(length):
-        shift[row, row + 1] = 1
+    toeplitz_base = hermitian_toeplitz(base)
+    toeplitz_tangent = hermitian_toeplitz(
+        direction,
+        diagonal=sp.Integer(0),
+    )
+    shift = forward_shift(dimension)
 
     toeplitz = [
         toeplitz_base,
@@ -324,7 +368,7 @@ def first_reflection_series(
     coordinate = ring.add(
         toeplitz,
         ring.multiply(
-            ring.transpose(shift_series),
+            ring.adjoint(shift_series),
             ring.multiply(toeplitz, shift_series),
         ),
     )
@@ -364,8 +408,14 @@ def first_reflection_series(
         factor,
     )
 
-    denominator_factor = list(reversed(factor))
-    denominator_tangent = list(reversed(prepared_tangent))
+    denominator_factor = [
+        ring.conjugate(coefficient)
+        for coefficient in reversed(factor)
+    ]
+    denominator_tangent = [
+        ring.conjugate(coefficient)
+        for coefficient in reversed(prepared_tangent)
+    ]
     denominator = ring.evaluate_polynomial(
         denominator_factor,
         operator,
@@ -378,7 +428,7 @@ def first_reflection_series(
         ring.multiply(
             ring.matrix_inverse(coordinate),
             ring.multiply(
-                ring.transpose(operator),
+                ring.adjoint(operator),
                 coordinate,
             ),
         ),
@@ -423,11 +473,11 @@ def first_reflection_series(
         endpoint_series,
     )
     numerator = ring.multiply(
-        ring.transpose(image),
+        ring.adjoint(image),
         ring.multiply(coordinate, image_derivative),
     )
     denominator = ring.multiply(
-        ring.transpose(endpoint_series),
+        ring.adjoint(endpoint_series),
         ring.multiply(coordinate, endpoint_series),
     )
     numerator_scalar = [entry[0] for entry in numerator]
@@ -439,6 +489,84 @@ def first_reflection_series(
         ),
         sp.Integer(2),
     )
+
+
+def complex_equality_data(length: int) -> tuple[sp.Expr, ...]:
+    """Return a small generic complex equality point in the phase-one gauge."""
+
+    size = length - 1
+    equality: list[sp.Expr | None] = [None] * size
+    for index in range((size + 1) // 2):
+        partner = size - 1 - index
+        real_part = sp.Rational(index + 1, 211 + 7 * index)
+        if index == partner:
+            value = real_part
+        else:
+            value = real_part + sp.I * sp.Rational(
+                index + 2,
+                307 + 11 * index,
+            )
+        equality[index] = value
+        equality[partner] = sp.conjugate(value)
+    return tuple(value for value in equality if value is not None)
+
+
+def canonical_gaussian_rational(value: sp.Expr) -> sp.Expr:
+    """Canonicalize an exact scalar known to lie in the Gaussian rationals."""
+
+    return sp.QQ_I.to_sympy(sp.QQ_I.from_sympy(sp.expand(value)))
+
+
+def cleared_resolvent_gradient_at(
+    toeplitz: sp.Matrix,
+    variable_value: sp.Expr,
+) -> tuple[sp.Expr, sp.Expr, sp.Matrix]:
+    """Evaluate the cleared numerator and normalized Gram-block gradient."""
+
+    dimension = toeplitz.rows
+    shift = forward_shift(dimension)
+    shift_adjoint = shift.T
+    coordinate = toeplitz + shift_adjoint * toeplitz * shift
+    pencil = variable_value * coordinate - 2 * toeplitz * shift
+    sharp_pencil = coordinate - 2 * variable_value * shift_adjoint * toeplitz
+    pencil_inverse = pencil.inv()
+    sharp_pencil_inverse = sharp_pencil.inv()
+    pencil_determinant = pencil.det()
+    sharp_pencil_determinant = sharp_pencil.det()
+
+    left_endpoint = sp.eye(dimension)[0, :]
+    right_endpoint = sp.eye(dimension)[:, -1]
+    left = left_endpoint * coordinate
+    right = coordinate * right_endpoint
+    right_solution = pencil_inverse * right
+    left_solution = left * pencil_inverse
+    transfer = (left_solution * right)[0]
+    numerator = canonical_gaussian_rational(
+        pencil_determinant * transfer
+        - sharp_pencil_determinant,
+    )
+    coordinate_gradient = (
+        right_solution * left_endpoint
+        + right_endpoint * left_solution
+        - variable_value * right_solution * left_solution
+        + transfer * variable_value * pencil_inverse
+        - transfer * sharp_pencil_inverse
+    )
+    gradient = (
+        coordinate_gradient
+        + shift * coordinate_gradient * shift_adjoint
+        + shift
+        * (
+            2 * right_solution * left_solution
+            - 2 * transfer * pencil_inverse
+        )
+        + 2
+        * transfer
+        * variable_value
+        * sharp_pencil_inverse
+        * shift_adjoint
+    )
+    return numerator, transfer, gradient
 
 
 def equality_data(
@@ -508,6 +636,42 @@ def apex_record(length: int) -> ApexJetRecord:
     )
 
 
+def resolvent_record(length: int) -> ResolventSquareRecord:
+    """Certify the full first jet at one complex equality anchor."""
+
+    equality = complex_equality_data(length)
+    toeplitz = hermitian_toeplitz(equality)
+    interpolation_points = tuple(range(2, length + 3))
+    for variable_value in interpolation_points:
+        value, transfer, gradient = cleared_resolvent_gradient_at(
+            toeplitz,
+            sp.Integer(variable_value),
+        )
+        if value != 0:
+            raise AssertionError("the endpoint numerator did not vanish")
+        expected = sp.zeros(length)
+        expected[0, 0] = transfer
+        expected[-1, -1] = transfer
+        gradient_block = gradient[:length, :length]
+        difference = gradient_block - expected
+        if any(
+            canonical_gaussian_rational(entry) != 0
+            for entry in difference
+        ):
+            raise AssertionError(
+                "the endpoint gradient lost boundary-diagonal support",
+            )
+    return ResolventSquareRecord(
+        length=length,
+        dimension=length + 1,
+        equality_coefficients=tuple(map(str, equality)),
+        interpolation_points=interpolation_points,
+        off_diagonal_tangent_dimension=length * (length - 1),
+        numerator_polynomial_zero=True,
+        normalized_gradient_endpoint_support=True,
+    )
+
+
 def parse_args() -> argparse.Namespace:
     """Parse command-line arguments."""
 
@@ -521,10 +685,13 @@ def main() -> None:
     """Run and optionally persist the exact jet grid."""
 
     args = parse_args()
-    records: list[NormalJetRecord | ApexJetRecord] = []
+    records: list[
+        NormalJetRecord | ApexJetRecord | ResolventSquareRecord
+    ] = []
     for length in range(3, args.maximum_length + 1):
         records.append(normal_record(length))
         records.append(apex_record(length))
+        records.append(resolvent_record(length))
     lines = [
         json.dumps(asdict(record), sort_keys=True)
         for record in records

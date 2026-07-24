@@ -177,6 +177,106 @@ This mirrors L152's successful uniform disk-normal argument.  The new
 algebraic content is only the mixed companion recurrence in items
 one and two.
 
+### A stronger endpoint formulation
+
+The exact jet engine exposes a cleaner load-bearing identity.  Put
+`q_z=H(z)e_0` and define the endpoint-resolvent residual
+
+\[
+{\cal R}_z(\xi)
+=q_z^*(\xi I-A_z)^{-1}e_L
+-{g_z^\sharp(\xi)\over \xi g_z(\xi)}.                \tag{11}
+\]
+
+L149 proves `R_u=0` on the equality cone.  Exact dual-number
+calculation gives the stronger first jet
+
+\[
+\boxed{
+{\cal R}_{u+\epsilon h}(\xi)=O(\epsilon^2)
+}                                                     \tag{12}
+\]
+
+for arbitrary disk direction `h`, not only an anti-palindromic
+normal, through length ten.
+
+Equation (12) directly explains the observed normal stationarity.
+The proof of L149 turns the one-reflection norming functional into a
+logarithmic inner mean by substituting the equality in (11).  If
+(11) is valid modulo the square of the equality-normal ideal, the
+same logarithmic cancellation is valid modulo that square.  Hence the
+one-reflection coefficient has both value and gradient zero on the
+cone, exactly the hypothesis needed by L155.
+
+There is a determinant form that should make (12) elementary.  Since
+
+\[
+\begin{aligned}
+\xi I-A&=K^{-1}(\xi K-2HR),\\
+g^\sharp(\xi)
+&={\det(K-2\xi R^*H)\over\det K},
+\end{aligned}
+\]
+
+the numerator of (11) is
+
+\[
+\boxed{
+e_0^*K\,\operatorname{adj}(\xi K-2HR)\,Ke_L
+-\det(K-2\xi R^*H).
+}                                                     \tag{13}
+\]
+
+There is a stronger candidate gradient identity.  Write
+
+\[
+ {\cal M}=\xi K-2HR,\qquad
+ {\cal N}=K-2\xi R^*H,\qquad
+ s=e_0^*K{\cal M}^{-1}Ke_L.                          \tag{14}
+\]
+
+If `Pi=I-e_Le_L^*` selects the original `L x L` Gram block,
+differentiate (13) with respect to an otherwise arbitrary Hermitian
+variation of that block.  Jacobi's formula reduces the normalized
+gradient to
+
+\[
+\begin{aligned}
+C={}&xe_0^*+e_L\ell-\xi x\ell
+ s\xi{\cal M}^{-1}-s{\cal N}^{-1},\\
+{\cal G}={}&C+RCR^*
++R(2x\ell-2s{\cal M}^{-1})
++2s\xi{\cal N}^{-1}R^*,                              \tag{15}\\
+x={}&{\cal M}^{-1}Ke_L,\qquad
+\ell=e_0^*K{\cal M}^{-1}.
+\end{aligned}
+\]
+
+The all-size identity suggested by the companion recurrence is
+
+\[
+\boxed{
+\Pi{\cal G}\Pi
+=s(e_0e_0^*+e_{L-1}e_{L-1}^*).
+}                                                     \tag{16}
+\]
+
+Thus every off-diagonal Hermitian variation has zero derivative.
+The only surviving directions change the two endpoint diagonal
+normalizations of `H`; the Toeplitz disk chart fixes the whole
+diagonal to `1/2`, so they are absent.
+
+Equation (16) is now checked more strongly than by one random
+direction.  At one generic **complex** phase-one equality anchor in
+each length three through ten, the checker forms the complete matrix
+gradient in (15).  It verifies (16) exactly at `L+1` distinct rational
+values of `xi`.  Both sides have polynomial numerator degree at most
+`L`, so this proves the polynomial identity at each sampled anchor.
+This is still finite-anchor evidence, not the missing all-size proof
+of (16).  The remaining proof can be attacked by substituting the two
+explicit companion endpoint resolvents into (15); all interior
+columns observed so far telescope.
+
 For a reflected grade `k`, the desired marked extension is
 
 \[
@@ -196,9 +296,14 @@ Run
 PYTHONPATH=experiments .venv/bin/python -u \
   experiments/crabb_disk_one_reflection.py \
   --output experiments/crabb_disk_one_reflection_s70223.jsonl
+
+PYTHONPATH=experiments .venv/bin/python -u \
+  experiments/crabb_disk_one_reflection_jets.py \
+  --output experiments/crabb_disk_one_reflection_jets_s70223.jsonl
 ```
 
 The first line records (8) exactly.  The remaining lines use exact
 rational matrix algebra before converting only the final
 derivative-to-`Q` ratios to binary64.  They are an adversarial probe
-of (1), not its proof.
+of (1), not its proof.  The jet grid additionally verifies (12) and
+the subquartic apex cancellations through length ten.
