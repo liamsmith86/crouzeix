@@ -330,6 +330,15 @@ coefficient guess: it is to show that the prepared physical
 model-complement/Stein endpoint is functorial under this monomial
 shift, as in scalar L149--L150.
 
+L211 also proves exact covariance of the completely positive transfer
+channel on the promoted bottom block.  In particular, L208's flagged
+correction is exactly the bottom compression of the corresponding
+deflated grade-one channel coboundary.  Do not overstate this: the
+full unreduced L207 base still contains the complementary top-row
+right Gram.  The precise remaining theorem is that the **prior
+physical Schur/least-squares preparation** replaces that full right
+Gram by its active bottom compression.
+
 L205 supplies a scalar-only alternative to that stronger complete
 gate.  The condition-two chain is sharp for a scalar Schur function
 exactly when L201's transfer has a constant one-dimensional inner
@@ -1017,11 +1026,11 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
 ## Next five concrete actions (refreshed 2026-07-24, Epoch 6)
-1. **Prove physical endpoint functoriality.** L210 proves the exact
-   transfer/Gram weight shift.  Show that L149--L150's complete
-   model-complement/residue endpoint construction has the same
-   monomial-shift covariance in the rank-`m` colligation, starting
-   with `k=2`; then L208 supplies the endpoint preimage.
+1. **Prove the physical Schur replacement.** L210--L211 prove the
+   transfer, Gram, channel, and correction covariance.  Starting at
+   `k=2`, show that prior active metric/least-squares elimination
+   replaces `Btilde_1*Btilde_1` in the physical base endpoint by
+   `Btilde_1*J_UJ_U*Btilde_1`; then L208 closes the active endpoint.
 2. **Merge later circular normals.** L199 covers the first raw face
    only.  Identify the response after L197's later least-squares Schur
    quotients and combine it with the elliptic flag.
@@ -1039,12 +1048,13 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
 ## Paste-ready continuation instruction
 "Continue the Crouzeix campaign in /home/liam/Downloads/crouzeix
 (git repo; commit and push each proved milestone).  Read the newest
-RESEARCH_STATE section and L201--L210/A144--A153.  L207 gives the
+RESEARCH_STATE section and L201--L211/A144--A154.  L207 gives the
 explicit analytic grade-one correction; L208 gives the conditional
 higher flagged preimage; L209 promotes a surviving grade to a
 grade-one smaller colligation; L210 proves the exact transfer/Gram
-weight shift.  Prove the remaining physical endpoint functoriality
-at grade two first, then iterate through B_2,...,B_L and
+weight shift; L211 proves active-block channel covariance.  Prove the
+remaining physical Schur replacement at grade two first, then
+iterate through B_2,...,B_L and
 merge the later L197 circular-normal
 flags.  Do not use the false raw matrix quotient, confuse B_n*B_n with
 B_nB_n*, or promote pointwise pseudoinverses through the rank jump.

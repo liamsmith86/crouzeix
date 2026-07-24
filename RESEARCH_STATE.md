@@ -2,6 +2,23 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — repeated circular/elliptic merger)
 
+## NEWEST (2026-07-24): L211 closes the flagged CP-channel covariance
+- The bottom block of the deflated transfer channel is exactly the
+  original channel compressed to the active flag:
+  `J_U*C_(S_def)(K)J_U=U*C_S(K)U`.
+- Together with L210's promoted left Gram, this makes L208's flagged
+  correction exactly the bottom compression of a deflated grade-one
+  channel coboundary.  The dual and state-space mechanisms now agree
+  term for term.
+- An important overclaim was excluded: the full unreduced L207 base
+  uses `Btilde_1*Btilde_1`, whose complementary top-row contribution
+  is generally nonzero.  It cannot simply be discarded.
+- The remaining physical gate is therefore exact: prove that prior
+  metric/least-squares Schur elimination replaces the full right Gram
+  by its active bottom compression.  No transfer or multiplication
+  order remains ambiguous.
+  `proof/repeated_crabb_transfer_channel_covariance.md`.
+
 ## NEWEST (2026-07-24): L210 closes the transfer-level weighted pullback
 - L209's smaller colligation shifts every transfer coefficient, not
   only the first:
