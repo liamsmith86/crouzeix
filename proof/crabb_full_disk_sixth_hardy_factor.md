@@ -88,9 +88,10 @@ The sixth-order kernel is exactly
 \boxed{{\cal R}_L(z)=0.}                             \tag{6}
 \]
 
-Its algebraic classification and the required eighth-order fallback
-remain open.  Equation (5) is a homogeneous face, not yet the
-nonlinear full circular-range tube.
+L185--L186 subsequently classify this kernel and prove its required
+eighth-order fallback; see
+`proof/crabb_full_disk_kernel_eighth.md`.  Equation (5) is still a
+homogeneous face, not yet the nonlinear full circular-range tube.
 
 ## 2. Kernel observability from the \(2\)-dilation
 
@@ -385,7 +386,6 @@ endpoint identity (2) on dense exact directions through length ten,
 and sharp equality in (4) on the terminal edge through length twelve.
 Clean reruns must be byte-identical.
 
-L184 closes the all-size sixth-order algebraic face.  The next task is
-to solve the cubic equations \({\cal R}_L(z)=0\), compute the
-eighth-order face on that variety, and then perform the singular
-nonlinear blow-up.
+L184 closes the all-size sixth-order algebraic face.  L185--L186
+subsequently solve its cubic kernel and eighth-order face.  The live
+task is now the singular nonlinear blow-up.

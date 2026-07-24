@@ -90,8 +90,9 @@ def matrix_is_zero(matrix: sp.Matrix) -> bool:
 
 def hardy_residual_matrices(
     direction: tuple[sp.Expr, ...],
-) -> tuple[tuple[sp.Matrix, sp.Matrix, sp.Matrix], bool]:
-    """Return the first three disk-chart Hardy residual coefficients.
+    order: int = 3,
+) -> tuple[tuple[sp.Matrix, ...], bool]:
+    """Return disk-chart Hardy residual coefficients through ``order``.
 
     Rows of each returned matrix are negative Fourier powers
     ``w^-1,...,w^-(L-1)``.  Columns are coefficient coordinates
@@ -99,6 +100,8 @@ def hardy_residual_matrices(
     moving ``H``-orthogonal projection.
     """
 
+    if order < 2:
+        raise ValueError("the recentered Hardy residual needs order >= 2")
     length = len(direction)
     dimension = length + 1
     coefficient_count = length - 1
@@ -106,7 +109,7 @@ def hardy_residual_matrices(
     correction = plucker_correction(direction)
     operator, _ = disk_model_series(
         direction,
-        order=3,
+        order=order,
         correction=correction,
     )
 
@@ -114,11 +117,11 @@ def hardy_residual_matrices(
         extend(sp.eye(length) / 2),
         extend(toeplitz_direction(direction)),
         extend(correction),
-        sp.zeros(dimension),
+        *[sp.zeros(dimension) for _ in range(order - 2)],
     ]
     diagonal = [coefficient[0, 0] for coefficient in hermitian]
     diagonal_inverse = [1 / diagonal[0]]
-    for degree in range(1, 4):
+    for degree in range(1, order + 1):
         convolution = sum(
             (
                 diagonal[source_degree]
@@ -140,14 +143,14 @@ def hardy_residual_matrices(
             ),
             sp.zeros(1, dimension),
         )
-        for degree in range(4)
+        for degree in range(order + 1)
     ]
     first = sp.eye(dimension)[:, 0]
     projection = [
         sp.eye(dimension) - first * projected_rows[0],
         *[
             -first * projected_rows[degree]
-            for degree in range(1, 4)
+            for degree in range(1, order + 1)
         ],
     ]
 
@@ -159,7 +162,7 @@ def hardy_residual_matrices(
         sp.zeros(dimension),
     )
     inverse = [base_resolvent]
-    for degree in range(1, 4):
+    for degree in range(1, order + 1):
         forcing = sum(
             (
                 operator[source_degree]
@@ -182,7 +185,7 @@ def hardy_residual_matrices(
     last = sp.eye(dimension)[:, -1]
     residual_matrices = []
     support_verified = True
-    for degree in range(1, 4):
+    for degree in range(1, order + 1):
         residual = clean(
             sum(
                 (
@@ -211,14 +214,7 @@ def hardy_residual_matrices(
                     0,
                 )
         residual_matrices.append(matrix)
-    return (
-        (
-            residual_matrices[0],
-            residual_matrices[1],
-            residual_matrices[2],
-        ),
-        support_verified,
-    )
+    return tuple(residual_matrices), support_verified
 
 
 def response_projection_verified(

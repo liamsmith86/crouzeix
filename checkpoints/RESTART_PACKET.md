@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-24): L184 / A132
+## Current general Crabb frontier (2026-07-24): L186 / A133
 
 L183 proves the sharp kernel-observability inequality
 `sum_(j≥0)(T*)^jvv*T^j≤4||v||²I` for `w(T)≤1` and `Tv=0`, with an
@@ -23,12 +23,32 @@ curvature, and L173's actual curvature has an additional positive null
 lift.  Thus the complete sixth-order Schur face is nonnegative in
 every size.  Its exact equality set is `R_L(z)=0`.
 
-The immediate frontier is to classify this cubic variety and prove
-the eighth-order fallback on every component.  Do not start another
-fixed-size sixth SOS or a `5×5` slice grind.  After the kernel lift,
-perform the L174-style nonlinear singular blow-up, then merge the
-elliptic/compact faces.  See
-`proof/crabb_full_disk_sixth_hardy_factor.md`.
+L185 writes the residual in closed Wronskian form and proves that its
+kernel has only two components: the phase-palindromic exact equality
+cone and the coordinate planes supported on one reversal pair.
+Equivalently, `R_L=0` reduces to
+`p q'−p' q=c x^(n−2)` for a polynomial and its reciprocal conjugate;
+Riemann--Hurwitz classifies the nonproportional case as a two-monomial
+reversal pair.
+
+L186 closes the pair component.  For `z_j=a,z_(n−1−j)=b` and
+`d=n−1−2j`, the exact eighth deficit is
+
+```
+D_(8,L)=512d²(|a|²−|b|²)^4/L².
+```
+
+All true-normal responses vanish through quartic order because the
+fourth Hardy residual lies on the central anti-diagonal.  The deficit
+vanishes only at `|a|=|b|`, the phase-palindromic intersection.
+
+The immediate frontier is now the nonlinear singular merger.  Use
+the exact Hardy residual as a defining map and prove uniform division
+of the full normal gradient by it across the equality/pair union,
+then complete the analytic normal fibres.  Do not start another
+homogeneous jet, fixed-size SOS, or `5×5` slice grind.  After this,
+merge the elliptic/compact faces.  See
+`proof/crabb_full_disk_kernel_eighth.md`.
 
 ### Superseded L182 checkpoint
 

@@ -2,6 +2,34 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — full circular-normal merger)
 
+## NEWEST (2026-07-24): L185--L186 classify and lift the sixth kernel
+- The cubic Hardy residual has a closed all-index formula in terms of
+  L182's Wronskian fluxes
+  `S_t=sum_(i+j=t)(j−i)z_i conjugate(z_(n−1−j))`.
+  A two-form argument proves `R_L=0` exactly when every low `S_t`
+  vanishes.
+- If `p=sum z_i x^i` and
+  `q=sum conjugate(z_(n−1−i))x^i`, those equations say
+  `p q'−p' q=c x^(n−2)`.  After removing a monomial gcd, the rational
+  map `p/q` has only the critical points zero and infinity.
+  Riemann--Hurwitz therefore classifies the kernel as the union of
+  the phase-palindromic equality cone and the coordinate planes
+  supported on one reversal pair `{j,n−1−j}`.
+- On a strict reversal pair `z_j=a,z_(n−1−j)=b`, with
+  `d=n−1−2j`, the fourth Hardy residual has the single skew pair
+  `8d(|a|²−|b|²)²/L`.  Hence
+  `D_(8,L)=512d²(|a|²−|b|²)^4/L²`.
+- Every true circular-normal response vanishes through quartic order
+  on these planes: the fourth residual lies on the central
+  anti-diagonal, while nonzero normal modes use the shifted
+  anti-diagonals.  The eighth face is therefore strictly positive
+  away from `|a|=|b|`, exactly the phase-palindromic intersection.
+- This closes the homogeneous kernel fallback.  The live task is now
+  the nonlinear singular merger: divide the full normal gradient by
+  the exact Hardy residual uniformly across the equality/pair union,
+  then complete the analytic normal fibres.
+  `proof/crabb_full_disk_kernel_eighth.md`.
+
 ## NEWEST (2026-07-24): L183--L184 prove the all-size sixth face
 - L183 gives a sharp kernel-observability theorem.  If `w(T)≤1`,
   `Tv=0`, and `P_v=sum (T*)^jvv*T^j`, Berger's unitary
@@ -30,8 +58,8 @@
 - Unrestricted-symbol transfer checks pass through length eight;
   exact endpoint-factor checks pass through length ten; terminal
   equality checks pass through length twelve.
-- The live task is now to classify `R_L=0`, derive the eighth-order
-  fallback there, and perform the nonlinear singular blow-up.
+- L185--L186 subsequently classify `R_L=0` and prove its eighth-order
+  fallback.  The remaining task is the nonlinear singular blow-up.
   `proof/crabb_full_disk_sixth_hardy_factor.md`.
 
 ## NEWEST (2026-07-24): L182 proves the all-size cubic response
@@ -54,8 +82,8 @@
   complex directions in each length `6,...,11`.
 - This closed the response half of the arbitrary-size sixth face.
   L183--L184 subsequently factor the endpoint base deficit through a
-  Hardy residual and prove positivity; only its kernel lift and the
-  nonlinear tube remain open.
+  Hardy residual and prove positivity; L185--L186 then close its
+  kernel lift.  Only the nonlinear tube remains open.
   `proof/crabb_full_disk_cubic_response.md`.
 
 ## NEWEST (2026-07-24): L181 proves the complex `p=8` sixth face
