@@ -116,7 +116,161 @@ tolerance large enough to hide precisely the gap under investigation.
 The corrected checker includes the rational obstruction and treats
 the finite grid only as supporting scale information.
 
-## 5. Corrected merger architecture
+## 5. The disk model gap is quadratic in `Q`
+
+The exact counterexample does not affect the leading disk-normal
+face.  In fact L156 implies the stronger estimate
+
+\[
+\boxed{
+0\le \Delta(z,0)
+=\kappa_K(P_z)-\|B_z(A_z)\|_K^2
+\le C_L{\cal Q}(z)^2.
+}                                                     \tag{9}
+\]
+
+### 5.1 The endpoint residual controls the model orbit
+
+To distinguish the two defects, write
+
+\[
+q^{\rm can}=Ke_0=He_0
+\]
+
+for L122's canonical disk defect, and write `d` for the normalized
+orbit-complement defect.  Put
+
+\[
+\chi(\xi)=\xi g(\xi),\quad D(\xi)=g^\sharp(\xi),\quad
+T(\xi)=(q^{\rm can})^*
+\operatorname{adj}(\xi I-A)e_L,\quad S=T-D.          \tag{10}
+\]
+
+L156 says that every coefficient of `S` has value and full gradient
+zero on the phase-palindromic equality cone.  L155 therefore gives
+
+\[
+\|S\|_{\rm coeff}\le C_L{\cal Q}(z).                 \tag{11}
+\]
+
+Let `E` be the unique polynomial of degree at most `L` satisfying
+
+\[
+E(\xi)D(\xi)\equiv1\pmod{\chi(\xi)}.
+\]
+
+Thus `E(A)=D(A)^{-1}`.  For any polynomial `p`, Laurent expansion of
+the resolvent gives the elementary moment formula
+
+\[
+(q^{\rm can})^*p(A)e_L
+=[\xi^{-1}]_\infty\,{p(\xi)T(\xi)\over\chi(\xi)}.    \tag{12}
+\]
+
+Apply (12) with `p=xi^jE`, `0<=j<L`.  Since
+`ED=1+chi W` for a polynomial `W`, neither
+`xi^j/chi` nor `xi^jW` has a `xi^(-1)` coefficient.  Hence
+
+\[
+\boxed{
+(q^{\rm can})^*D(A)^{-1}A^je_L
+=[\xi^{-1}]_\infty\,{\xi^jE(\xi)S(\xi)\over\chi(\xi)}
+=O({\cal Q}(z)).
+}                                                     \tag{13}
+\]
+
+This makes precise the way L149's endpoint identity generates the
+orbit complement: away from equality, its entire failure is a finite
+linear functional of `S`.
+
+Let
+
+\[
+{\cal O}
+=\begin{bmatrix}
+D(A)^{-1}e_L&D(A)^{-1}Ae_L&\cdots&
+D(A)^{-1}A^{L-1}e_L
+\end{bmatrix}.
+\]
+
+L123's observability determinant says that `O` has rank `L` on the
+equality cone, hence throughout a fixed neighbourhood.  Normalize
+the unique vector in `ker O^*` by `d_0=1/2`.  The square system
+
+\[
+{\cal O}^*d=0,\qquad e_0^*d=1/2
+\]
+
+has a uniformly bounded analytic inverse.  Since
+`(q^can)_0=1/2`, equation (13) gives
+
+\[
+\boxed{\|d-q^{\rm can}\|\le C_L{\cal Q}(z).}          \tag{14}
+\]
+
+### 5.2 The lower endpoint squares the defect error
+
+Let `P` solve
+
+\[
+P-A^*PA=dd^*.
+\]
+
+The disk model always has `Ae_0=0`, so the normalization in (14)
+gives
+
+\[
+Pe_0=\frac12d,\qquad
+{e_0^*Pe_0\over e_0^*Ke_0}=\frac12,\qquad
+(P-\tfrac12K)e_0=\frac12(d-q^{\rm can})=O({\cal Q}).
+                                                               \tag{15}
+\]
+
+On the equality cone, L123 gives the generalized spectrum
+`{1/2,1,...,1,2}`.  The lower level is simple and uniformly separated.
+The standard Temple residual bound applied to (15) therefore gives
+
+\[
+\lambda_{\min}(P,K)=\frac12-O({\cal Q}^2).            \tag{16}
+\]
+
+There is also no hidden singular-vector motion.  For every nearby
+Toeplitz disk point,
+
+\[
+B(A)=\gamma e_0e_L^*K.                               \tag{17}
+\]
+
+Indeed `AB(A)=B(A)A=0`,
+`ker A=Ce_0`, and `ker A^*=CKe_L`.  Thus the right and left
+generalized singular lines are always `e_L` and `e_0`, and
+
+\[
+s^2:=\|B(A)\|_K^2={|\gamma|^2\over4}.
+\]
+
+The exact model-kernel complementarity on `e_L`, together with
+`e_0^*Pe_0=1/4`, gives
+
+\[
+Pe_L={s^2\over2}Ke_L.                                \tag{18}
+\]
+
+This remains the largest generalized level by the same uniform
+spectral separation.  Combining (16)--(18),
+
+\[
+\kappa_K(P)
+={{s^2}/2\over 1/2-O({\cal Q}^2)}
+=s^2+O({\cal Q}^2).
+\]
+
+Nonnegativity of the model gap supplies the lower inequality in (9).
+This proves L157 and explains why the false exact identity was so
+difficult to distinguish numerically: its error is forced above the
+entire quartic disk face.
+
+## 6. Corrected merger architecture
 
 The false exact identity is stronger than the local theorem needs.
 The viable replacement is a graded positive-gap argument.
@@ -140,10 +294,9 @@ The required statements are:
    division prove that a coefficient of reflected grade `k` is
    bounded by `C_L|c|^kQ(z)`.  It is absorbed by L152's `-a_LQ`.
 2. **Disk gap is above the normal face.**
-   Prove
-   `Delta(z,0)=o(Q(z))`, ideally by showing that the characteristic
-   Blaschke norm and the orbit-complement metric both have L122's
-   quartic `-32Q`.
+   **Closed by L157.**  The endpoint residual controls the normalized
+   orbit defect by `d-q_can=O(Q)`.  A uniform endpoint spectral gap
+   squares that residual and gives `0<=Delta(z,0)<=C_LQ(z)^2`.
 3. **Reflected gap is above the compact face.**
    L145/L151 already show that the `eta^2` compact diagonal of
    `Delta` is zero.
@@ -164,16 +317,22 @@ If these five points close, combine the resulting reflected descent
 with L152's canonical disk-normal estimate.  This would prove the
 disk-flat tube without any false all-disk primal/dual equality.
 
-## 6. Regeneration
+## 7. Regeneration
 
 Run
 
 ```bash
 .venv/bin/python -u experiments/crabb_disk_model_complement.py \
   --output experiments/crabb_disk_model_complement_s70223.jsonl
+
+PYTHONPATH=experiments .venv/bin/python -u \
+  experiments/crabb_disk_one_reflection_jets.py \
+  --output experiments/crabb_disk_one_reflection_jets_s70223.jsonl
 ```
 
 The first JSON line is the exact rational counterexample.  Remaining
 lines are finite-amplitude complex grids through the requested
 length.  The exact line is the proof artifact; the grid is only an
-adversarial regression.
+adversarial regression.  The second checker verifies the full real
+first jet of (14), in both real and imaginary coefficient directions,
+through length ten.

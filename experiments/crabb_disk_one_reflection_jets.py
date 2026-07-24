@@ -21,6 +21,11 @@ the all-size proof of that gradient identity.  Those recurrences
 separate an arbitrary complex disk tangent into its direct and
 reverse-conjugate coefficient polynomials.
 
+As a downstream audit of L157, it constructs the normalized
+orbit-complement defect and verifies that its value and every real
+disk-coordinate derivative agree with the canonical disk defect at a
+phase-one equality anchor.
+
 The calculation implements the root-free tangent (2)--(7) from
 ``proof/crabb_disk_one_reflection.md``.  Finite verification is not an
 all-size proof of the companion recurrence.
@@ -89,6 +94,18 @@ class EndpointRecurrenceRecord:
     right_endpoint_recurrence: bool
     left_endpoint_recurrence: bool
     bilinear_cancellation: bool
+
+
+@dataclass(frozen=True)
+class ModelDefectJetRecord:
+    """Full coordinate first jet of the normalized model defect."""
+
+    length: int
+    dimension: int
+    equality_coefficients: tuple[str, ...]
+    real_tangent_dimension: int
+    normalized_defect_matches_canonical_value: bool
+    normalized_defect_matches_canonical_gradient: bool
 
 
 class SeriesRing:
@@ -861,6 +878,127 @@ def endpoint_recurrence_record(length: int) -> EndpointRecurrenceRecord:
     )
 
 
+def model_defect_jet_holds(
+    equality: tuple[sp.Expr, ...],
+    direction: tuple[sp.Expr, ...],
+) -> tuple[bool, bool]:
+    """Check one normalized orbit-defect value and directional jet."""
+
+    length = len(equality) + 1
+    dimension = length + 1
+    toeplitz = hermitian_toeplitz(equality)
+    toeplitz_tangent = hermitian_toeplitz(
+        direction,
+        diagonal=sp.Integer(0),
+    )
+    shift = forward_shift(dimension)
+    coordinate = toeplitz + shift.T * toeplitz * shift
+    coordinate_tangent = (
+        toeplitz_tangent
+        + shift.T * toeplitz_tangent * shift
+    )
+    operator = 2 * coordinate.inv() * toeplitz * shift
+    operator_tangent = coordinate.inv() * (
+        2 * toeplitz_tangent * shift
+        - coordinate_tangent * operator
+    )
+
+    ring = SeriesRing(1)
+    operator_series = [operator, operator_tangent]
+    characteristic = ring.characteristic_coefficients(operator_series)
+    factor = [
+        characteristic[dimension - (power + 1)]
+        for power in range(length + 1)
+    ]
+    denominator_factor = [
+        ring.conjugate(coefficient)
+        for coefficient in reversed(factor)
+    ]
+    denominator = ring.evaluate_polynomial(
+        denominator_factor,
+        operator_series,
+    )
+    denominator_inverse = ring.matrix_inverse(denominator)
+    endpoint = ring.constant(sp.eye(dimension)[:, -1])
+
+    orbit_constant: list[sp.Matrix] = []
+    orbit_tangent: list[sp.Matrix] = []
+    for power in range(length):
+        operator_power = ring.matrix_power(operator_series, power)
+        orbit_column = ring.multiply(
+            denominator_inverse,
+            ring.multiply(operator_power, endpoint),
+        )
+        orbit_constant.append(orbit_column[0])
+        orbit_tangent.append(orbit_column[1])
+    orbit = sp.Matrix.hstack(*orbit_constant)
+    orbit_derivative = sp.Matrix.hstack(*orbit_tangent)
+
+    normalization_row = sp.eye(dimension)[0, :]
+    system = sp.Matrix.vstack(
+        orbit.conjugate().T,
+        normalization_row,
+    )
+    system_derivative = sp.Matrix.vstack(
+        orbit_derivative.conjugate().T,
+        sp.zeros(1, dimension),
+    )
+    target = sp.Matrix(
+        [*[sp.Integer(0) for _ in range(length)], sp.Rational(1, 2)]
+    )
+    normalized_defect = system.inv() * target
+    normalized_defect_tangent = -system.inv() * (
+        system_derivative * normalized_defect
+    )
+    canonical_defect = toeplitz[:, 0]
+    canonical_defect_tangent = toeplitz_tangent[:, 0]
+    return (
+        gaussian_matrix_is_zero(
+            normalized_defect - canonical_defect
+        ),
+        gaussian_matrix_is_zero(
+            normalized_defect_tangent
+            - canonical_defect_tangent
+        ),
+    )
+
+
+def model_defect_record(length: int) -> ModelDefectJetRecord:
+    """Audit every real disk-coordinate direction at one equality point."""
+
+    equality, _ = equality_data(length)
+    value_matches = True
+    gradient_matches = True
+    for offset in range(length - 1):
+        for phase in (sp.Integer(1), sp.I):
+            direction = tuple(
+                phase if index == offset else sp.Integer(0)
+                for index in range(length - 1)
+            )
+            value_holds, gradient_holds = model_defect_jet_holds(
+                equality,
+                direction,
+            )
+            value_matches &= value_holds
+            gradient_matches &= gradient_holds
+    if not value_matches:
+        raise AssertionError(
+            "the normalized model defect missed its equality value"
+        )
+    if not gradient_matches:
+        raise AssertionError(
+            "the normalized model defect lost a coordinate first jet"
+        )
+    return ModelDefectJetRecord(
+        length=length,
+        dimension=length + 1,
+        equality_coefficients=tuple(map(str, equality)),
+        real_tangent_dimension=2 * (length - 1),
+        normalized_defect_matches_canonical_value=True,
+        normalized_defect_matches_canonical_gradient=True,
+    )
+
+
 def parse_args() -> argparse.Namespace:
     """Parse command-line arguments."""
 
@@ -879,12 +1017,14 @@ def main() -> None:
         | ApexJetRecord
         | ResolventSquareRecord
         | EndpointRecurrenceRecord
+        | ModelDefectJetRecord
     ] = []
     for length in range(3, args.maximum_length + 1):
         records.append(normal_record(length))
         records.append(apex_record(length))
         records.append(resolvent_record(length))
         records.append(endpoint_recurrence_record(length))
+        records.append(model_defect_record(length))
     lines = [
         json.dumps(asdict(record), sort_keys=True)
         for record in records

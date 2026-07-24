@@ -2,6 +2,27 @@
 
 **Last updated:** 2026-07-23 (Epoch 6 — disk-flat marked merger)
 
+## NEWEST (2026-07-23): L157 pushes the model gap above the disk face
+- Let `T=q_can*adj(xi I-A)e_L` and `D=g#`.  L156 plus L155 gives
+  coefficientwise `T-D=O(Q)`.
+- If `E D=1 mod chi`, Laurent moment extraction writes every failure
+  of `q_can` to annihilate the model orbit
+  `D(A)^(-1)span{e_L,...,A^(L-1)e_L}` as a finite linear functional
+  of `T-D`.  The observability system is uniformly invertible, so the
+  normalized model defect obeys `d_model-q_can=O(Q)`.
+- For the model Stein Gramian, the lower Rayleigh residual on `e_0`
+  is exactly `(d_model-q_can)/2`.  The equality spectrum
+  `{1/2,1,...,1,2}` has a uniform lower gap, so Temple's bound squares
+  the error: `lambda_min=1/2-O(Q²)`.  Complementarity fixes
+  `lambda_max=||B(A)||_K²/2`.
+- Therefore the nonnegative failure of exact model complementarity
+  satisfies
+  `0<=Delta(z,0)<=C_LQ(z)^2`.  It is strictly above the quartic
+  disk-normal face and cannot spoil L152.  Full real coordinate
+  first jets of the normalized defect are exact through length ten.
+  `proof/crabb_disk_flat_marked_merger.md`;
+  `experiments/crabb_disk_one_reflection_jets.py`.
+
 ## NEWEST (2026-07-23): L156 closes the all-size endpoint first jet
 - At a phase-one equality point, an arbitrary Hermitian Toeplitz disk
   tangent `h` satisfies an inverse-free three-piece formula for
@@ -137,12 +158,10 @@
   and then records visible positive gaps on general complex samples at
   amplitudes `.12,...,.22`.
 - This does not falsify the disk-flat theorem.  It removes a shortcut.
-  The corrected route is to prove that the nonnegative model gap has
-  zero disk-normal and reflected compact faces; PSD zero-diagonal
-  polarization would then remove their mixed face, leaving only a
-  shrinkably higher marked remainder.  One must also verify the
-  dual one-reflection logarithmic identity at a general disk point and
-  prove the triangular Rees-coordinate estimate.
+  L154 now controls the dual one-reflection sector and L157 proves
+  that the nonnegative model gap is `O(Q²)` on the disk face.  The
+  remaining route is PSD zero-face polarization of the mixed gap,
+  followed by the triangular Rees-coordinate estimate.
   `proof/crabb_disk_flat_marked_merger.md`;
   `experiments/crabb_disk_model_complement.py`.
 
@@ -2216,14 +2235,14 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
 1. **Build the complete disk-flat tube from L151--L152.**  Combine the now
    proved weighted quadratic face
    `-sum|z_j|²c^(2(L-j))` with `-c^(2L)` and L152's
-   uniform `-aQ(z)`.  L154 now controls every dual one-leg
-   `y`--wedge sector.  Next prove that the nonnegative
-   orbit-complement/model gap is `o(Q)` on the disk face, use its zero
-   reflected compact face plus PSD polarization to remove the leading
-   mixed gap, and establish the triangular Rees-coordinate estimate.
-   Then absorb L118's strong variables.  L151's raw face, L147's
-   equality tube, L152's normal tube, and L154's one-leg bound are
-   closed; do not reopen them without a concrete contradiction.
+   uniform `-aQ(z)`.  L154 controls every dual one-leg
+   `y`--wedge sector, and L157 puts the pure disk model gap at
+   `O(Q²)`.  Next use the zero reflected compact face plus positivity
+   to eliminate or dominate the leading mixed gap, and establish the
+   triangular Rees-coordinate estimate.  Then absorb L118's strong
+   variables.  L151's raw face, L147's equality tube, L152's normal
+   tube, L154's one-leg bound, and L157's disk gap are closed; do not
+   reopen them without a concrete contradiction.
 2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
    trace inequality can instead be derived from the block-Toeplitz positivity of the full
    operator-valued correction moments. Do not retry trace/positive-state scalarizations.
