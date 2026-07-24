@@ -25,7 +25,7 @@ import json
 from pathlib import Path
 
 import numpy as np
-from scipy.linalg import sqrtm
+from scipy.linalg import solve_discrete_lyapunov, sqrtm
 
 from repeated_crabb_elliptic_cokernel import (
     ReducedFaceData,
@@ -55,6 +55,10 @@ class EllipticSelectionRecord:
     normal_corner_transfer_error: str
     perpendicular_column_error: str
     forcing_expansion_error: str
+    transfer_parseval_error: str
+    fourth_lag_correlation_error: str
+    balanced_endpoint_reduction_error: str
+    transfer_channel_formula_error: str
     range_equation_error: str
     full_second_stein_error: str
     lower_endpoint_error: str
@@ -261,6 +265,58 @@ def audit_data(
             - expanded_balanced_forcing(balanced)
         )
     )
+    right_projection = right @ right.conj().T
+    transfer_gramian = solve_discrete_lyapunov(
+        balanced.conj().T,
+        right_projection,
+    )
+    transfer_parseval_error = float(
+        np.linalg.norm(
+            left.conj().T @ transfer_gramian @ left
+            - np.eye(right.shape[1])
+        )
+    )
+    fourth_lag_gramian = solve_discrete_lyapunov(
+        balanced.conj().T,
+        right_projection @ matrix_power(balanced, 4),
+    )
+    fourth_lag_error = float(
+        np.linalg.norm(
+            left.conj().T @ fourth_lag_gramian @ left
+        )
+    )
+    balanced_metric_direction = solve_discrete_lyapunov(
+        balanced.conj().T,
+        balanced_forcing,
+    )
+    balanced_endpoint_error = float(
+        np.linalg.norm(
+            left.conj().T
+            @ balanced_metric_direction
+            @ left
+            + 4
+            * first_transfer
+            @ first_transfer.conj().T
+        )
+    )
+    normal_right_gram = (
+        data.normal_corner.conj().T @ data.normal_corner
+    )
+    channel_gramian = solve_discrete_lyapunov(
+        balanced.conj().T,
+        right @ normal_right_gram @ right.conj().T,
+    )
+    channel_endpoint = left.conj().T @ channel_gramian @ left
+    channel_formula_error = float(
+        np.linalg.norm(
+            data.target_gap
+            - 1.75
+            * (
+                channel_endpoint
+                - data.normal_corner @ data.normal_corner.conj().T
+            )
+        )
+    )
     spectral_radius = float(
         np.max(np.abs(np.linalg.eigvals(balanced)))
     )
@@ -270,6 +326,10 @@ def audit_data(
         and normal_error < 2e-9
         and perpendicular_error < 2e-9
         and expansion_error < 2e-8
+        and transfer_parseval_error < 2e-8
+        and fourth_lag_error < 2e-8
+        and balanced_endpoint_error < 2e-8
+        and channel_formula_error < 2e-8
         and range_error < 2e-8
         and full_stein_error < 2e-8
         and lower_error < 2e-8
@@ -289,6 +349,18 @@ def audit_data(
         normal_corner_transfer_error=format_float(normal_error),
         perpendicular_column_error=format_float(perpendicular_error),
         forcing_expansion_error=format_float(expansion_error),
+        transfer_parseval_error=format_float(
+            transfer_parseval_error
+        ),
+        fourth_lag_correlation_error=format_float(
+            fourth_lag_error
+        ),
+        balanced_endpoint_reduction_error=format_float(
+            balanced_endpoint_error
+        ),
+        transfer_channel_formula_error=format_float(
+            channel_formula_error
+        ),
         range_equation_error=format_float(range_error),
         full_second_stein_error=format_float(full_stein_error),
         lower_endpoint_error=format_float(lower_error),

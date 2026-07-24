@@ -46,10 +46,10 @@ and \(B_1=0\) at the Crabb apex.  Thus (2), and the stable Stein
 solution \(X\), remain bounded and real analytic through the rank
 jump.  This closes the analytic-selection debt left by L203--L206.
 
-The identity is more general than needed: it holds for every strict
-pure finite partial isometry with equal, orthogonal left and right
-defects.  It does not yet treat the higher reflected grades
-\(B_2,\ldots,B_L\).
+The identity is more general than needed: it holds for every
+spectrally stable pure finite partial isometry with equal, orthogonal
+left and right defects.  It does not yet treat the higher reflected
+grades \(B_2,\ldots,B_L\).
 
 ## 2. Balanced second forcing
 
@@ -268,7 +268,61 @@ W^*XW
 Conjugating the balanced Stein equation by \(P^{1/2}\) proves the
 first line of (3).  This completes the proof.
 
-## 6. Analyticity and scope
+## 6. Transfer-channel corollary
+
+The same formula also gives a compact closed form for L204's reduced
+target.  Define the completely positive copy-space channel
+
+\[
+ {\mathfrak C}(K)
+ =\Phi(VKV^*)
+ =\sum_{n\ge1}B_nKB_n^*.                          \tag{24}
+\]
+
+Then
+
+\[
+\boxed{
+ D_T=\frac74\{{\mathfrak C}(Z^*Z)-ZZ^*\}.}         \tag{25}
+\]
+
+To verify (25) without another word expansion, let \(Y=Y^*\), and let
+
+\[
+ H_Y-SH_YS^*=WYW^*,\qquad
+ A_0=V^*H_YV,\qquad R=QH_YV.                       \tag{26}
+\]
+
+The Stein series gives \(H_YW=WY\), while multiplication of (26) by
+\(S\) gives
+
+\[
+H_YS-SH_Y=-SRV^*.
+\]
+
+Consequently
+
+\[
+YB_1-B_1A_0=W^*S^*R.                              \tag{27}
+\]
+
+Pair the physical endpoint map applied to (2) with \(Y\).  The
+balanced pairing is
+\(2\operatorname{Re}\operatorname{tr}(\widehat C^*R)\), and returning
+to the physical upper endpoint contributes a factor four.  Thus
+
+\[
+\operatorname{tr}\{Y{\cal M}_T(C)\}
+=-28\operatorname{Re}
+ \operatorname{tr}(B_1^*W^*S^*R).                 \tag{28}
+\]
+
+Stein adjointness in (24), \(Z=4B_1\), and (27) show that pairing the
+right side of (25) with \(Y\) gives the same expression.  Since this
+holds for every Hermitian \(Y\), (25) follows.  This is an independent
+dual check of the direct endpoint reduction (9)--(20).
+
+## 7. Analyticity and scope
 
 On L193's equality chart, \(P,S,V,W\) are real analytic functions of
 the positive inverse-block-Toeplitz coefficients.  Formula (2) uses
@@ -292,7 +346,7 @@ next unresolved step is the higher reflected flag: on
 with \(B_2,\ldots,B_L\), and then merge them with L197's later
 circular-normal/Hardy residual faces.
 
-## 7. Regeneration
+## 8. Regeneration
 
 Run
 
@@ -306,7 +360,10 @@ OPENBLAS_NUM_THREADS=1 .venv/bin/python -u \
 The checker verifies (2)--(3) and the finite forcing expansion (9) on
 all standard noncommuting equality anchors of lengths two through five
 and multiplicities two and three, at two amplitudes.  It also tests 20
-unstructured strict partial isometries with defect dimensions up to
-three.  The latter are algebraic stress tests, not extra numerical
-range assumptions.  The tracked dataset SHA-256 is
-`d7b93dd5744d3cd6515994c625172503bf977bfd2c121965c00908107e4da4c5`.
+unstructured spectrally stable partial isometries with defect
+dimensions up to three.  The latter are algebraic stress tests, not
+extra numerical range assumptions.  In addition to the complete
+endpoint, the checker independently audits transfer Parseval, the
+vanishing fourth-lag correlation, and the balanced reduction (20).
+The tracked dataset SHA-256 is
+`69056ff0b153b1eef651c0e47495290069c863686710176f1aaf29202757305e`.
