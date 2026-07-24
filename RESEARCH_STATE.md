@@ -1,6 +1,47 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-23 (Epoch 6 — disk-flat marked merger)
+**Last updated:** 2026-07-23 (Epoch 6 — full circular-normal merger)
+
+## NEWEST (2026-07-23): L162 proves all-size ambient stationarity on the equality ridge
+- At every positive phase-palindromic disk-equality anchor, fix L123's
+  coefficient metric `K` and defect `q`, continue its rank-one Stein
+  solution under an arbitrary ambient perturbation, and apply the first
+  Schwarz/Riemann correction.  The resulting certificate condition has
+  zero derivative in every complex matrix direction.
+- The proof is exact.  L123's finite Blaschke lower bound touches the
+  Stein upper certificate at four, identifying the derivative as
+  `8 Re(q* DB(A)[E]e_L)`.  L156's endpoint resolvents turn this into a
+  boundary integral with density `1/|g#|²`.  A finite endpoint transfer
+  function and a reflected-polynomial kernel identity show that the
+  Schwarz correction has exactly the same real derivative.
+- Exact nonreal rational audits reach `p=6`; generic symbolic parameters
+  reach length four; every real/imaginary matrix unit and additional
+  near-boundary random anchors pass through `p=9`.  Non-palindromic disk
+  controls are not stationary.
+- This supplies the critical-ridge half of a tubular/Morse--Bott
+  argument.  It does not prove a negative normal Hessian or the final
+  neighborhood theorem.  Next combine it with L160--L161 in a prepared
+  full-disk tubular chart.
+  `proof/crabb_equality_ambient_stationarity.md`.
+
+## NEWEST (2026-07-23): L160--L161 isolate the first circular-normal faces
+- Optimizing all of L118's strong variables over the Toeplitz disk chart
+  is false: part of that space recenters onto the larger exact
+  circular-range manifold.  The correct L115 quotient has `2p-4` real
+  coercive circular normals after the one complex elliptic soft normal.
+- In the offset-one reflected sector, Fourier selection leaves only the
+  bottom normal.  Its exact cross is `-8(5L-1)/L`; completing against
+  L65 leaves the strict residual
+  `32(L-1)(2L²-L+3)/(L(L²+36L-13))`.
+- For grade two, the only character-allowed normal cross vanishes in
+  every size.  Separated endpoint derivatives vanish individually; the
+  unique short collision has upper/lower ratio `4:1` and cancels in the
+  condition number.
+- These are leading weighted faces, not yet a uniform all-grade
+  circular-normal lift.  Raw single-grade division is the wrong
+  coordinate because L159-old found nonlinear grade aliasing.
+  `proof/crabb_circular_normal_face.md`;
+  `proof/crabb_grade_two_normal_selection.md`.
 
 ## NEWEST (2026-07-23): A106 falsifies the two-sided raw Rees comparison
 - Ordinary invertibility of the characteristic coefficient map does
