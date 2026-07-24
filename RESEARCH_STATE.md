@@ -2,6 +2,28 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — full circular-normal merger)
 
+## NEWEST (2026-07-24): L181 proves the complex `p=8` sixth face
+- The complete length-seven Schur residual is
+  `−2δ_6−|G_3|²/(4b_3)−|G_4|²/(4b_4)`, with exact curvatures
+  `b_3=773/9604` and `b_4=901/9604`.
+- A dense generic-complex characteristic expansion became
+  computationally pathological.  Exact sparse polarization replaces
+  it: 364 one-/two-/three-coordinate points have cubic evaluation rank
+  `364` and quadratic rank `78`.
+- All 4,368 exact true-normal polarization evaluations prove that the
+  quadratic response vanishes, modes three and four are the only cubic
+  modes, and both proposed Pluecker formulas hold coefficientwise.
+- On 37 selected coordinates of
+  `z tensor (z wedge J conjugate(z))`, the residual is exactly nine
+  positive rational squares in the real parts plus six in the
+  imaginary parts.  Independent endpoint regeneration matches all 299
+  polarized sextic coefficients; the Gram ranks are `9+6`.
+- L180--L181 now close the first two active complex sizes.  Their
+  literal shared tail factors point to an all-size interval-flux LDL
+  recurrence, but this is not yet an induction theorem.  Derive that
+  recurrence rather than starting another raw fixed-size SOS.
+  `proof/crabb_full_disk_complex_L7_sixth_certificate.md`.
+
 ## NEWEST (2026-07-24): L180 proves the complex `p=7` sixth face
 - On A126's first active complex slice, the exact required inequality
   is `P_6−1089|C_6|²/290>=0`.

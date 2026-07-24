@@ -159,6 +159,12 @@ complete **complex** `p=7` slice by an independent rational ten-square
 certificate on \(z\otimes(z\wedge J\overline z)\).  Neither result
 proves the sharper inequality (11) or the arbitrary-size block theorem.
 
+L181 closes the next complex size `p=8`.  It first proves by exact
+sparse polarization that modes three and four are the complete cubic
+response, then represents their full Schur residual by fifteen positive
+rational squares on 37 Pluecker-tensor coordinates.  Thus the first two
+active complex sizes are exact; the arbitrary-size theorem remains open.
+
 L178 subsequently resolves the equality edge of (11) without needing
 the full SOS.  When only the last two coefficients remain, the actual
 Schur gain/base ratio is exactly
@@ -225,7 +231,9 @@ L178 completes this program on the last-two-coefficient edge and
 identifies the flux/null-lift split which the general blocks should
 retain.  L180 completes it in the first active size and shows that the
 right complex Gram organization has separate global-phase sectors; a
-formal Hermitian lift of the real certificate is false.
+formal Hermitian lift of the real certificate is false.  L181 completes
+the second active size with the same grade-block organization and
+literal extensions of several L180 factor vectors.
 
 This is the current load-bearing route to the nonlinear full-disk
 tube.  The elliptic and compact merger remains downstream.
@@ -283,6 +291,19 @@ PYTHONPATH=experiments OPENBLAS_NUM_THREADS=1 \
   experiments/crabb_full_disk_complex_sixth_certificate.py \
   --output \
   experiments/crabb_full_disk_complex_sixth_certificate_s70224.jsonl
+
+PYTHONPATH=experiments OPENBLAS_NUM_THREADS=1 \
+  .venv/bin/python -u \
+  experiments/crabb_full_disk_complex_L7_cubic_response.py \
+  --workers 8 \
+  --output \
+  experiments/crabb_full_disk_complex_L7_cubic_response_s70224.jsonl
+
+PYTHONPATH=experiments OPENBLAS_NUM_THREADS=1 \
+  .venv/bin/python -u \
+  experiments/crabb_full_disk_complex_L7_sixth_certificate.py \
+  --output \
+  experiments/crabb_full_disk_complex_L7_sixth_certificate_s70224.jsonl
 ```
 
 The generalized series routines also regenerate the pre-existing L122

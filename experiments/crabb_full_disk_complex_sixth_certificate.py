@@ -25,6 +25,12 @@ import sympy as sp
 
 from crabb_full_disk_base_jet_exact import endpoint_delta_series
 from crabb_full_disk_real_sixth_certificate import REQUIRED_CONSTANT
+from crabb_full_disk_tensor_gram import (
+    RankOneFactor,
+    gram_from_factors,
+    pluecker_tensor_features,
+    positive_factors_verified,
+)
 
 
 TENSOR_MAPPING = (
@@ -49,15 +55,6 @@ TENSOR_MAPPING = (
     (2, 1, 3),
     (3, 0, 3),
 )
-
-
-@dataclass(frozen=True)
-class RankOneFactor:
-    """One nonnegative rational rank-one Gram factor."""
-
-    indices: tuple[int, ...]
-    scale: sp.Rational
-    coefficients: tuple[sp.Rational, ...]
 
 
 @dataclass(frozen=True)
@@ -167,25 +164,6 @@ def rank_one_factors() -> tuple[
     return real_factors, imaginary_factors
 
 
-def gram_from_factors(
-    factors: tuple[RankOneFactor, ...],
-    size: int,
-) -> sp.Matrix:
-    """Assemble a rational Gram matrix from rank-one factors."""
-
-    gram = sp.zeros(size)
-    for factor in factors:
-        vector = sp.zeros(size, 1)
-        for index, coefficient in zip(
-            factor.indices,
-            factor.coefficients,
-            strict=True,
-        ):
-            vector[index] = coefficient
-        gram += factor.scale * vector * vector.T
-    return gram
-
-
 def polarized_target(
     variables: tuple[sp.Symbol, ...],
     conjugate_variables: tuple[sp.Symbol, ...],
@@ -233,28 +211,6 @@ def polarized_target(
     return sp.expand(base - REQUIRED_CONSTANT * cubic * conjugate_cubic)
 
 
-def tensor_features(
-    variables: tuple[sp.Symbol, ...],
-    conjugate_variables: tuple[sp.Symbol, ...],
-) -> tuple[sp.Matrix, sp.Matrix]:
-    """Return selected ``-z_a W_ij`` coordinates and their conjugates."""
-
-    features = []
-    conjugate_features = []
-    for outer, left, right in TENSOR_MAPPING:
-        pluecker = (
-            variables[left] * conjugate_variables[4 - right]
-            - variables[right] * conjugate_variables[4 - left]
-        )
-        conjugate_pluecker = (
-            conjugate_variables[left] * variables[4 - right]
-            - conjugate_variables[right] * variables[4 - left]
-        )
-        features.append(-variables[outer] * pluecker)
-        conjugate_features.append(-conjugate_variables[outer] * conjugate_pluecker)
-    return sp.Matrix(features), sp.Matrix(conjugate_features)
-
-
 def build_record() -> ComplexSixthCertificateRecord:
     """Construct and verify the exact rational certificate."""
 
@@ -262,7 +218,8 @@ def build_record() -> ComplexSixthCertificateRecord:
     conjugate_variables = sp.symbols("zb0:5")
     all_variables = (*variables, *conjugate_variables)
     target = polarized_target(variables, conjugate_variables)
-    features, conjugate_features = tensor_features(
+    features, conjugate_features = pluecker_tensor_features(
+        TENSOR_MAPPING,
         variables,
         conjugate_variables,
     )
@@ -291,10 +248,7 @@ def build_record() -> ComplexSixthCertificateRecord:
         *all_variables,
     ).is_zero
     gram_symmetry = real_gram == real_gram.T and imaginary_gram == imaginary_gram.T
-    positive_factors = all(
-        factor.scale > 0 and len(factor.indices) == len(factor.coefficients)
-        for factor in (*real_factors, *imaginary_factors)
-    )
+    positive_factors = positive_factors_verified((*real_factors, *imaginary_factors))
     verified = bool(
         polynomial_identity
         and conjugation_invariant

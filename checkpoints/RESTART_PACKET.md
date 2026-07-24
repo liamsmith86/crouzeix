@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-24): L180 / A129
+## Current general Crabb frontier (2026-07-24): L181 / A130
 
 L174 proves the nonlinear Toeplitz-disk/coercive-normal slice tube.
 L176--L177 then recenter the complete full-H homogeneous face: the
@@ -53,13 +53,21 @@ checks all ten normal polarizations and proves that mode three is the
 only cubic response.  A naive Hermitian lift of L179 is false; the
 missing global-phase sectors are essential.
 
-The immediate algebraic frontier is now the all-size anti-diagonal
-formula and block positivity, not another fixed-size raw SOS.  Use
-L180's grade-block factorization as a template, retain L173's positive
-null-lift curvature, and next test `L=7` symbolically before claiming a
-stable general pattern.  After the arbitrary-size sixth block closes,
-classify its kernel and derive the eighth-order fallback.  See
-`proof/crabb_full_disk_complex_sixth_certificate.md`.
+L181 now closes the second active complex size `p=8`.  A 364-point
+exact sparse-polarization set has full cubic evaluation rank and
+verifies all 4,368 normal-polarization values, proving that modes three
+and four are the complete cubic response.  The resulting sixth
+residual is an exact fifteen-square rational tensor identity with Gram
+ranks `9+6`; all 299 polarized coefficients regenerate independently.
+
+The immediate algebraic frontier is the all-size anti-diagonal formula
+and interval-flux LDL recurrence, not another fixed-size raw SOS.
+Compare L180's ten factors with L181's fifteen: organize by circle
+grade, identify the literal embedded tail vectors, derive the general
+elimination step, and retain L173's positive null-lift curvature.
+After the arbitrary-size sixth block closes, classify its kernel and
+derive the eighth-order fallback.  See
+`proof/crabb_full_disk_complex_L7_sixth_certificate.md`.
 
 ## Historical general Crabb frontier (2026-07-23): L125 / A84
 

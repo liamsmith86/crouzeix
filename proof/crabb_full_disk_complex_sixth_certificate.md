@@ -135,8 +135,9 @@ the naive Hermitian lift of its rank-seven Gram matrix is false.  L180
 instead retains the missing global-phase sectors through separate real
 and imaginary tensor blocks.
 
-The first-active-size obstruction is now closed over its full complex
-domain.  The live algebraic task remains A126's arbitrary-size block:
+The first-active-size obstruction is closed over its full complex
+domain, and L181 subsequently closes the second active size `p=8`.
+The live algebraic task remains A126's arbitrary-size block:
 derive \(D_{6,L}\) and every \(G_{L,k}^{(3)}\) in common
 anti-diagonal/interval-flux coordinates, then prove the resulting
 Schur blocks positive while retaining L173's null-lift curvature.
