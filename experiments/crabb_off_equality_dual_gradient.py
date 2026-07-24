@@ -177,18 +177,20 @@ def quartic_defect(coefficients: np.ndarray) -> float:
     )
 
 
-def gradient_record(
-    length: int,
-    scale: float,
+def dual_gradient_and_coercive_rows(
+    coefficients: np.ndarray,
     resolution: int,
-    equality_control: float,
-) -> DualGradientRecord:
-    """Compute one full and coercive-projected dual gradient."""
+) -> tuple[float, np.ndarray, np.ndarray]:
+    """Return the squared dual norm, ambient gradient, and normal rows.
 
-    equality, normal = equality_and_normal(length)
-    coefficients = equality + scale * normal
+    The real ambient coordinate order is all real matrix entries followed
+    by all imaginary matrix entries.  The rows are the transported support
+    covectors in modes three through the dimension, which form the
+    coercive circular-normal quotient used in L115.
+    """
+
     operator, metric = disk_model(coefficients)
-    dimension = length + 1
+    dimension = len(operator)
 
     characteristic = np.poly(operator)
     numerator_coefficients = characteristic[:-1]
@@ -275,7 +277,6 @@ def gradient_record(
                     )
                 )
 
-    gradient_vector = np.asarray(gradient)
     support_columns_array = np.asarray(support_columns)
     normal_rows = []
     for mode in range(3, dimension + 1):
@@ -285,7 +286,30 @@ def gradient_record(
                 support_columns_array[:, mode].imag,
             )
         )
-    normal_matrix = np.asarray(normal_rows)
+    return (
+        float(singular_value**2),
+        np.asarray(gradient),
+        np.asarray(normal_rows),
+    )
+
+
+def gradient_record(
+    length: int,
+    scale: float,
+    resolution: int,
+    equality_control: float,
+) -> DualGradientRecord:
+    """Compute one full and coercive-projected dual gradient."""
+
+    equality, normal = equality_and_normal(length)
+    coefficients = equality + scale * normal
+    dimension = length + 1
+    dual_norm_square, gradient_vector, normal_matrix = (
+        dual_gradient_and_coercive_rows(
+            coefficients,
+            resolution,
+        )
+    )
     normal_rank = int(np.linalg.matrix_rank(normal_matrix, tol=1e-10))
     projection = (
         normal_matrix.T
@@ -303,7 +327,7 @@ def gradient_record(
         length=length,
         disk_normal_scale=scale,
         quartic_defect=defect,
-        dual_deficit=float(4 - singular_value**2),
+        dual_deficit=float(4 - dual_norm_square),
         full_gradient_norm=full_norm,
         coercive_projection_norm=projection_norm,
         full_over_sqrt_defect=full_norm / defect_scale,

@@ -1,6 +1,37 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-23 (Epoch 6 — full circular-normal merger)
+**Last updated:** 2026-07-24 (Epoch 6 — full circular-normal merger)
+
+## NEWEST (2026-07-24): L173 proves the sharp Crabb-apex normal Schur face
+- The tempting stronger claim that the quadratic disk-to-circular-normal
+  gradient vanishes is false from `L=6` onward.  Its first exact value is
+  `-253/45000`.  The corrected checker preserves this failed shortcut
+  rather than hiding it.
+- The complete quadratic response has the exact exterior-square form
+  `G_(L,k)=8(4k-1)/L² sum_(i+j=L+k)(j-i)
+  (h_i conj(h_(L-j))-h_j conj(h_(L-i)))`.
+  Thus it factors through `h wedge J conj(h)`, and different support
+  modes occupy orthogonal Plücker anti-diagonals.
+- In Takagi coordinates `Q=4||p||²`.  Either real polarization of mode
+  `k`, with `r=L-k`, has squared row norm
+  `128(4k-1)² binom(r,3)/L⁴`.
+- Solving L65's singular path kernel by cumulative flux gives the exact
+  raw-mode curvature
+  `b=L^(-4)[(4k+4-3sqrt(2))²r(r-1)(r-2)/24
+  +(2/3)k(k-1)(k-2)(r-1+3sqrt(2)/4)²]`.
+- Since `4k+4-3sqrt(2)>4k-1`, already the first curvature term gives
+  `b>||m||²/512`.  Orthogonality therefore makes the full completed
+  normal gain strictly smaller than the disk deficit
+  `32Q=128||p||²` in every size.
+- This proves the sharp homogeneous apex face, not yet the nonlinear
+  tubular patch.  The remaining step is analytic: transport the normal
+  frame over the Lewis--Overton circular-range manifold, combine the
+  strict apex margin with L162's exact positive-ridge stationarity,
+  then merge L160 and L163/L172.
+- Exact Gaussian-rational response regeneration through `L=7` and an
+  independent all-mode L65/finite-difference regeneration through
+  `L=12` both pass; repeated runs are byte-identical.
+  `proof/crabb_circular_normal_plucker_schur.md`.
 
 ## NEWEST (2026-07-23): L172 closes L163 by an explicit endpoint residue
 - The gap found in the L171 audit is now closed without the discarded
@@ -2578,16 +2609,17 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-23)
-1. **Build the full circular-range tubular lift.**  L172 now closes
-   L163's last endpoint functional by an explicit residue calculation.
-   Assemble L158's compact/disk deficit, L160's completed grade-one
-   square, L163's zero higher-grade crosses, L162's ridge
-   stationarity, and L65's coercive normal Hessian into a uniform
-   analytic negative estimate on the normal quotient.  Then patch it
-   over the complete circular-range manifold, including the
-   stratified Crabb apex.  Do not optimize over the raw Toeplitz chart
-   (A107), retry the `O(Q)` ambient shortcut (A111), or replace L172
-   by the vague Hardy-projection slogan that its audit rejected.
+1. **Finish the full circular-range tubular lift.**  L173 now proves
+   the sharp homogeneous disk/circular-normal Schur margin at the
+   stratified Crabb apex; L172 closes the separate compact
+   higher-grade rows.  Build an analytic transported normal frame over
+   the Lewis--Overton disk manifold and use weighted compact blow-up to
+   patch L173 to L162's exact stationarity at every positive equality
+   anchor.  Then merge L158's compact/disk deficit, L160's completed
+   grade-one square, and L163's zero higher-grade crosses.  Do not
+   optimize over the raw Toeplitz chart (A107), retry the `O(Q)`
+   ambient shortcut (A111), or replace L172 by the vague
+   Hardy-projection slogan that its audit rejected.
 2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
    trace inequality can instead be derived from the block-Toeplitz positivity of the full
    operator-valued correction moments. Do not retry trace/positive-state scalarizations.
