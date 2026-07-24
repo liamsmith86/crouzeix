@@ -67,11 +67,12 @@ Thus allowing every true coercive circular normal does **not** destroy
 the first reflected face.
 
 This closes the offset-one circular-normal Schur complement.  It does
-not by itself prove the full single-Crabb neighbourhood theorem.  The
-higher-grade circular-normal cross faces still require an all-size
-selection audit, and one still needs a uniform analytic tubular lift
-over the complete disk manifold rather than only the Toeplitz
-cross-section used by L158.
+not by itself prove the full single-Crabb neighbourhood theorem.
+L163/L172 subsequently close every higher-grade compact/circular-normal
+cross face, while L173 proves the separate disk/circular-normal apex
+Schur margin and L174 lifts it over the Toeplitz disk slice.  The
+remaining task is the full circular-range-base/elliptic/compact merger,
+not another offset-one coefficient.
 
 ## 2. Why the earlier full-strong absorption target is false
 
@@ -104,12 +105,16 @@ non-palindromic Toeplitz disk path finds
   \over(\hbox{Toeplitz quartic deficit})}\longrightarrow1. \tag{7}
 \]
 
-In contrast, the gradient projected onto `N_coercive` is zero to the
-precision of the independent Riemann/Stein engine.  Equation (7)
-falsifies the proposed estimate that all L118 strong variables could
-be absorbed by L158's prepared norm.  It does not threaten the
-conjecture; it says that the exact disk manifold is the necessary
-anchor, exactly as L115 anticipated.
+The early low-size probe also suggested that the gradient projected
+onto `N_coercive` vanished.  A111 and L173 subsequently disproved that
+suggestion from `L=6` onward: the genuine quadratic response is a
+nonzero Pluecker form.  L173 also proves the sharp fact actually
+needed--its complete Schur gain is strictly smaller than the
+Toeplitz disk deficit.  Equation (7) still falsifies the proposed
+estimate that all L118 strong variables could be absorbed by L158's
+prepared norm.  Neither correction threatens the conjecture; together
+they say that the exact disk manifold is the necessary anchor and the
+true circular normals require their joint Schur complement.
 
 ## 3. Offset-one Fourier selection
 

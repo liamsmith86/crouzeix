@@ -2,6 +2,28 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — full circular-normal merger)
 
+## NEWEST (2026-07-24): L174 proves the nonlinear disk/circular-normal slice tube
+- Over L122's exact Toeplitz disk chart, transport the `2p−4` true
+  coercive circular-normal representatives by the disk metric square
+  root and evaluate L118's analytic optimized rank-one envelope.
+- L65's negative Hessian gives uniform fibre concavity and an analytic
+  maximizing graph `y_*(z)`.  L123's exact equality metric together
+  with L162's ambient stationarity pins `y_*(u)=0`, `H(u)=0`, and
+  `DH(u)=0` on the entire phase-palindromic cone.
+- The pure disk quartic is at most `−32Q`.  A111/L157 identify L173's
+  quadratic Pluecker response as the optimized-envelope response, and
+  L173's strict Schur margin leaves `H_4<=−c_LQ`.
+- L155's determinantal-ideal argument removes subquartic terms.
+  L124's best-phase splitting then supplies a two-regime blow-up:
+  ordinary radial domination away from the cone and normal Taylor
+  domination near it.  This yields the nonlinear estimate
+  `Gamma<=−a_LQ−b_L||y−y_*(z)||²`.
+- Scope is important: this is a rigorous Toeplitz-disk × coercive-normal
+  slice theorem, not yet a tube over every non-Toeplitz point of the
+  Lewis--Overton circular-range manifold.  The elliptic soft normal and
+  compact reflected variables also remain to be merged.
+  `proof/crabb_disk_circular_normal_tube.md`.
+
 ## NEWEST (2026-07-24): L173 proves the sharp Crabb-apex normal Schur face
 - The tempting stronger claim that the quadratic disk-to-circular-normal
   gradient vanishes is false from `L=6` onward.  Its first exact value is
@@ -2613,18 +2635,19 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed 2026-07-23)
-1. **Finish the full circular-range tubular lift.**  L173 now proves
-   the sharp homogeneous disk/circular-normal Schur margin at the
-   stratified Crabb apex; L172 closes the separate compact
-   higher-grade rows.  Build an analytic transported normal frame over
-   the Lewis--Overton disk manifold and use weighted compact blow-up to
-   patch L173 to L162's exact stationarity at every positive equality
-   anchor.  Then merge L158's compact/disk deficit, L160's completed
-   grade-one square, and L163's zero higher-grade crosses.  Do not
-   optimize over the raw Toeplitz chart (A107), retry the `O(Q)`
-   ambient shortcut (A111), or replace L172 by the vague
-   Hardy-projection slogan that its audit rejected.
+## Current next actions (Epoch 6, refreshed 2026-07-24)
+1. **Extend L174 from its slice to the full circular-range base, then
+   merge the marked variables.**  L174 now closes the nonlinear
+   Toeplitz-disk/coercive-normal tube, L160 closes the compact
+   grade-one Schur face, and L163/L172 close every higher-grade compact
+   row.  Chart the remaining non-Toeplitz circular-range directions as
+   exact disk-theorem base variables, isolate where the base
+   certificate can approach equality, and merge L149/L150's elliptic
+   and compact deficits there.  Do not silently identify L174's slice
+   with the whole Lewis--Overton manifold, optimize over all raw L118
+   strong directions (A107), retry the `O(Q)` ambient shortcut (A111),
+   or replace L172 by the vague Hardy-projection slogan its audit
+   rejected.
 2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
    trace inequality can instead be derived from the block-Toeplitz positivity of the full
    operator-valued correction moments. Do not retry trace/positive-state scalarizations.
