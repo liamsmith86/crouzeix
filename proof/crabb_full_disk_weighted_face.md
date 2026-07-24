@@ -2,19 +2,22 @@
 
 ## 1. Status
 
-This note records a reproducible **numerical structural conjecture**, not
-an all-size proof.
+L176--L177 now prove the complete homogeneous identity proposed here
+in every size.  The finite-scale recentered experiment in Section 4
+remains evidence, not a proof of the nonlinear tube.
 
 L174 proves a tube over the Toeplitz part of L122's disk chart.  The
 remaining circular-range coordinates cannot simply be included among
 L174's coercive normals: some are tangent to the full general-H disk
 manifold and cancel the entire Toeplitz quartic at leading order.
 
-The new calculations identify that cancellation much more precisely.
-They also test the first genuine circular-normal face after the
-corresponding full-disk recentering.  No adverse sign was found.
+The calculations first identified that cancellation.  L176 gives its
+explicit all-size correction and energy, while L177 proves the complete
+ambient response match.  The second experiment tests the first genuine
+circular-normal face after the corresponding full-disk recentering.
+No adverse sign was found.
 
-## 2. Full weighted-face conjecture
+## 2. Full weighted-face theorem
 
 Put \(p=L+1\), let \(C_p\) be the Crabb matrix, and write
 
@@ -46,7 +49,7 @@ first Riemann correction.  The leading full-strong face is
  =-32{\cal Q}(h)+g_2(h)^TE-E^T{\cal C}_pE.             \tag{1}
 \]
 
-The data support the exact identities
+L176--L177 prove the exact identities
 
 \[
 \boxed{
@@ -60,7 +63,7 @@ g_2(h)&\in\operatorname{range}({\cal C}_p{\cal T}_p),\\
 
 Consequently the maximum of (1) is exactly zero, and a maximizing
 class modulo \(\ker{\cal C}_p\) is tangent to the exact disk manifold.
-Thus the full-H face should be semidefinite, not strictly negative:
+Thus the full-H face is semidefinite, not strictly negative:
 
 \[
  \boxed{\max_E{\cal F}_4(h,E)=0.}                      \tag{3}
@@ -95,17 +98,16 @@ complex directions per size.  Across all 16 records:
 * the relative residual in
   \(2{\cal C}_p{\cal T}_pb=g_2\) is at most \(1.4\,10^{-9}\).
 
-Two clean runs are byte-identical.  These residuals are much smaller
-than the effect and stable across unrelated directions, but they are
-still floating-point evidence.
+Two clean runs are byte-identical.  These calculations were the
+floating-point discovery evidence; L176--L177 subsequently prove the
+identity independently.
 
 ## 4. Recentered exact disk paths
 
-L176 now gives an explicit, all-size Hermitian correction
+L176 gives an explicit, all-size Hermitian correction
 \(B_2(h)\), linear in \(h\wedge J\overline h\), and proves exactly
-that its L65 curvature energy is \(32{\cal Q}(h)\).  The numerical
-ambient-response equation in (2) selects this same correction.  This
-gives the exact-disk path
+ambient-response equation in (2) selects this same correction, and
+L177 proves that response match exactly.  This gives the exact-disk path
 
 \[
  H_h(s)=\frac12I+sZ(h)+s^2B_2(h).                     \tag{5}
@@ -147,17 +149,12 @@ above is the relevant favorable test.
 
 ## 5. What remains to prove
 
-L176 proves the curvature-energy half of (2).  The load-bearing next
-target is the response-matching half.  A useful proof should:
+L177 derives the complete all-mode formula for \(g_2(h)\) and verifies
+\(2{\cal C}_pD X[B_2(h)]=g_2(h)\).  Together with L176, this closes the
+homogeneous full-H face.
 
-1. derive the complete all-mode formula for \(g_2(h)\), extending
-   L173's true-normal projection;
-2. verify
-   \(2{\cal C}_pD X[B_2(h)]=g_2(h)\) for L176's explicit correction.
-   The exact energy then follows from L176.
-
-After that identity, the correct nonlinear strategy is a splitting
-over the **full** disk manifold:
+The remaining nonlinear strategy is a splitting over the **full** disk
+manifold:
 
 * use Berger--Okubo--Ando/L122 for the exact disk base;
 * use L65/L173 for the genuine coercive circular normals;

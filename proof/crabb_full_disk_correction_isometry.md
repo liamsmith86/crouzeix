@@ -33,12 +33,11 @@ obeys the exact L65 curvature identity
 \]
 
 Here \({\cal C}_p=-e_p\) is L65's positive curvature.  Thus L175's
-conjectured full-disk recentering has the exact required energy in
-every size.
+full-disk recentering has the exact required energy in every size.
 
-Equation (2) does **not** yet prove L175's ambient-response identity
-\(g_2=2{\cal C}_pE(W)\).  That matching is the remaining half of the
-tight full-H face.
+Equation (2) alone does not prove L175's ambient-response identity
+\(g_2=2{\cal C}_pE(W)\).  L177 subsequently proves that matching and
+completes the tight homogeneous full-H face.
 
 ## 2. Explicit correction
 

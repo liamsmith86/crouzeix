@@ -2,6 +2,26 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — full circular-normal merger)
 
+## NEWEST (2026-07-24): L177 proves the complete full-disk response identity
+- The unprojected degree-two characteristic/Riemann response in every
+  active paired circle mode is the interval vector
+  `x_i=16(chi_i−(t−2i)q_0/L)` paired with L65's reduced ambient
+  coordinate.  All inactive nonzero modes vanish by circle character.
+- L176's exact curvature calculation already gives
+  `K_(m,k)s_i=x_i`.  The paired ambient response is therefore twice
+  the polarized curvature of L176's explicit disk-tangent correction.
+- The terminal diagonal row is the unique covector satisfying
+  `A_L^Tq=4 Delta^TDelta d` and `q^Tbeta=0`; this is likewise twice the
+  grade-zero weighted-shift curvature.
+- Hence `g_2=2 C_pE_z` on the complete ambient matrix space and the
+  L175 face completes exactly to
+  `−<Y−E_z,C_p(Y−E_z)>≤0`.  This proves the homogeneous full-H face in
+  every size.
+- An independent exact characteristic/Riemann engine checks every real
+  and imaginary matrix unit through `p=7`; a second run is
+  byte-identical.  The nonlinear full-circular-range tube is still
+  open. `proof/crabb_full_disk_response_identity.md`.
+
 ## NEWEST (2026-07-24): L176 proves the full-disk correction isometry
 - L175's numerically selected correction now has an explicit all-size
   formula.  On each anti-diagonal of `h wedge J conj(h)`, it is the
@@ -16,11 +36,9 @@
   exactly in every size that the correction has curvature energy
   `32Q`.  Exact SymPy regeneration passes through length 30 and repeats
   byte-identically.
-- This is a rigorous new half of L175, not the complete tight face.
-  The remaining leading identity is now sharply isolated:
-  derive the full ambient response and prove
-  `g_2=2 C_p D X[B_2(h)]`.  The existing multidirection data verify it
-  to `1.4e−9`. `proof/crabb_full_disk_correction_isometry.md`.
+- This is the curvature-energy half of L175.  L177 subsequently proves
+  the ambient identity `g_2=2 C_p D X[B_2(h)]` and completes the
+  homogeneous face. `proof/crabb_full_disk_correction_isometry.md`.
 
 ## NEWEST (2026-07-24): L175 isolates the exact-looking full-disk recentering
 - The full-H leading face is not strict.  For the quadratic ambient
@@ -41,12 +59,11 @@
   Schur gain is approximately eighth order.  All 36 multidirection
   residuals are positive; the largest ratio is `0.223` at scale `0.15`
   and it decays toward zero with scale.
-- Status discipline: the tight full-H identity and the finite-scale
-  exponents are **not proved**.  L176 now gives the explicit
-  disk-tangent correction and proves its energy; the next load-bearing
-  algebra is the all-size ambient response match.  The result should
-  then feed a tubular splitting over the complete circular-range
-  manifold, not another strict full-strong quartic attempt.
+- Status discipline: L176--L177 prove the tight homogeneous full-H
+  identity.  The finite-scale exponents and nonlinear full-disk tube
+  are **not proved**.  The result should now feed a tubular splitting
+  over the complete circular-range manifold, not another strict
+  full-strong quartic attempt.
   `proof/crabb_full_disk_weighted_face.md`.
 
 ## NEWEST (2026-07-24): L174 proves the nonlinear disk/circular-normal slice tube
@@ -2683,15 +2700,16 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-24)
-1. **Prove L175's remaining ambient-response identity, extend L174 to
-   the full circular-range base, then merge the marked variables.**
-   L174 now closes the nonlinear
+1. **Promote L175--L177 to the nonlinear full circular-range tube,
+   then merge the marked variables.**
+   L174 closes the nonlinear
    Toeplitz-disk/coercive-normal tube, L160 closes the compact
    grade-one Schur face, and L163/L172 close every higher-grade compact
-   row.  L176 now supplies and proves the Hermitian disk-tangent
-   correction and its exact `32Q` energy.  First derive the all-size
-   full ambient response and prove it equals twice that curvature.  Then
-   chart the remaining non-Toeplitz circular-range directions as exact
+   row.  L176--L177 supply the Hermitian disk-tangent correction, its
+   exact `32Q` energy, and the complete response match.  Use analytic
+   recentering to prove the genuine circular-normal response has the
+   extra ideal order suggested by L175's finite-scale data.  Then chart
+   the remaining non-Toeplitz circular-range directions as exact
    disk-theorem base variables, isolate where the base
    certificate can approach equality, and merge L149/L150's elliptic
    and compact deficits there.  Do not silently identify L174's slice
