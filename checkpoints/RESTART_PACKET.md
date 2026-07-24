@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-24): L178 / A127
+## Current general Crabb frontier (2026-07-24): L179 / A128
 
 L174 proves the nonlinear Toeplitz-disk/coercive-normal slice tube.
 L176--L177 then recenter the complete full-H homogeneous face: the
@@ -41,6 +41,15 @@ its kernel, compute the required eighth-order fallback, perform the
 L174-style singular blow-up, and only then merge the elliptic/compact
 faces.  See `proof/crabb_full_disk_sixth_face.md` and
 `proof/crabb_full_disk_terminal_sixth_face.md`.
+
+L179 additionally closes every **real** direction in the first active
+size `p=7`: after facial reduction to the 21-dimensional cubic
+phase-palindromic equality ideal, the required polynomial has an exact
+rational rank-seven Gram certificate with a positive-definite pivot
+core.  No floating SDP remains in that result.  The immediate algebraic
+frontier is its invariant complex/Hermitian analogue, followed by the
+all-size anti-diagonal formula; do not treat a real SOS as a complex
+certificate.  See `proof/crabb_full_disk_real_sixth_certificate.md`.
 
 ## Historical general Crabb frontier (2026-07-23): L125 / A84
 

@@ -2,6 +2,22 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — full circular-normal merger)
 
+## NEWEST (2026-07-24): L179 proves the real `p=7` sixth face
+- On A126's real first-active slice, the exact required inequality is
+  `P_6−1089C_6²/290>=0`.
+- The real phase-palindromic union has a 21-dimensional homogeneous
+  cubic equality ideal.  On an explicit binomial basis `q`, an exact
+  rational rank-seven matrix gives
+  `P_6−1089C_6²/290=q^TQq`.
+- The Gram matrix is represented as `Q=FS^(−1)F^T`.  All seven leading
+  principal minors of the symmetric pivot core `S` are explicitly
+  positive, so the certificate is PSD with no numerical-solver
+  premise.  Exact expansion checks every polynomial coefficient.
+- This closes all real directions at `p=7`; it does not prove the
+  stronger conjectural constant `9`, the complex `p=7` slice, the
+  all-size sixth block, or the nonlinear tube.
+  `proof/crabb_full_disk_real_sixth_certificate.md`.
+
 ## NEWEST (2026-07-24): L178 closes the terminal sixth-order edge
 - On the recentered full-disk path with only its last two Toeplitz
   coefficients nonzero, put `k=L−3`, `z_k=a`, and `z_(k+1)=b`.

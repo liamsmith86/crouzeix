@@ -151,6 +151,11 @@ factorization is still required, first over the full complex slice and
 then in arbitrary size.  Its margin over the needed constant in (10)
 is a favorable structural signal.
 
+L179 now proves the weaker inequality (10), which is exactly the one
+needed for the Schur face, on the complete **real** `p=7` slice by an
+exact rational rank-seven Gram certificate.  It does not prove (11) or
+extend (10) to complex directions.
+
 L178 subsequently resolves the equality edge of (11) without needing
 the full SOS.  When only the last two coefficients remain, the actual
 Schur gain/base ratio is exactly
