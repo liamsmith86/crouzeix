@@ -2,6 +2,25 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — full circular-normal merger)
 
+## NEWEST (2026-07-24): L178 closes the terminal sixth-order edge
+- On the recentered full-disk path with only its last two Toeplitz
+  coefficients nonzero, put `k=L−3`, `z_k=a`, and `z_(k+1)=b`.
+  The exact canonical sixth-order base deficit is
+  `256k²|a|⁴|b|²/(k+2)²`.
+- The sole cubic true-normal response is in the highest active mode:
+  `16k(4k−1)a²conj(b)/(L²(k+2))`.  L173's exact `r=3` curvature
+  therefore makes its completed-square gain/base ratio
+  `6(4k−1)²/[6(4k−1)²+169k(k−1)(k−2)]`.
+- The ratio is strictly below one and decreases from `121/290` at
+  `L=6` toward zero.  Thus the terminal edge that makes A126's stronger
+  real `p=7` inequality sharp is not an equality edge of the actual
+  Schur problem; the positive `169` null-lift term retains a strict
+  margin.
+- Exact endpoint and characteristic/Riemann recurrences check the
+  complex formulas through `L=15`.  The full sixth-order tensor block,
+  its kernel, and the nonlinear tube remain open.
+  `proof/crabb_full_disk_terminal_sixth_face.md`.
+
 ## NEWEST (2026-07-24): A126 isolates the recentered sixth-order Schur face
 - The initial `p=5,6` finite data did not extrapolate: after L176's
   exact disk recentering, the cubic true-normal response first survives

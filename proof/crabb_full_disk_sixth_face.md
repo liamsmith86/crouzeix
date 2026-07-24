@@ -151,6 +151,19 @@ factorization is still required, first over the full complex slice and
 then in arbitrary size.  Its margin over the needed constant in (10)
 is a favorable structural signal.
 
+L178 subsequently resolves the equality edge of (11) without needing
+the full SOS.  When only the last two coefficients remain, the actual
+Schur gain/base ratio is exactly
+
+\[
+{6(4k-1)^2\over
+ 6(4k-1)^2+169k(k-1)(k-2)}<1,\qquad k=L-3.
+\]
+
+Thus the stronger constant-nine inequality is sharp there, but the
+actual Schur face is strict because L173's null-lift curvature retains
+the positive `169` term.
+
 ## 5. Exact and nonlinear guards
 
 For the canonical deterministic complex rays, the exact ratios
@@ -199,6 +212,10 @@ A promising algebraic organization is:
 4. classify the kernel of (13), where the eighth-order terminal face
    must replace it;
 5. only then apply the singular-cone analytic blow-up used in L174.
+
+L178 completes this program on the last-two-coefficient edge and
+identifies the flux/null-lift split which the general blocks should
+retain.
 
 This is the current load-bearing route to the nonlinear full-disk
 tube.  The elliptic and compact merger remains downstream.

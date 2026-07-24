@@ -79,22 +79,56 @@ def length_six_cubic_response(
 ) -> sp.Expr:
     """Return the first ``p=7`` cubic response in closed form."""
 
+    if len(direction) != 6:
+        raise ValueError("the length-six formula requires length 6")
+    return highest_mode_cubic_response(direction)
+
+
+def highest_mode_cubic_response(
+    direction: tuple[sp.Expr, ...],
+) -> sp.Expr:
+    """Return the candidate highest active cubic response.
+
+    For length ``L >= 6``, the highest active true-normal support mode
+    is ``k=L-3``.  Its response factors through the two adjacent
+    weighted anti-diagonals of ``z wedge J conjugate(z)``.
+    """
+
+    length = len(direction)
+    if length < 6:
+        raise ValueError("the highest cubic mode requires length >= 6")
+    mode = length - 3
     coefficients = sp.Matrix(direction[1:])
+    coefficient_count = len(coefficients)
     reversal = sp.Matrix(
         [
-            sp.conjugate(coefficients[4 - index])
-            for index in range(5)
+            sp.conjugate(coefficients[coefficient_count - 1 - index])
+            for index in range(coefficient_count)
         ]
     )
-    plucker = (
-        coefficients * reversal.T - reversal * coefficients.T
+    plucker = coefficients * reversal.T - reversal * coefficients.T
+
+    def weighted_antidiagonal(total: int) -> sp.Expr:
+        return sp.expand(
+            sum(
+                (
+                    (total - 2 * left) * plucker[left, total - left]
+                    for left in range((total + 1) // 2)
+                ),
+                sp.Integer(0),
+            )
+        )
+
+    cubic = sp.Rational(mode + 1, 2) * coefficients[mode] * weighted_antidiagonal(
+        mode
+    ) - sp.Rational(mode + 2, 2) * coefficients[mode + 1] * weighted_antidiagonal(
+        mode - 1
     )
-    cubic = (
-        6 * coefficients[3] * plucker[0, 3]
-        - 5 * coefficients[4] * plucker[0, 2]
-        + 2 * coefficients[3] * plucker[1, 2]
+    scale = -sp.Rational(
+        32 * (4 * mode - 1),
+        length**2 * (mode + 1) * (mode + 2),
     )
-    return sp.expand(-sp.Rational(22, 45) * cubic)
+    return sp.expand(scale * cubic)
 
 
 def audit_direction(
@@ -133,13 +167,11 @@ def audit_direction(
             normal_count += 1
         if any(response != 0 for response in mode_responses):
             active_modes.append(mode)
-            cubic_responses.extend(
-                str(response) for response in mode_responses
-            )
+            cubic_responses.extend(str(response) for response in mode_responses)
             curvature = normal_curvature(length, mode)
-            schur_gain += sum(
-                response**2 for response in mode_responses
-            ) / (4 * curvature)
+            schur_gain += sum(response**2 for response in mode_responses) / (
+                4 * curvature
+            )
 
     if not quadratic_zero:
         raise RuntimeError(
@@ -148,16 +180,12 @@ def audit_direction(
         )
     length_six_formula_verified = True
     if length == 6:
-        actual_complex = (
-            sp.sympify(cubic_responses[0])
-            + sp.I * sp.sympify(cubic_responses[1])
+        actual_complex = sp.sympify(cubic_responses[0]) + sp.I * sp.sympify(
+            cubic_responses[1]
         )
         length_six_formula_verified = (
             active_modes == [3]
-            and sp.simplify(
-                actual_complex - length_six_cubic_response(direction)
-            )
-            == 0
+            and sp.simplify(actual_complex - length_six_cubic_response(direction)) == 0
         )
         if not length_six_formula_verified:
             raise RuntimeError("the closed length-six response failed")
@@ -168,8 +196,8 @@ def audit_direction(
         ratio = sp.Integer(0) if schur_gain == 0 else sp.oo
     else:
         ratio = sp.factor(schur_gain / base_deficit)
-    strict_face = bool(schur_gain < base_deficit) if base_deficit else bool(
-        schur_gain == 0
+    strict_face = (
+        bool(schur_gain < base_deficit) if base_deficit else bool(schur_gain == 0)
     )
     if not strict_face:
         raise RuntimeError(
@@ -205,9 +233,7 @@ def varied_disk_direction(
     values = [sp.Integer(0)]
     for offset in range(1, length):
         real_sign = -1 if direction_index * offset % 2 else 1
-        imaginary_sign = (
-            -1 if (direction_index + offset) % 2 else 1
-        )
+        imaginary_sign = -1 if (direction_index + offset) % 2 else 1
         values.append(
             real_sign
             * sp.Rational(
@@ -217,9 +243,7 @@ def varied_disk_direction(
             + sp.I
             * imaginary_sign
             * sp.Rational(
-                (2 * direction_index + 1) * offset
-                + direction_index
-                + 1,
+                (2 * direction_index + 1) * offset + direction_index + 1,
                 (23 + 3 * direction_index) * length,
             )
         )
@@ -241,10 +265,7 @@ def main() -> None:
     """Run the exact recentered cubic-normal audit."""
 
     args = parse_args()
-    if (
-        args.minimum_length < 3
-        or args.maximum_length < args.minimum_length
-    ):
+    if args.minimum_length < 3 or args.maximum_length < args.minimum_length:
         raise ValueError("require 3 <= minimum length <= maximum length")
     if args.direction_count < 1:
         raise ValueError("direction count must be positive")
@@ -260,10 +281,7 @@ def main() -> None:
         for direction_index in range(args.direction_count)
     ]
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    lines = [
-        json.dumps(asdict(record), sort_keys=True)
-        for record in records
-    ]
+    lines = [json.dumps(asdict(record), sort_keys=True) for record in records]
     args.output.write_text(
         "".join(f"{line}\n" for line in lines),
         encoding="utf-8",

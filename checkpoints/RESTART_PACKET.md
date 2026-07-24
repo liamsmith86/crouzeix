@@ -1,7 +1,48 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-23): L125 / A84
+## Current general Crabb frontier (2026-07-24): L178 / A127
+
+L174 proves the nonlinear Toeplitz-disk/coercive-normal slice tube.
+L176--L177 then recenter the complete full-H homogeneous face: the
+explicit Pluecker correction has curvature `32Q`, its complete ambient
+response is `g_2=2C_pE_z`, and the quartic face is exactly one negative
+square.  This does **not** yet give the nonlinear full circular-range
+tube.
+
+A126 finds the first remaining obstruction.  After exact-disk
+recentering, the canonical endpoint excess is generically sixth order
+and the true-normal response is cubic from `p=7` onward.  The live
+all-size target is
+
+```
+D_(6,L)(z) - (1/4) sum_k G_(L,k)^(3)* B_(L,k)^(-1) G_(L,k)^(3) >= 0.
+```
+
+Both terms naturally live on
+`z tensor (z wedge J conjugate(z))`.  Low-size exact, nonlinear, and
+adversarial tests are favorable, but no full block theorem or kernel
+classification exists.
+
+L178 closes the sharp-looking edge where only the last two Toeplitz
+coefficients remain.  With `k=L−3`, its exact gain/base ratio is
+
+```
+6(4k−1)^2 / [6(4k−1)^2 + 169k(k−1)(k−2)] < 1.
+```
+
+The positive `169` term is L173's null-lift curvature.  This points to
+the correct general proof: derive the cubic response and base deficit
+in common anti-diagonal flux blocks, then retain the null-lift before
+taking the Schur complement.  Do not replace this by a large raw
+monomial SOS, infer the all-size theorem from the terminal edge, or
+start a `5×5` slice grind.  After the sixth block is proved, classify
+its kernel, compute the required eighth-order fallback, perform the
+L174-style singular blow-up, and only then merge the elliptic/compact
+faces.  See `proof/crabb_full_disk_sixth_face.md` and
+`proof/crabb_full_disk_terminal_sixth_face.md`.
+
+## Historical general Crabb frontier (2026-07-23): L125 / A84
 
 L114 closes the full repeated-`C3` local neighbourhood for every fixed copy multiplicity.
 L115 then returns to arbitrary block size and intersects L65's equality kernel with the
