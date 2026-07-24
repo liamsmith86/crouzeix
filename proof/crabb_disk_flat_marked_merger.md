@@ -270,7 +270,101 @@ This proves L157 and explains why the false exact identity was so
 difficult to distinguish numerically: its error is forced above the
 entire quartic disk face.
 
-## 6. Corrected merger architecture
+## 6. Positivity closes the mixed model gap
+
+Work in L149's convergent marked algebra, with the real reflected
+coordinate vector
+
+\[
+\eta=(r,w,\overline w),\qquad
+\|\eta\|^2=|r|^2+\sum_k|w_k|^2.
+\]
+
+The variables are independent in a small real marked polydisk; the
+physical family is their analytic pullback.  The sharp numerator and
+model-orbit constructions remain genuine on this real slice, so the
+model-kernel inequality below is nonnegative before pullback, not only
+formally coefficientwise.  Let
+
+\[
+R(z,\eta)=\|B_{z,\eta}(T_{z,\eta})\|^2,\qquad
+U(z,\eta)=\kappa(P_{z,\eta}),\qquad
+\Delta=U-R\ge0.                                      \tag{19}
+\]
+
+The zero-reflection outer factor is an invertible coordinate
+conjugacy, so `R(z,0)` and `U(z,0)` are the disk quantities in
+Section 5.  L152 and L157 give
+
+\[
+R(z,0)-4\le-a{\cal Q}(z),\qquad
+0\le\Delta(z,0)\le C{\cal Q}(z)^2.                  \tag{20}
+\]
+
+L154 controls the complete one-reflection row:
+
+\[
+\|D_\eta R(z,0)\|\le C{\cal Q}(z).                   \tag{21}
+\]
+
+Finally, L144's compact dual face is negative definite.  Analytic
+continuity from the Crabb apex and Taylor remainder absorption give,
+after shrinking the marked polydisk,
+
+\[
+R(z,\eta)-4
+\le-a{\cal Q}+C{\cal Q}\|\eta\|-b\|\eta\|^2.         \tag{22}
+\]
+
+It remains to show that the nonnegative model gap cannot reintroduce
+either mixed face.  The following elementary observation avoids a
+new coefficient calculation.  If a nonnegative `C^2` function
+`f(t)` obeys `f(0)=a_0` and `|f''|\le M`, then, whenever the minimizing
+test step stays in the fixed interval,
+
+\[
+|f'(0)|^2\le2Ma_0.                                   \tag{23}
+\]
+
+Indeed use Taylor's upper bound at `t=-f'(0)/M`.
+Apply (23) on every real line in the `eta` variables.  Equation (20)
+then yields
+
+\[
+\|D_\eta\Delta(z,0)\|\le C{\cal Q}(z).               \tag{24}
+\]
+
+L145--L146 say that the complete compact quadratic face of `U` and
+`R` agrees at the apex, including all mixed grades.  Thus
+`D_\eta^2\Delta(0,0)=0`; continuity makes its norm at most an
+arbitrarily small `epsilon` on a sufficiently small base
+neighbourhood.  A second Taylor expansion gives
+
+\[
+0\le\Delta(z,\eta)
+\le C{\cal Q}^2+C{\cal Q}\|\eta\|
+ +\epsilon\|\eta\|^2.                                \tag{25}
+\]
+
+The cubic `eta` remainder has been included in the last term after
+shrinking.  Since `Q`, `||eta||`, and the base radius all tend to zero,
+the first two errors in (25) are absorbed by `-aQ`, and the last by
+`-b||eta||^2` in (22).  Therefore
+
+\[
+\boxed{
+U(z,\eta)-4
+\le-a_1{\cal Q}(z)-b_1
+\left(|r|^2+\sum_k|w_k|^2\right)\le0
+}                                                     \tag{26}
+\]
+
+for fixed positive `a_1,b_1` in a sufficiently small marked
+neighbourhood.  This proves L158: the disk-normal and reflected faces
+merge without exact all-disk complementarity and without a separate
+mixed-face recurrence.
+
+## 7. Corrected merger architecture
 
 The false exact identity is stronger than the local theorem needs.
 The viable replacement is a graded positive-gap argument.
@@ -298,13 +392,13 @@ The required statements are:
    orbit defect by `d-q_can=O(Q)`.  A uniform endpoint spectral gap
    squares that residual and gives `0<=Delta(z,0)<=C_LQ(z)^2`.
 3. **Reflected gap is above the compact face.**
-   L145/L151 already show that the `eta^2` compact diagonal of
-   `Delta` is zero.
+   **Closed in L158.**  L145--L146 make the complete compact Hessian
+   of `Delta` zero at the apex.
 4. **PSD zero-face polarization.**
-   Since `Delta>=0`, zero diagonal on both the disk-normal and
-   reflected compact faces should force the mixed face to vanish.
-   Only terms strictly above the combined face then remain and are
-   absorbed after shrinking the marked polydisk.
+   **Closed in L158 without an additional recurrence.**  Positivity
+   and L157 imply `|D_eta Delta(z,0)|<=C_LQ(z)`;
+   continuity of the zero compact Hessian then gives (25), which is
+   absorbed by the two negative faces.
 5. **Triangular marked coordinates.**
    Prove, rather than infer from an ordinary inverse-function
    theorem, the Rees estimate
@@ -313,11 +407,12 @@ The required statements are:
    \asymp c^{2L}+\sum_j|z_j|^2c^{2(L-j)}.
    \]
 
-If these five points close, combine the resulting reflected descent
-with L152's canonical disk-normal estimate.  This would prove the
-disk-flat tube without any false all-disk primal/dual equality.
+Items one through four now give the complete disk-flat tube (26) in
+the independent marked chart.  The remaining coordinate comparison
+is useful for the final pullback and for absorbing L118's strong
+variables; it no longer hides a primal/dual equality assumption.
 
-## 7. Regeneration
+## 8. Regeneration
 
 Run
 

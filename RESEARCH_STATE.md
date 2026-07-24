@@ -2,6 +2,27 @@
 
 **Last updated:** 2026-07-23 (Epoch 6 — disk-flat marked merger)
 
+## NEWEST (2026-07-23): L158 closes the mixed disk/reflection model gap
+- In L149's independent real reflected-Rees polydisk, the model gap
+  `Delta=U-R` is genuinely nonnegative, not merely a formal series.
+  L157 gives its zero-reflection value `O(Q²)`.
+- A uniform one-dimensional Taylor test for a nonnegative function
+  gives `||D_eta Delta(z,0)||²<=C Delta(z,0)`.  Hence the entire mixed
+  linear reflected row is `O(Q)` without another endpoint recurrence.
+- L145--L146 make the complete compact reflected Hessian of `Delta`
+  zero at the apex.  Continuity and Taylor expansion therefore give
+  `Delta<=CQ²+CQ||eta||+epsilon||eta||²`.
+- On the dual side, L152 supplies `-aQ`, L154 controls its linear
+  reflected row by `CQ||eta||`, and L144 supplies a uniformly negative
+  reflected Hessian.  Shrinking absorbs the model gap and proves
+  `U-4<=-a_1Q-b_1(|r|²+sum|w_k|²)`.
+- Thus the disk-normal/reflected tube is complete in the independent
+  marked chart without exact all-disk complementarity and without a
+  mixed coefficient induction.  Remaining: make the triangular
+  physical pullback estimate explicit and absorb L118's strong
+  variables.
+  `proof/crabb_disk_flat_marked_merger.md`.
+
 ## NEWEST (2026-07-23): L157 pushes the model gap above the disk face
 - Let `T=q_can*adj(xi I-A)e_L` and `D=g#`.  L156 plus L155 gives
   coefficientwise `T-D=O(Q)`.
@@ -2237,12 +2258,11 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    `-sum|z_j|²c^(2(L-j))` with `-c^(2L)` and L152's
    uniform `-aQ(z)`.  L154 controls every dual one-leg
    `y`--wedge sector, and L157 puts the pure disk model gap at
-   `O(Q²)`.  Next use the zero reflected compact face plus positivity
-   to eliminate or dominate the leading mixed gap, and establish the
-   triangular Rees-coordinate estimate.  Then absorb L118's strong
+   `O(Q²)`, and L158 closes the mixed positive gap.  Next establish the
+   triangular Rees-coordinate estimate and then absorb L118's strong
    variables.  L151's raw face, L147's equality tube, L152's normal
-   tube, L154's one-leg bound, and L157's disk gap are closed; do not
-   reopen them without a concrete contradiction.
+   tube, L154's one-leg bound, and L157--L158's model gap are closed;
+   do not reopen them without a concrete contradiction.
 2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
    trace inequality can instead be derived from the block-Toeplitz positivity of the full
    operator-valued correction moments. Do not retry trace/positive-state scalarizations.
