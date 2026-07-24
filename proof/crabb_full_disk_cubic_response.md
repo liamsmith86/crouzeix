@@ -210,10 +210,9 @@ directions in length nine give full-rank flux systems of sizes
 supplying (2) reproduces every coefficient exactly.  This recovery is
 not used in the proof.
 
-## 6. Remaining gate
+## 6. Subsequent closure
 
-L182 removes the first of L181's two arbitrary-size debts.  The live
-sixth-order inequality is now
+L182 reduced the remaining arbitrary-size debt to
 
 \[
 D_{6,L}(z)
@@ -221,7 +220,13 @@ D_{6,L}(z)
 \ge0,                                                \tag{13}
 \]
 
-with \(G^{(3)}_{L,k}\) explicitly given by (2).  The next task is to
-put \(D_{6,L}\) into the same \(z_aS_t\) interval-flux coordinates and
-prove the resulting rational LDL recurrence while retaining L173's
-positive null-lift term.
+with \(G^{(3)}_{L,k}\) explicitly given by (2).
+
+L183--L184 subsequently close this inequality by a shorter route.
+The disk-chart Hardy residual has a cubic skew coefficient
+\({\cal R}_L\), the base deficit is \(8\|{\cal R}_L\|^2\), and the
+two grade-\(\pm k\) response rows are disjoint weighted
+anti-diagonal projections of \({\cal R}_L\).  Cauchy--Schwarz gives
+exactly the flux-curvature gain, while L173's null lift supplies the
+remaining strict margin.  See
+`proof/crabb_full_disk_sixth_hardy_factor.md`.

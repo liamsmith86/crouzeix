@@ -1,7 +1,36 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-24): L182 / A131
+## Current general Crabb frontier (2026-07-24): L184 / A132
+
+L183 proves the sharp kernel-observability inequality
+`sum_(j≥0)(T*)^jvv*T^j≤4||v||²I` for `w(T)≤1` and `Tv=0`, with an
+exact Berger/Hardy orbit-complement defect.  Along L176's recentered
+disk path, its first surviving transfer residual is a cubic skew
+matrix `R_L`.
+
+L184 proves
+
+```
+D_(6,L)=8||R_L||²
+       ≥256 sum_k |T_(L,k)|²/binom(L-k,3).
+```
+
+Each L182 response coordinate is a weighted projection onto two
+disjoint anti-diagonals of `R_L`; the inequality is Cauchy--Schwarz.
+Its right side is exactly the completed gain using L173's flux
+curvature, and L173's actual curvature has an additional positive null
+lift.  Thus the complete sixth-order Schur face is nonnegative in
+every size.  Its exact equality set is `R_L(z)=0`.
+
+The immediate frontier is to classify this cubic variety and prove
+the eighth-order fallback on every component.  Do not start another
+fixed-size sixth SOS or a `5×5` slice grind.  After the kernel lift,
+perform the L174-style nonlinear singular blow-up, then merge the
+elliptic/compact faces.  See
+`proof/crabb_full_disk_sixth_hardy_factor.md`.
+
+### Superseded L182 checkpoint
 
 L174 proves the nonlinear Toeplitz-disk/coercive-normal slice tube.
 L176--L177 then recenter the complete full-H homogeneous face: the

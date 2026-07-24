@@ -2,6 +2,38 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — full circular-normal merger)
 
+## NEWEST (2026-07-24): L183--L184 prove the all-size sixth face
+- L183 gives a sharp kernel-observability theorem.  If `w(T)≤1`,
+  `Tv=0`, and `P_v=sum (T*)^jvv*T^j`, Berger's unitary
+  `2`-dilation and Bessel's inequality give
+  `P_v≤4||v||²I`.
+- L122's general-`H` disk chart has an explicit Hardy realization of
+  that dilation.  Along L176's recentered path, its orbit-complement
+  residual vanishes through degree two and its cubic coefficient is a
+  skew matrix `R_L(z)`.
+- The complete canonical base deficit is exactly
+  `D_(6,L)=8||R_L||²`.  L182's flux coordinate `T_(L,k)` is exactly
+  one quarter of each of the two weighted grade-`±k`
+  anti-diagonals of `R_L`.
+- Cauchy--Schwarz on the disjoint anti-diagonals proves the sharper
+  inequality
+  `D_(6,L)≥256 sum_k |T_(L,k)|²/binom(L−k,3)`.
+  The right side is the completed cubic gain using only L173's flux
+  curvature; the actual curvature also has its strictly positive
+  null-lift term.  Therefore the complete sixth-order Schur face is
+  nonnegative in every size.
+- At `L=6` this proves the formerly conjectural sharp complex
+  `P_6≥9|C_6|²`; no large SOS is needed.  The sixth kernel is exactly
+  `R_L(z)=0`.  The terminal two-coefficient edge saturates the stronger
+  flux inequality but is strict for the actual face because of the
+  null lift.
+- Unrestricted-symbol transfer checks pass through length eight;
+  exact endpoint-factor checks pass through length ten; terminal
+  equality checks pass through length twelve.
+- The live task is now to classify `R_L=0`, derive the eighth-order
+  fallback there, and perform the nonlinear singular blow-up.
+  `proof/crabb_full_disk_sixth_hardy_factor.md`.
+
 ## NEWEST (2026-07-24): L182 proves the all-size cubic response
 - Put `S_t=sum_(i<t−i)(t−2i)W_(i,t−i)`.  Every cubic
   true-normal response after L176 recentering is one triangular
@@ -20,10 +52,10 @@
   `11,10,9,8` and reconstructs every coefficient without supplying the
   formula.  The independent complete series checker passes two dense
   complex directions in each length `6,...,11`.
-- The response half of the arbitrary-size sixth face is now closed.
-  The live task is to express the endpoint base deficit `D_(6,L)` in
-  the same interval-flux blocks and prove the rational LDL recurrence;
-  positivity, its kernel, and the nonlinear tube remain open.
+- This closed the response half of the arbitrary-size sixth face.
+  L183--L184 subsequently factor the endpoint base deficit through a
+  Hardy residual and prove positivity; only its kernel lift and the
+  nonlinear tube remain open.
   `proof/crabb_full_disk_cubic_response.md`.
 
 ## NEWEST (2026-07-24): L181 proves the complex `p=8` sixth face

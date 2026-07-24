@@ -2,8 +2,9 @@
 
 ## 1. Status
 
-This note records the next exact candidate after L176--L177.  It is
-**not yet an all-size theorem**.
+This note records the discovery and fixed-size audit trail after
+L176--L177.  L183--L184 have since proved the sixth-order inequality
+in every size; see `proof/crabb_full_disk_sixth_hardy_factor.md`.
 
 The initial finite-scale data suggested that the true circular-normal
 gradient was always fourth order after full-disk recentering.  The new
@@ -11,8 +12,9 @@ exact series audit disproves that extrapolation: the cubic response
 first survives at `p=7`.  The correct next target is therefore a
 sixth-order Schur inequality.
 
-No tested residual is adverse, but the complete complex polynomial
-inequality and its all-size formula remain open.
+The remaining problem is no longer sixth-order positivity.  It is the
+classification of the equality variety \({\cal R}_L(z)=0\), the
+eighth-order fallback there, and the nonlinear singular blow-up.
 
 ## 2. Exact recentered disk path
 
@@ -147,30 +149,32 @@ with equality when the first three Toeplitz coefficients vanish.
 Two thousand random complex samples followed by twenty BFGS searches
 also converge to the value `9` from above.
 
-Equation (11) is **not yet a proof**: an exact rational sum-of-squares
-factorization is still required, first over the full complex slice and
-then in arbitrary size.  Its margin over the needed constant in (10)
-is a favorable structural signal.
+At this stage equation (11) was only numerical evidence.  L184 now
+proves it at `p=7` as the sharp anti-diagonal Cauchy--Schwarz case.
 
 L179 proves the weaker inequality (10), which is exactly the one needed
 for the Schur face, on the complete real `p=7` slice by an exact
 rational rank-seven Gram certificate.  L180 now proves (10) on the
 complete **complex** `p=7` slice by an independent rational ten-square
-certificate on \(z\otimes(z\wedge J\overline z)\).  Neither result
-proves the sharper inequality (11) or the arbitrary-size block theorem.
+certificate on \(z\otimes(z\wedge J\overline z)\).  L184 subsequently
+proves the sharper inequality (11) and the arbitrary-size block theorem.
 
 L181 closes the next complex size `p=8`.  It first proves by exact
 sparse polarization that modes three and four are the complete cubic
 response, then represents their full Schur residual by fifteen positive
 rational squares on 37 Pluecker-tensor coordinates.  Thus the first two
-active complex sizes are exact; the arbitrary-size theorem remains open.
+active complex sizes supplied exact precursors to L184.
 
-L182 now proves the cubic response in arbitrary size.  With
+L182 proves the cubic response in arbitrary size.  With
 \(S_t=\sum_{i<t-i}(t-2i)W_{i,t-i}\), every active \(G_{L,k}^{(3)}\)
 is the explicit triangular interval-flux sum in
 `proof/crabb_full_disk_cubic_response.md`; modes above \(L-3\)
-vanish.  Therefore only the base-deficit/Schur-complement positivity
-side of the arbitrary-size sixth face remains open.
+vanish.  L183--L184 then close the base side: the canonical disk Hardy
+residual has a cubic skew coefficient \({\cal R}_L\), with
+\(D_{6,L}=8\|{\cal R}_L\|^2\).  L182's response rows are disjoint
+weighted anti-diagonal projections of this matrix, so
+Cauchy--Schwarz proves the flux-only Schur inequality and L173's
+positive null lift proves the actual one.
 
 L178 subsequently resolves the equality edge of (11) without needing
 the full SOS.  When only the last two coefficients remain, the actual
@@ -212,8 +216,8 @@ canonical and optimized sixth jets agree.
 
 ## 6. Correct next target
 
-The useful all-size statement is not “the cubic response vanishes.”
-It is the block inequality
+The useful all-size statement was not “the cubic response vanishes.”
+It was the block inequality
 
 \[
 \boxed{
@@ -224,14 +228,12 @@ D_{6,L}(z)
 }                                                    \tag{13}
 \]
 
-The remaining algebraic program is:
+L184 proves (13) and identifies its exact kernel as
+\({\cal R}_L(z)=0\).  The remaining algebraic program is:
 
-1. express \(D_{6,L}\) in L182's \(z_aS_t\) interval-flux blocks;
-2. derive and prove the rational LDL step which dominates the
-   completed L182 response under L173's mode curvatures;
-3. classify the kernel of (13), where the eighth-order terminal face
-   must replace it;
-4. only then apply the singular-cone analytic blow-up used in L174.
+1. classify the cubic equations \({\cal R}_L(z)=0\);
+2. compute and prove the eighth-order face on every component;
+3. apply the singular-cone analytic blow-up used in L174.
 
 L178 completes this program on the last-two-coefficient edge and
 identifies the flux/null-lift split which the general blocks should
@@ -240,8 +242,8 @@ right complex Gram organization has separate global-phase sectors; a
 formal Hermitian lift of the real certificate is false.  L181 completes
 the second active size with the same grade-block organization and
 literal extensions of several L180 factor vectors.  L182 closes their
-common response transform, so no further fixed-size response
-reconstruction is needed.
+common response transform and L184 closes the sixth face, so no
+further fixed-size sixth-order SOS reconstruction is needed.
 
 This is the current load-bearing route to the nonlinear full-disk
 tube.  The elliptic and compact merger remains downstream.
