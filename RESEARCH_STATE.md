@@ -2,6 +2,53 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — full circular-normal merger)
 
+## NEWEST (2026-07-24): L176 proves the full-disk correction isometry
+- L175's numerically selected correction now has an explicit all-size
+  formula.  On each anti-diagonal of `h wedge J conj(h)`, it is the
+  universal interval pulse
+  `2 1_[i+1,t−i]−2(t−2i)/(t+2)`, placed on the corresponding
+  Hermitian disk-chart offset.
+- Differentiating L122's physical chart sends these pulses to nested
+  path-flux vectors in L65.  Solving L65's singular/rank-one path
+  inverse gives the exact Gram matrix `64I`; the terminal diagonal
+  weighted-shift face gives `32I`.
+- Accounting for reflected versus terminal Pluecker coordinates proves
+  exactly in every size that the correction has curvature energy
+  `32Q`.  Exact SymPy regeneration passes through length 30 and repeats
+  byte-identically.
+- This is a rigorous new half of L175, not the complete tight face.
+  The remaining leading identity is now sharply isolated:
+  derive the full ambient response and prove
+  `g_2=2 C_p D X[B_2(h)]`.  The existing multidirection data verify it
+  to `1.4e−9`. `proof/crabb_full_disk_correction_isometry.md`.
+
+## NEWEST (2026-07-24): L175 isolates the exact-looking full-disk recentering
+- The full-H leading face is not strict.  For the quadratic ambient
+  response `g_2(h)`, L65 curvature `C_p`, and the physical tangent
+  `T_p` of L122's general-H disk chart, 16 structured/random records
+  in `p=4,...,7` give
+  `g_2 perpendicular ker(C_p)`,
+  `g_2 in range(C_p T_p)`, and
+  `(1/4)g_2^T C_p^dagger g_2=32Q` to `1.4e−9`.
+- Thus completing every strong direction appears to cancel the entire
+  Toeplitz quartic, with the maximizing class tangent to the exact disk
+  manifold.  This sharpens L160's earlier finite-difference observation
+  and is compatible with L173, whose smaller true-normal quotient has a
+  strict margin.
+- After recentering by the corresponding Hermitian correction, the
+  optimized rank-one base deficit is approximately sixth order in
+  `p=5,6` (eighth order in `p=4`), while the genuine circular-normal
+  Schur gain is approximately eighth order.  All 36 multidirection
+  residuals are positive; the largest ratio is `0.223` at scale `0.15`
+  and it decays toward zero with scale.
+- Status discipline: the tight full-H identity and the finite-scale
+  exponents are **not proved**.  L176 now gives the explicit
+  disk-tangent correction and proves its energy; the next load-bearing
+  algebra is the all-size ambient response match.  The result should
+  then feed a tubular splitting over the complete circular-range
+  manifold, not another strict full-strong quartic attempt.
+  `proof/crabb_full_disk_weighted_face.md`.
+
 ## NEWEST (2026-07-24): L174 proves the nonlinear disk/circular-normal slice tube
 - Over L122's exact Toeplitz disk chart, transport the `2p−4` true
   coercive circular-normal representatives by the disk metric square
@@ -2636,12 +2683,16 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-24)
-1. **Extend L174 from its slice to the full circular-range base, then
-   merge the marked variables.**  L174 now closes the nonlinear
+1. **Prove L175's remaining ambient-response identity, extend L174 to
+   the full circular-range base, then merge the marked variables.**
+   L174 now closes the nonlinear
    Toeplitz-disk/coercive-normal tube, L160 closes the compact
    grade-one Schur face, and L163/L172 close every higher-grade compact
-   row.  Chart the remaining non-Toeplitz circular-range directions as
-   exact disk-theorem base variables, isolate where the base
+   row.  L176 now supplies and proves the Hermitian disk-tangent
+   correction and its exact `32Q` energy.  First derive the all-size
+   full ambient response and prove it equals twice that curvature.  Then
+   chart the remaining non-Toeplitz circular-range directions as exact
+   disk-theorem base variables, isolate where the base
    certificate can approach equality, and merge L149/L150's elliptic
    and compact deficits there.  Do not silently identify L174's slice
    with the whole Lewis--Overton manifold, optimize over all raw L118
