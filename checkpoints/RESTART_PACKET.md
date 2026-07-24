@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-24): L197 / A140
+## Current general Crabb frontier (2026-07-24): L198 / A141
 
 The complete local chart around every fixed **single** Crabb block is
 closed by L192.  L193 identifies the correct upper-equality stratum at
@@ -114,15 +114,31 @@ step, so the disk flag terminates after at most `m` stages.  Later
 residuals are precisely orthogonalized against earlier active Hardy
 ranges.
 
-The immediate task is to retain L188's circular-normal null lift
-through this finite flag.  Elliptic copy data then require a separate
-support/Jensen argument; do **not** substitute a noncommuting matrix
-parameter into the scalar Faber/Joukowski formulas.  See
+L198 proves the correct complete algebraic circular-normal face at the
+first residual.  A one-sided lift `16P*P/C` is false for square-zero
+copy matrices.  The two reflected character paths instead give
+
+```
+8(P*P+PP*) / C.
+```
+
+Block Hardy reflection supplies the matching right/left residual
+Grams, so matrix Cauchy absorbs the flux gain and L173's null lift is
+strict.  Its equality kernel reduces every leading residual and
+normal copy block.
+
+The immediate task is to identify every later L197
+Schur-orthogonal/recentered residual with the same reflected Hardy
+form.  Then use L61's recentered support-Jensen endpoint at copy-rank
+changes.  Elliptic copy data still require a separate support/Jensen
+rigidity argument; do **not** substitute a noncommuting matrix
+parameter into scalar Faber/Joukowski formulas.  See
 `proof/crabb_block_hardy_equality.md` and
 `proof/repeated_crabb_exact_metric_chart.md` and
 `proof/repeated_crabb_first_residual_endpoint.md` and
 `proof/repeated_crabb_inverse_gram_kernel.md` and
-`proof/repeated_crabb_schur_flag.md`.
+`proof/repeated_crabb_schur_flag.md` and
+`proof/repeated_crabb_circular_jordan_absorption.md`.
 
 ### Superseded L182 checkpoint
 

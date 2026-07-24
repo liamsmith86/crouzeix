@@ -1,6 +1,28 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-24 (Epoch 6 — full circular-normal merger)
+**Last updated:** 2026-07-24 (Epoch 6 — repeated circular-normal merger)
+
+## NEWEST (2026-07-24): L198 finds the correct complete circular-normal face
+- A naïve one-sided tensorization of L188 is false for noncommuting
+  copy matrices.  A square-zero copy block makes the proposed
+  `16 P*P/C` residual indefinite.
+- The actual two reflected circular characters reverse copy-product
+  order.  Their complete gain is the Jordan-symmetric
+  `8(P*P+PP*)/C`.
+- The block Hardy reflection `JF=(JF)*` supplies both the matching
+  right and left residual Grams.  Matrix Cauchy therefore absorbs the
+  complete flux gain exactly; L173's positive null lift makes every
+  active normal face strict.
+- A common equality kernel reduces every leading residual and every
+  leading circular-normal copy matrix.  Thus the first
+  residual/normal face is compatible with compression to the next
+  copy flag.
+- Remaining debt: prove that every later L197 Schur-orthogonal
+  residual, after analytic recentering, retains the same reflected
+  Hardy form.  Recentered support-rank changes then use L61's
+  negative Jensen endpoint.
+  `proof/repeated_crabb_circular_jordan_absorption.md`;
+  `experiments/repeated_crabb_circular_jordan_absorption.py`.
 
 ## NEWEST (2026-07-24): L197 closes the finite repeated disk flag
 - Along any analytic block-disk path, the negative upper endpoint
