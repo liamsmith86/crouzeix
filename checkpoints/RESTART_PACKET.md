@@ -198,6 +198,29 @@ lifting the same mechanism to higher transfer coefficients.  See
 `proof/repeated_crabb_inner_faber_transfer.md` and
 `proof/repeated_crabb_elliptic_first_jet.md`.
 
+L203 now proves the scalar part of that second endpoint exactly.  For
+the complete second ellipse/Stein jet, the base L21 dual gives
+
+```
+tr(W*XW)−4tr(V*XV)=−||W*dot(S)V||_F^2.
+```
+
+The matrix orientation is important: the upper endpoint acts on the
+left defect, so the candidate refinement is
+
+```
+V*XV=0,   W*XW=−ZZ*=−16 B_1 B_1*,
+Z=W*dot(S)V.
+```
+
+Pointwise real-linear systems solve this identity on every tested
+noncommuting equality anchor, but the boundary map changes rank at the
+Crabb apex.  Do not promote those solves to an analytic theorem.  The
+live gate is an order-safe colligation formula or Lyapunov--Schmidt
+divisibility proof that produces a bounded analytic `X,C_2`; after that,
+iterate the left Grams `B_nB_n*` on successive kernels.  See
+`proof/repeated_crabb_elliptic_second_face.md`.
+
 ### Superseded L182 checkpoint
 
 L174 proves the nonlinear Toeplitz-disk/coercive-normal slice tube.

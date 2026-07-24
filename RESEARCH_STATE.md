@@ -2,6 +2,30 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — repeated circular/elliptic merger)
 
+## NEWEST (2026-07-24): L203 proves the scalar second elliptic face
+- The second ellipse pullback coefficient is
+  `E_2=2T−(T²T*+TT*T+T*T²)+T⁵`.  Together with L202's first
+  defect-frame motion it gives a complete finite second Stein equation.
+- The endpoint orientation has been corrected.  If
+  `Z=W*dot(S)V=4B_1`, then `Z*Z=16B_1*B_1` acts on the lower/right
+  defect, whereas the physical upper endpoint acts on the left defect.
+  Its candidate matrix loss is therefore `−ZZ*=−16B_1B_1*`.
+- The unnormalized equality dual
+  `Z_0=4(P^−1−VV*)` satisfies
+  `Z_0−TZ_0T*=WW*−4VV*`.  Pairing the second Stein equation with it
+  proves the exact scalar identity
+  `tr(W*XW)−4tr(V*XV)=−||Z||_F²`.
+- A direct partial-isometry trace calculation proves the last negative
+  square; it is not inferred from the numerical solver.
+- The stronger matrix boundary problem
+  `V*XV=0`, `W*XW=−ZZ*` is pointwise solvable in every tested
+  noncommuting anchor through lengths five and multiplicities three.
+  This remains evidence, not a proof: the linear map changes rank at
+  the Crabb apex, so a uniformly bounded real-analytic selection must
+  still be constructed before L194 can lift the jet.
+  `proof/repeated_crabb_elliptic_second_face.md`;
+  `experiments/repeated_crabb_elliptic_second_face.py`.
+
 ## NEWEST (2026-07-24): L202 identifies the grade-one elliptic normal Gram
 - Block-Toeplitz endpoint elimination gives a stronger exact form for
   L193's physical metric:
