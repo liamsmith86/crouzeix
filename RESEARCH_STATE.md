@@ -2,6 +2,24 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — repeated circular/elliptic merger)
 
+## NEWEST (2026-07-24): L208 identifies the higher flagged range mechanism
+- For every genuine transfer coefficient, an arbitrary dual Gramian
+  obeys the exact ordered identity
+  `YB_k−B_kA=W*(S*)^kR+sum_(j<k)B_jR*(S*)^(k−j)V`.
+- On a copy projection `P` with `PB_j=0` for all earlier grades, every
+  contamination term vanishes.
+- Therefore every compressed channel coboundary
+  `eta P{Phi(B_k*P B_k)−B_kB_k*}P` has the explicit polynomial
+  preimage `C_hat=−(eta/8)Q S^k W P B_k`.
+- Grade one with `P=I`, `eta=28` recovers L207 exactly.  The higher
+  range/cokernel mechanism is therefore no longer mysterious.
+- This is conditional progress, not the higher elliptic theorem:
+  derive the actual target and coefficient from the complete
+  Faber/Riemann jet, then replace discontinuous exact kernels by
+  analytic Schur flags along arcs.
+  `proof/repeated_crabb_transfer_flag.md`;
+  `experiments/repeated_crabb_transfer_flag.py`.
+
 ## NEWEST (2026-07-24): L207 removes the elliptic rank jump
 - L204's endpoint equation has the explicit solution
   `C_hat=−(7/2)QSWB_1`, `C=P^(1/2)C_hat`.

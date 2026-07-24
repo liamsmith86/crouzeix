@@ -277,6 +277,28 @@ elliptic gate is now the associated-graded iteration on
 `ker B_1*` through `B_2,...,B_L`, followed by the L197/L199 merger.
 See `proof/repeated_crabb_elliptic_selection.md`.
 
+L208 isolates the higher-grade range mechanism.  For an arbitrary
+dual Gramian, the exact defect of coefficient intertwining is
+
+```
+YB_k−B_kA
+=W*(S*)^kR + sum_(j<k) B_j R*(S*)^(k−j)V.
+```
+
+On a left flag projection `P` with `PB_j=0` for every earlier grade,
+the sum disappears.  Consequently
+
+```
+C_hat=−(eta/8)Q S^k W P B_k
+```
+
+is an explicit preimage of
+`eta P{Phi(B_k*P B_k)−B_kB_k*}P`.  Thus a higher prepared target of
+this natural form has no new cokernel/range obstruction.  The live
+debt is to derive that target from the full physical Faber/Riemann jet
+and to replace exact rank-jumping kernel projections by analytic
+Schur flags.  See `proof/repeated_crabb_transfer_flag.md`.
+
 L205 supplies a scalar-only alternative to that stronger complete
 gate.  The condition-two chain is sharp for a scalar Schur function
 exactly when L201's transfer has a constant one-dimensional inner
@@ -964,10 +986,10 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
 ## Next five concrete actions (refreshed 2026-07-24, Epoch 6)
-1. **Iterate the elliptic flag.** L207 gives the explicit bounded
-   grade-one correction.  On its left kernel, derive
-   the same oriented endpoint for `B_2`, then continue through the
-   invertible terminal `B_L`.
+1. **Derive the higher physical target.** L208 proves its flagged
+   channel coboundary has an explicit preimage.  Compute the complete
+   prepared Faber/Riemann jet on `ker B_1*` and prove that its first
+   surviving target has this form for `B_2`; then iterate to `B_L`.
 2. **Merge later circular normals.** L199 covers the first raw face
    only.  Identify the response after L197's later least-squares Schur
    quotients and combine it with the elliptic flag.
@@ -978,17 +1000,17 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
 4. **H-r fallback.** Continue the shifted degree-one Möbius and
    odd-phase level-4 positivity attacks only after the local Crabb
    merger is banked.
-5. **Audit the universal endpoint table.** Before stacking several
-   grades, independently re-expand L207's coefficients `7` and `5`
-   from the matrix-inner autocorrelation identities.
+5. **Analytic flag audit.** Reconcile L208's exact kernel projections
+   with L197's pathwise Schur-orthogonal analytic flag; never insert a
+   discontinuous pseudoinverse into the metric.
 
 ## Paste-ready continuation instruction
 "Continue the Crouzeix campaign in /home/liam/Downloads/crouzeix
 (git repo; commit and push each proved milestone).  Read the newest
-RESEARCH_STATE section and L201--L207/A144--A150.  L207 gives the
-explicit analytic grade-one correction and removes the rank-jump
-pseudoinverse.  Independently audit its transfer-channel endpoint
-table, then iterate the oriented left Grams through B_2,...,B_L and
+RESEARCH_STATE section and L201--L208/A144--A151.  L207 gives the
+explicit analytic grade-one correction; L208 gives the conditional
+higher flagged preimage.  Derive the actual higher Faber/Riemann
+target on the left flag, then iterate through B_2,...,B_L and
 merge the later L197 circular-normal
 flags.  Do not use the false raw matrix quotient, confuse B_n*B_n with
 B_nB_n*, or promote pointwise pseudoinverses through the rank jump.
