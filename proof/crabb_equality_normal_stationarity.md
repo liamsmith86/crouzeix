@@ -234,8 +234,9 @@ was absent from the first draft.  The remaining tasks are:
    conclude membership in
    `mathfrak r^2`.
 
-The grade-one member requires no further coefficient calculation;
-the higher-grade endpoint identities remain open.
+The grade-one member requires no further coefficient calculation.
+L163/L172 subsequently close the higher-grade endpoint identities;
+the uniform tubular assembly remains open.
 
 ## 7. Exact regeneration
 

@@ -8,8 +8,8 @@ index ``k-2``.  These indices are disjoint for ``k<=L/2``.
 
 This checker derives both matrix tangents exactly and verifies that
 the direct quadratic and singular-vector-coupling parts of the mixed
-top-singular-value Hessian vanish.  L168 separately controls the sole
-remaining direct mixed endpoint/cofactor derivative.
+top-singular-value Hessian vanish.  It also regenerates L172's Cauchy
+residue selection for the sole remaining endpoint/cofactor term.
 """
 
 from __future__ import annotations
@@ -43,6 +43,10 @@ class DualNormalAssociatedFaceRecord:
     direct_quadratic_term: str
     singular_vector_coupling_term: str
     quadratic_hessian_cross: str
+    reflected_blaschke_modes: tuple[int, int]
+    endpoint_residual_mode: int
+    endpoint_product_modes: tuple[int, int]
+    endpoint_residue_vanishes: bool
 
 
 def prepared_reflected_tangent(
@@ -184,6 +188,22 @@ def make_record(
             "the sparse dual Hessian selection changed"
         )
 
+    reflected_modes = (length - grade, length + grade)
+    residual_mode = 1 - grade
+    product_modes = tuple(
+        mode + residual_mode
+        for mode in reflected_modes
+    )
+    residue_vanishes = (
+        product_modes
+        == (length - 2 * grade + 1, length + 1)
+        and min(product_modes) >= 1
+    )
+    if not residue_vanishes:
+        raise AssertionError(
+            "the direct endpoint residue selection changed"
+        )
+
     return DualNormalAssociatedFaceRecord(
         dimension=dimension,
         length=length,
@@ -196,6 +216,10 @@ def make_record(
         direct_quadratic_term=str(direct),
         singular_vector_coupling_term=str(coupling),
         quadratic_hessian_cross=str(cross),
+        reflected_blaschke_modes=reflected_modes,
+        endpoint_residual_mode=residual_mode,
+        endpoint_product_modes=product_modes,
+        endpoint_residue_vanishes=residue_vanishes,
     )
 
 

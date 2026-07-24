@@ -2,8 +2,34 @@
 
 **Last updated:** 2026-07-23 (Epoch 6 — full circular-normal merger)
 
-## NEWEST (2026-07-23): L171 reduces the all-grade row to one endpoint kernel
-- Audit correction: L163 is **not yet proved** all-size.  The earlier
+## NEWEST (2026-07-23): L172 closes L163 by an explicit endpoint residue
+- The gap found in the L171 audit is now closed without the discarded
+  slogan that every positive Hardy mode is automatically projected
+  out.
+- Cauchy functional calculus and L156 identify the remaining direct
+  endpoint/cofactor row with the `z^(-1)` coefficient of
+  `dot(B)_(w_k) dot(R)_s`.
+- L140 gives exactly two reflected Blaschke powers: `L-k` and `L+k`.
+  L168--L170 give the relative endpoint discrepancy at power
+  `m=L+2-k`; multiplication by `F_0=2z^(-L-1)` makes its absolute
+  power `1-k`.
+- The only possible product powers are therefore
+  `L-2k+1` and `L+1`.  For `2<=k<=L/2`, both are at least one, so
+  neither is the Cauchy residue power `-1`.  The central fold has
+  first power exactly one.
+- Together with L171's zero-reflection and sparse
+  singular-Hessian reductions, this proves L163 in every size.
+  Grade one is untouched: its coupling-index argument and Schur
+  tangent are different, and L160/L165 remains nonzero.
+- The associated checker regenerates all 36 `(L,k)` faces through
+  `L=14`, including the residue powers; a second run is byte-identical.
+  A separate end-to-end bilinear-jet checker reconstructs the full
+  frozen prepared Blaschke norm: grades two and three are exactly zero,
+  while three grade-one controls reproduce `-4(5L-1)/L`.
+  `proof/crabb_dual_endpoint_residue.md`.
+
+## NEWEST (2026-07-23): L171 reduced the all-grade row to one endpoint kernel
+- At this checkpoint L163 was **not yet proved** all-size.  The earlier
   “positive Hardy mode is annihilated” sentence was not established
   by L156 and has been removed rather than promoted into a lemma.
 - The rigorous part is substantial.  L149 reflection count and L162
@@ -16,14 +42,15 @@
   terms vanish in every size.
 - L168--L170 split the only remaining direct endpoint response into
   a logarithmic-inner tangent and an optimized-defect relative mode.
-  The precise remaining gate is to differentiate L149/L156's full
-  preparation/endpoint functional and prove that it annihilates that
-  latter mode for `m=L+2-k<=L`.
+  At this stage the precise remaining gate was to evaluate
+  L149/L156's full preparation/endpoint functional on that latter
+  mode.  L172 now does so by explicit Cauchy-residue selection.
 - Grade one remains the mandatory discriminator: `m=L+1` is the
   first terminal/feedthrough alias and L160/L165 is nonzero.
 - Exact grades two through four and floating grades through seven
   satisfy the target.  The independent grade-four run has six
   nonzero terms whose total cancels, ruling out termwise support.
+  L172 supplies the all-size endpoint proof.
   `proof/crabb_all_grade_normal_bridge.md`.
 
 ## NEWEST (2026-07-23): L170 removes the moving feedthrough without root tracking
@@ -64,8 +91,8 @@
   constant characteristic term detected by A115.  Thus this exact
   identity survives precisely where the fixed-zero shortcut failed.
 - L168 is the first Crabb tangent of the colligation formula.  L171
-  combines it with L162 and a sparse dual Hessian calculation, leaving
-  one direct endpoint-functional identification open.
+  combines it with L162 and a sparse dual Hessian calculation; L172
+  subsequently closes the remaining direct endpoint functional.
   `proof/crabb_colligation_transfer.md`.
 
 ## NEWEST (2026-07-23): L168 exposes the leading inner endpoint tangent
@@ -86,8 +113,8 @@
   L163 to L149 rather than a finite-grade cancellation.
 - The result is deliberately only leading order.  L171 shows that it
   is the only endpoint response left after reflection-count separation
-  and sparse dual support, but evaluating the complete differentiated
-  L156 norming functional on it remains open.
+  and sparse dual support; L172 subsequently evaluates the complete
+  differentiated L156 norming functional on it.
 - A115 remains an important guard: later characteristic factors do
   move, but their weights do not enter L171's one-reflection face.
   `proof/crabb_leading_endpoint_transfer.md`.
@@ -107,8 +134,8 @@
   the corresponding sharp prepared-Blaschke coefficient.
 - This is an all-size theorem and removes all optimizer jets from the
   one-reflection part of L163.  L171 proves that the common dual row
-  has no ordinary singular-Hessian contribution; its direct
-  endpoint/cofactor term remains open.
+  has no ordinary singular-Hessian contribution; L172 closes its
+  direct endpoint/cofactor term.
 - Audit warning: do not implement that bridge by freezing the zero
   characteristic root.  Grade two preserves the determinant through
   its face, but exact grade three has nonzero normal determinant
@@ -237,8 +264,8 @@
   it immediately once the covariant recurrence is proved.
 - L171 subsequently reduced the coefficient further by
   reflection-count separation and sparse dual support.  The direct
-  differentiated endpoint functional and the separate uniform
-  tubular lift remain.
+  differentiated endpoint functional was then closed by L172; only
+  the separate uniform tubular lift remains.
   `proof/crabb_all_grade_normal_selection.md`.
 
 ## NEWEST (2026-07-23): L162 proves all-size ambient stationarity on the equality ridge
@@ -259,9 +286,8 @@
   controls are not stationary.
 - This supplies the critical-ridge half of a tubular/Morse--Bott
   argument.  It does not prove a negative normal Hessian or the final
-  neighborhood theorem.  L171 has reduced, but not closed, L163's
-  all-grade mixed selection; the prepared uniform full-disk tubular
-  chart also remains.
+  neighborhood theorem.  L171--L172 now close L163's all-grade mixed
+  selection; the prepared uniform full-disk tubular chart remains.
   `proof/crabb_equality_ambient_stationarity.md`.
 
 ## NEWEST (2026-07-23): L160--L161 isolate the first circular-normal faces
@@ -2552,18 +2578,16 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-23)
-1. **Close L163's direct endpoint/cofactor functional, then build the
-   full circular-range tubular lift.**  L171 removes the
-   zero-reflection sector and every ordinary dual singular-Hessian
-   term.  Write the actual finite functional implicit in L149/L156,
-   differentiate all of numerator preparation, reversed denominator,
-   operator realization, and endpoint basis, and prove that it kills
-   L168's optimized-defect relative mode for `m<=L` while preserving
-   the grade-one `m=L+1` terminal alias.  Do not substitute the
-   unproved slogan “positive Hardy modes are projected out.”  Once
-   this closes, assemble L158, L160, L162, and L65 into a uniform
-   analytic negative estimate on the normal quotient and patch over
-   the complete circular-range manifold.
+1. **Build the full circular-range tubular lift.**  L172 now closes
+   L163's last endpoint functional by an explicit residue calculation.
+   Assemble L158's compact/disk deficit, L160's completed grade-one
+   square, L163's zero higher-grade crosses, L162's ridge
+   stationarity, and L65's coercive normal Hessian into a uniform
+   analytic negative estimate on the normal quotient.  Then patch it
+   over the complete circular-range manifold, including the
+   stratified Crabb apex.  Do not optimize over the raw Toeplitz chart
+   (A107), retry the `O(Q)` ambient shortcut (A111), or replace L172
+   by the vague Hardy-projection slogan that its audit rejected.
 2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
    trace inequality can instead be derived from the block-Toeplitz positivity of the full
    operator-valued correction moments. Do not retry trace/positive-state scalarizations.

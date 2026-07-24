@@ -1,0 +1,6 @@
+{"dimension": 4, "grade_one_discriminator": true, "length": 3, "mixed_top_singular_square": "-56/3", "predicted_mixed_top_singular_square": "-56/3", "prediction_verified": true, "reflected_grade": 1, "target_weight": 4}
+{"dimension": 5, "grade_one_discriminator": true, "length": 4, "mixed_top_singular_square": "-19", "predicted_mixed_top_singular_square": "-19", "prediction_verified": true, "reflected_grade": 1, "target_weight": 4}
+{"dimension": 6, "grade_one_discriminator": true, "length": 5, "mixed_top_singular_square": "-96/5", "predicted_mixed_top_singular_square": "-96/5", "prediction_verified": true, "reflected_grade": 1, "target_weight": 4}
+{"dimension": 5, "grade_one_discriminator": false, "length": 4, "mixed_top_singular_square": "0", "predicted_mixed_top_singular_square": "0", "prediction_verified": true, "reflected_grade": 2, "target_weight": 6}
+{"dimension": 6, "grade_one_discriminator": false, "length": 5, "mixed_top_singular_square": "0", "predicted_mixed_top_singular_square": "0", "prediction_verified": true, "reflected_grade": 2, "target_weight": 6}
+{"dimension": 7, "grade_one_discriminator": false, "length": 6, "mixed_top_singular_square": "0", "predicted_mixed_top_singular_square": "0", "prediction_verified": true, "reflected_grade": 3, "target_weight": 8}

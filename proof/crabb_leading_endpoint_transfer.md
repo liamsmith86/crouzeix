@@ -254,9 +254,9 @@ the zero-reflection sector, which L162 kills identically.  The
 one-reflection sector already exhausts weight `2d` with `w_k` and
 the first coefficient proved here.  A sparse dual Hessian calculation
 closes every ordinary quadratic term.  The leading theorem therefore
-isolates the last object, but L163 still requires proving that L156's
-direct differentiated endpoint functional annihilates the
-optimized-defect mode in (6).
+isolates the last object.  L172 subsequently proves that L156's direct
+differentiated endpoint functional annihilates the optimized-defect
+mode in (6) by explicit residue-power selection.
 
 ## 6. Exact regeneration
 

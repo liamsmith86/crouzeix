@@ -153,6 +153,8 @@ singular-Hessian support removes every ordinary quadratic term.  It
 leaves one direct endpoint/cofactor kernel identity: L156's complete
 differentiated norming functional must be evaluated on the
 optimized-defect mode left after the inner tangent is removed.
+L172 subsequently evaluates precisely that functional as a Cauchy
+residue and proves it zero for every `k>=2`.
 
 ## 5. Exact regeneration
 

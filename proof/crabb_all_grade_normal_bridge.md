@@ -1,6 +1,7 @@
 # All-grade circular-normal bridge: reduced endpoint gate
 
-**Status (2026-07-23): PARTIAL, not a proof of L163.**
+**Status (2026-07-23): proved reduction; final kernel resolved
+downstream by L172.**
 
 ## 1. Candidate and proved reduction
 
@@ -22,11 +23,11 @@ coercive circular normal `N_m` with weight `d`.  L163 asks whether
 The marked-sector split below rigorously removes the zero-reflection
 sector and reduces the one-reflection sector to one associated dual
 endpoint functional.  The ordinary singular-value Hessian part of
-that functional is proved to vanish in every size.  What remains open
-is one finite Hardy/projection identity for the direct mixed
-endpoint/cofactor term.  Exact grades two through four and floating
-grades through seven satisfy it, but the present notes do not yet
-prove it all-size.
+that functional is proved to vanish in every size.  What remained open
+in this note was one finite endpoint identity for the direct mixed
+endpoint/cofactor term.  L172 subsequently proves it as a Cauchy
+residue; exact grades two through four and floating grades through
+seven remain independent checks.
 
 ## 2. Marked weight separation
 
@@ -316,8 +317,9 @@ must preserve this discriminator.
 Equation (4) kills the zero-reflection part of (1).  Equation (5)
 transfers its sole one-reflection part to the dual, and
 (8a)--(8c) kill the ordinary quadratic singular-Hessian terms.
-The direct endpoint/cofactor functional (12) is the only remaining
-all-size gate in this reduction.
+The direct endpoint/cofactor functional (12) was the only remaining
+all-size gate in this reduction.  L172 subsequently writes it as an
+explicit Cauchy residue and proves it zero.
 
 The result agrees with four independent finite mechanisms:
 
@@ -329,9 +331,10 @@ The result agrees with four independent finite mechanisms:
    vanishing.
 
 These finite records are adversarial evidence, not a substitute for
-(12).  In particular, the exact grade-four run has six nonzero
-pairings whose total is zero, so a termwise-support shortcut is false.
-L163 and the subsequent uniform tubular merger both remain open.
+L172's proof of (12).  In particular, the exact grade-four run has six
+nonzero pairings whose total is zero, so a termwise-support shortcut
+is false.  L163 is now closed by L171--L172; the subsequent uniform
+tubular merger remains open.
 
 ## 8. Exact regeneration
 

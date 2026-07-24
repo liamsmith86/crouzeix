@@ -34,7 +34,8 @@ Equation (2) was not proved here in every grade: L161 handled `k=2`,
 exact calculations covered initial higher cases, and L164--L170
 progressively exposed the endpoint mechanism.  L171 separates
 reflection count and kills the ordinary quadratic dual terms, but
-does not yet prove the final direct endpoint/cofactor functional.
+did not at that stage prove the final direct endpoint/cofactor
+functional.  L172 now proves it by residue selection.
 
 What is proved below is an all-size first normal/defect-column
 identity.  It explains the candidate cancellation and identifies the
@@ -50,7 +51,7 @@ colligation transfer of the optimized rank-one Stein metric.  The
 final step is to identify L166's complete differentiated marked
 Blaschke functional with the appropriate real-mean coefficient of
 that transfer.  L171 narrows this to one explicit kernel identity but
-does not yet prove it.
+does not prove it; L172 supplies the missing explicit residue.
 
 ## 2. Exact first-column theorem
 

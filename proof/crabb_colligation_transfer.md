@@ -224,6 +224,11 @@ differentiated L156 norming functional still has to be identified
 with the appropriate colligation coefficient; L169 alone does not
 close L163.
 
+L172 subsequently supplies the required associated identification in
+the form actually needed: it writes the remaining endpoint row as a
+Cauchy residue and proves by its two possible powers that the residue
+vanishes.
+
 ## 6. Exact regeneration
 
 Run

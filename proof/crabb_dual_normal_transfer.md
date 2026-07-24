@@ -197,5 +197,5 @@ L171 subsequently separates reflection count and proves that the
 one-reflection row has no ordinary quadratic singular-Hessian term.
 Its direct endpoint/cofactor term is reduced to L156's fully
 differentiated Hardy functional applied to L168's
-inner/optimized-defect split.  The required kernel value of that
-functional is still open.
+inner/optimized-defect split.  L172 subsequently evaluates that
+kernel as a Cauchy residue and proves it zero.
