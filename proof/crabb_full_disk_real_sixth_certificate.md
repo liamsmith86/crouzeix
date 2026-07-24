@@ -178,21 +178,24 @@ ill-conditioned: the valid Gram matrix has rank seven inside a
 
 ## 5. Consequence for the general attack
 
-Two formerly uncertain pieces of A126 are now exact:
+Three formerly uncertain pieces of A126 are now exact:
 
 1. L178 closes the sharp last-two-coefficient edge in every size.
 2. L179 closes every real direction in the first active size.
+3. L180 closes every complex direction in the first active size by a
+   separate ten-square tensor certificate.
 
-The complex slice is still essential.  A real SOS does not extend by
+The distinction remains important: this real SOS does not extend by
 formal replacement of squares with moduli, because the cubic response
-contains conjugate Pluecker sectors.  The next algebraic target remains
-an invariant Hermitian Gram decomposition on
+contains conjugate Pluecker sectors.  L180 instead uses separate
+global-phase blocks on
 
 \[
 z\otimes(z\wedge J\overline z),
 \]
 
-organized by circle grade and L176's interval flux.
+and verifies them independently.  The next algebraic target is the
+arbitrary-size anti-diagonal/interval-flux block theorem.
 
 ## 6. Exact regeneration
 

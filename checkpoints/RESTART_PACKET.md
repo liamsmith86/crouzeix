@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-24): L179 / A128
+## Current general Crabb frontier (2026-07-24): L180 / A129
 
 L174 proves the nonlinear Toeplitz-disk/coercive-normal slice tube.
 L176--L177 then recenter the complete full-H homogeneous face: the
@@ -42,14 +42,24 @@ L174-style singular blow-up, and only then merge the elliptic/compact
 faces.  See `proof/crabb_full_disk_sixth_face.md` and
 `proof/crabb_full_disk_terminal_sixth_face.md`.
 
-L179 additionally closes every **real** direction in the first active
-size `p=7`: after facial reduction to the 21-dimensional cubic
-phase-palindromic equality ideal, the required polynomial has an exact
-rational rank-seven Gram certificate with a positive-definite pivot
-core.  No floating SDP remains in that result.  The immediate algebraic
-frontier is its invariant complex/Hermitian analogue, followed by the
-all-size anti-diagonal formula; do not treat a real SOS as a complex
-certificate.  See `proof/crabb_full_disk_real_sixth_certificate.md`.
+L179 closes every real direction in the first active size `p=7`.
+L180 now closes the complete **complex** slice: on twenty selected
+coordinates of `z tensor (z wedge J conjugate(z))`, the required
+polynomial is exactly six positive squares in the real parts plus four
+positive squares in the imaginary parts.  The endpoint recurrence
+independently matches all 137 polarized coefficients, with no floating
+SDP premise.  A separate generic-complex characteristic/Riemann audit
+checks all ten normal polarizations and proves that mode three is the
+only cubic response.  A naive Hermitian lift of L179 is false; the
+missing global-phase sectors are essential.
+
+The immediate algebraic frontier is now the all-size anti-diagonal
+formula and block positivity, not another fixed-size raw SOS.  Use
+L180's grade-block factorization as a template, retain L173's positive
+null-lift curvature, and next test `L=7` symbolically before claiming a
+stable general pattern.  After the arbitrary-size sixth block closes,
+classify its kernel and derive the eighth-order fallback.  See
+`proof/crabb_full_disk_complex_sixth_certificate.md`.
 
 ## Historical general Crabb frontier (2026-07-23): L125 / A84
 

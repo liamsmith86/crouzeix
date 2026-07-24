@@ -2,6 +2,26 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — full circular-normal merger)
 
+## NEWEST (2026-07-24): L180 proves the complex `p=7` sixth face
+- On A126's first active complex slice, the exact required inequality
+  is `P_6−1089|C_6|²/290>=0`.
+- Twenty selected coordinates `q_r=−z_a(z wedge J conjugate(z))_ij`
+  give an exact rational identity with six positive squares in
+  `Re q` and four positive squares in `Im q`.  The corresponding Gram
+  ranks are six and four.
+- A separate generic-complex characteristic/Riemann audit verifies all
+  ten true-normal polarizations: the quadratic response vanishes,
+  mode three is the sole cubic mode, and it equals `−22C_6/45`.
+- The checker independently reconstructs `P_6` from the endpoint
+  recurrence, verifies conjugation invariance, and matches all 137
+  polarized sextic coefficients.  No floating solver remains.
+- A formal Hermitian lift of L179's real Gram is false: the separate
+  global-phase sectors in the ten-square identity are essential.
+- This closes the complete complex sixth face at `p=7`; it does not
+  prove the stronger constant `9`, the arbitrary-size block theorem,
+  the higher-order kernel lift, or the nonlinear tube.
+  `proof/crabb_full_disk_complex_sixth_certificate.md`.
+
 ## NEWEST (2026-07-24): L179 proves the real `p=7` sixth face
 - On A126's real first-active slice, the exact required inequality is
   `P_6−1089C_6²/290>=0`.
@@ -13,9 +33,9 @@
   principal minors of the symmetric pivot core `S` are explicitly
   positive, so the certificate is PSD with no numerical-solver
   premise.  Exact expansion checks every polynomial coefficient.
-- This closes all real directions at `p=7`; it does not prove the
-  stronger conjectural constant `9`, the complex `p=7` slice, the
-  all-size sixth block, or the nonlinear tube.
+- This closes all real directions at `p=7`; L180 subsequently closes
+  the complex slice.  Neither result proves the stronger conjectural
+  constant `9`, the all-size sixth block, or the nonlinear tube.
   `proof/crabb_full_disk_real_sixth_certificate.md`.
 
 ## NEWEST (2026-07-24): L178 closes the terminal sixth-order edge
@@ -51,12 +71,13 @@
   slice factors as
   `−128 a_2²(a_1−a_3)²(2a_1²+a_2²)/9`, exposing additional
   terminal-only strata whose first base term is eighth order.
-- On the real `p=7` slice, the needed Schur inequality is
-  `P_6>=1089|C|²/290`.  A Gram SDP and 2,000 complex random rays plus
-  20 BFGS searches independently locate the much stronger
+- On the `p=7` slice, the needed Schur inequality is
+  `P_6>=1089|C|²/290`.  L179 proves it over the real slice and L180
+  over the full complex slice.  A Gram SDP and 2,000 complex random
+  rays plus 20 BFGS searches independently locate the much stronger
   sharp-looking constant `9`; equality occurs when only the last two
-  Toeplitz coefficients remain.  This is discovery evidence, not an
-  exact SOS proof.
+  Toeplitz coefficients remain.  That stronger bound remains discovery
+  evidence, not an exact SOS theorem.
 - Exact canonical ratios remain favorable through `p=10`; five exact
   `p=7` rays have maximum about `0.277`.  A separate 30-record
   optimized nonlinear `p=7` probe has positive residual throughout and

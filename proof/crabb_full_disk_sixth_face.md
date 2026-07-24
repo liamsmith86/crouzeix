@@ -95,10 +95,11 @@ The complex mode-three response is
 \boxed{G_{6,3}^{(3)}=-\frac{22}{45}C(z,W).}          \tag{7}
 \]
 
-Equation (7) is derived on the full symbolic real slice and is checked
-exactly on five unrelated Gaussian-rational complex directions.  The
-all-complex coefficient derivation should still be written before
-promoting it to a lemma.
+Equation (7) was first derived on the full symbolic real slice and
+checked on five unrelated Gaussian-rational complex directions.
+L180's slower upstream checker now propagates five generic complex
+variables through all ten true-normal polarizations: mode three is the
+only cubic mode and (7) holds coefficientwise.
 
 L173's exact positive curvature on either mode-three support Riesz row
 is
@@ -151,10 +152,12 @@ factorization is still required, first over the full complex slice and
 then in arbitrary size.  Its margin over the needed constant in (10)
 is a favorable structural signal.
 
-L179 now proves the weaker inequality (10), which is exactly the one
-needed for the Schur face, on the complete **real** `p=7` slice by an
-exact rational rank-seven Gram certificate.  It does not prove (11) or
-extend (10) to complex directions.
+L179 proves the weaker inequality (10), which is exactly the one needed
+for the Schur face, on the complete real `p=7` slice by an exact
+rational rank-seven Gram certificate.  L180 now proves (10) on the
+complete **complex** `p=7` slice by an independent rational ten-square
+certificate on \(z\otimes(z\wedge J\overline z)\).  Neither result
+proves the sharper inequality (11) or the arbitrary-size block theorem.
 
 L178 subsequently resolves the equality edge of (11) without needing
 the full SOS.  When only the last two coefficients remain, the actual
@@ -220,7 +223,9 @@ A promising algebraic organization is:
 
 L178 completes this program on the last-two-coefficient edge and
 identifies the flux/null-lift split which the general blocks should
-retain.
+retain.  L180 completes it in the first active size and shows that the
+right complex Gram organization has separate global-phase sectors; a
+formal Hermitian lift of the real certificate is false.
 
 This is the current load-bearing route to the nonlinear full-disk
 tube.  The elliptic and compact merger remains downstream.
@@ -266,6 +271,18 @@ PYTHONPATH=experiments OPENBLAS_NUM_THREADS=1 \
   --minimum-length 6 --maximum-length 6 --resolution 4096 \
   --scales 0.12 0.09 0.0675 --direction-count 10 --seed 70225 \
   --output experiments/crabb_full_disk_normal_L6_s70225.jsonl
+
+PYTHONPATH=experiments OPENBLAS_NUM_THREADS=1 \
+  .venv/bin/python -u \
+  experiments/crabb_full_disk_complex_cubic_response.py \
+  --output \
+  experiments/crabb_full_disk_complex_cubic_response_s70224.jsonl
+
+PYTHONPATH=experiments OPENBLAS_NUM_THREADS=1 \
+  .venv/bin/python -u \
+  experiments/crabb_full_disk_complex_sixth_certificate.py \
+  --output \
+  experiments/crabb_full_disk_complex_sixth_certificate_s70224.jsonl
 ```
 
 The generalized series routines also regenerate the pre-existing L122
