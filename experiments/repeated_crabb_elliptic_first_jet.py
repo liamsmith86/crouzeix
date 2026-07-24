@@ -43,6 +43,7 @@ class EllipticFirstJetRecord:
     right_partial_isometry_error: str
     left_partial_isometry_error: str
     elliptic_kernel_compression_error: str
+    elliptic_left_kernel_compression_error: str
     defect_row_factorization_error: str
     coefficient_commutator_norm: str
     all_checks_passed: bool
@@ -228,7 +229,9 @@ def make_record(
 
     kernel_projection = identity - right_projection
     compression_error = 0.0
+    left_compression_error = 0.0
     factorization_error = 0.0
+    balanced_left_kernel = identity - left_projection
     for phase in (1 + 0j, 1j, np.exp(0.37j)):
         elliptic_tangent = (
             phase * operator.conj().T
@@ -248,6 +251,24 @@ def make_record(
                 )
             ),
         )
+        balanced_tangent = (
+            phase * metric @ balanced.conj().T @ np.linalg.inv(metric)
+            - np.conjugate(phase)
+            * np.linalg.matrix_power(balanced, 3)
+        )
+        left_compression_error = max(
+            left_compression_error,
+            float(
+                np.linalg.norm(
+                    balanced_left_kernel
+                    @ (
+                        balanced_tangent @ balanced.conj().T
+                        + balanced @ balanced_tangent.conj().T
+                    )
+                    @ balanced_left_kernel
+                )
+            ),
+        )
         _, current_factorization_error = defect_row_factorization(
             defect_derivative,
             right,
@@ -263,6 +284,7 @@ def make_record(
         and right_error < 2e-10
         and left_error < 2e-10
         and compression_error < 2e-10
+        and left_compression_error < 2e-10
         and factorization_error < 2e-10
         and (multiplicity == 1 or commutator > 1e-8)
     )
@@ -279,6 +301,9 @@ def make_record(
         right_partial_isometry_error=format_float(right_error),
         left_partial_isometry_error=format_float(left_error),
         elliptic_kernel_compression_error=format_float(compression_error),
+        elliptic_left_kernel_compression_error=format_float(
+            left_compression_error
+        ),
         defect_row_factorization_error=format_float(factorization_error),
         coefficient_commutator_norm=format_float(commutator),
         all_checks_passed=verified,

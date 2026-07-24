@@ -175,7 +175,10 @@ and the balanced disk operator is a partial isometry.  For the exact
 ellipse tangent `gamma T*−conj(gamma)T^3`, the Stein-defect
 derivative has zero compression to `V^perp`; it is only a defect-row
 motion `VC*+CV*`.  Thus the rank-`m` forcing absorbs first order with
-`P(epsilon)=P+O(epsilon^2)`.  The live calculation is the negative
+`P(epsilon)=P+O(epsilon^2)`.  The adjoint identity gives the same
+statement on the left defect: the balanced tangent is
+`K_-S+SK_+` and hence integrates to a genuine partial-isometry
+colligation curve at first order.  The live calculation is the negative
 second reflected endpoint and its higher-grade preparation.  See
 `proof/crabb_block_hardy_equality.md` and
 `proof/repeated_crabb_exact_metric_chart.md` and

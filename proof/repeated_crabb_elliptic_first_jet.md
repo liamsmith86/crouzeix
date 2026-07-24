@@ -82,6 +82,33 @@ metric itself stays \(P+O(c^2)\).  In particular the lower and upper
 metric endpoints have zero ordinary first elliptic derivative at
 every noncommuting block-Hardy equality anchor.
 
+There is a stronger two-sided formulation.  Put
+
+\[
+Q=I-VV^*=S^*S,\qquad R=I-WW^*=SS^*.
+\]
+
+Then
+
+\[
+\boxed{
+Q(\dot S^*S+S^*\dot S)Q=0,\qquad
+R(\dot SS^*+S\dot S^*)R=0.}                        \tag{7a}
+\]
+
+These are exactly the tangent equations for the smooth manifold of
+rank-\(Lm\) partial isometries.  Therefore there are skew-Hermitian
+matrices \(K_-,K_+\) with
+
+\[
+\dot S=K_-S+SK_+,
+\]
+
+and \(e^{\varepsilon K_-}Se^{\varepsilon K_+}\) is a partial-isometry
+curve with the same first jet.  Thus the physical elliptic direction
+is a genuine matrix-inner colligation tangent, not merely a
+one-sided Stein-feasible tangent.
+
 This proves physical elliptic first-jet stationarity at every equality
 anchor.  It does **not** prove the all-grade prepared endpoint identity:
 a path can first expose a higher reflected coefficient of L201's genuine
@@ -221,6 +248,33 @@ column, (7) follows.  One explicit choice is
 C=(I-VV^*)\dot DV+\frac12V(V^*\dot DV).             \tag{14}
 \]
 
+For the left equation in (7a), apply the same calculation to \(S^*\).
+Indeed its endpoint metric is
+
+\[
+P_{\rm left}=4P^{-1}=3I+R-2Q,
+\]
+
+and
+
+\[
+\dot S^*
+=\overline\gamma P^{-1}SP-\gamma(S^*)^3
+=\overline\gamma P_{\rm left}S
+P_{\rm left}^{-1}-\gamma(S^*)^3.
+\]
+
+The right-defect calculation for \(S^*\), with \(Q,R\) interchanged,
+is precisely the second equation in (7a).  The standard homogeneous
+space description
+
+\[
+\{\,USV:U,V\text{ unitary}\,\}
+\]
+
+of fixed-rank partial isometries identifies (7a) with its tangent
+space and supplies \(K_-,K_+\).
+
 Replacing \(V\) by \(V+\varepsilon C+O(\varepsilon^2)\) matches the Stein
 defect to first order along the real path with fixed complex phase
 \(\gamma\).  L194's analytic metric chart then supplies an actual
@@ -244,5 +298,5 @@ inverse-block-Toeplitz anchors at lengths \(2,\ldots,5\) and
 multiplicities \(2,3\).  It
 verifies (2)--(4), (6), and the explicit defect-row factorization
 (7).  The dataset SHA-256 is
-`bc4ba4a6ba3d57831c79b5169db3ed90148f2d48b11d3e8750a048bbf56aa504`.
+`e1876f92bc507262af8b21ba4bbf251dab24ea617eb2ca1d62eed699475fffb5`.
 The identities above, rather than the floating audit, prove the result.
