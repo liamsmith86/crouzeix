@@ -2,6 +2,24 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — repeated circular/elliptic merger)
 
+## NEWEST (2026-07-24): L214 closes the first delayed physical face
+- After L213's axis-compatible gauge, the complete fourth-order upper
+  Schur coefficient on `B_1=0` reduces exactly to
+  `4 C(B_2*B_2)−20 B_2B_2*−2 M(QS*V B_3*B_2)`.
+- The polynomial fourth-frame preparation
+  `Q{4S^2WB_2+2S*V B_3*B_2}` changes this to the physical base
+  `12B_2B_2*−28C(B_2*B_2)`.
+- L212 then adds its grade-two channel coboundary and leaves the
+  coercive endpoint `−16B_2B_2*`.
+- No transfer inverse, kernel projection, or pseudoinverse is used;
+  the formulas remain analytic when `B_2` changes rank and vanish at
+  the repeated length-two apex.
+- The next gate is to identify and organize the higher axis/null
+  gauges before the `B_3` sixth face, then seek the all-grade
+  generating formula rather than hand-expand every grade.
+  `proof/repeated_crabb_grade_two_face.md`;
+  `experiments/repeated_crabb_grade_two_face.py`.
+
 ## NEWEST (2026-07-24): L213 fixes the delayed elliptic gauge
 - L207's endpoint solution is not unique; later coefficients cannot
   be inferred from its minimum-norm representative.

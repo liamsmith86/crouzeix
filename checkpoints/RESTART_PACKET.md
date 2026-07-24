@@ -1060,11 +1060,12 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
 ## Next five concrete actions (refreshed 2026-07-24, Epoch 6)
-1. **Recompute the fourth-order delayed face.** Use L213's polynomial
-   `B_1=0` axis gauge, not the minimum-norm L207 representative.
-   Derive the `B_2` base and compare it with
-   `12B_2B_2*−28C(B_2*B_2)`.  If it matches, combine it with L212
-   and then prove the all-grade induction.
+1. **Derive the higher delayed-gauge recursion.** L214 proves that
+   L213's axis gauge gives the exact `B_2` base
+   `12B_2B_2*−28C(B_2*B_2)` and L212 turns it into
+   `−16B_2B_2*`.  Identify the endpoint-null lower coefficients
+   before the `B_3` sixth face and seek their generating function;
+   do not substitute minimum-norm frame solutions.
 2. **Merge later circular normals.** L199 covers the first raw face
    only.  Identify the response after L197's later least-squares Schur
    quotients and combine it with the elliptic flag.
@@ -1082,14 +1083,15 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
 ## Paste-ready continuation instruction
 "Continue the Crouzeix campaign in /home/liam/Downloads/crouzeix
 (git repo; commit and push each proved milestone).  Read the newest
-RESEARCH_STATE section and L201--L213/A144--A156.  L207 gives the
+RESEARCH_STATE section and L201--L214/A144--A157.  L207 gives the
 explicit analytic grade-one correction; L208 gives the conditional
 higher flagged preimage; L209 promotes a surviving grade to a
 grade-one smaller colligation; L210 proves the exact transfer/Gram
 weight shift; L211 proves active-block channel covariance; L212 gives
 the universal all-grade polynomial preimage without flags; L213 fixes
-the lower-order delayed axis gauge.  Recompute the `B_2` fourth-order
-base after L213, then derive the all-grade physical base
+the lower-order delayed axis gauge; L214 proves the complete prepared
+`B_2` fourth face and its `−16B_2B_2*` endpoint.  Derive the
+higher endpoint-null gauge recursion and the all-grade physical base
 `12L_c−28C(R_c)` (or a one-sided smaller endpoint), and
 merge the later L197 circular-normal
 flags.  Do not use the false raw matrix quotient, confuse B_n*B_n with
