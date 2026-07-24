@@ -2,6 +2,25 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — full circular-normal merger)
 
+## NEWEST (2026-07-24): L196 promotes the first repeated residual kernel
+- Use `B=H^−1` and subtract its block-Toeplitz diagonal means.  The
+  remainder `N` is an exact linear transverse coordinate to L193's
+  equality manifold.
+- Adjacent-principal difference is an isomorphism on this zero-mean
+  complement.  Its inverse is explicit integration along each block
+  diagonal, so it preserves arbitrary copy-space compressions.
+- At the Crabb base, the leading actual Hardy residual is
+  `−(1/4)Delta(N_q)(J tensor I_m)`.  Therefore a common copy kernel of
+  L195's residual Gram forces both the columns and rows of `N_q` to
+  vanish on the same level-by-copy subspace.
+- After recentering at the inverse-block-Toeplitz equality anchor, the
+  transverse valuation on the kernel and its cross blocks strictly
+  rises.  This is the first exact flag promotion.
+- The next gate is the iterated step: identify the next residual after
+  Schur orthogonalization against the already active Hardy range.
+  `proof/repeated_crabb_inverse_gram_kernel.md`;
+  `experiments/repeated_crabb_inverse_gram_kernel.py`.
+
 ## NEWEST (2026-07-24): L195 identifies the repeated first-residual metric flag
 - L193's normalized rank-`m` Hardy metric lies exactly on L194's
   zero-Stein-slack branch.  Its physical Stein defect is rank `m`
@@ -16,9 +35,9 @@
   the common right kernel of every residual block.  Active copy
   directions close immediately; only this common kernel advances to
   the next metric flag.
-- The live gate is now geometric: promote a stable common kernel into
-  a smaller-copy L193 equality block and merge circular-normal and
-  elliptic support effects there.
+- L196 now promotes the first common kernel in exact inverse-Gram
+  coordinates.  Iterating this after Schur orthogonalization, then
+  merging circular-normal and elliptic support effects, remains.
   `proof/repeated_crabb_first_residual_endpoint.md`;
   `experiments/repeated_crabb_first_residual_endpoint.py`.
 

@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-24): L195 / A138
+## Current general Crabb frontier (2026-07-24): L196 / A139
 
 The complete local chart around every fixed **single** Crabb block is
 closed by L192.  L193 identifies the correct upper-equality stratum at
@@ -96,16 +96,26 @@ residual blocks are `F_(r,c)`, the upper endpoint is
 −4 sum_(r,c) F_(r,c)* F_(r,c).
 ```
 
-Its kernel is the common right kernel of every residual block.  The
-immediate task is to prove that a stable common kernel can be promoted
-into a smaller-copy L193 equality block and iterated as a metric flag,
-while retaining L188's circular-normal null lift on the active range.
-Elliptic copy data require a separate support/Jensen argument; do
-**not** substitute a noncommuting matrix parameter into the scalar
+Its kernel is the common right kernel of every residual block.
+
+L196 performs the first exact promotion.  In the coordinates
+`N=H^−1−Toep(H^−1)`, adjacent-principal difference is invertible by
+block-diagonal integration.  Since the first residual is this
+difference times `J tensor I_m`, its common copy kernel forces the
+entire leading transverse coefficient and cross blocks to be
+supported on the copy complement.  The transverse valuation therefore
+rises on the kernel.
+
+The immediate task is to iterate this after the upper Schur complement
+orthogonalizes later residual columns against the already active Hardy
+range.  Then retain L188's circular-normal null lift on the active
+range.  Elliptic copy data require a separate support/Jensen argument;
+do **not** substitute a noncommuting matrix parameter into the scalar
 Faber/Joukowski formulas.  See
 `proof/crabb_block_hardy_equality.md` and
 `proof/repeated_crabb_exact_metric_chart.md` and
-`proof/repeated_crabb_first_residual_endpoint.md`.
+`proof/repeated_crabb_first_residual_endpoint.md` and
+`proof/repeated_crabb_inverse_gram_kernel.md`.
 
 ### Superseded L182 checkpoint
 
