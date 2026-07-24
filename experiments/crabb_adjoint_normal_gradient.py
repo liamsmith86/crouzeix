@@ -38,7 +38,12 @@ from rank_one_stein_series import (
 )
 
 
-CASES = ((4, 1, True), (5, 2, True), (7, 3, False))
+CASES = (
+    (4, 1, True, False),
+    (5, 2, True, False),
+    (7, 3, False, True),
+    (9, 4, False, False),
+)
 
 
 @dataclass(frozen=True)
@@ -50,6 +55,7 @@ class AdjointNormalRecord:
     reflected_grade: int
     target_weight: int
     normal_mode: int
+    independent_amplitudes: bool
     direct_endpoint_cross_recomputed: bool
     direct_condition_derivative: str | None
     adjoint_log_derivative: str
@@ -60,6 +66,8 @@ class AdjointNormalRecord:
     gradient_degree_pairings: tuple[str, ...]
     commutator_boundary_pairings: tuple[str, ...]
     companion_slice_pairings: tuple[str, ...]
+    commutator_boundary_sum: str
+    companion_slice_sum: str
     companion_decomposition_verified: bool
     every_target_pairing_zero: bool
 
@@ -302,6 +310,7 @@ def make_record(
     dimension: int,
     grade: int,
     recompute_endpoint_cross: bool = True,
+    independent_amplitudes: bool = False,
 ) -> AdjointNormalRecord:
     """Derive one exact adjoint-gradient face."""
 
@@ -310,6 +319,13 @@ def make_record(
     target_weight = 2 * face_degree
     normal_mode = length + 2 - grade
     epsilon, strong = sp.symbols("epsilon strong", real=True)
+    if independent_amplitudes:
+        amplitude, ellipse = sp.symbols(
+            "amplitude ellipse",
+            real=True,
+        )
+    else:
+        amplitude = ellipse = sp.Integer(1)
 
     normal = real_circular_normal_direction(dimension, normal_mode)
     if recompute_endpoint_cross:
@@ -320,6 +336,8 @@ def make_record(
             strong_direction=normal,
             strong_degree=face_degree,
             order=target_weight,
+            amplitude=amplitude,
+            ellipse=ellipse,
         )
         _, strong_operator = inverse_riemann_series(
             path,
@@ -346,6 +364,8 @@ def make_record(
                 strong_direction=normal,
                 strong_degree=face_degree,
                 order=target_weight,
+                amplitude=amplitude,
+                ellipse=ellipse,
             )
             _, value = inverse_riemann_series(path, target_weight)
             operators.append(value)
@@ -539,10 +559,12 @@ def make_record(
         )
         for degree in range(face_degree + 1)
     ]
+    boundary_sum = sp.factor(sum(boundary_pairings))
+    companion_sum = sp.factor(sum(companion_pairings))
     decomposition_verified = sp.simplify(
         sum(pairings)
-        - sum(boundary_pairings)
-        - sum(companion_pairings)
+        - boundary_sum
+        - companion_sum
     ) == 0
     if not decomposition_verified:
         raise AssertionError(
@@ -598,6 +620,7 @@ def make_record(
         reflected_grade=grade,
         target_weight=target_weight,
         normal_mode=normal_mode,
+        independent_amplitudes=independent_amplitudes,
         direct_endpoint_cross_recomputed=recompute_endpoint_cross,
         direct_condition_derivative=(
             str(direct_derivative)
@@ -620,6 +643,8 @@ def make_record(
         companion_slice_pairings=tuple(
             str(value) for value in companion_pairings
         ),
+        commutator_boundary_sum=str(boundary_sum),
+        companion_slice_sum=str(companion_sum),
         companion_decomposition_verified=decomposition_verified,
         every_target_pairing_zero=every_pairing_zero,
     )
@@ -639,11 +664,17 @@ def main() -> None:
     args = parse_args()
     args.output.parent.mkdir(parents=True, exist_ok=True)
     with args.output.open("w", encoding="utf-8") as output:
-        for dimension, grade, recompute_endpoint_cross in CASES:
+        for (
+            dimension,
+            grade,
+            recompute_endpoint_cross,
+            independent_amplitudes,
+        ) in CASES:
             record = make_record(
                 dimension,
                 grade,
                 recompute_endpoint_cross,
+                independent_amplitudes,
             )
             line = json.dumps(asdict(record), sort_keys=True)
             print(line, flush=True)

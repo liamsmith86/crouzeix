@@ -39,6 +39,16 @@ identity.  It explains the candidate cancellation and identifies the
 remaining proof gate: extend the identity covariantly through every
 mixed Riemann, Stein, and endpoint jet from weights `d+1` to `2d`.
 
+Subsequent results sharpen that gate.  L166 transfers the
+one-reflection row to the prepared Blaschke certificate.  L168 proves
+that the first normal-minus-defect endpoint response is exactly the
+logarithmic-inner tangent `k(z^(-m)-z^m)`.  L169 packages every later
+moving determinant and feedthrough coefficient into the exact inner
+colligation transfer of the optimized rank-one Stein metric.  The
+open step is to identify L166's marked Blaschke functional with the
+appropriate real-mean coefficient of that transfer; the all-grade
+vanishing is still not claimed.
+
 ## 2. Exact first-column theorem
 
 Let `C_p` be the Crabb matrix.  Compare:
@@ -219,6 +229,21 @@ for the difference of the normal and
 `gamma_(L,k)`-times-defect variations.  A valid proof must display the
 telescoping of the complete mixed recurrence, or an adjoint identity
 implying (8), rather than infer it from finite grades.
+
+L169 now supplies the natural all-order object for such an adjoint
+identity:
+
+\[
+\theta(\zeta)
+=d+\zeta\sqrt\alpha\,q^T(I-\zeta T)^{-1}Jq,
+\]
+
+which is inner for the complete optimized branch.  A115's moving
+constant characteristic term is precisely the feedthrough `d`.
+Consequently the remaining work should prove that the marked
+one-reflection functional is the real mean of the relevant
+coefficient of `dot(theta)/theta`; it should not expand the
+characteristic polynomial while omitting `d`.
 
 ## 4. Exact and adversarial regeneration
 

@@ -2,6 +2,93 @@
 
 **Last updated:** 2026-07-23 (Epoch 6 — full circular-normal merger)
 
+## NEWEST (2026-07-23): L169 packages every mixed characteristic jet into one inner transfer
+- Any rank-one Stein pair
+  `P-T*PT=qq*`, `P^(-1)-TP^(-1)T*=rr*` balances to a
+  contraction with one-dimensional left and right defects.  Completing
+  those columns gives a unitary colligation.
+- Its scalar transfer has the exact determinant form
+  `theta(z)=d+zq*(I-zT)^(-1)r
+  =omega det(zI-T*)/det(I-zT)`.  Hence it is inner and every analytic
+  variation satisfies `Re(dot(theta)/theta)=0` on the circle.
+- L164 makes this canonical on the optimized persymmetric branch:
+  `r=sqrt(alpha)Jq`.  No second defect series is needed.
+- The scalar feedthrough `d` is essential: it carries the moving
+  constant characteristic term detected by A115.  Thus this exact
+  identity survives precisely where the fixed-zero shortcut failed.
+- L168 is the first Crabb tangent of the colligation formula.  The
+  remaining L163 gate has sharpened to one functional identification:
+  prove that L166's marked one-reflection Blaschke cross is the
+  corresponding real-mean coefficient of `dot(theta)/theta`.
+  Innerness would then kill every grade at once; L162 handles the
+  separate zero-reflection equality transport.
+  `proof/crabb_colligation_transfer.md`.
+
+## NEWEST (2026-07-23): L168 exposes the leading inner endpoint tangent
+- Put `m=L+2-k`.  For the first inverse-Riemann pullback `E` of the
+  eligible grade-`k` circular normal, exact weighted-path counting
+  gives
+  `D log(e0*(zI-C)^(-1)eL)[E]=k z^(-m)+beta_(L,k)z^m`.
+- The positive coefficient is `0` for `k=2`, `(L-9)/(4L)` for
+  `k=3`, and `k-3-2(k-2)^2/L` for `k>=4`.
+- The symmetrized defect endpoint factor is `1` for `k=2` and
+  `sqrt(2)` thereafter.  Substitution of L163's independently derived
+  normal/defect coefficient gives the exact all-size identity
+  `beta+k=delta gamma_(L,k)`.
+- Therefore the normal response minus its optimized defect response
+  is exactly `k(z^(-m)-z^m)`: an anti-self-reciprocal
+  logarithmic-inner tangent, purely imaginary on the circle and with
+  zero real mean.  This is the first concrete scalar bridge from
+  L163 to L149 rather than a finite-grade cancellation.
+- The result is deliberately only leading order.  It does not yet
+  propagate through the mixed inverse-Riemann, moving-companion, and
+  optimized-defect coefficients at weights `d+1,...,2d`, so L163
+  remains open.
+- The next gate is to prove this identity covariantly for
+  `q*(zI-T)^(-1)e_L`, using L164 to pair endpoint/defect legs, L162
+  for zero-reflection equality transport, and L149 for the remaining
+  one-reflection real mean.  A115 forbids freezing later
+  characteristic factors.
+  `proof/crabb_leading_endpoint_transfer.md`.
+
+## NEWEST (2026-07-23): L166 transfers the compact normal row to the sharp dual
+- Let `U` be L118's optimized Stein upper envelope and `R` the
+  prepared Blaschke norm square, frozen in the strong-normal variable.
+  For every fixed nonzero weighted scale, `Delta=U-R>=0` and
+  `Delta=0` on the exact elliptic axis.
+- The amplitude/normal Hessian of `Delta` is therefore PSD.
+  L142--L145 make its pure grade-`k` reflected diagonal
+  `o(epsilon^(2k+2))`; a normal inserted at weight `k+1` makes its
+  strong diagonal `O(epsilon^(2k+2))`.
+- PSD Cauchy--Schwarz forces the mixed gap to be
+  `o(epsilon^(2k+2))`.  Hence the leading compact
+  one-reflection/normal coefficient of the optimized envelope equals
+  the corresponding sharp prepared-Blaschke coefficient.
+- This is an all-size theorem and removes all optimizer jets from the
+  one-reflection part of L163.  It does not yet show the common dual
+  coefficient is zero, and it does not include terms nonlinear in
+  the unreflected equality amplitude; those remain under L162's
+  equality-ridge transport.
+- The concrete next gate is now scalar: combine L149's
+  logarithmic-inner one-reflection identity with L162's normalized
+  ambient Schwarz transfer.  L165's companion split identifies these
+  as the characteristic and endpoint-basis halves of the same
+  calculation.
+- Audit warning: do not implement that bridge by freezing the zero
+  characteristic root.  Grade two preserves the determinant through
+  its face, but exact grade three has nonzero normal determinant
+  derivatives already at weights five, seven, and eight while its
+  condition cross still vanishes.  The characteristic polynomial must
+  move inside the transfer identity.
+- At the associated leading strong weight there is a clean all-size
+  discriminator: for grade `k`,
+  `D det(zI-C)[E_d]=-k z^(k-1)`.  It follows directly from the
+  nilpotent adjugate and the single trace-closing subdiagonal.  Thus
+  grades at least two retain one zero factor on the compact face,
+  whereas grade one changes the constant term immediately.  Any inner
+  bridge may use this leading fact, but not promote it to later jets.
+  `proof/crabb_dual_normal_transfer.md`.
+
 ## NEWEST (2026-07-23): L165 reduces L163 to one half-order adjoint telescope
 - For the optimized rank-one metric, set
   `G=v_+v_+*/lambda_+−v_-v_-*/lambda_-` and solve
@@ -32,6 +119,11 @@
   respectively `-(-1060+683sqrt(2))/12` and its negative.  Grade one
   has the nonzero sum `-7/3`.  Therefore neither support
   disjointness nor endpoint flux alone can prove the rule.
+- With equality and ellipse amplitudes independent, grade three's
+  `a^3c` and `ac^3` monomials each cancel separately.  The first
+  central grade-four case is now also exact: its six nonzero adjoint
+  pairings sum to zero, with boundary and characteristic totals
+  `2(-607+439sqrt(2))` and its negative.
 - The remaining L163 gate is the all-grade boundary/characteristic
   balance.  L149's logarithmic-inner mean and L162's Schwarz transfer
   are the leading existing candidates for its scalar explanation,

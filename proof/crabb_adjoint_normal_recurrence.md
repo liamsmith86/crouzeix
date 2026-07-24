@@ -289,6 +289,17 @@ degree four, rather than two endpoint states through degree eight.
 It also rules out a termwise support-disjointness proof in general:
 the all-grade completion must exhibit a true telescoping identity.
 
+The half-order solver also makes the first central grade-four case
+practical.  In size nine its six adjoint pairings are all nonzero and
+sum exactly to zero.  The companion split gives
+
+\[
+B_4=2(-607+439\sqrt2),\qquad
+H_4=-2(-607+439\sqrt2).                              \tag{16}
+\]
+
+This is a further exact case, not an all-grade extrapolation.
+
 ## 8. Companion normal form of the telescope
 
 There is a canonical way to separate coordinate motion from
@@ -296,7 +307,7 @@ characteristic-polynomial motion.  Write `C=T_0` for the Crabb shift.
 Every matrix `R` has a unique decomposition
 
 \[
-R=[C,X]+H,                                           \tag{16}
+R=[C,X]+H,                                           \tag{17}
 \]
 
 where the first row of `X` is zero and `H` is supported on the bottom
@@ -309,14 +320,14 @@ X_{i+1,j}
  &={R_{ij}+{\bf1}_{j>0}a_{j-1}X_{i,j-1}\over a_i},
  &&0\le i<L,\\
 H_{L,j}
- &=R_{L,j}+{\bf1}_{j>0}a_{j-1}X_{L,j-1}.            \tag{17}
+ &=R_{L,j}+{\bf1}_{j>0}a_{j-1}X_{L,j-1}.            \tag{18}
 \end{aligned}
 \]
 
 Applying (17) recursively to the whole series gives
 
 \[
-\dot T=[T,X]+H.                                     \tag{18}
+\dot T=[T,X]+H.                                     \tag{19}
 \]
 
 The commutator law (11) then turns (13) into
@@ -325,7 +336,7 @@ The commutator law (11) then turns (13) into
 {1\over2}D\log\kappa[\dot T]
 =\operatorname{Re}\operatorname{tr}
  \{(v_+v_+^*-v_-v_-^*)X\}
- +\operatorname{Re}\langle{\cal M},H\rangle_F.      \tag{19}
++\operatorname{Re}\langle{\cal M},H\rangle_F.       \tag{20}
 \]
 
 Thus the desired telescope has two sharply identified pieces:
@@ -334,7 +345,7 @@ Thus the desired telescope has two sharply identified pieces:
 2. a bottom-row term carrying the change of characteristic
    polynomial.
 
-The exact checker verifies (18)--(19) coefficientwise.  In grade two,
+The exact checker verifies (19)--(20) coefficientwise.  In grade two,
 both pieces vanish separately.  In grade three their target
 coefficients are nonzero:
 
@@ -342,22 +353,133 @@ coefficients are nonzero:
 \begin{aligned}
 B_3&=-{-1060+683\sqrt2\over12},\\
 H_3&= { -1060+683\sqrt2\over12},
-\end{aligned}                                       \tag{20}
+\end{aligned}                                       \tag{21}
 \]
 
 and hence cancel exactly.  Grade one is the required discriminator:
 
 \[
 B_1={-13+9\sqrt2\over3},\qquad
-H_1=2-3\sqrt2,\qquad B_1+H_1=-{7\over3}.             \tag{21}
+H_1=2-3\sqrt2,\qquad B_1+H_1=-{7\over3}.             \tag{22}
 \]
+
+Keeping the equality amplitude `a` and ellipse amplitude `c`
+independent sharpens (21) to
+
+\[
+\begin{aligned}
+B_3(a,c)
+&=-{ac\over12}
+ \{(-744+531\sqrt2)a^2+(-316+152\sqrt2)c^2\},\\
+H_3(a,c)&=-B_3(a,c).                                \tag{23}
+\end{aligned}
+\]
+
+Thus the `a^3c` zero-reflection transport and the `ac^3`
+one-reflection term cancel separately; the zero at `a=c=1` is not an
+accidental cancellation between those two mechanisms.  This exact
+bivariate split supports treating the first monomial through L162 and
+the second through L166 plus L149.
+
+### The leading characteristic monomial
+
+There is nevertheless a useful all-size statement at the first strong
+weight.  Let `C=C_p`, let `E_d` be the leading normalized variation,
+and write
+
+\[
+\chi_C(z)=\det(zI-C)=z^{L+1}.
+\]
+
+Then
+
+\[
+\boxed{D\chi_C[E_d](z)=-kz^{k-1}.}                  \tag{24}
+\]
+
+Indeed
+
+\[
+\operatorname{adj}(zI-C)
+=\sum_{r=0}^L z^{L-r}C^r.
+\]
+
+The inverse-Riemann correction is a polynomial in `C` with zero
+constant term, so it contributes no trace.  In the Riesz
+representative `N_(L+2-k)`, only its subdiagonal of offset
+`L+1-k` can close a trace with a power of `C`.  There are exactly `k`
+such entries.  The endpoint factors `sqrt(2)` in `C` cancel the
+`1/sqrt(2)` endpoint factors in `N`, so each contributes one.  Jacobi
+differentiation gives (24).
+
+Equivalently, the leading companion slice in (18) is
+
+\[
+H_d=
+\begin{cases}
+\frac12e_Le_0^T,&k=1,\\[1mm]
+\frac{k}{\sqrt2}e_Le_{k-1}^T,&k\ge2.
+\end{cases}                                         \tag{25}
+\]
+
+The right-end product of Crabb weights is `2` in the first line and
+`sqrt(2)` in the second, so (25) is equivalent to (24).
+
+Thus the leading grade-`k` characteristic slice retains a factor `z`
+exactly when `k>=2`; grade one has the constant variation `-1`.  This
+is a genuine discriminator on L166's associated compact face and may
+be used in a leading inner/companion proof.
+
+### A full fixed-zero shortcut is false
+
+Grade two happens to satisfy
+
+\[
+\partial_s\det T_{\epsilon,s}=0
+\quad\hbox{through weight six}.
+\]
+
+This does not extend to higher grades.  In the central grade-three
+case the exact determinant derivative has nonzero coefficients
+
+\[
+[\epsilon^5]=-4,\qquad
+[\epsilon^7]=-2(-17+8\sqrt2),\qquad
+[\epsilon^8]=-4(-17+12\sqrt2).                      \tag{26}
+\]
+
+The condition derivative nevertheless vanishes at weight eight.
+Therefore the boundary/characteristic balance cannot be proved by
+asserting that the normalized normal variation preserves a zero
+eigenvalue or a fixed factor of the characteristic polynomial.
+The fixed-degree inner argument, if successful, must include the
+moving characteristic factor rather than freeze it.
+
+Regenerate this adversarial check with
+
+```bash
+PYTHONPATH=experiments OPENBLAS_NUM_THREADS=1 \
+  .venv/bin/python -u \
+  experiments/crabb_companion_fixed_zero_adversary.py \
+  --output \
+  experiments/crabb_companion_fixed_zero_adversary_s70223.jsonl
+```
 
 Consequently endpoint flux alone is not the missing proof.  The
 remaining theorem must identify the bottom-row characteristic term
 with the negative endpoint-basis term for every grade `k>=2`.
-Equations (20)--(21) strongly point toward the companion/inner
+Equations (21)--(23) strongly point toward the companion/inner
 transfer mechanisms of L149 and L162, but no all-grade identification
 with those mechanisms is claimed here.
+
+L168 subsequently identifies the first such balance explicitly:
+normal minus optimized symmetrized-defect response is
+`k(z^(-m)-z^m)`.  L169 then proves that the complete optimized
+rank-one Stein system has an exact scalar inner colligation transfer,
+whose feedthrough contains the later characteristic motion detected
+in (26).  These results replace the search for a cancellation by one
+remaining functional-matching problem; they do not yet prove that the
+whole convolution (27) is that inner real mean.
 
 ## 9. Remaining all-grade statement
 
@@ -368,7 +490,7 @@ L163 is now equivalent to
 \sum_{j=0}^{k+1}
 \langle{\cal M}_j,E_{2k+2-j}\rangle_F=0,
 \qquad k\ge2,
-}                                                     \tag{22}
+}                                                     \tag{27}
 \]
 
 for the sole character-eligible circular normal
@@ -379,7 +501,8 @@ A valid completion should derive the circle-graded support of
 `E_(2d-j)` through the inverse-Riemann recurrence, and prove the
 boundary/characteristic balance in (19).  It no longer needs to
 propagate two endpoint eigenvectors or a free final defect jet through
-weight `2d`.  L149's logarithmic-inner mean and L162's Schwarz
-transfer are the most concrete existing candidates for the required
-all-grade scalar identity; grade one must remain outside any proposed
-version.
+weight `2d`.  The preferred route is now to identify this convolution
+with L169's marked colligation logarithmic derivative, use L149's
+real-mean identity, and use L162 for the zero-reflection equality
+transport.  Grade one must remain outside the resulting functional
+identification.
