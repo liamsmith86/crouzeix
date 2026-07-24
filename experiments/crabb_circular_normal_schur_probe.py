@@ -19,8 +19,10 @@ import json
 from pathlib import Path
 
 import numpy as np
+from scipy.linalg import sqrtm
 
 from crabb_off_equality_dual_gradient import (
+    disk_model,
     dual_gradient_and_coercive_rows,
     equality_and_normal,
     quartic_defect,
@@ -85,10 +87,20 @@ def coercive_basis_and_hessian(
             f"normal rank {rank} does not match {expected_rank}"
         )
     basis = right_adjoint[:rank].T
-    matrices = [
-        real_vector_to_matrix(basis[:, index], dimension)
-        for index in range(rank)
-    ]
+    _, metric = disk_model(anchor_coefficients)
+    metric_sqrt = np.asarray(sqrtm(metric), dtype=complex)
+    metric_inverse_sqrt = np.linalg.inv(metric_sqrt)
+    matrices = []
+    for index in range(rank):
+        coefficient_direction = real_vector_to_matrix(
+            basis[:, index],
+            dimension,
+        )
+        matrices.append(
+            metric_sqrt
+            @ coefficient_direction
+            @ metric_inverse_sqrt
+        )
     support_resolution = max(64, 4 * dimension)
     hessian = np.zeros((rank, rank))
     diagonal = [

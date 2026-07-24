@@ -16,13 +16,18 @@
   `k`, with `r=L-k`, has squared row norm
   `128(4k-1)² binom(r,3)/L⁴`.
 - Solving L65's singular path kernel by cumulative flux gives the exact
-  raw-mode curvature
-  `b=L^(-4)[(4k+4-3sqrt(2))²r(r-1)(r-2)/24
-  +(2/3)k(k-1)(k-2)(r-1+3sqrt(2)/4)²]`.
-- Since `4k+4-3sqrt(2)>4k-1`, already the first curvature term gives
-  `b>||m||²/512`.  Orthogonality therefore makes the full completed
-  normal gain strictly smaller than the disk deficit
-  `32Q=128||p||²` in every size.
+  physical-mode curvature
+  `b=L^(-4)[(4k-1)²r(r-1)(r-2)/24
+  +(2/3)k(k-1)(k-2)(r+1/4)²]`.
+- The first curvature term is exactly `||m||²/512`; the positive
+  rank-one null-lift term makes the inequality strict.  Orthogonality
+  therefore makes the full completed normal gain strictly smaller
+  than the disk deficit `32Q=128||p||²` in every fixed size.
+- Audit correction: coefficient-gauge support directions must be
+  conjugated by the Crabb metric square root before evaluation in
+  L65's physical Hessian.  Omitting this gives a close but incorrect
+  curvature formula.  The corrected formula retains the theorem,
+  now with the strict margin supplied by the null lift.
 - This proves the sharp homogeneous apex face, not yet the nonlinear
   tubular patch.  The remaining step is analytic: transport the normal
   frame over the Lewis--Overton circular-range manifold, combine the

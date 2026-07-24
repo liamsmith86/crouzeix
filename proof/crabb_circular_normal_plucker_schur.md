@@ -65,8 +65,9 @@ At the Crabb point, in coefficient gauge,
 K_0=\operatorname{diag}(1/2,1,\ldots,1,1/2).
 \]
 
-The real mode-\(k\) support Riesz representative is supported on
-matrix grades \(k+1\) and \(1-k\), with entries
+The real mode-\(k\) support Riesz representative in **coefficient
+gauge** is supported on matrix grades \(k+1\) and \(1-k\), with
+entries
 
 \[
 (R_k^{\rm R})_{ij}={(K_0)_{ii}\over2L};
@@ -184,14 +185,23 @@ so either real Plücker row \(m_{L,k}\) has
 This also proves directly that only \(r\ge3\), equivalently
 \(k\le L-3\), can couple.
 
-## 4. Exact L65 curvature
+## 4. Exact L65 curvature and the gauge audit
 
 For an active mode put \(r=L-k\ge3\).  In L65's reduced coordinates,
-the representative (5) becomes
+one must first map the coefficient-gauge direction (5) to the
+physical Crabb gauge:
+
+\[
+\widetilde R_k=K_0^{1/2}R_kK_0^{-1/2}.              \tag{10}
+\]
+
+This gauge factor is load-bearing.  Feeding \(R_k\) itself into
+L65's physical Hessian gives a nearby but incorrect curvature.  For
+(10), the reduced vector is
 
 \[
 u={1\over L}(a,1,\ldots,1,a),\qquad
-a={3+2\sqrt2\over4}.                                 \tag{10}
+a={9\sqrt2\over8}.                                  \tag{10a}
 \]
 
 Its positive curvature is
@@ -221,7 +231,7 @@ Put
 
 \[
 \beta={q^Tu\over q^Tv}
-={r-1+3\sqrt2/4\over L^2},\qquad w=u-\beta v.
+={r+1/4\over L^2},\qquad w=u-\beta v.
 \]
 
 The rank-one lift of a one-dimensional nullspace gives
@@ -235,7 +245,7 @@ difference in the \(q\)-coordinates.  Its cumulative flux is
 
 \[
 \sum_{i=0}^j q_iw_i
-={(2j-r+2)(4k+4-3\sqrt2)\over8L^2}.
+={(2j-r+2)(4k-1)\over8L^2}.
 \]
 
 Using
@@ -249,9 +259,9 @@ in (12) yields
 \[
 \boxed{
 b_{L,k}={1\over L^4}\left[
-{(4k+4-3\sqrt2)^2r(r-1)(r-2)\over24}
+{(4k-1)^2r(r-1)(r-2)\over24}
 +{2k(k-1)(k-2)\over3}
- \left(r-1+{3\sqrt2\over4}\right)^2
+ \left(r+{1\over4}\right)^2
 \right].
 }                                                     \tag{13}
 \]
@@ -273,31 +283,35 @@ exactly
 {\|m_{L,k}\|^2\over b_{L,k}}.
 \]
 
-Now
+By (9), the flux term of (13) is exactly the threshold term:
 
 \[
-4k+4-3\sqrt2>4k-1
-\quad\Longleftrightarrow\quad 5>3\sqrt2.
-\]
-
-The first, flux term of (13) alone therefore gives
-
-\[
-b_{L,k}>
 {(4k-1)^2r(r-1)(r-2)\over24L^4}
 ={\|m_{L,k}\|^2\over512}.                            \tag{14}
 \]
 
+The rank-one null lift supplies the strict margin:
+
+\[
+\boxed{
+b_{L,k}-{\|m_{L,k}\|^2\over512}
+={2k(k-1)(k-2)\over3L^4}
+ \left(r+{1\over4}\right)^2>0.
+}                                                     \tag{15}
+\]
+
 This proves (3).  Inactive modes have zero coupling and strictly
-positive L65 curvature.  Combining (4), (9), and (14), the completed
+positive L65 curvature.  Combining (4), (9), and (15), the completed
 normal gain is strictly smaller than \(32{\cal Q}\).  Hence the
 leading disk/circular-normal form is negative away from the joint
-equality set.
+equality set.  The ratios approach the threshold as dimension grows,
+so the proof is fixed-dimension strict, exactly as the local theorem
+requires.
 
 L157 also makes the optimized-upper/prepared-dual gap \(O({\cal
 Q}^2)\), and A111's gradient comparison is \(O({\cal Q})\).
 With a circular normal assigned its forced apex weight two, neither
-term changes this degree-four joint face.  Thus (14) applies to the
+term changes this degree-four joint face.  Thus (15) applies to the
 leading optimized certificate needed for the upper bound, not only
 to an unrelated lower test.
 
@@ -310,7 +324,7 @@ apex.  To obtain the full circular-range tube one still has to:
    phase-palindromic equality anchor;
 2. transport L65's coercive normal frame analytically over the local
    Lewis--Overton disk manifold;
-3. apply a compact weighted blow-up so the strict margin (14)
+3. apply a compact weighted blow-up so the strict margin (15)
    persists between the apex and positive anchors; and
 4. merge that estimate with L160's grade-one elliptic face and
    L163/L172's higher-grade zero rows.
@@ -344,5 +358,6 @@ The first checker uses exact Gaussian-rational series and verifies
 extracts the quadratic response by symmetric Richardson
 extrapolation, evaluates L65's full finite program on every raw mode
 representative, and compares with (9), (13), orthogonality, and the
-strict threshold (14).  The earlier finite nonlinear Schur probe is
+strict threshold (15).  It explicitly performs the
+coefficient-to-physical gauge map (10).  The earlier finite nonlinear Schur probe is
 retained as a separate pre-asymptotic guard.

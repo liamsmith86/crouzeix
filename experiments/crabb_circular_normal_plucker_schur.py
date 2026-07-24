@@ -17,12 +17,14 @@ import json
 from pathlib import Path
 
 import numpy as np
+from scipy.linalg import sqrtm
 
 from crabb_circular_normal_quadratic_exact import (
     closed_quadratic_response,
 )
 from crabb_circular_normal_schur_probe import real_vector_to_matrix
 from crabb_off_equality_dual_gradient import (
+    disk_model,
     dual_gradient_and_coercive_rows,
 )
 from general_crabb_second_order_modes import reduced_second_order_value
@@ -115,9 +117,8 @@ def normal_curvature(length: int, mode: int) -> float:
     """Return the positive L65 curvature on a raw support Riesz row."""
 
     remainder = length - mode
-    root_two = np.sqrt(2)
     flux = (
-        (4 * mode + 4 - 3 * root_two) ** 2
+        (4 * mode - 1) ** 2
         * remainder
         * (remainder - 1)
         * (remainder - 2)
@@ -128,7 +129,7 @@ def normal_curvature(length: int, mode: int) -> float:
         * mode
         * (mode - 1)
         * (mode - 2)
-        * (remainder - 1 + 3 * root_two / 4) ** 2
+        * (remainder + 1 / 4) ** 2
         / 3
     )
     return (flux + lifted_null) / length**4
@@ -162,6 +163,9 @@ def make_record(
 
     zero = np.zeros(length, dtype=complex)
     _, _, base_rows = dual_gradient_and_coercive_rows(zero, resolution)
+    _, base_metric = disk_model(zero)
+    metric_sqrt = np.asarray(sqrtm(base_metric), dtype=complex)
+    metric_inverse_sqrt = np.linalg.inv(metric_sqrt)
     direction = deterministic_direction(length)
     actual_response = quadratic_normal_response(
         direction,
@@ -192,8 +196,11 @@ def make_record(
                 base_rows[row_index + polarization],
                 length + 1,
             )
+            physical_normal = (
+                metric_sqrt @ normal @ metric_inverse_sqrt
+            )
             actual_curvature = -reduced_second_order_value(
-                normal,
+                physical_normal,
                 max(64, 4 * (length + 1)),
             )
             curvature_residuals.append(
