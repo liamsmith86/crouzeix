@@ -135,12 +135,10 @@ where `eta` denotes the independent reflected Hardy variables
 The required statements are:
 
 1. **Absorbable dual one-leg sector.**
-   Exact general-disk stationarity is false (A101).  Prove instead
-   that the coefficient of one reflected grade is bounded by
-   `C_L Q(z)`.  L149 gives its value zero on the equality cone, while
-   A101's exact normal blow-ups show quadratic, rather than linear,
-   normal vanishing.  Then every physical one-leg term has an extra
-   `|c|^k` and is absorbed by L152's `-a_L Q`.
+   **Closed by L154--L156.**  Exact general-disk stationarity is false
+   (A101), but the endpoint first-jet theorem and analytic cone
+   division prove that a coefficient of reflected grade `k` is
+   bounded by `C_L|c|^kQ(z)`.  It is absorbed by L152's `-a_LQ`.
 2. **Disk gap is above the normal face.**
    Prove
    `Delta(z,0)=o(Q(z))`, ideally by showing that the characteristic

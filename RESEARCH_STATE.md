@@ -1,6 +1,34 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-23 (Epoch 6 — Faber endpoint localization)
+**Last updated:** 2026-07-23 (Epoch 6 — disk-flat marked merger)
+
+## NEWEST (2026-07-23): L156 closes the all-size endpoint first jet
+- At a phase-one equality point, an arbitrary Hermitian Toeplitz disk
+  tangent `h` satisfies an inverse-free three-piece formula for
+  `K dotA`: a direct top row, a reverse-conjugate bottom row, and one
+  rank-one interior correction.
+- Two explicit companion endpoint vectors collapse that tangent to
+  the scalar identity
+  `d(K dotA)c=xi(P_h g-2g# P_h^flat)`.  At the roots of `g`, rank-one
+  adjugate factorization then gives
+  `D_h det(xi I-A)=2xi P_h^flat`.  Polynomial continuation removes
+  the generic simple-root assumption.
+- Direct resolvent differentiation consequently gives
+  `D_h(q*adj(xi I-A)e_L)=2P_h` and proves that
+  `q*(xi I-A)^(-1)e_L-g#/(xi g)` has zero full real disk-coordinate
+  first jet on every phase-palindromic equality branch.
+- L149 transfers this identity to every marked one-reflection Hardy
+  coefficient.  L155's cone division now proves L154:
+  `|one-leg_k|<=C_L|c|^kQ` uniformly through the Crabb apex.  Thus the
+  dual one-leg part of the disk-flat merger is closed; the remaining
+  gates are the nonnegative primal/model gap, its mixed-face
+  polarization, the triangular marked-coordinate estimate, and then
+  L118's strong variables.
+- The checker independently verifies all four inverse-free
+  recurrences at generic complex anchors through length ten, in
+  addition to its stronger full ambient Gram-gradient audit.
+  `proof/crabb_disk_one_reflection.md`;
+  `experiments/crabb_disk_one_reflection_jets.py`.
 
 ## NEWEST (2026-07-23): L155 proves uniform division by the disk quartic
 - Let `E={z=omega J conjugate(z)}` and
@@ -16,16 +44,16 @@
 - Literal scalar divisibility by `Q` is not required; the quartic
   face can be any quadratic form in the determinantal minors.
 - Applied grade-by-grade, L155 says a one-reflection coefficient with
-  these three jets is `O(Q)`.  Its physical factor `c^k` is then
-  absorbed by L152's `-a_L Q`.  This removes the analytic/uniform part
-  of A101: the remaining work is only to prove the full-normal
-  stationarity and fourth-order apex start in the finite companion
-  recurrence.  A shared exact truncated-series engine verifies both
-  jets through length ten without root tracking.
+  these jets is `O(Q)`.  Its physical factor `c^k` is then absorbed by
+  L152's `-a_L Q`.  L156 now supplies the full-normal stationarity;
+  the strengthened symbolic-power argument makes a separate
+  fourth-order apex hypothesis unnecessary.  A shared exact
+  truncated-series engine verifies the conclusion through length ten
+  without root tracking.
   `proof/crabb_quartic_cone_division.md`;
   `experiments/crabb_disk_one_reflection_jets.py`.
 
-## NEWEST (2026-07-23): A101 reduces the algebraic jet to an endpoint determinant
+## NEWEST (2026-07-23): A101 endpoint-determinant route (closed by L156)
 - The root-free checker now evaluates L149's endpoint-resolvent
   residual
   `q_z*(xi I-A_z)^(-1)e_L-g_z#/(xi g_z)` by a cleared determinant.
@@ -41,15 +69,13 @@
 - Clearing the common denominator turns the residual into the single
   bordered-determinant identity
   `e0*K adj(xi K-2HR) K eL - det(K-2xi R*H)`.
-  The proposed all-size formula is the cofactor-gradient identity
-  (16) in `proof/crabb_disk_one_reflection.md`.  Thus the missing
-  full-normal stationarity can be proved entirely as a Toeplitz
-  displacement/cofactor cancellation; no singular-value or root
-  perturbation remains.
-- If this numerator lies in the square of the equality-normal ideal,
-  L149's logarithmic-inner proof remains valid modulo that square.
-  L155 then converts the jet statement immediately to the required
-  `O(Q)` bound.  This is the current load-bearing algebraic target.
+  L156 proves the required Toeplitz-coordinate gradient by a shorter
+  three-boundary-piece recurrence.  The stronger ambient Hermitian
+  cofactor-gradient formula remains a finite-anchor observation, but
+  it is no longer a proof gate.
+- L149's logarithmic-inner proof therefore remains valid modulo the
+  square of the equality-normal ideal, and L155 converts the jet
+  statement to the required `O(Q)` bound.
   `proof/crabb_disk_one_reflection.md`;
   `experiments/crabb_disk_one_reflection_jets.py`.
 
@@ -61,11 +87,11 @@
   homogeneous Taylor term in the second symbolic power of its
   maximal-minor ideal; this equals the ordinary square and begins in
   degree four.
-- Therefore L155 now needs only `F|E=0` and `DF|E=0`; the former
-  separately assumed `F=O(||z||^4)` follows.  For the one-reflection
-  merger, L149 supplies the value and L156 is the sole remaining
-  equality-jet gate.  The exact apex records remain an independent
-  audit rather than a separate proof obligation.
+- Therefore L155 now needs only `F|E=0` and `DF|E=0`; the formerly
+  separate assumption `F=O(||z||^4)` follows.  For the one-reflection
+  merger, L149 supplies the value and L156 now supplies the gradient.
+  The exact apex records remain an independent audit rather than a
+  separate proof obligation.
   `proof/crabb_quartic_cone_division.md`.
 
 ## NEWEST (2026-07-23): A101 finds the general-disk one-reflection obstruction
@@ -88,9 +114,9 @@
   The viable lemma is therefore `|partial_c R(z,0)|<=C_L Q(z)`, not
   exact zero.  Such a term is absorbed by L152 after multiplying by
   its physical reflected grade `c^k`.
-- The proof gate is now precise: extend L148's companion recurrence
-  to show first-normal vanishing at every equality anchor and prove
-  the fourth-order apex jet, then repeat L152's best-phase blow-up.
+- L156 subsequently proved the required full first jet, and L155
+  showed that it automatically includes the fourth-order apex start.
+  Thus the corrected `O(Q)` target is now L154.
   `proof/crabb_disk_one_reflection.md`;
   `experiments/crabb_disk_one_reflection.py`.
 
@@ -2190,12 +2216,14 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
 1. **Build the complete disk-flat tube from L151--L152.**  Combine the now
    proved weighted quadratic face
    `-sum|z_j|²c^(2(L-j))` with `-c^(2L)` and L152's
-   uniform `-aQ(z)`.  Put the analytic remainder in the marked ideal generated
-   by `r=c^L`, `y_j=c^(L-j)z_j`, and the wedge coordinates whose square
-   is `Q(z)`.  Prove that mixed `y`--wedge sectors are absent or
-   dominated, then absorb L118's strong variables.  L151's raw face,
-   L147's equality tube, and the pure-axis gradient are closed; do not
-   reopen them without a concrete contradiction.
+   uniform `-aQ(z)`.  L154 now controls every dual one-leg
+   `y`--wedge sector.  Next prove that the nonnegative
+   orbit-complement/model gap is `o(Q)` on the disk face, use its zero
+   reflected compact face plus PSD polarization to remove the leading
+   mixed gap, and establish the triangular Rees-coordinate estimate.
+   Then absorb L118's strong variables.  L151's raw face, L147's
+   equality tube, L152's normal tube, and L154's one-leg bound are
+   closed; do not reopen them without a concrete contradiction.
 2. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
    trace inequality can instead be derived from the block-Toeplitz positivity of the full
    operator-valued correction moments. Do not retry trace/positive-state scalarizations.

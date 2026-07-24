@@ -16,6 +16,11 @@ is supported only on the two forbidden diagonal-normalization
 directions.  Polynomial interpolation in the resolvent variable and
 a full matrix-gradient calculation replace random tangent sampling.
 
+Finally, it checks the four inverse-free endpoint recurrences used in
+the all-size proof of that gradient identity.  Those recurrences
+separate an arbitrary complex disk tangent into its direct and
+reverse-conjugate coefficient polynomials.
+
 The calculation implements the root-free tangent (2)--(7) from
 ``proof/crabb_disk_one_reflection.md``.  Finite verification is not an
 all-size proof of the companion recurrence.
@@ -70,6 +75,20 @@ class ResolventSquareRecord:
     off_diagonal_tangent_dimension: int
     numerator_polynomial_zero: bool
     normalized_gradient_endpoint_support: bool
+
+
+@dataclass(frozen=True)
+class EndpointRecurrenceRecord:
+    """Inverse-free audit of the all-size endpoint recurrence."""
+
+    length: int
+    dimension: int
+    equality_coefficients: tuple[str, ...]
+    tangent_coefficients: tuple[str, ...]
+    tangent_decomposition: bool
+    right_endpoint_recurrence: bool
+    left_endpoint_recurrence: bool
+    bilinear_cancellation: bool
 
 
 class SeriesRing:
@@ -517,6 +536,27 @@ def canonical_gaussian_rational(value: sp.Expr) -> sp.Expr:
     return sp.QQ_I.to_sympy(sp.QQ_I.from_sympy(sp.expand(value)))
 
 
+def gaussian_polynomial_is_zero(
+    value: sp.Expr,
+    variable: sp.Symbol,
+) -> bool:
+    """Test a univariate Gaussian-rational polynomial exactly."""
+
+    return all(
+        canonical_gaussian_rational(coefficient) == 0
+        for coefficient in sp.Poly(sp.expand(value), variable).all_coeffs()
+    )
+
+
+def gaussian_matrix_is_zero(matrix: sp.Matrix) -> bool:
+    """Test a Gaussian-rational matrix exactly after expansion."""
+
+    return all(
+        canonical_gaussian_rational(entry) == 0
+        for entry in matrix
+    )
+
+
 def cleared_resolvent_gradient_at(
     toeplitz: sp.Matrix,
     variable_value: sp.Expr,
@@ -672,6 +712,155 @@ def resolvent_record(length: int) -> ResolventSquareRecord:
     )
 
 
+def endpoint_recurrence_record(length: int) -> EndpointRecurrenceRecord:
+    """Audit the direct/reverse endpoint identities without inverses."""
+
+    dimension = length + 1
+    equality = complex_equality_data(length)
+    tangent = tuple(
+        sp.Rational(offset + 2, 101 + 3 * offset)
+        + sp.I * sp.Rational(2 * offset + 1, 137 + 5 * offset)
+        for offset in range(1, length)
+    )
+    tangent_sharp = tuple(
+        sp.conjugate(tangent[length - 1 - offset])
+        for offset in range(1, length)
+    )
+    toeplitz = hermitian_toeplitz(equality)
+    toeplitz_tangent = hermitian_toeplitz(
+        tangent,
+        diagonal=sp.Integer(0),
+    )
+    shift = forward_shift(dimension)
+    coordinate = toeplitz + shift.T * toeplitz * shift
+    coordinate_tangent = (
+        toeplitz_tangent
+        + shift.T * toeplitz_tangent * shift
+    )
+
+    companion = shift.copy()
+    companion[0, 1] += 1
+    for offset, coefficient in enumerate(equality, start=1):
+        companion[0, offset + 1] += 2 * coefficient
+        companion[-1, offset + 1] -= 2 * coefficient
+    if not gaussian_matrix_is_zero(
+        coordinate * companion - 2 * toeplitz * shift
+    ):
+        raise AssertionError("the equality companion identity failed")
+
+    direct_row = sp.zeros(1, dimension)
+    equality_row = sp.zeros(1, dimension)
+    sharp_row = sp.zeros(1, dimension)
+    normal_vector = sp.zeros(dimension, 1)
+    for offset in range(1, length):
+        direct_row[0, offset + 1] = tangent[offset - 1]
+        equality_row[0, offset + 1] = equality[offset - 1]
+        sharp_row[0, offset + 1] = tangent_sharp[offset - 1]
+        normal_vector[offset, 0] = (
+            tangent[length - offset - 1]
+            - sp.conjugate(tangent[offset - 1])
+        )
+    left_endpoint = sp.eye(dimension)[:, 0]
+    right_endpoint = sp.eye(dimension)[:, -1]
+    actual_tangent = (
+        2 * toeplitz_tangent * shift
+        - coordinate_tangent * companion
+    )
+    expected_tangent = (
+        left_endpoint * direct_row
+        + 2 * normal_vector * equality_row
+        - right_endpoint * sharp_row
+    )
+    tangent_decomposition = gaussian_matrix_is_zero(
+        actual_tangent - expected_tangent
+    )
+    if not tangent_decomposition:
+        raise AssertionError("the tangent decomposition failed")
+
+    variable = sp.symbols("xi")
+    equality_polynomial = sum(
+        coefficient * variable**offset
+        for offset, coefficient in enumerate(equality, start=1)
+    )
+    direct_polynomial = sum(
+        coefficient * variable**offset
+        for offset, coefficient in enumerate(tangent, start=1)
+    )
+    sharp_polynomial = sum(
+        coefficient * variable**offset
+        for offset, coefficient in enumerate(tangent_sharp, start=1)
+    )
+    factor = variable**length + 2 * equality_polynomial
+    reversed_factor = 1 + 2 * equality_polynomial
+    pencil = variable * sp.eye(dimension) - companion
+    right_vector = sp.Matrix(
+        [
+            reversed_factor + 1,
+            *[variable**power for power in range(1, length + 1)],
+        ]
+    )
+    left_vector = sp.Matrix(
+        [[
+            *[
+                variable ** (length - index)
+                for index in range(length)
+            ],
+            reversed_factor + 1,
+        ]]
+    )
+    right_residual = (
+        pencil * right_vector
+        - variable
+        * factor
+        * sp.eye(dimension)[:, -1]
+    )
+    left_residual = (
+        left_vector * coordinate * pencil
+        - variable
+        * factor
+        * sp.eye(dimension)[0, :]
+        * coordinate
+    )
+    right_endpoint_recurrence = all(
+        gaussian_polynomial_is_zero(entry, variable)
+        for entry in right_residual
+    )
+    left_endpoint_recurrence = all(
+        gaussian_polynomial_is_zero(entry, variable)
+        for entry in left_residual
+    )
+    if not right_endpoint_recurrence:
+        raise AssertionError("the right endpoint recurrence failed")
+    if not left_endpoint_recurrence:
+        raise AssertionError("the left endpoint recurrence failed")
+
+    bilinear_residual = (
+        (left_vector * actual_tangent * right_vector)[0]
+        - variable
+        * (
+            direct_polynomial * factor
+            - 2 * reversed_factor * sharp_polynomial
+        )
+    )
+    bilinear_cancellation = gaussian_polynomial_is_zero(
+        bilinear_residual,
+        variable,
+    )
+    if not bilinear_cancellation:
+        raise AssertionError("the endpoint bilinear cancellation failed")
+
+    return EndpointRecurrenceRecord(
+        length=length,
+        dimension=dimension,
+        equality_coefficients=tuple(map(str, equality)),
+        tangent_coefficients=tuple(map(str, tangent)),
+        tangent_decomposition=tangent_decomposition,
+        right_endpoint_recurrence=right_endpoint_recurrence,
+        left_endpoint_recurrence=left_endpoint_recurrence,
+        bilinear_cancellation=bilinear_cancellation,
+    )
+
+
 def parse_args() -> argparse.Namespace:
     """Parse command-line arguments."""
 
@@ -686,12 +875,16 @@ def main() -> None:
 
     args = parse_args()
     records: list[
-        NormalJetRecord | ApexJetRecord | ResolventSquareRecord
+        NormalJetRecord
+        | ApexJetRecord
+        | ResolventSquareRecord
+        | EndpointRecurrenceRecord
     ] = []
     for length in range(3, args.maximum_length + 1):
         records.append(normal_record(length))
         records.append(apex_record(length))
         records.append(resolvent_record(length))
+        records.append(endpoint_recurrence_record(length))
     lines = [
         json.dumps(asdict(record), sort_keys=True)
         for record in records
