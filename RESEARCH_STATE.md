@@ -2,6 +2,27 @@
 
 **Last updated:** 2026-07-23 (Epoch 6 — full circular-normal merger)
 
+## NEWEST (2026-07-23): L164 proves reciprocal reversal of the optimized metric
+- For every real persymmetric normalized operator near a Crabb block,
+  the locally unique L118 rank-one metric satisfies
+  `J P^(-1) J = alpha P`, with
+  `alpha=(det P)^(-2/p)`.
+- The proof is abstract and all-size.  Rank-one inverse-Stein duality
+  makes the reversed inverse another rank-one metric for the same
+  operator and condition number; projective defect normalization is
+  an analytic involution, so uniqueness of the optimized defect makes
+  it a fixed point.
+- The first numerical residuals were not failures: a defect series
+  optimized through jet `j` satisfies the identity through jet `j`
+  and generally fails first at the omitted jet `j+1`.  Solving one
+  more exact jet removes the entire previous residual.
+- This pairs the two endpoint eigenvalue series reciprocally and
+  reduces L163 to one endpoint, or to a single adjoint-gradient
+  coefficient.  It does **not** prove L163: self-duality controls the
+  sum of relative endpoint derivatives, not the difference that must
+  vanish.
+  `proof/crabb_reciprocal_reversal.md`.
+
 ## NEWEST (2026-07-23): A111 falsifies the `O(Q)` ambient-gradient shortcut
 - The full target is exactly false in size four:
   `Q=25281x^4/15625000000` while the normalized
