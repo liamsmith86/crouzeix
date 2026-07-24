@@ -28,8 +28,9 @@ from crabb_circular_normal_quadratic_exact import (
     directional_gradient_series,
     disk_model_series,
 )
-from crabb_full_disk_correction_isometry import plucker_correction
 from crabb_full_disk_base_jet_exact import endpoint_delta_series
+from crabb_full_disk_correction_isometry import plucker_correction
+from crabb_full_disk_cubic_response_formula import cubic_normal_response
 
 
 @dataclass(frozen=True)
@@ -87,48 +88,17 @@ def length_six_cubic_response(
 def highest_mode_cubic_response(
     direction: tuple[sp.Expr, ...],
 ) -> sp.Expr:
-    """Return the candidate highest active cubic response.
+    """Return the closed highest active cubic response.
 
     For length ``L >= 6``, the highest active true-normal support mode
-    is ``k=L-3``.  Its response factors through the two adjacent
-    weighted anti-diagonals of ``z wedge J conjugate(z)``.
+    is ``k=L-3``.  L182's all-size formula reduces to the two adjacent
+    weighted anti-diagonals used by L178.
     """
 
     length = len(direction)
     if length < 6:
         raise ValueError("the highest cubic mode requires length >= 6")
-    mode = length - 3
-    coefficients = sp.Matrix(direction[1:])
-    coefficient_count = len(coefficients)
-    reversal = sp.Matrix(
-        [
-            sp.conjugate(coefficients[coefficient_count - 1 - index])
-            for index in range(coefficient_count)
-        ]
-    )
-    plucker = coefficients * reversal.T - reversal * coefficients.T
-
-    def weighted_antidiagonal(total: int) -> sp.Expr:
-        return sp.expand(
-            sum(
-                (
-                    (total - 2 * left) * plucker[left, total - left]
-                    for left in range((total + 1) // 2)
-                ),
-                sp.Integer(0),
-            )
-        )
-
-    cubic = sp.Rational(mode + 1, 2) * coefficients[mode] * weighted_antidiagonal(
-        mode
-    ) - sp.Rational(mode + 2, 2) * coefficients[mode + 1] * weighted_antidiagonal(
-        mode - 1
-    )
-    scale = -sp.Rational(
-        32 * (4 * mode - 1),
-        length**2 * (mode + 1) * (mode + 2),
-    )
-    return sp.expand(scale * cubic)
+    return cubic_normal_response(direction, length - 3)
 
 
 def audit_direction(

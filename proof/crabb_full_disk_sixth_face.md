@@ -165,6 +165,13 @@ response, then represents their full Schur residual by fifteen positive
 rational squares on 37 Pluecker-tensor coordinates.  Thus the first two
 active complex sizes are exact; the arbitrary-size theorem remains open.
 
+L182 now proves the cubic response in arbitrary size.  With
+\(S_t=\sum_{i<t-i}(t-2i)W_{i,t-i}\), every active \(G_{L,k}^{(3)}\)
+is the explicit triangular interval-flux sum in
+`proof/crabb_full_disk_cubic_response.md`; modes above \(L-3\)
+vanish.  Therefore only the base-deficit/Schur-complement positivity
+side of the arbitrary-size sixth face remains open.
+
 L178 subsequently resolves the equality edge of (11) without needing
 the full SOS.  When only the last two coefficients remain, the actual
 Schur gain/base ratio is exactly
@@ -217,15 +224,14 @@ D_{6,L}(z)
 }                                                    \tag{13}
 \]
 
-A promising algebraic organization is:
+The remaining algebraic program is:
 
-1. express both \(D_{6,L}\) and \(G_{L,k}^{(3)}\) on the tensor
-   \(z\otimes(z\wedge J\overline z)\);
-2. use L176's interval/flux decomposition to expose the Gram blocks;
-3. prove their Schur complements positive exactly;
-4. classify the kernel of (13), where the eighth-order terminal face
+1. express \(D_{6,L}\) in L182's \(z_aS_t\) interval-flux blocks;
+2. derive and prove the rational LDL step which dominates the
+   completed L182 response under L173's mode curvatures;
+3. classify the kernel of (13), where the eighth-order terminal face
    must replace it;
-5. only then apply the singular-cone analytic blow-up used in L174.
+4. only then apply the singular-cone analytic blow-up used in L174.
 
 L178 completes this program on the last-two-coefficient edge and
 identifies the flux/null-lift split which the general blocks should
@@ -233,7 +239,9 @@ retain.  L180 completes it in the first active size and shows that the
 right complex Gram organization has separate global-phase sectors; a
 formal Hermitian lift of the real certificate is false.  L181 completes
 the second active size with the same grade-block organization and
-literal extensions of several L180 factor vectors.
+literal extensions of several L180 factor vectors.  L182 closes their
+common response transform, so no further fixed-size response
+reconstruction is needed.
 
 This is the current load-bearing route to the nonlinear full-disk
 tube.  The elliptic and compact merger remains downstream.

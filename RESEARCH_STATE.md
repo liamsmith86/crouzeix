@@ -2,6 +2,30 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — full circular-normal merger)
 
+## NEWEST (2026-07-24): L182 proves the all-size cubic response
+- Put `S_t=sum_(i<t−i)(t−2i)W_(i,t−i)`.  Every cubic
+  true-normal response after L176 recentering is one triangular
+  interval-flux transform:
+  `G_(L,k)=16(4k−1)/L²` times the circle-selected sums of
+  `(a−t−1)z_aS_t/(t+2)` and their conjugates.
+- The coefficient is derived from the degree-three
+  characteristic/reversed-Horner/inverse-Riemann recurrence.  After
+  inserting L176's mean-zero pulse, its intrinsic Pluecker coefficient
+  has constant first difference and solves to
+  `(a−t−1)(t−2i)/(t+2)`.
+- This proves simultaneously that modes `3,...,L−3` are the complete
+  active range and specializes exactly to L178's highest-mode formula
+  and both L181 formulas.
+- A separate 14-direction exact recovery at `L=9` has full flux ranks
+  `11,10,9,8` and reconstructs every coefficient without supplying the
+  formula.  The independent complete series checker passes two dense
+  complex directions in each length `6,...,11`.
+- The response half of the arbitrary-size sixth face is now closed.
+  The live task is to express the endpoint base deficit `D_(6,L)` in
+  the same interval-flux blocks and prove the rational LDL recurrence;
+  positivity, its kernel, and the nonlinear tube remain open.
+  `proof/crabb_full_disk_cubic_response.md`.
+
 ## NEWEST (2026-07-24): L181 proves the complex `p=8` sixth face
 - The complete length-seven Schur residual is
   `−2δ_6−|G_3|²/(4b_3)−|G_4|²/(4b_4)`, with exact curvatures

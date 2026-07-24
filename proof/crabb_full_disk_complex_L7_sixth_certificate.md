@@ -191,14 +191,15 @@ factorizations share the same organization:
 
 The square count grows from `10` at `L=6` to `15` at `L=7`, and several
 tail vectors in (6)--(7) literally extend L180's vectors.  This is
-strong evidence for an all-size interval-flux LDL recurrence, but two
-sizes are not an induction proof.
+strong evidence for an all-size interval-flux LDL recurrence, but the
+two certificates alone are not an induction proof.
 
-The next correct target is therefore not another raw fixed-size SOS.
-Derive the arbitrary-\(L\) cubic rows \(G_{L,k}^{(3)}\) and the base
-sextic in the common grade/anti-diagonal coordinates, then prove that
-the displayed low-rank elimination propagates while retaining L173's
-positive null-lift curvature.
+L182 subsequently derives the arbitrary-\(L\) cubic rows
+\(G_{L,k}^{(3)}\) in exactly these anti-diagonal flux coordinates.
+The remaining target is the base sextic: put it in the same blocks,
+then prove that the displayed low-rank elimination propagates while
+retaining L173's positive null-lift curvature.  Do not run another raw
+fixed-size response reconstruction.
 
 ## 6. Exact regeneration
 

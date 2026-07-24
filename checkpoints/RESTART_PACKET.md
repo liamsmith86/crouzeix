@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-24): L181 / A130
+## Current general Crabb frontier (2026-07-24): L182 / A131
 
 L174 proves the nonlinear Toeplitz-disk/coercive-normal slice tube.
 L176--L177 then recenter the complete full-H homogeneous face: the
@@ -60,13 +60,21 @@ and four are the complete cubic response.  The resulting sixth
 residual is an exact fifteen-square rational tensor identity with Gram
 ranks `9+6`; all 299 polarized coefficients regenerate independently.
 
-The immediate algebraic frontier is the all-size anti-diagonal formula
-and interval-flux LDL recurrence, not another fixed-size raw SOS.
-Compare L180's ten factors with L181's fifteen: organize by circle
-grade, identify the literal embedded tail vectors, derive the general
-elimination step, and retain L173's positive null-lift curvature.
+L182 now closes the all-size cubic-response half.  With
+`S_t=sum_(i<t−i)(t−2i)W_(i,t−i)`, every active mode is the explicit
+triangular sum of `(a−t−1)z_aS_t/(t+2)` and its circle-selected
+conjugate, multiplied by `16(4k−1)/L²`; modes above `L−3` vanish.
+The formula is derived from L176's interval-pulse recurrence and
+independently recovers with full rank in length nine.  Do not spend
+more time reconstructing cubic tensors.
+
+The immediate algebraic frontier is therefore only the base side:
+express `D_(6,L)` in the same `z_aS_t`/interval coordinates and derive
+the rational LDL elimination step that dominates the squared L182
+transform while retaining L173's positive null-lift curvature.
 After the arbitrary-size sixth block closes, classify its kernel and
 derive the eighth-order fallback.  See
+`proof/crabb_full_disk_cubic_response.md` and
 `proof/crabb_full_disk_complex_L7_sixth_certificate.md`.
 
 ## Historical general Crabb frontier (2026-07-23): L125 / A84

@@ -35,7 +35,7 @@ from crabb_circular_normal_quadratic_exact import (
     disk_model_series,
 )
 from crabb_full_disk_correction_isometry import plucker_correction
-from crabb_full_disk_cubic_normal_exact import highest_mode_cubic_response
+from crabb_full_disk_cubic_response_formula import cubic_normal_response
 
 
 REAL_VARIABLE_COUNT = 12
@@ -147,27 +147,11 @@ def exact_evaluation_rank(
 def response_candidates(
     direction: tuple[sp.Expr, ...],
 ) -> dict[int, sp.Expr]:
-    """Return the proposed mode-three and mode-four cubic responses."""
+    """Return L182's mode-three and mode-four cubic responses."""
 
-    coefficients = direction[1:]
-    coefficient_count = len(coefficients)
-
-    def pluecker(left: int, right: int) -> sp.Expr:
-        return coefficients[left] * sp.conjugate(
-            coefficients[coefficient_count - 1 - right]
-        ) - coefficients[right] * sp.conjugate(
-            coefficients[coefficient_count - 1 - left]
-        )
-
-    response_three = sp.Rational(176, 147) * (
-        3 * coefficients[5] * pluecker(0, 2)
-        - 4 * coefficients[3] * pluecker(0, 4)
-        - 2 * coefficients[3] * pluecker(1, 3)
-        - 2 * sp.conjugate(coefficients[0]) * sp.conjugate(pluecker(0, 1))
-    )
     return {
-        3: sp.expand(response_three),
-        4: highest_mode_cubic_response(direction),
+        mode: cubic_normal_response(direction, mode)
+        for mode in EXPECTED_ACTIVE_MODES
     }
 
 
