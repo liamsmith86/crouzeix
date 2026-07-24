@@ -2,6 +2,24 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — repeated circular/elliptic merger)
 
+## NEWEST (2026-07-24): L212 removes every higher elliptic range obstruction
+- Retaining L208's lower-grade contamination gives the explicit
+  all-grade column
+  `C_hat_k=−(7/2)Q{S^kWB_k+sum_(j<k)(S*)^(k−j)V B_k*B_j}`.
+- It maps exactly to
+  `28{C(B_k*B_k)−B_kB_k*}` for every grade, with no copy
+  projection, pseudoinverse, or rank assumption.
+- Summing with the exact Faber weights `|c|^(2k)` gives a bounded
+  analytic preimage for the complete right-channel-minus-left-Gram
+  target.  The correction vanishes at the repeated Crabb apex.
+- Thus the flag/Schur issue is no longer a **range** issue.  The sole
+  elliptic endpoint debt is to derive the prepared physical base
+  `12L_c−28C(R_c)` (or a one-sided endpoint below it).  L212 would
+  then turn it into the coercive `−16L_c`, and L201 supplies terminal
+  positivity.
+  `proof/repeated_crabb_all_grade_preimage.md`;
+  `experiments/repeated_crabb_all_grade_preimage.py`.
+
 ## NEWEST (2026-07-24): L211 closes the flagged CP-channel covariance
 - The bottom block of the deflated transfer channel is exactly the
   original channel compressed to the active flag:
