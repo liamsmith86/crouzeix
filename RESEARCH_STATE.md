@@ -2,6 +2,24 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — repeated circular/elliptic merger)
 
+## NEWEST (2026-07-24): L200 blocks the naïve matrix-Faber lift
+- At repeated `C3`, the normalized inverse-block-Toeplitz equality
+  anchor has an exact block companion and terminal matrix polynomial
+  `G(z)=z²I−(Z*/2)z`.
+- Dickson/Faber reflection still works coefficientwise.  That fact
+  alone is not enough: the scalar proof needs `g/g#` to be inner.
+- A square-zero coefficient gives an exact counterexample.  At one
+  circle point, the first-column norm squared of `G(G#)^−1` is
+  `1+t²`; reversing the order gives `1−t²+t⁴`.  Neither quotient is
+  unitary.
+- This invalidates a proof route, not the elliptic bound.  SDP probes
+  still descend below four.  The correct next object is L193's
+  genuine rank-`m` unitary-colligation transfer, equivalently the
+  matrix Schur/Levinson recursion associated with the positive block
+  Toeplitz inverse Gram.
+  `proof/repeated_crabb_matrix_faber_obstruction.md`;
+  `experiments/repeated_crabb_matrix_faber_obstruction.py`.
+
 ## AUDIT CORRECTION (2026-07-24): L199 closes the first raw normal face, not the whole flag
 - L61 handles noncommuting true-normal copy coefficients before the
   residual face: unless their first support-compression Jensen gap

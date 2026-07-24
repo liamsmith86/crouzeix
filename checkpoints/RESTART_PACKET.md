@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-24): after L199 / A142
+## Current general Crabb frontier (2026-07-24): after L200 / A143
 
 The complete local chart around every fixed **single** Crabb block is
 closed by L192.  L193 identifies the correct upper-equality stratum at
@@ -137,13 +137,23 @@ response through those ranges are still open.
 The immediate parallel structural task is the elliptic soft coordinate
 over L193's noncommuting inverse-block-Toeplitz equality anchors.  Do **not**
 substitute a noncommuting matrix parameter into scalar
-Faber/Joukowski formulas without an operator-valued derivation.  See
+Faber/Joukowski formulas without an operator-valued derivation.
+
+L200 makes that warning exact.  At repeated `C3`, coefficientwise
+Faber reflection survives but both raw matrix analogues of `g/g#`
+fail to be unitary for a square-zero copy coefficient.  Therefore
+L190's logarithmic inner-variation proof cannot be tensorized by
+changing scalar coefficients to matrices.  Construct the genuine
+rank-`m` colligation transfer from L193, or equivalently the matrix
+Schur/Levinson recursion for the positive block Toeplitz inverse
+Gram, before deriving any reflected endpoint Gram.  See
 `proof/crabb_block_hardy_equality.md` and
 `proof/repeated_crabb_exact_metric_chart.md` and
 `proof/repeated_crabb_first_residual_endpoint.md` and
 `proof/repeated_crabb_inverse_gram_kernel.md` and
 `proof/repeated_crabb_schur_flag.md` and
-`proof/repeated_crabb_circular_jensen.md`.
+`proof/repeated_crabb_circular_jensen.md` and
+`proof/repeated_crabb_matrix_faber_obstruction.md`.
 
 ### Superseded L182 checkpoint
 
