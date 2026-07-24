@@ -96,18 +96,39 @@ Q(\dot S^*S+S^*\dot S)Q=0,\qquad
 R(\dot SS^*+S\dot S^*)R=0.}                        \tag{7a}
 \]
 
-These are exactly the tangent equations for the smooth manifold of
-rank-\(Lm\) partial isometries.  Therefore there are skew-Hermitian
-matrices \(K_-,K_+\) with
+The two equations remove the active-active Hermitian normal blocks,
+but they are not by themselves the full tangent equations for the
+fixed-rank partial-isometry manifold.  The remaining normal corner is
 
 \[
-\dot S=K_-S+SK_+,
+Z_\gamma=W^*\dot SV.                                \tag{7b}
 \]
 
-and \(e^{\varepsilon K_-}Se^{\varepsilon K_+}\) is a partial-isometry
-curve with the same first jet.  Thus the physical elliptic direction
-is a genuine matrix-inner colligation tangent, not merely a
-one-sided Stein-feasible tangent.
+After the canonical unitary identification with L201's colligation,
+
+\[
+\boxed{Z_\gamma=4\gamma B_1,}                       \tag{7c}
+\]
+
+where \(B_1=W_C^*C^*V_C\) is the first Taylor coefficient of the
+genuine matrix-inner transfer.  Thus the elliptic first jet splits as
+
+\[
+\boxed{\dot S=K_-S+SK_++WZ_\gamma V^*,}             \tag{7d}
+\]
+
+for skew-Hermitian \(K_-,K_+\).  The last summand is generally
+nonzero; it is exactly the grade-one reflected normal, not an inner
+tangent.  Its right-oriented square is
+
+\[
+Z_\gamma^*Z_\gamma
+=16|\gamma|^2B_1^*B_1.                              \tag{7e}
+\]
+
+This identifies the correct noncommutative second-order Gram
+coordinate.  Converting it into a negative prepared similarity
+endpoint is still open.
 
 This proves physical elliptic first-jet stationarity at every equality
 anchor.  It does **not** prove the all-grade prepared endpoint identity:
@@ -265,15 +286,44 @@ P_{\rm left}^{-1}-\gamma(S^*)^3.
 \]
 
 The right-defect calculation for \(S^*\), with \(Q,R\) interchanged,
-is precisely the second equation in (7a).  The standard homogeneous
-space description
+is precisely the second equation in (7a).
+
+It remains to identify the corner omitted by the two Gram equations.
+Since \(SV=0\),
 
 \[
-\{\,USV:U,V\text{ unitary}\,\}
+\begin{aligned}
+Z_\gamma
+&=W^*(\gamma PS^*P^{-1}
+       -\overline\gamma S^3)V\\
+&=4\gamma W^*S^*V.                                  \tag{15}
+\end{aligned}
 \]
 
-of fixed-rank partial isometries identifies (7a) with its tangent
-space and supplies \(K_-,K_+\).
+Let \(C=M^{1/2}AM^{-1/2}\) be L201's coefficient-gauge partial
+isometry.  The two balanced realizations are unitarily equivalent:
+
+\[
+\mathcal U
+=P^{1/2}K^{1/2}M^{-1/2},\qquad
+S=\mathcal U C\mathcal U^*.                         \tag{16}
+\]
+
+Moreover \(\mathcal U V_C=V\).  Choose the left defect frame
+\(W_C=\mathcal U^*W\).  Then
+
+\[
+W^*S^*V=W_C^*C^*V_C=B_1,
+\]
+
+proving (7c).  In block coordinates
+\((W^\perp,W)\leftarrow(V^\perp,V)\), the tangent space to the
+fixed-rank partial-isometry orbit consists of arbitrary off-diagonal
+blocks, a skew active-active block, and a zero \(W\leftarrow V\)
+corner.  Equations (7a) put every block except \(Z_\gamma\) in that
+tangent space, proving (7d).  The earlier, stronger claim that (7a)
+alone implied full inner tangency was false; the explicit corner test
+is the necessary audit correction.
 
 Replacing \(V\) by \(V+\varepsilon C+O(\varepsilon^2)\) matches the Stein
 defect to first order along the real path with fixed complex phase
@@ -296,7 +346,8 @@ OPENBLAS_NUM_THREADS=1 .venv/bin/python -u \
 The checker uses strengthened genuinely noncommuting
 inverse-block-Toeplitz anchors at lengths \(2,\ldots,5\) and
 multiplicities \(2,3\).  It
-verifies (2)--(4), (6), and the explicit defect-row factorization
-(7).  The dataset SHA-256 is
-`e1876f92bc507262af8b21ba4bbf251dab24ea617eb2ca1d62eed699475fffb5`.
+verifies (2)--(4), (6), the explicit defect-row factorization (7),
+both identities in (7a), and the frame-invariant Gram form of
+(7c).  The dataset SHA-256 is
+`97f8f80fc1eda8de514b391645fd3985e0440b18c5fedeedcbb3a6008bf287ff`.
 The identities above, rather than the floating audit, prove the result.

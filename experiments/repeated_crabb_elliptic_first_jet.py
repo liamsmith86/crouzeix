@@ -27,7 +27,9 @@ from crabb_block_hardy_equality import (
     format_float,
 )
 from repeated_crabb_inner_faber_transfer import (
+    canonical_transfer_data,
     strengthened_inverse_toeplitz,
+    transfer_coefficients,
 )
 
 
@@ -44,6 +46,8 @@ class EllipticFirstJetRecord:
     left_partial_isometry_error: str
     elliptic_kernel_compression_error: str
     elliptic_left_kernel_compression_error: str
+    normal_corner_norm: str
+    normal_corner_transfer_error: str
     defect_row_factorization_error: str
     coefficient_commutator_norm: str
     all_checks_passed: bool
@@ -232,6 +236,7 @@ def make_record(
     left_compression_error = 0.0
     factorization_error = 0.0
     balanced_left_kernel = identity - left_projection
+    normal_corner = None
     for phase in (1 + 0j, 1j, np.exp(0.37j)):
         elliptic_tangent = (
             phase * operator.conj().T
@@ -256,6 +261,10 @@ def make_record(
             - np.conjugate(phase)
             * np.linalg.matrix_power(balanced, 3)
         )
+        if phase == 1:
+            normal_corner = (
+                left.conj().T @ balanced_tangent @ right
+            )
         left_compression_error = max(
             left_compression_error,
             float(
@@ -277,6 +286,32 @@ def make_record(
             factorization_error,
             current_factorization_error,
         )
+    if normal_corner is None:
+        raise RuntimeError("the real elliptic phase was not audited")
+
+    inverse, _ = strengthened_inverse_toeplitz(
+        length,
+        multiplicity,
+        actual_strength,
+    )
+    transfer = canonical_transfer_data(
+        np.linalg.inv(inverse),
+        length,
+        multiplicity,
+    )
+    first_transfer = transfer_coefficients(transfer, 2)[1]
+    corner_gram_eigenvalues = np.linalg.eigvalsh(
+        normal_corner.conj().T @ normal_corner
+    )
+    transfer_gram_eigenvalues = np.linalg.eigvalsh(
+        16 * first_transfer.conj().T @ first_transfer
+    )
+    corner_transfer_error = float(
+        np.linalg.norm(
+            corner_gram_eigenvalues - transfer_gram_eigenvalues
+        )
+    )
+    corner_norm = float(np.linalg.norm(normal_corner))
 
     verified = bool(
         endpoint_energy_error < 2e-10
@@ -285,6 +320,8 @@ def make_record(
         and left_error < 2e-10
         and compression_error < 2e-10
         and left_compression_error < 2e-10
+        and corner_norm > 1e-8
+        and corner_transfer_error < 2e-10
         and factorization_error < 2e-10
         and (multiplicity == 1 or commutator > 1e-8)
     )
@@ -303,6 +340,10 @@ def make_record(
         elliptic_kernel_compression_error=format_float(compression_error),
         elliptic_left_kernel_compression_error=format_float(
             left_compression_error
+        ),
+        normal_corner_norm=format_float(corner_norm),
+        normal_corner_transfer_error=format_float(
+            corner_transfer_error
         ),
         defect_row_factorization_error=format_float(factorization_error),
         coefficient_commutator_norm=format_float(commutator),

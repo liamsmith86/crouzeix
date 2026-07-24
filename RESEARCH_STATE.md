@@ -2,7 +2,7 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — repeated circular/elliptic merger)
 
-## NEWEST (2026-07-24): L202 proves equality-metric rigidity and elliptic first-jet stationarity
+## NEWEST (2026-07-24): L202 identifies the grade-one elliptic normal Gram
 - Block-Toeplitz endpoint elimination gives a stronger exact form for
   L193's physical metric:
   `P=2I−VV*+2WW*`, with `V,W` the initial and terminal copy
@@ -17,13 +17,19 @@
 - Hence the entire first defect jet is `VC*+CV*` and can be absorbed
   by moving the rank-`m` defect frame.  No first-order metric or
   upper-endpoint motion is needed at any equality anchor.
-- The adjoint calculation gives the matching left-defect identity.
-  Therefore the balanced tangent is `K_-S+SK_+` for skew-Hermitian
-  generators and is the first jet of an actual fixed-rank
-  partial-isometry (matrix-inner colligation) curve.
-- This supplies the physical first-jet bridge to L201.  The next
-  load-bearing calculation is the negative second reflected endpoint
-  and then its all-grade/model-complement lift.
+- The adjoint calculation gives the matching left active-defect
+  identity, but an immediate tangent-space audit caught an omitted
+  block: these two Gram identities do **not** force full
+  partial-isometry tangency.
+- The sole remaining normal block is the defect-to-defect corner
+  `Z_gamma=W*dot(S)V`.  It is generally nonzero and exactly
+  `4gamma B_1` after the unitary identification with L201's genuine
+  transfer.  Thus its oriented square is
+  `16|gamma|²B_1*B_1`, the correct grade-one reflected Gram.
+- This supplies the physical grade-one bridge to L201 without the
+  false matrix-polynomial quotient.  The next load-bearing calculation
+  is converting this normal Gram into the negative prepared endpoint,
+  then lifting the argument to every `B_n`.
   `proof/repeated_crabb_elliptic_first_jet.md`;
   `experiments/repeated_crabb_elliptic_first_jet.py`.
 

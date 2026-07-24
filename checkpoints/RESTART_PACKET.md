@@ -176,10 +176,18 @@ ellipse tangent `gamma T*−conj(gamma)T^3`, the Stein-defect
 derivative has zero compression to `V^perp`; it is only a defect-row
 motion `VC*+CV*`.  Thus the rank-`m` forcing absorbs first order with
 `P(epsilon)=P+O(epsilon^2)`.  The adjoint identity gives the same
-statement on the left defect: the balanced tangent is
-`K_-S+SK_+` and hence integrates to a genuine partial-isometry
-colligation curve at first order.  The live calculation is the negative
-second reflected endpoint and its higher-grade preparation.  See
+active-block statement on the left, but this does **not** imply full
+partial-isometry tangency: the missing defect-to-defect corner is
+generically nonzero.  Precisely,
+
+```
+W*dot(S)V = 4 gamma B_1,
+```
+
+where `B_1` is L201's first genuine transfer coefficient.  Its square
+is the oriented Gram `16|gamma|²B_1*B_1`.  The live calculation is
+turning this normal Gram into the negative prepared endpoint and then
+lifting the same mechanism to higher transfer coefficients.  See
 `proof/crabb_block_hardy_equality.md` and
 `proof/repeated_crabb_exact_metric_chart.md` and
 `proof/repeated_crabb_first_residual_endpoint.md` and
