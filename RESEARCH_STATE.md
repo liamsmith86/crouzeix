@@ -2,6 +2,47 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — full circular-normal merger)
 
+## NEWEST (2026-07-24): L195 identifies the repeated first-residual metric flag
+- L193's normalized rank-`m` Hardy metric lies exactly on L194's
+  zero-Stein-slack branch.  Its physical Stein defect is rank `m`
+  with invertible level-zero block, hence zero range Schur complement;
+  its exact lower endpoint similarly gives zero lower Schur
+  complement.
+- If the first terminal Hardy residual consists of copy blocks
+  `s^q F_(r,c)`, the final upper endpoint is
+  `−4s^(2q) sum F_(r,c)*F_(r,c)+O(s^(2q+1))`.
+  This is the operator-valued form of L188's scalar Frobenius square.
+- The first face is negative semidefinite, and its kernel is exactly
+  the common right kernel of every residual block.  Active copy
+  directions close immediately; only this common kernel advances to
+  the next metric flag.
+- The live gate is now geometric: promote a stable common kernel into
+  a smaller-copy L193 equality block and merge circular-normal and
+  elliptic support effects there.
+  `proof/repeated_crabb_first_residual_endpoint.md`;
+  `experiments/repeated_crabb_first_residual_endpoint.py`.
+
+## NEWEST (2026-07-24): L194 gives the all-length repeated metric chart
+- L105's exact repeated-`C3` metric chart extends to every Crabb
+  length.  Keep the entire level-zero/range metric row `B` free and
+  set `P00=I+B(C−I)^−1B*`; this makes the lower constraint exactly
+  tight.
+- The derivative of the Stein range Schur complement in `C` is the
+  weighted diagonal recurrence
+  `(LX)_(ij)=X_(ij)−a_(i−1)a_(j−1)X_(i−1,j−1)`.
+  It is triangular along block diagonals and has an explicit finite
+  forward inverse in every length and copy multiplicity.
+- The analytic IFT therefore gives a unique convergent
+  `P=P(T,B,R)` for arbitrary nearby operator, free row, and prescribed
+  Stein slack `R`.  Lower feasibility is automatic; Stein feasibility
+  is equivalent to `R>=0`.
+- The entire upper constraint is one final-level `m x m` Schur
+  endpoint.  Thus divergent forced metric coefficients are not an
+  obstruction.  L195 now identifies the canonical zero-slack choice
+  and its first residual endpoint; stable-kernel promotion remains.
+  `proof/repeated_crabb_exact_metric_chart.md`;
+  `experiments/repeated_crabb_exact_metric_chart.py`.
+
 ## NEWEST (2026-07-24): L193 explicitly classifies the repeated block-Hardy equality manifold
 - L122/L183's disk factorization is operator-valued: replace every
   scalar Gram entry by an `m x m` copy block and tensor the level shift
@@ -32,11 +73,11 @@
   a direct Hermitian-codomain IFT was not justified.  The exact
   inverse-Toeplitz factorization proves L187's scalar manifold and
   L193's block manifold without that shortcut.
-- This suggests a cleaner repeated strategy: use the block Hardy
-  residual Gram as the transverse form, promote its copy-space kernel
-  into a smaller-multiplicity equality block, and iterate a metric
-  flag.  The operator-valued elliptic/normal merger and convergence of
-  that flag remain open.
+- Together with L194 this suggests a cleaner repeated strategy: use
+  the block Hardy residual Gram as the transverse form, promote its
+  copy-space kernel into a smaller-multiplicity equality block, and
+  iterate a metric flag.  The operator-valued elliptic/normal merger
+  and convergence of that flag remain open.
   `proof/crabb_block_hardy_equality.md`;
   `experiments/crabb_block_hardy_equality.py`.
 

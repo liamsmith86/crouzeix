@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-24): L193 / A136
+## Current general Crabb frontier (2026-07-24): L195 / A138
 
 The complete local chart around every fixed **single** Crabb block is
 closed by L192.  L193 identifies the correct upper-equality stratum at
@@ -73,23 +73,39 @@ Hermitian-codomain IFT shortcut: the raw row-reversed residual is
 Hermitian only to first order.  This is not yet a scalar lower-equality
 result and not a repeated neighbourhood theorem.
 
-The immediate next lemma should construct the exact analytic
-repeated metric chart in all lengths.  At the base metric
-`diag(1,2,...,2,4) tensor I_m`, retain the level-zero-to-range metric
-row as free data and solve the Stein Schur complement on the range.
-Its linearization is the triangular block recurrence
+L194 now constructs the exact analytic repeated metric chart in all
+lengths.  At the base metric `diag(1,2,...,2,4) tensor I_m`, retain the
+level-zero-to-range metric row as free data and solve the Stein Schur
+complement on the range.  Its linearization is the triangular block
+recurrence
 
 ```
 (L X)_(ij) = X_(ij) − w_(i−1)w_(j−1) X_(i−1,j−1),
 ```
 
-so the IFT should be elementary and all-size.  Then derive the
-operator-valued first-residual Gram face.  Kernel subspaces should be
-promoted into smaller-copy L193 equality blocks and iterated as a
-metric flag.  Elliptic copy data require a separate support/Jensen
-argument; do **not** substitute a noncommuting matrix parameter into
-the scalar Faber/Joukowski formulas.  See
-`proof/crabb_block_hardy_equality.md`.
+and finite forward propagation is its exact inverse.  The IFT gives a
+unique convergent metric for every nearby operator, free row, and
+prescribed Stein slack; all upper feasibility is one final `m x m`
+Schur endpoint.
+
+L195 expresses L193's normalized rank-`m` Hardy metric in L194
+coordinates: it is exactly the zero-Stein-slack branch.  If the first
+residual blocks are `F_(r,c)`, the upper endpoint is
+
+```
+−4 sum_(r,c) F_(r,c)* F_(r,c).
+```
+
+Its kernel is the common right kernel of every residual block.  The
+immediate task is to prove that a stable common kernel can be promoted
+into a smaller-copy L193 equality block and iterated as a metric flag,
+while retaining L188's circular-normal null lift on the active range.
+Elliptic copy data require a separate support/Jensen argument; do
+**not** substitute a noncommuting matrix parameter into the scalar
+Faber/Joukowski formulas.  See
+`proof/crabb_block_hardy_equality.md` and
+`proof/repeated_crabb_exact_metric_chart.md` and
+`proof/repeated_crabb_first_residual_endpoint.md`.
 
 ### Superseded L182 checkpoint
 
