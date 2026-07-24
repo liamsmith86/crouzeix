@@ -2,6 +2,26 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — repeated circular/elliptic merger)
 
+## NEWEST (2026-07-24): L213 fixes the delayed elliptic gauge
+- L207's endpoint solution is not unique; later coefficients cannot
+  be inferred from its minimum-norm representative.
+- On the delayed face `B_1=0`, the exact polynomial normalization is
+  `X_hat_ax=SWW*S*−S*VV*S` with full second frame column
+  `C_hat_2=−V(V*F_hat_2V)/2+2(S*)^4V`.
+- An ordered partial-isometry reduction proves the complete second
+  Stein equation and both endpoints vanish.  At every repeated
+  monomial apex this is exactly the second coefficient of the known
+  all-size elliptic-axis metric.
+- Separately, `2W` is a universal endpoint-null column, but it equals
+  the delayed axis correction only at the length-four apex.  This
+  explains why the first grade-two minimum-norm computation produced
+  a false base mismatch.
+- Next recompute the fourth-order `B_2` endpoint after this
+  normalization, then compare it with L212's
+  `12L_2−28C(R_2)` base.
+  `proof/repeated_crabb_delayed_axis_gauge.md`;
+  `experiments/repeated_crabb_endpoint_null_gauge.py`.
+
 ## NEWEST (2026-07-24): L212 removes every higher elliptic range obstruction
 - Retaining L208's lower-grade contamination gives the explicit
   all-grade column

@@ -357,6 +357,22 @@ debt is now to prove the complete prepared physical **base** is
 `12L_c-28C(R_c)` (or no larger); L212 then makes the final endpoint
 `-16L_c`.
 
+L213 corrects the lower-order gauge before that base is computed.
+L207's endpoint representative is not unique.  On `B_1=0`, the
+axis-compatible polynomial choice is
+
+```
+X_hat_2 = S W W* S* - S* V V* S,
+C_hat_2 = -V(V*F_hat_2V)/2 + 2(S*)^4 V.
+```
+
+It solves the complete second Stein equation, has zero endpoints,
+and matches the exact all-size monomial-axis metric.  The simpler
+column `2W` is universally endpoint-null but coincides with the
+delayed axis column only at the length-four apex.  Consequently the
+earlier minimum-norm fourth-order mismatch was a gauge artifact.
+Recompute the `B_2` face after L213 before judging L212's base target.
+
 L205 supplies a scalar-only alternative to that stronger complete
 gate.  The condition-two chain is sharp for a scalar Schur function
 exactly when L201's transfer has a constant one-dimensional inner
@@ -1044,11 +1060,11 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
 ## Next five concrete actions (refreshed 2026-07-24, Epoch 6)
-1. **Derive the all-grade physical base.** L212 already supplies the
-   bounded analytic correction.  Prove directly from the complete
-   Faber/Riemann/metric preparation that its uncorrected endpoint is
-   `12L_c−28C(R_c)`, or is bounded above by it.  Do not reintroduce
-   projections or pseudoinverses.
+1. **Recompute the fourth-order delayed face.** Use L213's polynomial
+   `B_1=0` axis gauge, not the minimum-norm L207 representative.
+   Derive the `B_2` base and compare it with
+   `12B_2B_2*−28C(B_2*B_2)`.  If it matches, combine it with L212
+   and then prove the all-grade induction.
 2. **Merge later circular normals.** L199 covers the first raw face
    only.  Identify the response after L197's later least-squares Schur
    quotients and combine it with the elliptic flag.
@@ -1066,14 +1082,15 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
 ## Paste-ready continuation instruction
 "Continue the Crouzeix campaign in /home/liam/Downloads/crouzeix
 (git repo; commit and push each proved milestone).  Read the newest
-RESEARCH_STATE section and L201--L212/A144--A155.  L207 gives the
+RESEARCH_STATE section and L201--L213/A144--A156.  L207 gives the
 explicit analytic grade-one correction; L208 gives the conditional
 higher flagged preimage; L209 promotes a surviving grade to a
 grade-one smaller colligation; L210 proves the exact transfer/Gram
 weight shift; L211 proves active-block channel covariance; L212 gives
-the universal all-grade polynomial preimage without flags.  Derive
-the complete prepared physical base `12L_c−28C(R_c)` (or a one-sided
-smaller endpoint), then
+the universal all-grade polynomial preimage without flags; L213 fixes
+the lower-order delayed axis gauge.  Recompute the `B_2` fourth-order
+base after L213, then derive the all-grade physical base
+`12L_c−28C(R_c)` (or a one-sided smaller endpoint), and
 merge the later L197 circular-normal
 flags.  Do not use the false raw matrix quotient, confuse B_n*B_n with
 B_nB_n*, or promote pointwise pseudoinverses through the rank jump.
