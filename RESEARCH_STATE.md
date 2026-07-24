@@ -2,6 +2,24 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — repeated circular/elliptic merger)
 
+## NEWEST (2026-07-24): L216 proves all-delay endpoint-response covariance
+- If `B_1=...=B_r=0`, remove the wandering states
+  `W,SW,...,S^(r−1)W`; the retained partial isometry has left defect
+  `S^rW`.
+- Every Stein forcing supported on the retained space has exactly the
+  same retained Stein solution and upper endpoint before and after
+  deflation.  After restoring the two physical equality metrics, the
+  L204 endpoint maps are still identical.
+- L212's grade-`r+1` column is therefore the literal lift of L207's
+  grade-one column for the smaller colligation, including its complete
+  channel-coboundary endpoint.
+- This closes the linear physical-response half of the proposed
+  induction in every grade.  It does not transport the nonlinear raw
+  Riemann/metric forcing or its endpoint Schur squares; that prepared
+  base covariance is now the sole delay-induction gate.
+  `proof/repeated_crabb_endpoint_deflation.md`;
+  `experiments/repeated_crabb_endpoint_deflation.py`.
+
 ## NEWEST (2026-07-24): L215 closes the twice-delayed physical face
 - On `B_1=B_2=0`, add `+2QSWB_3` to the perpendicular third-frame
   coefficient and its negative at frame order five.  These motions

@@ -399,6 +399,16 @@ consecutive delayed grades, not an all-grade theorem.  The live gate
 is to derive the frame/future-row pattern from a one-delay generating
 or covariance equation rather than hand-expand grade four.
 
+L216 proves the exact linear half of that covariance in all grades.
+After removing `W,...,S^(r−1)W`, every forcing supported on the
+retained state space has the same compressed Stein solution and upper
+endpoint.  The two physical metric roots give the same factor four.
+In particular L212's grade-`r+1` column is literally L207's
+grade-one column on the deflated colligation.  The only missing
+induction statement is now covariance of the **fixed nonlinear
+forcing** assembled from the Riemann jets, lower-tight frame
+normalization, and both endpoint Schur squares.
+
 L205 supplies a scalar-only alternative to that stronger complete
 gate.  The condition-two chain is sharp for a scalar Schur function
 exactly when L201's transfer has a constant one-dimensional inner
@@ -1086,12 +1096,12 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
 ## Next five concrete actions (refreshed 2026-07-24, Epoch 6)
-1. **Derive the one-delay physical covariance.** L214 and L215 prove
-   the same prepared base at grades two and three, and L212 turns
-   each into `−16B_kB_k*`.  Prove that adjoining/removing one
-   wandering delay stage transports the lower-tight metric, endpoint
-   Schur complement, and permissible endpoint-null gauge.  This
-   should promote L214 to every grade without a grade-four expansion.
+1. **Finish the nonlinear half of delay covariance.** L216 already
+   transports every retained Stein response and the complete L212
+   correction.  Group the remaining order-`2k` Riemann, lower-tight
+   frame, and Schur-square forcing before deflation and prove that its
+   upper endpoint is the shifted grade-two prepared base.  Do not
+   compare raw frame coefficients term by term.
 2. **Merge later circular normals.** L199 covers the first raw face
    only.  Identify the response after L197's later least-squares Schur
    quotients and combine it with the elliptic flag.
@@ -1109,7 +1119,7 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
 ## Paste-ready continuation instruction
 "Continue the Crouzeix campaign in /home/liam/Downloads/crouzeix
 (git repo; commit and push each proved milestone).  Read the newest
-RESEARCH_STATE section and L201--L215/A144--A158.  L207 gives the
+RESEARCH_STATE section and L201--L216/A144--A159.  L207 gives the
 explicit analytic grade-one correction; L208 gives the conditional
 higher flagged preimage; L209 promotes a surviving grade to a
 grade-one smaller colligation; L210 proves the exact transfer/Gram
@@ -1117,8 +1127,10 @@ weight shift; L211 proves active-block channel covariance; L212 gives
 the universal all-grade polynomial preimage without flags; L213 fixes
 the lower-order delayed axis gauge; L214 proves the complete prepared
 `B_2` fourth face; L215 proves the analogous complete `B_3` sixth
-face.  Both end at `−16B_kB_k*`.  Derive the one-delay physical
-endpoint/gauge covariance and thereby the all-grade physical base
+face; L216 proves exact all-delay covariance of every retained linear
+endpoint response and identifies L212 as deflated L207.  Both known
+faces end at `−16B_kB_k*`.  Prove covariance of the remaining grouped
+nonlinear Riemann/metric/Schur forcing and thereby the all-grade base
 `12L_c−28C(R_c)` (or a one-sided smaller endpoint), and
 merge the later L197 circular-normal
 flags.  Do not use the false raw matrix quotient, confuse B_n*B_n with
