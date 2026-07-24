@@ -260,6 +260,23 @@ real-analytic choice of `C` through the rank-jumping Crabb apex, then
 the higher-grade iteration through `B_2,...,B_L`.  See
 `proof/repeated_crabb_elliptic_commutant.md`.
 
+L207 removes that remaining rank-jump debt with the explicit physical
+correction
+
+```
+C_hat=−(7/2)QSWB_1,  C=P^(1/2)C_hat.
+```
+
+After substitution, the complete second forcing is a finite ordered
+polynomial.  Its endpoint correlations telescope to
+`−4B_1B_1*`; the remaining fourth-lag correlations vanish by matrix
+innerness.  Thus it solves `M_T(C)=D_T`, is jointly analytic, and
+vanishes at Crabb.
+Thus grade one is fully lifted without a pseudoinverse.  The live
+elliptic gate is now the associated-graded iteration on
+`ker B_1*` through `B_2,...,B_L`, followed by the L197/L199 merger.
+See `proof/repeated_crabb_elliptic_selection.md`.
+
 L205 supplies a scalar-only alternative to that stronger complete
 gate.  The condition-two chain is sharp for a scalar Schur function
 exactly when L201's transfer has a constant one-dimensional inner
@@ -947,34 +964,32 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
 ## Next five concrete actions (refreshed 2026-07-24, Epoch 6)
-1. **Construct the bounded grade-one selection.** L206 proves every
-   pointwise Fredholm condition, but the endpoint map changes rank at
-   Crabb.  Prove analytic divisibility in inverse-block-Toeplitz
-   coordinates or construct a bounded correction with the block
-   Schur/Levinson recursion.  Do not infer analyticity from a
-   pointwise pseudoinverse.
-2. **Iterate the elliptic flag.** On the grade-one left kernel, derive
+1. **Iterate the elliptic flag.** L207 gives the explicit bounded
+   grade-one correction.  On its left kernel, derive
    the same oriented endpoint for `B_2`, then continue through the
    invertible terminal `B_L`.
-3. **Merge later circular normals.** L199 covers the first raw face
+2. **Merge later circular normals.** L199 covers the first raw face
    only.  Identify the response after L197's later least-squares Schur
    quotients and combine it with the elliptic flag.
-4. **Full CP-correction moments.** Do not retry scalar shifts or
+3. **Full CP-correction moments.** Do not retry scalar shifts or
    positive-state scalarizations.  Test whether L21's trace inequality
    follows from the block-Toeplitz positivity supplied by the full
    operator-valued Crouzeix--Palencia correction.
-5. **H-r fallback.** Continue the shifted degree-one Möbius and
+4. **H-r fallback.** Continue the shifted degree-one Möbius and
    odd-phase level-4 positivity attacks only after the local Crabb
    merger is banked.
+5. **Audit the universal endpoint table.** Before stacking several
+   grades, independently re-expand L207's coefficients `7` and `5`
+   from the matrix-inner autocorrelation identities.
 
 ## Paste-ready continuation instruction
 "Continue the Crouzeix campaign in /home/liam/Downloads/crouzeix
 (git repo; commit and push each proved milestone).  Read the newest
-RESEARCH_STATE section and L201--L206/A144--A149.  L206 proves the
-pointwise cokernel identity.  The live gate is to construct its bounded
-analytic selection through the rank jump from the genuine matrix-inner
-transfer or the block Schur/Levinson recursion.  Then iterate the oriented left
-Grams through B_2,...,B_L and merge the later L197 circular-normal
+RESEARCH_STATE section and L201--L207/A144--A150.  L207 gives the
+explicit analytic grade-one correction and removes the rank-jump
+pseudoinverse.  Independently audit its transfer-channel endpoint
+table, then iterate the oriented left Grams through B_2,...,B_L and
+merge the later L197 circular-normal
 flags.  Do not use the false raw matrix quotient, confuse B_n*B_n with
 B_nB_n*, or promote pointwise pseudoinverses through the rank jump.
 After the repeated local theorem, return to the general

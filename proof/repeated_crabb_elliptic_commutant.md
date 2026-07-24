@@ -289,18 +289,15 @@ tests more than L203's trace direction.  The tracked dataset SHA-256
 is
 `d3f81984b52e7c6261928e95a73b4ba8992c722f1027af9db26e5165ec4feb49`.
 
-## 7. Remaining analytic gate
+## 7. Subsequent development
 
 L206 upgrades the oriented grade-one matrix face from numerical to
-pointwise proved.  The remaining problem is selection, not
-compatibility:
+pointwise proved.  L207 subsequently removes the selection debt as
+well: it gives the explicit analytic preimage
 
-1. construct \(C(T)\) bounded and real analytic as the commutant
-   dimension jumps at Crabb, or prove the required analytic
-   divisibility in block-Toeplitz coordinates;
-2. lift L194's exact chart with that choice; and
-3. iterate the same mechanism on the grade-one kernel through
-   \(B_2,\ldots,B_L\).
+\[
+ \widehat C=-\frac72(I-VV^*)SWB_1.
+\]
 
-The scaling evidence in L204 is consistent with such a selection, but
-pointwise Fredholm solvability alone does not prove it.
+Thus the remaining problem is the higher associated-graded iteration
+through \(B_2,\ldots,B_L\), followed by the disk/circular merger.

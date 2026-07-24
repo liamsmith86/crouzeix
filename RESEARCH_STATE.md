@@ -2,6 +2,24 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — repeated circular/elliptic merger)
 
+## NEWEST (2026-07-24): L207 removes the elliptic rank jump
+- L204's endpoint equation has the explicit solution
+  `C_hat=−(7/2)QSWB_1`, `C=P^(1/2)C_hat`.
+- Substitution turns the complete balanced second forcing into a
+  finite ordered polynomial in `S,S*`.  The endpoint Stein functional
+  converts its words into weighted transfer correlations.
+- The diagonal correlations telescope to `−4B_1B_1*`; the only
+  off-diagonal survivors are fourth Fourier autocorrelations of
+  L201's square matrix-inner transfer, so they vanish exactly.
+- This correction is polynomial, bounded, and vanishes at the Crabb
+  apex.  The rank-changing pseudoinverse is not needed.
+- L194 now lifts the grade-one jet jointly analytically, with the
+  correctly oriented upper loss `−16B_1B_1*`.
+- Next iterate the same associated-graded mechanism on
+  `ker B_1*` through `B_2,...,B_L`, then merge it with L197/L199.
+  `proof/repeated_crabb_elliptic_selection.md`;
+  `experiments/repeated_crabb_elliptic_selection.py`.
+
 ## NEWEST (2026-07-24): L206 closes elliptic cokernel compatibility
 - Normalize L204's dual observability Gramian by
   `H_Y=P^(1/2) Z_Y P^(1/2)/4`.  Its adjoint-kernel equation is

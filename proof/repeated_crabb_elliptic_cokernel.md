@@ -223,12 +223,15 @@ argument must control.  The tracked dataset SHA-256 is
 
 ## 5. Next gate
 
-L206 closes the Fredholm compatibility in (9).  What remains is to
-construct a bounded real-analytic solution \(C\) as the map changes
-rank at the Crabb apex, rather than use a pointwise pseudoinverse.
-The natural options are analytic divisibility in the transfer
-coefficients or a block Schur/Levinson recursion for the positive
-inverse-block-Toeplitz Gram.
+L206 closes the Fredholm compatibility in (9), and L207 subsequently
+constructs the bounded real-analytic solution explicitly:
+
+\[
+ P^{-1/2}C=-\frac72(I-VV^*)SWB_1.
+\]
+
+Thus the rank jump does not require a pseudoinverse or a
+Schur/Levinson recursion.
 
 Either route must retain the left/right orientation: the target in
 (6) is the left Gram \(-ZZ^*=-16B_1B_1^*\).  After grade one, the
