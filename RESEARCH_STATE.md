@@ -2,6 +2,23 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — repeated circular/elliptic merger)
 
+## NEWEST (2026-07-24): L210 closes the transfer-level weighted pullback
+- L209's smaller colligation shifts every transfer coefficient, not
+  only the first:
+  `Btilde_n=[U_perp*B_n;U*B_(n+k−1)]`.
+- Thus the surviving original transfer row is exactly
+  `z^(k−1)` times the bottom row of the deflated matrix-inner
+  transfer, before and after Faber reflection at `c/z`.
+- Its left-oriented reflected Gram is exactly `|c|^(2k−2)` times
+  the bottom deflated Gram.  The leading term is therefore
+  `|c|^(2k)U*B_kB_k*U`, with no ordering guess.
+- The remaining higher elliptic interface is now specifically
+  **physical endpoint covariance**: prove that the prepared
+  model-complement/Stein endpoint respects the same monomial shift.
+  That is the rank-`m` version of L149--L150, not another transfer
+  calculation.
+  `proof/repeated_crabb_transfer_deflation.md`.
+
 ## NEWEST (2026-07-24): L209 geometrically deflates every later transfer grade
 - If `B_j*U=0` before grade `k`, the state columns
   `WU,SWU,...,S^(k−1)WU` form an orthonormal lossless delay line.

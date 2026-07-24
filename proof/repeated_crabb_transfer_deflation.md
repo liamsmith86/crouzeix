@@ -1,6 +1,6 @@
-# Wandering-chain deflation of the repeated transfer flag
+# Wandering-chain deflation and exact reflected transfer pullback
 
-## 1. Result (L209, 2026-07-24)
+## 1. Results (L209--L210, 2026-07-24)
 
 Let \(S\) be a finite pure partial isometry with equal orthogonal
 defect frames
@@ -69,14 +69,29 @@ deflated transfer is
  \end{bmatrix}.}                                   \tag{7}
 \]
 
+In fact every coefficient of the smaller transfer satisfies
+
+\[
+\boxed{
+ \widetilde B_n
+ =
+ \begin{bmatrix}
+ U_\perp^*B_n\\
+ U^*B_{n+k-1}
+ \end{bmatrix}
+ \qquad(n\ge1).}                                    \tag{7a}
+\]
+
 Thus a grade-\(k\) coefficient on the common left kernel of the
 earlier grades becomes a genuine grade-one coefficient of a smaller
-colligation.  This is the structural deflation needed to reuse L207
-through the reflected flag.
+colligation, and the entire surviving reflected series is its exact
+monomial shift.
 
 L209 is a colligation theorem.  It does **not** yet identify the
 physical grade-\(k\) ellipse jet with L207 applied to (5); that
-weighted-jet lifting is the remaining interface.
+weighted-jet lifting is the remaining interface.  L210 closes the
+transfer-series part of that interface, but not the physical endpoint
+covariance.
 
 ## 2. The delay line is orthonormal
 
@@ -142,8 +157,9 @@ For \(x\in{\cal H}_{k,U}\), invariance and (8) therefore give
 Thus the compressed right defect is exactly the old \(m\)-dimensional
 one.
 
-Both parts of (6) lie in the retained space and are mutually
-orthogonal.  Moreover,
+Both parts of (6) lie in the retained space, are mutually orthogonal,
+and are orthogonal to \(V\): for the promoted block the last fact is
+exactly \(B_{k-1}^*U=0\).  Moreover,
 
 \[
 \begin{aligned}
@@ -193,7 +209,73 @@ left-kernel flag
 must terminate by grade \(L\).  There is no infinite reflected
 copy-space recursion.
 
-## 5. Analytic use along a flag
+## 5. Exact transfer and reflected-Gram pullback (L210)
+
+Let
+
+\[
+ \widetilde B(z)=\sum_{n\ge1}\widetilde B_nz^n
+\]
+
+be the genuine matrix-inner transfer of the deflated colligation.
+Because \({\cal H}_{k,U}\) is invariant for \(S\), for either part
+of the left frame and every \(n\ge1\),
+
+\[
+ \widetilde B_n^*
+ =V^*S_{k,U}^n\widetilde W
+ =V^*S^n\widetilde W.                              \tag{17}
+\]
+
+The first block in (6) gives \(B_n^*U_\perp\), while its second block
+gives \(B_{n+k-1}^*U\).  Taking adjoints proves (7a) without inserting
+or commuting any copy matrices.
+
+Let \(J_U:\mathbb C^d\to
+\mathbb C^{m-d}\oplus\mathbb C^d\) denote the last-coordinate
+inclusion.  Assumption (2) and (7a) give the exact analytic identities
+
+\[
+\boxed{
+\begin{aligned}
+ U^*B_H(z)
+ &=z^{k-1}J_U^*\widetilde B(z),\\
+ U^*B_H(c/z)
+ &=(c/z)^{k-1}J_U^*\widetilde B(c/z).
+\end{aligned}}                                     \tag{18}
+\]
+
+Consequently the left-oriented reflected Hardy Gram pulls back with
+the exact weight shift
+
+\[
+\boxed{
+\begin{aligned}
+U^*\!\left(
+\sum_{j\ge1}|c|^{2j}B_jB_j^*
+\right)U
+={}&|c|^{2(k-1)}
+J_U^*\!\left(
+\sum_{n\ge1}|c|^{2n}
+\widetilde B_n\widetilde B_n^*
+\right)J_U .
+\end{aligned}}                                     \tag{19}
+\]
+
+This is the precise transfer-level weight-\(k\) pullback suggested by
+L209.  In particular its first nonzero term is
+\(|c|^{2k}U^*B_kB_k^*U\): the bottom grade-one Gram of the deflated
+model multiplied by \(|c|^{2(k-1)}\).  Matrix innerness of
+\(\widetilde B\) follows from the partial-isometry theorem above, so
+(18)--(19) are genuine Hardy identities rather than formal coefficient
+matches.
+
+What remains is narrower: prove that the **prepared physical
+similarity endpoint**, not merely its reflected transfer Gram, obeys
+the same monomial-shift covariance.  That is the rank-\(m\) analogue
+of L149--L150's model-complement/residue step.
+
+## 6. Analytic use along a flag
 
 Along a real-analytic arc, apply the finite Schur-orthogonal procedure
 of L197 to the left Grams \(B_jB_j^*\).  On every constant-rank
@@ -204,15 +286,15 @@ on that segment.
 
 The remaining higher-grade statement is now precise:
 
-> show that the associated physical ellipse jet on \(U_{k-1}\) is
-> the weight-\(k\) pullback of L207's grade-one jet for
-> \(S_{k,U_{k-1}}\).
+> show that the associated physical ellipse endpoint on
+> \(U_{k-1}\) has the same monomial-shift covariance already proved
+> for its transfer Gram in (18)--(19).
 
 Once that weighted-jet identity is established, L207 supplies the
 negative left Gram \(-16B_kB_k^*\) on each successive quotient, and
 invertibility of \(B_L\) closes the elliptic flag.
 
-## 6. Regeneration
+## 7. Regeneration
 
 Run
 
@@ -225,8 +307,8 @@ OPENBLAS_NUM_THREADS=1 .venv/bin/python -u \
 
 The checker uses heterogeneous direct sums of finite shifts, random
 state conjugacies, and independent random left/right defect gauges.
-It verifies (2)--(7) for non-coordinate flag subspaces at several
+It verifies (2)--(7a) and (19) for non-coordinate flag subspaces at several
 intermediate and terminal grades.  The tests audit the construction;
-equations (8)--(15) are the all-size proof.  The tracked dataset
+equations (8)--(19) are the all-size proof.  The tracked dataset
 SHA-256 is
-`a0ae0599b9aa2e1d27d2f85c327ddd7a4ecf02dd9fce1806820ccebfb86fe7bf`.
+`89ba19a7f78ea471b8605c5aade4a69308eddabce59b845918bb0dd655daae5a`.

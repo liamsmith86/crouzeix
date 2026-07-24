@@ -46,6 +46,8 @@ class TransferDeflationRecord:
     compressed_right_defect_error: str
     compressed_left_defect_error: str
     first_transfer_promotion_error: str
+    full_transfer_shift_error: str
+    reflected_gram_pullback_error: str
     all_checks_passed: bool
 
 
@@ -226,6 +228,71 @@ def make_record(
         np.linalg.norm(promoted_first - expected_first)
     )
 
+    full_transfer_error = 0.0
+    original_left_gram = np.zeros(
+        (multiplicity, multiplicity),
+        dtype=complex,
+    )
+    deflated_left_gram = np.zeros_like(original_left_gram)
+    reflection_parameter = 0.17
+    bottom_selector = np.eye(multiplicity, dtype=complex)[
+        :,
+        multiplicity - flag_dimension :,
+    ]
+    for degree in range(1, dimension + 1):
+        original_coefficient = transfer_coefficient(
+            operator,
+            right,
+            left,
+            degree,
+        )
+        shifted_coefficient = transfer_coefficient(
+            operator,
+            right,
+            left,
+            degree + grade - 1,
+        )
+        deflated_coefficient = transfer_coefficient(
+            compressed,
+            compressed_right,
+            compressed_left,
+            degree,
+        )
+        expected_coefficient = np.vstack(
+            (
+                flag_complement.conj().T @ original_coefficient,
+                flag.conj().T @ shifted_coefficient,
+            )
+        )
+        full_transfer_error = max(
+            full_transfer_error,
+            float(
+                np.linalg.norm(
+                    deflated_coefficient - expected_coefficient
+                )
+            ),
+        )
+        original_left_gram += (
+            reflection_parameter ** (2 * degree)
+            * original_coefficient
+            @ original_coefficient.conj().T
+        )
+        deflated_left_gram += (
+            reflection_parameter ** (2 * degree)
+            * deflated_coefficient
+            @ deflated_coefficient.conj().T
+        )
+
+    reflected_gram_error = float(
+        np.linalg.norm(
+            flag.conj().T @ original_left_gram @ flag
+            - reflection_parameter ** (2 * (grade - 1))
+            * bottom_selector.conj().T
+            @ deflated_left_gram
+            @ bottom_selector
+        )
+    )
+
     tolerance = 2e-10
     verified = bool(
         kernel_error < tolerance
@@ -235,6 +302,8 @@ def make_record(
         and right_error < tolerance
         and left_error < tolerance
         and promotion_error < tolerance
+        and full_transfer_error < tolerance
+        and reflected_gram_error < tolerance
     )
     if not verified:
         raise RuntimeError("the transfer-deflation audit failed")
@@ -254,6 +323,10 @@ def make_record(
         compressed_right_defect_error=format_float(right_error),
         compressed_left_defect_error=format_float(left_error),
         first_transfer_promotion_error=format_float(promotion_error),
+        full_transfer_shift_error=format_float(full_transfer_error),
+        reflected_gram_pullback_error=format_float(
+            reflected_gram_error
+        ),
         all_checks_passed=verified,
     )
 

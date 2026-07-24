@@ -316,6 +316,20 @@ prepared physical grade-`k` ellipse jet is the correctly weighted
 pullback of L207's grade-one jet on this deflated colligation.  See
 `proof/repeated_crabb_transfer_deflation.md`.
 
+L210 strengthens that reduction to the full transfer:
+
+```
+Btilde_n = [ U_perp* B_n ; U* B_(n+k−1) ].
+```
+
+Hence `U*B_H(z)=z^(k−1)J_U*Btilde(z)`, including after Faber
+reflection at `c/z`, and the surviving left reflected Gram is exactly
+`|c|^(2k−2)` times the bottom deflated Gram.  The Hardy/transfer
+weight shift is therefore proved.  The remaining interface is not a
+coefficient guess: it is to show that the prepared physical
+model-complement/Stein endpoint is functorial under this monomial
+shift, as in scalar L149--L150.
+
 L205 supplies a scalar-only alternative to that stronger complete
 gate.  The condition-two chain is sharp for a scalar Schur function
 exactly when L201's transfer has a constant one-dimensional inner
@@ -1003,12 +1017,11 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
 ## Next five concrete actions (refreshed 2026-07-24, Epoch 6)
-1. **Prove the weighted-jet interface.** L208 gives the direct
-   flagged preimage and L209 promotes a surviving `B_k` row to grade
-   one on a smaller colligation.  Compute the prepared physical jet
-   on `ker B_1*` and prove it is the weight-two pullback of L207 on
-   the deflated model; formulate the all-grade induction only after
-   this first nontrivial case closes.
+1. **Prove physical endpoint functoriality.** L210 proves the exact
+   transfer/Gram weight shift.  Show that L149--L150's complete
+   model-complement/residue endpoint construction has the same
+   monomial-shift covariance in the rank-`m` colligation, starting
+   with `k=2`; then L208 supplies the endpoint preimage.
 2. **Merge later circular normals.** L199 covers the first raw face
    only.  Identify the response after L197's later least-squares Schur
    quotients and combine it with the elliptic flag.
@@ -1026,11 +1039,12 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
 ## Paste-ready continuation instruction
 "Continue the Crouzeix campaign in /home/liam/Downloads/crouzeix
 (git repo; commit and push each proved milestone).  Read the newest
-RESEARCH_STATE section and L201--L209/A144--A152.  L207 gives the
+RESEARCH_STATE section and L201--L210/A144--A153.  L207 gives the
 explicit analytic grade-one correction; L208 gives the conditional
 higher flagged preimage; L209 promotes a surviving grade to a
-grade-one smaller colligation.  Prove the weight-two physical-jet
-pullback first, then iterate through B_2,...,B_L and
+grade-one smaller colligation; L210 proves the exact transfer/Gram
+weight shift.  Prove the remaining physical endpoint functoriality
+at grade two first, then iterate through B_2,...,B_L and
 merge the later L197 circular-normal
 flags.  Do not use the false raw matrix quotient, confuse B_n*B_n with
 B_nB_n*, or promote pointwise pseudoinverses through the rank jump.
