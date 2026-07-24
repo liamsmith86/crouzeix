@@ -30,7 +30,7 @@ the stable Stein inverse, and put
 \begin{aligned}
  K&=V^*F_2V,\\
  C_\parallel&=-\frac12VK,\\
- F_0&=F_2-VKV,\\
+ F_0&=F_2-VKV^*,\\
  X_0&={\cal G}_T(F_0).                              \tag{4}
 \end{aligned}
 \]
@@ -82,9 +82,10 @@ Thus the sole remaining grade-one compatibility statement is
  Q{\cal Z}_YV=0.}                                  \tag{9}
 \]
 
-L203 proves (9) for the universal scalar cokernel direction.  The
-tracked noncommutative calculations verify all additional cokernel
-directions and, more significantly, show
+L206 proves (9) for every cokernel direction by identifying the
+balanced dual Gramian with a self-adjoint colligation commutant and
+applying L203 on its reducing spectral blocks.  The tracked
+noncommutative calculations additionally show
 
 \[
  \|D_T\|=O(\|H-H_0\|^2),\qquad
@@ -222,15 +223,15 @@ argument must control.  The tracked dataset SHA-256 is
 
 ## 5. Next gate
 
-There are now two focused options.
-
-1. Express \(Q{\cal Z}_YV=0\) in L201's transfer coefficients
-   \(B_n=W_C^*(C^*)^nV_C\), then prove (9) from matrix innerness.
-2. Construct \(C\) directly by the matrix Schur/Levinson recursion
-   of the positive inverse-block-Toeplitz equality Gram.
+L206 closes the Fredholm compatibility in (9).  What remains is to
+construct a bounded real-analytic solution \(C\) as the map changes
+rank at the Crabb apex, rather than use a pointwise pseudoinverse.
+The natural options are analytic divisibility in the transfer
+coefficients or a block Schur/Levinson recursion for the positive
+inverse-block-Toeplitz Gram.
 
 Either route must retain the left/right orientation: the target in
 (6) is the left Gram \(-ZZ^*=-16B_1B_1^*\).  After grade one, the
-same cokernel reduction must be iterated on its kernel using
+same construction must be iterated on its kernel using
 \(B_2,\ldots,B_L\); L201's invertible \(B_L\) supplies the terminal
 coercivity.

@@ -68,6 +68,24 @@ class EllipticCokernelRecord:
     all_checks_passed: bool
 
 
+@dataclass(frozen=True)
+class ReducedFaceData:
+    """Matrices defining one reduced L204 endpoint equation."""
+
+    operator: np.ndarray
+    metric: np.ndarray
+    right_defect: np.ndarray
+    left_defect: np.ndarray
+    fixed_forcing: np.ndarray
+    parallel_column: np.ndarray
+    base_metric_direction: np.ndarray
+    normal_corner: np.ndarray
+    target_endpoint: np.ndarray
+    target_gap: np.ndarray
+    commutator_norm: float
+    actual_strength: float
+
+
 def stein_inverse(operator: np.ndarray, forcing: np.ndarray) -> np.ndarray:
     """Solve ``X - T* X T = forcing`` and remove roundoff skew."""
 
@@ -122,12 +140,12 @@ def endpoint_motion(
     return (endpoint + endpoint.conj().T) / 2
 
 
-def reduced_second_face(
+def build_reduced_face_data(
     length: int,
     multiplicity: int,
     requested_strength: float,
-) -> EllipticCokernelRecord:
-    """Build one reduced range equation and its minimum-frame solution."""
+) -> ReducedFaceData:
+    """Construct the matrices in the reduced L204 range equation."""
 
     (
         operator,
@@ -181,6 +199,45 @@ def reduced_second_face(
     base_endpoint = left.conj().T @ base_metric @ left
     target_gap = target - base_endpoint
     target_gap = (target_gap + target_gap.conj().T) / 2
+
+    return ReducedFaceData(
+        operator=operator,
+        metric=metric,
+        right_defect=right,
+        left_defect=left,
+        fixed_forcing=fixed_forcing,
+        parallel_column=parallel_column,
+        base_metric_direction=base_metric,
+        normal_corner=normal_corner,
+        target_endpoint=target,
+        target_gap=target_gap,
+        commutator_norm=commutator,
+        actual_strength=actual_strength,
+    )
+
+
+def reduced_second_face(
+    length: int,
+    multiplicity: int,
+    requested_strength: float,
+) -> EllipticCokernelRecord:
+    """Build one reduced range equation and its minimum-frame solution."""
+
+    data = build_reduced_face_data(
+        length,
+        multiplicity,
+        requested_strength,
+    )
+    operator = data.operator
+    right = data.right_defect
+    left = data.left_defect
+    fixed_forcing = data.fixed_forcing
+    parallel_column = data.parallel_column
+    base_metric = data.base_metric_direction
+    target = data.target_endpoint
+    target_gap = data.target_gap
+    commutator = data.commutator_norm
+    actual_strength = data.actual_strength
 
     column_basis = projected_column_basis(right)
     map_columns = np.stack(

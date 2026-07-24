@@ -2,6 +2,26 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — repeated circular/elliptic merger)
 
+## NEWEST (2026-07-24): L206 closes elliptic cokernel compatibility
+- Normalize L204's dual observability Gramian by
+  `H_Y=P^(1/2) Z_Y P^(1/2)/4`.  Its adjoint-kernel equation is
+  equivalent to the exact state commutator `H_Y S=S H_Y`.
+- Hence `H_YW=WY`, `H_YV=VA`, and
+  `YB_n=B_nA` for every coefficient of L201's genuine matrix-inner
+  transfer.  Conversely, transfer intertwining plus the telescoping
+  observability identity recovers the state commutant.
+- Spectral projections of `H_Y` reduce the complete colligation and
+  both elliptic jets.  L203's trace identity therefore applies on each
+  reducing block.  Weighting and summing proves `tr(YD_T)=0` for
+  every cokernel direction, not only the scalar one.
+- Finite-dimensional Fredholm now proves the oriented matrix face
+  `V*XV=0`, `W*XW=−ZZ*` at every fixed equality anchor.
+- The remaining gate is no longer compatibility: it is a bounded
+  real-analytic selection through the rank-jumping Crabb apex, followed
+  by the same construction on grades `B_2,...,B_L`.
+  `proof/repeated_crabb_elliptic_commutant.md`;
+  `experiments/repeated_crabb_elliptic_commutant.py`.
+
 ## NEWEST (2026-07-24): L205 separates scalar from complete equality
 - Every L193 anchor has complete similarity square four, but this does
   not mean a scalar Schur function attains norm two.
@@ -29,26 +49,24 @@
 - L203's full second Stein system reduces exactly to one real-linear
   copy endpoint map.  If `G_T` is the stable Stein inverse, eliminate
   the forced parallel defect motion with
-  `K=V*F_2V`, `X_0=G_T(F_2−VKV)`.  The remaining column
+  `K=V*F_2V`, `X_0=G_T(F_2−V K V*)`.  The remaining column
   `C perpendicular V` acts by
   `M_T(C)=W*G_T(VC*+CV*)W`.
 - The oriented face is now the single equation
   `M_T(C)=D_T`, where `D_T=−ZZ*−W*X_0W`.
 - Its adjoint is explicit.  If
   `Z_Y−TZ_YT*=WYW*`, then
-  `M_T*(Y)=2(I−VV*)Z_YV`.  Hence the exact unresolved statement is
+  `M_T*(Y)=2(I−VV*)Z_YV`.  Solvability is therefore equivalent to
   `tr(YD_T)=0` for every such cokernel vector.
-- L203 proves the universal scalar cokernel condition.  Reducible
-  copy strata can have additional cokernel directions, so trace alone
-  is not sufficient.
+- L203 proves the universal scalar condition; L206 now proves every
+  additional reducible cokernel condition.
 - A 48-case scaling audit through lengths five and multiplicities
   three finds `D_T=O(s²)` and a minimum correction `C=O(s)` as the
   equality amplitude `s` tends to zero.  Every additional cokernel
   condition vanishes.  This is strong bounded-divisibility evidence,
   not an analytic proof.
-- Next express the cokernel equation in L201's coefficients `B_n` and
-  prove it from matrix innerness, or construct the correction by the
-  block Schur/Levinson recursion.
+- The remaining issue is bounded analytic selection through the rank
+  jump, not pointwise compatibility.
   `proof/repeated_crabb_elliptic_cokernel.md`;
   `experiments/repeated_crabb_elliptic_cokernel.py`.
 

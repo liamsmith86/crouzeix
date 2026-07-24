@@ -225,7 +225,7 @@ L204 performs the exact Lyapunov--Schmidt reduction.  With `G_T` the
 stable Stein inverse, eliminate the lower endpoint by
 
 ```
-K=V*F_2V,  X_0=G_T(F_2−VKV).
+K=V*F_2V,  X_0=G_T(F_2−V K V*).
 ```
 
 All remaining freedom is `C perpendicular V` and the full matrix gate is
@@ -237,15 +237,28 @@ D_T=−ZZ*−W*X_0W.
 ```
 
 If `Z_Y−TZ_YT*=WYW*`, the exact adjoint is
-`M_T*(Y)=2(I−VV*)Z_YV`.  Thus the analytic debt is now precisely
-`tr(YD_T)=0` on that cokernel plus a bounded analytic choice of `C`.
-The scalar condition is L203; reducible copy strata have additional
+`M_T*(Y)=2(I−VV*)Z_YV`.  Reducible copy strata can have additional
 cokernel directions.  On 48 noncommuting scaling records,
 `D_T=O(s²)` and the minimum correction is `O(s)` through the rank
-jump.  This is evidence, not the missing analytic proof.  Continue by
-rewriting the cokernel in L201's transfer coefficients or by the block
-Schur/Levinson recursion.  See
+jump.  See
 `proof/repeated_crabb_elliptic_cokernel.md`.
+
+L206 closes the compatibility debt.  After balancing, the complete
+adjoint kernel is exactly the self-adjoint state commutant:
+
+```
+QH_YV=0  iff  H_YS=SH_Y,
+H_YW=WY,  H_YV=VA,  YB_n=B_nA.
+```
+
+Spectral projections of `H_Y` reduce the full colligation and both
+elliptic jets.  Applying L203 on each reducing block and weighting by
+its eigenvalue proves `tr(YD_T)=0` for every cokernel direction.
+Fredholm therefore proves the oriented matrix face pointwise at every
+equality anchor.  The remaining complete gate is a bounded
+real-analytic choice of `C` through the rank-jumping Crabb apex, then
+the higher-grade iteration through `B_2,...,B_L`.  See
+`proof/repeated_crabb_elliptic_commutant.md`.
 
 L205 supplies a scalar-only alternative to that stronger complete
 gate.  The condition-two chain is sharp for a scalar Schur function
