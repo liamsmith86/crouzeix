@@ -2,6 +2,25 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — full circular-normal merger)
 
+## NEWEST (2026-07-24): L197 closes the finite repeated disk flag
+- Along any analytic block-disk path, the negative upper endpoint
+  `S=−E` is an analytic positive semidefinite copy matrix.
+- Split the positive range of its first nonzero coefficient from its
+  kernel.  The active block is invertible after removing its even
+  power of the path parameter; the cross block gains an order.
+  Therefore exact triangular Schur congruence is analytic.
+- The reduced kernel endpoint is again analytic PSD and has strictly
+  higher valuation.  Repeating lowers dimension, so the flag
+  terminates after at most `m` active steps.  A terminal zero block is
+  an exact analytic kernel bundle.
+- The first step is L195/L196.  Later steps are exactly residual
+  columns orthogonalized against all earlier active Hardy ranges.
+  This closes the repeated **disk-only** residual induction.
+- The remaining repeated gates are now the circular-normal merger and
+  elliptic matrix-Jensen/support rigidity.
+  `proof/repeated_crabb_schur_flag.md`;
+  `experiments/repeated_crabb_schur_flag.py`.
+
 ## NEWEST (2026-07-24): L196 promotes the first repeated residual kernel
 - Use `B=H^−1` and subtract its block-Toeplitz diagonal means.  The
   remainder `N` is an exact linear transverse coordinate to L193's
@@ -16,8 +35,7 @@
 - After recentering at the inverse-block-Toeplitz equality anchor, the
   transverse valuation on the kernel and its cross blocks strictly
   rises.  This is the first exact flag promotion.
-- The next gate is the iterated step: identify the next residual after
-  Schur orthogonalization against the already active Hardy range.
+- L197 now supplies the complete finite Schur-orthogonal induction.
   `proof/repeated_crabb_inverse_gram_kernel.md`;
   `experiments/repeated_crabb_inverse_gram_kernel.py`.
 

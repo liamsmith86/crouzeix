@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-24): L196 / A139
+## Current general Crabb frontier (2026-07-24): L197 / A140
 
 The complete local chart around every fixed **single** Crabb block is
 closed by L192.  L193 identifies the correct upper-equality stratum at
@@ -106,16 +106,23 @@ entire leading transverse coefficient and cross blocks to be
 supported on the copy complement.  The transverse valuation therefore
 rises on the kernel.
 
-The immediate task is to iterate this after the upper Schur complement
-orthogonalizes later residual columns against the already active Hardy
-range.  Then retain L188's circular-normal null lift on the active
-range.  Elliptic copy data require a separate support/Jensen argument;
-do **not** substitute a noncommuting matrix parameter into the scalar
-Faber/Joukowski formulas.  See
+L197 closes that iteration abstractly and exactly.  On every analytic
+arc, `−E` is an analytic PSD copy matrix.  Split its first positive
+coefficient from its kernel, eliminate cross terms by analytic Schur
+congruence, and repeat.  Valuation rises and dimension falls at every
+step, so the disk flag terminates after at most `m` stages.  Later
+residuals are precisely orthogonalized against earlier active Hardy
+ranges.
+
+The immediate task is to retain L188's circular-normal null lift
+through this finite flag.  Elliptic copy data then require a separate
+support/Jensen argument; do **not** substitute a noncommuting matrix
+parameter into the scalar Faber/Joukowski formulas.  See
 `proof/crabb_block_hardy_equality.md` and
 `proof/repeated_crabb_exact_metric_chart.md` and
 `proof/repeated_crabb_first_residual_endpoint.md` and
-`proof/repeated_crabb_inverse_gram_kernel.md`.
+`proof/repeated_crabb_inverse_gram_kernel.md` and
+`proof/repeated_crabb_schur_flag.md`.
 
 ### Superseded L182 checkpoint
 
