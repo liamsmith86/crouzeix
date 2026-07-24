@@ -1,8 +1,8 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-24 (Epoch 6 — repeated elliptic merger)
+**Last updated:** 2026-07-24 (Epoch 6 — repeated circular/elliptic merger)
 
-## NEWEST (2026-07-24): L199 closes the associated-graded circular-normal gate
+## AUDIT CORRECTION (2026-07-24): L199 closes the first raw normal face, not the whole flag
 - L61 handles noncommuting true-normal copy coefficients before the
   residual face: unless their first support-compression Jensen gap
   vanishes, the similarity endpoint is already strict.
@@ -14,10 +14,16 @@
   is bounded by the copy Gram, and L188/L173 applies without any
   noncommutative ordering ambiguity.
 - Equality kills every normal amplitude and both the rows and columns
-  of every residual block on the kernel.  The kernel is reducing and
-  descends through L197's finite flag.  Thus true circular normals
-  create no remaining associated-graded obstruction.
-- The remaining repeated gate is the elliptic soft coordinate and
+  of the first raw residual blocks on the kernel.  This independently
+  recovers the compatibility needed by L196's first promotion.
+- The previous wording incorrectly iterated this raw-reflection
+  argument through all of L197.  Later flag residuals are
+  least-squares orthogonalized against earlier Hardy ranges and need
+  not automatically retain the reflected form used by the statewise
+  proof.  The transported analytic normal graph may also mix those
+  earlier ranges into a later quotient.
+- The remaining repeated gates are therefore (i) this later
+  circular-normal flag lift and (ii) the elliptic soft coordinate and
   its operator-valued marked/Faber face over noncommuting
   inverse-block-Toeplitz equality anchors.
   `proof/repeated_crabb_circular_jensen.md`;
@@ -32,8 +38,8 @@
   independently derived.  Scalar L173/L188 data cannot determine
   every noncommutative product order.
 - The Jordan note is therefore retained only as a conditional guard.
-  L199 supplies the valid, weaker route by scalarizing normals on the
-  zero-Jensen winner.
+  L199 supplies the valid, weaker first-face route by scalarizing
+  normals on the zero-Jensen winner.
 
 ## NEWEST (2026-07-24): L197 closes the finite repeated disk flag
 - Along any analytic block-disk path, the negative upper endpoint

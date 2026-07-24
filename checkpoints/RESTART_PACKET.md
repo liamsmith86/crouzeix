@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-24): L199 / A142
+## Current general Crabb frontier (2026-07-24): after L199 / A142
 
 The complete local chart around every fixed **single** Crabb block is
 closed by L192.  L193 identifies the correct upper-equality stratum at
@@ -120,16 +120,22 @@ Jordan-symmetric replacement is algebraically absorbable but was not
 independently identified with the actual repeated endpoint, so it is
 not a proof dependency.
 
-L199 supplies the valid circular-normal merger.  L61 makes every
+L199 supplies the valid first-face circular-normal merger.  L61 makes every
 nonscalar normal copy coefficient strict at the earlier
 support-Jensen order.  On a zero-Jensen winner, Fourier independence
 forces the surviving coefficient to be scalar.  Testing L195's block
 residual on each copy vector then reduces exactly to scalar
 L188/L173.  Equality kills every normal amplitude and both rows and
-columns of all residual blocks on the kernel, so L197 iterates.
+columns of the first raw residual blocks on the kernel, agreeing with
+L196.
 
-The immediate task is the elliptic soft coordinate over L193's
-noncommuting inverse-block-Toeplitz equality anchors.  Do **not**
+Do not iterate the last sentence blindly through L197.  A later flag
+residual has been least-squares orthogonalized against earlier Hardy
+ranges, so its raw reflection and the absence of analytic normal
+response through those ranges are still open.
+
+The immediate parallel structural task is the elliptic soft coordinate
+over L193's noncommuting inverse-block-Toeplitz equality anchors.  Do **not**
 substitute a noncommuting matrix parameter into scalar
 Faber/Joukowski formulas without an operator-valued derivation.  See
 `proof/crabb_block_hardy_equality.md` and

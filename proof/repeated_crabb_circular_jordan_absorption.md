@@ -227,8 +227,10 @@ residual and every leading circular-normal copy matrix.
 
 This would be the algebra needed to compress to the next copy-space
 flag if (4) were established.  L199 proves the required reducing
-kernel directly on the scalarized zero-Jensen winner, so neither (4)
-nor a later Jordan lift is needed.
+kernel directly on the scalarized zero-Jensen winner for the first raw
+residual face.  A later Jordan lift may still be avoidable, but the
+interaction of analytic normal response with L197's Schur-orthogonal
+later residuals has not yet been derived.
 
 ## 6. Regeneration
 

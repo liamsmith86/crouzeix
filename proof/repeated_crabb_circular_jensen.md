@@ -8,8 +8,9 @@ Fix a Crabb length \(L\) and copy multiplicity \(m\).  Combine:
 - L61's first-support Jensen reduction at a repeated Crabb block; and
 - L173/L188's scalar true-circular-normal absorption.
 
-At every member of the repeated disk flag, one has the following
-alternative.
+At the first repeated residual face, and at any later face for which one
+has independently exposed a freshly recentered raw Hardy residual, one has
+the following alternative.
 
 1. The first support-compression Jensen gap is positive.  Then L61 gives
    strict descent one order before the disk residual/normal Schur face.
@@ -18,16 +19,16 @@ alternative.
    to the losing space.  On that winner, the scalar L188 inequality applied
    state by state gives the full copy-matrix endpoint inequality.
 
-Consequently all true circular normals are absorbed at every finite disk
-flag level.  If the joint leading face has a kernel, every circular normal
-vanishes there and the kernel reduces every leading residual block.  It can
-therefore descend to the next L197 flag member without carrying a hidden
-normal response.
+Consequently true circular normals are absorbed on the first raw repeated
+Hardy face.  If that joint face has a kernel, every circular normal vanishes
+there and the kernel reduces every leading residual block.
 
-This closes the **associated-graded circular-normal gate** for repeated
-Crabb blocks.  It deliberately does not claim the repeated local theorem:
-the elliptic soft mode and the uniform gluing of its support-rank changes
-remain.
+This is an independent support-rank audit of L198 and identifies the exact
+zero-Jensen mechanism which avoids a false noncommutative tensorization.  It
+does **not** yet close the complete L197 flag: after Schur orthogonalization,
+a later residual need not retain the raw reflection formula below, and the
+analytic normal critical graph can mix earlier active ranges into the later
+quotient.  The flag lift and the elliptic soft mode both remain.
 
 ## 2. The first Jensen gate
 
@@ -197,16 +198,18 @@ Using (6) on the reflected blocks also gives
  F_{ab}^*v=0\qquad(\hbox{all }a,b).                  \tag{15}
 \]
 
-Thus a joint kernel reduces every residual block and contains no surviving
-true-normal coefficient.  L196 promotes precisely this reducing residual
-kernel, while L197 passes to the next Schur-orthogonal residual.  Repeating
-the Jensen alternative and (11)--(15) terminates after at most \(m\)
-winner/flag promotions.
+Thus the first joint kernel reduces every raw leading residual block and
+contains no surviving true-normal coefficient.  L196 promotes precisely
+this first reducing kernel.
 
-The remaining repeated obstruction is consequently not a circular-normal
-complete-boundedness problem.  It is the elliptic soft mode, whose support
-profile shares the equality degeneration and needs the promised
-matrix-Jensen/support-rigidity argument.
+At a later L197 member, the same statewise argument applies if the quotient
+has first been identified with the copy-preserving compression of a
+freshly recentered raw residual satisfying (6).  That identification is
+not automatic: L197's residual is least-squares orthogonalized against
+earlier active Hardy ranges, while the transported analytic normal graph
+may contain response terms through those ranges.  Proving that these terms
+vanish or are already paid for is the remaining circular-normal flag debt.
+The separate elliptic soft mode also remains.
 
 ## 7. Regeneration
 
