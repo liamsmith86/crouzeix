@@ -84,13 +84,21 @@ def scalar_series_quotient(
     return quotient
 
 
-def inverse_square_root_series(
-    constant: sp.Matrix,
-    tangent: sp.Matrix,
-    order: int,
+def inverse_square_root_from_series(
+    gramian: Sequence[sp.Matrix],
 ) -> list[sp.Matrix]:
-    """Solve ``G(epsilon) K(epsilon) G(epsilon) = I`` with symmetric ``G``."""
+    """Solve ``G(epsilon) K(epsilon) G(epsilon) = I`` coefficientwise.
 
+    The constant coefficient must be positive diagonal.  Later
+    coefficients may be arbitrary symmetric matrices.  This is the
+    general recurrence underlying :func:`inverse_square_root_series`.
+    """
+
+    if not gramian:
+        raise ValueError("the Gramian series cannot be empty")
+    constant = gramian[0]
+    if constant != sp.diag(*constant.diagonal()):
+        raise ValueError("the constant Gramian coefficient must be diagonal")
     dimension = constant.rows
     square_roots = [
         sp.sqrt(constant[index, index])
@@ -99,13 +107,8 @@ def inverse_square_root_series(
     coefficients = [
         sp.diag(*[1 / value for value in square_roots])
     ]
-    gramian = [
-        constant,
-        tangent,
-        *[sp.zeros(dimension) for _ in range(order - 1)],
-    ]
 
-    for degree in range(1, order + 1):
+    for degree in range(1, len(gramian)):
         known = sp.zeros(dimension)
         for left_degree in range(degree + 1):
             for middle_degree in range(degree - left_degree + 1):
@@ -141,7 +144,7 @@ def inverse_square_root_series(
                 )
         coefficients.append(coefficient)
 
-    for degree in range(order + 1):
+    for degree in range(len(gramian)):
         residual = ordinary_triple_series_coefficient(
             coefficients,
             gramian,
@@ -154,6 +157,22 @@ def inverse_square_root_series(
                 "the inverse-square-root recurrence did not regenerate"
             )
     return coefficients
+
+
+def inverse_square_root_series(
+    constant: sp.Matrix,
+    tangent: sp.Matrix,
+    order: int,
+) -> list[sp.Matrix]:
+    """Solve an affine ``G(epsilon) K(epsilon) G(epsilon) = I`` series."""
+
+    dimension = constant.rows
+    gramian = [
+        constant,
+        tangent,
+        *[sp.zeros(dimension) for _ in range(order - 1)],
+    ]
+    return inverse_square_root_from_series(gramian)
 
 
 def physical_reflected_path(

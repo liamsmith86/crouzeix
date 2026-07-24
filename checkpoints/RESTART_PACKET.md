@@ -1,41 +1,50 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-24): L189 / A134
+## Current general Crabb frontier (2026-07-24): L192 / A135
 
-L187 identifies the finite Hardy residual `Psi(H)` on L122's general
-Hermitian disk chart.  Its Crabb differential is the Hermitian
-diagonal-difference map, of real rank `(L−1)^2` with exactly the
-Hermitian Toeplitz kernel.  Thus `Psi=0` is a curved analytic equality
-manifold of physical dimension `2L−2`.
+The complete local chart around every fixed **single** Crabb block is
+now closed.
 
-Residual zero is genuine equality, not merely a canonical-metric
-artifact: the rank-one Stein condition square is four and the
-characteristic finite Blaschke product has norm two.  The normalized
-ambient derivative also vanishes on the whole manifold.  Independent
-nonlinear solves found non-Toeplitz points with both squares exactly
-four and all matrix-unit derivatives at roundoff.
+L187--L189 identify the full Hardy equality manifold `Psi(H)=0` in
+L122's general Hermitian disk chart and prove a nonlinear tube after
+adding every transported true circular normal.  A first residual
+`s^mF` has universal base deficit `4||F||_F²`; its complete normal
+response is a weighted skew anti-diagonal projection absorbed strictly
+by L173's flux/null curvature.
 
-L188 replaces the sixth/eighth/tenth kernel ladder by one theorem.  If
-an analytic disk path first has residual `s^mF`, then
+L190 observes that the unrestricted characteristic coefficients
+`u_1,...,u_(L−1)` are analytic coordinates on this larger equality
+manifold.  The exact Faber reflection has marked legs
 
 ```
-D_(2m)=4||F||_F².
+r=c^L,  w_j=c^j u_j.
 ```
 
-Every order-`m` circular-normal response is a weighted anti-diagonal
-projection of `(F−F^T)/2`.  Cauchy--Schwarz exactly absorbs these rows
-using L173's flux curvature, while its null lift supplies strictness.
-Exact audits cover first residual orders `1,...,5`, including the
-weighted pair whose fourth residual was canceled.
+Defect-one innerness removes every one-reflection term and the compact
+face is `−16|r|²−64 sum|w_j|²`, giving a uniform elliptic tube over
+every equality anchor.
 
-L189 applies analytic curve selection to prove the nonlinear tube over
-the **complete general-H disk chart** and transported true
-circular-normal fibres.  The next task is the final local-chart merger:
-combine this tube with the already proved elliptic and marked/compact
-faces, checking all two-scale intersections.  Do not resume a
-full-disk jet ladder or fixed-size SOS.  See
-`proof/crabb_full_disk_leading_residual_tube.md`.
+L191 closes the last new mixed block.  The full normalized first jet
+of L156's cleared endpoint residual vanishes at the Crabb apex: its
+raw Gram gradient has only two endpoint-diagonal entries, exactly
+canceled by defect-line normalization.  Hence the simultaneous
+residual/reflection face is the direct sum
+
+```
+−4||F||_F² − 16|rho|² − 64 sum|omega_j|².
+```
+
+L192 combines this with L188, L160's strict grade-one bottom square,
+L163's higher-grade zero rows, and L120's axis selection.  No normal
+curvature is spent twice.  Analytic curve selection proves a full
+operator neighbourhood theorem for each single block, with equality
+only on the full circular-range equality manifold modulo symmetries.
+
+This is not the global conjecture.  The next live gate is to promote
+the theorem through repeated Crabb blocks and normal-block collisions
+using L73 and L86--L114's metric flag.  See
+`proof/crabb_full_local_chart_merger.md`.
 
 ### Superseded L182 checkpoint
 
@@ -698,16 +707,17 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
 ## Next five concrete actions (refreshed 2026-07-24, Epoch 6)
-1. **Finish the single-Crabb local-chart merger.** Combine L189's
-   general-H disk/circular-normal tube with L149--L150/L158's
-   elliptic and marked/compact faces.  Audit the only equal-weight
-   mixed blocks using L160's strict grade-one face and L163's
-   higher-grade zero rows.  Use analytic curve selection rather than
-   another raw jet ladder.
-2. **Promote the single-block theorem through collisions.** Once the
-   local chart is closed, merge it with L73 and L86--L112's repeated
-   Crabb/normal-collision theory through the metric flag.  Do not
-   grind larger copy-space Schur matrices.
+1. **Promote the single-block theorem through collisions.** Merge
+   L192 with L73 and L86--L114's repeated-Crabb/normal-collision
+   theory through the metric flag.  First classify which losing-copy
+   and tied-winner valuations are not already strict from the
+   one-sided support derivative.  Do not grind larger copy-space
+   Schur matrices.
+2. **Audit the repeated equality stratum.** Determine whether a
+   repeated direct sum of L187 full-Hardy equality anchors has only
+   blockwise equality plus unitary copy mixing, or whether new
+   off-diagonal equality branches occur.  Use L74's quotient and
+   L86--L112's flag coordinates before computing higher jets.
 3. **Reassess the general similarity route.** Preserve the L20/L21
    slice milestone, but keep the completely-bounded caveat.  Use the
    existing general-matrix `t_*` adversarial data before attempting
@@ -723,18 +733,16 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
 ## Paste-ready continuation instruction
 "Continue the Crouzeix campaign in /home/liam/Downloads/crouzeix
 (git repo; commit and push each proved milestone).  Read the newest
-RESEARCH_STATE section, L187--L189/A134 in the ledgers,
-proof/crabb_full_disk_leading_residual_tube.md, then the elliptic and
-marked inputs proof/crabb_reflected_hardy_lift.md,
-proof/crabb_disk_flat_marked_merger.md,
-proof/crabb_circular_normal_face.md, and
-proof/crabb_dual_endpoint_residue.md.  Resume at the final
-single-Crabb chart merger: combine the proved general-H
-disk/circular-normal tube with the reflected/elliptic faces, using
-L160 for grade one and L163 for every higher grade.  Use valuation
-case-splitting plus analytic curve selection; do not restart a
-sixth/eighth/tenth Hardy jet ladder or a fixed-size SOS.  After the
-single-block theorem, lift through the repeated-block metric flag.
+RESEARCH_STATE section, L187--L192/A134--A135 in the ledgers, and
+proof/crabb_full_local_chart_merger.md.  The complete fixed-size
+single-Crabb chart is banked.  Resume at the repeated-block metric
+flag: combine L192 with L73 and L86--L114, classify the remaining
+tied-winner/losing-copy valuations, and determine whether the larger
+L187 equality manifold introduces new off-diagonal repeated equality
+branches.  Use the existing copy-quotient and flag structure; do not
+restart a single-block Hardy jet ladder or brute-force larger
+copy-space Schur matrices.  After the repeated local theorem, return
+to the general similarity/CP-moment and H-r routes.
 Respect pitfalls P1--P8 and the certificate discipline.  The stop
 condition remains a rigorous general proof or certified
 counterexample."

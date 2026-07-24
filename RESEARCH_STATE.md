@@ -2,6 +2,45 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — full circular-normal merger)
 
+## NEWEST (2026-07-24): L190--L192 close the single-Crabb local chart
+- L187's full equality manifold has a simpler intrinsic coordinate
+  system than the old phase-palindromic section.  If
+  `det(xi I−A)=xi g_u(xi)`, then
+  `g_u=xi^L+2 sum_(j=1)^(L−1) u_j xi^j`, and the `L−1` complex
+  coefficients `u_j` are local analytic coordinates on the equality
+  manifold.  The unrestricted Faber identity has negative Hardy legs
+  `r=c^L` and `w_j=c^j u_j`.
+- The reflected model-complement construction extends invariantly
+  over every full-Hardy equality anchor.  Defect-one colligation
+  innerness kills the complete one-reflection row; the compact face is
+  `−16|r|²−64 sum|w_j|²`.  Convergence gives a uniform negative
+  elliptic/marked tube over the whole equality manifold, not only the
+  phase-palindromic Toeplitz family.
+- The missing residual/reflection block is exactly orthogonal at the
+  Crabb apex.  If `F` is the first Hardy residual and `(rho,omega)` is
+  the first reflected vector at the same valuation, the optimized
+  initial form is
+  `−4||F||_F²−16|rho|²−64 sum|omega_j|²`, with no mixed row.
+  The proof uses the full normalized Gram gradient of L156's cleared
+  endpoint residual: before endpoint normalization it is supported
+  only on the two endpoint diagonals, which are exactly canceled by
+  defect-line motion.  Positivity removes the model-gap row.
+- Adding true circular normals spends no curvature twice.  L188's
+  residual responses use modes `3,...,L−3`; L160's sole nonzero
+  compact row uses the disjoint bottom mode and leaves a strict
+  square; L163 kills every grade `>=2` compact row; L120 handles the
+  pure axis.  The complete associated-graded form is therefore strict.
+- Analytic curve selection in L115's disk/elliptic/normal tubular
+  chart proves a full neighbourhood theorem for every fixed
+  **single** Crabb block: the explicit rank-one Stein certificate has
+  condition square at most four, with equality only on the full
+  circular-range equality manifold modulo symmetries.
+- This is not the global conjecture.  The live frontier is now the
+  repeated-block/normal-collision metric flag (L73, L86--L114), before
+  returning to general matrices.
+  `proof/crabb_full_local_chart_merger.md`;
+  `experiments/crabb_full_equality_elliptic_merger.py`.
+
 ## NEWEST (2026-07-24): L187--L189 prove the first-residual tube
 - The exact disk-chart Hardy residual has a finite
   `(L−1) x (L−1)` coordinate matrix `Psi(H)`.  At the Crabb point,
@@ -33,9 +72,9 @@
   pair whose fourth residual was canceled exactly.
 - Analytic curve selection now proves the nonlinear tube over L122's
   complete general-`H` disk chart and the transported true
-  circular-normal fibres.  The remaining campaign gate is no longer
-  another full-disk jet: merge this tube with the already proved
-  elliptic and marked/compact charts in the full local quotient.
+  circular-normal fibres.  L190--L192 subsequently merge the
+  elliptic and marked/compact charts and close the complete
+  single-Crabb local quotient.
   `proof/crabb_full_disk_leading_residual_tube.md`.
 
 ## NEWEST (2026-07-24): L185--L186 classify and lift the sixth kernel
