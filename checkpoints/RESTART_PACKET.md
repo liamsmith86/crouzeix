@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-24): after L241 / A186
+## Current general Crabb frontier (2026-07-24): after L242 / A187
 
 L230--L234 close the canonical repaired endpoint through the third
 transfer flag.  Universal bounded polynomial columns cancel the cubic
@@ -63,7 +63,11 @@ metric first by balanced `q^k(3I−2E)`, whose Stein/Schur response is
 `E+2E_1` and then `2E_1`.  Since `F_(k−1)=E_1` there, L228's
 multiplier is exactly one in arbitrary grade.  The remaining gap is
 only the ordered-cell locality statement for a general
-nonunitary/noncommuting active transfer block.
+nonunitary/noncommuting active transfer block.  L242 additionally
+proves that for every delay `r>=2` the retained direct block through
+the requested order uses only one reflection and is a universal
+`2/6/23`-word jet.  The exiting-chain columns, boundary metric, and
+Stein Schur square remain the sole state-lifted calculation.
 
 Standing constraints: A179 disproves raw simultaneous superposition of
 the L212 representatives; scalar shifts and positive-state
@@ -103,6 +107,9 @@ inserted into the analytic metric; and definite parity is false.
 - `proof/repeated_crabb_monomial_slack_face.md` (L241) and
   `experiments/repeated_crabb_monomial_slack_face.py`: exact all-grade
   monomial face and scalar multiplier one.
+- `proof/repeated_crabb_reflected_direct_jet.md` (L242) and
+  `experiments/repeated_crabb_reflected_direct_jet.py`: universal
+  retained first-reflection jet through the all-delay target order.
 - `proof/repeated_crabb_exact_metric_chart.md` (L194): analytic
   metric chart in which any all-series column construction must
   converge.

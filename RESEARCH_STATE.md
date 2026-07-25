@@ -2,6 +2,24 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — repeated circular/elliptic merger)
 
+## NEWEST (2026-07-24): L242 fixes the retained reflected jet in all delays
+- Relative to L240's unreflected half-line, the retained direct map
+  after a finite delay `r>=2` has the exact form
+  `(-1)^r(c^(2r)D_0+c^(2r+1)D_1+c^(2r+2)D_2)+...`,
+  with fixed ordered tail polynomials of `2,6,23` words.
+- A Laurent-cost bound proves that two terminal reflections start at
+  `c^(4r)`, after the requested order for every `r>=2`.  The remaining
+  one-reflection enumeration has at most five background letters.
+  L125 and L237 make every delay-dependent scalar coefficient cancel
+  symbolically for `r>=3`; `r=2` gives the same result separately.
+- This is the complete **retained direct block**, not the complete
+  slack.  The exiting-chain direct columns, L219 metric terms, and
+  right-defect Stein Schur square remain.  They must be varied against
+  L240's exact rank-`m` baseline before L228 can be promoted.  L241
+  separately fixes the eventual scalar multiplier on monomial cells.
+  `proof/repeated_crabb_reflected_direct_jet.md`;
+  `experiments/repeated_crabb_reflected_direct_jet.py`.
+
 ## NEWEST (2026-07-24): L241 fixes the delayed multiplier in every grade
 - On the length-`k` monomial channel, L219's physical boundary metric
   and L117's exact axis metric agree below `q^k`; their first
