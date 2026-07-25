@@ -2,6 +2,26 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — repeated circular/elliptic merger)
 
+## NEWEST (2026-07-24): L223 gives every delayed flag an exact upper budget
+- For L219's explicit boundary-layer metric, if
+  `B_1=...=B_(k-1)=0`, the first upper physical Schur face is exactly
+  `-4c^(2k)B_kB_k*`.
+- The proof is elementary and all-grade.  In the positive upper gap,
+  only the `k`-th right-defect orbit has a leading compression to
+  `W`; every left orbit annihilates `W`, and the cross Schur square
+  starts at order `c^(4k)`.
+- Thus the correct left orientation, reflected weight, rank-changing
+  kernel, and terminal coercivity are already present before any
+  Stein factorization.  At the repeated apex the face is
+  `-4c^(2L)I`.
+- This does not solve contraction: the same boundary metric can have
+  indefinite elliptic Stein slack.  The remaining task is now
+  quantitative—repair the slack while spending strictly less than
+  L223's explicit upper budget (or construct a stronger endpoint),
+  uniformly through the L222 rank flags.
+  `proof/repeated_crabb_boundary_metric_face.md`;
+  `experiments/repeated_crabb_boundary_metric_face.py`.
+
 ## NEWEST (2026-07-24): L222 reduces partial flags to delayed trace signs
 - For any left-copy flag `U`, compress L204's homogeneous endpoint
   response to `C -> U* M_T(C) U`.  Finite-dimensional semidefinite

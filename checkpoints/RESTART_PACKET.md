@@ -1,7 +1,24 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-24): after L222 / A165
+## Current general Crabb frontier (2026-07-24): after L223 / A166
+
+L223 strengthens the L219 route quantitatively.  If
+`B_1=...=B_(k-1)=0`, the boundary-layer metric has exact first upper
+Schur face
+
+```
+-4 c^(2k) B_k B_k*.
+```
+
+The proof uses only the positive orbit decomposition: left wandering
+orbits annihilate the upper defect, the `k`-th right orbit compresses
+to `B_kB_k*`, and the cross Schur square starts too late.  Thus every
+delayed flag already has a canonical negative budget with the correct
+orientation and kernel.  The metric's elliptic Stein slack remains
+possibly indefinite.  A direct repair must cost strictly less than
+this budget; naïve isotropic or negative-part Gramian repairs fail
+near non-apex equality anchors.
 
 L222 changes the immediate endpoint target.  For a left-copy flag
 `U`, the affine compressed response
@@ -1186,6 +1203,8 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    three are already proved.  Then use L222's reducing-separator
    alternative and prove bounded pathwise selection through its rank
    changes.
+   In parallel, use L223's exact `-4B_kB_k*` boundary budget to seek a
+   structured Stein repair; do not retry isotropic slack domination.
 2. **Merge later circular normals.** L199 covers the first raw face
    only.  Identify the response after L197's later least-squares Schur
    quotients and combine it with the elliptic flag.
@@ -1229,6 +1248,9 @@ pointwise physical target is the fully delayed trace law
 and three; exact feature-Gram equality on every partial flag is
 stronger than necessary.  Still prove bounded selection through
 commutant rank jumps before claiming a local metric theorem.
+L223 proves independently that L219's boundary metric already has
+the exact delayed upper face `-4c^(2k)B_kB_k*`; a successful direct
+Stein repair must stay inside that explicit budget.
 The one-image physical generator is tracked through grade six, with
 an additional reported grade-eight holdout, but is not yet proved.
 Both known
