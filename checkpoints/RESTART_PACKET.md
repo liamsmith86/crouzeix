@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-24): after L245 / A190
+## Current general Crabb frontier (2026-07-24): after L246 / A191
 
 L230--L234 close the canonical repaired endpoint through the third
 transfer flag.  Universal bounded polynomial columns cancel the cubic
@@ -90,6 +90,11 @@ vectors, becoming powers of `x`/`rho` times
 now give every block of the full finite resolvent.  The live gate is
 the finite Laurent-residue, boundary-metric, and coisometric
 Schur-Gram assembly.
+L246 allows that assembly to be done at either endpoint: the first
+right-initial and left-final defect Schur faces are conjugate by the
+unperturbed partial isometry, even after analytic metric similarity.
+The remote left endpoint is therefore an equivalent and potentially
+simpler target for L228; L246 does not itself evaluate its coefficient.
 
 Standing constraints: A179 disproves raw simultaneous superposition of
 the L212 representatives; scalar shifts and positive-state
@@ -141,6 +146,9 @@ inserted into the analytic metric; and definite parity is false.
 - `proof/repeated_crabb_chain_green_columns.md` (L245) and
   `experiments/repeated_crabb_chain_green_columns.py`: exact all-delay
   incoming/outgoing chain features and complete block state lift.
+- `proof/associated_defect_schur_duality.md` (L246) and
+  `experiments/associated_defect_schur_duality.py`: exact
+  initial/final first-face conjugacy under analytic metric similarity.
 - `proof/repeated_crabb_exact_metric_chart.md` (L194): analytic
   metric chart in which any all-series column construction must
   converge.

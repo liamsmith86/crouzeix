@@ -2,6 +2,20 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — repeated circular/elliptic merger)
 
+## NEWEST (2026-07-24): L246 makes the first defect face endpoint-dual
+- For any analytic perturbation of a partial isometry, the
+  right-initial and left-final defect Schur quotients obey an exact
+  graph intertwining.  If their first nonzero degree is `d`, then
+  `K_left[d]=S K_right[d] S*`; analytic metric congruence does not
+  alter that first face.
+- Thus L228's matrix face, trace, rank, and inertia may be calculated
+  at L245's remote clean-chain left endpoint and transported back.
+  This does not yet calculate the delayed coefficient, but it removes
+  the need to force the calculation through the less natural right
+  pivot.
+  `proof/associated_defect_schur_duality.md`;
+  `experiments/associated_defect_schur_duality.py`.
+
 ## NEWEST (2026-07-24): L245 closes every exiting-chain Green column
 - For a clean delay `r`, both exterior chain factors in the full block
   inverse have exact continuant entries:
