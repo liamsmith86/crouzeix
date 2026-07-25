@@ -109,7 +109,7 @@ Using the first resolution in (4), direct subtraction gives
 \boxed{
 P_{\rm bl}-P^{-1}
 =\sum_{j\ge1}\left(\frac12-a_j\right)E_j
- \frac14F+\sum_{j\ge1}b_jF_j.}                    \tag{6}
+ +\frac14F+\sum_{j\ge1}b_jF_j.}                   \tag{6}
 \]
 
 Using the second resolution gives
@@ -118,7 +118,7 @@ Using the second resolution gives
 \boxed{
 4P^{-1}-P_{\rm bl}
 =2E+\sum_{j\ge1}a_jE_j
- \sum_{j\ge1}(1-b_j)F_j.}                         \tag{7}
+ +\sum_{j\ge1}(1-b_j)F_j.}                        \tag{7}
 \]
 
 For \(0<q<1\),

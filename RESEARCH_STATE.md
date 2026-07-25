@@ -2,6 +2,25 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — repeated circular/elliptic merger)
 
+## NEWEST (2026-07-24): L224 exposes the exact partial-flag upper budget
+- Let `K_(k-1)=intersection_(j<k) ker B_j*`.  After eliminating the
+  state complement and every earlier active copy direction, L219's
+  physical boundary metric has exact first face
+  `-4c^(2k)(U*B_k)(U*B_k)*` on an isometry `U` onto `K_(k-1)`.
+- The proof uses the exact full endpoint expansion
+  `H=sum a_jB_jB_j*−sum a_ja_l B_jC_j*A(q)^−1C_lB_l*`.
+  The direct grade-`k` Gram survives; all two-leg interactions and the
+  singular earlier-block Schur square start at least one order later.
+- This extends L223 through arbitrary noncommuting rank changes and
+  removes the need to guess a partial-flag whitening for the endpoint
+  budget.  It remains an endpoint theorem, not a contraction theorem:
+  the boundary metric's Stein slack can still be indefinite.
+- The live quantitative gate is to construct a structured
+  Stein-positive repair whose cost on every L224 flag is strictly
+  below the available factor four.
+  `proof/repeated_crabb_boundary_metric_flag.md`;
+  `experiments/repeated_crabb_boundary_metric_flag.py`.
+
 ## NEWEST (2026-07-24): L223 gives every delayed flag an exact upper budget
 - For L219's explicit boundary-layer metric, if
   `B_1=...=B_(k-1)=0`, the first upper physical Schur face is exactly

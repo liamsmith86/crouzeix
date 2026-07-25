@@ -1,7 +1,25 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-24): after L223 / A166
+## Current general Crabb frontier (2026-07-24): after L224 / A167
+
+L224 extends L223 from completely delayed copies to every ordered
+partial left-copy flag.  If
+`K_(k-1)=intersection_(j<k)ker B_j*` and `U` is an isometry onto this
+flag, the physical boundary metric has exact first upper face
+
+```
+-4 c^(2k) (U*B_k)(U*B_k)*.
+```
+
+The proof expands the full upper Schur endpoint into direct transfer
+Grams and interactions with two transfer legs.  On the surviving
+flag, the direct grade-`k` Gram is the only order-`q^k` term; the
+interactions and earlier-block Schur square start at `q^(k+1)`.
+Thus the explicit endpoint budget is stable through noncommuting rank
+jumps.  This is not yet a contraction certificate: the next gate is
+a structured Stein repair whose flagged endpoint cost is strictly
+less than the available factor four.
 
 L223 strengthens the L219 route quantitatively.  If
 `B_1=...=B_(k-1)=0`, the boundary-layer metric has exact first upper

@@ -17,7 +17,7 @@ and, with \(q=c^2\),
 \[
 P_{\rm bl}(q)
 =I-\sum_{j\ge1}\frac{q^j}{1+q^j}(S^*)^jES^j
- \sum_{j\ge1}q^jS^jF(S^*)^j.                       \tag{2}
+ +\sum_{j\ge1}q^jS^jF(S^*)^j.                      \tag{2}
 \]
 
 Suppose
@@ -89,7 +89,7 @@ direct subtraction from (2) gives the positive upper gap
 \boxed{
 U(q):=4P^{-1}-P_{\rm bl}(q)
 =2E+\sum_{j\ge1}\frac{q^j}{1+q^j}E_j
- \sum_{j\ge1}(1-q^j)F_j.}                          \tag{6}
+ +\sum_{j\ge1}(1-q^j)F_j.}                         \tag{6}
 \]
 
 At \(q=0\),
