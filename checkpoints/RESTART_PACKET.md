@@ -95,6 +95,12 @@ right-initial and left-final defect Schur faces are conjugate by the
 unperturbed partial isometry, even after analytic metric similarity.
 The remote left endpoint is therefore an equivalent and potentially
 simpler target for L228; L246 does not itself evaluate its coefficient.
+A trace-only shortcut is conditional, not banked: biunitary invariance
+and L241 would force `2||B_k||_F²` once a closed endpoint-word
+filtration is proved, and the full pipeline passes through grade eight.
+The missing step is explicit cancellation of the later `B#(x)` terms
+inside L244's coisometric Schur-Gram quotient; assuming that valuation
+would be circular.
 
 Standing constraints: A179 disproves raw simultaneous superposition of
 the L212 representatives; scalar shifts and positive-state
@@ -149,6 +155,10 @@ inserted into the analytic metric; and definite parity is false.
 - `proof/associated_defect_schur_duality.md` (L246) and
   `experiments/associated_defect_schur_duality.py`: exact
   initial/final first-face conjugacy under analytic metric similarity.
+- `proof/repeated_crabb_delayed_trace_law.md` and
+  `experiments/repeated_crabb_delayed_trace_law.py`: conditional
+  trace-only reduction, explicit `B#(x)` filtration debt, and generic
+  full-pipeline audits through grade eight.
 - `proof/repeated_crabb_exact_metric_chart.md` (L194): analytic
   metric chart in which any all-series column construction must
   converge.

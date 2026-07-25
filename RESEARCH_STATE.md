@@ -16,6 +16,22 @@
   `proof/associated_defect_schur_duality.md`;
   `experiments/associated_defect_schur_duality.py`.
 
+## ACTIVE CANDIDATE (2026-07-24): trace-only endpoint filtration
+- If the post-Schur trace at degree `d` contains only closed transfer
+  words of total endpoint weight at most `d`, complete delay and
+  independent defect-frame covariance force the grade-`k` face to be
+  `alpha_k ||B_k||_F²`; L241 gives `alpha_k=2` in every grade.
+- This would prove the pointwise all-grade separator sign needed by
+  L222 without proving L228's full matrix anticommutator.  The complete
+  pipeline passes on generic tails through grade eight.
+- **Not proved:** `B#(x)` in L243 has no visible `c` valuation, so later
+  transfer coefficients occur in the pre-Schur zero/one sectors.  The
+  missing theorem is that L244's coisometric Gram quotient cancels
+  those terms and restores symmetric endpoint valuation.  Do not bank
+  the trace law until that identity is explicit.
+  `proof/repeated_crabb_delayed_trace_law.md`;
+  `experiments/repeated_crabb_delayed_trace_law.py`.
+
 ## NEWEST (2026-07-24): L245 closes every exiting-chain Green column
 - For a clean delay `r`, both exterior chain factors in the full block
   inverse have exact continuant entries:
