@@ -78,6 +78,18 @@ cyclic class cancels coefficientwise between those two pieces.  This
 finite cancellation pattern exposes the role expected of L244's
 coisometry, but it does not prove the all-grade congruence.
 
+L265 subsequently sharpens the three-term target itself to the
+operator identity
+
+\[
+Q_{k+2}-(k+2)Q_1+(k+1)I=X_k-S^*X_kS,
+\qquad
+X_k=\sum_{j=0}^k(k+1-j)(S^*)^jES^j.
+\]
+
+Thus the still-open congruence (4) is a discrete coisometric
+boundary-flux law, not merely a fitted radial pattern.
+
 ## 2. Two telescopes
 
 Set

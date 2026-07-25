@@ -45,7 +45,8 @@
   still-unidentified physical channel numerator remains.  A210/L264
   supplies the final legal gauge choice: restore the universal
   right-half-line metric while continuing to delete the active left
-  orbit, final corner, and cross row.
+  orbit, final corner, and cross row.  A211/L265 rewrites the target
+  itself as four times one finite right-half-line Stein divergence.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
 
@@ -203,6 +204,22 @@
   The incorrect stronger retained-gauge claim was rejected by a
   random-matrix audit before commit.
   `proof/repeated_crabb_retained_metric_gauge.md`.
+
+## NEWEST (2026-07-25): L265 turns the target into a boundary-flux law
+- Put `E_j=(S*)^jES^j` and
+  `X_k=sum_(j=0)^k(k+1−j)E_j`.  Exact telescoping gives
+  `Q_(k+2)−(k+2)Q_1+(k+1)I=X_k−S*X_kS`.
+- Its trace is the final-boundary flux
+  `tr(FX_k)=sum_(j=1)^k(k+1−j)||B_j||²`, hence exactly
+  `||B_k||²` under complete delay.
+- A194 is therefore equivalent to showing that L258's complete
+  active numerator is `4(X_k−S*X_kS)` modulo trace-null terms.
+  This is compatible with the observed indefinite active operator;
+  no positive Gram factorization is required.
+- In L264's gauge the right-half-line bulk is coisometric.  The live
+  calculation should use L242's universal `D_0,D_1,D_2` reflected
+  jet and add L245/L251's chain flux before taking this divergence.
+  `proof/repeated_crabb_triangular_stein_flux.md`.
 
 ## NEWEST (2026-07-25): L253 identifies the target as Toeplitz leakage
 - If `T_B` is the causal Toeplitz multiplier of the matrix-inner
@@ -4551,7 +4568,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-25)
-1. **A194/A198--A210: identify the physical numerator in the port-isolated half-line gauge.**
+1. **A194/A198--A211: identify the physical numerator as the triangular Stein flux.**
    L256 now proves the universal relative response
    `[c²]mu°=4||B_1||_F²` for every matrix channel.  Prove that removing
    one clean Hardy layer obeys
@@ -4606,6 +4623,10 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    Use L264's `Rtri`: the final port/cross row and active left orbit
    remain removed, while the universal right-half-line `D_R` metric
    is restored at no cost to the active scalar trace.
+   In that gauge target L265's exact divergence
+   `4(X_k−S*X_kS)`, modulo trace-null terms.  Use L242's universal
+   three-coefficient reflected jet and add every L245/L251 chain
+   column before taking the divergence.
 2. **Then promote the delayed trace law, not more finite evidence.**
    Combining the `+4` volume coefficient with L247's exact metric
    contribution `−2` would give L225's total trace

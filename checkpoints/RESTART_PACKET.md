@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-25): after L264 / A210
+## Current general Crabb frontier (2026-07-25): after L265 / A211
 
 The accidental two-agent interval has been reconciled.  Commits
 `87c5107`, `4c7a152`, `2f82d15`, and `dcab861` form one linear history
@@ -31,7 +31,8 @@ relative grade-one response, and A203/L257 turns its transport into
   permits the universal right-half-line metric to be restored while
   the active left orbit and final corner/cross row remain deleted, so
   the continuation should use this port-isolated right-half-line
-  gauge.  A195 is a negative guardrail,
+  gauge.  L265/A211 rewrites the target as four times a finite
+  triangular right-orbit Stein divergence.  A195 is a negative guardrail,
   not a second frontier.
 
 L230--L234 close the canonical repaired endpoint through the third
@@ -277,7 +278,14 @@ however, and their active coefficient may be added back.  Use
 `D_R` metric while keeping the active left orbit and final
 corner/cross row deleted.
 
-**Current live gate (A194/A210):** evaluate L258's closed-return
+L265 gives the state-side target in exactly that gauge.  If
+`X_k=sum_(j=0)^k(k+1−j)(S*)^jES^j`, then
+`X_k−S*X_kS=Q_(k+2)−(k+2)Q_1+(k+1)I`, and its final-boundary trace
+is `||B_k||²` under complete delay.  Thus the physical numerator need
+only be identified with four times this divergence modulo trace-null
+terms; a positive operator Gram is neither true nor needed.
+
+**Current live gate (A194/A211):** evaluate L258's closed-return
 trace using L259--L261's complete leakage-row norm, prove L257's
 associated one-delay coefficient recursion, and iterate to L256's
 universal grade-one response, at the physical `lambda=1`, without assuming
@@ -421,6 +429,10 @@ before their theta/coisometric cancellation.
   right-half-line metric response.  Restore the universal `D_R`
   coefficient only; the active left orbit and final-port blocks stay
   deleted.
+- `proof/repeated_crabb_triangular_stein_flux.md` (L265): exact
+  operator telescope identifying the desired scalar as a finite
+  right-orbit boundary flux.  The physical numerator-to-flux
+  congruence remains open.
 - `proof/repeated_crabb_exact_metric_chart.md` (L194): analytic
   metric chart in which any all-series column construction must
   converge.
