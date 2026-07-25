@@ -1,0 +1,2297 @@
+{
+  "column_bracket": [
+    [
+      -25,
+      2,
+      "ssaa"
+    ],
+    [
+      1,
+      1,
+      "sssaaa"
+    ],
+    [
+      22,
+      1,
+      "aassssaa"
+    ],
+    [
+      -7,
+      4,
+      "ssaaaaaa"
+    ],
+    [
+      -2,
+      1,
+      "aaaaasssaa"
+    ],
+    [
+      -3,
+      2,
+      "aaasssaaaa"
+    ],
+    [
+      5,
+      2,
+      "aaasssssaa"
+    ],
+    [
+      2,
+      1,
+      "aasssaaaaa"
+    ],
+    [
+      13,
+      2,
+      "ssaaasssaa"
+    ],
+    [
+      -4,
+      1,
+      "aaaaaassssaa"
+    ],
+    [
+      -1,
+      1,
+      "aaaaassssaaa"
+    ],
+    [
+      -3,
+      2,
+      "aaaassssssaa"
+    ],
+    [
+      2,
+      1,
+      "aaassssssaaa"
+    ],
+    [
+      1,
+      2,
+      "aassssaaaaaa"
+    ],
+    [
+      -1,
+      2,
+      "aassssssaaaa"
+    ],
+    [
+      1,
+      4,
+      "saaaaasssaaa"
+    ],
+    [
+      7,
+      2,
+      "saaasssssaaa"
+    ],
+    [
+      1,
+      1,
+      "ssaaaassssaa"
+    ],
+    [
+      -11,
+      2,
+      "sssaaaasssaa"
+    ],
+    [
+      1,
+      2,
+      "sssaaasssaaa"
+    ],
+    [
+      -2,
+      1,
+      "aaaaaaaaasssaa"
+    ],
+    [
+      5,
+      2,
+      "aaaaaaaasssaaa"
+    ],
+    [
+      -1,
+      1,
+      "aaaaaaasssaaaa"
+    ],
+    [
+      2,
+      1,
+      "aaaaaasssaaaaa"
+    ],
+    [
+      1,
+      1,
+      "aaaaasssaaaaaa"
+    ],
+    [
+      -2,
+      1,
+      "aaaaasssssssaa"
+    ],
+    [
+      1,
+      1,
+      "aaaasssaaaaaaa"
+    ],
+    [
+      -1,
+      2,
+      "aaaasssssssaaa"
+    ],
+    [
+      -1,
+      2,
+      "aaasssaaaaaaaa"
+    ],
+    [
+      1,
+      2,
+      "aaasssssssaaaa"
+    ],
+    [
+      5,
+      2,
+      "aasssaaassssaa"
+    ],
+    [
+      10,
+      1,
+      "aassssaaasssaa"
+    ],
+    [
+      -3,
+      2,
+      "saaassssssssaa"
+    ],
+    [
+      -11,
+      4,
+      "ssaaaaaasssaaa"
+    ],
+    [
+      -1,
+      1,
+      "ssaaaasssaaaaa"
+    ],
+    [
+      9,
+      4,
+      "ssaaasssssssaa"
+    ],
+    [
+      -1,
+      4,
+      "sssaaassssssaa"
+    ],
+    [
+      -5,
+      4,
+      "ssssssaaasssaa"
+    ],
+    [
+      -87,
+      4,
+      "aaaaasssaaasssaa"
+    ],
+    [
+      -11,
+      4,
+      "aaaasssaaaasssaa"
+    ],
+    [
+      -13,
+      2,
+      "aaaasssaaasssaaa"
+    ],
+    [
+      -13,
+      4,
+      "aaasssaaaaasssaa"
+    ],
+    [
+      5,
+      2,
+      "aaasssaaasssaaaa"
+    ],
+    [
+      -5,
+      1,
+      "aaasssaaasssssaa"
+    ],
+    [
+      3,
+      1,
+      "aaassssaaassssaa"
+    ],
+    [
+      -1,
+      2,
+      "aaasssssaaasssaa"
+    ],
+    [
+      -5,
+      1,
+      "aasssaaaaasssaaa"
+    ],
+    [
+      1,
+      2,
+      "aasssaaasssaaaaa"
+    ],
+    [
+      -5,
+      1,
+      "aasssaaasssssaaa"
+    ],
+    [
+      3,
+      1,
+      "aassssaaassssaaa"
+    ],
+    [
+      1,
+      2,
+      "aasssssaaasssaaa"
+    ],
+    [
+      7,
+      2,
+      "saaasssaaassssaa"
+    ],
+    [
+      -47,
+      4,
+      "ssaaasssaaasssaa"
+    ]
+  ],
+  "flag_multipliers": [
+    [
+      -69,
+      1,
+      "a",
+      1
+    ],
+    [
+      -4,
+      1,
+      "aa",
+      2
+    ],
+    [
+      69,
+      1,
+      "saa",
+      1
+    ],
+    [
+      4,
+      1,
+      "saaa",
+      2
+    ],
+    [
+      -11,
+      4,
+      "aaaaa",
+      1
+    ],
+    [
+      -105,
+      2,
+      "aasssaa",
+      1
+    ],
+    [
+      11,
+      4,
+      "saaaaaa",
+      1
+    ],
+    [
+      15,
+      2,
+      "aaasssaa",
+      2
+    ],
+    [
+      -15,
+      2,
+      "aaassssaa",
+      1
+    ],
+    [
+      1,
+      1,
+      "aassssaaa",
+      1
+    ],
+    [
+      105,
+      2,
+      "saaasssaa",
+      1
+    ],
+    [
+      1,
+      4,
+      "aassssssaa",
+      2
+    ],
+    [
+      -15,
+      2,
+      "saaaasssaa",
+      2
+    ],
+    [
+      -15,
+      4,
+      "aaaaaasssaa",
+      1
+    ],
+    [
+      7,
+      4,
+      "aaaaasssaaa",
+      1
+    ],
+    [
+      1,
+      1,
+      "aaaasssaaaa",
+      1
+    ],
+    [
+      -17,
+      4,
+      "aasssssssaa",
+      1
+    ],
+    [
+      15,
+      2,
+      "saaaassssaa",
+      1
+    ],
+    [
+      -1,
+      1,
+      "saaassssaaa",
+      1
+    ],
+    [
+      -1,
+      4,
+      "saaassssssaa",
+      2
+    ],
+    [
+      -27,
+      1,
+      "aasssaaasssaa",
+      1
+    ],
+    [
+      15,
+      4,
+      "saaaaaaasssaa",
+      1
+    ],
+    [
+      -7,
+      4,
+      "saaaaaasssaaa",
+      1
+    ],
+    [
+      -1,
+      1,
+      "saaaaasssaaaa",
+      1
+    ],
+    [
+      17,
+      4,
+      "saaasssssssaa",
+      1
+    ],
+    [
+      -1,
+      3,
+      "aaasssaaasssaa",
+      2
+    ],
+    [
+      27,
+      1,
+      "saaasssaaasssaa",
+      1
+    ],
+    [
+      1,
+      3,
+      "saaaasssaaasssaa",
+      2
+    ]
+  ],
+  "format_version": 1,
+  "source_lp": "exact rational reconstruction of the auxiliary-weight-0.1 partial-flag LP",
+  "witness": [
+    [
+      -354,
+      1,
+      {
+        "": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      216,
+      1,
+      {
+        "as": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      114,
+      1,
+      {
+        "sa": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      22,
+      1,
+      {
+        "aaaa": [
+          1,
+          1
+        ],
+        "ssss": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      130,
+      1,
+      {
+        "aass": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      232,
+      1,
+      {
+        "ssaa": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      3,
+      1,
+      {
+        "aaaaas": [
+          1,
+          1
+        ],
+        "asssss": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      19,
+      1,
+      {
+        "aaasss": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -163,
+      2,
+      {
+        "aasssa": [
+          1,
+          1
+        ],
+        "saaass": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -357,
+      2,
+      {
+        "asssaa": [
+          1,
+          1
+        ],
+        "ssaaas": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      5,
+      1,
+      {
+        "saaaaa": [
+          1,
+          1
+        ],
+        "sssssa": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      5,
+      1,
+      {
+        "sssaaa": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -1,
+      1,
+      {
+        "aaaaaass": [
+          1,
+          1
+        ],
+        "aassssss": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      3,
+      1,
+      {
+        "aaaassss": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -7,
+      1,
+      {
+        "aaassssa": [
+          1,
+          1
+        ],
+        "saaaasss": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -35,
+      1,
+      {
+        "aassssaa": [
+          1,
+          1
+        ],
+        "ssaaaass": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      131,
+      1,
+      {
+        "asssaaas": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -5,
+      1,
+      {
+        "assssaaa": [
+          1,
+          1
+        ],
+        "sssaaaas": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      3,
+      2,
+      {
+        "assssssa": [
+          1,
+          1
+        ],
+        "saaaaaas": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      102,
+      1,
+      {
+        "saaasssa": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -4,
+      1,
+      {
+        "ssaaaaaa": [
+          1,
+          1
+        ],
+        "ssssssaa": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -1,
+      1,
+      {
+        "ssssaaaa": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -5,
+      2,
+      {
+        "aaaaaasssa": [
+          1,
+          1
+        ],
+        "saaassssss": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      1,
+      1,
+      {
+        "aaaaasssaa": [
+          1,
+          1
+        ],
+        "ssaaasssss": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      11,
+      1,
+      {
+        "aaaasssaaa": [
+          1,
+          1
+        ],
+        "sssaaassss": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -1,
+      1,
+      {
+        "aaaasssssa": [
+          1,
+          1
+        ],
+        "saaaaassss": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      5,
+      2,
+      {
+        "aaasssaaaa": [
+          1,
+          1
+        ],
+        "ssssaaasss": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -11,
+      2,
+      {
+        "aaasssssaa": [
+          1,
+          1
+        ],
+        "ssaaaaasss": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      85,
+      1,
+      {
+        "aasssaaass": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      47,
+      2,
+      {
+        "aassssaaas": [
+          1,
+          1
+        ],
+        "asssaaaass": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      4,
+      1,
+      {
+        "aasssssaaa": [
+          1,
+          1
+        ],
+        "sssaaaaass": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -5,
+      1,
+      {
+        "aasssssssa": [
+          1,
+          1
+        ],
+        "saaaaaaass": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      9,
+      4,
+      {
+        "asssaaaaaa": [
+          1,
+          1
+        ],
+        "ssssssaaas": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      7,
+      1,
+      {
+        "assssaaaas": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -5,
+      1,
+      {
+        "asssssssaa": [
+          1,
+          1
+        ],
+        "ssaaaaaaas": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      12,
+      1,
+      {
+        "saaaassssa": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      164,
+      1,
+      {
+        "ssaaasssaa": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      17,
+      4,
+      {
+        "aaaaasssaaas": [
+          1,
+          1
+        ],
+        "asssaaasssss": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -1,
+      1,
+      {
+        "aaaaassssaaa": [
+          1,
+          1
+        ],
+        "sssaaaasssss": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -6,
+      1,
+      {
+        "aaaasssaaaas": [
+          1,
+          1
+        ],
+        "assssaaassss": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      1,
+      2,
+      {
+        "aaaassssssaa": [
+          1,
+          1
+        ],
+        "ssaaaaaassss": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -1,
+      2,
+      {
+        "aaasssaaaaas": [
+          1,
+          1
+        ],
+        "asssssaaasss": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -14,
+      1,
+      {
+        "aaasssaaasss": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      7,
+      2,
+      {
+        "aaassssaaass": [
+          1,
+          1
+        ],
+        "aasssaaaasss": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -1,
+      1,
+      {
+        "aaassssssaaa": [
+          1,
+          1
+        ],
+        "sssaaaaaasss": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -15,
+      4,
+      {
+        "aasssaaaaaas": [
+          1,
+          1
+        ],
+        "assssssaaass": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -67,
+      1,
+      {
+        "aasssaaasssa": [
+          1,
+          1
+        ],
+        "saaasssaaass": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      1,
+      2,
+      {
+        "aassssaaaaaa": [
+          1,
+          1
+        ],
+        "ssssssaaaass": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      6,
+      1,
+      {
+        "aassssaaaass": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -4,
+      1,
+      {
+        "aasssssaaaas": [
+          1,
+          1
+        ],
+        "assssaaaaass": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      1,
+      2,
+      {
+        "aassssssaaaa": [
+          1,
+          1
+        ],
+        "ssssaaaaaass": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      17,
+      4,
+      {
+        "asssaaaaaaas": [
+          1,
+          1
+        ],
+        "asssssssaaas": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -2,
+      1,
+      {
+        "asssaaaasssa": [
+          1,
+          1
+        ],
+        "saaassssaaas": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -103,
+      1,
+      {
+        "asssaaasssaa": [
+          1,
+          1
+        ],
+        "ssaaasssaaas": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      8,
+      1,
+      {
+        "saaaaaaasssa": [
+          1,
+          1
+        ],
+        "saaasssssssa": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -7,
+      1,
+      {
+        "saaaaaasssaa": [
+          1,
+          1
+        ],
+        "ssaaassssssa": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -15,
+      4,
+      {
+        "saaaaasssaaa": [
+          1,
+          1
+        ],
+        "sssaaasssssa": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      1,
+      1,
+      {
+        "saaasssaaaaa": [
+          1,
+          1
+        ],
+        "sssssaaasssa": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -19,
+      2,
+      {
+        "saaasssssaaa": [
+          1,
+          1
+        ],
+        "sssaaaaasssa": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      16,
+      1,
+      {
+        "ssaaaassssaa": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -4,
+      1,
+      {
+        "ssaaassssaaa": [
+          1,
+          1
+        ],
+        "sssaaaasssaa": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      4,
+      1,
+      {
+        "sssaaasssaaa": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      1,
+      2,
+      {
+        "aaaaaaaasssaaa": [
+          1,
+          1
+        ],
+        "sssaaassssssss": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -1,
+      1,
+      {
+        "aaaaaasssaaaaa": [
+          1,
+          1
+        ],
+        "sssssaaassssss": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      11,
+      4,
+      {
+        "aaaaaasssaaass": [
+          1,
+          1
+        ],
+        "aasssaaassssss": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -11,
+      4,
+      {
+        "aaaaasssaaaass": [
+          1,
+          1
+        ],
+        "aassssaaasssss": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -1,
+      2,
+      {
+        "aaaasssssssaaa": [
+          1,
+          1
+        ],
+        "sssaaaaaaassss": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      1,
+      2,
+      {
+        "aaasssaaaaaaaa": [
+          1,
+          1
+        ],
+        "ssssssssaaasss": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -5,
+      4,
+      {
+        "aaasssaaaaaass": [
+          1,
+          1
+        ],
+        "aassssssaaasss": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      1,
+      1,
+      {
+        "aaasssaaassssa": [
+          1,
+          1
+        ],
+        "saaaasssaaasss": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      2,
+      1,
+      {
+        "aaassssaaasssa": [
+          1,
+          1
+        ],
+        "saaasssaaaasss": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -1,
+      2,
+      {
+        "aaasssssssaaaa": [
+          1,
+          1
+        ],
+        "ssssaaaaaaasss": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      17,
+      4,
+      {
+        "aasssaaaaaaass": [
+          1,
+          1
+        ],
+        "aasssssssaaass": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -6,
+      1,
+      {
+        "aasssaaaassssa": [
+          1,
+          1
+        ],
+        "saaaassssaaass": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      11,
+      2,
+      {
+        "aasssaaassssaa": [
+          1,
+          1
+        ],
+        "ssaaaasssaaass": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -1,
+      2,
+      {
+        "aassssaaaaaaas": [
+          1,
+          1
+        ],
+        "asssssssaaaass": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -7,
+      2,
+      {
+        "aassssaaaasssa": [
+          1,
+          1
+        ],
+        "saaassssaaaass": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -61,
+      4,
+      {
+        "aassssaaasssaa": [
+          1,
+          1
+        ],
+        "ssaaasssaaaass": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      1,
+      1,
+      {
+        "aassssssssaaas": [
+          1,
+          1
+        ],
+        "asssaaaaaaaass": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -7,
+      1,
+      {
+        "asssaaaassssaa": [
+          1,
+          1
+        ],
+        "ssaaaassssaaas": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      74,
+      1,
+      {
+        "asssaaasssaaas": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      9,
+      1,
+      {
+        "asssaaassssaaa": [
+          1,
+          1
+        ],
+        "sssaaaasssaaas": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -5,
+      2,
+      {
+        "asssaaassssssa": [
+          1,
+          1
+        ],
+        "saaaaaasssaaas": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      4,
+      1,
+      {
+        "assssaaaaasssa": [
+          1,
+          1
+        ],
+        "saaasssssaaaas": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -7,
+      2,
+      {
+        "assssaaaasssaa": [
+          1,
+          1
+        ],
+        "ssaaassssaaaas": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -3,
+      2,
+      {
+        "assssaaasssaaa": [
+          1,
+          1
+        ],
+        "sssaaasssaaaas": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      7,
+      4,
+      {
+        "assssaaasssssa": [
+          1,
+          1
+        ],
+        "saaaaasssaaaas": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -2,
+      1,
+      {
+        "asssssaaassssa": [
+          1,
+          1
+        ],
+        "saaaasssaaaaas": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -5,
+      2,
+      {
+        "assssssaaasssa": [
+          1,
+          1
+        ],
+        "saaasssaaaaaas": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      30,
+      1,
+      {
+        "saaasssaaasssa": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      1,
+      2,
+      {
+        "saaassssssssaa": [
+          1,
+          1
+        ],
+        "ssaaaaaaaasssa": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      8,
+      1,
+      {
+        "ssaaaaaaasssaa": [
+          1,
+          1
+        ],
+        "ssaaasssssssaa": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -6,
+      1,
+      {
+        "ssaaaaaasssaaa": [
+          1,
+          1
+        ],
+        "sssaaassssssaa": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      2,
+      1,
+      {
+        "ssaaaaasssaaaa": [
+          1,
+          1
+        ],
+        "ssssaaasssssaa": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -2,
+      1,
+      {
+        "ssaaaasssaaaaa": [
+          1,
+          1
+        ],
+        "sssssaaassssaa": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -2,
+      1,
+      {
+        "ssaaasssaaaaaa": [
+          1,
+          1
+        ],
+        "ssssssaaasssaa": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      1,
+      2,
+      {
+        "aaaaaasssaaasssa": [
+          1,
+          1
+        ],
+        "saaasssaaassssss": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -3,
+      2,
+      {
+        "aaaaasssaaaasssa": [
+          1,
+          1
+        ],
+        "saaassssaaasssss": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -1,
+      2,
+      {
+        "aaaaasssaaasssaa": [
+          1,
+          1
+        ],
+        "ssaaasssaaasssss": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -1,
+      2,
+      {
+        "aaaasssaaaaasssa": [
+          1,
+          1
+        ],
+        "saaasssssaaassss": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -1,
+      1,
+      {
+        "aaaasssaaaasssaa": [
+          1,
+          1
+        ],
+        "ssaaassssaaassss": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -13,
+      2,
+      {
+        "aaaasssaaasssaaa": [
+          1,
+          1
+        ],
+        "sssaaasssaaassss": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -1,
+      4,
+      {
+        "aaasssaaaaaasssa": [
+          1,
+          1
+        ],
+        "saaassssssaaasss": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      2,
+      1,
+      {
+        "aaasssaaaaasssaa": [
+          1,
+          1
+        ],
+        "ssaaasssssaaasss": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -3,
+      1,
+      {
+        "aaasssaaaasssaaa": [
+          1,
+          1
+        ],
+        "sssaaassssaaasss": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -13,
+      2,
+      {
+        "aaasssaaasssaaaa": [
+          1,
+          1
+        ],
+        "ssssaaasssaaasss": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      5,
+      1,
+      {
+        "aaasssaaasssssaa": [
+          1,
+          1
+        ],
+        "ssaaaaasssaaasss": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -3,
+      1,
+      {
+        "aaassssaaassssaa": [
+          1,
+          1
+        ],
+        "ssaaaasssaaaasss": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -1,
+      2,
+      {
+        "aaasssssaaasssaa": [
+          1,
+          1
+        ],
+        "ssaaasssaaaaasss": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -25,
+      4,
+      {
+        "aasssaaaaaaasssa": [
+          1,
+          1
+        ],
+        "saaasssssssaaass": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      13,
+      4,
+      {
+        "aasssaaaaaasssaa": [
+          1,
+          1
+        ],
+        "ssaaassssssaaass": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      2,
+      1,
+      {
+        "aasssaaaaasssaaa": [
+          1,
+          1
+        ],
+        "sssaaasssssaaass": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -1,
+      1,
+      {
+        "aasssaaaasssaaaa": [
+          1,
+          1
+        ],
+        "ssssaaassssaaass": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      1,
+      2,
+      {
+        "aasssaaasssaaaaa": [
+          1,
+          1
+        ],
+        "sssssaaasssaaass": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      36,
+      1,
+      {
+        "aasssaaasssaaass": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      5,
+      1,
+      {
+        "aasssaaasssssaaa": [
+          1,
+          1
+        ],
+        "sssaaaaasssaaass": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -9,
+      4,
+      {
+        "aasssaaasssssssa": [
+          1,
+          1
+        ],
+        "saaaaaaasssaaass": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      1,
+      4,
+      {
+        "aassssaaasssaaas": [
+          1,
+          1
+        ],
+        "asssaaasssaaaass": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -3,
+      1,
+      {
+        "aassssaaassssaaa": [
+          1,
+          1
+        ],
+        "sssaaaasssaaaass": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      23,
+      4,
+      {
+        "aassssaaassssssa": [
+          1,
+          1
+        ],
+        "saaaaaasssaaaass": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -1,
+      2,
+      {
+        "aasssssaaasssaaa": [
+          1,
+          1
+        ],
+        "sssaaasssaaaaass": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      2,
+      1,
+      {
+        "aassssssaaassssa": [
+          1,
+          1
+        ],
+        "saaaasssaaaaaass": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      3,
+      2,
+      {
+        "aasssssssaaasssa": [
+          1,
+          1
+        ],
+        "saaasssaaaaaaass": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -1,
+      2,
+      {
+        "asssaaaaaaaasssa": [
+          1,
+          1
+        ],
+        "saaassssssssaaas": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -23,
+      4,
+      {
+        "asssaaaaaaasssaa": [
+          1,
+          1
+        ],
+        "ssaaasssssssaaas": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      1,
+      4,
+      {
+        "asssaaaaaasssaaa": [
+          1,
+          1
+        ],
+        "sssaaassssssaaas": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -1,
+      1,
+      {
+        "asssaaaaasssaaaa": [
+          1,
+          1
+        ],
+        "ssssaaasssssaaas": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      1,
+      1,
+      {
+        "asssaaasssaaaaaa": [
+          1,
+          1
+        ],
+        "ssssssaaasssaaas": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -11,
+      4,
+      {
+        "asssaaasssssssaa": [
+          1,
+          1
+        ],
+        "ssaaaaaaasssaaas": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      23,
+      4,
+      {
+        "assssaaassssssaa": [
+          1,
+          1
+        ],
+        "ssaaaaaasssaaaas": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      2,
+      1,
+      {
+        "assssssaaassssaa": [
+          1,
+          1
+        ],
+        "ssaaaasssaaaaaas": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      3,
+      2,
+      {
+        "asssssssaaasssaa": [
+          1,
+          1
+        ],
+        "ssaaasssaaaaaaas": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      7,
+      2,
+      {
+        "saaasssaaassssaa": [
+          1,
+          1
+        ],
+        "ssaaaasssaaasssa": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      23,
+      4,
+      {
+        "saaassssaaasssaa": [
+          1,
+          1
+        ],
+        "ssaaasssaaaasssa": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      60,
+      1,
+      {
+        "ssaaasssaaasssaa": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -23,
+      1,
+      {
+        "aasssaaasssaaasssa": [
+          1,
+          1
+        ],
+        "saaasssaaasssaaass": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -5,
+      2,
+      {
+        "asssaaaasssaaasssa": [
+          1,
+          1
+        ],
+        "saaasssaaassssaaas": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -31,
+      4,
+      {
+        "asssaaasssaaaasssa": [
+          1,
+          1
+        ],
+        "saaassssaaasssaaas": [
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      -59,
+      2,
+      {
+        "asssaaasssaaasssaa": [
+          1,
+          1
+        ],
+        "ssaaasssaaasssaaas": [
+          1,
+          1
+        ]
+      }
+    ]
+  ]
+}

@@ -249,18 +249,20 @@ def quintic_coboundary_witness() -> Polynomial:
     return result
 
 
-def exact_canonical_factor_lifts() -> list[Polynomial]:
-    """Return canonical factor coefficients ``D_j V*`` through degree five."""
+def exact_canonical_factor_lifts(
+    degree: int = DEGREE,
+) -> list[Polynomial]:
+    """Return canonical factor coefficients ``D_j V*``."""
 
-    raw = raw_slack_series(DEGREE)
-    residual = schur_residual_series(DEGREE)
+    raw = raw_slack_series(degree)
+    residual = schur_residual_series(degree)
     slack = [
         add(raw_item, scale(-1, residual_item))
         for raw_item, residual_item in zip(raw, residual, strict=True)
     ]
     initial_complement = multiply(STAR, S)
     factors: list[Polynomial] = [E]
-    for order in range(1, DEGREE + 1):
+    for order in range(1, degree + 1):
         remainder = slack[order]
         for left_degree in range(1, order):
             remainder = add(
@@ -302,7 +304,7 @@ def exact_canonical_factor_lifts() -> list[Polynomial]:
 def exact_fifth_components() -> tuple[Polynomial, Polynomial]:
     """Return the fifth Stein forcing and upper Schur cross term."""
 
-    factors = exact_canonical_factor_lifts()
+    factors = exact_canonical_factor_lifts(DEGREE)
     factors[3] = add(factors[3], cubic_column_lift())
     factors[4] = add(factors[4], quartic_column_lift())
     prepared_slack: list[Polynomial] = []
@@ -540,9 +542,13 @@ def prepared_endpoint_series(
     right: Matrix,
     left: Matrix,
     degree: int = DEGREE,
+    *,
+    additional_factor_columns: dict[int, Matrix] | None = None,
 ) -> tuple[list[Matrix], list[Matrix], float]:
     """Return both endpoints after all three polynomial preparations."""
 
+    if degree < DEGREE:
+        raise ValueError("the prepared series requires degree at least five")
     metric, slack, operator, equality_metric = (
         canonical_metric_slack_and_operator(
             partial,
@@ -558,6 +564,12 @@ def prepared_endpoint_series(
     prepared_factor[3] += cubic_column(partial, right, left)
     prepared_factor[4] += quartic_column(partial, right)
     prepared_factor[5] += quintic_column(partial, right)
+    for order, column in (additional_factor_columns or {}).items():
+        if not 0 <= order <= degree:
+            raise ValueError(
+                f"factor-column order {order} exceeds degree {degree}"
+            )
+        prepared_factor[order] += column
     prepared_slack = matrix_series_multiply(
         prepared_factor,
         matrix_adjoint_series(prepared_factor),

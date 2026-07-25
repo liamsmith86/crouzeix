@@ -2,6 +2,33 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — repeated circular/elliptic merger)
 
+## NEWEST (2026-07-24): L234 closes the prepared sextic third flag
+- A universal 53-term perpendicular sixth column, of coefficient
+  l1-norm `181`, has an exact 139-term Stein witness and 28-term
+  right-ideal endpoint certificate.  On
+  `ker B_1* intersect ker B_2*`, its direct sixth face is exactly
+  `12B_3B_3*`.
+- The fifth off-diagonal block cannot be ignored.  L233's exact
+  factorization reduces its surviving action to
+  `-14B_1 R B_3*`, `R=B_1*B_1`; L232's quartic range has weight
+  `8(4I+7R)` in the same channel.
+- Completing the square leaves
+  `12I-(49/2)R(4I+7R)^-1R`.  Since `0<=R<=I`, this is uniformly at
+  least `215I/22`.  The effective sixth face is therefore positive
+  through every partial rank change and passes to the next flag
+  exactly when `B_3` also vanishes.
+- A first complete-delay-only certificate was not accepted: after
+  passing 1,584 moderate tests it failed on valid high-amplitude
+  rank-two flags with minimum `-0.0352898`.  The final right-ideal
+  certificate fixes precisely that stale-risk gap.
+- This closes the explicit preparation through transfer grade three,
+  not the arbitrary-grade induction.  The next attack is to combine
+  the odd-cancellation/even-Gram/Schur-budget pattern with L228's
+  delayed anticommutator recursion while controlling coefficient
+  growth and convergence in L194's chart.
+  `proof/repeated_crabb_canonical_sextic_preimage.md`;
+  `experiments/repeated_crabb_canonical_sextic_preimage.py`.
+
 ## NEWEST (2026-07-24): L233 clears the complete quintic second flag
 - After inserting L230's cubic and L232's quartic columns into the
   exact canonical factor, the fifth Stein forcing has an explicit
