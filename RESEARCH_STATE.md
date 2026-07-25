@@ -29,6 +29,10 @@
   model-space coefficient recursion.  A204/L258 now eliminates the
   final output row exactly and rewrites its whitening as a closed-return
   renewal, so the live calculation contains no one-sided port term.
+  A205/L259 identifies every apparently premature future transfer
+  coefficient as an off-diagonal block of the first active causal
+  Toeplitz-leakage row; the remaining question is whether the physical
+  return takes only that row's diagonal at the active face.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
 
@@ -96,6 +100,24 @@
   recursion.  The remaining gate is now the matrix-inner
   autocorrelation/Hardy-index evaluation of these closed returns.
   `proof/repeated_crabb_output_renewal_volume.md`.
+
+## NEWEST (2026-07-25): L259 localizes every future coefficient to one leakage row
+- Differentiating the model kernel gives
+  `[rho]K_B(rho,x)=xI−B_1B#(x)`.  Since
+  `P_(K_B)=I−T_BT_B*`, the future series `B_1B#(x)` is exactly
+  the first row of the complementary causal Toeplitz leakage.
+- Under complete delay `B_1=...=B_(k−1)=0`, the first nonzero
+  leakage row is `(T_BT_B*)_(k,j)=B_kB_j*` for `j>=k`; it vanishes
+  to the left of the diagonal and its diagonal trace is
+  `||B_k||_F²`.
+- This does not prove the coefficient law or its lower vanishings.
+  It replaces the vague future-coefficient cancellation debt by one
+  exact statement: at relative active order, L258's physical return
+  must take four times the diagonal of this row and must not shift an
+  off-diagonal block back into the trace.  Numerical checks already
+  rule out the stronger operator covariance, so the target is
+  genuinely trace-only.
+  `proof/repeated_crabb_future_leakage_row.md`.
 
 ## NEWEST (2026-07-25): L253 identifies the target as Toeplitz leakage
 - If `T_B` is the causal Toeplitz multiplier of the matrix-inner
@@ -4444,7 +4466,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-25)
-1. **A194/A198--A204: evaluate L258's closed returns and prove L257's recursion to L256.**
+1. **A194/A198--A205: prove diagonal preservation in L258's closed returns.**
    L256 now proves the universal relative response
    `[c²]mu°=4||B_1||_F²` for every matrix channel.  Prove that removing
    one clean Hardy layer obeys
@@ -4455,7 +4477,13 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    `D_ret=I−R_PZ_ret`, including all lower vanishings, by Hardy index:
    use L251's common analytic
    entry/exit channel, L243's zero/one inverse-kernel filtration, and
-   matrix-inner autocorrelation to remove future coefficients.  Do not
+   matrix-inner autocorrelation to remove future coefficients.  L259
+   identifies those terms exactly: after complete delay they are the
+   off-diagonal blocks `B_kB_j*`, `j>k`, of the same leakage row whose
+   diagonal is `B_kB_k*`.  Prove that the active physical return takes
+   four times this diagonal and cannot shift a later column back into
+   the scalar trace.  This must be a trace identity—direct audits
+   disprove the stronger operator covariance.  Do not
    claim equality of the full shifted series, which L235 disproves.
    Use L255's doubled-Hardy block pencil behind that renewal.  Its
    `Xi_inf direct-sum Xi_inf*` diagonal is the L244 background.  Keep
@@ -4511,7 +4539,7 @@ terminal edge independently of the physical theta/metric balance
 (A195).
 Keep committing+pushing after each task (user instruction).
 
-## Files map (handoff-ready, 2026-07-22)
+## Files map (handoff-ready, refreshed 2026-07-25)
 proof/ — read in this order for the current frontier:
   crabb_disk_normal_tube.md (L152 uniform disk-normal anchor),
   crabb_disk_flat_elliptic_face.md (L151 weighted raw face),

@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-25): after L258 / A204
+## Current general Crabb frontier (2026-07-25): after L259 / A205
 
 The accidental two-agent interval has been reconciled.  Commits
 `87c5107`, `4c7a152`, `2f82d15`, and `dcab861` form one linear history
@@ -13,9 +13,12 @@ analytic ports, A198's cyclic radial quotient, A199's finite
 Hardy-window energy, A200's shifted-left-Hardy complement, and A201's
 doubled-Hardy physical pencil.  A202/L256 now supplies the universal
 relative grade-one response, and A203/L257 turns its transport into
-one canonical left-model coefficient recursion.  A204/L258 eliminates
-the final output row exactly and resums every visit to it as a closed
-return.  A195 is a negative guardrail, not a second frontier.
+  one canonical left-model coefficient recursion.  A204/L258 eliminates
+  the final output row exactly and resums every visit to it as a closed
+  return.  A205/L259 identifies the previously unweighted future
+  transfer series as the off-diagonal part of the first active
+  Toeplitz-leakage row.  A195 is a negative guardrail, not a second
+  frontier.
 
 L230--L234 close the canonical repaired endpoint through the third
 transfer flag.  Universal bounded polynomial columns cancel the cubic
@@ -219,8 +222,19 @@ matrix-inner autocorrelation.  L258 does not itself prove the lower
 vanishings, the `+4` coefficient, or removal of future transfer
 coefficients.
 
-**Current live gate (A194/A204):** evaluate L258's closed-return
-trace, prove L257's associated one-delay coefficient recursion, and
+L259 identifies those future coefficients exactly.  For an inner
+transfer, `[rho]K_B(rho,x)=xI−B_1B#(x)`, hence `B_1B_j*` is the
+`(1,j)` block of `T_BT_B*`.  Under complete delay the first nonzero
+row is `(k,j)=B_kB_j*`, with diagonal trace `||B_k||_F²`.
+The remaining physical theorem is therefore diagonal preservation:
+the active trace of `D_ret` must take four times the diagonal block
+and not shift an off-diagonal future block back into the trace.
+Lower vanishings remain part of that theorem.  Direct finite audits
+show that this covariance is trace-only, not an operator equality.
+
+**Current live gate (A194/A205):** evaluate L258's closed-return
+trace using L259's leakage row, prove L257's associated one-delay
+coefficient recursion, and
 iterate to L256's universal
 grade-one response, at the physical `lambda=1`, without assuming
 A192's unproved endpoint valuation or estimating the large corner
@@ -337,6 +351,11 @@ balance.
   Schur elimination of the final output row and closed-return renewal
   for its whitening.  The lower vanishings and closed-path
   Hardy-index/autocorrelation evaluation remain open.
+- `proof/repeated_crabb_future_leakage_row.md` (L259): exact
+  identification of every future `B_j*` term with the off-diagonal
+  portion of the first active causal Toeplitz-leakage row.  Proving
+  that L258's active return takes only four times its diagonal, along
+  with the lower vanishings, remains open.
 - `proof/repeated_crabb_exact_metric_chart.md` (L194): analytic
   metric chart in which any all-series column construction must
   converge.
