@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-25): after L257 / A203
+## Current general Crabb frontier (2026-07-25): after L258 / A204
 
 The accidental two-agent interval has been reconciled.  Commits
 `87c5107`, `4c7a152`, `2f82d15`, and `dcab861` form one linear history
@@ -13,8 +13,9 @@ analytic ports, A198's cyclic radial quotient, A199's finite
 Hardy-window energy, A200's shifted-left-Hardy complement, and A201's
 doubled-Hardy physical pencil.  A202/L256 now supplies the universal
 relative grade-one response, and A203/L257 turns its transport into
-one canonical left-model coefficient recursion.  A195 is a negative
-guardrail, not a second frontier.
+one canonical left-model coefficient recursion.  A204/L258 eliminates
+the final output row exactly and resums every visit to it as a closed
+return.  A195 is a negative guardrail, not a second frontier.
 
 L230--L234 close the canonical repaired endpoint through the third
 transfer flag.  Universal bounded polynomial columns cancel the cubic
@@ -202,9 +203,22 @@ confirms it through grade five, but that is finite evidence only.
 Do not strengthen it to a whole-series tail identity; L235 disproves
 that stronger statement.  Use L244 on the background and L243 to
 exclude higher reflection powers.
+L258 now eliminates the first monomial/final row before coefficient
+extraction.  If `Z=AR^−1A*` and `R=F direct-sum R_P`, then
+`Z_ret=PZP+PZF(I_F−FZF)^−1FZP` and the exact volume is
+`det_P(I+D_ret)`, where `D_ret=I−R_PZ_ret`.  This operator is similar
+to the normalized final-defect Schur residual, so it starts at the
+active degree and its trace gives the active log-volume coefficient.
+The geometric expansion is a renewal of closed entry/loop/exit paths:
+there is no scalar contribution from a one-sided `B#(x)` column.
+The remaining step is to evaluate these closed paths by L243's
+filtration, L244's coisometry, L251's paired channels, and
+matrix-inner autocorrelation.  L258 does not itself prove the `+4`
+coefficient or remove future transfer coefficients.
 
-**Current live gate (A194/A203):** prove L257's associated
-one-delay coefficient recursion and iterate to L256's universal
+**Current live gate (A194/A204):** evaluate L258's closed-return
+trace, prove L257's associated one-delay coefficient recursion, and
+iterate to L256's universal
 grade-one response, at the physical `lambda=1`, without assuming
 A192's unproved endpoint valuation or estimating the large corner
 and Schur terms separately.  A177 was already closed by L234;
@@ -316,6 +330,10 @@ balance.
   canonical left-model normal form and finite exact audit of the
   one-delay coefficient recursion through grade five.  The
   arbitrary-grade recursion remains open.
+- `proof/repeated_crabb_output_renewal_volume.md` (L258): exact block
+  Schur elimination of the final output row and closed-return renewal
+  for its whitening.  The closed-path Hardy-index/autocorrelation
+  evaluation remains open.
 - `proof/repeated_crabb_exact_metric_chart.md` (L194): analytic
   metric chart in which any all-series column construction must
   converge.

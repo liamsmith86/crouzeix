@@ -26,7 +26,9 @@
   physically by A201/L255's doubled-Hardy pencil and anchored at
   relative grade one by A202/L256.  A203/L257 removes the remaining
   realization choice and states the live step as one canonical
-  model-space coefficient recursion.
+  model-space coefficient recursion.  A204/L258 now eliminates the
+  final output row exactly and rewrites its whitening as a closed-return
+  renewal, so the live calculation contains no one-sided port term.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
 
@@ -76,6 +78,23 @@
   upgraded to whole-series equality.
   `proof/repeated_crabb_left_model_volume.md`;
   `experiments/repeated_crabb_volume_delay_covariance.py`.
+
+## NEWEST (2026-07-25): L258 resums every final-row visit into a closed return
+- Write `Z=A(R°)^−1A*`, `R°=F direct-sum R_P`, and
+  `Z_ret=PZP+PZF(I_F−FZF)^−1FZP`.  A direct block Schur determinant
+  gives, through the active face,
+  `V=det_P(I+D_ret)` with `D_ret=I_P−R_PZ_ret`.
+- `D_ret` is similar to the normalized final-defect Schur residual.
+  It therefore starts at degree `2k`, and its active trace is exactly
+  `[c^(2k)]log V`.  Expanding the sole inverse pairs every entrance to
+  the final row with an exit and sums all intervening final-row loops.
+- This closes the algebraic one-sided-port ambiguity: L243's later
+  `B#(x)` column cannot be valued in isolation.  It does **not**
+  prove the desired `+4`, remove future transfer coefficients from a
+  closed path, or establish L257's one-delay recursion.  The remaining
+  gate is now the matrix-inner autocorrelation/Hardy-index evaluation
+  of these closed returns.
+  `proof/repeated_crabb_output_renewal_volume.md`.
 
 ## NEWEST (2026-07-25): L253 identifies the target as Toeplitz leakage
 - If `T_B` is the causal Toeplitz multiplier of the matrix-inner
@@ -4424,14 +4443,19 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-25)
-1. **A194/A198--A203: prove L257's model-space recursion to L256.**
+1. **A194/A198--A204: evaluate L258's closed returns and prove L257's recursion to L256.**
    L256 now proves the universal relative response
    `[c²]mu°=4||B_1||_F²` for every matrix channel.  Prove that removing
    one clean Hardy layer obeys
    `[c^(2k)]mu°_(B,k)=[c^(2k−2)]mu°_(Btilde,k−1)`
-   in L257's canonical split, then iterate.  Do not claim equality of
-   the full shifted series, which L235 disproves.
-   Use L255's doubled-Hardy block pencil as the starting point.  Its
+   in L257's canonical split, then iterate.  L258 has already eliminated
+   the first monomial/final row and resummed every visit to it as
+   `Z_ret=PZP+PZF(I_F−FZF)^−1FZP`.  Evaluate the active trace of
+   `D_ret=I−R_PZ_ret` by Hardy index: use L251's common analytic
+   entry/exit channel, L243's zero/one inverse-kernel filtration, and
+   matrix-inner autocorrelation to remove future coefficients.  Do not
+   claim equality of the full shifted series, which L235 disproves.
+   Use L255's doubled-Hardy block pencil behind that renewal.  Its
    `Xi_inf direct-sum Xi_inf*` diagonal is the L244 background.  Keep
    the terminal multiplier at its physical value `lambda=1`, pair
    opposite analytic ports as in L251, and apply L244's coisometry
