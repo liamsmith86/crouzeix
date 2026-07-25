@@ -2,6 +2,25 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — repeated circular/elliptic merger)
 
+## NEWEST (2026-07-24): L221 makes delay an exact Schur-model tail
+- If `B_1=...=B_r=0`, then `B=z^r Btilde`, and its model kernel is
+  exactly the orthogonal sum of `r` monomial layers and the shifted
+  deflated kernel `(zbar w)^r K_Btilde`.
+- L220's ordered features shift literally:
+  `Phi_j=z^jI` below the tail and
+  `Phi_(r+j)=z^r Phitilde_j` inside it.
+- The matching state identity
+  `(S*)^nV=J(S_r*)^nV_r+sum_(j<r)S^jWB_(n+j)`
+  exposes every early future-transfer image in one orthogonal block.
+  L219's retained boundary metric also has an exact weighted-tail
+  formula.
+- Combined with L216, every transfer, feature, state-orbit, metric,
+  and linear endpoint object now respects delay removal.  The only
+  unproved interface is invariant: show that the prepared physical
+  two-reflection quotient is `−16` times the Schur-feature Gram.
+  `proof/repeated_crabb_delay_model_flag.md`;
+  `experiments/repeated_crabb_delay_model_flag.py`.
+
 ## NEWEST (2026-07-24): L220 gives the exact Schur-orthogonal model flag
 - L218's one-step kernel identity splits the model kernel into one
   rank-`m` feature layer plus the shifted kernel of the next Schur
