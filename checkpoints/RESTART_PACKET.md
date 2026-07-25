@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-24): after L246 / A191
+## Current general Crabb frontier (2026-07-24): after L247 / A193
 
 L230--L234 close the canonical repaired endpoint through the third
 transfer flag.  Universal bounded polynomial columns cancel the cubic
@@ -101,6 +101,12 @@ filtration is proved, and the full pipeline passes through grade eight.
 The missing step is explicit cancellation of the later `B#(x)` terms
 inside L244's coisometric Schur-Gram quotient; assuming that valuation
 would be circular.
+L247 separates its metric part exactly: the active metric edge
+contributes `−2||B_k||_F²` to the left-dual Schur trace.  The trace
+law is now equivalent to one metric-edge-deleted operator/reflection
+flux `+4||B_k||_F²`, matching the square of L245's doubled remote
+Green amplitude.  This coisometric energy identity is the live scalar
+gate; later `B#(x)` terms must be cancelled explicitly.
 
 Standing constraints: A179 disproves raw simultaneous superposition of
 the L212 representatives; scalar shifts and positive-state
@@ -159,6 +165,9 @@ inserted into the analytic metric; and definite parity is false.
   `experiments/repeated_crabb_delayed_trace_law.py`: conditional
   trace-only reduction, explicit `B#(x)` filtration debt, and generic
   full-pipeline audits through grade eight.
+- `proof/repeated_crabb_dual_metric_trace_split.md` (L247) and
+  `experiments/repeated_crabb_dual_metric_trace_split.py`: exact
+  `−2` metric trace and reduction to the open `+4` reflection flux.
 - `proof/repeated_crabb_exact_metric_chart.md` (L194): analytic
   metric chart in which any all-series column construction must
   converge.

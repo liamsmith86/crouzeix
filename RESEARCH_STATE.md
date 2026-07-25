@@ -2,6 +2,20 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — repeated circular/elliptic merger)
 
+## NEWEST (2026-07-24): L247 isolates the only open delayed trace flux
+- In the left-dual formulation from L246, deleting only the active
+  boundary-metric coefficient changes the grade-`k` Schur face by
+  `(I−F)(−X_k+SX_kS*)(I−F)`.
+- Its trace is `tr((F−E)X_k)=−2||B_k||_F²`, exactly, from L223/L225's
+  two metric endpoint faces.
+- Therefore the candidate total trace `+2||B_k||_F²` is equivalent to
+  one metric-edge-deleted reflection flux `+4||B_k||_F²`.  L245's
+  remote Green column begins with amplitude two, so the normalization
+  is explained; the coisometric boundary-energy identity itself is
+  still open and must cancel the later `B#(x)` terms explicitly.
+  `proof/repeated_crabb_dual_metric_trace_split.md`;
+  `experiments/repeated_crabb_dual_metric_trace_split.py`.
+
 ## NEWEST (2026-07-24): L246 makes the first defect face endpoint-dual
 - For any analytic perturbation of a partial isometry, the
   right-initial and left-final defect Schur quotients obey an exact
