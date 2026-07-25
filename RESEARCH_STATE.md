@@ -2,6 +2,23 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — repeated circular/elliptic merger)
 
+## NEWEST (2026-07-24): L244 upgrades the half-line baseline to a coisometry
+- L240's defect column is exactly normalized in the inverse metric:
+  `d_inf* D_R^−1 d_inf=I`.  This is Jacobi's Lambert-series identity
+  `theta_3(q)^2=1+4 sum_(j>=1) q^j/(1+q^(2j))`.
+- Therefore `Atilde_inf=D_R^(1/2)A_inf D_R^(−1/2)` is a partial
+  isometry.  The half-line ellipse pencil is explicitly surjective
+  for `|c|<1`, and the odd Riemann-map factor does not change its
+  kernel/range; hence `Atilde_inf` is a coisometry and
+  `A_inf D_R^−1 A_inf*=D_R^−1`.
+- This identifies the structural cancellation needed after L243:
+  a reflected state column's quadratic Gram belongs to the updated
+  coisometric defect and is removed by the right-defect Schur square.
+  The remaining L228 content is the linear cross-cell response in
+  the finite zero/one inverse-kernel sectors.
+  `proof/repeated_crabb_half_line_coisometry.md`;
+  `experiments/repeated_crabb_half_line_coisometry.py`.
+
 ## NEWEST (2026-07-24): L243 identifies the exact delayed model-kernel lift
 - After absorbing the right endpoint, the retained bulk inverse is
   `R_R=(G-cT*E)^−1` and its left compression is exactly
