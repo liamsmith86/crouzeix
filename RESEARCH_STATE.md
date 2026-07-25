@@ -2,6 +2,31 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — repeated circular/elliptic merger)
 
+## NEWEST (2026-07-24): L218 gives the ordered matrix Schur generator
+- Every square rational inner transfer near `z^L U` has a unique
+  ordered matrix Schur recursion.  Its one-step kernel identity and
+  inverse preserve multiplication order, while determinant winding
+  proves termination after exactly `L` steps.
+- L201 forces the first parameter to vanish.  The remaining
+  `Gamma_1,...,Gamma_(L−1)` and terminal unitary give
+  `(2L−1)m²` real coordinates, exactly matching L193's equality
+  dimension.
+- At the monomial, the grade-`j` tangent is
+  `z^j Delta−z^(2L−j)U Delta*U`.  The late adjoint coefficient is
+  forced by innerness and supplies the structural source of L217's
+  early future reflections.
+- Separately, `proof/repeated_crabb_one_image_generator.md` records a
+  coherent theta-weighted zero/one-image physical frame.  Its direct
+  jets give the desired `−16B_kB_k*` endpoint through grades one to
+  six, including noncommuting and rank-changing cases, but it remains
+  a candidate rather than a lemma.
+- The immediate proof gate is now precise: prove the candidate's
+  ordered zero/one-reflection word identity, then show that its first
+  two-reflection quotient is the L216-deflated grade-one face.
+  L218 alone does not identify the physical Riemann/metric endpoint.
+  `proof/repeated_crabb_matrix_schur_chart.md`;
+  `experiments/repeated_crabb_matrix_schur_chart.py`.
+
 ## NEWEST (2026-07-24): L217 rules out the naïve delayed-frame induction
 - The exact repeated length-five elliptic-axis defect frame differs
   from the universal zero-reflection frame already at order four:
@@ -3486,35 +3511,31 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-24)
-1. **Prove L204's analytic cokernel identity.** Rewrite
-   `Q Z_Y V=0` and `tr(YD_T)` in L201's transfer coefficients
-   `B_n`, or derive the correction from the matrix Schur/Levinson
-   recursion.  A pointwise pseudoinverse is not enough because the
-   endpoint map loses rank at Crabb.
-2. **Lift the elliptic flag through all reflected grades.** Once grade
-   one is analytic, restrict to its left-kernel and repeat the
-   cokernel construction for `B_2,...,B_L`.  Preserve multiplication
-   order; the terminal `B_L` is invertible by L201.
+1. **Prove the grouped zero/one-reflection identity.** Use L218's
+   ordered Schur recursion or the partial-isometry word algebra to
+   derive the theta-weighted frame in
+   `proof/repeated_crabb_one_image_generator.md`.  Finite-grade jet
+   agreement is evidence, not the proof.
+2. **Identify the first two-reflection quotient.** On
+   `B_1=...=B_(k−1)=0`, show that the first surviving grouped
+   coefficient is the L216-deflated grade-one prepared face, including
+   the even-`k` fold.  This would prove the all-grade
+   `−16B_kB_k*` endpoint.
 3. **Finish the repeated normal/elliptic merger.** L197 closes the
    disk Schur flag and L199 closes only its first raw circular-normal
    face.  Prove the later Schur-orthogonal normal response, then merge
    it with the all-grade elliptic flag without spending a negative
    square twice.
-4. **Retain the full CP correction.** Hartz--McCarthy cannot scalarize it. Test whether L21's
-   trace inequality can instead be derived from the block-Toeplitz positivity of the full
-   operator-valued correction moments. Do not retry trace/positive-state scalarizations.
-5. **Shifted Möbius H-r fallback**: derive its exact stationarity/rho formula (Kenan-Li quartic
-   analog) and prove rho≥0 or K≤2. Definite parity is false.
-6. **Bi-conic Schwarzian test**: compute `SG` for the off-slice collapsed map on the critical
-   real interval. `SG≥0` would extend L17 immediately; otherwise test the weaker Sturm-potential
-   comparison that the proof actually needs.
-7. **Odd phase positivity**: ρ = B₁g₁q₁+B₂g₂q₂ ≥ 0 given the L15 stationarity law
-   (3-parameter; interlacing τ₂ < α < τ₁; term-1 dominance observed). Try the same
-   deformation/kernel machinery.
-8. Rigor debts: n=6 structured floor; 2×2 α=0; contact degeneracy; L59/L117 publication-level
-   novelty audit.
-   General-n work must include symmetry-breaking phases; the former parity-collapse induction
-   remains valid only inside a chosen parity sector.
+4. **Retain the full CP correction.** Test whether L21's trace
+   inequality follows from block-Toeplitz positivity of the complete
+   operator-valued Crouzeix--Palencia correction.  Do not retry
+   scalar shifts or positive-state scalarizations.
+5. **H-r fallback.** Continue the shifted Möbius and odd-phase
+   level-four positivity attacks only after the local Crabb merger is
+   banked; definite parity is false.
+6. **Analytic flag audit.** Reconcile L208's exact kernel projections
+   with L197's pathwise analytic Schur flag.  Never insert a
+   discontinuous pseudoinverse into the metric.
 Keep committing+pushing after each task (user instruction).
 
 ## Files map (handoff-ready, 2026-07-22)

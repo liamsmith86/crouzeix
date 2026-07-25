@@ -423,6 +423,24 @@ active grade, and do not select each endpoint-null coefficient by a
 minimum-norm solve.  Transport the grouped exact-axis normalization,
 or derive the matrix Schur/Levinson generator that produces it.
 
+L218 now supplies that generator at the transfer level.  Every
+nearby square rational inner transfer has unique ordered matrix Schur
+parameters, L201 forces the first one to vanish, and the monomial
+tangent is
+
+```
+delta_j B(z) = z^j Delta - z^(2L-j) U Delta* U.
+```
+
+The recursion is exact and terminates after `L` steps by determinant
+winding.  It explains the reflected coefficient pairing but does not
+yet transport the physical Riemann/metric endpoint.  The candidate
+theta-weighted frame in
+`proof/repeated_crabb_one_image_generator.md` passes complete jets
+through grade six; it is still numerical.  Prove its ordered
+zero/one-reflection identity, then identify the first two-reflection
+quotient with L216's deflated grade-one face.
+
 L205 supplies a scalar-only alternative to that stronger complete
 gate.  The condition-two chain is sharp for a scalar Schur function
 exactly when L201's transfer has a constant one-dimensional inner
@@ -1110,12 +1128,12 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
 ## Next five concrete actions (refreshed 2026-07-24, Epoch 6)
-1. **Generate the grouped nonlinear delay gauge.** L216 transports
-   every retained response, while L217 disproves a grade-local frame
-   recursion.  Derive the full exact-axis normalization from the
-   matrix Schur/Levinson or model-space equations, then show its
-   grouped order-`2k` forcing deflates to the grade-two prepared base.
-   Do not compare or minimize raw frame coefficients term by term.
+1. **Prove the grouped nonlinear delay gauge.** L218 supplies the
+   exact transfer generator, and the one-image candidate supplies a
+   physical formula verified through grade six.  Prove its ordered
+   zero/one-reflection identity, then show the first two-reflection
+   quotient deflates by L216 to the grade-one prepared face.  Do not
+   compare or minimize raw frame coefficients term by term.
 2. **Merge later circular normals.** L199 covers the first raw face
    only.  Identify the response after L197's later least-squares Schur
    quotients and combine it with the elliptic flag.
@@ -1133,7 +1151,7 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
 ## Paste-ready continuation instruction
 "Continue the Crouzeix campaign in /home/liam/Downloads/crouzeix
 (git repo; commit and push each proved milestone).  Read the newest
-RESEARCH_STATE section and L201--L217/A144--A160.  L207 gives the
+RESEARCH_STATE section and L201--L218/A144--A161.  L207 gives the
 explicit analytic grade-one correction; L208 gives the conditional
 higher flagged preimage; L209 promotes a surviving grade to a
 grade-one smaller colligation; L210 proves the exact transfer/Gram
@@ -1144,7 +1162,10 @@ the lower-order delayed axis gauge; L214 proves the complete prepared
 face; L216 proves exact all-delay covariance of every retained linear
 endpoint response and identifies L212 as deflated L207; L217 proves
 that the exact length-five gauge already has a `B_5` term at frame
-order four, so a grade-local frame recursion is false.  Both known
+order four, so a grade-local frame recursion is false; L218 gives the
+ordered matrix Schur generator and its reflected tangent pairing.
+The one-image physical generator is tested through grade six but is
+not yet proved.  Both known
 faces end at `−16B_kB_k*`.  Prove covariance of the remaining grouped
 nonlinear Riemann/metric/Schur forcing and thereby the all-grade base
 `12L_c−28C(R_c)` (or a one-sided smaller endpoint), and
