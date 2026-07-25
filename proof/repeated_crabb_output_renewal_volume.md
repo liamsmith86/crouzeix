@@ -224,3 +224,18 @@ predicts the result:
 
 under complete delay.  L258 proves the renewal reduction, not this
 last Hardy-index identity.
+
+L264 subsequently permits \(R^\circ\) to be replaced, for this active
+scalar coefficient, by
+
+\[
+R^\triangleright
+=R^\circ+c^{2k}P([c^{2k}]R_{\rm right})P.
+\]
+
+The final row and cross blocks remain isolated, so every formula
+above still applies through the target degree, while L240/L244's
+complete right-half-line metric is restored.  The active left orbit
+remains deleted because its initial-defect trace is not gauge-free.
+This is the preferred setting for the remaining closed-path
+evaluation.

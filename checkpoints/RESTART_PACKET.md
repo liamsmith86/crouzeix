@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-25): after L263 / A209
+## Current general Crabb frontier (2026-07-25): after L264 / A210
 
 The accidental two-agent interval has been reconciled.  Commits
 `87c5107`, `4c7a152`, `2f82d15`, and `dcab861` form one linear history
@@ -27,7 +27,11 @@ relative grade-one response, and A203/L257 turns its transport into
   extracting the active coefficient.  L263/A209 further proves that
   analytic motion of the fixed Schur port, defect graph, and Wold
   basis is one order too late to alter a first new face; the physical
-  channel numerator itself is the only live ambiguity.  A195 is a negative guardrail,
+  channel numerator itself is the only live ambiguity.  L264/A210
+  permits the universal right-half-line metric to be restored while
+  the active left orbit and final corner/cross row remain deleted, so
+  the continuation should use this port-isolated right-half-line
+  gauge.  A195 is a negative guardrail,
   not a second frontier.
 
 L230--L234 close the canonical repaired endpoint through the third
@@ -265,7 +269,15 @@ another metric or graph calculation: it is to assemble that numerator
 from both ellipse orientations and show that its trace is four times
 the complete leakage-row norm, allowing trace-null indefinite terms.
 
-**Current live gate (A194/A209):** evaluate L258's closed-return
+L264 supplies the correct gauge for that calculation.  The response
+to `X=PXP` is `−tr(EX)`, so an arbitrary retained coefficient is not
+free.  The positive right wandering orbits are orthogonal to `E`,
+however, and their active coefficient may be added back.  Use
+`Rtri=Rcirc+q^kP([q^k]R_right)P`: this restores L240/L244's complete
+`D_R` metric while keeping the active left orbit and final
+corner/cross row deleted.
+
+**Current live gate (A194/A210):** evaluate L258's closed-return
 trace using L259--L261's complete leakage-row norm, prove L257's
 associated one-delay coefficient recursion, and iterate to L256's
 universal grade-one response, at the physical `lambda=1`, without assuming
@@ -405,6 +417,10 @@ before their theta/coisometric cancellation.
   first-face Schur derivative around the moving rank-`m` defect
   graph.  The fixed port and Wold motion cannot reweight the active
   coefficient; the two-orientation physical numerator remains open.
+- `proof/repeated_crabb_retained_metric_gauge.md` (L264): exact
+  right-half-line metric response.  Restore the universal `D_R`
+  coefficient only; the active left orbit and final-port blocks stay
+  deleted.
 - `proof/repeated_crabb_exact_metric_chart.md` (L194): analytic
   metric chart in which any all-series column construction must
   converge.

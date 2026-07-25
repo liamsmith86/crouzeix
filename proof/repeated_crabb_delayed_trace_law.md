@@ -199,6 +199,14 @@ Hardy compression after the background graph is removed.  What
 remains is the full two-orientation physical numerator, not a hidden
 metric or oblique-port weight.
 
+L264 permits the complete right-half-line \(D_R\) coefficient to be
+restored at the active degree without changing the scalar target,
+while the active left orbit, final corner, and cross row remain
+deleted.  Hence the numerator in (7a) should be assembled in that
+port-isolated right-half-line gauge.  An arbitrary retained
+coefficient is not free; its response is
+\(-\operatorname {tr}(EX)\).
+
 Without (7a), calling the endpoint-word statement proved would still
 be circular: L251 pairs the ports and L262 proves the metric of a
 Wold sandwich, but neither identifies the complete first

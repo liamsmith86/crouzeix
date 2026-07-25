@@ -42,7 +42,10 @@
   is that sandwich after the two ellipse orientations have been summed.
   A209/L263 additionally proves that the fixed physical Schur row and
   the moving Wold/defect graph cannot alter a first new face; only the
-  still-unidentified physical channel numerator remains.
+  still-unidentified physical channel numerator remains.  A210/L264
+  supplies the final legal gauge choice: restore the universal
+  right-half-line metric while continuing to delete the active left
+  orbit, final corner, and cross row.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
 
@@ -183,6 +186,23 @@
   that its retained **trace** is four times L261's complete
   leakage-row norm, with any other active operator terms trace-null.
   `proof/repeated_crabb_schur_graph_transport.md`.
+
+## NEWEST (2026-07-25): L264 restores the right-half-line metric for free
+- If two L250 metrics isolate the final port, agree below degree `d`,
+  and differ at degree `d` by `X=PXP`, their scalar-mass response is
+  `tr((F−E)X)=−tr(EX)`.  An arbitrary retained coefficient is
+  therefore not free.
+- The positive right wandering orbits `(S*)^jES^j`, `j>=1`, are
+  orthogonal to `E`, so their retained active coefficient does have
+  zero response.
+- Hence replace the whole-coefficient deletion by
+  `Rtri=Rcirc+q^kP([q^k]R_right)P`.  This restores L240/L244's
+  complete `D_R` coefficient while leaving the active left orbit,
+  final corner, and cross row deleted.
+- The left orbit is not gauge-free: its `E`-trace is `||B_k||²`.
+  The incorrect stronger retained-gauge claim was rejected by a
+  random-matrix audit before commit.
+  `proof/repeated_crabb_retained_metric_gauge.md`.
 
 ## NEWEST (2026-07-25): L253 identifies the target as Toeplitz leakage
 - If `T_B` is the causal Toeplitz multiplier of the matrix-inner
@@ -4531,7 +4551,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-25)
-1. **A194/A198--A209: identify the physical numerator in the half-line Wold sandwich.**
+1. **A194/A198--A210: identify the physical numerator in the port-isolated half-line gauge.**
    L256 now proves the universal relative response
    `[c²]mu°=4||B_1||_F²` for every matrix channel.  Prove that removing
    one clean Hardy layer obeys
@@ -4583,6 +4603,9 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    (A195/L249), assume A192's symmetric endpoint valuation, seek a
    positive leakage-Gram factorization, or extend the grade-six audit
    instead of proving the covariance.
+   Use L264's `Rtri`: the final port/cross row and active left orbit
+   remain removed, while the universal right-half-line `D_R` metric
+   is restored at no cost to the active scalar trace.
 2. **Then promote the delayed trace law, not more finite evidence.**
    Combining the `+4` volume coefficient with L247's exact metric
    contribution `−2` would give L225's total trace

@@ -107,6 +107,15 @@ is exactly an equality of the form \(A R^{-1}A^*=R^{-1}\) on the
 retained half-line.  L243--L245 can therefore be inserted into \(Z\)
 before the finite final port is eliminated.
 
+L264 subsequently computes the response to a retained active metric
+coefficient \(X=PXP\) as \(-\operatorname {tr}(EX)\).  Thus that
+block is not arbitrary.  The right-half-line part is nevertheless
+free because every positive right wandering orbit is orthogonal to
+\(E\).  One may therefore restore
+\(c^{2k}P([c^{2k}]R_{\rm right})P\), while leaving the active left
+orbit, \(F\)-corner, and cross row deleted.  This port-isolated
+right-half-line gauge is the preferred L244 interface.
+
 Thus A194 is now the balanced-coordinate scalar identity
 
 \[
