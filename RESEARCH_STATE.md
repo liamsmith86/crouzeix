@@ -19,8 +19,9 @@
   checker passes and regenerates SHA-256
   `114ba20c89b0d3e1e69db45ed510836a6306caca0cf1b02f0d89aa8f911ec642`.
 - There is now one live mathematical frontier: A194 at the complete
-  physical terminal balance.  A195/L249 is only a guardrail against
-  detaching the doubled terminal edge, not a competing approach.
+  physical terminal balance, now in A196/L250's balanced output
+  coordinates.  A195/L249 is only a guardrail against detaching the
+  doubled terminal edge, not a competing approach.
 
 ## CHECKPOINT REVALIDATION (2026-07-24): prior audit complete; frontier advanced
 - The requested A164/next-actions/restart/recursion/structured-matrix/
@@ -38,6 +39,28 @@
   classifications for L187/L193/L218 remain respectively (ii), (ii),
   and (i).  The lemma-ID gaps remain intentional and are stated at the
   top of `LEMMA_LEDGER.md`.
+
+## NEWEST (2026-07-25): L250 removes the metric roots from A194
+- Under complete delay, deleting the **whole** active coefficient
+  `[c^(2k)]P_bl` makes the final defect an identity metric block with
+  zero cross row through degree `2k`; the next possible contamination
+  is degree `2k+2`.
+- Therefore L248's normalized initial-defect mass is, through the live
+  face, exactly
+  `−m+tr((R−A*FA)^−1(R−A*RA))` in balanced coordinates.  No formal
+  metric square root remains, while the inverse keeps the complete
+  final-row/Schur whitening.
+- Sylvester moves the same determinant to the output variable
+  `Z=AR^−1A*`.  This is the preferred A194 interface because L244 is
+  exactly the half-line identity `A_inf D_R^−1 A_inf*=D_R^−1`, and
+  L243--L245 give the finite reflected state lift entering `Z`.
+- The open coefficient remains `+4||B_k||²`.  Generic grades one
+  through five reproduce it after all coordinate changes.  The
+  whitened face itself is generally indefinite, so do **not** promote
+  the doubled channel to a positive leakage Gram; use coisometric
+  trace conservation and matrix-inner autocorrelation.
+  `proof/repeated_crabb_edge_deleted_balanced_volume.md`;
+  `experiments/repeated_crabb_edge_deleted_balanced_volume.py`.
 
 ## NEWEST (2026-07-25): L249 locks the doubled edge to the full balance
 - On the exact length-three delayed monomial channel, replace only the
@@ -4243,15 +4266,16 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
 ## Current next actions (Epoch 6, refreshed 2026-07-25)
 1. **A194: prove the physical whitened volume coefficient `+4`.**
    Keep the terminal multiplier at its physical value `lambda=1`.
-   Insert L243--L245's exact delayed resolvent/Green lift directly
-   into L248's initial-defect mass
-   `−m+tr((I−C*FC)^−1(I−C*C))`.  Apply L244's coisometry before
-   extracting coefficients, so the zero/one-reflection background
-   cancels structurally and the surviving remote channel can be
-   identified as `4||B_k||_F²`, with all earlier coefficients zero.
+   Use L250's output determinant with `Z=AR^−1A*`, insert
+   L243--L245's exact delayed resolvent/Green lift into `Z`, and apply
+   L244's coisometry **before** extracting coefficients.  Reduce the
+   remaining trace by the matrix-inner autocorrelation sums so the
+   later `B#(x)` rows cancel and only the doubled remote cell yields
+   `4||B_k||_F²`, with all earlier coefficients zero.
    Do not estimate the individually huge dual corner and Schur square,
    detach the doubled port (A195/L249), or assume A192's unproved
-   symmetric endpoint valuation.
+   symmetric endpoint valuation.  The face is indefinite, so do not
+   seek a positive leakage-Gram factorization.
 2. **Then promote the delayed trace law, not more finite evidence.**
    Combining the `+4` volume coefficient with L247's exact metric
    contribution `−2` would give L225's total trace

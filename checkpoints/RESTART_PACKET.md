@@ -1,14 +1,15 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-25): after L249 / A195
+## Current general Crabb frontier (2026-07-25): after L250 / A196
 
 The accidental two-agent interval has been reconciled.  Commits
 `87c5107`, `4c7a152`, `2f82d15`, and `dcab861` form one linear history
 with no overwritten content or unresolved merge.  L248 was regenerated
 byte-identically, and the incoming L249 artifacts were cleaned and
 independently recomputed before banking.  Resume as one agent from the
-A194 gate below; A195 is a negative guardrail, not a second frontier.
+A194 gate below through A196's balanced output form; A195 is a
+negative guardrail, not a second frontier.
 
 L230--L234 close the canonical repaired endpoint through the third
 transfer flag.  Universal bounded polynomial columns cancel the cubic
@@ -128,6 +129,16 @@ detached and squared in isolation.  Preserve the complete physical
 theta/direct-map/metric network, apply L244's coisometry inside
 L248's initial-defect mass, and identify the remote energy only after
 that structural cancellation.
+L250 then removes the metric square roots from this task.  Deleting the
+whole active metric coefficient isolates the final metric port through
+degree `2k`, so the normalized mass is exactly
+`−m+tr((R−A*FA)^−1(R−A*RA))` in balanced coordinates through the live
+face.  Sylvester moves the determinant to `Z=AR^−1A*`, which is the
+correct orientation for L244's dual coisometry.  Insert L243--L245
+there, cancel the half-line sector before coefficient extraction, and
+use transfer-inner autocorrelation on the later `B#` rows.  Generic
+whitened faces are indefinite: the desired four is a net trace-energy
+identity, not a positive leakage Gram.
 
 **Current live gate (A194):** prove that whitened volume coefficient
 at the physical multiplier `lambda=1`, without assuming A192's
@@ -205,6 +216,10 @@ balance.
   `experiments/repeated_crabb_terminal_multiplier_rigidity.py`: exact
   obstruction to detaching the doubled terminal edge; continue only
   at the physical multiplier.
+- `proof/repeated_crabb_edge_deleted_balanced_volume.md` (L250) and
+  `experiments/repeated_crabb_edge_deleted_balanced_volume.py`: exact
+  active-grade removal of the metric square roots and output-oriented
+  determinant `Z=AR^−1A*`; the value four remains open.
 - `proof/repeated_crabb_exact_metric_chart.md` (L194): analytic
   metric chart in which any all-series column construction must
   converge.
