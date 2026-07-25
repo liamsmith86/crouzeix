@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-25): after L262 / A208
+## Current general Crabb frontier (2026-07-25): after L263 / A209
 
 The accidental two-agent interval has been reconciled.  Commits
 `87c5107`, `4c7a152`, `2f82d15`, and `dcab861` form one linear history
@@ -24,7 +24,10 @@ relative grade-one response, and A203/L257 turns its transport into
   genuine normalized half-line Wold sandwich has exactly that
   ordinary metric.  What remains is to place L258's first physical
   return in that sandwich, after summing both orientations and before
-  extracting the active coefficient.  A195 is a negative guardrail,
+  extracting the active coefficient.  L263/A209 further proves that
+  analytic motion of the fixed Schur port, defect graph, and Wold
+  basis is one order too late to alter a first new face; the physical
+  channel numerator itself is the only live ambiguity.  A195 is a negative guardrail,
   not a second frontier.
 
 L230--L234 close the canonical repaired endpoint through the third
@@ -253,7 +256,16 @@ complete paired ports into L258, sum both orientations, and show that
 the first nonconstant closed return lies between the Wold unitary and
 its adjoint with the doubled remote factor on both sides.
 
-**Current live gate (A194/A208):** evaluate L258's closed-return
+L263 settles the remaining fixed-port qualification.  If
+`H=dd*+c^s Delta`, the first complementary Schur face is
+`T Delta T*`, `T=P−Pd(J*d)^−1J*`.  Here `d(0)=J_0` and the Wold
+unitary is `I+O(c)`, so the active trace sees the constant ordinary
+Hardy compression of the physical numerator.  The live task is not
+another metric or graph calculation: it is to assemble that numerator
+from both ellipse orientations and show that its trace is four times
+the complete leakage-row norm, allowing trace-null indefinite terms.
+
+**Current live gate (A194/A209):** evaluate L258's closed-return
 trace using L259--L261's complete leakage-row norm, prove L257's
 associated one-delay coefficient recursion, and iterate to L256's
 universal grade-one response, at the physical `lambda=1`, without assuming
@@ -389,6 +401,10 @@ before their theta/coisometric cancellation.
   formal Wold unitary for L244's normalized half-line.  The ordinary
   metric is now proved for any genuine half-line sandwich; placement
   of L258's first physical return in that sandwich remains open.
+- `proof/repeated_crabb_schur_graph_transport.md` (L263): exact
+  first-face Schur derivative around the moving rank-`m` defect
+  graph.  The fixed port and Wold motion cannot reweight the active
+  coefficient; the two-orientation physical numerator remains open.
 - `proof/repeated_crabb_exact_metric_chart.md` (L194): analytic
   metric chart in which any all-series column construction must
   converge.

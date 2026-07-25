@@ -40,6 +40,9 @@
   this ordinary Hardy metric.  The remaining issue is physical
   channel placement: prove that L258's first nonconstant closed return
   is that sandwich after the two ellipse orientations have been summed.
+  A209/L263 additionally proves that the fixed physical Schur row and
+  the moving Wold/defect graph cannot alter a first new face; only the
+  still-unidentified physical channel numerator remains.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
 
@@ -163,6 +166,23 @@
   orientations required by L260.  That placement must also prove the
   lower vanishings and retain the doubled remote factor on both sides.
   `proof/repeated_crabb_half_line_wold_return.md`.
+
+## NEWEST (2026-07-25): L263 removes the fixed-port/defect-graph ambiguity
+- For a rank-`m` background Gram `dd*` and fixed Schur port `F=JJ*`,
+  the first new perturbation `c^s Delta` has exact Schur face
+  `T Delta T*`, where
+  `T=P−Pd(J*d)^−1J*`.
+- L240 has `d(0)=J_0`, so `T(0)=P`.  L262's Wold unitary is also
+  `I+O(c)`.  Therefore the coefficient at its first new degree sees
+  only the constant ordinary Hardy compression; motion of the theta
+  defect graph, the fixed port, and the Wold coordinates is at least
+  one order too late.
+- This does not assert a positive Gram for the physical face (finite
+  audits disprove that stronger operator claim).  It isolates the
+  remaining A194 numerator: after summing both orientations, show
+  that its retained **trace** is four times L261's complete
+  leakage-row norm, with any other active operator terms trace-null.
+  `proof/repeated_crabb_schur_graph_transport.md`.
 
 ## NEWEST (2026-07-25): L253 identifies the target as Toeplitz leakage
 - If `T_B` is the causal Toeplitz multiplier of the matrix-inner
@@ -4511,7 +4531,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-25)
-1. **A194/A198--A208: place L258's first physical return in the half-line Wold sandwich.**
+1. **A194/A198--A209: identify the physical numerator in the half-line Wold sandwich.**
    L256 now proves the universal relative response
    `[c²]mu°=4||B_1||_F²` for every matrix channel.  Prove that removing
    one clean Hardy layer obeys
@@ -4536,7 +4556,13 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    metric.  Instead show that the first nonconstant term in L258's
    closed return is exactly such a Wold sandwich after the full
    L260-mandated orientation sum, including the zero/one-kernel
-   filtration and boundary/direct-map terms.  This must be a trace identity—
+   filtration and boundary/direct-map terms.  L263 now also proves
+   that the fixed boundary port and analytic defect-graph/Wold motion
+   cannot alter that first face: after the background graph is
+   removed, compute only the constant Hardy compression of the
+   physical numerator.  Identify its trace as four times the full
+   leakage-row norm plus trace-null terms; do not assert a positive
+   operator Gram.  This must be a trace identity—
    direct audits disprove the stronger operator covariance.  L260
    also rules out separating the two ellipse orientations.  Do not
    claim equality of the full shifted series, which L235 disproves.

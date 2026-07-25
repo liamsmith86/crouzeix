@@ -192,6 +192,13 @@ specific channel-placement statement
 Wold unitary and its adjoint.}}                                    \tag{7a}
 \]
 
+L263 additionally proves that the fixed physical Schur port and the
+analytic motion of the background defect graph/Wold basis cannot
+change this first new face.  Thus (7a) may be checked in the constant
+Hardy compression after the background graph is removed.  What
+remains is the full two-orientation physical numerator, not a hidden
+metric or oblique-port weight.
+
 Without (7a), calling the endpoint-word statement proved would still
 be circular: L251 pairs the ports and L262 proves the metric of a
 Wold sandwich, but neither identifies the complete first
