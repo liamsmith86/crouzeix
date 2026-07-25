@@ -1,7 +1,60 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-24): after L227 / A170
+## Current general Crabb frontier (2026-07-24): after L234 / A178
+
+L230--L234 close the canonical repaired endpoint through the third
+transfer flag.  Universal bounded polynomial columns cancel the cubic
+and quintic mixed-flag terms and redistribute the quartic and sextic
+faces.  On `ker B_1* intersect ker B_2*`, the final direct sextic face
+is `12B_3B_3*`; after the surviving fifth-order Schur cost it remains
+at least `(215/22)B_3B_3*`.  The proofs are exact word identities and
+include an explicit rejection of a weaker complete-delay-only sextic
+candidate.
+
+**Live gate (A178):** this is a finite-grade template, not an
+arbitrary-grade proof.  No formula for a general preparation column
+`C_k` is currently known.  The separately solved columns have
+term-count/coefficient-l1 data
+`C_3: 1/3`, `C_4: 10/(27/2)`, `C_5: 20/48`, and
+`C_6: 53/181`.  The next valid advance must expose a uniform
+right-ideal recurrence and a growth bound sufficient for convergence
+in L194's analytic chart; another isolated grade is not by itself
+progress toward the all-grade theorem.  A171/L228's one-delay
+anticommutator recursion remains open and is still the intended
+structural route, not a parked or superseded thread.
+
+Standing constraints: A179 disproves raw simultaneous superposition of
+the L212 representatives; scalar shifts and positive-state
+scalarizations have failed; a rank-dependent pseudoinverse cannot be
+inserted into the analytic metric; and definite parity is false.
+
+## Current frontier files map
+- `proof/repeated_crabb_canonical_cubic_preimage.md` (L230),
+  `proof/repeated_crabb_canonical_quartic_preimage.md` (L232),
+  `proof/repeated_crabb_canonical_quintic_preimage.md` (L233), and
+  `proof/repeated_crabb_canonical_sextic_preimage.md` (L234): the
+  finite cubic-through-sextic preparation chain.
+- Matching regenerators are
+  `experiments/repeated_crabb_canonical_{cubic,quartic,quintic,sextic}_preimage.py`.
+- `proof/repeated_crabb_delayed_slack_anticommutator.md` (L228):
+  conditional all-grade endpoint response; one-delay coefficient
+  recursion still open.
+- `proof/repeated_crabb_exact_metric_chart.md` (L194): analytic
+  metric chart in which any all-series column construction must
+  converge.
+- `proof/repeated_crabb_schur_kernel_flag.md` (L220) and
+  `proof/repeated_crabb_delay_model_flag.md` (L221): exact model-space
+  flag and delay covariance; neither supplies the missing physical
+  arbitrary-grade recurrence.
+- `RESEARCH_STATE.md`, `LEMMA_LEDGER.md`, and `APPROACH_LEDGER.md` are
+  the authoritative status/claim indexes.
+
+## Banked context through L227
+
+The material below preserves the chronological derivation.  Any
+embedded phrase calling an older step the “live gate” is historical
+and is superseded by the L234/A178 frontier above.
 
 L227 supplies an exact analytic contraction repair for L219's
 boundary metric.  If `H` is its Stein slack, `G=V*HV`, and
@@ -1235,74 +1288,32 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   The former deformation route was superseded by the Schwarzian proof of EL4; see
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
-## Next five concrete actions (refreshed 2026-07-24, Epoch 6)
-1. **Prove the fully delayed higher-contact trace law.**
-   L222 shows that the exact partial-flag matrix Gram is unnecessary.
-   Prove `tr E_(2k,eff)=-16||B_k||_F^2` when
-   `B_1=...=B_(k-1)=0`, preferably by a matrix-inner
-   zero/one/two-reflection trace calculation.  Grades one through
-   three are already proved.  Then use L222's reducing-separator
-   alternative and prove bounded pathwise selection through its rank
-   changes.
-   In parallel, use L223's exact `-4B_kB_k*` boundary budget to seek a
-   structured Stein repair; do not retry isotropic slack domination.
-2. **Merge later circular normals.** L199 covers the first raw face
-   only.  Identify the response after L197's later least-squares Schur
-   quotients and combine it with the elliptic flag.
-3. **Full CP-correction moments.** Do not retry scalar shifts or
-   positive-state scalarizations.  Test whether L21's trace inequality
-   follows from the block-Toeplitz positivity supplied by the full
-   operator-valued Crouzeix--Palencia correction.
-4. **H-r fallback.** Continue the shifted degree-one Möbius and
-   odd-phase level-4 positivity attacks only after the local Crabb
-   merger is banked.
-5. **Analytic flag audit.** Reconcile L208's exact kernel projections
-   with L197's pathwise Schur-orthogonal analytic flag; never insert a
-   discontinuous pseudoinverse into the metric.
+## Next five concrete actions (refreshed after L234 / A178)
+1. **Extract the all-grade recursion.**  Relate L228's terminal-crossing
+   anticommutator to the partial-right-ideal preparation pattern in
+   L230--L234.  Require a recurrence, not another isolated jet.
+2. **Prove a convergent coefficient bound.**  Replace the observed
+   bounds `3, 27/2, 48, 181` by an explicit grade-`k` estimate that
+   yields a local analytic L194 metric.
+3. **Merge later circular normals after A178.**  L199 covers only the
+   first raw face; combine the later L197 response without spending an
+   elliptic negative square twice.
+4. **Retain the full CP correction as fallback.**  Do not retry scalar
+   shifts or positive-state scalarizations.
+5. **Keep analytic guards.**  Reconcile L208 with L197 without a
+   discontinuous pseudoinverse; definite parity remains false.
 
 ## Paste-ready continuation instruction
-"Continue the Crouzeix campaign in /home/liam/Downloads/crouzeix
-(git repo; commit and push each proved milestone).  Read the newest
-RESEARCH_STATE section and L201--L222/A144--A165.  L207 gives the
-explicit analytic grade-one correction; L208 gives the conditional
-higher flagged preimage; L209 promotes a surviving grade to a
-grade-one smaller colligation; L210 proves the exact transfer/Gram
-weight shift; L211 proves active-block channel covariance; L212 gives
-the universal all-grade polynomial preimage without flags; L213 fixes
-the lower-order delayed axis gauge; L214 proves the complete prepared
-`B_2` fourth face; L215 proves the analogous complete `B_3` sixth
-face; L216 proves exact all-delay covariance of every retained linear
-endpoint response and identifies L212 as deflated L207; L217 proves
-that the exact length-five gauge already has a `B_5` term at frame
-order four, so a grade-local frame recursion is false; L218 gives the
-ordered matrix Schur generator and its reflected tangent pairing.
-L219 proves the boundary metric is strictly inside the metric
-sandwich but its raw Stein slack can be indefinite.  L220 gives the
-exact finite Schur-orthogonal model-kernel flag, while A164 disproves
-naïve raw superposition beyond the first face.
-L221 proves exact delay covariance of the Schur model, state orbits,
-and boundary metric.  L222 proves a semidefinite alternative for
-every partial endpoint flag: only positive reducing-copy commutants
-can obstruct a negative correction.  Therefore the minimal live
-pointwise physical target is the fully delayed trace law
-`tr E_(2k,eff)=-16||B_k||_F^2`, already known at grades one, two,
-and three; exact feature-Gram equality on every partial flag is
-stronger than necessary.  Still prove bounded selection through
-commutant rank jumps before claiming a local metric theorem.
-L223 proves independently that L219's boundary metric already has
-the exact delayed upper face `-4c^(2k)B_kB_k*`; a successful direct
-Stein repair must stay inside that explicit budget.
-The one-image physical generator is tracked through grade six, with
-an additional reported grade-eight holdout, but is not yet proved.
-Both known
-faces end at `−16B_kB_k*`.  Prove covariance of the remaining grouped
-nonlinear Riemann/metric/Schur forcing and thereby the all-grade base
-`12L_c−28C(R_c)` (or a one-sided smaller endpoint), and
-merge the later L197 circular-normal
-flags.  Do not use the false raw matrix quotient, confuse B_n*B_n with
-B_nB_n*, or promote pointwise pseudoinverses through the rank jump.
-After the repeated local theorem, return to the general
-similarity/CP-moment and H-r routes.
-Respect pitfalls P1--P8 and the certificate discipline.  The stop
-condition remains a rigorous general proof or certified
-counterexample."
+"Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix`.
+Read the newest L234 section of `RESEARCH_STATE.md`, L228 and
+L230--L234, and A178.  The cubic-through-sextic preparation chain is
+proved exactly through transfer grade three, but it is explicitly
+non-inductive: no arbitrary-grade `C_k` or convergent coefficient
+bound is known.  Use L228's still-open one-delay anticommutator
+recursion to seek the uniform partial-right-ideal recurrence behind
+the odd cancellation, even transfer Gram, and Schur-budget margin.
+Do not compute another isolated grade unless it exposes that
+recurrence.  Respect A179 (no raw L212 superposition), do not use
+scalar shifts, positive-state scalarizations, or rank-dependent
+pseudoinverses, and do not assume definite parity.  Commit and push
+each proved milestone."

@@ -62,6 +62,62 @@ Papers, theorems, assumptions, possible gaps. Status verified via web 2026-07-24
 - Greenbaum–Overton (2017-2018, "Numerical investigation of Crouzeix's conjecture"): nonsmooth optimization (BFGS/GRANSO) over A and p; global max of R appears to be exactly 2, attained on Crabb-type / Jordan-block configurations. No R > 2 ever found.
 - AIM workshop reports (aimath.org/pastworkshops/crouzeixrep.pdf): consensus directions.
 
+## Structured-matrix novelty audit for L187/L193/L218 (2026-07-24)
+
+Classification here is about the **mathematical core**, not whether the
+campaign independently re-proved it.  This was a targeted source audit,
+not an exhaustive priority search.
+
+- **Classical scalar substrate.**  Gohberg--Semencul (1972), *The
+  inversion of finite Toeplitz matrices and their continual analogues*,
+  Mat. Issled. 7(2), 201--223, gives the classical inverse-Toeplitz
+  formula.  Kailath--Vieira--Morf, SIAM Review 20 (1978), 106--119,
+  DOI `10.1137/1020006`, reviews the equivalence with
+  innovations/orthogonal-polynomial structure.  Kailath--Kung--Morf,
+  JMAA 68 (1979), 395--407, DOI
+  `10.1016/0022-247X(79)90124-0`, places Toeplitz inverses and related
+  matrices in the classical low-displacement-rank framework.
+- **Classical block substrate.**  Block Toeplitz inversion predates the
+  campaign (for example Akaike 1973).  Labahn--Choi--Cabay, SIAM J.
+  Comput. 19 (1990), 98--123, DOI `10.1137/0219006`, explicitly gives
+  block Hankel/Toeplitz inverse formulae generalizing the scalar
+  Gohberg--Semencul formula.  Thus noncommuting matrix blocks do not by
+  themselves establish novelty.
+- **Classical Schur/Levinson substrate.**  Delsarte--Genin--Kamp,
+  SIAM J. Appl. Math. 36 (1979), 34--46, DOI `10.1137/0136004`,
+  gives the matrix Schur--Szegő parameterization of positive
+  block-Toeplitz systems.  Wiggins--Robinson, JGR 70 (1965),
+  1885--1891, DOI `10.1029/JZ070i008p01885`, is an early
+  multichannel/block Levinson recursion.  Ackner--Lev-Ari--Kailath,
+  SIMAX 15 (1994), 140--150, DOI
+  `10.1137/S0895479891218922`, explicitly treats the Schur algorithm
+  for matrix-valued functions.
+
+Lemma-by-lemma scope:
+
+1. **L187 = class (ii), known object in new coordinates.**  The cone
+   `H^{-1}` Hermitian Toeplitz and its inverse/displacement structure
+   are classical.  What is not supplied by those sources is the
+   campaign's exact equivalence
+   `Hardy residual = 0 iff H^{-1} is Toeplitz`, nor its identification
+   with the local Crouzeix/similarity equality manifold and endpoint
+   certificate.  Retain only that problem-specific connection as
+   apparently new pending publication-level review.
+2. **L193 = class (ii), known block object in new coordinates.**  The
+   block Toeplitz cone, its inverses, and noncommuting block formulas
+   are classical.  The problem-specific Hardy-residual equivalence,
+   complete-`2` upper endpoint, and Crouzeix equality-manifold
+   interpretation are the campaign contribution.  Do not advertise
+   “arbitrary noncommuting block Toeplitz coefficients” alone as new.
+3. **L218 = class (i) for its core.**  Ordered matrix Schur parameters,
+   termination for finite rational inner functions, and their
+   Toeplitz/Levinson role belong to classical matrix
+   Schur--Potapov/Levinson theory.  The forced-zero Crabb
+   specialization, dimension match to L193, and displayed reflected
+   monomial tangent are useful campaign coordinates, but are not a new
+   matrix Schur algorithm.  Novelty, if claimed, must be restricted to
+   their later use in the Crouzeix endpoint construction.
+
 ## Known equality structure (R = 2 attained/approached)
 - A = [[0,2],[0,0]], p = z. R = 2 exactly. W(A) = disk radius 1.
 - Crabb matrix family (nilpotent Jordan-like with specific superdiagonal weights √2,1,...,1,√2? — verify): ‖p(A)‖ = 2 with p = z^k, W(A) = unit disk. Attains 2 for higher powers.

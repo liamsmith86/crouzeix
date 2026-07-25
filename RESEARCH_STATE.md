@@ -26,6 +26,18 @@
   the odd-cancellation/even-Gram/Schur-budget pattern with L228's
   delayed anticommutator recursion while controlling coefficient
   growth and convergence in L194's chart.
+- **Recursion status (checkpoint): no arbitrary-grade formula is
+  currently known.**  The preparation columns were solved separately:
+  `C_3` has one contraction term (bound `3`), `C_4` has ten terms
+  (coefficient l1-bound `27/2`), `C_5` has twenty terms (bound `48`),
+  and `C_6` has 53 terms (bound `181`).  These results rigorously close
+  the first three transfer flags, but the observed growth does not
+  constitute an induction or a convergent all-series construction.
+  Closing another isolated grade will count as evidence only if it
+  exposes a uniform right-ideal recurrence and a summable/analytic
+  coefficient bound.  A171/L228's one-delay anticommutator recursion
+  remains open and is **still the intended structural route** to
+  arbitrary grade; it is neither parked nor superseded by L230--L234.
   `proof/repeated_crabb_canonical_sextic_preimage.md`;
   `experiments/repeated_crabb_canonical_sextic_preimage.py`.
 
@@ -3867,31 +3879,45 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-24)
-1. **Transport the physical endpoint into L220's feature flag.**
-   Prove that the grouped zero/one-reflection physical metric has no
-   feature loss and that the first two-reflection upper face is
-   `−16` times the feature-coordinate Gram.  Do not superpose the raw
-   L212 representatives; A164 disproves that shortcut.
-2. **Deflate or repair the first active feature layer.** On
-   `B_1=...=B_(k−1)=0`, identify its physical coefficient with
-   L216's deflated grade-one prepared face, including the even-`k`
-   fold.  Equivalently, use L219's strict orbit budgets to construct a
-   Stein repair without leaving the `1`--`4` metric sandwich.
-3. **Finish the repeated normal/elliptic merger.** L197 closes the
+1. **A178: extract an arbitrary-grade recurrence from L230--L234.**
+   The cubic-through-sextic columns are four separate finite
+   certificates, not an induction.  Seek a uniform recurrence in the
+   partial right ideal that simultaneously produces the next odd
+   cancellation, the next even transfer Gram, and a uniformly positive
+   Schur-budget margin.  It must also control column-norm growth well
+   enough to converge in L194's analytic chart.  Do not compute another
+   isolated grade unless that computation exposes this recurrence.
+2. **Use, rather than silently replace, A171/L228.**  The proposed
+   one-delay associated-graded anticommutator identity remains open and
+   is still the intended structural route to arbitrary grade.  Determine
+   whether its terminal-crossing grouping generates the right-ideal
+   identities and even-face budget observed in L230--L234.  L220/L221
+   supply the exact Schur/model delay covariance, but not this physical
+   recursion.
+3. **Prove an all-series analytic bound.**  Any recurrence must replace
+   the observed column bounds `3, 27/2, 48, 181` by an explicit
+   grade-`k` estimate that gives a genuine local analytic metric, not
+   merely formal finite jets.  Keep L194's exact positivity and lower
+   endpoint throughout.
+4. **Finish the repeated normal/elliptic merger after A178.** L197 closes the
    disk Schur flag and L199 closes only its first raw circular-normal
    face.  Prove the later Schur-orthogonal normal response, then merge
    it with the all-grade elliptic flag without spending a negative
    square twice.
-4. **Retain the full CP correction.** Test whether L21's trace
+5. **Retain the full CP correction as fallback.** Test whether L21's trace
    inequality follows from block-Toeplitz positivity of the complete
    operator-valued Crouzeix--Palencia correction.  Do not retry
    scalar shifts or positive-state scalarizations.
-5. **H-r fallback.** Continue the shifted Möbius and odd-phase
+6. **H-r/analytic-flag fallback and guardrails.** Continue the shifted Möbius and odd-phase
    level-four positivity attacks only after the local Crabb merger is
-   banked; definite parity is false.
-6. **Analytic flag audit.** Reconcile L208's exact kernel projections
-   with L197's pathwise analytic Schur flag.  Never insert a
-   discontinuous pseudoinverse into the metric.
+   banked; definite parity is false.  Reconcile L208's exact kernel
+   projections with L197's pathwise analytic Schur flag, and never
+   insert a discontinuous pseudoinverse into the metric.
+
+Standing negative constraints: do not superpose the raw L212
+representatives (A179); do not retry scalar shifts or positive-state
+scalarizations; do not put a discontinuous pseudoinverse into the
+metric; and do not assume definite parity.
 Keep committing+pushing after each task (user instruction).
 
 ## Files map (handoff-ready, 2026-07-22)
