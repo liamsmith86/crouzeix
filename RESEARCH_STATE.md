@@ -35,7 +35,11 @@
   return closes that complete row in the ordinary Hardy metric at the
   active face.  A206/L260 blocks a false orientation-by-orientation
   proof, while A207/L261 proves that the full row norm then collapses
-  to its diagonal energy by matrix-inner Parseval.
+  to its diagonal energy by matrix-inner Parseval.  A208/L262 proves
+  that every genuine normalized half-line Wold sandwich uses exactly
+  this ordinary Hardy metric.  The remaining issue is physical
+  channel placement: prove that L258's first nonconstant closed return
+  is that sandwich after the two ellipse orientations have been summed.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
 
@@ -142,6 +146,23 @@
   the same proof.
   `proof/repeated_crabb_orientation_split_obstruction.md`;
   `proof/repeated_crabb_leakage_row_parseval.md`.
+
+## NEWEST (2026-07-25): L262 removes the hidden half-line metric ambiguity
+- Normalize L244's half-line to the coisometry
+  `U=D_R^(1/2)A_infD_R^(−1/2)` with defect column `e`.  The Wold
+  synthesis `W*(z^jv)=(U*)^jev` has orthonormal columns.
+- At `c=0` this synthesis is the identity Hardy basis.  Since it is
+  `I+O(c)`, it is formally invertible; orthonormality therefore makes
+  it formally unitary and `UW*=W*L*`.
+- Consequently an actual entry/return pair through this normalized
+  half-line has the ordinary unweighted Hardy norm.  There is no
+  residual theta weight capable of spoiling L261's Parseval closure.
+- This is not yet A194: the remaining proof must place L243's
+  zero/one inverse-kernel sector and L245/L251's complete physical
+  port pair between `W` and `W*` inside L258, after summing the two
+  orientations required by L260.  That placement must also prove the
+  lower vanishings and retain the doubled remote factor on both sides.
+  `proof/repeated_crabb_half_line_wold_return.md`.
 
 ## NEWEST (2026-07-25): L253 identifies the target as Toeplitz leakage
 - If `T_B` is the causal Toeplitz multiplier of the matrix-inner
@@ -4490,7 +4511,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-25)
-1. **A194/A198--A207: identify L258's first return with the ordinary Hardy row norm.**
+1. **A194/A198--A208: place L258's first physical return in the half-line Wold sandwich.**
    L256 now proves the universal relative response
    `[c²]mu°=4||B_1||_F²` for every matrix channel.  Prove that removing
    one clean Hardy layer obeys
@@ -4509,7 +4530,13 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    close by Parseval as
    `sum B_kB_j*B_jB_k*=B_kB_k*`.  Prove precisely that unweighted
    return-metric statement from L243--L245 and L244, with the doubled
-   remote amplitude on both sides.  This must be a trace identity—
+   remote amplitude on both sides.  L262 has now proved the metric
+   part: every genuine normalized half-line Wold sandwich is unitarily
+   the ordinary Hardy pairing.  Do not re-prove or estimate that
+   metric.  Instead show that the first nonconstant term in L258's
+   closed return is exactly such a Wold sandwich after the full
+   L260-mandated orientation sum, including the zero/one-kernel
+   filtration and boundary/direct-map terms.  This must be a trace identity—
    direct audits disprove the stronger operator covariance.  L260
    also rules out separating the two ellipse orientations.  Do not
    claim equality of the full shifted series, which L235 disproves.

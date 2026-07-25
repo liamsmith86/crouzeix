@@ -182,18 +182,22 @@ energy:
 =\|B_k\|_F^2.
 \]
 
-The remaining proof obligation is therefore
+L262 proves that every genuine entry/return sandwich through L244's
+normalized half-line uses exactly this ordinary unweighted Hardy
+metric.  The remaining proof obligation is therefore the more
+specific channel-placement statement
 
 \[
-\boxed{\text{prove explicitly that L258's first physical return
-uses the ordinary Hardy row norm in L261.}}                         \tag{7a}
+\boxed{\text{place L258's first physical return between L262's
+Wold unitary and its adjoint.}}                                    \tag{7a}
 \]
 
-Without (7a), calling the endpoint-word statement proved would be
-circular: L251 pairs the ports but does not prove that their
-intervening theta/metric return is the unweighted Hardy inner
-product.  L260 also disproves the shortcut of checking the two
-formal ellipse orientations separately.
+Without (7a), calling the endpoint-word statement proved would still
+be circular: L251 pairs the ports and L262 proves the metric of a
+Wold sandwich, but neither identifies the complete first
+nonconstant term in L258 with that sandwich.  L260 also disproves
+the shortcut of checking the two formal ellipse orientations
+separately.
 
 ## 3. Classification of the first trace face
 

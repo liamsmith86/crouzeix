@@ -124,3 +124,10 @@ an autocorrelation guess:
 
 If this is established, (1) supplies the future-coefficient
 cancellation and the factor \(2^2=4\) gives (3).
+
+L262 subsequently proves that the metric in any genuine normalized
+half-line Wold sandwich is indeed the standard Hardy metric.  Thus
+the remaining obligation is no longer to estimate or identify an
+unknown metric: it is to place L258's complete first nonconstant
+physical return in that sandwich after the two orientations have
+been combined.

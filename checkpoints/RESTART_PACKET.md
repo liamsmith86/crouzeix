@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-25): after L261 / A207
+## Current general Crabb frontier (2026-07-25): after L262 / A208
 
 The accidental two-agent interval has been reconciled.  Commits
 `87c5107`, `4c7a152`, `2f82d15`, and `dcab861` form one linear history
@@ -20,7 +20,11 @@ relative grade-one response, and A203/L257 turns its transport into
   Toeplitz-leakage row.  L260/A206 blocks a false separation of the
   two ellipse orientations; L261/A207 proves that the complete
   leakage row closes to its diagonal energy if the physical return
-  supplies the ordinary Hardy metric.  A195 is a negative guardrail,
+  supplies the ordinary Hardy metric.  L262/A208 proves that every
+  genuine normalized half-line Wold sandwich has exactly that
+  ordinary metric.  What remains is to place L258's first physical
+  return in that sandwich, after summing both orientations and before
+  extracting the active coefficient.  A195 is a negative guardrail,
   not a second frontier.
 
 L230--L234 close the canonical repaired endpoint through the third
@@ -239,7 +243,17 @@ factor four then comes from L245's doubled remote amplitude.  Lower
 vanishings remain part of that theorem.  Direct finite audits show
 that this covariance is trace-only, not an operator equality.
 
-**Current live gate (A194/A207):** evaluate L258's closed-return
+L262 settles the metric once such a physical pairing is identified.
+The normalized half-line coisometry is formally unitarily equivalent
+to the standard backward shift through its Wold basis, so a genuine
+entry/return sandwich has the ordinary unweighted Hardy inner product.
+The live debt is therefore channel placement, not another metric
+estimate: insert L243's zero/one inverse-kernel sector and L245/L251's
+complete paired ports into L258, sum both orientations, and show that
+the first nonconstant closed return lies between the Wold unitary and
+its adjoint with the doubled remote factor on both sides.
+
+**Current live gate (A194/A208):** evaluate L258's closed-return
 trace using L259--L261's complete leakage-row norm, prove L257's
 associated one-delay coefficient recursion, and iterate to L256's
 universal grade-one response, at the physical `lambda=1`, without assuming
@@ -371,6 +385,10 @@ before their theta/coisometric cancellation.
   projection/Parseval closure of L259's complete future row.  The
   open step is to identify L258's physical return metric with this
   ordinary Hardy row norm.
+- `proof/repeated_crabb_half_line_wold_return.md` (L262): exact
+  formal Wold unitary for L244's normalized half-line.  The ordinary
+  metric is now proved for any genuine half-line sandwich; placement
+  of L258's first physical return in that sandwich remains open.
 - `proof/repeated_crabb_exact_metric_chart.md` (L194): analytic
   metric chart in which any all-series column construction must
   converge.
