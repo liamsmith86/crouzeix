@@ -50,9 +50,13 @@
   `4tr(Q_(k+2)−(k+2)Q_1+(k+1)I)=4||B_k||²` exactly.
 - Exact cyclic word reduction of L250's edge-deleted normalized mass
   gives precisely that three-term expression through grades one to
-  four: the raw active faces of sizes `12,80,424,2247` words reduce
-  to three trace classes.  This is finite exact evidence, not an
-  arbitrary-grade proof.
+  six.  Imposing the complete-delay ideal during multiplication keeps
+  the quotient faces to `12,38,79,151,249,392` words.  Separately
+  reducing the raw Stein face and final-row whitening correction shows
+  that every nonradial cyclic class cancels coefficientwise between
+  them; every total face has only the three radial trace classes.
+  This is exact finite evidence for L244's coisometric cancellation,
+  not an arbitrary-grade proof.
 - The live A194 obligation is now the explicit cyclic congruence:
   reduce L251's closed paired channels, modulo the lower-delay trace
   ideal, to `4(Q_(k+2)−(k+2)Q_1+(k+1)I)`.  L244 supplies the
@@ -4337,6 +4341,12 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    `4||B_k||_F²`.  Use matrix-inner autocorrelation only inside this
    closed trace/window reduction, not as a weight assigned to an
    isolated `B#(x)` row.
+   The split exact audit through grade six now shows the intended
+   local mechanism: every nonradial cyclic class in the raw Stein face
+   is cancelled by the equal and opposite class from final-row
+   whitening.  Promote that cancellation with L244's half-line
+   coisometry and identify only the three surviving boundary classes;
+   do not spend time extending the finite audit to another grade.
    Do not estimate the individually huge dual corner and Schur square,
    detach the doubled port (A195/L249), or assume A192's unproved
    symmetric endpoint valuation.  The face is indefinite, so do not

@@ -22,22 +22,21 @@ import hashlib
 import json
 from pathlib import Path
 
+from crabb_palindromic_elliptic_hessian import direct_map_coefficients
 from repeated_crabb_delayed_slack_anticommutator import (
     E,
     F,
     IDENTITY,
     Polynomial,
+    S,
+    STAR,
     Series,
     add,
     boundary_metric_series,
     multiply,
-    operator_series,
+    reduce_delay,
     reduce_delayed_word,
     scale,
-    series_add,
-    series_adjoint,
-    series_multiply,
-    zero_series,
 )
 
 
@@ -47,31 +46,210 @@ class CyclicRadialVolumeRecord:
 
     grade: int
     face_degree: int
-    raw_face_word_count: int
+    quotient_face_word_count: int
     cyclic_face_word_count: int
+    stein_cyclic_word_count: int
+    whitening_cyclic_word_count: int
+    nonradial_cancellation_word_count: int
     radial_difference_word_count: int
     transfer_difference_word_count: int
     all_checks_passed: bool
 
 
-def inverse_series(series: Series) -> Series:
-    """Invert a word-polynomial series with identity constant term."""
+class DelayedQuotient:
+    """Exact word-series algebra with the active delay imposed early."""
 
-    maximum_degree = len(series) - 1
-    result = zero_series(maximum_degree)
-    result[0] = IDENTITY
-    for degree in range(1, maximum_degree + 1):
-        convolution: Polynomial = {}
-        for positive_degree in range(1, degree + 1):
-            convolution = add(
-                convolution,
-                multiply(
-                    series[positive_degree],
-                    result[degree - positive_degree],
-                ),
+    def __init__(self, grade: int) -> None:
+        self.grade = grade
+        self.maximum_degree = 2 * grade
+        self.maximum_delay = grade - 1
+
+    def reduce(self, polynomial: Polynomial) -> Polynomial:
+        """Reduce a polynomial in the active two-sided delay ideal."""
+
+        return reduce_delay(polynomial, self.maximum_delay)
+
+    def add(self, *polynomials: Polynomial) -> Polynomial:
+        """Add and immediately reduce quotient polynomials."""
+
+        return self.reduce(add(*polynomials))
+
+    def scale(
+        self,
+        coefficient: Fraction | int,
+        polynomial: Polynomial,
+    ) -> Polynomial:
+        """Scale and immediately reduce a quotient polynomial."""
+
+        return self.reduce(scale(coefficient, polynomial))
+
+    def multiply(
+        self,
+        left: Polynomial,
+        right: Polynomial,
+    ) -> Polynomial:
+        """Multiply in the active two-sided delay quotient."""
+
+        return self.reduce(multiply(left, right))
+
+    def series_multiply(self, left: Series, right: Series) -> Series:
+        """Multiply two quotient series through the active degree."""
+
+        result = [{} for _ in range(self.maximum_degree + 1)]
+        for left_degree, left_polynomial in enumerate(left):
+            if not left_polynomial:
+                continue
+            remaining = self.maximum_degree - left_degree
+            for right_degree, right_polynomial in enumerate(right[: remaining + 1]):
+                if not right_polynomial:
+                    continue
+                degree = left_degree + right_degree
+                result[degree] = self.add(
+                    result[degree],
+                    self.multiply(left_polynomial, right_polynomial),
+                )
+        return result
+
+    def series_adjoint(self, series: Series) -> Series:
+        """Apply the formal adjoint coefficientwise."""
+
+        translation = str.maketrans({"s": "a", "a": "s"})
+        return [
+            self.reduce(
+                {
+                    word.translate(translation)[::-1]: coefficient
+                    for word, coefficient in polynomial.items()
+                }
             )
-        result[degree] = scale(-1, convolution)
-    return result
+            for polynomial in series
+        ]
+
+    def series_power(self, series: Series, exponent: int) -> Series:
+        """Raise a quotient series to a nonnegative integer power."""
+
+        result = [
+            IDENTITY,
+            *({} for _ in range(self.maximum_degree)),
+        ]
+        base = series
+        remaining = exponent
+        while remaining:
+            if remaining & 1:
+                result = self.series_multiply(result, base)
+            remaining //= 2
+            if remaining:
+                base = self.series_multiply(base, base)
+        return result
+
+    def operator_series(self) -> Series:
+        """Return the balanced ellipse map in the delayed quotient."""
+
+        reverse = self.multiply(
+            self.add(IDENTITY, F),
+            self.multiply(STAR, self.add(IDENTITY, E)),
+        )
+        pencil = [
+            S,
+            reverse,
+            *({} for _ in range(self.maximum_degree - 1)),
+        ]
+        result = [{} for _ in range(self.maximum_degree + 1)]
+        coefficients = direct_map_coefficients(
+            self.maximum_degree,
+            self.maximum_degree + 1,
+        )
+        for index, coefficient_series in enumerate(coefficients):
+            power = self.series_power(pencil, 2 * index + 1)
+            for scalar_degree in range(self.maximum_degree + 1):
+                scalar = coefficient_series.coefficient(scalar_degree)
+                if not scalar:
+                    continue
+                remaining = self.maximum_degree - scalar_degree
+                for word_degree, polynomial in enumerate(power[: remaining + 1]):
+                    if not polynomial:
+                        continue
+                    degree = scalar_degree + word_degree
+                    result[degree] = self.add(
+                        result[degree],
+                        self.scale(scalar, polynomial),
+                    )
+        return result
+
+    def metric_series(self) -> Series:
+        """Return L219's metric in the active delay quotient."""
+
+        return [
+            self.reduce(polynomial)
+            for polynomial in boundary_metric_series(self.maximum_degree)
+        ]
+
+    def inverse_series(self, series: Series) -> Series:
+        """Invert a quotient series with identity constant term."""
+
+        result = [
+            IDENTITY,
+            *({} for _ in range(self.maximum_degree)),
+        ]
+        for degree in range(1, self.maximum_degree + 1):
+            convolution: Polynomial = {}
+            for positive_degree in range(1, degree + 1):
+                convolution = self.add(
+                    convolution,
+                    self.multiply(
+                        series[positive_degree],
+                        result[degree - positive_degree],
+                    ),
+                )
+            result[degree] = self.scale(-1, convolution)
+        return result
+
+    def mass_components(
+        self,
+    ) -> tuple[Polynomial, Polynomial, Polynomial]:
+        """Return active Stein, whitening, and total mass faces."""
+
+        operator = self.operator_series()
+        metric = self.metric_series()
+        metric[self.maximum_degree] = {}
+
+        final_weight = [
+            F,
+            *({} for _ in range(self.maximum_degree)),
+        ]
+        row_gram = self.series_multiply(
+            self.series_multiply(
+                self.series_adjoint(operator),
+                final_weight,
+            ),
+            operator,
+        )
+        row_denominator = [
+            self.add(left, self.scale(-1, right))
+            for left, right in zip(metric, row_gram, strict=True)
+        ]
+
+        pulled_metric = self.series_multiply(
+            self.series_multiply(
+                self.series_adjoint(operator),
+                metric,
+            ),
+            operator,
+        )
+        stein_slack = [
+            self.add(left, self.scale(-1, right))
+            for left, right in zip(metric, pulled_metric, strict=True)
+        ]
+        normalized_mass = self.series_multiply(
+            self.inverse_series(row_denominator),
+            stein_slack,
+        )
+        stein_face = stein_slack[self.maximum_degree]
+        total_face = normalized_mass[self.maximum_degree]
+        whitening_face = self.add(
+            total_face,
+            self.scale(-1, stein_face),
+        )
+        return stein_face, whitening_face, total_face
 
 
 @lru_cache(maxsize=500_000)
@@ -99,10 +277,7 @@ def cyclic_reduce_word(word: str, maximum_delay: int) -> Polynomial:
     if not word:
         return IDENTITY
 
-    rotations = [
-        word[position:] + word[:position]
-        for position in range(len(word))
-    ]
+    rotations = [word[position:] + word[:position] for position in range(len(word))]
     for rotation in rotations:
         rotated_reduction = reduce_delayed_word(
             rotation,
@@ -110,13 +285,8 @@ def cyclic_reduce_word(word: str, maximum_delay: int) -> Polynomial:
         )
         if rotated_reduction == {rotation: Fraction(1)}:
             continue
-        if not all(
-            len(new_word) < len(word)
-            for new_word in rotated_reduction
-        ):
-            raise RuntimeError(
-                "cyclic reduction did not strictly shorten a word"
-            )
+        if not all(len(new_word) < len(word) for new_word in rotated_reduction):
+            raise RuntimeError("cyclic reduction did not strictly shorten a word")
         result: Polynomial = {}
         for new_word, coefficient in rotated_reduction.items():
             result = add(
@@ -177,70 +347,59 @@ def transfer_target(grade: int) -> Polynomial:
     return scale(4, multiply(right_orbit, F))
 
 
-def mass_face(grade: int) -> Polynomial:
-    """Return L250's active edge-deleted mass coefficient."""
-
-    maximum_degree = 2 * grade
-    operator = operator_series(maximum_degree)
-    metric = boundary_metric_series(maximum_degree)
-    metric[maximum_degree] = {}
-
-    final_weight = [F] + [{} for _ in range(maximum_degree)]
-    row_gram = series_multiply(
-        series_multiply(
-            series_adjoint(operator),
-            final_weight,
-        ),
-        operator,
-    )
-    row_denominator = series_add(
-        metric,
-        [scale(-1, coefficient) for coefficient in row_gram],
-    )
-
-    pulled_metric = series_multiply(
-        series_multiply(
-            series_adjoint(operator),
-            metric,
-        ),
-        operator,
-    )
-    stein_slack = series_add(
-        metric,
-        [scale(-1, coefficient) for coefficient in pulled_metric],
-    )
-    normalized_mass = series_multiply(
-        inverse_series(row_denominator),
-        stein_slack,
-    )
-    return normalized_mass[maximum_degree]
-
-
 def audit_grade(grade: int) -> CyclicRadialVolumeRecord:
     """Audit one finite grade exactly."""
 
-    face = mass_face(grade)
+    quotient = DelayedQuotient(grade)
+    stein_face, whitening_face, face = quotient.mass_components()
     maximum_delay = grade - 1
+    cyclic_stein = cyclic_reduce(stein_face, maximum_delay)
+    cyclic_whitening = cyclic_reduce(
+        whitening_face,
+        maximum_delay,
+    )
     cyclic_face = cyclic_reduce(face, maximum_delay)
     radial = cyclic_reduce(radial_target(grade), maximum_delay)
     transfer = cyclic_reduce(
         transfer_target(grade),
         maximum_delay,
     )
+    radial_words = set(radial)
+    nonradial_stein = {
+        word: coefficient
+        for word, coefficient in cyclic_stein.items()
+        if word not in radial_words
+    }
+    nonradial_whitening = {
+        word: coefficient
+        for word, coefficient in cyclic_whitening.items()
+        if word not in radial_words
+    }
+    nonradial_cancellation = add(
+        nonradial_stein,
+        nonradial_whitening,
+    )
     radial_difference = add(cyclic_face, scale(-1, radial))
     transfer_difference = add(cyclic_face, scale(-1, transfer))
-    verified = not radial_difference and not transfer_difference
+    verified = bool(
+        not nonradial_cancellation and not radial_difference and not transfer_difference
+    )
     if not verified:
         raise RuntimeError(
             "cyclic radial volume audit failed: "
-            f"grade={grade}, radial={len(radial_difference)}, "
+            f"grade={grade}, "
+            f"nonradial={len(nonradial_cancellation)}, "
+            f"radial={len(radial_difference)}, "
             f"transfer={len(transfer_difference)}"
         )
     return CyclicRadialVolumeRecord(
         grade=grade,
         face_degree=2 * grade,
-        raw_face_word_count=len(face),
+        quotient_face_word_count=len(face),
         cyclic_face_word_count=len(cyclic_face),
+        stein_cyclic_word_count=len(cyclic_stein),
+        whitening_cyclic_word_count=len(cyclic_whitening),
+        nonradial_cancellation_word_count=len(nonradial_cancellation),
         radial_difference_word_count=len(radial_difference),
         transfer_difference_word_count=len(transfer_difference),
         all_checks_passed=verified,
@@ -252,10 +411,7 @@ def standard_records(
 ) -> list[CyclicRadialVolumeRecord]:
     """Return exact audits through one maximum grade."""
 
-    return [
-        audit_grade(grade)
-        for grade in range(1, maximum_grade + 1)
-    ]
+    return [audit_grade(grade) for grade in range(1, maximum_grade + 1)]
 
 
 def write_records(
@@ -277,14 +433,11 @@ def parse_args() -> argparse.Namespace:
     """Parse command-line arguments."""
 
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--maximum-grade", type=int, default=4)
+    parser.add_argument("--maximum-grade", type=int, default=6)
     parser.add_argument(
         "--output",
         type=Path,
-        default=Path(
-            "experiments/"
-            "repeated_crabb_cyclic_radial_volume_s70224.jsonl"
-        ),
+        default=Path("experiments/repeated_crabb_cyclic_radial_volume_s70224.jsonl"),
     )
     return parser.parse_args()
 

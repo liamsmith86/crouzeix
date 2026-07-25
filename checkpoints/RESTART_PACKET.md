@@ -155,7 +155,10 @@ L252 now gives the exact scalar endpoint of that evaluation.  If
 `tr Q_j=n−jm+sum_(h<j−1)(j−h−1)||B_h||²`; hence complete delay turns
 `4tr(Q_(k+2)−(k+2)Q_1+(k+1)I)` into exactly `4||B_k||²`.
 Exact cyclic reduction of L250's mass produces this three-term form
-through grade four, but the arbitrary-grade congruence remains open.
+through grade six.  In the split audit, every nonradial cyclic class
+of the raw Stein face is cancelled coefficientwise by final-row
+whitening at all six grades.  This is the concrete cancellation L244
+must promote, but the arbitrary-grade congruence remains open.
 Resume by proving that L251's paired cycles reduce to this radial form
 modulo the lower-delay trace ideal, using L244 for the word-free
 sector.  Do not treat the finite pattern as an induction.
@@ -253,8 +256,9 @@ balance.
 - `proof/repeated_crabb_cyclic_radial_volume.md` (L252) and
   `experiments/repeated_crabb_cyclic_radial_volume.py`: exact
   all-grade radial trace telescope and the precise three-term cyclic
-  target; the congruence is exact through grade four but open in
-  arbitrary grade.
+  target; the congruence and termwise nonradial Stein/whitening
+  cancellation are exact through grade six but open in arbitrary
+  grade.
 - `proof/repeated_crabb_toeplitz_window_energy.md` (L253) and
   `experiments/repeated_crabb_toeplitz_window_energy.py`: exact
   Toeplitz/model-space form of the target scalar energy; identifying

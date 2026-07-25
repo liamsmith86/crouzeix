@@ -72,9 +72,11 @@ baseline moments must be the displayed \(Q_1\) and \(I\) terms.
 Equation (1), and hence the implication (4) \(\Rightarrow\) (5), is
 proved for every grade.  Equation (4) is still open in arbitrary
 grade.  Exact noncommutative cyclic reduction verifies it through
-grades one to four; the earlier independent matrix-word audit of the
-equivalent non-edge-deleted face reaches grade five.  These finite
-checks do not prove the all-grade congruence.
+grades one to six.  In that audit the Stein face and the final-row
+whitening correction are also reduced separately: every nonradial
+cyclic class cancels coefficientwise between those two pieces.  This
+finite cancellation pattern exposes the role expected of L244's
+coisometry, but it does not prove the all-grade congruence.
 
 ## 2. Two telescopes
 
@@ -151,7 +153,7 @@ because \(FS=0\).  Such identities remove the apparently nonradial
 remainders rather than assigning them artificial endpoint weights.
 
 After the complete-delay relations are imposed, the exact reductions
-through grade four give
+through grade six give
 
 \[
 \begin{array}{c|c}
@@ -160,7 +162,9 @@ k&
 1&4\operatorname {tr}(Q_3-3Q_1+2I)\\
 2&4\operatorname {tr}(Q_4-4Q_1+3I)\\
 3&4\operatorname {tr}(Q_5-5Q_1+4I)\\
-4&4\operatorname {tr}(Q_6-6Q_1+5I).
+4&4\operatorname {tr}(Q_6-6Q_1+5I)\\
+5&4\operatorname {tr}(Q_7-7Q_1+6I)\\
+6&4\operatorname {tr}(Q_8-8Q_1+7I).
 \end{array}                                       \tag{9}
 \]
 
@@ -169,7 +173,12 @@ Rather, (9) identifies the precise arbitrary-grade statement that
 the L251 paired-channel trace must establish.  L244 supplies the
 word-free coisometric cancellation; L251 prevents a one-sided
 \(\mathcal B^\sharp\) term; (4) is the remaining cyclic reduction
-of the closed pairs.
+of the closed pairs.  The component audit adds a sharper diagnostic:
+at grades one through six, every cyclic class outside the three
+radial classes occurs with opposite coefficients in the raw Stein
+face and in the final-row whitening correction.  Thus the
+coefficientwise cancellation is not merely a late comparison with
+the transfer target.
 
 ## 4. Independent exact audit
 
@@ -184,16 +193,26 @@ OPENBLAS_NUM_THREADS=1 PYTHONPATH=experiments \
 ```
 
 The checker constructs L250's edge-deleted mass in the exact rational
-word algebra.  At each grade it:
+word algebra.  It imposes the active two-sided delay ideal after every
+addition and multiplication, rather than first constructing an
+exponentially larger representative that will later vanish.  At each
+grade it:
 
 1. imposes the complete-delay relations;
-2. uses cyclic rotations only when they expose a strictly shorter
+2. splits the active coefficient into its raw Stein face and its
+   final-row whitening correction;
+3. uses cyclic rotations only when they expose a strictly shorter
    proved word reduction;
-3. verifies equality with the three-term radial form in (4); and
-4. independently verifies equality with
+4. verifies that every nonradial cyclic class cancels coefficientwise
+   between the two split pieces;
+5. verifies equality with the three-term radial form in (4); and
+6. independently verifies equality with
    \(4\operatorname {tr}(E_kF)=4\|B_k\|_F^2\).
 
-The audit is exact through grade four.  Its finite range is an
+The quotient active faces contain respectively
+\(12,38,79,151,249,392\) words in grades one through six, while every
+total cyclic face contains only the three radial classes.  The audit
+is exact through grade six.  Its finite range is an
 adversarial check, not the missing arbitrary-grade proof.
 The tracked dataset regenerates byte for byte with SHA-256
-`b6967d002a1c39bdeafd591f4822dbd8f80e3d051f3fdcf7f689801f93aaecbd`.
+`0fde0962271e90111fd14b75fec6152adb14d408fd3fd475506ab8df16abbc8a`.
