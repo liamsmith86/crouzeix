@@ -2,6 +2,25 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — repeated circular/elliptic merger)
 
+## NEWEST (2026-07-24): L227 gives an exact canonical Stein repair
+- L225's grade-one boundary-slack Schur residual collapses from a
+  long ellipse-jet expression to
+  `K_2=2F−(S*)²S²F−F(S*)²S²`.
+- Its complete upper Stein response is the matrix identity
+  `W*G_S(K_2)W=2B_1B_1*`, strengthening L225's scalar trace law.
+- More generally, if `H` is the full boundary slack and
+  `G=V*HV`, then
+  `X=−G_T(H−HVG^−1V*H)` is analytic and makes the repaired slack
+  exactly `HVG^−1V*H>=0`.  Thus a bounded exact contraction repair
+  exists canonically; endpoint condition geometry remains to prove.
+- At grade one this repair preserves the lower face
+  `+B_1*B_1` and changes the upper face from `−4B_1B_1*` to
+  `−12B_1B_1*`.  If L225's delayed covariance is proved, L216
+  transports this full matrix response to every completely delayed
+  grade.
+  `proof/repeated_crabb_boundary_slack_repair.md`;
+  `experiments/repeated_crabb_boundary_slack_repair.py`.
+
 ## NEWEST (2026-07-24): L226 gives the matching ordered lower flag
 - On the surviving right-copy flag
   `R_(k-1)=intersection_(j<k) ker B_j`, the boundary metric's first

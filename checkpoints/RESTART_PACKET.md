@@ -1,7 +1,30 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-24): after L224 / A167
+## Current general Crabb frontier (2026-07-24): after L227 / A170
+
+L227 supplies an exact analytic contraction repair for L219's
+boundary metric.  If `H` is its Stein slack, `G=V*HV`, and
+`K=H−HVG^−1V*H`, then
+
+```
+X = −G_T(K)
+```
+
+makes the repaired slack exactly `HVG^−1V*H>=0`.  At grade one the
+residual has the compact form
+
+```
+K_2 = 2F − (S*)²S²F − F(S*)²S²
+```
+
+and the matrix endpoint identity
+`W*G_S(K_2)W=2B_1B_1*`.  Consequently the repaired lower/upper metric
+faces are `+B_1*B_1` and `−12B_1B_1*`.  The live gate is no longer
+existence of a Stein repair: it is proving L225's associated-graded
+delay covariance, which would lift this compact grade-one response to
+every delayed grade, then merging the two ordered endpoint flags into
+a strict condition-number inequality.
 
 L224 extends L223 from completely delayed copies to every ordered
 partial left-copy flag.  If
