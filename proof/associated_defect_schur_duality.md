@@ -72,13 +72,44 @@ Its value is that the left endpoint is the remote clean-chain
 endpoint in L245, so the remaining state-lift cancellation can be
 audited from either end without changing the first face.
 
+For L228's proposed face the conjugate has a particularly simple
+form.  With \(E_1=S^*ES\) and
+\(F_j=S^jF(S^*)^j\),
+
+\[
+\begin{aligned}
+S(E_1F_{k-1})S^*
+&=SS^*ES^kF(S^*)^k\\
+&=(I-F)EF_k=EF_k.
+\end{aligned}
+\]
+
+Taking adjoints gives
+
+\[
+\boxed{
+S(E_1F_{k-1}+F_{k-1}E_1)S^*
+=EF_k+F_kE.}                                      \tag{4}
+\]
+
+Consequently L228 is equivalent, at its first nonzero grade, to the
+left-final-defect target
+
+\[
+\boxed{[c^{2k}]K_L=EF_k+F_kE.}                    \tag{5}
+\]
+
+This is the active Hardy cell \((0,k)\), rather than \((1,k-1)\).
+It aligns the unknown face with the zero-th coisometric boundary row
+in L244.
+
 ## 2. Exact graph proof
 
 Write the right graph injection
 
 \[
 G_R
-=Q-E(ED_RE)^{-1}ED_RQ.                            \tag{4}
+=Q-E(ED_RE)^{-1}ED_RQ.                            \tag{6}
 \]
 
 It obeys
@@ -91,7 +122,7 @@ QD_RG_R=K_R,
 and hence, as a map from \(Q\mathcal H\) into \(\mathcal H\),
 
 \[
-\boxed{D_RG_R=K_R.}                               \tag{5}
+\boxed{D_RG_R=K_R.}                               \tag{7}
 \]
 
 Likewise
@@ -104,20 +135,20 @@ G_L
 satisfies
 
 \[
-\boxed{D_LG_L=K_L.}                               \tag{6}
+\boxed{D_LG_L=K_L.}                               \tag{8}
 \]
 
 The elementary defect intertwining identity is
 
 \[
-\boxed{D_LB=BD_R.}                                \tag{7}
+\boxed{D_LB=BD_R.}                                \tag{9}
 \]
 
-Multiply (7) on the right by \(G_R\) and on the left by \(G_L^*\).
-Using (5)--(6) and self-adjointness gives
+Multiply (9) on the right by \(G_R\) and on the left by \(G_L^*\).
+Using (7)--(8) and self-adjointness gives
 
 \[
-K_L\,U=V\,K_R,                                    \tag{8}
+K_L\,U=V\,K_R,                                    \tag{10}
 \]
 
 where
@@ -134,14 +165,14 @@ G_R=Q,\qquad G_L=P,\qquad U=V=S|_{Q\mathcal H}.
 \]
 
 The last map is unitary from \(Q\mathcal H\) onto \(P\mathcal H\).
-Thus \(U\) is invertible as a formal series, and (8) gives the exact
+Thus \(U\) is invertible as a formal series, and (10) gives the exact
 quotient identity
 
 \[
-K_L=V K_R U^{-1}.                                 \tag{9}
+K_L=V K_R U^{-1}.                                 \tag{11}
 \]
 
-If \(K_R=O(\varepsilon^d)\), taking its first coefficient in (9)
+If \(K_R=O(\varepsilon^d)\), taking its first coefficient in (11)
 proves
 
 \[
@@ -165,7 +196,7 @@ Then
 \begin{aligned}
 H_R&=R^{1/2}(I-\widetilde B^*\widetilde B)R^{1/2},\\
 H_L&=R^{-1/2}(I-\widetilde B\widetilde B^*)R^{-1/2}.
-\end{aligned}                                      \tag{10}
+\end{aligned}                                      \tag{12}
 \]
 
 Congruence transports the two pivot spaces to analytic graph

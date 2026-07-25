@@ -10,6 +10,8 @@
   alter that first face.
 - Thus L228's matrix face, trace, rank, and inertia may be calculated
   at L245's remote clean-chain left endpoint and transported back.
+  Its proposed right face becomes exactly `EF_k+F_kE`, the cleaner
+  Hardy cell `(0,k)` at L244's zero-th coisometric boundary row.
   This does not yet calculate the delayed coefficient, but it removes
   the need to force the calculation through the less natural right
   pivot.
