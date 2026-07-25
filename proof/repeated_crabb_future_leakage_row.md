@@ -176,8 +176,20 @@ the leakage row (2).  Hence the later \(B_j^*\) terms that looked
 premature in an isolated state column are precisely off-diagonal
 leakage blocks.
 
-L258 ensures that these blocks occur only inside a closed scalar
-return.  What is not yet proved is that the intervening physical
-return has zero off-diagonal trace at the active grade.  Proving that
-last statement would turn (7) into (5), after which L256/L257 close
-the delayed volume law.
+L258 ensures that these blocks occur only inside a closed return.
+L266 now proves the exact endpoint once this return is shown to be
+copy-scalar Laurent/Toeplitz:
+
+\[
+P_k{\cal L}_B\Psi(L){\cal L}_BP_k
+=[\Psi]_0P_k{\cal L}_BP_k.
+\]
+
+It also covers copy-scalar shift words whose unilateral boundary depth
+is at most \(k\).  Depth \(k+1\) can fail, so Wold copy-scalarity by
+itself is insufficient.  Thus no separate cancellation of future
+blocks is required once the return's form and depth are proved.  What
+is still open is that physical form/depth assertion, the calculation
+of its bilateral-symbol constant as \(4\), and all lower vanishings.
+Those facts would turn (7) into (5), after which L256/L257 close the
+delayed volume law.

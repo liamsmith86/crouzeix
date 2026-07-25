@@ -326,3 +326,20 @@ the independent floating falsification range.  It also records the
 stronger matrix covariance error.  These audits do not prove (7a).
 The tracked SHA-256 is
 `1c2307a744c396c10ba8e0937ad0e4f2a3f00cb7a6aa5a8ae1cde7df4c1ea0a0`.
+
+L266 narrows the still-missing proof of (7a).  After L262/L264
+normalization, it is enough to show that the complete first-active
+return from L243/L251/L258 is a copy-scalar Laurent series
+\(\Psi_{\rm phys}(L)\), because
+
+\[
+P_k{\cal L}_B\Psi_{\rm phys}(L){\cal L}_BP_k
+=[\Psi_{\rm phys}]_0P_k{\cal L}_BP_k.
+\]
+
+The same conclusion holds for a copy-scalar shift polynomial whose
+unilateral boundary depth is at most \(k\); depth \(k+1\) is a genuine
+obstruction.  The remaining scalar calculation is that the bilateral
+symbol has constant \(4\), including all lower coefficient vanishings.
+Neither the finite audits nor L266 establishes that physical
+form/depth statement or its constant term.

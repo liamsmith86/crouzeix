@@ -131,3 +131,13 @@ the remaining obligation is no longer to estimate or identify an
 unknown metric: it is to place L258's complete first nonconstant
 physical return in that sandwich after the two orientations have
 been combined.
+
+L266 further weakens the necessary placement statement.  The return
+may be any copy-scalar Laurent/Toeplitz series \(\Psi(L)\), rather than
+the identity: delayed causality annihilates every nonconstant shift
+between the two leakage projections.  It also covers unilateral shift
+words of boundary depth at most \(k\), but not arbitrary deep boundary
+terms.  The live physical gate is therefore to prove both
+copy-scalarity and the required form/depth for the complete
+L243/L251/L258 assembly, then compute its bilateral-symbol constant as
+\(4\), together with the lower vanishings.

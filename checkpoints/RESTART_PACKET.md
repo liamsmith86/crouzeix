@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-25): after L265 / A211
+## Current general Crabb frontier (2026-07-25): after L266 / A212
 
 The accidental two-agent interval has been reconciled.  Commits
 `87c5107`, `4c7a152`, `2f82d15`, and `dcab861` form one linear history
@@ -32,8 +32,15 @@ relative grade-one response, and A203/L257 turns its transport into
   the active left orbit and final corner/cross row remain deleted, so
   the continuation should use this port-isolated right-half-line
   gauge.  L265/A211 rewrites the target as four times a finite
-  triangular right-orbit Stein divergence.  A195 is a negative guardrail,
-  not a second frontier.
+  triangular right-orbit Stein divergence.  L266/A212 proves that any
+  copy-scalar Laurent return, or shift polynomial of boundary depth at
+  most the delay, contributes only its bilateral-symbol constant
+  between the delayed leakage projections.
+  Resume by proving that the complete L243/L251/L258 physical return
+  has exactly this copy-scalar form and depth after L262/L264
+  normalization, then compute its constant as four and prove every
+  lower vanishing.
+  A195 is a negative guardrail, not a second frontier.
 
 L230--L234 close the canonical repaired endpoint through the third
 transfer flag.  Universal bounded polynomial columns cancel the cubic
@@ -433,6 +440,12 @@ before their theta/coisometric cancellation.
   operator telescope identifying the desired scalar as a finite
   right-orbit boundary flux.  The physical numerator-to-flux
   congruence remains open.
+- `proof/repeated_crabb_toeplitz_return_rigidity.md` (L266): exact
+  annihilation of every nonconstant copy-scalar Laurent shift and
+  every unilateral boundary correction shallower than the first
+  delayed leakage row.  Depth `k+1` can fail.  The physical return
+  form/depth, its symbol constant four, and all lower vanishings remain
+  open.
 - `proof/repeated_crabb_exact_metric_chart.md` (L194): analytic
   metric chart in which any all-series column construction must
   converge.
@@ -1681,41 +1694,46 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   The former deformation route was superseded by the Schwarzian proof of EL4; see
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
-## Next five concrete actions (refreshed after L237 / A182)
-1. **Finish the all-grade first face.**  Use L237's exact unit
-   left-reflection coefficient, L236's active Hankel cell, the full
-   L125 theta/ODE scalar map, and L221's shifted metric to compute the
-   one remaining right-boundary/Schur-square pairing.  The target is L228's
-   `E_1F_r+F_rE_1`.  Do not seek the disproved whole-series shift,
-   use only the Newton bottom edge, or compute another isolated jet.
-2. **Prove a convergent coefficient bound.**  Replace the observed
-   bounds `3, 27/2, 48, 181` by an explicit grade-`k` estimate that
-   yields a local analytic L194 metric.
-3. **Merge later circular normals after A178.**  L199 covers only the
-   first raw face; combine the later L197 response without spending an
-   elliptic negative square twice.
-4. **Retain the full CP correction as fallback.**  Do not retry scalar
-   shifts or positive-state scalarizations.
-5. **Keep analytic guards.**  Reconcile L208 with L197 without a
-   discontinuous pseudoinverse; definite parity remains false.
+## Next five concrete actions (refreshed after L266 / A212)
+1. **Derive the physical return symbol.**  In L264's port-isolated
+   right-half-line gauge, insert L243's zero/one inverse-kernel sectors
+   and every L245/L251 paired chain column into L258's closed renewal.
+   Prove that the assembled first-active return is
+   `P_kL_B Psi_phys(L,L*)L_BP_k` with `Psi_phys` copy-scalar and either
+   Laurent or of unilateral boundary depth at most `k`.  Do not assume
+   away a surviving copy-dependent insertion or deep boundary term.
+2. **Compute the one remaining scalar.**  Use L242's universal
+   three-coefficient jet with the full theta/direct-map/metric
+   orientation sum to prove `[Psi_phys]_0=4` and all lower
+   coefficient vanishings.  L256 is a normalization check, not the
+   proof; keep the terminal multiplier at its physical value.
+3. **Promote the delayed trace law.**  Combine the resulting `+4`
+   volume flux with L247's exact `−2` metric contribution, then state
+   the delayed separator trace without upgrading finite audits to
+   operator covariance.
+4. **Return to A178's convergence/selection debt.**  Seek the uniform
+   right-ideal recurrence behind the finite preparation columns; do
+   not compute another isolated grade.
+5. **Finish the normal/elliptic merger, retaining the full CP route as
+   fallback.**  Do not retry scalar shifts, positive-state
+   scalarizations, raw L212 superposition, discontinuous
+   pseudoinverses, or definite parity.
 
 ## Paste-ready continuation instruction
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix`.
-Read the newest L236--L237 sections of `RESEARCH_STATE.md`, L228,
-L235--L237, L230--L234, and A178/A180--A182.  The
-cubic-through-sextic preparation chain is
-proved exactly through transfer grade three, but it is explicitly
-non-inductive: no arbitrary-grade `C_k` or convergent coefficient
-bound is known.  L236 identifies the target as one transfer-Hankel
-cell, and L237 gives the arbitrary-grade left-terminal recurrence with
-first reflected coefficient exactly one.  Pair that term with the
-right defect and Schur square, using the full scalar theta/ODE
-recurrence, to prove L228's first-active anticommutator and
-seek the uniform partial-right-ideal recurrence behind the odd
-cancellation, even transfer Gram, and Schur-budget margin.  The
-whole-series tail shift and Newton-edge-only shortcut are false.
-Do not compute another isolated grade unless it exposes that
-recurrence.  Respect A179 (no raw L212 superposition), do not use
-scalar shifts, positive-state scalarizations, or rank-dependent
-pseudoinverses, and do not assume definite parity.  Commit and push
-each proved milestone."
+Read the newest L258--L266 sections of `RESEARCH_STATE.md`, the
+corresponding proof notes, and A194/A204--A212.  The live gate is the
+complete-delay volume identity.  L266 proves that every nonconstant
+copy-scalar Laurent shift and every boundary correction of depth at
+most the delay misses the first delayed leakage diagonal.  Derive the
+fully assembled L243/L251/L258 return in L262/L264's normalized
+half-line gauge, prove that no copy-dependent insertion or deeper
+unilateral boundary term survives, and compute its bilateral-symbol
+constant as four using
+L242's full three-term jet and every chain column.  Prove the lower
+vanishings in the same assembly.  Do not estimate the huge corner and
+Schur terms separately, detach the doubled terminal edge, split the
+two ellipse orientations, assume positive operator covariance, or
+promote L235's false whole-series tail equality.  Once `+4` is proved,
+combine it with L247's `−2` metric term, then return to A178's
+all-series convergence debt.  Commit and push each proved milestone."

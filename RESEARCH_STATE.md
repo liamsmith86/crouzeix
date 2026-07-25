@@ -47,6 +47,13 @@
   right-half-line metric while continuing to delete the active left
   orbit, final corner, and cross row.  A211/L265 rewrites the target
   itself as four times one finite right-half-line Stein divergence.
+  A212/L266 now proves that any copy-scalar Laurent return—and any
+  unilateral shift polynomial whose boundary depth is at most the
+  delay—contributes only its bilateral-symbol constant between the
+  delayed leakage projections.  The single live calculation is
+  therefore to derive the complete physical return form and depth
+  from L243/L251/L258 after L262/L264 normalization, prove the lower
+  vanishings, and show that this constant is four.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
 
@@ -220,6 +227,33 @@
   calculation should use L242's universal `D_0,D_1,D_2` reflected
   jet and add L245/L251's chain flux before taking this divergence.
   `proof/repeated_crabb_triangular_stein_flux.md`.
+
+## NEWEST (2026-07-25): L266 rigidifies Laurent and shallow shift returns
+- For the leakage projection `L_B=T_BT_B*`, shift invariance of
+  `BH²` and complete-delay triangular support give
+  `P_k L_B Psi(L)L_B P_k=psi_0 P_kL_BP_k` for every copy-scalar
+  Laurent polynomial or coefficientwise stabilized series.
+- More generally, a shift word reduces to `L^a(L*)^b`.  If
+  `min(a,b)<=k`, its unilateral boundary correction is supported
+  strictly below the active row, so the same statement holds with the
+  constant coefficient of the bilateral symbol.  Depth `k+1` can
+  fail; copy-scalarity alone is not enough.
+- Hence the physical return need not be the identity and need not be
+  estimated term by term.  Every nonconstant forward or backward
+  Hardy shift misses the first delayed diagonal exactly; the trace is
+  simply `psi_0||B_k||²`.
+- A nonmonomial, noncommuting Potapov-product audit passed for copy
+  sizes `2,3,4`, delays `1,2,4`, and shifts through absolute degree
+  four.  The exact invariant-subspace proof is independent of this
+  audit.
+- The remaining A194 theorem has two explicit parts: prove that the
+  fully assembled zero/one-kernel physical return is copy-scalar and
+  either Laurent or of boundary depth at most `k` after L262/L264
+  normalization, and compute its bilateral-symbol constant as four
+  while proving all earlier coefficients vanish.
+  L242's universal reflected jet and L256's grade-one result are
+  checks, not substitutes for that derivation.
+  `proof/repeated_crabb_toeplitz_return_rigidity.md`.
 
 ## NEWEST (2026-07-25): L253 identifies the target as Toeplitz leakage
 - If `T_B` is the causal Toeplitz multiplier of the matrix-inner
@@ -4568,7 +4602,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-25)
-1. **A194/A198--A211: identify the physical numerator as the triangular Stein flux.**
+1. **A194/A198--A212: derive the complete copy-scalar return and its constant term.**
    L256 now proves the universal relative response
    `[c²]mu°=4||B_1||_F²` for every matrix channel.  Prove that removing
    one clean Hardy layer obeys
@@ -4579,7 +4613,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    `D_ret=I−R_PZ_ret`, including all lower vanishings, by Hardy index:
    use L251's common analytic
    entry/exit channel, L243's zero/one inverse-kernel filtration, and
-   matrix-inner autocorrelation to remove future coefficients.  L259
+   matrix-inner autocorrelation to organize future coefficients.  L259
    identifies those terms exactly: after complete delay they are the
    off-diagonal blocks `B_kB_j*`, `j>k`, of the same leakage row whose
    diagonal is `B_kB_k*`.  L261 shows that if the active physical
@@ -4623,10 +4657,21 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    Use L264's `Rtri`: the final port/cross row and active left orbit
    remain removed, while the universal right-half-line `D_R` metric
    is restored at no cost to the active scalar trace.
-   In that gauge target L265's exact divergence
-   `4(X_k−S*X_kS)`, modulo trace-null terms.  Use L242's universal
-   three-coefficient reflected jet and add every L245/L251 chain
-   column before taking the divergence.
+   In that gauge, L266 proves that any complete physical return of the
+   form `P_kL_B Psi_phys(L)L_BP_k` is rigidly reduced to
+   `[Psi_phys]_0||B_k||²`.  Its low-depth extension covers
+   copy-scalar shift words only when every unilateral boundary
+   correction lies below row `k`; depth `k+1` can fail.  Therefore
+   first prove—without assuming it—that L243's zero/one-kernel
+   sectors, L251's paired ports, and L258's renewal assemble into one
+   copy-scalar Laurent return or a shift polynomial of boundary depth
+   at most `k`; exclude both copy-dependent insertions and deeper
+   boundary terms.  Then compute its bilateral-symbol constant from
+   L242's universal three-term jet
+   plus every L245 chain column.  The required value is four, checked
+   but not proved by the grade-one identity L256.  Prove the lower
+   vanishings in the same assembly.  Equivalently the result is
+   L265's divergence `4(X_k−S*X_kS)` modulo trace-null terms.
 2. **Then promote the delayed trace law, not more finite evidence.**
    Combining the `+4` volume coefficient with L247's exact metric
    contribution `−2` would give L225's total trace
