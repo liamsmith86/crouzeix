@@ -23,9 +23,29 @@
   coordinates, A197/L251's paired analytic ports, A198/L252's cyclic
   radial quotient, A199/L253's Hardy-window energy target, and
   A200/L254's shifted-left-Hardy complement, now represented
-  physically by A201/L255's doubled-Hardy pencil.
+  physically by A201/L255's doubled-Hardy pencil and anchored at
+  relative grade one by A202/L256.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
+
+## NEWEST (2026-07-25): L256 proves the universal relative base
+- At relative grade one, deleting the active `c²` metric coefficient
+  leaves `R°=I+O(c⁴)`.  Expanding L250's mass with the complete
+  theta/ODE jet gives the exact cyclic pieces
+  `36Q_1−12Q_3−24I` and `16Q_3−48Q_1+32I`.
+- Neither piece is the answer separately.  Their sum is
+  `4(Q_3−3Q_1+2I)`, whose trace is `4||B_1||_F²` by L252.
+  This holds for arbitrary matrix-valued transfer data, not only
+  scalar or monomial channels.
+- The live theorem is now sharply isolated as **associated delay
+  covariance**: after removing `k−1` clean Hardy layers, the first
+  active scalar coefficient must be the universal grade-one response.
+  L235 disproves whole-series tail equality, so only the associated
+  coefficient may be transported.
+- As part of the single-agent checkpoint, L248 and L249 were rerun
+  from scratch and reproduced their tracked hashes; Git remains a
+  clean linear history with no lost or conflicting artifact.
+  `proof/repeated_crabb_grade_one_volume.md`.
 
 ## NEWEST (2026-07-25): L253 identifies the target as Toeplitz leakage
 - If `T_B` is the causal Toeplitz multiplier of the matrix-inner
@@ -4374,42 +4394,29 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-25)
-1. **A194/A198--A201: evaluate the doubled-Hardy quadratic
-   channel.**
-   Keep the terminal multiplier at its physical value `lambda=1`.
-   Use L250's output determinant with `Z=AR^−1A*`, insert
-   L243--L245's exact delayed resolvent/Green lift into `Z`, use L251
-   to keep every opposite port pair inside its common `Q`-channel,
-   and apply L244's coisometry **before** extracting coefficients.
-   Move the closed channels into L236's Hardy frames and prove that
-   the active mass is `4||P_kT_BP_k||_HS²`.  By L252--L253 this is
-   the same cyclic congruence
-   `4tr(Q_(k+2)−(k+2)Q_1+(k+1)I)` and, under complete delay, exactly
-   `4||B_k||_F²`.  Use matrix-inner autocorrelation only inside this
-   closed trace/window reduction, not as a weight assigned to an
-   isolated `B#(x)` row.
-   The split exact audit through grade six now shows the intended
-   local mechanism: every nonradial cyclic class in the raw Stein face
-   is cancelled by the equal and opposite class from final-row
-   whitening.  Promote that cancellation with L244's half-line
-   coisometry and identify only the three surviving boundary classes;
-   do not spend time extending the finite audit to another grade.
-   L254 identifies the exact channel statement to prove:
-   final-row whitening must remove
-   `O_Lhat O_Lhat*` and leave `T_BT_B*=I−O_Lhat O_Lhat*`.
-   Work in the shifted **left** frame; using the unshifted or right
-   frame gives the wrong matrix identity at copy multiplicity above
-   one.
-   Use L255's exact block pencil as the starting point.  Its
-   `Xi_inf direct-sum Xi_inf*` diagonal is the L244 background;
-   differentiate the analytic functional calculus only in the
-   displayed linear/quadratic Hankel blocks, then insert the result
-   into L250's scalar whitening.  L243's reflection-power filtration
-   must justify discarding channel degree above two at `c^(2k)`.
-   Do not estimate the individually huge dual corner and Schur square,
-   detach the doubled port (A195/L249), or assume A192's unproved
-   symmetric endpoint valuation.  The face is indefinite, so do not
-   seek a positive leakage-Gram factorization.
+1. **A194/A198--A202: prove associated delay covariance to L256.**
+   L256 now proves the universal relative response
+   `[c²]mu°=4||B_1||_F²` for every matrix channel.  Prove that removing
+   `k−1` clean Hardy layers transports **this associated coefficient**
+   to `[c^(2k)]mu°=4||B_k||_F²`; do not claim equality of the full
+   shifted series, which L235 disproves.
+   Use L255's doubled-Hardy block pencil as the starting point.  Its
+   `Xi_inf direct-sum Xi_inf*` diagonal is the L244 background.  Keep
+   the terminal multiplier at its physical value `lambda=1`, pair
+   opposite analytic ports as in L251, and apply L244's coisometry
+   before extracting the active coefficient.  L243's
+   reflection-power filtration must exclude channel degree above two.
+   The desired surviving quadratic trace is the shifted **left**
+   complement from L254:
+   `T_BT_B*=I−O_Lhat O_Lhat*`.  Under complete delay its finite Hardy
+   window contains only `B_k`; equivalently L252 reduces it to
+   `4tr(Q_(k+2)−(k+2)Q_1+(k+1)I)`.
+   The exact grade-one calculation shows again that the raw Stein and
+   whitening pieces are not meaningful separately.  Do not estimate
+   the huge dual corner and Schur square, detach the doubled port
+   (A195/L249), assume A192's symmetric endpoint valuation, seek a
+   positive leakage-Gram factorization, or extend the grade-six audit
+   instead of proving the covariance.
 2. **Then promote the delayed trace law, not more finite evidence.**
    Combining the `+4` volume coefficient with L247's exact metric
    contribution `−2` would give L225's total trace

@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-25): after L255 / A201
+## Current general Crabb frontier (2026-07-25): after L256 / A202
 
 The accidental two-agent interval has been reconciled.  Commits
 `87c5107`, `4c7a152`, `2f82d15`, and `dcab861` form one linear history
@@ -11,7 +11,8 @@ independently recomputed before banking.  Resume as one agent from the
 A194 gate below through A196's balanced output form, A197's paired
 analytic ports, A198's cyclic radial quotient, A199's finite
 Hardy-window energy, A200's shifted-left-Hardy complement, and A201's
-doubled-Hardy physical pencil.  A195 is a negative guardrail, not a
+doubled-Hardy physical pencil.  A202/L256 now supplies the universal
+relative grade-one response.  A195 is a negative guardrail, not a
 second frontier.
 
 L230--L234 close the canonical repaired endpoint through the third
@@ -183,13 +184,21 @@ Its diagonal background is `Xi_inf direct-sum Xi_inf*`, its
 off-diagonal blocks are linear in the transfer Hankel cross Gram, and
 its only diagonal correction is one ordered quadratic Hankel term.
 The metric weights are already fixed and diagonal in the same two
-frames.  Resume by taking the universal second channel response of
-this block pencil through the analytic functional calculus and L250
-whitening, using L244 on the background and L243 to exclude higher
-reflection powers.
+frames.
+L256 proves the universal relative base of that response.  With the
+active grade-one metric edge deleted, exact cyclic reduction of the
+full theta/ODE jet gives
+`[c²]{−m+tr(N^−1H)}=4||B_1||_F²` for every matrix-valued colligation.
+The two raw cyclic pieces are large and cancel only in their sum.
+Resume by proving **associated delay covariance**: factoring
+`k−1` clean Hardy layers must transport this one active coefficient to
+`4||B_k||²`.  Do not strengthen this to a whole-series tail identity;
+L235 disproves that stronger statement.  Use L244 on the background
+and L243 to exclude higher reflection powers.
 
-**Current live gate (A194):** prove that whitened volume coefficient
-at the physical multiplier `lambda=1`, without assuming A192's
+**Current live gate (A194/A202):** prove the associated delay
+covariance from L256's relative grade-one response to the physical
+grade-`k` whitened coefficient at `lambda=1`, without assuming A192's
 unproved endpoint valuation or estimating the large corner and Schur
 terms separately.  A177 was already closed by L234; resuming its
 sextic computation would be a rollback, not a continuation.
@@ -290,6 +299,10 @@ balance.
   `experiments/repeated_crabb_hardy_two_frame.py`: exact doubled
   Hardy/Hankel representation of the physical pencil; the universal
   quadratic functional-calculus/whitening response remains open.
+- `proof/repeated_crabb_grade_one_volume.md` (L256): exact universal
+  matrix-valued relative grade-one response.  The live theorem is
+  associated coefficient covariance through an arbitrary clean
+  delay, not whole-series tail equality.
 - `proof/repeated_crabb_exact_metric_chart.md` (L194): analytic
   metric chart in which any all-series column construction must
   converge.
