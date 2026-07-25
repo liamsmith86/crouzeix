@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-24): after L242 / A187
+## Current general Crabb frontier (2026-07-24): after L243 / A188
 
 L230--L234 close the canonical repaired endpoint through the third
 transfer flag.  Universal bounded polynomial columns cancel the cubic
@@ -67,7 +67,15 @@ nonunitary/noncommuting active transfer block.  L242 additionally
 proves that for every delay `r>=2` the retained direct block through
 the requested order uses only one reflection and is a universal
 `2/6/23`-word jet.  The exiting-chain columns, boundary metric, and
-Stein Schur square remain the sole state-lifted calculation.
+Stein Schur square remain the sole state-lifted calculation.  L243
+now keeps those retained state columns exactly: the reflection
+correction is `zeta t^r R_RW K_(u^rB)^−1W*R_R`, with the inverse
+model kernel of the delayed transfer in the middle.  Its delay
+splitting is exactly L221's, and a degree filtration leaves only the
+constant and first nonconstant inverse-kernel sectors through the
+target window.  The live task is the resulting finite contour,
+metric, and Stein-Schur assembly, not another unbounded reflection
+expansion.
 
 Standing constraints: A179 disproves raw simultaneous superposition of
 the L212 representatives; scalar shifts and positive-state
@@ -110,6 +118,9 @@ inserted into the analytic metric; and definite parity is false.
 - `proof/repeated_crabb_reflected_direct_jet.md` (L242) and
   `experiments/repeated_crabb_reflected_direct_jet.py`: universal
   retained first-reflection jet through the all-delay target order.
+- `proof/repeated_crabb_model_kernel_resolvent.md` (L243) and
+  `experiments/repeated_crabb_model_kernel_resolvent.py`: exact
+  inverse-model-kernel state lift and finite reflection filtration.
 - `proof/repeated_crabb_exact_metric_chart.md` (L194): analytic
   metric chart in which any all-series column construction must
   converge.

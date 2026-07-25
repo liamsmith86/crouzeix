@@ -2,6 +2,28 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — repeated circular/elliptic merger)
 
+## NEWEST (2026-07-24): L243 identifies the exact delayed model-kernel lift
+- After absorbing the right endpoint, the retained bulk inverse is
+  `R_R=(G-cT*E)^−1` and its left compression is exactly
+  `x(1−t)^−1(I+B(rho)B#(x))`.
+- For the delayed transfer `C(u)=u^r B(u)`, the remaining endpoint
+  denominator is
+  `(I−C(rho)C#(x))/(1+t^r)`.  Consequently the full retained
+  resolvent correction is
+  `zeta t^r R_R W K_C(rho,x)^−1 W*R_R`: both exterior state columns
+  survive, while the middle factor is precisely the inverse delayed
+  model kernel.
+- The pointwise identity
+  `K_C=sum_(j<r)t^j I+t^r K_B` makes L239's physical continued
+  fraction identical to L221's abstract model-space delay splitting.
+  Expanding the inverse proves that only its zeroth and first
+  nonconstant powers can reach the direct-map target window; powers
+  two and higher start after `c^(2r+2)`.
+- L228 still needs the finite two-sector contour/metric/Stein
+  assembly, but there is no longer an infinite reflection tail.
+  `proof/repeated_crabb_model_kernel_resolvent.md`;
+  `experiments/repeated_crabb_model_kernel_resolvent.py`.
+
 ## NEWEST (2026-07-24): L242 fixes the retained reflected jet in all delays
 - Relative to L240's unreflected half-line, the retained direct map
   after a finite delay `r>=2` has the exact form
