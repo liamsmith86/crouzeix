@@ -86,11 +86,61 @@ class ReducedFaceData:
     actual_strength: float
 
 
+def checked_discrete_lyapunov(
+    coefficient: np.ndarray,
+    forcing: np.ndarray,
+) -> np.ndarray:
+    """Solve one discrete Lyapunov equation with a residual guard.
+
+    SciPy's automatic bilinear branch can be inaccurate for some
+    nonnormal real matrices of dimension at least ten.  Retrying the
+    same equation in complex arithmetic avoids that implementation
+    corner without making every larger solve use the much more
+    expensive direct Kronecker method.
+    """
+
+    coefficient = np.asarray(coefficient)
+    forcing = np.asarray(forcing)
+
+    def solve(
+        matrix: np.ndarray,
+        right_hand_side: np.ndarray,
+    ) -> np.ndarray:
+        result = solve_discrete_lyapunov(matrix, right_hand_side)
+        return (result + result.conj().T) / 2
+
+    solution = solve(coefficient, forcing)
+    residual = (
+        coefficient @ solution @ coefficient.conj().T
+        - solution
+        + forcing
+    )
+    scale = (
+        1
+        + np.linalg.norm(solution)
+        + np.linalg.norm(forcing)
+    )
+    if np.linalg.norm(residual) > 1e-10 * scale:
+        solution = solve(
+            np.asarray(coefficient, dtype=complex),
+            np.asarray(forcing, dtype=complex),
+        )
+        residual = (
+            coefficient @ solution @ coefficient.conj().T
+            - solution
+            + forcing
+        )
+    if np.linalg.norm(residual) > 1e-9 * scale:
+        raise RuntimeError(
+            "the discrete Lyapunov solve failed its residual guard"
+        )
+    return solution
+
+
 def stein_inverse(operator: np.ndarray, forcing: np.ndarray) -> np.ndarray:
     """Solve ``X - T* X T = forcing`` and remove roundoff skew."""
 
-    solution = solve_discrete_lyapunov(operator.conj().T, forcing)
-    return (solution + solution.conj().T) / 2
+    return checked_discrete_lyapunov(operator.conj().T, forcing)
 
 
 def dual_stein_inverse(
@@ -99,8 +149,7 @@ def dual_stein_inverse(
 ) -> np.ndarray:
     """Solve ``Z - T Z T* = forcing``."""
 
-    solution = solve_discrete_lyapunov(operator, forcing)
-    return (solution + solution.conj().T) / 2
+    return checked_discrete_lyapunov(operator, forcing)
 
 
 def projected_column_basis(

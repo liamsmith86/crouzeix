@@ -283,6 +283,7 @@ def schur_reduce_leading_kernel(
 def rank_chain_case(
     multiplicity: int,
     seed: int,
+    parameter_scale: float = 1.0,
 ) -> tuple[Matrix, Matrix, Matrix, float, int]:
     """Return a noncommuting Schur realization with one new left rank per grade."""
 
@@ -316,7 +317,7 @@ def rank_chain_case(
         )
         left_vector /= np.linalg.norm(left_vector)
         right_vector /= np.linalg.norm(right_vector)
-        radius = 0.11 + 0.018 * grade
+        radius = parameter_scale * (0.11 + 0.018 * grade)
         parameters.append(
             radius
             * np.outer(left_vector, np.conjugate(right_vector))

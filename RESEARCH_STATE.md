@@ -2,6 +2,27 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — repeated circular/elliptic merger)
 
+## NEWEST (2026-07-24): the canonical repair fails on partial flags
+- L227's exact Stein repair is not by itself a condition-number-four
+  metric.  On rank-one `B_1` faces its upper gap begins with the
+  favorable `12c^2 B_1B_1*`, but the compression of its cubic
+  coefficient to `ker B_1*` can be indefinite.
+- A multiplicity-four example has cubic kernel eigenvalues
+  `(-0.0119641, 0.0000766, 0.0090452)`.  Since the active/kernel
+  Schur cross-square starts at order four, the negative cubic
+  eigenvalue forces the repaired physical metric above `4I` for all
+  sufficiently small positive `c`.
+- Scaled noncommuting Schur chains retain the obstruction down to
+  parameter scale `0.1`, so it occurs arbitrarily near the repeated
+  monomial apex.  This does not contradict L228: the cubic vanishes
+  on the exact `B_1=0` stratum.
+- The corrected next target is to cancel the odd mixed-flag endpoint
+  by a bounded analytic L204 free-row/defect-frame correction before
+  using L228's delayed even Gram.  Complete-delay covariance remains
+  useful but cannot by itself finish the partial-flag sandwich.
+  `proof/repeated_crabb_canonical_repair_flag_obstruction.md`;
+  `experiments/repeated_crabb_canonical_repair_flag_obstruction.py`.
+
 ## NEWEST (2026-07-24): L228 exposes the delayed slack as one anticommutator
 - L227's compact grade-one residual simplifies once more to
   `K_2=E_1F+FE_1`, where `E_1=S*ES`.
