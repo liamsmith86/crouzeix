@@ -84,16 +84,17 @@
   `Z_ret=PZP+PZF(I_F−FZF)^−1FZP`.  A direct block Schur determinant
   gives, through the active face,
   `V=det_P(I+D_ret)` with `D_ret=I_P−R_PZ_ret`.
-- `D_ret` is similar to the normalized final-defect Schur residual.
-  It therefore starts at degree `2k`, and its active trace is exactly
-  `[c^(2k)]log V`.  Expanding the sole inverse pairs every entrance to
-  the final row with an exit and sums all intervening final-row loops.
+- `D_ret` is similar to the normalized final-defect Schur residual,
+  so it has exactly the same vanishing order and coefficient trace.
+  Conditional on A194's still-open lower vanishings, its active trace
+  is `[c^(2k)]log V`.  Expanding the sole inverse pairs every entrance
+  to the final row with an exit and sums all intervening final-row loops.
 - This closes the algebraic one-sided-port ambiguity: L243's later
   `B#(x)` column cannot be valued in isolation.  It does **not**
-  prove the desired `+4`, remove future transfer coefficients from a
-  closed path, or establish L257's one-delay recursion.  The remaining
-  gate is now the matrix-inner autocorrelation/Hardy-index evaluation
-  of these closed returns.
+  prove the lower vanishings, the desired `+4`, remove future transfer
+  coefficients from a closed path, or establish L257's one-delay
+  recursion.  The remaining gate is now the matrix-inner
+  autocorrelation/Hardy-index evaluation of these closed returns.
   `proof/repeated_crabb_output_renewal_volume.md`.
 
 ## NEWEST (2026-07-25): L253 identifies the target as Toeplitz leakage
@@ -4451,7 +4452,8 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    in L257's canonical split, then iterate.  L258 has already eliminated
    the first monomial/final row and resummed every visit to it as
    `Z_ret=PZP+PZF(I_F−FZF)^−1FZP`.  Evaluate the active trace of
-   `D_ret=I−R_PZ_ret` by Hardy index: use L251's common analytic
+   `D_ret=I−R_PZ_ret`, including all lower vanishings, by Hardy index:
+   use L251's common analytic
    entry/exit channel, L243's zero/one inverse-kernel filtration, and
    matrix-inner autocorrelation to remove future coefficients.  Do not
    claim equality of the full shifted series, which L235 disproves.

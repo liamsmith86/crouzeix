@@ -207,14 +207,17 @@ L258 now eliminates the first monomial/final row before coefficient
 extraction.  If `Z=AR^−1A*` and `R=F direct-sum R_P`, then
 `Z_ret=PZP+PZF(I_F−FZF)^−1FZP` and the exact volume is
 `det_P(I+D_ret)`, where `D_ret=I−R_PZ_ret`.  This operator is similar
-to the normalized final-defect Schur residual, so it starts at the
-active degree and its trace gives the active log-volume coefficient.
+to the normalized final-defect Schur residual, so it has the same
+vanishing order and coefficient trace.  The required lower vanishings
+remain open; conditional on them, its active trace gives the active
+log-volume coefficient.
 The geometric expansion is a renewal of closed entry/loop/exit paths:
 there is no scalar contribution from a one-sided `B#(x)` column.
 The remaining step is to evaluate these closed paths by L243's
 filtration, L244's coisometry, L251's paired channels, and
-matrix-inner autocorrelation.  L258 does not itself prove the `+4`
-coefficient or remove future transfer coefficients.
+matrix-inner autocorrelation.  L258 does not itself prove the lower
+vanishings, the `+4` coefficient, or removal of future transfer
+coefficients.
 
 **Current live gate (A194/A204):** evaluate L258's closed-return
 trace, prove L257's associated one-delay coefficient recursion, and
@@ -332,8 +335,8 @@ balance.
   arbitrary-grade recursion remains open.
 - `proof/repeated_crabb_output_renewal_volume.md` (L258): exact block
   Schur elimination of the final output row and closed-return renewal
-  for its whitening.  The closed-path Hardy-index/autocorrelation
-  evaluation remains open.
+  for its whitening.  The lower vanishings and closed-path
+  Hardy-index/autocorrelation evaluation remain open.
 - `proof/repeated_crabb_exact_metric_chart.md` (L194): analytic
   metric chart in which any all-series column construction must
   converge.

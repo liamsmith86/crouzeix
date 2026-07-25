@@ -49,11 +49,11 @@ Then, coefficientwise through the live face,
 \]
 
 Moreover, \(\mathfrak D_{\rm ret}\) is similar to the normalized
-final-defect Schur residual.  Consequently L246--L250's delayed
-first-face statement gives
+final-defect Schur residual.  Consequently, **if** the delayed
+first-face vanishings required in L248/A194 hold, then
 
 \[
-\mathfrak D_{\rm ret}=O(c^{2k}),
+\mathfrak D_{\rm ret}=O(c^{2k})
 \]
 
 and
@@ -145,9 +145,9 @@ K_F
 \end{aligned}
 \]
 
-Thus \(\mathfrak D_{\rm ret}\) has exactly the same first nonzero
-degree and coefficient trace as the residual already isolated in
-L246--L250.  Equation (5) now follows from
+Thus \(\mathfrak D_{\rm ret}\) has exactly the same vanishing order
+and coefficient trace as the normalized residual.  Under the open
+first-face hypothesis above, equation (5) follows from
 
 \[
 \operatorname{tr}\log(I+\mathfrak D_{\rm ret})
@@ -211,9 +211,10 @@ Hence L257's open recursion is equivalent to
 \mathfrak D_{\rm ret}(\widetilde B,k-1).}         \tag{11}
 \]
 
-The remaining proof must evaluate the closed returns in (10) using
-L243's zero/one inverse-kernel filtration and matrix-inner
-autocorrelation.  L254 predicts the result:
+The remaining proof must first prove the lower vanishings and then
+evaluate the active closed returns in (10), using L243's zero/one
+inverse-kernel filtration and matrix-inner autocorrelation.  L254
+predicts the result:
 
 \[
 \operatorname{tr}[c^{2k}]\mathfrak D_{\rm ret}
