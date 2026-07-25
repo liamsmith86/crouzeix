@@ -94,16 +94,19 @@ part of the rank-\(m\) Gram (3), and its Schur residual vanishes.
 
 L240 still does **not** prove L228.  A finite left endpoint changes
 the half-line model by L239's reflection
-\(\lambda_r(t)=t^r/(1+t^r)\).  One must compute the first variation
-of (5), including the state-lift columns, and show that its first
-active Hardy cell is
+\(\lambda_r(t)=t^r/(1+t^r)\).  One must compute the first active
+coefficient of the **exact reflected transform** of (5), including
+the state-lift columns, and show that its first active Hardy cell is
 
 \[
 E_1F_r+F_rE_1.
 \]
 
 The bulk term is now closed exactly; only that reflected boundary
-variation remains.
+coefficient remains.  One must not replace the exact transform by
+its term linear in \(\lambda_r\): depending on \(r\), higher powers
+can still reach the requested coefficient, and L235 already warned
+that terminal-crossing truncations require proof.
 
 ## 2. Derivation from the finite elliptic Crabb axis
 

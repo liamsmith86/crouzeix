@@ -53,8 +53,10 @@ supplies the exact zero baseline for that variation: on the
 backward-shift half-line, L236's `D_R` metric has a rank-`m` Jacobi
 `nd` Stein factor, so its right-defect Schur residual vanishes
 identically.  The sole remaining L228 calculation is therefore the
-first state-lifted derivative of this zero residual under L239's
-finite reflection; it must give the active-cell anticommutator.
+first active coefficient of the exact L239-reflected state lift; it
+must give the active-cell anticommutator.  Keep the full small endpoint
+inverse until its reflection-power filtration is proved rather than
+assuming that only the term linear in `lambda_r` contributes.
 
 Standing constraints: A179 disproves raw simultaneous superposition of
 the L212 representatives; scalar shifts and positive-state

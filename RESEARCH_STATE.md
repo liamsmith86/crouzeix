@@ -18,9 +18,11 @@
   coisometric word audit regenerates the full theta/ODE identity
   exactly through degree eight.
 - This removes the hidden-flux ambiguity in retained-block
-  calculations.  The only remaining L228 content is the first
-  variation of this zero Schur residual under L239's finite-left
-  reflection, including its state-lift columns.
+  calculations.  The only remaining L228 content is the first active
+  coefficient of the exact L239-reflected transform of this zero
+  Schur residual, including its state-lift columns.  Do not silently
+  truncate to the term linear in `lambda_r`; the exact small endpoint
+  inverse must justify which reflection powers contribute.
   `proof/repeated_crabb_half_line_stein_factor.md`;
   `experiments/repeated_crabb_half_line_stein_factor.py`.
 
