@@ -2,6 +2,26 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — repeated circular/elliptic merger)
 
+## NEWEST (2026-07-24): L231 proves the prepared quartic trace is positive
+- Complete L230 by perturbing the exact canonical Stein-slack factor
+  by `c³C_3` and applying the variable Stein inverse.  This preserves
+  exact contraction and makes the full cubic endpoint zero.
+- Exact word reduction gives the physical quartic upper-gap trace
+  `12||B_2||_F²+32||B_1||_F²+56tr((B_1*B_1)²)`.
+  The only residual is
+  `8tr(−I+2S*S−(S*)²S²)=0`, from defect ranks
+  `n,n−m,n−2m`.
+- On `B_1=0`, the complete quartic matrix is exactly
+  `12B_2B_2*`; the cubic correction vanishes there.  Thus every
+  L222 reducing separator on the first partial flag sees positive
+  trace unless it also belongs to the next delay.
+- Positive trace is not positive semidefiniteness.  The prepared
+  quartic compression is slightly indefinite in some multiplicity
+  five/six rank chains, so a bounded polynomial fourth-column
+  redistribution is still required.
+  `proof/repeated_crabb_canonical_quartic_trace.md`;
+  `experiments/repeated_crabb_canonical_quartic_trace.py`.
+
 ## NEWEST (2026-07-24): L230 cancels the cubic flag polynomially
 - L229's pointwise cubic range statement now has an explicit
   all-size selection:
