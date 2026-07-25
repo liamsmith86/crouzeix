@@ -24,7 +24,9 @@
   radial quotient, A199/L253's Hardy-window energy target, and
   A200/L254's shifted-left-Hardy complement, now represented
   physically by A201/L255's doubled-Hardy pencil and anchored at
-  relative grade one by A202/L256.
+  relative grade one by A202/L256.  A203/L257 removes the remaining
+  realization choice and states the live step as one canonical
+  model-space coefficient recursion.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
 
@@ -46,6 +48,34 @@
   from scratch and reproduced their tracked hashes; Git remains a
   clean linear history with no lost or conflicting artifact.
   `proof/repeated_crabb_grade_one_volume.md`.
+
+## NEWEST (2026-07-25): L257 makes delay covariance one model-space recursion
+- In the left Hardy model `K_(zB)`, all state data are now explicit:
+  `F=P_0`, `E=H*P_0H`, `S*=L*`, `S=P_KL`,
+  `R=H*D_RH+P_KD_LP_K`, and
+  `Xi=S+c(I+P_0)L*(I+E)`.  Here
+  `H_(n,j)=B_(n+j)*`.  L250's scalar mass is therefore a canonical
+  functional of the matrix-inner transfer, with no state realization
+  or metric root left to choose.
+- Complete delay is the literal orthogonal split
+  `K_(zB)=direct-sum_(j<k−1) z^j C^m direct-sum
+  z^(k−1)K_(z Btilde)`.
+  The all-grade gate is exactly
+  `[c^(2k)]mu°_(B,k)=[c^(2k−2)]mu°_(Btilde,k−1)`.
+  Once proved, iteration ends at L256 and gives `4||B_k||²`.
+- The existing exact cyclic engine was refactored to evaluate an
+  arbitrary partial-isometry corner.  A new audit constructs the
+  original and embedded-tail masses independently and reduces their
+  cyclic difference to zero in grades two through five.  The raw
+  quotient differences have `36,82,159,268` words.  This is stronger
+  than comparing two copies of the known target but remains finite
+  evidence, not the missing proof.
+- Floating continuation also shows covariance through the following
+  odd coefficient and failure at the next even coefficient, matching
+  L235's warning: the associated recursion is sharp and must not be
+  upgraded to whole-series equality.
+  `proof/repeated_crabb_left_model_volume.md`;
+  `experiments/repeated_crabb_volume_delay_covariance.py`.
 
 ## NEWEST (2026-07-25): L253 identifies the target as Toeplitz leakage
 - If `T_B` is the causal Toeplitz multiplier of the matrix-inner
@@ -4394,12 +4424,13 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-25)
-1. **A194/A198--A202: prove associated delay covariance to L256.**
+1. **A194/A198--A203: prove L257's model-space recursion to L256.**
    L256 now proves the universal relative response
    `[c²]mu°=4||B_1||_F²` for every matrix channel.  Prove that removing
-   `k−1` clean Hardy layers transports **this associated coefficient**
-   to `[c^(2k)]mu°=4||B_k||_F²`; do not claim equality of the full
-   shifted series, which L235 disproves.
+   one clean Hardy layer obeys
+   `[c^(2k)]mu°_(B,k)=[c^(2k−2)]mu°_(Btilde,k−1)`
+   in L257's canonical split, then iterate.  Do not claim equality of
+   the full shifted series, which L235 disproves.
    Use L255's doubled-Hardy block pencil as the starting point.  Its
    `Xi_inf direct-sum Xi_inf*` diagonal is the L244 background.  Keep
    the terminal multiplier at its physical value `lambda=1`, pair

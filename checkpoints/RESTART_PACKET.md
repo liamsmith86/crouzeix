@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-25): after L256 / A202
+## Current general Crabb frontier (2026-07-25): after L257 / A203
 
 The accidental two-agent interval has been reconciled.  Commits
 `87c5107`, `4c7a152`, `2f82d15`, and `dcab861` form one linear history
@@ -12,8 +12,9 @@ A194 gate below through A196's balanced output form, A197's paired
 analytic ports, A198's cyclic radial quotient, A199's finite
 Hardy-window energy, A200's shifted-left-Hardy complement, and A201's
 doubled-Hardy physical pencil.  A202/L256 now supplies the universal
-relative grade-one response.  A195 is a negative guardrail, not a
-second frontier.
+relative grade-one response, and A203/L257 turns its transport into
+one canonical left-model coefficient recursion.  A195 is a negative
+guardrail, not a second frontier.
 
 L230--L234 close the canonical repaired endpoint through the third
 transfer flag.  Universal bounded polynomial columns cancel the cubic
@@ -190,18 +191,25 @@ active grade-one metric edge deleted, exact cyclic reduction of the
 full theta/ODE jet gives
 `[c²]{−m+tr(N^−1H)}=4||B_1||_F²` for every matrix-valued colligation.
 The two raw cyclic pieces are large and cancel only in their sum.
-Resume by proving **associated delay covariance**: factoring
-`k−1` clean Hardy layers must transport this one active coefficient to
-`4||B_k||²`.  Do not strengthen this to a whole-series tail identity;
-L235 disproves that stronger statement.  Use L244 on the background
-and L243 to exclude higher reflection powers.
+L257 now writes the entire problem on the canonical left model
+`K_(zB)`: `F=P_0`, `E=H*P_0H`, `S*=L*`, `S=P_KL`, and
+`R=H*D_RH+P_KD_LP_K`.  If `B=z^(k−1)Btilde`, this model splits
+orthogonally into `k−1` monomial rows and
+`z^(k−1)K_(zBtilde)`.  Resume by proving the single recursion
+`[c^(2k)]mu°_(B,k)=[c^(2k−2)]mu°_(Btilde,k−1)`.
+The same refactored exact word engine constructs both sides and
+confirms it through grade five, but that is finite evidence only.
+Do not strengthen it to a whole-series tail identity; L235 disproves
+that stronger statement.  Use L244 on the background and L243 to
+exclude higher reflection powers.
 
-**Current live gate (A194/A202):** prove the associated delay
-covariance from L256's relative grade-one response to the physical
-grade-`k` whitened coefficient at `lambda=1`, without assuming A192's
-unproved endpoint valuation or estimating the large corner and Schur
-terms separately.  A177 was already closed by L234; resuming its
-sextic computation would be a rollback, not a continuation.
+**Current live gate (A194/A203):** prove L257's associated
+one-delay coefficient recursion and iterate to L256's universal
+grade-one response, at the physical `lambda=1`, without assuming
+A192's unproved endpoint valuation or estimating the large corner
+and Schur terms separately.  A177 was already closed by L234;
+resuming its sextic computation would be a rollback, not a
+continuation.
 
 Standing constraints: A179 disproves raw simultaneous superposition of
 the L212 representatives; scalar shifts and positive-state
@@ -303,6 +311,11 @@ balance.
   matrix-valued relative grade-one response.  The live theorem is
   associated coefficient covariance through an arbitrary clean
   delay, not whole-series tail equality.
+- `proof/repeated_crabb_left_model_volume.md` (L257) and
+  `experiments/repeated_crabb_volume_delay_covariance.py`: exact
+  canonical left-model normal form and finite exact audit of the
+  one-delay coefficient recursion through grade five.  The
+  arbitrary-grade recursion remains open.
 - `proof/repeated_crabb_exact_metric_chart.md` (L194): analytic
   metric chart in which any all-series column construction must
   converge.

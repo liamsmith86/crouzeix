@@ -29,10 +29,8 @@ from repeated_crabb_delayed_slack_anticommutator import (
     IDENTITY,
     Polynomial,
     S,
-    STAR,
     Series,
     add,
-    boundary_metric_series,
     multiply,
     reduce_delay,
     reduce_delayed_word,
@@ -113,22 +111,18 @@ class DelayedQuotient:
     def series_adjoint(self, series: Series) -> Series:
         """Apply the formal adjoint coefficientwise."""
 
-        translation = str.maketrans({"s": "a", "a": "s"})
-        return [
-            self.reduce(
-                {
-                    word.translate(translation)[::-1]: coefficient
-                    for word, coefficient in polynomial.items()
-                }
-            )
-            for polynomial in series
-        ]
+        return [self.polynomial_adjoint(polynomial) for polynomial in series]
 
-    def series_power(self, series: Series, exponent: int) -> Series:
+    def series_power(
+        self,
+        series: Series,
+        exponent: int,
+        identity: Polynomial = IDENTITY,
+    ) -> Series:
         """Raise a quotient series to a nonnegative integer power."""
 
         result = [
-            IDENTITY,
+            identity,
             *({} for _ in range(self.maximum_degree)),
         ]
         base = series
@@ -141,15 +135,33 @@ class DelayedQuotient:
                 base = self.series_multiply(base, base)
         return result
 
-    def operator_series(self) -> Series:
-        """Return the balanced ellipse map in the delayed quotient."""
+    def polynomial_adjoint(self, polynomial: Polynomial) -> Polynomial:
+        """Apply the formal adjoint to one quotient polynomial."""
+
+        translation = str.maketrans({"s": "a", "a": "s"})
+        return self.reduce({
+            word.translate(translation)[::-1]: coefficient
+            for word, coefficient in polynomial.items()
+        })
+
+    def operator_series_for(
+        self,
+        partial: Polynomial,
+        initial: Polynomial,
+        final: Polynomial,
+        identity: Polynomial,
+    ) -> Series:
+        """Return the balanced ellipse map for one quotient corner."""
 
         reverse = self.multiply(
-            self.add(IDENTITY, F),
-            self.multiply(STAR, self.add(IDENTITY, E)),
+            self.add(identity, final),
+            self.multiply(
+                self.polynomial_adjoint(partial),
+                self.add(identity, initial),
+            ),
         )
         pencil = [
-            S,
+            partial,
             reverse,
             *({} for _ in range(self.maximum_degree - 1)),
         ]
@@ -159,7 +171,11 @@ class DelayedQuotient:
             self.maximum_degree + 1,
         )
         for index, coefficient_series in enumerate(coefficients):
-            power = self.series_power(pencil, 2 * index + 1)
+            power = self.series_power(
+                pencil,
+                2 * index + 1,
+                identity,
+            )
             for scalar_degree in range(self.maximum_degree + 1):
                 scalar = coefficient_series.coefficient(scalar_degree)
                 if not scalar:
@@ -175,19 +191,101 @@ class DelayedQuotient:
                     )
         return result
 
+    def operator_series(self) -> Series:
+        """Return the balanced ellipse map in the delayed quotient."""
+
+        return self.operator_series_for(S, E, F, IDENTITY)
+
+    def polynomial_power(
+        self,
+        polynomial: Polynomial,
+        exponent: int,
+        identity: Polynomial,
+    ) -> Polynomial:
+        """Raise one quotient polynomial to a nonnegative power."""
+
+        result = identity
+        base = polynomial
+        remaining = exponent
+        while remaining:
+            if remaining & 1:
+                result = self.multiply(result, base)
+            remaining //= 2
+            if remaining:
+                base = self.multiply(base, base)
+        return result
+
+    def metric_series_for(
+        self,
+        partial: Polynomial,
+        initial: Polynomial,
+        final: Polynomial,
+        identity: Polynomial,
+    ) -> Series:
+        """Return L219's metric for one quotient corner."""
+
+        result = [
+            identity,
+            *({} for _ in range(self.maximum_degree)),
+        ]
+        partial_adjoint = self.polynomial_adjoint(partial)
+        for order in range(2, self.maximum_degree + 1, 2):
+            half_order = order // 2
+            forward = self.polynomial_power(
+                partial,
+                half_order,
+                identity,
+            )
+            backward = self.polynomial_power(
+                partial_adjoint,
+                half_order,
+                identity,
+            )
+            coefficient = self.multiply(
+                self.multiply(forward, final),
+                backward,
+            )
+            for divisor in range(1, half_order + 1):
+                if half_order % divisor:
+                    continue
+                forward = self.polynomial_power(
+                    partial,
+                    divisor,
+                    identity,
+                )
+                backward = self.polynomial_power(
+                    partial_adjoint,
+                    divisor,
+                    identity,
+                )
+                right_orbit = self.multiply(
+                    self.multiply(backward, initial),
+                    forward,
+                )
+                coefficient = self.add(
+                    coefficient,
+                    self.scale(
+                        (-1) ** (half_order // divisor),
+                        right_orbit,
+                    ),
+                )
+            result[order] = coefficient
+        return result
+
     def metric_series(self) -> Series:
         """Return L219's metric in the active delay quotient."""
 
-        return [
-            self.reduce(polynomial)
-            for polynomial in boundary_metric_series(self.maximum_degree)
-        ]
+        return self.metric_series_for(S, E, F, IDENTITY)
 
-    def inverse_series(self, series: Series) -> Series:
+    def inverse_series(
+        self,
+        series: Series,
+        identity: Polynomial = IDENTITY,
+    ) -> Series:
         """Invert a quotient series with identity constant term."""
 
         result = [
-            IDENTITY,
+            identity,
             *({} for _ in range(self.maximum_degree)),
         ]
         for degree in range(1, self.maximum_degree + 1):
@@ -203,17 +301,32 @@ class DelayedQuotient:
             result[degree] = self.scale(-1, convolution)
         return result
 
-    def mass_components(
+    def mass_components_for(
         self,
+        partial: Polynomial,
+        initial: Polynomial,
+        final: Polynomial,
+        identity: Polynomial,
+        active_degree: int,
     ) -> tuple[Polynomial, Polynomial, Polynomial]:
-        """Return active Stein, whitening, and total mass faces."""
+        """Return Stein, whitening, and total faces for one corner."""
 
-        operator = self.operator_series()
-        metric = self.metric_series()
-        metric[self.maximum_degree] = {}
+        operator = self.operator_series_for(
+            partial,
+            initial,
+            final,
+            identity,
+        )
+        metric = self.metric_series_for(
+            partial,
+            initial,
+            final,
+            identity,
+        )
+        metric[active_degree] = {}
 
         final_weight = [
-            F,
+            final,
             *({} for _ in range(self.maximum_degree)),
         ]
         row_gram = self.series_multiply(
@@ -240,16 +353,29 @@ class DelayedQuotient:
             for left, right in zip(metric, pulled_metric, strict=True)
         ]
         normalized_mass = self.series_multiply(
-            self.inverse_series(row_denominator),
+            self.inverse_series(row_denominator, identity),
             stein_slack,
         )
-        stein_face = stein_slack[self.maximum_degree]
-        total_face = normalized_mass[self.maximum_degree]
+        stein_face = stein_slack[active_degree]
+        total_face = normalized_mass[active_degree]
         whitening_face = self.add(
             total_face,
             self.scale(-1, stein_face),
         )
         return stein_face, whitening_face, total_face
+
+    def mass_components(
+        self,
+    ) -> tuple[Polynomial, Polynomial, Polynomial]:
+        """Return active Stein, whitening, and total mass faces."""
+
+        return self.mass_components_for(
+            S,
+            E,
+            F,
+            IDENTITY,
+            self.maximum_degree,
+        )
 
 
 @lru_cache(maxsize=500_000)
