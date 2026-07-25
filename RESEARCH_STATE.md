@@ -2,6 +2,27 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — repeated circular/elliptic merger)
 
+## NEWEST (2026-07-24): L230 cancels the cubic flag polynomially
+- L229's pointwise cubic range statement now has an explicit
+  all-size selection:
+  `C_3 = 3(S*)² V(B_1*B_1)`.
+- If `F_3=VC_3*+C_3V*`, the canonical ten-word forcing satisfies
+  `L_3+F_3=Z−S*ZS` for a four-word `Z`, and `FZF=0`.  Stein
+  telescoping therefore proves
+  `[c³]U_can=4M_S(C_3)` with the physical sign and factor intact.
+- The column is perpendicular to `V` and obeys
+  `||C_3||<=3||B_1||²`.  It is a bounded basis-free real-analytic
+  selection through every transfer-rank jump, not merely a
+  pointwise Fredholm preimage.
+- L194 inserts the corresponding metric row while preserving exact
+  lower tightness and nonnegative Stein slack, so A172's full cubic
+  endpoint is cancelled.
+- This is not yet the metric sandwich.  The L194 completion changes
+  quartic and later coefficients; recompute the prepared quartic
+  flag before combining it with L228's grade-two even face.
+  `proof/repeated_crabb_canonical_cubic_preimage.md`;
+  `experiments/repeated_crabb_canonical_cubic_preimage.py`.
+
 ## NEWEST (2026-07-24): L229 removes the cubic pointwise range obstruction
 - The bad cubic face of the canonical repair has an exact ten-word
   state forcing `L_3`; its physical endpoint is
