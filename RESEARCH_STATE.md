@@ -2,6 +2,26 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — repeated circular/elliptic merger)
 
+## NEWEST (2026-07-24): L229 removes the cubic pointwise range obstruction
+- The bad cubic face of the canonical repair has an exact ten-word
+  state forcing `L_3`; its physical endpoint is
+  `-4 W*G_S(L_3)W`.
+- The ten words cancel in four cyclic trace classes.  Consequently
+  `tr(HL_3)=0` for every self-adjoint colligation commutant `H`.
+  L206's cokernel theorem and Stein adjointness therefore put the
+  complete cubic endpoint in `ran M_T` at every fixed equality
+  colligation, including reducible ones.
+- Scaled irreducible Schur chains give minimum-norm preimages
+  `||C_3||=O(lambda^2)` while the endpoint map loses one factor
+  `lambda` and the target is `O(lambda^3)`.  The ratios stabilize,
+  strongly indicating removable analytic divisibility.
+- Pointwise cancellation is now proved; bounded analytic selection
+  is not.  Derive a polynomial cubic column or prove the
+  `O(lambda^2)` divisibility on every analytic path before moving to
+  the delayed even face.
+  `proof/repeated_crabb_canonical_cubic_range.md`;
+  `experiments/repeated_crabb_canonical_cubic_selection.py`.
+
 ## NEWEST (2026-07-24): the canonical repair fails on partial flags
 - L227's exact Stein repair is not by itself a condition-number-four
   metric.  On rank-one `B_1` faces its upper gap begins with the
