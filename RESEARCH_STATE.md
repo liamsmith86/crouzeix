@@ -2,6 +2,23 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — repeated circular/elliptic merger)
 
+## CHECKPOINT REVALIDATION (2026-07-24): prior audit complete; frontier advanced
+- The requested A164/next-actions/restart/recursion/structured-matrix/
+  ledger audit was already committed as `fed9eb3` at the L234
+  checkpoint and has been rechecked after L248.
+- `A164` now occurs once and means L221's proved tail covariance.  The
+  disproved raw L212 all-series superposition is uniquely `A179`, and
+  every inbound warning points there.
+- A177's sextic computation is no longer in flight: L234 proved it.
+  Rolling the restart packet back to A177 would discard fourteen later
+  lemmas.  The current sharply scoped gate is A194/L248's whitened
+  volume coefficient `+4||B_k||_F²`; A178 remains the subsequent
+  arbitrary-grade selection/convergence debt.
+- The Gohberg--Semencul/displacement-rank/Schur--Levinson novelty
+  classifications for L187/L193/L218 remain respectively (ii), (ii),
+  and (i).  The lemma-ID gaps remain intentional and are stated at the
+  top of `LEMMA_LEDGER.md`.
+
 ## NEWEST (2026-07-24): L248 turns the open flux into one volume coefficient
 - For any first active final-defect Schur face, its trace is the
   corresponding coefficient of
@@ -4181,33 +4198,28 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-24)
-1. **A178: extract an arbitrary-grade recurrence from L230--L234.**
-   The cubic-through-sextic columns are four separate finite
-   certificates, not an induction.  Seek a uniform recurrence in the
-   partial right ideal that simultaneously produces the next odd
-   cancellation, the next even transfer Gram, and a uniformly positive
-   Schur-budget margin.  It must also control column-norm growth well
-   enough to converge in L194's analytic chart.  Do not compute another
-   isolated grade unless that computation exposes this recurrence.
-2. **Use, rather than silently replace, A171/L228.**  The proposed
-   one-delay associated-graded anticommutator identity remains open and
-   is still the intended structural route to arbitrary grade.  Determine
-   whether L237's unit first-reflection coefficient, acting on L236's
-   active Hankel cell, generates the right-ideal identities and
-   even-face budget observed in L230--L234.  L238 has compressed the
-   full deflated resolvent to a `2m x 2m` endpoint scattering matrix
-   whose off-diagonal blocks are the two transfer orientations.
-   Evaluate the full L125 theta/ODE contour coefficients and L219
-   metric/right-defect Schur square on that matrix to prove the
-   first-active pairing.  The whole-series shift is disproved.
-   L220/L221 supply exact model delay covariance, but not this final
-   physical scalar multiplier.
-3. **Prove an all-series analytic bound.**  Any recurrence must replace
-   the observed column bounds `3, 27/2, 48, 181` by an explicit
-   grade-`k` estimate that gives a genuine local analytic metric, not
-   merely formal finite jets.  Keep L194's exact positivity and lower
-   endpoint throughout.
-4. **Finish the repeated normal/elliptic merger after A178.** L197 closes the
+1. **A194: prove the whitened volume coefficient `+4`.**
+   Insert L243--L245's complete zero/one-reflection state lift directly
+   into L248's final-row-whitened determinant.  Isolate the doubled
+   remote channel and prove
+   `[c^(2k)]log V=4||B_k||_F²`, including earlier vanishing.  Do not
+   estimate the individually huge dual corner and Schur square, and do
+   not assume A192's unproved symmetric endpoint valuation.
+2. **Then promote the delayed trace law, not more finite evidence.**
+   Combining the `+4` volume coefficient with L247's exact metric
+   contribution `−2` would give L225's total trace
+   `+2||B_k||_F²`, hence the fully delayed separator trace required by
+   L222.  Record separately that a bounded pathwise selection through
+   rank changes would still be needed.
+3. **Return to A178's all-series selection/recurrence debt.**  The
+   cubic-through-sextic columns remain four separate finite
+   certificates, not an induction.  Use A171/L228 and L237's exact
+   arbitrary-delay reflection recurrence to seek a uniform partial
+   right-ideal construction and a coefficient bound converging in
+   L194's analytic chart.  Do not compute another isolated grade unless
+   it exposes that recurrence.
+4. **Finish the repeated normal/elliptic merger after the delayed
+   trace and selection gates.** L197 closes the
    disk Schur flag and L199 closes only its first raw circular-normal
    face.  Prove the later Schur-orthogonal normal response, then merge
    it with the all-grade elliptic flag without spending a negative

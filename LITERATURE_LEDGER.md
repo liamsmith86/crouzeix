@@ -68,6 +68,10 @@ Classification here is about the **mathematical core**, not whether the
 campaign independently re-proved it.  This was a targeted source audit,
 not an exhaustive priority search.
 
+Revalidation after L248 checked the listed DOI metadata against
+Crossref and the primary publisher records; the three novelty
+classifications below are unchanged.
+
 - **Classical scalar substrate.**  Gohberg--Semencul (1972), *The
   inversion of finite Toeplitz matrices and their continual analogues*,
   Mat. Issled. 7(2), 201--223, gives the classical inverse-Toeplitz

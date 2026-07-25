@@ -2,6 +2,11 @@
 
 Every attempted approach; why it succeeded/failed. Includes known-failed approaches from literature (do not repeat blindly).
 
+**Stable-ID audit (revalidated 2026-07-24).**  `A1`--`A194` each
+occur exactly once.  `A164` is reserved for L221's proved tail
+covariance; the false raw all-series L212 superposition has the unique
+handle `A179`.
+
 ## Known dead ends / pitfalls (from literature — do not repeat)
 1. **Improving the abstract C–P lemma alone.** Ransford–Schwenninger: sharp at 1+√2 abstractly. Any improvement MUST inject concrete structure of (A, W(A), Cauchy transform).
 2. **Invalid degree reduction via Cayley–Hamilton.** Replacing p by its remainder mod char poly changes max over W(A) (can increase it), so "wlog deg p < n" is FALSE for the sup side. Valid only as: ‖p(A)‖ computable from remainder.

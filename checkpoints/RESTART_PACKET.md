@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-24): after L247 / A193
+## Current general Crabb frontier (2026-07-24): after L248 / A194
 
 L230--L234 close the canonical repaired endpoint through the third
 transfer flag.  Universal bounded polynomial columns cancel the cubic
@@ -12,9 +12,9 @@ at least `(215/22)B_3B_3*`.  The proofs are exact word identities and
 include an explicit rejection of a weaker complete-delay-only sextic
 candidate.
 
-**Live gate (A178):** this is a finite-grade template, not an
-arbitrary-grade proof.  No formula for a general preparation column
-`C_k` is currently known.  The separately solved columns have
+**Finite-grade recursion debt (A178):** this is a finite-grade
+template, not an arbitrary-grade proof.  No formula for a general
+preparation column `C_k` is currently known.  The separately solved columns have
 term-count/coefficient-l1 data
 `C_3: 1/3`, `C_4: 10/(27/2)`, `C_5: 20/48`, and
 `C_6: 53/181`.  The next valid advance must expose a uniform
@@ -107,6 +107,16 @@ law is now equivalent to one metric-edge-deleted operator/reflection
 flux `+4||B_k||_F²`, matching the square of L245's doubled remote
 Green amplitude.  This coisometric energy identity is the live scalar
 gate; later `B#(x)` terms must be cancelled explicitly.
+L248 absorbs the raw corner-minus-Schur-square cancellation into one
+exact whitened log-determinant.  The live target is now
+`[c^(2k)]log V=4||B_k||_F²`, with L243--L245 inserted directly into
+the whitened final-row channel.  This is A194; the value four remains
+open.
+
+**Current live gate (A194):** prove that whitened volume coefficient
+without assuming A192's unproved endpoint valuation.  A177 was already
+closed by L234; resuming its sextic computation would be a rollback,
+not a continuation.
 
 Standing constraints: A179 disproves raw simultaneous superposition of
 the L212 representatives; scalar shifts and positive-state
@@ -168,6 +178,10 @@ inserted into the analytic metric; and definite parity is false.
 - `proof/repeated_crabb_dual_metric_trace_split.md` (L247) and
   `experiments/repeated_crabb_dual_metric_trace_split.py`: exact
   `−2` metric trace and reduction to the open `+4` reflection flux.
+- `proof/associated_defect_volume_trace.md` (L248) and
+  `experiments/associated_defect_volume_trace.py`: exact
+  log-determinant/final-row whitening of the flux; the all-delay
+  coefficient `+4` remains open.
 - `proof/repeated_crabb_exact_metric_chart.md` (L194): analytic
   metric chart in which any all-series column construction must
   converge.
@@ -182,7 +196,7 @@ inserted into the analytic metric; and definite parity is false.
 
 The material below preserves the chronological derivation.  Any
 embedded phrase calling an older step the “live gate” is historical
-and is superseded by the L237/A182 frontier above.
+and is superseded by the L248/A194 frontier above.
 
 L227 supplies an exact analytic contraction repair for L219's
 boundary metric.  If `H` is its Stein slack, `G=V*HV`, and
