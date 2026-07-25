@@ -2,6 +2,28 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — repeated circular/elliptic merger)
 
+## NEWEST (2026-07-24): L228 exposes the delayed slack as one anticommutator
+- L227's compact grade-one residual simplifies once more to
+  `K_2=E_1F+FE_1`, where `E_1=S*ES`.
+- Therefore L225's unresolved all-delay covariance is equivalent to
+  the concrete formula
+  `[c^(2k)]K_S=E_1F_(k-1)+F_(k-1)E_1` under
+  `B_1=...=B_(k-1)=0`.  This is still a candidate arbitrary-grade
+  identity, not a proved theorem.
+- Exact noncommutative rational word reduction verifies the formula
+  and all earlier vanishings through grade five.  The degree-ten face
+  has 3277 words before imposing the delay ideal, strengthening the
+  earlier floating audit without turning it into an induction.
+- The candidate's consequences are now proved in every grade:
+  its Stein endpoint is exactly `2B_kB_k*` and its trace is
+  `2||B_k||_F^2`.  Hence proving the coefficient identity would give
+  the canonical repair the faces `+B_k*B_k` and `-12B_kB_k*`.
+- The live proof debt is a one-delay associated-graded recursion.
+  Group terminal-crossing words before expanding their scalar ellipse
+  coefficients; another fixed-grade jet would not close the theorem.
+  `proof/repeated_crabb_delayed_slack_anticommutator.md`;
+  `experiments/repeated_crabb_delayed_slack_anticommutator.py`.
+
 ## NEWEST (2026-07-24): L227 gives an exact canonical Stein repair
 - L225's grade-one boundary-slack Schur residual collapses from a
   long ellipse-jet expression to

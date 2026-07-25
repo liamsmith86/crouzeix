@@ -1,0 +1,5 @@
+{"all_checks_passed": true, "face_degree": 2, "face_word_count": 5, "grade": 1, "maximum_earlier_reduced_word_count": 0, "reduced_face_difference_word_count": 0, "unreduced_face_difference_word_count": 0}
+{"all_checks_passed": true, "face_degree": 4, "face_word_count": 23, "grade": 2, "maximum_earlier_reduced_word_count": 0, "reduced_face_difference_word_count": 0, "unreduced_face_difference_word_count": 26}
+{"all_checks_passed": true, "face_degree": 6, "face_word_count": 125, "grade": 3, "maximum_earlier_reduced_word_count": 0, "reduced_face_difference_word_count": 0, "unreduced_face_difference_word_count": 133}
+{"all_checks_passed": true, "face_degree": 8, "face_word_count": 631, "grade": 4, "maximum_earlier_reduced_word_count": 0, "reduced_face_difference_word_count": 0, "unreduced_face_difference_word_count": 639}
+{"all_checks_passed": true, "face_degree": 10, "face_word_count": 3277, "grade": 5, "maximum_earlier_reduced_word_count": 0, "reduced_face_difference_word_count": 0, "unreduced_face_difference_word_count": 3285}
