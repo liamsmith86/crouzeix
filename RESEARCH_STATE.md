@@ -2,6 +2,29 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — repeated circular/elliptic merger)
 
+## NEWEST (2026-07-24): L233 clears the complete quintic second flag
+- After inserting L230's cubic and L232's quartic columns into the
+  exact canonical factor, the fifth Stein forcing has an explicit
+  bounded polynomial preparation `C_5=Q Ccal_5(S,S*)V`.
+  `Ccal_5` has twenty half-integral terms and coefficient l1-norm
+  `48`, so no rank-dependent inverse or selection is present.
+- A 55-term Hermitian witness proves the corrected forcing is an
+  exact Stein coboundary.  The resulting upper endpoint lift then
+  factors much more compactly as
+  `H_5=R_1ESF+R_2ES²F+h.c.`.
+- Since `ES^jWx=VB_j*x`, the whole fifth endpoint compresses to zero
+  on `ker B_1* intersect ker B_2*`, including partial rank changes.
+  Exact rational residuals are zero; 27 independent matrix
+  reconstructions agree below `1.4e-12`.
+- This removes the necessary fifth odd obstruction but does not yet
+  close sextic positivity.  On partial flags the off-diagonal fifth
+  block incurs a sextic Schur cost against L232's positive quartic
+  range.  On complete double delays, the sextic coefficient must be
+  recomputed because `C_4` and `C_5` are endpoint-null but nonzero
+  gauges.
+  `proof/repeated_crabb_canonical_quintic_preimage.md`;
+  `experiments/repeated_crabb_canonical_quintic_preimage.py`.
+
 ## NEWEST (2026-07-24): L232 makes the full quartic endpoint positive
 - L231's positive trace can be redistributed by one universal
   ten-term perpendicular polynomial column.  Its norm is bounded by
