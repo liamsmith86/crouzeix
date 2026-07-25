@@ -29,6 +29,11 @@
   `2^p det(I−C*(F+(I−F)/2)C)/det(I−C*FC)`.  Equivalently it is the
   determinant of the main output row after whitening the final row by
   `(I−C*FC)^−1`.
+- The same volume is `det(I+D_eff)`, and
+  `tr D_eff=−m+tr((I−C*FC)^−1(I−C*C))`.  This moves the open
+  coefficient to the normalized mass of the **initial** defect,
+  exactly the orientation in which L240 supplies its coisometric
+  half-line Gram.
 - Thus L247's open operator flux is now the scalar target
   `[c^(2k)] log V=4||B_k||_F²`.  In generic delays 1--6 the separate
   corner and Schur-square traces grow to thousands of times

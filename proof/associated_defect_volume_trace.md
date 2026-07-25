@@ -71,6 +71,30 @@ then
 \left(I-\frac12Y M^{-1}Y^*\right).}               \tag{5}
 \]
 
+There is a second exact form which interfaces directly with L240's
+initial-defect factor.  Put
+
+\[
+G=YM^{-1/2},\qquad
+\mathfrak D=I_{P\mathcal H}-GG^*,\qquad
+H_R=I-C^*C.
+\]
+
+Then
+
+\[
+\boxed{
+\mathcal V_C=\det(I+\mathfrak D),\qquad
+\operatorname {tr}\mathfrak D
+=-m+\operatorname {tr}(M^{-1}H_R),}               \tag{6}
+\]
+
+where \(m=\operatorname {rank}F\).  Thus the volume is the defect of
+the main output channel after its final row has been whitened.  Its
+first trace face is the excess normalized mass of the **initial**
+defect, which is precisely the orientation in which L240 gives an
+explicit half-line Gram.
+
 Thus the final Schur square is not an additional object at trace
 level.  It is exactly the whitening factor \(M^{-1}\) in (5).
 One-sided final-row terms, including the unweighted
@@ -84,14 +108,14 @@ trace target becomes the scalar volume law
 \[
 \boxed{
 [c^{2k}]\log\mathcal V_{\widetilde A^{\lnot X_k}}
-=4\|B_k\|_F^2,}                                   \tag{6}
+=4\|B_k\|_F^2,}                                   \tag{7}
 \]
 
 together with the earlier vanishing needed to make this the first
 Schur face.  Here
 \(\widetilde A^{\lnot X_k}
 =(R^{\lnot X_k})^{1/2}A(R^{\lnot X_k})^{-1/2}\).
-Equation (6) is still open.  L248 replaces the cancellation of two
+Equation (7) is still open.  L248 replaces the cancellation of two
 huge matrix series by one scalar, final-row-whitened determinant; it
 does not assume the desired value \(4\).
 
@@ -176,10 +200,37 @@ This proves (5).  At \(C=S\), \(X=0\) and
 \(YY^*=P\), so the last determinant is \(2^{-p}\) and
 \(\mathcal V_S=1\).
 
+Moreover,
+
+\[
+I-\frac12GG^*=\frac12(I+\mathfrak D),
+\]
+
+so (5) immediately gives the determinant identity in (6).  For the
+trace, use
+
+\[
+Y^*Y=C^*C-X^*X=C^*C+M-I.
+\]
+
+Cyclicity then gives
+
+\[
+\begin{aligned}
+\operatorname {tr}\mathfrak D
+&=p-\operatorname {tr}(M^{-1}Y^*Y)\\
+&=p-\dim\mathcal H
+  +\operatorname {tr}\{M^{-1}(I-C^*C)\}\\
+&=-m+\operatorname {tr}(M^{-1}H_R),
+\end{aligned}
+\]
+
+which proves all of (6).
+
 For an analytic metric \(R=I+O(\varepsilon)\), set
 \(\widetilde A=R^{1/2}AR^{-1/2}\).  L246's quotient-congruence
 argument says that the first fixed-frame defect face is unchanged by
-this analytic coordinate change.  Therefore (3)--(5) may be applied
+this analytic coordinate change.  Therefore (3)--(6) may be applied
 to \(\widetilde A\) when evaluating the first face of
 \(R^{-1}-AR^{-1}A^*\).
 
@@ -201,15 +252,16 @@ k&1&2&3&4&5&6\\ \hline
 \]
 
 while their difference was \(4\) in every case.  These values are
-diagnostic only.  Equations (2) and (5) explain exactly why trying to
+diagnostic only.  Equations (2) and (5)--(6) explain exactly why trying to
 bound either large term separately is the wrong proof architecture:
 the invariant quantity is the whitened volume.
 
 The next calculation should insert L243--L245's zero/one reflection
 sectors directly into \(X=F\widetilde A\) and \(Y=P\widetilde A\),
 not into the raw dual corner and Schur square separately.  The target
-is to show that the first variation of (5) is the squared doubled
-remote channel \(2B_k\); its trace would then be (6).
+is to show that the first variation of the whitened initial-defect
+mass in (6) is the squared doubled remote channel \(2B_k\); its trace
+would then be (7).
 
 ## 5. Independent regeneration
 
@@ -229,9 +281,10 @@ coefficient in degrees one through six.  It independently compares:
 
 1. the first Schur trace with (2);
 2. the defect determinant ratio (4); and
-3. the final-row-whitened determinant (5).
+3. the final-row-whitened determinant (5); and
+4. the initial-defect mass identity (6).
 
 The algebra above proves the identities; the floating audit checks
 orientations, normalizations, and formal-series implementation.
 The tracked dataset SHA-256 is
-`c210d45f36da9d63b07294d5873ffe2510a2045d4cca94303806722dfc3d769e`.
+`cf49efe0025b9336a84068e3c92802b5ec23a6bb40d34d4d15028771c7b5ecaa`.

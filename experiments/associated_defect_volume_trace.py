@@ -43,6 +43,7 @@ class DefectVolumeTraceRecord:
     schur_log_volume_error: str
     defect_determinant_ratio_error: str
     whitened_channel_ratio_error: str
+    initial_defect_mass_error: str
     all_checks_passed: bool
 
 
@@ -351,6 +352,43 @@ def audit_degree(
     whitened_ratio = trace_log_coefficients(
         whitened_denominator
     )
+    effective_defect = [
+        identity - gram
+        for identity, gram in zip(
+            identity_series(
+                dimension - multiplicity,
+                first_active_degree,
+            ),
+            whitened_gram,
+            strict=True,
+        )
+    ]
+    effective_defect_trace = [
+        np.trace(coefficient)
+        for coefficient in effective_defect
+    ]
+    initial_product = series_multiply(
+        adjoint_series(operator),
+        operator,
+        first_active_degree,
+    )
+    initial_defect = [
+        identity - product
+        for identity, product in zip(
+            identity_series(dimension, first_active_degree),
+            initial_product,
+            strict=True,
+        )
+    ]
+    defect_mass = series_multiply(
+        inverse_series(row_denominator),
+        initial_defect,
+        first_active_degree,
+    )
+    defect_mass_trace = [
+        np.trace(coefficient)
+        for coefficient in defect_mass
+    ]
 
     active_trace = np.trace(residual[first_active_degree])
     schur_error = abs(
@@ -372,6 +410,14 @@ def audit_degree(
             strict=True,
         )
     )
+    mass_error = max(
+        abs(left - right)
+        for left, right in zip(
+            effective_defect_trace[1:],
+            defect_mass_trace[1:],
+            strict=True,
+        )
+    )
     earlier = max(
         (
             float(np.linalg.norm(coefficient))
@@ -386,6 +432,7 @@ def audit_degree(
         schur_error,
         determinant_error,
         whitened_error,
+        mass_error,
     ) < tolerance
     if not verified:
         raise RuntimeError(
@@ -394,7 +441,8 @@ def audit_degree(
             f"earlier={earlier:.3e}, "
             f"schur={schur_error:.3e}, "
             f"determinant={determinant_error:.3e}, "
-            f"whitened={whitened_error:.3e}"
+            f"whitened={whitened_error:.3e}, "
+            f"mass={mass_error:.3e}"
         )
     return DefectVolumeTraceRecord(
         first_active_degree=first_active_degree,
@@ -408,6 +456,7 @@ def audit_degree(
         whitened_channel_ratio_error=format_float(
             float(whitened_error)
         ),
+        initial_defect_mass_error=format_float(float(mass_error)),
         all_checks_passed=verified,
     )
 
