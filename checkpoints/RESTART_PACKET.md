@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-25): after L252 / A198
+## Current general Crabb frontier (2026-07-25): after L253 / A199
 
 The accidental two-agent interval has been reconciled.  Commits
 `87c5107`, `4c7a152`, `2f82d15`, and `dcab861` form one linear history
@@ -9,8 +9,9 @@ with no overwritten content or unresolved merge.  L248 was regenerated
 byte-identically, and the incoming L249 artifacts were cleaned and
 independently recomputed before banking.  Resume as one agent from the
 A194 gate below through A196's balanced output form, A197's paired
-analytic ports, and A198's cyclic radial quotient; A195 is a negative
-guardrail, not a second frontier.
+analytic ports, A198's cyclic radial quotient, and A199's finite
+Hardy-window energy; A195 is a negative guardrail, not a second
+frontier.
 
 L230--L234 close the canonical repaired endpoint through the third
 transfer flag.  Universal bounded polynomial columns cancel the cubic
@@ -158,6 +159,12 @@ through grade four, but the arbitrary-grade congruence remains open.
 Resume by proving that L251's paired cycles reduce to this radial form
 modulo the lower-delay trace ideal, using L244 for the word-free
 sector.  Do not treat the finite pattern as an induction.
+L253 identifies the same radial quantity intrinsically as
+`||P_kT_BP_k||_HS²`, or
+`(k+1)m−tr(P_kP_(K_B)P_k)`.  Under complete delay this finite causal
+Toeplitz window has exactly one nonzero block, `B_k`.  The live task
+is therefore to prove that L251's paired physical trace, after L244's
+background cancellation, equals four times this window leakage.
 
 **Current live gate (A194):** prove that whitened volume coefficient
 at the physical multiplier `lambda=1`, without assuming A192's
@@ -248,6 +255,10 @@ balance.
   all-grade radial trace telescope and the precise three-term cyclic
   target; the congruence is exact through grade four but open in
   arbitrary grade.
+- `proof/repeated_crabb_toeplitz_window_energy.md` (L253) and
+  `experiments/repeated_crabb_toeplitz_window_energy.py`: exact
+  Toeplitz/model-space form of the target scalar energy; identifying
+  the physical paired trace with this leakage remains open.
 - `proof/repeated_crabb_exact_metric_chart.md` (L194): analytic
   metric chart in which any all-series column construction must
   converge.

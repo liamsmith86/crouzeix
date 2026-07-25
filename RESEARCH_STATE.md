@@ -20,12 +20,30 @@
   `114ba20c89b0d3e1e69db45ed510836a6306caca0cf1b02f0d89aa8f911ec642`.
 - There is now one live mathematical frontier: A194 at the complete
   physical terminal balance, now in A196/L250's balanced output
-  coordinates, A197/L251's paired analytic ports, and A198/L252's
-  cyclic radial quotient.
+  coordinates, A197/L251's paired analytic ports, A198/L252's cyclic
+  radial quotient, and A199/L253's Hardy-window energy target.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
 
-## NEWEST (2026-07-25): L252 reduces the target to three radial traces
+## NEWEST (2026-07-25): L253 identifies the target as Toeplitz leakage
+- If `T_B` is the causal Toeplitz multiplier of the matrix-inner
+  transfer and `P_k` selects Hardy rows `0,...,k`, then L252's radial
+  trace is exactly
+  `||P_kT_BP_k||_HS²=sum_(h=1)^k(k+1−h)||B_h||²`.
+  Since `T_BT_B*=I−P_(K_B)`, it is also
+  `(k+1)m−tr(P_kP_(K_B)P_k)`.
+- Under complete delay, the finite Toeplitz window has only one
+  nonzero block, `B_k` in its bottom-left corner.  Thus the live
+  target is intrinsically `4||P_kT_BP_k||_HS²=4||B_k||²`, on the
+  same Hardy/model space used by L221, L236, and L244.
+- What remains open is the physical identification, not the scalar
+  target: move L251's closed paired channels into the Hardy frames,
+  cancel the full-space coisometric background with L244, and prove
+  that the residual trace is four times this finite-window leakage.
+  `proof/repeated_crabb_toeplitz_window_energy.md`;
+  `experiments/repeated_crabb_toeplitz_window_energy.py`.
+
+## PREVIOUS (2026-07-25): L252 reduces the target to three radial traces
 - For `Q_j=(S*)^jS^j`, two elementary defect telescopes prove
   `tr Q_j=n−jm+sum_(h=1)^(j−2)(j−h−1)||B_h||²` in every grade.
   Under a complete grade-`k` delay this makes
@@ -4306,18 +4324,19 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-25)
-1. **A194/A198: prove the cyclic radial congruence, hence `+4`.**
+1. **A194/A198/A199: identify the paired trace with Toeplitz leakage.**
    Keep the terminal multiplier at its physical value `lambda=1`.
    Use L250's output determinant with `Z=AR^−1A*`, insert
    L243--L245's exact delayed resolvent/Green lift into `Z`, use L251
    to keep every opposite port pair inside its common `Q`-channel,
    and apply L244's coisometry **before** extracting coefficients.
-   Prove in the cyclic quotient modulo `B_1,...,B_(k−1)` that the
-   active mass is
-   `4tr(Q_(k+2)−(k+2)Q_1+(k+1)I)`.  L252 then turns it exactly into
+   Move the closed channels into L236's Hardy frames and prove that
+   the active mass is `4||P_kT_BP_k||_HS²`.  By L252--L253 this is
+   the same cyclic congruence
+   `4tr(Q_(k+2)−(k+2)Q_1+(k+1)I)` and, under complete delay, exactly
    `4||B_k||_F²`.  Use matrix-inner autocorrelation only inside this
-   closed trace reduction, not as a weight assigned to an isolated
-   `B#(x)` row.
+   closed trace/window reduction, not as a weight assigned to an
+   isolated `B#(x)` row.
    Do not estimate the individually huge dual corner and Schur square,
    detach the doubled port (A195/L249), or assume A192's unproved
    symmetric endpoint valuation.  The face is indefinite, so do not
