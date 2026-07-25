@@ -501,7 +501,11 @@ def deterministic_unitary(
     )
     unitary, triangular = np.linalg.qr(matrix)
     diagonal = np.diag(triangular)
-    phases = diagonal / np.abs(diagonal)
+    phases = np.where(
+        np.abs(diagonal) > 0,
+        diagonal / np.abs(diagonal),
+        1,
+    )
     return unitary @ np.diag(np.conjugate(phases))
 
 
