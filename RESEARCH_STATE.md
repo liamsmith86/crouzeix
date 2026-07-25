@@ -32,7 +32,10 @@
   A205/L259 identifies every apparently premature future transfer
   coefficient as an off-diagonal block of the first active causal
   Toeplitz-leakage row; the remaining question is whether the physical
-  return takes only that row's diagonal at the active face.
+  return closes that complete row in the ordinary Hardy metric at the
+  active face.  A206/L260 blocks a false orientation-by-orientation
+  proof, while A207/L261 proves that the full row norm then collapses
+  to its diagonal energy by matrix-inner Parseval.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
 
@@ -118,6 +121,27 @@
   rule out the stronger operator covariance, so the target is
   genuinely trace-only.
   `proof/repeated_crabb_future_leakage_row.md`.
+
+## NEWEST (2026-07-25): L260--L261 fix the allowed future-row closure
+- A natural two-orientation lift of the ellipse series was tested in
+  the exact grade-one cyclic algebra.  It fails as a proof device:
+  both degree-one orientation sectors and all three degree-two
+  sectors are individually nonzero; only their physical sums cancel.
+  Theta/direct-map orientations therefore cannot be separated before
+  the coisometric/Schur operation.
+- The correct grouping is the whole L259 leakage row.  Since
+  `L_B=T_BT_B*` is a projection, complete delay gives the exact
+  Parseval closure
+  `tr(P_kL_B²P_k)=tr(P_kL_BP_k)=||B_k||_F²`, or
+  `sum_(j>=k)B_kB_j*B_jB_k*=B_kB_k*`.
+- The live metric theorem is now sharper: show that L258's first
+  physical entry/return pair supplies the ordinary Hardy adjoint row,
+  with no theta/metric weight between it and L259's leakage row.
+  Then L261 closes all future coefficients at once and the doubled
+  remote amplitude supplies four.  Lower vanishings remain part of
+  the same proof.
+  `proof/repeated_crabb_orientation_split_obstruction.md`;
+  `proof/repeated_crabb_leakage_row_parseval.md`.
 
 ## NEWEST (2026-07-25): L253 identifies the target as Toeplitz leakage
 - If `T_B` is the causal Toeplitz multiplier of the matrix-inner
@@ -4466,7 +4490,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-25)
-1. **A194/A198--A205: prove diagonal preservation in L258's closed returns.**
+1. **A194/A198--A207: identify L258's first return with the ordinary Hardy row norm.**
    L256 now proves the universal relative response
    `[c²]mu°=4||B_1||_F²` for every matrix channel.  Prove that removing
    one clean Hardy layer obeys
@@ -4480,10 +4504,14 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    matrix-inner autocorrelation to remove future coefficients.  L259
    identifies those terms exactly: after complete delay they are the
    off-diagonal blocks `B_kB_j*`, `j>k`, of the same leakage row whose
-   diagonal is `B_kB_k*`.  Prove that the active physical return takes
-   four times this diagonal and cannot shift a later column back into
-   the scalar trace.  This must be a trace identity—direct audits
-   disprove the stronger operator covariance.  Do not
+   diagonal is `B_kB_k*`.  L261 shows that if the active physical
+   return supplies the ordinary Hardy adjoint row, all future blocks
+   close by Parseval as
+   `sum B_kB_j*B_jB_k*=B_kB_k*`.  Prove precisely that unweighted
+   return-metric statement from L243--L245 and L244, with the doubled
+   remote amplitude on both sides.  This must be a trace identity—
+   direct audits disprove the stronger operator covariance.  L260
+   also rules out separating the two ellipse orientations.  Do not
    claim equality of the full shifted series, which L235 disproves.
    Use L255's doubled-Hardy block pencil behind that renewal.  Its
    `Xi_inf direct-sum Xi_inf*` diagonal is the L244 background.  Keep
@@ -4536,7 +4564,8 @@ representatives (A179); do not retry scalar shifts or positive-state
 scalarizations; do not put a discontinuous pseudoinverse into the
 metric; do not assume definite parity; and do not vary L245's doubled
 terminal edge independently of the physical theta/metric balance
-(A195).
+(A195).  Do not split the two formal ellipse orientations before the
+theta/coisometric cancellation (A206).
 Keep committing+pushing after each task (user instruction).
 
 ## Files map (handoff-ready, refreshed 2026-07-25)

@@ -84,6 +84,14 @@ autocorrelation calculation must show that L243--L245 and L258's
 physical return kernel take the diagonal of (3), rather than an
 uncontrolled shifted sum of its future columns.
 
+L261 gives the more natural equivalent endpoint for that
+calculation.  Since \({\cal T}_B{\cal T}_B^*\) is a projection, the
+ordinary Hardy norm of the **whole** row in (3) equals its diagonal
+in (4).  Thus the physical return may retain all future columns,
+provided it pairs them with the unweighted adjoint row; matrix-inner
+Parseval then produces (5).  L260 shows that this pairing cannot be
+checked separately in the two formal ellipse orientations.
+
 ## 2. Kernel proof
 
 Since \(B(0)=0\),

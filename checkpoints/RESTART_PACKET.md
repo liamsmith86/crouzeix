@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-25): after L259 / A205
+## Current general Crabb frontier (2026-07-25): after L261 / A207
 
 The accidental two-agent interval has been reconciled.  Commits
 `87c5107`, `4c7a152`, `2f82d15`, and `dcab861` form one linear history
@@ -17,8 +17,11 @@ relative grade-one response, and A203/L257 turns its transport into
   the final output row exactly and resums every visit to it as a closed
   return.  A205/L259 identifies the previously unweighted future
   transfer series as the off-diagonal part of the first active
-  Toeplitz-leakage row.  A195 is a negative guardrail, not a second
-  frontier.
+  Toeplitz-leakage row.  L260/A206 blocks a false separation of the
+  two ellipse orientations; L261/A207 proves that the complete
+  leakage row closes to its diagonal energy if the physical return
+  supplies the ordinary Hardy metric.  A195 is a negative guardrail,
+  not a second frontier.
 
 L230--L234 close the canonical repaired endpoint through the third
 transfer flag.  Universal bounded polynomial columns cancel the cubic
@@ -226,17 +229,20 @@ L259 identifies those future coefficients exactly.  For an inner
 transfer, `[rho]K_B(rho,x)=xI−B_1B#(x)`, hence `B_1B_j*` is the
 `(1,j)` block of `T_BT_B*`.  Under complete delay the first nonzero
 row is `(k,j)=B_kB_j*`, with diagonal trace `||B_k||_F²`.
-The remaining physical theorem is therefore diagonal preservation:
-the active trace of `D_ret` must take four times the diagonal block
-and not shift an off-diagonal future block back into the trace.
-Lower vanishings remain part of that theorem.  Direct finite audits
-show that this covariance is trace-only, not an operator equality.
+L260 rules out proving the remaining theorem by separating the two
+formal ellipse orientations: they cancel only after their physical
+sum.  L261 gives the correct closure.  Since `L_B=T_BT_B*` is a
+projection, the ordinary Hardy norm of L259's complete future row is
+`tr(P_kL_B²P_k)=||B_k||²`.  It remains to prove that L258's first
+physical return really supplies that unweighted adjoint row; the
+factor four then comes from L245's doubled remote amplitude.  Lower
+vanishings remain part of that theorem.  Direct finite audits show
+that this covariance is trace-only, not an operator equality.
 
-**Current live gate (A194/A205):** evaluate L258's closed-return
-trace using L259's leakage row, prove L257's associated one-delay
-coefficient recursion, and
-iterate to L256's universal
-grade-one response, at the physical `lambda=1`, without assuming
+**Current live gate (A194/A207):** evaluate L258's closed-return
+trace using L259--L261's complete leakage-row norm, prove L257's
+associated one-delay coefficient recursion, and iterate to L256's
+universal grade-one response, at the physical `lambda=1`, without assuming
 A192's unproved endpoint valuation or estimating the large corner
 and Schur terms separately.  A177 was already closed by L234;
 resuming its sextic computation would be a rollback, not a
@@ -247,7 +253,8 @@ the L212 representatives; scalar shifts and positive-state
 scalarizations have failed; a rank-dependent pseudoinverse cannot be
 inserted into the analytic metric; definite parity is false; and A195
 forbids detaching L245's doubled terminal edge from its physical
-balance.
+balance.  A206 forbids splitting the two formal ellipse orientations
+before their theta/coisometric cancellation.
 
 ## Current frontier files map
 - `proof/repeated_crabb_canonical_cubic_preimage.md` (L230),
@@ -356,6 +363,14 @@ balance.
   portion of the first active causal Toeplitz-leakage row.  Proving
   that L258's active return takes only four times its diagonal, along
   with the lower vanishings, remains open.
+- `proof/repeated_crabb_orientation_split_obstruction.md` (L260) and
+  `experiments/repeated_crabb_orientation_split_obstruction.py`:
+  exact grade-one obstruction to cancelling the two formal ellipse
+  orientations independently.
+- `proof/repeated_crabb_leakage_row_parseval.md` (L261): exact
+  projection/Parseval closure of L259's complete future row.  The
+  open step is to identify L258's physical return metric with this
+  ordinary Hardy row norm.
 - `proof/repeated_crabb_exact_metric_chart.md` (L194): analytic
   metric chart in which any all-series column construction must
   converge.

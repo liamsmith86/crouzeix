@@ -169,16 +169,31 @@ updated coisometric defect Gram and are removed by the Schur square,
 and every finite audit shows that cancellation, but the state-lifted
 Gram identity has not yet been written down.
 
+L258--L259 subsequently identify the algebraic shape of this gap:
+the final output row is first resummed into a closed return, and the
+unweighted future series is exactly one row of
+\({\cal L}_B={\cal T}_B{\cal T}_B^*\).  L261 proves that the
+ordinary Hardy norm of that **entire** row is already its diagonal
+energy:
+
+\[
+\operatorname {tr}(P_k{\cal L}_B^2P_k)
+=\operatorname {tr}(P_k{\cal L}_BP_k)
+=\|B_k\|_F^2.
+\]
+
 The remaining proof obligation is therefore
 
 \[
-\boxed{\text{prove explicitly that quotienting L243--L245's
-zero/one sectors restores endpoint valuation }i+j.}               \tag{7a}
+\boxed{\text{prove explicitly that L258's first physical return
+uses the ordinary Hardy row norm in L261.}}                         \tag{7a}
 \]
 
 Without (7a), calling the endpoint-word statement proved would be
-circular: it already contains the all-delay cancellation that L228
-was meant to establish.
+circular: L251 pairs the ports but does not prove that their
+intervening theta/metric return is the unweighted Hardy inner
+product.  L260 also disproves the shortcut of checking the two
+formal ellipse orientations separately.
 
 ## 3. Classification of the first trace face
 
