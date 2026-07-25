@@ -2,6 +2,23 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — repeated circular/elliptic merger)
 
+## NEWEST (2026-07-24): L217 rules out the naïve delayed-frame induction
+- The exact repeated length-five elliptic-axis defect frame differs
+  from the universal zero-reflection frame already at order four:
+  `−2c^4 S W B_5+2c^5 S^3 W B_5+O(c^6)`.
+- Thus a future terminal coefficient can change the lower-tight gauge
+  before its own transfer grade.  “Keep the zero-reflection frame
+  through order `k−1`, then add a `B_k` term” is false.
+- The result is exact: the periodized-sech metric, theta/ODE Riemann
+  pullback, and rank-one Stein factor are regenerated symbolically
+  through degree ten.
+- This explains why a blind grade-four continuation was unstable.
+  The next induction must group the complete exact-axis
+  normalization before applying L216, or construct its matrix
+  Schur/Levinson generating recursion.
+  `proof/repeated_crabb_axis_gauge_obstruction.md`;
+  `experiments/repeated_crabb_axis_gauge_obstruction.py`.
+
 ## NEWEST (2026-07-24): L216 proves all-delay endpoint-response covariance
 - If `B_1=...=B_r=0`, remove the wandering states
   `W,SW,...,S^(r−1)W`; the retained partial isometry has left defect

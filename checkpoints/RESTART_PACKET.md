@@ -409,6 +409,20 @@ induction statement is now covariance of the **fixed nonlinear
 forcing** assembled from the Riemann jets, lower-tight frame
 normalization, and both endpoint Schur squares.
 
+L217 prevents a wrong implementation of that last step.  On the
+exact repeated length-five axis,
+
+```
+d_axis-d_zero-reflection
+  = -2c^4 S W B_5 + 2c^5 S^3 W B_5 + O(c^6).
+```
+
+Thus the future coefficient `B_5` changes the frame already at order
+four.  Do not keep the zero-reflection frame unchanged until the first
+active grade, and do not select each endpoint-null coefficient by a
+minimum-norm solve.  Transport the grouped exact-axis normalization,
+or derive the matrix Schur/Levinson generator that produces it.
+
 L205 supplies a scalar-only alternative to that stronger complete
 gate.  The condition-two chain is sharp for a scalar Schur function
 exactly when L201's transfer has a constant one-dimensional inner
@@ -1096,12 +1110,12 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
 ## Next five concrete actions (refreshed 2026-07-24, Epoch 6)
-1. **Finish the nonlinear half of delay covariance.** L216 already
-   transports every retained Stein response and the complete L212
-   correction.  Group the remaining order-`2k` Riemann, lower-tight
-   frame, and Schur-square forcing before deflation and prove that its
-   upper endpoint is the shifted grade-two prepared base.  Do not
-   compare raw frame coefficients term by term.
+1. **Generate the grouped nonlinear delay gauge.** L216 transports
+   every retained response, while L217 disproves a grade-local frame
+   recursion.  Derive the full exact-axis normalization from the
+   matrix Schur/Levinson or model-space equations, then show its
+   grouped order-`2k` forcing deflates to the grade-two prepared base.
+   Do not compare or minimize raw frame coefficients term by term.
 2. **Merge later circular normals.** L199 covers the first raw face
    only.  Identify the response after L197's later least-squares Schur
    quotients and combine it with the elliptic flag.
@@ -1119,7 +1133,7 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
 ## Paste-ready continuation instruction
 "Continue the Crouzeix campaign in /home/liam/Downloads/crouzeix
 (git repo; commit and push each proved milestone).  Read the newest
-RESEARCH_STATE section and L201--L216/A144--A159.  L207 gives the
+RESEARCH_STATE section and L201--L217/A144--A160.  L207 gives the
 explicit analytic grade-one correction; L208 gives the conditional
 higher flagged preimage; L209 promotes a surviving grade to a
 grade-one smaller colligation; L210 proves the exact transfer/Gram
@@ -1128,7 +1142,9 @@ the universal all-grade polynomial preimage without flags; L213 fixes
 the lower-order delayed axis gauge; L214 proves the complete prepared
 `B_2` fourth face; L215 proves the analogous complete `B_3` sixth
 face; L216 proves exact all-delay covariance of every retained linear
-endpoint response and identifies L212 as deflated L207.  Both known
+endpoint response and identifies L212 as deflated L207; L217 proves
+that the exact length-five gauge already has a `B_5` term at frame
+order four, so a grade-local frame recursion is false.  Both known
 faces end at `−16B_kB_k*`.  Prove covariance of the remaining grouped
 nonlinear Riemann/metric/Schur forcing and thereby the all-grade base
 `12L_c−28C(R_c)` (or a one-sided smaller endpoint), and
