@@ -2,6 +2,25 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — repeated circular/elliptic merger)
 
+## NEWEST (2026-07-24): L239 makes the delay weight exact on the contour
+- In L238's Joukowski coordinate `t=c/zeta²`, the terminal
+  continuants collapse to `Delta_j=zeta^j(1+t^j)`.  Hence the
+  normalized reflection is exactly
+  `lambda_r=(gamma_r−c/zeta)/(zeta(1−t))=t^r/(1+t^r)`, not merely
+  `t^r+...`.  This is the same rational weight family that occurs in
+  L219's boundary metric.
+- The formerly unsimplified lower-right bulk compression is the
+  characteristic kernel
+  `x(1−t)^−1(I−t B(rho)B#(x))`.  Schur-eliminating the right endpoint
+  from L238's `2m` scattering matrix therefore leaves exactly
+  `I−lambda_r(I+B(rho)B#(x))`, with multiplication order preserved.
+- This removes all higher delay corrections from the live gate.  It
+  does not yet prove L228: the remaining calculation must lift the
+  contour resolvent back to the state space, combine it with L236's
+  Hardy-frame metric, and include the Stein right-defect Schur square.
+  `proof/repeated_crabb_scattering_schur_collapse.md`;
+  `experiments/repeated_crabb_scattering_schur_collapse.py`.
+
 ## NEWEST (2026-07-24): L238 compresses the two endpoints before expansion
 - On the Joukowski contour `z=zeta+c/zeta`, put `rho=c/zeta` and
   `delta_r=gamma_r−rho`.  After L237's complete-delay elimination, the

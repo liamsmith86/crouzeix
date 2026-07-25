@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-24): after L238 / A183
+## Current general Crabb frontier (2026-07-24): after L239 / A184
 
 L230--L234 close the canonical repaired endpoint through the third
 transfer flag.  Universal bounded polynomial columns cancel the cubic
@@ -41,9 +41,15 @@ grade.  L238 factors the remaining bulk on the Joukowski contour and
 compresses both endpoint corrections to a `2m x 2m` Woodbury
 scattering matrix.  Its off-diagonal blocks are the two orientations
 of the tail transfer, with all delay dependence in one scalar
-`delta_r`.  The live gate is to apply the full theta/ODE contour map,
-boundary metric, and right-defect Schur square to that bounded matrix
-and prove the multiplier giving L228's anticommutator.
+`delta_r`.  L239 sharpens this on the Joukowski contour:
+`Delta_j=zeta^j(1+t^j)` and the normalized terminal reflection is
+exactly `lambda_r=t^r/(1+t^r)`, the same rational weight family as
+L219's metric.  The remaining bulk block is the tail characteristic
+kernel, and right-endpoint scattering Schur elimination leaves
+`I−lambda_r(I+B(rho)B#(x))`.  The live gate is to retain L238's
+state-lift columns while applying the full theta/ODE contour map,
+boundary metric, and Stein right-defect Schur square, and prove the
+multiplier giving L228's anticommutator.
 
 Standing constraints: A179 disproves raw simultaneous superposition of
 the L212 representatives; scalar shifts and positive-state
@@ -74,6 +80,9 @@ inserted into the analytic metric; and definite parity is false.
 - `proof/repeated_crabb_two_defect_scattering.md` (L238) and
   `experiments/repeated_crabb_two_defect_scattering.py`: exact
   Joukowski bulk factorization and `2m` endpoint Woodbury matrix.
+- `proof/repeated_crabb_scattering_schur_collapse.md` (L239) and
+  `experiments/repeated_crabb_scattering_schur_collapse.py`: exact
+  rational delay weight and ordered transfer-kernel Schur collapse.
 - `proof/repeated_crabb_exact_metric_chart.md` (L194): analytic
   metric chart in which any all-series column construction must
   converge.
