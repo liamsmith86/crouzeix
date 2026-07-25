@@ -2,6 +2,23 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — repeated circular/elliptic merger)
 
+## NEWEST (2026-07-24): L245 closes every exiting-chain Green column
+- For a clean delay `r`, both exterior chain factors in the full block
+  inverse have exact continuant entries:
+  the last row is `Delta_j/Delta_r`, while the incoming column is
+  `2c^r/Delta_r` at level zero and
+  `c^(r−j)Delta_j/Delta_r` thereafter.
+- On the Joukowski contour these become explicit powers of `x` or
+  `rho` times `(1+t^j)/(1+t^r)`.  Their pairing is exactly `gamma_r`.
+  Hence the “exiting-chain columns” left open by L242 are no longer
+  unknown state quantities; together with L243 they give the entire
+  full resolvent at every delay.
+- L228 is now a finite Laurent-residue/metric/Stein calculation with
+  explicit scalar chain features, the two inverse-kernel sectors from
+  L243, and L244's coisometric Gram quotient.
+  `proof/repeated_crabb_chain_green_columns.md`;
+  `experiments/repeated_crabb_chain_green_columns.py`.
+
 ## NEWEST (2026-07-24): L244 upgrades the half-line baseline to a coisometry
 - L240's defect column is exactly normalized in the inverse metric:
   `d_inf* D_R^−1 d_inf=I`.  This is Jacobi's Lambert-series identity
