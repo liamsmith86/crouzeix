@@ -2,6 +2,25 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — repeated circular/elliptic merger)
 
+## NEWEST (2026-07-24): L248 turns the open flux into one volume coefficient
+- For any first active final-defect Schur face, its trace is the
+  corresponding coefficient of
+  `log det(H+I−F)−log det(FHF)`.  This identity is exact before
+  coefficient extraction and absorbs the large corner/Schur-square
+  cancellation into one scalar determinant.
+- After metric normalization, with `H=I−CC*`, the determinant is
+  `2^p det(I−C*(F+(I−F)/2)C)/det(I−C*FC)`.  Equivalently it is the
+  determinant of the main output row after whitening the final row by
+  `(I−C*FC)^−1`.
+- Thus L247's open operator flux is now the scalar target
+  `[c^(2k)] log V=4||B_k||_F²`.  In generic delays 1--6 the separate
+  corner and Schur-square traces grow to thousands of times
+  `||B_k||²` while the whitened difference remains exactly four, so
+  those terms must not be estimated separately.  The value four is
+  still open; insert L243--L245 directly into the whitened channel.
+  `proof/associated_defect_volume_trace.md`;
+  `experiments/associated_defect_volume_trace.py`.
+
 ## NEWEST (2026-07-24): L247 isolates the only open delayed trace flux
 - In the left-dual formulation from L246, deleting only the active
   boundary-metric coefficient changes the grade-`k` Schur face by
