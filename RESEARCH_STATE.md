@@ -20,11 +20,30 @@
   `114ba20c89b0d3e1e69db45ed510836a6306caca0cf1b02f0d89aa8f911ec642`.
 - There is now one live mathematical frontier: A194 at the complete
   physical terminal balance, now in A196/L250's balanced output
-  coordinates and A197/L251's paired analytic port coordinates.
+  coordinates, A197/L251's paired analytic ports, and A198/L252's
+  cyclic radial quotient.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
 
-## NEWEST (2026-07-25): L251 pairs every analytic chain port
+## NEWEST (2026-07-25): L252 reduces the target to three radial traces
+- For `Q_j=(S*)^jS^j`, two elementary defect telescopes prove
+  `tr Q_j=n−jm+sum_(h=1)^(j−2)(j−h−1)||B_h||²` in every grade.
+  Under a complete grade-`k` delay this makes
+  `4tr(Q_(k+2)−(k+2)Q_1+(k+1)I)=4||B_k||²` exactly.
+- Exact cyclic word reduction of L250's edge-deleted normalized mass
+  gives precisely that three-term expression through grades one to
+  four: the raw active faces of sizes `12,80,424,2247` words reduce
+  to three trace classes.  This is finite exact evidence, not an
+  arbitrary-grade proof.
+- The live A194 obligation is now the explicit cyclic congruence:
+  reduce L251's closed paired channels, modulo the lower-delay trace
+  ideal, to `4(Q_(k+2)−(k+2)Q_1+(k+1)I)`.  L244 supplies the
+  word-free cancellation.  No symmetric one-sided endpoint valuation
+  or positive leakage factor is being assumed.
+  `proof/repeated_crabb_cyclic_radial_volume.md`;
+  `experiments/repeated_crabb_cyclic_radial_volume.py`.
+
+## PREVIOUS (2026-07-25): L251 pairs every analytic chain port
 - Integrating L245's two exact Green columns before coefficient
   extraction gives a common retained operator `Q_(r,j)^f` for the two
   opposite blocks of every analytic functional calculus:
@@ -4287,15 +4306,18 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-25)
-1. **A194: prove the physical whitened volume coefficient `+4`.**
+1. **A194/A198: prove the cyclic radial congruence, hence `+4`.**
    Keep the terminal multiplier at its physical value `lambda=1`.
    Use L250's output determinant with `Z=AR^−1A*`, insert
    L243--L245's exact delayed resolvent/Green lift into `Z`, use L251
    to keep every opposite port pair inside its common `Q`-channel,
    and apply L244's coisometry **before** extracting coefficients.
-   Reduce the remaining closed cycles by matrix-inner autocorrelation
-   so the later `B#(x)` rows cancel and only the doubled remote cell
-   yields `4||B_k||_F²`, with all earlier coefficients zero.
+   Prove in the cyclic quotient modulo `B_1,...,B_(k−1)` that the
+   active mass is
+   `4tr(Q_(k+2)−(k+2)Q_1+(k+1)I)`.  L252 then turns it exactly into
+   `4||B_k||_F²`.  Use matrix-inner autocorrelation only inside this
+   closed trace reduction, not as a weight assigned to an isolated
+   `B#(x)` row.
    Do not estimate the individually huge dual corner and Schur square,
    detach the doubled port (A195/L249), or assume A192's unproved
    symmetric endpoint valuation.  The face is indefinite, so do not

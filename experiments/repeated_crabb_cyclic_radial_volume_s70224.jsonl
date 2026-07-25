@@ -1,0 +1,4 @@
+{"all_checks_passed": true, "cyclic_face_word_count": 3, "face_degree": 2, "grade": 1, "radial_difference_word_count": 0, "raw_face_word_count": 12, "transfer_difference_word_count": 0}
+{"all_checks_passed": true, "cyclic_face_word_count": 3, "face_degree": 4, "grade": 2, "radial_difference_word_count": 0, "raw_face_word_count": 80, "transfer_difference_word_count": 0}
+{"all_checks_passed": true, "cyclic_face_word_count": 3, "face_degree": 6, "grade": 3, "radial_difference_word_count": 0, "raw_face_word_count": 424, "transfer_difference_word_count": 0}
+{"all_checks_passed": true, "cyclic_face_word_count": 3, "face_degree": 8, "grade": 4, "radial_difference_word_count": 0, "raw_face_word_count": 2247, "transfer_difference_word_count": 0}

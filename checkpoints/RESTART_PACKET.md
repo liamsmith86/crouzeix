@@ -1,15 +1,16 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-25): after L251 / A197
+## Current general Crabb frontier (2026-07-25): after L252 / A198
 
 The accidental two-agent interval has been reconciled.  Commits
 `87c5107`, `4c7a152`, `2f82d15`, and `dcab861` form one linear history
 with no overwritten content or unresolved merge.  L248 was regenerated
 byte-identically, and the incoming L249 artifacts were cleaned and
 independently recomputed before banking.  Resume as one agent from the
-A194 gate below through A196's balanced output form and A197's paired
-analytic ports; A195 is a negative guardrail, not a second frontier.
+A194 gate below through A196's balanced output form, A197's paired
+analytic ports, and A198's cyclic radial quotient; A195 is a negative
+guardrail, not a second frontier.
 
 L230--L234 close the canonical repaired endpoint through the third
 transfer flag.  Universal bounded polynomial columns cancel the cubic
@@ -148,6 +149,15 @@ in L250's trace-log: block closure places them in a product of paired
 port crossings, possibly using different entrance and exit rows.  This
 is exact port organization, not A192's still-open symmetric valuation
 or the autocorrelation evaluation of those paired cycles.
+L252 now gives the exact scalar endpoint of that evaluation.  If
+`Q_j=(S*)^jS^j`, then
+`tr Q_j=n−jm+sum_(h<j−1)(j−h−1)||B_h||²`; hence complete delay turns
+`4tr(Q_(k+2)−(k+2)Q_1+(k+1)I)` into exactly `4||B_k||²`.
+Exact cyclic reduction of L250's mass produces this three-term form
+through grade four, but the arbitrary-grade congruence remains open.
+Resume by proving that L251's paired cycles reduce to this radial form
+modulo the lower-delay trace ideal, using L244 for the word-free
+sector.  Do not treat the finite pattern as an induction.
 
 **Current live gate (A194):** prove that whitened volume coefficient
 at the physical multiplier `lambda=1`, without assuming A192's
@@ -233,6 +243,11 @@ balance.
   `experiments/repeated_crabb_analytic_chain_port_balance.py`: exact
   common-channel factorization of every opposite analytic chain port;
   the paired closed-channel trace remains open.
+- `proof/repeated_crabb_cyclic_radial_volume.md` (L252) and
+  `experiments/repeated_crabb_cyclic_radial_volume.py`: exact
+  all-grade radial trace telescope and the precise three-term cyclic
+  target; the congruence is exact through grade four but open in
+  arbitrary grade.
 - `proof/repeated_crabb_exact_metric_chart.md` (L194): analytic
   metric chart in which any all-series column construction must
   converge.
