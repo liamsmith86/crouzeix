@@ -20,8 +20,31 @@
   `114ba20c89b0d3e1e69db45ed510836a6306caca0cf1b02f0d89aa8f911ec642`.
 - There is now one live mathematical frontier: A194 at the complete
   physical terminal balance, now in A196/L250's balanced output
-  coordinates.  A195/L249 is only a guardrail against detaching the
-  doubled terminal edge, not a competing approach.
+  coordinates and A197/L251's paired analytic port coordinates.
+  A195/L249 is only a guardrail against detaching the doubled terminal
+  edge, not a competing approach.
+
+## NEWEST (2026-07-25): L251 pairs every analytic chain port
+- Integrating L245's two exact Green columns before coefficient
+  extraction gives a common retained operator `Q_(r,j)^f` for the two
+  opposite blocks of every analytic functional calculus:
+  `e_j*f(Xi)J=mu_j c^(r−j)W*Q` and `J*f(Xi)e_j=QW`.
+- Every ordinary chain row has `mu_j=1`; the remote physical row alone
+  has `mu_0=2`.  Thus the doubled amplitude survives the complete
+  theta/Riemann map, not merely the resolvent, while remaining tied to
+  the same tail channel on both orientations.
+- In a scalar trace-log, block paths are closed.  The apparently
+  unweighted `B#(x)` row from L243 therefore cannot be costed alone:
+  it stays inside a closed product of `Q`-channels and intervening
+  chain blocks.  Entrance and exit rows may differ, so this rules out
+  detached one-sided bookkeeping but does not by itself close A192's
+  symmetric-valuation gap.
+- The paired cycle is not yet evaluated.  Insert L251 into L250, use
+  L244 on the common background, and then reduce the closed tail
+  cycles by matrix-inner autocorrelation.  The coefficient `+4`
+  remains open.
+  `proof/repeated_crabb_analytic_chain_port_balance.md`;
+  `experiments/repeated_crabb_analytic_chain_port_balance.py`.
 
 ## CHECKPOINT REVALIDATION (2026-07-24): prior audit complete; frontier advanced
 - The requested A164/next-actions/restart/recursion/structured-matrix/
@@ -4267,11 +4290,12 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
 1. **A194: prove the physical whitened volume coefficient `+4`.**
    Keep the terminal multiplier at its physical value `lambda=1`.
    Use L250's output determinant with `Z=AR^−1A*`, insert
-   L243--L245's exact delayed resolvent/Green lift into `Z`, and apply
-   L244's coisometry **before** extracting coefficients.  Reduce the
-   remaining trace by the matrix-inner autocorrelation sums so the
-   later `B#(x)` rows cancel and only the doubled remote cell yields
-   `4||B_k||_F²`, with all earlier coefficients zero.
+   L243--L245's exact delayed resolvent/Green lift into `Z`, use L251
+   to keep every opposite port pair inside its common `Q`-channel,
+   and apply L244's coisometry **before** extracting coefficients.
+   Reduce the remaining closed cycles by matrix-inner autocorrelation
+   so the later `B#(x)` rows cancel and only the doubled remote cell
+   yields `4||B_k||_F²`, with all earlier coefficients zero.
    Do not estimate the individually huge dual corner and Schur square,
    detach the doubled port (A195/L249), or assume A192's unproved
    symmetric endpoint valuation.  The face is indefinite, so do not

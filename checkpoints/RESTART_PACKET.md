@@ -1,15 +1,15 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-25): after L250 / A196
+## Current general Crabb frontier (2026-07-25): after L251 / A197
 
 The accidental two-agent interval has been reconciled.  Commits
 `87c5107`, `4c7a152`, `2f82d15`, and `dcab861` form one linear history
 with no overwritten content or unresolved merge.  L248 was regenerated
 byte-identically, and the incoming L249 artifacts were cleaned and
 independently recomputed before banking.  Resume as one agent from the
-A194 gate below through A196's balanced output form; A195 is a
-negative guardrail, not a second frontier.
+A194 gate below through A196's balanced output form and A197's paired
+analytic ports; A195 is a negative guardrail, not a second frontier.
 
 L230--L234 close the canonical repaired endpoint through the third
 transfer flag.  Universal bounded polynomial columns cancel the cubic
@@ -139,6 +139,15 @@ there, cancel the half-line sector before coefficient extraction, and
 use transfer-inner autocorrelation on the later `B#` rows.  Generic
 whitened faces are indefinite: the desired four is a net trace-energy
 identity, not a positive leakage Gram.
+L251 then integrates L245's opposite Green columns through an
+arbitrary analytic functional calculus.  Both chain/tail orientations
+use one common retained operator `Q_(r,j)^f`; ordinary rows have
+multiplier one and only the remote physical row has `2c^r`.
+Therefore the apparently one-sided `B#(x)` pieces cannot occur alone
+in L250's trace-log: block closure places them in a product of paired
+port crossings, possibly using different entrance and exit rows.  This
+is exact port organization, not A192's still-open symmetric valuation
+or the autocorrelation evaluation of those paired cycles.
 
 **Current live gate (A194):** prove that whitened volume coefficient
 at the physical multiplier `lambda=1`, without assuming A192's
@@ -220,6 +229,10 @@ balance.
   `experiments/repeated_crabb_edge_deleted_balanced_volume.py`: exact
   active-grade removal of the metric square roots and output-oriented
   determinant `Z=AR^−1A*`; the value four remains open.
+- `proof/repeated_crabb_analytic_chain_port_balance.md` (L251) and
+  `experiments/repeated_crabb_analytic_chain_port_balance.py`: exact
+  common-channel factorization of every opposite analytic chain port;
+  the paired closed-channel trace remains open.
 - `proof/repeated_crabb_exact_metric_chart.md` (L194): analytic
   metric chart in which any all-series column construction must
   converge.
