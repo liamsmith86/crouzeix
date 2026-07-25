@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-24): after L240 / A185
+## Current general Crabb frontier (2026-07-24): after L241 / A186
 
 L230--L234 close the canonical repaired endpoint through the third
 transfer flag.  Universal bounded polynomial columns cancel the cubic
@@ -57,6 +57,13 @@ first active coefficient of the exact L239-reflected state lift; it
 must give the active-cell anticommutator.  Keep the full small endpoint
 inverse until its reflection-power filtration is proved rather than
 assuming that only the term linear in `lambda_r` contributes.
+L241 independently fixes the remaining scalar normalization on every
+monomial channel: the boundary metric differs from L117's exact axis
+metric first by balanced `q^k(3I−2E)`, whose Stein/Schur response is
+`E+2E_1` and then `2E_1`.  Since `F_(k−1)=E_1` there, L228's
+multiplier is exactly one in arbitrary grade.  The remaining gap is
+only the ordered-cell locality statement for a general
+nonunitary/noncommuting active transfer block.
 
 Standing constraints: A179 disproves raw simultaneous superposition of
 the L212 representatives; scalar shifts and positive-state
@@ -93,6 +100,9 @@ inserted into the analytic metric; and definite parity is false.
 - `proof/repeated_crabb_half_line_stein_factor.md` (L240) and
   `experiments/repeated_crabb_half_line_stein_factor.py`: exact
   one-sided rank-`m` Stein factor and zero Schur-residual baseline.
+- `proof/repeated_crabb_monomial_slack_face.md` (L241) and
+  `experiments/repeated_crabb_monomial_slack_face.py`: exact all-grade
+  monomial face and scalar multiplier one.
 - `proof/repeated_crabb_exact_metric_chart.md` (L194): analytic
   metric chart in which any all-series column construction must
   converge.

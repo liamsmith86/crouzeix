@@ -2,6 +2,26 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — repeated circular/elliptic merger)
 
+## NEWEST (2026-07-24): L241 fixes the delayed multiplier in every grade
+- On the length-`k` monomial channel, L219's physical boundary metric
+  and L117's exact axis metric agree below `q^k`; their first
+  difference is exactly `diag(1,6,...,6,12)`.  In balanced
+  coordinates this is `3I−2E`.
+- Because the exact axis metric has zero Stein Schur residual, the
+  boundary metric's first slack difference is
+  `(3I−2E)−S*(3I−2E)S=E+2E_1`; Schur-compressing away from `E` leaves
+  `2E_1`.
+- On the monomial channel `F_(k−1)=E_1`, so this is exactly
+  `E_1F_(k−1)+F_(k−1)E_1`.  The scalar multiplier in L228 is
+  therefore one for every grade, proved from the all-size axis rather
+  than extrapolated from finite jets.
+- The remaining L228 issue is purely the general ordered-cell lift:
+  prove that a nonunitary/noncommuting first active transfer cell
+  creates no additional terms beyond the Hermitian lift already
+  identified in L236.
+  `proof/repeated_crabb_monomial_slack_face.md`;
+  `experiments/repeated_crabb_monomial_slack_face.py`.
+
 ## NEWEST (2026-07-24): L240 closes the half-line bulk slack exactly
 - On the multiplicity-`m` backward-shift half-line, the right-balanced
   ellipse pencil has boundary metric
