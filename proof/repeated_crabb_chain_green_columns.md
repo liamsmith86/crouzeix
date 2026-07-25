@@ -84,13 +84,29 @@ e_j^*H_r^{-1}k_r
 \end{cases}}                                      \tag{4}
 \]
 
-In particular their pairing is exactly the self-energy
+Writing \(d=r-j\) and
+\(\lambda_r(t)=t^r/(1+t^r)\), both cases in (4) have the uniform
+one-reflection form
+
+\[
+\boxed{
+e_{r-d}^*H_r^{-1}k_r
+=\rho^d+\zeta^d\lambda_r(t)(1-t^d),
+\qquad 1\le d\le r.}                              \tag{5}
+\]
+
+Thus every chain-to-tail column is its half-line value \(\rho^d\)
+plus one copy of the same reflected weight appearing in L239's
+endpoint compression and L243's inverse model kernel.  Formula (5)
+includes the doubled remote endpoint \(d=r\).
+
+In particular the endpoint pairing is exactly the self-energy
 
 \[
 \boxed{
 e_{r-1}^*H_r^{-1}k_r
 =\rho+\zeta\,\frac{t^r(1-t)}{1+t^r}
-=\gamma_r.}                                      \tag{5}
+=\gamma_r.}                                      \tag{6}
 \]
 
 Equations (3)--(4) have the same finite monomial-feature numerators
@@ -135,7 +151,7 @@ H_r^{-1}
 D_r^{-1}W(e_{r-1}^*H_r^{-1})
 &
 D_r^{-1}
-\end{bmatrix}.}                                   \tag{6}
+\end{bmatrix}.}                                   \tag{7}
 \]
 
 L243 supplies \(D_r^{-1}\) with only the zero and first
@@ -159,7 +175,15 @@ the reverse-edge product from level \(j\) to level \(r-1\) is
 the first edge.  Multiplication by
 \(k_r=c(I+F_0)e_{r-1}\) gives (2), including the exceptional
 \(r=1\) case.  Substitution of L239's continuant formula proves
-(3)--(5).  Equation (6) is the ordinary Schur block inverse.
+(3)--(4).  Subtracting \(\rho^d\) from (4) gives
+
+\[
+\rho^d\frac{t^{r-d}-t^r}{1+t^r}
+=\zeta^d\lambda_r(t)(1-t^d),
+\]
+
+which proves (5), including \(d=r\).  Equation (6) is the endpoint
+contraction, and (7) is the ordinary Schur block inverse.
 
 ## 4. Independent regeneration
 
@@ -175,5 +199,6 @@ OPENBLAS_NUM_THREADS=1 PYTHONPATH=experiments \
 
 Delays one through eight are audited at nine complex Joukowski
 points each.  The checker independently compares the matrix inverse
-with (1)--(4) and verifies (5).  The tracked SHA-256 is
-`17bb9477faec46b3ec81e92d32782bb377b308a9b8c96cdd6229d840021604a2`.
+with (1)--(4), verifies the uniform reflection split (5), and checks
+the endpoint self-energy (6).  The tracked SHA-256 is
+`f695df6c432cd590a835f7bc517dca3b2d0562ca57befecdce31e04cc8012e94`.

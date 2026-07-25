@@ -33,6 +33,7 @@ class ChainGreenColumnsRecord:
     maximum_continuant_column_error: str
     maximum_joukowski_row_error: str
     maximum_joukowski_column_error: str
+    maximum_reflection_split_error: str
     maximum_self_energy_error: str
     all_checks_passed: bool
 
@@ -44,6 +45,7 @@ def audit_delay(delay: int) -> ChainGreenColumnsRecord:
     column_error = 0.0
     joukowski_row_error = 0.0
     joukowski_column_error = 0.0
+    reflection_split_error = 0.0
     self_energy_error = 0.0
 
     for c in (0.03, 0.17, 0.41):
@@ -99,6 +101,7 @@ def audit_delay(delay: int) -> ChainGreenColumnsRecord:
                 dtype=complex,
             )
             for index in range(delay):
+                distance = delay - index
                 if index == 0:
                     predicted_joukowski_row[index] = (
                         x**delay / (1 + t**delay)
@@ -113,10 +116,24 @@ def audit_delay(delay: int) -> ChainGreenColumnsRecord:
                         / (1 + t**delay)
                     )
                     predicted_joukowski_column[index] = (
-                        rho ** (delay - index)
+                        rho**distance
                         * (1 + t**index)
                         / (1 + t**delay)
                     )
+                reflected_weight = t**delay / (1 + t**delay)
+                split_column = (
+                    rho**distance
+                    + zeta**distance
+                    * reflected_weight
+                    * (1 - t**distance)
+                )
+                reflection_split_error = max(
+                    reflection_split_error,
+                    abs(
+                        predicted_joukowski_column[index]
+                        - split_column
+                    ),
+                )
             joukowski_row_error = max(
                 joukowski_row_error,
                 float(
@@ -154,6 +171,7 @@ def audit_delay(delay: int) -> ChainGreenColumnsRecord:
         column_error,
         joukowski_row_error,
         joukowski_column_error,
+        reflection_split_error,
         self_energy_error,
     ) < tolerance
     if not verified:
@@ -169,6 +187,9 @@ def audit_delay(delay: int) -> ChainGreenColumnsRecord:
         ),
         maximum_joukowski_column_error=format_float(
             joukowski_column_error
+        ),
+        maximum_reflection_split_error=format_float(
+            reflection_split_error
         ),
         maximum_self_energy_error=format_float(self_energy_error),
         all_checks_passed=verified,

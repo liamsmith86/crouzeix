@@ -9,7 +9,11 @@
   `2c^r/Delta_r` at level zero and
   `c^(r−j)Delta_j/Delta_r` thereafter.
 - On the Joukowski contour these become explicit powers of `x` or
-  `rho` times `(1+t^j)/(1+t^r)`.  Their pairing is exactly `gamma_r`.
+  `rho` times `(1+t^j)/(1+t^r)`.  At distance `d`, the incoming
+  entry is exactly
+  `rho^d+zeta^d lambda_r(t)(1−t^d)`: the half-line column plus the
+  same single reflected weight as L239/L243.  Its endpoint pairing is
+  exactly `gamma_r`.
   Hence the “exiting-chain columns” left open by L242 are no longer
   unknown state quantities; together with L243 they give the entire
   full resolvent at every delay.
