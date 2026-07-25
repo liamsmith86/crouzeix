@@ -2,6 +2,25 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — repeated circular/elliptic merger)
 
+## NEWEST (2026-07-24): L219 isolates the boundary metric from the Stein gate
+- The explicit one-image boundary-layer metric has two exact positive
+  orbit decompositions.  After returning to physical coordinates they
+  prove `I<P_phys(c)<4I` for every finite pure partial isometry and
+  every `0<c<1`, without any delayed-transfer hypothesis.
+- Thus the candidate's condition-number geometry is already an
+  all-grade theorem; it need not be recovered from separate endpoint
+  jets.
+- The tempting direct shortcut is false: the same metric's elliptic
+  Stein slack is indefinite on deterministic general and delayed
+  colligations.  Grade-eight testing independently continued to match
+  the one-image face within `9e−10`, but remains numerical evidence.
+- The remaining all-grade task is now exactly a Stein repair or
+  factorization inside the two explicit positive orbit budgets.  This
+  is weaker than preserving a rank-`m` Stein defect and supplies a
+  second route alongside the ordered zero/one-image proof.
+  `proof/repeated_crabb_boundary_metric_sandwich.md`;
+  `experiments/repeated_crabb_boundary_metric_sandwich.py`.
+
 ## NEWEST (2026-07-24): L218 gives the ordered matrix Schur generator
 - Every square rational inner transfer near `z^L U` has a unique
   ordered matrix Schur recursion.  Its one-step kernel identity and
