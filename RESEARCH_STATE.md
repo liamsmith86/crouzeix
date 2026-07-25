@@ -2,6 +2,27 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — repeated circular/elliptic merger)
 
+## NEWEST (2026-07-24): L240 closes the half-line bulk slack exactly
+- On the multiplicity-`m` backward-shift half-line, the right-balanced
+  ellipse pencil has boundary metric
+  `D_R=diag(1,(1+q)^−1,(1+q²)^−1,...)` and exact Stein factor
+  `D_R−A_inf*D_R A_inf=d_inf d_inf*`.
+- The defect column is the normalized Jacobi `nd` Fourier column:
+  its level-zero block is `theta_3(c²)^−1 I`, its level `2j` block is
+  `2(−c)^j/[theta_3(c²)(1+c^(4j))] I`, and its odd blocks vanish.
+  Hence the right-defect Schur residual of the full half-line slack
+  is identically zero.
+- The proof is the fixed-window limit of L117's exact arbitrary-size
+  elliptic Crabb-axis metric; an independent coisometric word audit
+  regenerates the full theta/ODE identity exactly through degree
+  eight.
+- This removes the hidden-flux ambiguity in retained-block
+  calculations.  The only remaining L228 content is the first
+  variation of this zero Schur residual under L239's finite-left
+  reflection, including its state-lift columns.
+  `proof/repeated_crabb_half_line_stein_factor.md`;
+  `experiments/repeated_crabb_half_line_stein_factor.py`.
+
 ## NEWEST (2026-07-24): L239 makes the delay weight exact on the contour
 - In L238's Joukowski coordinate `t=c/zeta²`, the terminal
   continuants collapse to `Delta_j=zeta^j(1+t^j)`.  Hence the

@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-24): after L239 / A184
+## Current general Crabb frontier (2026-07-24): after L240 / A185
 
 L230--L234 close the canonical repaired endpoint through the third
 transfer flag.  Universal bounded polynomial columns cancel the cubic
@@ -48,8 +48,13 @@ L219's metric.  The remaining bulk block is the tail characteristic
 kernel, and right-endpoint scattering Schur elimination leaves
 `I−lambda_r(I+B(rho)B#(x))`.  The live gate is to retain L238's
 state-lift columns while applying the full theta/ODE contour map,
-boundary metric, and Stein right-defect Schur square, and prove the
-multiplier giving L228's anticommutator.
+boundary metric, and Stein right-defect Schur square.  L240 now
+supplies the exact zero baseline for that variation: on the
+backward-shift half-line, L236's `D_R` metric has a rank-`m` Jacobi
+`nd` Stein factor, so its right-defect Schur residual vanishes
+identically.  The sole remaining L228 calculation is therefore the
+first state-lifted derivative of this zero residual under L239's
+finite reflection; it must give the active-cell anticommutator.
 
 Standing constraints: A179 disproves raw simultaneous superposition of
 the L212 representatives; scalar shifts and positive-state
@@ -83,6 +88,9 @@ inserted into the analytic metric; and definite parity is false.
 - `proof/repeated_crabb_scattering_schur_collapse.md` (L239) and
   `experiments/repeated_crabb_scattering_schur_collapse.py`: exact
   rational delay weight and ordered transfer-kernel Schur collapse.
+- `proof/repeated_crabb_half_line_stein_factor.md` (L240) and
+  `experiments/repeated_crabb_half_line_stein_factor.py`: exact
+  one-sided rank-`m` Stein factor and zero Schur-residual baseline.
 - `proof/repeated_crabb_exact_metric_chart.md` (L194): analytic
   metric chart in which any all-series column construction must
   converge.

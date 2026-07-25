@@ -1,0 +1,9 @@
+{"all_checks_passed": true, "degree": 0, "factor_word_count": 2, "residual_word_count": 0, "slack_word_count": 2}
+{"all_checks_passed": true, "degree": 1, "factor_word_count": 4, "residual_word_count": 0, "slack_word_count": 4}
+{"all_checks_passed": true, "degree": 2, "factor_word_count": 8, "residual_word_count": 0, "slack_word_count": 8}
+{"all_checks_passed": true, "degree": 3, "factor_word_count": 12, "residual_word_count": 0, "slack_word_count": 12}
+{"all_checks_passed": true, "degree": 4, "factor_word_count": 18, "residual_word_count": 0, "slack_word_count": 18}
+{"all_checks_passed": true, "degree": 5, "factor_word_count": 24, "residual_word_count": 0, "slack_word_count": 24}
+{"all_checks_passed": true, "degree": 6, "factor_word_count": 32, "residual_word_count": 0, "slack_word_count": 32}
+{"all_checks_passed": true, "degree": 7, "factor_word_count": 40, "residual_word_count": 0, "slack_word_count": 40}
+{"all_checks_passed": true, "degree": 8, "factor_word_count": 50, "residual_word_count": 0, "slack_word_count": 50}
