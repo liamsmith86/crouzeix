@@ -12,10 +12,11 @@
   `2(−c)^j/[theta_3(c²)(1+c^(4j))] I`, and its odd blocks vanish.
   Hence the right-defect Schur residual of the full half-line slack
   is identically zero.
-- The proof is the fixed-window limit of L117's exact arbitrary-size
-  elliptic Crabb-axis metric; an independent coisometric word audit
-  regenerates the full theta/ODE identity exactly through degree
-  eight.
+- The proof is all-order coefficientwise finite-path stabilization of
+  L117's exact arbitrary-size elliptic Crabb-axis metric; it makes no
+  unproved boundary infinite-operator calculus claim.  An independent
+  coisometric word audit regenerates the full theta/ODE identity
+  exactly through degree eight.
 - This removes the hidden-flux ambiguity in retained-block
   calculations.  The only remaining L228 content is the first
   variation of this zero Schur residual under L239's finite-left

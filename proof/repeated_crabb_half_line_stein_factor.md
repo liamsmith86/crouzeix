@@ -19,7 +19,8 @@ S_\infty S_\infty^*=I,\qquad
 I-S_\infty^*S_\infty=E_\infty.
 \]
 
-For \(0<c<1\), \(q=c^2\), define the right-balanced ellipse pencil
+Work in formal power series at \(c=0\), put \(q=c^2\), and define the
+right-balanced ellipse pencil
 
 \[
 \Xi_\infty(c)
@@ -33,7 +34,11 @@ A_\infty(c)=\phi_c(\Xi_\infty(c)),
 \]
 
 where \(\phi_c\) is the centered normalized Riemann map of the ellipse
-parameterized by \(z=\zeta+c/\zeta\).
+parameterized by \(z=\zeta+c/\zeta\).  Here the expression is defined
+coefficientwise from the finite sections below.  Every coefficient is
+a finite-band operator.  This formal scope is exactly what the
+associated-graded L228 calculation needs; no boundary \(H^\infty\)
+calculus is being assumed.
 
 Put
 
@@ -43,7 +48,7 @@ D_R(q)=\operatorname {diag}
 \otimes I_m.                                      \tag{2}
 \]
 
-Then the complete one-sided Stein slack has rank \(m\):
+Then the complete one-sided Stein slack has formal rank \(m\):
 
 \[
 \boxed{
@@ -64,7 +69,8 @@ J_0
 \right\},}                                        \tag{4}
 \]
 
-The series converges in operator norm for \(0<c<1\).
+The explicit column series in (4) also converges in operator norm for
+\(|c|<1\), although only its formal identity is used below.
 
 Since \(J_0^*d_\infty=\vartheta_3(c^2)^{-1}I_m\) is invertible, the
 Schur complement of (3) away from the right defect is exactly zero:
@@ -142,19 +148,19 @@ The repeated equality metric is \(1\) at the right defect and \(2\)
 on every fixed interior coordinate.  Passing from physical to
 balanced coordinates therefore turns (8) precisely into (2).
 
-For every fixed finite coordinate window, (6) converges to (1).
-The pencils are uniformly bounded, and \(\phi_c\) is holomorphic on
-a common neighbourhood of their numerical ranges after fixing
-\(c<1\).  Polynomial approximation in the holomorphic functional
-calculus gives
+For every fixed Taylor degree in \(c\) and every fixed finite
+coordinate window, (6) stabilizes to (1).  Indeed, L125's direct-map
+coefficient of that degree is a finite polynomial in the banded
+pencil, so once the remote left endpoint is farther away than its
+maximum path length it cannot enter the coefficient.  The same
+finite-path stabilization applies to the Stein product.  We therefore
+define \(A_\infty(c)\) coefficientwise by these stable Taylor
+coefficients and pass coefficientwise in L117's finite rank-\(m\)
+Stein identity.
 
-\[
-\phi_c(\Xi_N)\longrightarrow A_\infty(c)
-\]
-
-strongly on every finite coordinate window.  Passing to the limit in
-L117's finite rank-\(m\) Stein identity gives (3), once the limiting
-defect column is identified.
+Since this stabilization works at every degree, the result is an
+all-order formal identity, not an extrapolation from any fixed jet.
+This proves (3) once the limiting defect column is identified.
 
 ## 3. The limiting defect column
 
