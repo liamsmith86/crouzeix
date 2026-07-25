@@ -2,6 +2,25 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — repeated circular/elliptic merger)
 
+## NEWEST (2026-07-24): L226 gives the matching ordered lower flag
+- On the surviving right-copy flag
+  `R_(k-1)=intersection_(j<k) ker B_j`, the boundary metric's first
+  lower physical Schur face is exactly
+  `+c^(2k)(B_k K)*(B_k K)`.
+- The proof is the right-oriented counterpart of L224.  The complete
+  lower endpoint factors into direct right transfer Grams and
+  interactions containing two transfer legs; all earlier active
+  directions can be Schur-eliminated without a pseudoinverse.
+- L224 and L226 now expose both endpoint budgets through arbitrary
+  noncommuting rank changes.  L225's conditional repair accounting
+  is therefore flag-compatible on both sides.
+- This still does not make the boundary metric contractive.  The
+  live proof gate remains the associated-graded delay covariance of
+  its Stein-slack Schur residual, followed by bounded repair
+  selection.
+  `proof/repeated_crabb_lower_metric_flag.md`;
+  `experiments/repeated_crabb_lower_metric_flag.py`.
+
 ## NEWEST (2026-07-24): L225 reduces the delayed trace law to one slack covariance
 - L223's boundary metric has not only the upper face
   `-4c^(2k) B_k B_k*`, but the exact lower face
