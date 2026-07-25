@@ -33,6 +33,8 @@ class ToeplitzWindowEnergyRecord:
     radial_toeplitz_error: str
     coefficient_sum_error: str
     model_compression_error: str
+    hardy_complement_error: str
+    abel_faber_error: str
     delayed_single_cell_error: str
     all_checks_passed: bool
 
@@ -94,6 +96,47 @@ def model_kernel_window(
     return identity - toeplitz @ toeplitz.conj().T
 
 
+def shifted_left_hardy_window(
+    partial: Matrix,
+    left: Matrix,
+    grade: int,
+) -> Matrix:
+    """Return rows one through grade plus one of L236's left frame."""
+
+    return np.vstack(
+        [
+            left.conj().T @ np.linalg.matrix_power(partial.conj().T, degree)
+            for degree in range(1, grade + 2)
+        ]
+    )
+
+
+def abel_faber_error(
+    coefficients: list[Matrix],
+    maximum_grade: int,
+) -> float:
+    """Audit the double-Abel generating identity through one grade."""
+
+    window_energies = [0.0]
+    for grade in range(1, maximum_grade + 1):
+        window_energies.append(
+            sum(
+                (grade + 1 - degree) * float(np.linalg.norm(coefficients[degree]) ** 2)
+                for degree in range(1, grade + 1)
+            )
+        )
+
+    maximum_error = 0.0
+    for degree in range(1, maximum_grade + 1):
+        transformed = window_energies[degree]
+        transformed -= 2 * window_energies[degree - 1]
+        if degree >= 2:
+            transformed += window_energies[degree - 2]
+        reflected = float(np.linalg.norm(coefficients[degree]) ** 2)
+        maximum_error = max(maximum_error, abs(transformed - reflected))
+    return maximum_error
+
+
 def audit_case(
     grade: int,
     partial: Matrix,
@@ -112,8 +155,7 @@ def audit_case(
     toeplitz = toeplitz_window(coefficients, grade)
     toeplitz_energy = float(np.linalg.norm(toeplitz) ** 2)
     coefficient_energy = sum(
-        (grade + 1 - degree)
-        * float(np.linalg.norm(coefficients[degree]) ** 2)
+        (grade + 1 - degree) * float(np.linalg.norm(coefficients[degree]) ** 2)
         for degree in range(1, grade + 1)
     )
 
@@ -121,27 +163,22 @@ def audit_case(
     multiplicity = right.shape[1]
     identity = np.eye(dimension, dtype=complex)
     q_one = partial.conj().T @ partial
-    q_top = (
-        np.linalg.matrix_power(partial.conj().T, grade + 2)
-        @ np.linalg.matrix_power(partial, grade + 2)
-    )
+    q_top = np.linalg.matrix_power(
+        partial.conj().T, grade + 2
+    ) @ np.linalg.matrix_power(partial, grade + 2)
     radial_energy = float(
-        np.trace(
-            q_top
-            - (grade + 2) * q_one
-            + (grade + 1) * identity
-        ).real
+        np.trace(q_top - (grade + 2) * q_one + (grade + 1) * identity).real
     )
 
     kernel = model_kernel_window(coefficients, grade)
-    model_energy = (grade + 1) * multiplicity - float(
-        np.trace(kernel).real
-    )
+    model_energy = (grade + 1) * multiplicity - float(np.trace(kernel).real)
+    hardy_rows = shifted_left_hardy_window(partial, left, grade)
+    hardy_kernel = hardy_rows @ hardy_rows.conj().T
+    hardy_error = float(np.linalg.norm(kernel - hardy_kernel))
+    abel_error = abel_faber_error(coefficients, grade)
 
     if complete_delay:
-        delayed_energy = float(
-            np.linalg.norm(coefficients[grade]) ** 2
-        )
+        delayed_energy = float(np.linalg.norm(coefficients[grade]) ** 2)
     else:
         delayed_energy = toeplitz_energy
 
@@ -154,6 +191,8 @@ def audit_case(
         radial_error < tolerance
         and coefficient_error < tolerance
         and model_error < tolerance
+        and hardy_error < tolerance
+        and abel_error < tolerance
         and delayed_error < tolerance
     )
     if not verified:
@@ -163,6 +202,8 @@ def audit_case(
             f"radial={radial_error:.3e}, "
             f"coefficients={coefficient_error:.3e}, "
             f"model={model_error:.3e}, "
+            f"hardy={hardy_error:.3e}, "
+            f"abel={abel_error:.3e}, "
             f"single={delayed_error:.3e}"
         )
     return ToeplitzWindowEnergyRecord(
@@ -173,6 +214,8 @@ def audit_case(
         radial_toeplitz_error=format_float(radial_error),
         coefficient_sum_error=format_float(coefficient_error),
         model_compression_error=format_float(model_error),
+        hardy_complement_error=format_float(hardy_error),
+        abel_faber_error=format_float(abel_error),
         delayed_single_cell_error=format_float(delayed_error),
         all_checks_passed=verified,
     )
@@ -189,9 +232,7 @@ def standard_records() -> list[ToeplitzWindowEnergyRecord]:
             multiplicity,
             np.random.default_rng(253_000 + grade),
         )
-        records.append(
-            audit_case(grade, *general, complete_delay=False)
-        )
+        records.append(audit_case(grade, *general, complete_delay=False))
 
         if grade == 1:
             delayed = random_partial_isometry(
@@ -207,9 +248,7 @@ def standard_records() -> list[ToeplitzWindowEnergyRecord]:
                 multiplicity,
                 253_100 + grade,
             )[:3]
-        records.append(
-            audit_case(grade, *delayed, complete_delay=True)
-        )
+        records.append(audit_case(grade, *delayed, complete_delay=True))
     return records
 
 
@@ -235,10 +274,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--output",
         type=Path,
-        default=Path(
-            "experiments/"
-            "repeated_crabb_toeplitz_window_energy_s70224.jsonl"
-        ),
+        default=Path("experiments/repeated_crabb_toeplitz_window_energy_s70224.jsonl"),
     )
     return parser.parse_args()
 

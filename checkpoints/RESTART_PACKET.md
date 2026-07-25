@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-25): after L253 / A199
+## Current general Crabb frontier (2026-07-25): after L254 / A200
 
 The accidental two-agent interval has been reconciled.  Commits
 `87c5107`, `4c7a152`, `2f82d15`, and `dcab861` form one linear history
@@ -9,9 +9,9 @@ with no overwritten content or unresolved merge.  L248 was regenerated
 byte-identically, and the incoming L249 artifacts were cleaned and
 independently recomputed before banking.  Resume as one agent from the
 A194 gate below through A196's balanced output form, A197's paired
-analytic ports, A198's cyclic radial quotient, and A199's finite
-Hardy-window energy; A195 is a negative guardrail, not a second
-frontier.
+analytic ports, A198's cyclic radial quotient, A199's finite
+Hardy-window energy, and A200's shifted-left-Hardy complement; A195
+is a negative guardrail, not a second frontier.
 
 L230--L234 close the canonical repaired endpoint through the third
 transfer flag.  Universal bounded polynomial columns cancel the cubic
@@ -168,6 +168,15 @@ L253 identifies the same radial quantity intrinsically as
 Toeplitz window has exactly one nonzero block, `B_k`.  The live task
 is therefore to prove that L251's paired physical trace, after L244's
 background cancellation, equals four times this window leakage.
+L254 identifies the exact complementary channel behind that leakage.
+If `O_Lhat=L*O_L`, then
+`O_Lhat O_Lhat*+T_BT_B*=I`; the one-row shift is necessary because
+unshifted `O_L` realizes `K_(zB)`.  The grade sequence is also the
+double Abel transform of L201's reflected Faber Gram:
+`sum q^k||P_kT_BP_k||²=(1−q)^−2 tr sum q^hB_h*B_h`.
+Thus the live proof must show that physical final-row whitening
+removes the shifted left-model channel and leaves its causal
+complement.  L254 does not prove that physical identification.
 
 **Current live gate (A194):** prove that whitened volume coefficient
 at the physical multiplier `lambda=1`, without assuming A192's
@@ -263,6 +272,10 @@ balance.
   `experiments/repeated_crabb_toeplitz_window_energy.py`: exact
   Toeplitz/model-space form of the target scalar energy; identifying
   the physical paired trace with this leakage remains open.
+- `proof/repeated_crabb_hardy_faber_complement.md` (L254): exact
+  shifted-left-Hardy complement and double-Abel/Faber generating
+  bridge; proving that L250's physical whitening realizes this
+  complement remains open.
 - `proof/repeated_crabb_exact_metric_chart.md` (L194): analytic
   metric chart in which any all-series column construction must
   converge.

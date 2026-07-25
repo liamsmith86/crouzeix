@@ -21,7 +21,8 @@
 - There is now one live mathematical frontier: A194 at the complete
   physical terminal balance, now in A196/L250's balanced output
   coordinates, A197/L251's paired analytic ports, A198/L252's cyclic
-  radial quotient, and A199/L253's Hardy-window energy target.
+  radial quotient, A199/L253's Hardy-window energy target, and
+  A200/L254's shifted-left-Hardy complement.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
 
@@ -41,6 +42,28 @@
   cancel the full-space coisometric background with L244, and prove
   that the residual trace is four times this finite-window leakage.
   `proof/repeated_crabb_toeplitz_window_energy.md`;
+  `experiments/repeated_crabb_toeplitz_window_energy.py`.
+
+## NEWEST (2026-07-25): L254 identifies the exact complementary channel
+- Let `O_Lhat=L*O_L` be L236's left Hardy analysis map with its
+  constant row removed.  The characteristic-kernel identity gives
+  `O_Lhat O_Lhat*+T_BT_B*=I`.  The shift is essential: unshifted
+  `O_L` realizes `K_(zB)`, whereas the Toeplitz complement uses
+  `K_B`.
+- Therefore L253's target is exactly the missing energy of the
+  shifted left-Hardy/model channel, not merely an abstract model-space
+  codimension.
+- Across all grades its generating series is
+  `sum_(k>=1)q^k||P_kT_BP_k||_HS²
+   =(1−q)^−2 tr sum_(h>=1)q^hB_h*B_h`,
+  the double Abel transform of L201's reflected Faber Gram.
+- The live physical statement is now precise: show that L250's
+  final-row whitening, after L244 cancels the half-line coisometric
+  background and L251 keeps the doubled port paired, removes the
+  `O_Lhat O_Lhat*` channel and leaves four times its `T_BT_B*`
+  complement.  L254 proves the complement and generating identities,
+  not that volume equality.
+  `proof/repeated_crabb_hardy_faber_complement.md`;
   `experiments/repeated_crabb_toeplitz_window_energy.py`.
 
 ## PREVIOUS (2026-07-25): L252 reduces the target to three radial traces
@@ -4328,7 +4351,8 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-25)
-1. **A194/A198/A199: identify the paired trace with Toeplitz leakage.**
+1. **A194/A198/A199/A200: identify the paired trace with the Hardy
+   complement.**
    Keep the terminal multiplier at its physical value `lambda=1`.
    Use L250's output determinant with `Z=AR^−1A*`, insert
    L243--L245's exact delayed resolvent/Green lift into `Z`, use L251
@@ -4347,6 +4371,12 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    whitening.  Promote that cancellation with L244's half-line
    coisometry and identify only the three surviving boundary classes;
    do not spend time extending the finite audit to another grade.
+   L254 identifies the exact channel statement to prove:
+   final-row whitening must remove
+   `O_Lhat O_Lhat*` and leave `T_BT_B*=I−O_Lhat O_Lhat*`.
+   Work in the shifted **left** frame; using the unshifted or right
+   frame gives the wrong matrix identity at copy multiplicity above
+   one.
    Do not estimate the individually huge dual corner and Schur square,
    detach the doubled port (A195/L249), or assume A192's unproved
    symmetric endpoint valuation.  The face is indefinite, so do not
