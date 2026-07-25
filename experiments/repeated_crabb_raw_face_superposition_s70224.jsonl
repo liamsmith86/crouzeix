@@ -1,0 +1,2 @@
+{"all_checks_passed": true, "defect_dimension": 2, "first_mismatch_norm": "7.374505882736e+00", "first_mismatch_order": 3, "leading_face_error": "3.249522471457e-14", "maximum_lower_endpoint_error": "2.276438838707e-14", "state_dimension": 7}
+{"all_checks_passed": true, "defect_dimension": 3, "first_mismatch_norm": "1.635694268835e+00", "first_mismatch_order": 3, "leading_face_error": "4.447681454900e-14", "maximum_lower_endpoint_error": "5.048275949636e-14", "state_dimension": 8}

@@ -441,6 +441,29 @@ through grade six; it is still numerical.  Prove its ordered
 zero/one-reflection identity, then identify the first two-reflection
 quotient with L216's deflated grade-one face.
 
+L219 proves that the explicit boundary-layer metric already lies
+strictly inside the physical `I`--`4I` sandwich.  Two exact positive
+orbit decompositions prove both gaps for every finite pure partial
+isometry and every `0<c<1`.  The metric alone is not a certificate:
+its elliptic Stein slack can be indefinite.  It is now enough to
+construct a Stein repair inside those explicit orbit budgets.
+
+L220 iterates L218's kernel identity and gives the exact
+Schur-orthogonal model flag:
+
+```
+K_B(z,w) = sum_j Phi_j(z)* Phi_j(w),
+Phi_j(w) = w^j A_j(w) ... A_0(w).
+```
+
+The features span all `Lm` model coordinates and become `w^j I` at
+the apex.  This is the correct triangular whitening of mixed grades.
+The next theorem should identify the first physical two-reflection
+endpoint with `-16` times its feature Gram.  Do not merely insert all
+L212 columns into one raw frame: a persisted generic probe gets the
+order-two face right but already has large order-three upper
+residuals, with the lower endpoint still exact.
+
 L205 supplies a scalar-only alternative to that stronger complete
 gate.  The condition-two chain is sharp for a scalar Schur function
 exactly when L201's transfer has a constant one-dimensional inner
@@ -1128,12 +1151,15 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
 ## Next five concrete actions (refreshed 2026-07-24, Epoch 6)
-1. **Prove the grouped nonlinear delay gauge.** L218 supplies the
-   exact transfer generator, and the one-image candidate supplies a
-   physical formula verified through grade six.  Prove its ordered
-   zero/one-reflection identity, then show the first two-reflection
-   quotient deflates by L216 to the grade-one prepared face.  Do not
-   compare or minimize raw frame coefficients term by term.
+1. **Transport the physical endpoint into L220's feature flag.**
+   L218 supplies the transfer generator, L220 its exact orthogonal
+   model layers, L219 the strict metric budgets, and the one-image
+   candidate a physical formula tracked through grade six, with an
+   additional reported grade-eight holdout.  Prove
+   that zero/one reflection has no feature loss and that the first
+   two-reflection endpoint is `-16` times the feature Gram; then
+   deflate it with L216 or repair the Stein slack inside L219's
+   budgets.  Do not superpose raw face columns.
 2. **Merge later circular normals.** L199 covers the first raw face
    only.  Identify the response after L197's later least-squares Schur
    quotients and combine it with the elliptic flag.
@@ -1151,7 +1177,7 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
 ## Paste-ready continuation instruction
 "Continue the Crouzeix campaign in /home/liam/Downloads/crouzeix
 (git repo; commit and push each proved milestone).  Read the newest
-RESEARCH_STATE section and L201--L218/A144--A161.  L207 gives the
+RESEARCH_STATE section and L201--L220/A144--A164.  L207 gives the
 explicit analytic grade-one correction; L208 gives the conditional
 higher flagged preimage; L209 promotes a surviving grade to a
 grade-one smaller colligation; L210 proves the exact transfer/Gram
@@ -1164,8 +1190,13 @@ endpoint response and identifies L212 as deflated L207; L217 proves
 that the exact length-five gauge already has a `B_5` term at frame
 order four, so a grade-local frame recursion is false; L218 gives the
 ordered matrix Schur generator and its reflected tangent pairing.
-The one-image physical generator is tested through grade six but is
-not yet proved.  Both known
+L219 proves the boundary metric is strictly inside the metric
+sandwich but its raw Stein slack can be indefinite.  L220 gives the
+exact finite Schur-orthogonal model-kernel flag, while A164 disproves
+naïve raw superposition beyond the first face.
+The one-image physical generator is tracked through grade six, with
+an additional reported grade-eight holdout, but is not yet proved.
+Both known
 faces end at `−16B_kB_k*`.  Prove covariance of the remaining grouped
 nonlinear Riemann/metric/Schur forcing and thereby the all-grade base
 `12L_c−28C(R_c)` (or a one-sided smaller endpoint), and

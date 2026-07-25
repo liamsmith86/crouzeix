@@ -2,6 +2,30 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — repeated circular/elliptic merger)
 
+## NEWEST (2026-07-24): L220 gives the exact Schur-orthogonal model flag
+- L218's one-step kernel identity splits the model kernel into one
+  rank-`m` feature layer plus the shifted kernel of the next Schur
+  iterate.
+- Iteration gives
+  `K_B(z,w)=sum_j Phi_j(z)*Phi_j(w)` with the noncommutative order
+  `Phi_j(w)=w^j A_j(w)...A_0(w)`.  These features span the complete
+  `Lm`-dimensional model space.
+- At the repeated apex `Phi_j=w^jI`, so ordinary Hardy/Fourier grades
+  are the associated graded of an exact triangular whitening at every
+  nearby noncommuting equality anchor.
+- This makes the next physical statement precise: prove that the
+  first two-reflection upper endpoint is `−16` times the Gram of the
+  corresponding feature coefficients.  L216 can then deflate the
+  first active layer to the proved grade-one response.
+- A stronger raw shortcut is false.  Simultaneously inserting every
+  gradewise L212 column gives the correct order-two face but generic
+  order-three upper residuals of norms `7.37` and `1.64`, while lower
+  tightening remains exact.  Later faces must be Schur-orthogonalized,
+  not superposed.
+  `proof/repeated_crabb_schur_kernel_flag.md`;
+  `experiments/repeated_crabb_schur_kernel_flag.py`;
+  `experiments/repeated_crabb_raw_face_superposition.py`.
+
 ## NEWEST (2026-07-24): L219 isolates the boundary metric from the Stein gate
 - The explicit one-image boundary-layer metric has two exact positive
   orbit decompositions.  After returning to physical coordinates they
@@ -3530,16 +3554,16 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-24)
-1. **Prove the grouped zero/one-reflection identity.** Use L218's
-   ordered Schur recursion or the partial-isometry word algebra to
-   derive the theta-weighted frame in
-   `proof/repeated_crabb_one_image_generator.md`.  Finite-grade jet
-   agreement is evidence, not the proof.
-2. **Identify the first two-reflection quotient.** On
-   `B_1=...=B_(k−1)=0`, show that the first surviving grouped
-   coefficient is the L216-deflated grade-one prepared face, including
-   the even-`k` fold.  This would prove the all-grade
-   `−16B_kB_k*` endpoint.
+1. **Transport the physical endpoint into L220's feature flag.**
+   Prove that the grouped zero/one-reflection physical metric has no
+   feature loss and that the first two-reflection upper face is
+   `−16` times the feature-coordinate Gram.  Do not superpose the raw
+   L212 representatives; A164 disproves that shortcut.
+2. **Deflate or repair the first active feature layer.** On
+   `B_1=...=B_(k−1)=0`, identify its physical coefficient with
+   L216's deflated grade-one prepared face, including the even-`k`
+   fold.  Equivalently, use L219's strict orbit budgets to construct a
+   Stein repair without leaving the `1`--`4` metric sandwich.
 3. **Finish the repeated normal/elliptic merger.** L197 closes the
    disk Schur flag and L199 closes only its first raw circular-normal
    face.  Prove the later Schur-orthogonal normal response, then merge
