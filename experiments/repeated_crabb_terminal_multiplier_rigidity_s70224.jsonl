@@ -1,0 +1,1 @@
+{"all_checks_passed": true, "delayed_transfer_grade": 2, "first_diagonal_entry": "1 - lambda**2", "multiplier_is_unique": true, "physical_multiplier": "1", "physical_residual_is_zero": true, "second_diagonal_entry": "2*lambda - 2", "state_dimension": 3}

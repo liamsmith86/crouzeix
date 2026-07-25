@@ -1,7 +1,14 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-24): after L248 / A194
+## Current general Crabb frontier (2026-07-25): after L249 / A195
+
+The accidental two-agent interval has been reconciled.  Commits
+`87c5107`, `4c7a152`, `2f82d15`, and `dcab861` form one linear history
+with no overwritten content or unresolved merge.  L248 was regenerated
+byte-identically, and the incoming L249 artifacts were cleaned and
+independently recomputed before banking.  Resume as one agent from the
+A194 gate below; A195 is a negative guardrail, not a second frontier.
 
 L230--L234 close the canonical repaired endpoint through the third
 transfer flag.  Universal bounded polynomial columns cancel the cubic
@@ -112,16 +119,28 @@ exact whitened log-determinant.  The live target is now
 `[c^(2k)]log V=4||B_k||_F²`, with L243--L245 inserted directly into
 the whitened final-row channel.  This is A194; the value four remains
 open.
+L249 blocks one tempting but invalid shortcut.  On the exact
+length-three monomial channel, changing only the terminal multiplier
+gives the degree-two final-dual residual
+`diag(1−lambda²,2lambda−2)`, which vanishes only at the physical
+`lambda=1`.  Therefore the doubled endpoint amplitude cannot be
+detached and squared in isolation.  Preserve the complete physical
+theta/direct-map/metric network, apply L244's coisometry inside
+L248's initial-defect mass, and identify the remote energy only after
+that structural cancellation.
 
 **Current live gate (A194):** prove that whitened volume coefficient
-without assuming A192's unproved endpoint valuation.  A177 was already
-closed by L234; resuming its sextic computation would be a rollback,
-not a continuation.
+at the physical multiplier `lambda=1`, without assuming A192's
+unproved endpoint valuation or estimating the large corner and Schur
+terms separately.  A177 was already closed by L234; resuming its
+sextic computation would be a rollback, not a continuation.
 
 Standing constraints: A179 disproves raw simultaneous superposition of
 the L212 representatives; scalar shifts and positive-state
 scalarizations have failed; a rank-dependent pseudoinverse cannot be
-inserted into the analytic metric; and definite parity is false.
+inserted into the analytic metric; definite parity is false; and A195
+forbids detaching L245's doubled terminal edge from its physical
+balance.
 
 ## Current frontier files map
 - `proof/repeated_crabb_canonical_cubic_preimage.md` (L230),
@@ -182,6 +201,10 @@ inserted into the analytic metric; and definite parity is false.
   `experiments/associated_defect_volume_trace.py`: exact
   log-determinant/final-row whitening of the flux; the all-delay
   coefficient `+4` remains open.
+- `proof/repeated_crabb_terminal_multiplier_rigidity.md` (L249) and
+  `experiments/repeated_crabb_terminal_multiplier_rigidity.py`: exact
+  obstruction to detaching the doubled terminal edge; continue only
+  at the physical multiplier.
 - `proof/repeated_crabb_exact_metric_chart.md` (L194): analytic
   metric chart in which any all-series column construction must
   converge.

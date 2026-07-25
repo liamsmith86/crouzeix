@@ -1,6 +1,26 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-24 (Epoch 6 — repeated circular/elliptic merger)
+**Last updated:** 2026-07-25 (Epoch 6 — repeated circular/elliptic merger)
+
+## SINGLE-AGENT RECONCILIATION (2026-07-25): concurrent work deconflicted
+- Two agents unintentionally shared this repository while commits
+  `87c5107`, `4c7a152`, `2f82d15`, and `dcab861` were made.  The Git
+  history stayed linear, each commit recorded an explicit coherent
+  file set, and no overwritten proof, code, or unresolved merge was
+  found.
+- L248 was independently regenerated after the overlap.  All six
+  audits passed and the result was byte-identical to the tracked
+  dataset with SHA-256
+  `cf49efe0025b9336a84068e3c92802b5ec23a6bb40d34d4d15028771c7b5ecaa`.
+- The only incoming uncommitted artifacts were the L249 note and
+  checker.  The interrupted conditional-expression artifact was
+  removed; the construction, Schur orientation, exact residual, and
+  uniqueness at `lambda=1` were independently recomputed.  The clean
+  checker passes and regenerates SHA-256
+  `114ba20c89b0d3e1e69db45ed510836a6306caca0cf1b02f0d89aa8f911ec642`.
+- There is now one live mathematical frontier: A194 at the complete
+  physical terminal balance.  A195/L249 is only a guardrail against
+  detaching the doubled terminal edge, not a competing approach.
 
 ## CHECKPOINT REVALIDATION (2026-07-24): prior audit complete; frontier advanced
 - The requested A164/next-actions/restart/recursion/structured-matrix/
@@ -18,6 +38,24 @@
   classifications for L187/L193/L218 remain respectively (ii), (ii),
   and (i).  The lemma-ID gaps remain intentional and are stated at the
   top of `LEMMA_LEDGER.md`.
+
+## NEWEST (2026-07-25): L249 locks the doubled edge to the full balance
+- On the exact length-three delayed monomial channel, replace only the
+  physical doubled reverse edge by the multiplier `1+lambda`, while
+  freezing the boundary metric.  The degree-two final-dual Schur
+  residual is exactly
+  `diag(1−lambda²,2lambda−2)`.
+- The lower cancellation survives iff `lambda=1`, the physical
+  doubled edge.  Thus the slogan “remote amplitude two, so energy
+  four” is not a proof when the port is detached from the theta,
+  direct-map, and metric network.
+- This does not damage A194's coisometric-port route.  It prescribes
+  its safe form: keep the full physical network, insert L243--L245
+  into L248's initial-defect mass, apply L244's coisometry to the
+  complete background, and extract the remote energy only after that
+  cancellation.
+  `proof/repeated_crabb_terminal_multiplier_rigidity.md`;
+  `experiments/repeated_crabb_terminal_multiplier_rigidity.py`.
 
 ## NEWEST (2026-07-24): L248 turns the open flux into one volume coefficient
 - For any first active final-defect Schur face, its trace is the
@@ -4202,14 +4240,18 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed 2026-07-24)
-1. **A194: prove the whitened volume coefficient `+4`.**
-   Insert L243--L245's complete zero/one-reflection state lift directly
-   into L248's final-row-whitened determinant.  Isolate the doubled
-   remote channel and prove
-   `[c^(2k)]log V=4||B_k||_F²`, including earlier vanishing.  Do not
-   estimate the individually huge dual corner and Schur square, and do
-   not assume A192's unproved symmetric endpoint valuation.
+## Current next actions (Epoch 6, refreshed 2026-07-25)
+1. **A194: prove the physical whitened volume coefficient `+4`.**
+   Keep the terminal multiplier at its physical value `lambda=1`.
+   Insert L243--L245's exact delayed resolvent/Green lift directly
+   into L248's initial-defect mass
+   `−m+tr((I−C*FC)^−1(I−C*C))`.  Apply L244's coisometry before
+   extracting coefficients, so the zero/one-reflection background
+   cancels structurally and the surviving remote channel can be
+   identified as `4||B_k||_F²`, with all earlier coefficients zero.
+   Do not estimate the individually huge dual corner and Schur square,
+   detach the doubled port (A195/L249), or assume A192's unproved
+   symmetric endpoint valuation.
 2. **Then promote the delayed trace law, not more finite evidence.**
    Combining the `+4` volume coefficient with L247's exact metric
    contribution `−2` would give L225's total trace
@@ -4242,7 +4284,9 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
 Standing negative constraints: do not superpose the raw L212
 representatives (A179); do not retry scalar shifts or positive-state
 scalarizations; do not put a discontinuous pseudoinverse into the
-metric; and do not assume definite parity.
+metric; do not assume definite parity; and do not vary L245's doubled
+terminal edge independently of the physical theta/metric balance
+(A195).
 Keep committing+pushing after each task (user instruction).
 
 ## Files map (handoff-ready, 2026-07-22)
