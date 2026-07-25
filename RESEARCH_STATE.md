@@ -2,6 +2,30 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — repeated circular/elliptic merger)
 
+## NEWEST (2026-07-24): L222 reduces partial flags to delayed trace signs
+- For any left-copy flag `U`, compress L204's homogeneous endpoint
+  response to `C -> U* M_T(C) U`.  Finite-dimensional semidefinite
+  separation gives an exact alternative: a face `E` can be made
+  strictly negative iff `tr(YE)<0` for every nonzero positive
+  annihilator `Y`.
+- L206 identifies those annihilators without a rank assumption:
+  the observability Gramian of `U Y U*` must commute with the balanced
+  partial isometry.  Thus every genuine obstruction is a reducing
+  colligation summand, not a new noncommutative partial-flag term.
+- If `U*B_1=...=U*B_(k-1)=0`, each positive reducing separator lives
+  on a completely delayed summand.  Therefore the all-grade repeated
+  elliptic flag's **pointwise range obstruction** needs only the trace
+  sign of the fully delayed effective face; exact identification of
+  every partial face with `-16B_kB_k*` is stronger than necessary.
+- The remaining physical target is now
+  `tr E_(2k,eff)=-16||B_k||_F^2` on fully delayed summands.
+  L203 proves it at grade one and L214--L215 prove stronger matrix
+  identities at grades two and three.  The all-grade trace law and a
+  bounded pathwise/Schur selection through commutant rank changes are
+  still open.
+  `proof/repeated_crabb_flagged_endpoint_alternative.md`;
+  `experiments/repeated_crabb_flagged_endpoint_alternative.py`.
+
 ## NEWEST (2026-07-24): L221 makes delay an exact Schur-model tail
 - If `B_1=...=B_r=0`, then `B=z^r Btilde`, and its model kernel is
   exactly the orthogonal sum of `r` monomial layers and the shifted

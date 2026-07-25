@@ -1,7 +1,34 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-24): after L200 / A143
+## Current general Crabb frontier (2026-07-24): after L222 / A165
+
+L222 changes the immediate endpoint target.  For a left-copy flag
+`U`, the affine compressed response
+`E + U* M_T(C) U` meets the strictly negative cone exactly when
+`tr(YE)<0` against every nonzero PSD annihilator.  L206 identifies
+those annihilators with observability Gramians commuting with the
+balanced partial isometry.  Their spectral blocks reduce the whole
+colligation.  If the flag kills the first `k−1` transfer rows, every
+positive separator is therefore a **completely delayed reducing
+summand**.  It is no longer necessary to prove the exact matrix
+identity `-16B_kB_k*` on every partial flag for pointwise range
+feasibility.  L222 does not by itself bound the chosen correction as
+the commutant rank jumps; L197/L220 still have to supply a bounded
+pathwise selection.
+
+The sharpened live gate is the fully delayed higher-contact trace law
+
+```
+tr E_(2k,eff) = -16 ||B_k||_F^2.
+```
+
+L203 proves it for `k=1`; L214 and L215 prove stronger matrix
+identities for `k=2,3`.  Proving this trace law for arbitrary `k`,
+then applying L222 and proving bounded selection along L197/L220's
+finite terminal flag, should close the repeated elliptic endpoint.
+The stronger physical feature-Gram equality is no longer the minimal
+pointwise target.
 
 The complete local chart around every fixed **single** Crabb block is
 closed by L192.  L193 identifies the correct upper-equality stratum at
@@ -1151,15 +1178,14 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
 ## Next five concrete actions (refreshed 2026-07-24, Epoch 6)
-1. **Transport the physical endpoint into L220's feature flag.**
-   L218 supplies the transfer generator, L220 its exact orthogonal
-   model layers, L219 the strict metric budgets, and the one-image
-   candidate a physical formula tracked through grade six, with an
-   additional reported grade-eight holdout.  Prove
-   that zero/one reflection has no feature loss and that the first
-   two-reflection endpoint is `-16` times the feature Gram; then
-   deflate it with L216 or repair the Stein slack inside L219's
-   budgets.  Do not superpose raw face columns.
+1. **Prove the fully delayed higher-contact trace law.**
+   L222 shows that the exact partial-flag matrix Gram is unnecessary.
+   Prove `tr E_(2k,eff)=-16||B_k||_F^2` when
+   `B_1=...=B_(k-1)=0`, preferably by a matrix-inner
+   zero/one/two-reflection trace calculation.  Grades one through
+   three are already proved.  Then use L222's reducing-separator
+   alternative and prove bounded pathwise selection through its rank
+   changes.
 2. **Merge later circular normals.** L199 covers the first raw face
    only.  Identify the response after L197's later least-squares Schur
    quotients and combine it with the elliptic flag.
@@ -1177,7 +1203,7 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
 ## Paste-ready continuation instruction
 "Continue the Crouzeix campaign in /home/liam/Downloads/crouzeix
 (git repo; commit and push each proved milestone).  Read the newest
-RESEARCH_STATE section and L201--L220/A144--A164.  L207 gives the
+RESEARCH_STATE section and L201--L222/A144--A165.  L207 gives the
 explicit analytic grade-one correction; L208 gives the conditional
 higher flagged preimage; L209 promotes a surviving grade to a
 grade-one smaller colligation; L210 proves the exact transfer/Gram
@@ -1194,6 +1220,15 @@ L219 proves the boundary metric is strictly inside the metric
 sandwich but its raw Stein slack can be indefinite.  L220 gives the
 exact finite Schur-orthogonal model-kernel flag, while A164 disproves
 naïve raw superposition beyond the first face.
+L221 proves exact delay covariance of the Schur model, state orbits,
+and boundary metric.  L222 proves a semidefinite alternative for
+every partial endpoint flag: only positive reducing-copy commutants
+can obstruct a negative correction.  Therefore the minimal live
+pointwise physical target is the fully delayed trace law
+`tr E_(2k,eff)=-16||B_k||_F^2`, already known at grades one, two,
+and three; exact feature-Gram equality on every partial flag is
+stronger than necessary.  Still prove bounded selection through
+commutant rank jumps before claiming a local metric theorem.
 The one-image physical generator is tracked through grade six, with
 an additional reported grade-eight holdout, but is not yet proved.
 Both known
