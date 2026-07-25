@@ -2,6 +2,24 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — repeated circular/elliptic merger)
 
+## NEWEST (2026-07-24): L232 makes the full quartic endpoint positive
+- L231's positive trace can be redistributed by one universal
+  ten-term perpendicular polynomial column.  Its norm is bounded by
+  `27/2`, independently of transfer ranks and state dimension.
+- A 29-term Hermitian Stein witness proves, with zero exact rational
+  word residuals, that the final physical quartic upper gap is
+  `12B_2B_2*+32B_1B_1*+56B_1(B_1*B_1)B_1* >= 0`.
+- The correction has zero lower endpoint response.  It uses no
+  inverse, singular vector, flag projection, or pseudoinverse, so
+  the partial rank-changing quartic obstruction is completely
+  removed.
+- On complete delays the polynomial column is bounded and
+  endpoint-null, but generally nonzero.  This is a legitimate gauge
+  at quartic order and a warning that quintic/sextic coefficients
+  must be recomputed after both preparations.
+  `proof/repeated_crabb_canonical_quartic_preimage.md`;
+  `experiments/repeated_crabb_canonical_quartic_preimage.py`.
+
 ## NEWEST (2026-07-24): L231 proves the prepared quartic trace is positive
 - Complete L230 by perturbing the exact canonical Stein-slack factor
   by `c³C_3` and applying the variable Stein inverse.  This preserves

@@ -258,8 +258,8 @@ def raw_slack_series(degree: int) -> list[Polynomial]:
     )
 
 
-def exact_quartic_trace_polynomial() -> Polynomial:
-    """Return the state polynomial whose trace is the upper trace."""
+def exact_quartic_components() -> tuple[Polynomial, Polynomial, Polynomial]:
+    """Return quartic Stein forcing, second metric, and Schur square."""
 
     operator = operator_series(DEGREE)
     boundary = boundary_metric_series(DEGREE)
@@ -351,6 +351,19 @@ def exact_quartic_trace_polynomial() -> Polynomial:
             prepared_metric[2],
         ),
         F,
+    )
+    return (
+        quartic_stein_forcing,
+        prepared_metric[2],
+        upper_schur_square,
+    )
+
+
+def exact_quartic_trace_polynomial() -> Polynomial:
+    """Return the state polynomial whose trace is the upper trace."""
+
+    quartic_stein_forcing, _, upper_schur_square = (
+        exact_quartic_components()
     )
     return scale(
         -4,
