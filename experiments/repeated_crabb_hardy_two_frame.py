@@ -45,11 +45,14 @@ class HardyTwoFrameRecord:
     right_isometry_error: str
     left_isometry_error: str
     maximum_shift_intertwining_error: str
+    maximum_adjoint_intertwining_error: str
+    maximum_defect_action_error: str
     maximum_hankel_cell_error: str
     maximum_earlier_hankel_cell_norm: str
     first_active_hankel_cell_error: str
     boundary_metric_pullback_error: str
     target_cell_lift_error: str
+    doubled_pencil_error: str
     all_checks_passed: bool
 
 
@@ -66,8 +69,7 @@ def analysis_rows(
         for degree in range(row_count)
     ]
     left_rows = [
-        left.conj().T
-        @ np.linalg.matrix_power(partial.conj().T, degree)
+        left.conj().T @ np.linalg.matrix_power(partial.conj().T, degree)
         for degree in range(row_count)
     ]
     return right_rows, left_rows
@@ -87,12 +89,8 @@ def boundary_metric_from_frames(
         right_weight = -(q**degree) / (1 + q**degree)
         left_weight = q**degree
         metric += (
-            right_weight
-            * right_rows[degree].conj().T
-            @ right_rows[degree]
-            + left_weight
-            * left_rows[degree].conj().T
-            @ left_rows[degree]
+            right_weight * right_rows[degree].conj().T @ right_rows[degree]
+            + left_weight * left_rows[degree].conj().T @ left_rows[degree]
         )
     return metric
 
@@ -128,6 +126,22 @@ def boundary_metric_direct(
     return metric
 
 
+def block_backward_shift(row_count: int, multiplicity: int) -> Matrix:
+    """Return the backward shift on a finite block Hardy prefix."""
+
+    shift = np.zeros(
+        (row_count * multiplicity, row_count * multiplicity),
+        dtype=complex,
+    )
+    identity = np.eye(multiplicity, dtype=complex)
+    for row in range(row_count - 1):
+        shift[
+            row * multiplicity : (row + 1) * multiplicity,
+            (row + 1) * multiplicity : (row + 2) * multiplicity,
+        ] = identity
+    return shift
+
+
 def audit_case(
     construction_kind: str,
     grade: int,
@@ -158,28 +172,98 @@ def audit_case(
         shift_error = max(
             shift_error,
             float(
-                np.linalg.norm(
-                    right_rows[degree] @ partial
-                    - right_rows[degree + 1]
-                )
+                np.linalg.norm(right_rows[degree] @ partial - right_rows[degree + 1])
             ),
             float(
                 np.linalg.norm(
-                    left_rows[degree] @ partial.conj().T
-                    - left_rows[degree + 1]
+                    left_rows[degree] @ partial.conj().T - left_rows[degree + 1]
                 )
             ),
         )
+
+    right_analysis = np.vstack(right_rows)
+    left_analysis = np.vstack(left_rows)
+    hardy_dimension = row_count * multiplicity
+    backward = block_backward_shift(row_count, multiplicity)
+    forward = backward.conj().T
+    first = np.zeros((hardy_dimension, hardy_dimension), dtype=complex)
+    first[:multiplicity, :multiplicity] = np.eye(
+        multiplicity,
+        dtype=complex,
+    )
+    hankel = right_analysis @ left_analysis.conj().T
+
+    right_adjoint = forward @ right_analysis - forward @ hankel @ first @ left_analysis
+    left_adjoint = (
+        forward @ left_analysis - forward @ hankel.conj().T @ first @ right_analysis
+    )
+    adjoint_error = max(
+        float(np.linalg.norm(right_analysis @ partial.conj().T - right_adjoint)),
+        float(np.linalg.norm(left_analysis @ partial - left_adjoint)),
+    )
+
+    defect_error = max(
+        float(
+            np.linalg.norm(right_analysis @ right_projection - first @ right_analysis)
+        ),
+        float(np.linalg.norm(left_analysis @ left_projection - first @ left_analysis)),
+        float(
+            np.linalg.norm(
+                right_analysis @ left_projection - hankel @ first @ left_analysis
+            )
+        ),
+        float(
+            np.linalg.norm(
+                left_analysis @ right_projection
+                - hankel.conj().T @ first @ right_analysis
+            )
+        ),
+    )
+
+    parameter = 0.23
+    ellipse_reverse = (
+        (identity + left_projection) @ partial.conj().T @ (identity + right_projection)
+    )
+    ellipse_pencil = partial + parameter * ellipse_reverse
+    right_right = backward + parameter * (
+        forward @ (np.eye(hardy_dimension, dtype=complex) + first)
+        + hankel @ first @ backward @ hankel.conj().T @ first
+    )
+    right_left = parameter * (-forward @ hankel @ first + hankel @ first @ backward)
+    left_right = (
+        -forward @ hankel.conj().T @ first
+        + parameter
+        * (np.eye(hardy_dimension, dtype=complex) + first)
+        @ backward
+        @ hankel.conj().T
+        @ first
+    )
+    left_left = (
+        forward
+        + parameter * (np.eye(hardy_dimension, dtype=complex) + first) @ backward
+    )
+    represented_right = right_right @ right_analysis + right_left @ left_analysis
+    represented_left = left_right @ right_analysis + left_left @ left_analysis
+    retained_rows = (row_count - 1) * multiplicity
+    pencil_error = max(
+        float(
+            np.linalg.norm(
+                (right_analysis @ ellipse_pencil - represented_right)[:retained_rows]
+            )
+        ),
+        float(
+            np.linalg.norm(
+                (left_analysis @ ellipse_pencil - represented_left)[:retained_rows]
+            )
+        ),
+    )
 
     hankel_error = 0.0
     earlier_hankel = 0.0
     for right_degree in range(row_count // 2):
         for left_degree in range(row_count // 2):
             transfer_degree = right_degree + left_degree
-            cell = (
-                right_rows[right_degree]
-                @ left_rows[left_degree].conj().T
-            )
+            cell = right_rows[right_degree] @ left_rows[left_degree].conj().T
             transfer = transfer_coefficient(
                 partial,
                 right,
@@ -203,9 +287,7 @@ def audit_case(
         left,
         grade,
     )
-    active_cell_error = float(
-        np.linalg.norm(active_cell - active_transfer.conj().T)
-    )
+    active_cell_error = float(np.linalg.norm(active_cell - active_transfer.conj().T))
 
     parameter = 0.31
     frame_metric = boundary_metric_from_frames(
@@ -222,40 +304,35 @@ def audit_case(
     )
     metric_error = float(np.linalg.norm(frame_metric - direct_metric))
 
-    first_right_orbit = (
-        right_rows[1].conj().T @ right_rows[1]
-    )
-    active_left_orbit = (
-        left_rows[grade - 1].conj().T
-        @ left_rows[grade - 1]
-    )
+    first_right_orbit = right_rows[1].conj().T @ right_rows[1]
+    active_left_orbit = left_rows[grade - 1].conj().T @ left_rows[grade - 1]
     target = (
-        first_right_orbit @ active_left_orbit
-        + active_left_orbit @ first_right_orbit
+        first_right_orbit @ active_left_orbit + active_left_orbit @ first_right_orbit
     )
-    cell_lift = (
-        right_rows[1].conj().T
-        @ active_transfer.conj().T
-        @ left_rows[grade - 1]
-    )
+    cell_lift = right_rows[1].conj().T @ active_transfer.conj().T @ left_rows[grade - 1]
     cell_lift += cell_lift.conj().T
     target_cell_lift_error = float(np.linalg.norm(target - cell_lift))
 
     tolerance = 2e-11
-    verified = max(
-        right_isometry_error,
-        left_isometry_error,
-        shift_error,
-        hankel_error,
-        earlier_hankel,
-        active_cell_error,
-        metric_error,
-        target_cell_lift_error,
-    ) < tolerance
+    verified = (
+        max(
+            right_isometry_error,
+            left_isometry_error,
+            shift_error,
+            adjoint_error,
+            defect_error,
+            hankel_error,
+            earlier_hankel,
+            active_cell_error,
+            metric_error,
+            target_cell_lift_error,
+            pencil_error,
+        )
+        < tolerance
+    )
     if not verified:
         raise RuntimeError(
-            "the two-frame audit failed: "
-            f"kind={construction_kind}, grade={grade}"
+            f"the two-frame audit failed: kind={construction_kind}, grade={grade}"
         )
     return HardyTwoFrameRecord(
         construction_kind=construction_kind,
@@ -265,11 +342,14 @@ def audit_case(
         right_isometry_error=format_float(right_isometry_error),
         left_isometry_error=format_float(left_isometry_error),
         maximum_shift_intertwining_error=format_float(shift_error),
+        maximum_adjoint_intertwining_error=format_float(adjoint_error),
+        maximum_defect_action_error=format_float(defect_error),
         maximum_hankel_cell_error=format_float(hankel_error),
         maximum_earlier_hankel_cell_norm=format_float(earlier_hankel),
         first_active_hankel_cell_error=format_float(active_cell_error),
         boundary_metric_pullback_error=format_float(metric_error),
         target_cell_lift_error=format_float(target_cell_lift_error),
+        doubled_pencil_error=format_float(pencil_error),
         all_checks_passed=verified,
     )
 
@@ -334,10 +414,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--output",
         type=Path,
-        default=Path(
-            "experiments/"
-            "repeated_crabb_hardy_two_frame_s70224.jsonl"
-        ),
+        default=Path("experiments/repeated_crabb_hardy_two_frame_s70224.jsonl"),
     )
     return parser.parse_args()
 

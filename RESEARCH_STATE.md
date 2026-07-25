@@ -22,7 +22,8 @@
   physical terminal balance, now in A196/L250's balanced output
   coordinates, A197/L251's paired analytic ports, A198/L252's cyclic
   radial quotient, A199/L253's Hardy-window energy target, and
-  A200/L254's shifted-left-Hardy complement.
+  A200/L254's shifted-left-Hardy complement, now represented
+  physically by A201/L255's doubled-Hardy pencil.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
 
@@ -65,6 +66,28 @@
   not that volume equality.
   `proof/repeated_crabb_hardy_faber_complement.md`;
   `experiments/repeated_crabb_toeplitz_window_energy.py`.
+
+## NEWEST (2026-07-25): L255 puts the physical pencil in that channel
+- The two missing Hardy intertwinings are
+  `O_RS*=L O_R−L H P_0O_L` and
+  `O_LS=L O_L−L H*P_0O_R`, with matching exact actions of `E,F`.
+- Substitution gives an exact `2 x 2` representation of the full
+  physical ellipse pencil.  Its diagonal background is precisely
+  `Xi_inf direct-sum Xi_inf*`; its off-diagonal blocks are linear in
+  the transfer Hankel cross Gram `H`; and its only diagonal
+  correction is the ordered quadratic
+  `c H P_0L*H*P_0`.
+- Thus all colligation dependence is now in the same Hankel channel
+  whose complement L254 identified, while L236's metric weights are
+  fixed and diagonal in the two frames.  No free state words or
+  one-sided transfer rows remain in the formulation.
+- The open A194 step is the universal second channel response:
+  apply the analytic functional calculus and L250 whitening to this
+  block pencil, use L244 to cancel the diagonal half-line background
+  and L243 to exclude higher reflection powers, then identify the
+  quadratic trace as `4T_BT_B*`.
+  `proof/repeated_crabb_doubled_hardy_pencil.md`;
+  `experiments/repeated_crabb_hardy_two_frame.py`.
 
 ## PREVIOUS (2026-07-25): L252 reduces the target to three radial traces
 - For `Q_j=(S*)^jS^j`, two elementary defect telescopes prove
@@ -4351,8 +4374,8 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-25)
-1. **A194/A198/A199/A200: identify the paired trace with the Hardy
-   complement.**
+1. **A194/A198--A201: evaluate the doubled-Hardy quadratic
+   channel.**
    Keep the terminal multiplier at its physical value `lambda=1`.
    Use L250's output determinant with `Z=AR^−1A*`, insert
    L243--L245's exact delayed resolvent/Green lift into `Z`, use L251
@@ -4377,6 +4400,12 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    Work in the shifted **left** frame; using the unshifted or right
    frame gives the wrong matrix identity at copy multiplicity above
    one.
+   Use L255's exact block pencil as the starting point.  Its
+   `Xi_inf direct-sum Xi_inf*` diagonal is the L244 background;
+   differentiate the analytic functional calculus only in the
+   displayed linear/quadratic Hankel blocks, then insert the result
+   into L250's scalar whitening.  L243's reflection-power filtration
+   must justify discarding channel degree above two at `c^(2k)`.
    Do not estimate the individually huge dual corner and Schur square,
    detach the doubled port (A195/L249), or assume A192's unproved
    symmetric endpoint valuation.  The face is indefinite, so do not

@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-25): after L254 / A200
+## Current general Crabb frontier (2026-07-25): after L255 / A201
 
 The accidental two-agent interval has been reconciled.  Commits
 `87c5107`, `4c7a152`, `2f82d15`, and `dcab861` form one linear history
@@ -10,8 +10,9 @@ byte-identically, and the incoming L249 artifacts were cleaned and
 independently recomputed before banking.  Resume as one agent from the
 A194 gate below through A196's balanced output form, A197's paired
 analytic ports, A198's cyclic radial quotient, A199's finite
-Hardy-window energy, and A200's shifted-left-Hardy complement; A195
-is a negative guardrail, not a second frontier.
+Hardy-window energy, A200's shifted-left-Hardy complement, and A201's
+doubled-Hardy physical pencil.  A195 is a negative guardrail, not a
+second frontier.
 
 L230--L234 close the canonical repaired endpoint through the third
 transfer flag.  Universal bounded polynomial columns cancel the cubic
@@ -177,6 +178,15 @@ double Abel transform of L201's reflected Faber Gram:
 Thus the live proof must show that physical final-row whitening
 removes the shifted left-model channel and leaves its causal
 complement.  L254 does not prove that physical identification.
+L255 puts the complete physical pencil in precisely those frames.
+Its diagonal background is `Xi_inf direct-sum Xi_inf*`, its
+off-diagonal blocks are linear in the transfer Hankel cross Gram, and
+its only diagonal correction is one ordered quadratic Hankel term.
+The metric weights are already fixed and diagonal in the same two
+frames.  Resume by taking the universal second channel response of
+this block pencil through the analytic functional calculus and L250
+whitening, using L244 on the background and L243 to exclude higher
+reflection powers.
 
 **Current live gate (A194):** prove that whitened volume coefficient
 at the physical multiplier `lambda=1`, without assuming A192's
@@ -276,6 +286,10 @@ balance.
   shifted-left-Hardy complement and double-Abel/Faber generating
   bridge; proving that L250's physical whitening realizes this
   complement remains open.
+- `proof/repeated_crabb_doubled_hardy_pencil.md` (L255) and
+  `experiments/repeated_crabb_hardy_two_frame.py`: exact doubled
+  Hardy/Hankel representation of the physical pencil; the universal
+  quadratic functional-calculus/whitening response remains open.
 - `proof/repeated_crabb_exact_metric_chart.md` (L194): analytic
   metric chart in which any all-series column construction must
   converge.
