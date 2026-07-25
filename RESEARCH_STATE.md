@@ -2,6 +2,27 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — repeated circular/elliptic merger)
 
+## NEWEST (2026-07-24): L225 reduces the delayed trace law to one slack covariance
+- L223's boundary metric has not only the upper face
+  `-4c^(2k) B_k B_k*`, but the exact lower face
+  `+c^(2k) B_k* B_k` on a fully delayed grade.
+- For the boundary metric's Stein slack, take the Schur complement
+  away from the right defect.  At grade one its second coefficient
+  has exact trace `2 ||B_1||_F^2`; the proof is an order-preserving
+  partial-isometry trace reduction.
+- If the metric is repaired to rank `m` and the lower face is
+  re-tightened, the dual orbit identity forces the repaired upper
+  trace to be `-16 ||B_k||_F^2` provided the first slack Schur trace
+  remains `2 ||B_k||_F^2`.
+- The remaining identity is now precise: on a complete delay, the
+  first slack Schur coefficient should be the embedded grade-one
+  coefficient of the deflated colligation.  This stronger matrix
+  covariance passes unstructured grades one through five, but is
+  still **numerical**, not proved.  Prove its one-delay associated-
+  graded recursion; then L222's pointwise trace sign closes.
+  `proof/repeated_crabb_boundary_slack_deflation.md`;
+  `experiments/repeated_crabb_boundary_slack_deflation.py`.
+
 ## NEWEST (2026-07-24): L224 exposes the exact partial-flag upper budget
 - Let `K_(k-1)=intersection_(j<k) ker B_j*`.  After eliminating the
   state complement and every earlier active copy direction, L219's
