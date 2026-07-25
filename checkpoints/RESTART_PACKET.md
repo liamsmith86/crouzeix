@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-24): after L237 / A182
+## Current general Crabb frontier (2026-07-24): after L238 / A183
 
 L230--L234 close the canonical repaired endpoint through the third
 transfer flag.  Universal bounded polynomial columns cancel the cubic
@@ -32,13 +32,18 @@ be targeted.  The Newton bottom edge alone also fails already at grade
 one: retain the full theta/ODE scalar coefficients inside those grouped
 sectors.  L236 identifies the boundary metric with two isometric
 Hardy frames whose cross Gram is the transfer Hankel matrix, so the
-desired anticommutator is the lift of one active Hankel cell.  L237
+  desired anticommutator is the lift of one active Hankel cell.  L237
 then eliminates every complete delay at once: the
 retained resolvent has the scalar self-energy `gamma_r F_r`, and its
 departure from the half-line Catalan fixed point begins exactly with
 `c^r/z^(2r−1)`.  The left-reflection coefficient is one in every
-grade.  The live gate is the remaining right-boundary/Schur-square
-pairing that should produce L228's anticommutator.
+grade.  L238 factors the remaining bulk on the Joukowski contour and
+compresses both endpoint corrections to a `2m x 2m` Woodbury
+scattering matrix.  Its off-diagonal blocks are the two orientations
+of the tail transfer, with all delay dependence in one scalar
+`delta_r`.  The live gate is to apply the full theta/ODE contour map,
+boundary metric, and right-defect Schur square to that bounded matrix
+and prove the multiplier giving L228's anticommutator.
 
 Standing constraints: A179 disproves raw simultaneous superposition of
 the L212 representatives; scalar shifts and positive-state
@@ -66,6 +71,9 @@ inserted into the analytic metric; and definite parity is false.
   `experiments/repeated_crabb_multidelay_terminal_resolvent.py`:
   arbitrary-delay continued-fraction resummation and its unit first
   reflected coefficient.
+- `proof/repeated_crabb_two_defect_scattering.md` (L238) and
+  `experiments/repeated_crabb_two_defect_scattering.py`: exact
+  Joukowski bulk factorization and `2m` endpoint Woodbury matrix.
 - `proof/repeated_crabb_exact_metric_chart.md` (L194): analytic
   metric chart in which any all-series column construction must
   converge.

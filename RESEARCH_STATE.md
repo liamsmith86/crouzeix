@@ -2,6 +2,27 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — repeated circular/elliptic merger)
 
+## NEWEST (2026-07-24): L238 compresses the two endpoints before expansion
+- On the Joukowski contour `z=zeta+c/zeta`, put `rho=c/zeta` and
+  `delta_r=gamma_r−rho`.  After L237's complete-delay elimination, the
+  retained denominator factors exactly as
+  `(zeta I−T)(I−rho T*)−cT*E−delta_rF`.
+- Woodbury reduces the full retained resolvent to one `2m x 2m`
+  endpoint scattering matrix.  Its off-diagonal blocks are exactly
+  `delta_r V*(zeta I−T)^−1W` and `(z/zeta)B(rho)`.  Thus the two
+  orientations of the tail transfer appear without reordering, and
+  arbitrary delay remains confined to the scalar `delta_r`.
+- Six deterministic noncommuting audits through delay six reproduce
+  the original full retained resolvent below `1.7e−15`.
+- This is an exact bounded-size normal form, not L228 itself.  The live
+  gate is now to evaluate the **full** L125 theta/ODE contour map and
+  L219 boundary metric/right-defect Schur square on this scattering
+  matrix.  That calculation must establish the scalar multiplier and
+  the final anticommutator; no further isolated free-word grade should
+  be computed.
+  `proof/repeated_crabb_two_defect_scattering.md`;
+  `experiments/repeated_crabb_two_defect_scattering.py`.
+
 ## NEWEST (2026-07-24): L237 resums every complete delay at once
 - If `B_1=...=B_r=0`, the removed left-wandering chain is the clean
   scalar Jacobi corner `L_r=N_r+c(I+F_0)N_r*`.  Eliminating the whole
@@ -3967,12 +3988,14 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    is still the intended structural route to arbitrary grade.  Determine
    whether L237's unit first-reflection coefficient, acting on L236's
    active Hankel cell, generates the right-ideal identities and
-   even-face budget observed in L230--L234.
-   The left delay chain is now resummed in every grade; prove the
-   remaining right-boundary/Schur-square pairing at the first active
-   coefficient.  The whole-series shift is disproved.  L220/L221
-   supply the exact Schur/model delay covariance, but not this final
-   physical pairing.
+   even-face budget observed in L230--L234.  L238 has compressed the
+   full deflated resolvent to a `2m x 2m` endpoint scattering matrix
+   whose off-diagonal blocks are the two transfer orientations.
+   Evaluate the full L125 theta/ODE contour coefficients and L219
+   metric/right-defect Schur square on that matrix to prove the
+   first-active pairing.  The whole-series shift is disproved.
+   L220/L221 supply exact model delay covariance, but not this final
+   physical scalar multiplier.
 3. **Prove an all-series analytic bound.**  Any recurrence must replace
    the observed column bounds `3, 27/2, 48, 181` by an explicit
    grade-`k` estimate that gives a genuine local analytic metric, not
