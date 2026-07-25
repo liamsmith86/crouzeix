@@ -2,6 +2,53 @@
 
 **Last updated:** 2026-07-24 (Epoch 6 — repeated circular/elliptic merger)
 
+## NEWEST (2026-07-24): L237 resums every complete delay at once
+- If `B_1=...=B_r=0`, the removed left-wandering chain is the clean
+  scalar Jacobi corner `L_r=N_r+c(I+F_0)N_r*`.  Eliminating the whole
+  chain gives the exact retained resolvent
+  `(zI-Xi_(r,−)-gamma_r F_r)^−1`; no noncommutative word list grows
+  with `r`.
+- The scalar self-energy is
+  `gamma_1=2c/z` and `gamma_r=c Delta_(r−1)/Delta_r`, where
+  `Delta_2=z²−2c` and
+  `Delta_j=zDelta_(j−1)−cDelta_(j−2)`.
+- Compare this with the unreflected half-line Catalan self-energy
+  `eta=(z−sqrt(z²−4c))/2`.  An exact continued-fraction induction
+  proves
+  `gamma_r−eta=c^r/z^(2r−1)+O(c^(r+1))`.
+  The first reflected endpoint coefficient is therefore exactly one
+  in every grade.  This is the first genuinely arbitrary-grade
+  recurrence on the A178 line.
+- L221's retained boundary metric has the matching factor `q^r` on
+  the promoted left orbits.  Together with L236's two-frame/Hankel
+  normal form, the live gate is now a single
+  two-boundary coefficient calculation: with the **full** L125
+  theta/ODE scalar map, pair L237's left reflection with the right
+  defect and include the Schur square to derive L228's
+  `E_1F_r+F_rE_1`.
+  `proof/repeated_crabb_multidelay_terminal_resolvent.md`;
+  `experiments/repeated_crabb_multidelay_terminal_resolvent.py`.
+
+## NEWEST (2026-07-24): L236 puts the target in two Hardy frames
+- The right and left defect-orbit analysis maps `O_R,O_L` are exact
+  isometries into vector-valued Hardy coefficient space and intertwine
+  `S,S*` with the backward shift.
+- Their cross Gram is the transfer Hankel matrix:
+  `(O_R O_L*)_(n,j)=B_(n+j)*`.  Thus a complete delay is literally a
+  zero prefix of Hankel anti-diagonals; the first active matrix block
+  is `B_k*`.
+- L219's boundary metric is exactly
+  `O_R*D_R(q)O_R+O_L*D_L(q)O_L`, with universal diagonal scalar
+  weights `D_R=diag(1,(1+q)^−1,(1+q²)^−1,...)` and
+  `D_L=diag(0,q,q²,...)`.
+- L228's proposed `E_1F_(k−1)+F_(k−1)E_1` is precisely the Hermitian
+  state-space lift of the active Hankel cell `(1,k−1)`.  The remaining
+  issue is no longer matrix ordering or target identification: it is
+  proving that the full grouped physical ellipse/Schur operation is
+  causal for these anti-diagonals and has scalar multiplier one.
+  `proof/repeated_crabb_hardy_two_frame.md`;
+  `experiments/repeated_crabb_hardy_two_frame.py`.
+
 ## NEWEST (2026-07-24): L235 isolates one delay as one terminal insertion
 - After removing the first left wandering layer, the balanced ellipse
   pencil has the exact arrowhead form
@@ -14,10 +61,15 @@
   implement L228's requested zero/one/two-crossing grouping before
   expanding any scalar Riemann coefficient.
 - The independently balanced tail pencil differs from `Xi_-` by
-  `cF_1S_1*(I+E_1)`.  Accordingly, the tempting whole-series identity
+  `cFtilde S_1*(I+Etilde)`.  Accordingly, the tempting whole-series identity
   `J*K_SJ=c²K_(S_1)` is false: eight complete-delay tests reproduce
   its leading face within `1.5e−13` but miss at the next even
   coefficient by `0.866`--`2.016`.
+- L125's Newton bottom edge is not sufficient by itself either.
+  Dropping the true scalar term `a_0(c)=1+2c²+...` leaves an exact
+  spurious `4S*S` already in the grade-one residual; the omitted
+  `2c²S` contributes precisely `−4S*S`.  Use the full theta/ODE
+  scalar recurrence inside the crossing sectors.
 - The correct remaining target is only the associated-graded
   first-active cancellation after imposing the tail delay ideal.
   Expand L125's scalar coefficients inside the grouped resolvent
@@ -3913,11 +3965,14 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
 2. **Use, rather than silently replace, A171/L228.**  The proposed
    one-delay associated-graded anticommutator identity remains open and
    is still the intended structural route to arbitrary grade.  Determine
-   whether L235's exact terminal-crossing resolvent grouping generates
-   the right-ideal identities and even-face budget observed in
-   L230--L234.  The whole-series shift is now disproved, so prove only
-   the first-active associated coefficient.  L220/L221 supply the exact
-   Schur/model delay covariance, but not this physical recursion.
+   whether L237's unit first-reflection coefficient, acting on L236's
+   active Hankel cell, generates the right-ideal identities and
+   even-face budget observed in L230--L234.
+   The left delay chain is now resummed in every grade; prove the
+   remaining right-boundary/Schur-square pairing at the first active
+   coefficient.  The whole-series shift is disproved.  L220/L221
+   supply the exact Schur/model delay covariance, but not this final
+   physical pairing.
 3. **Prove an all-series analytic bound.**  Any recurrence must replace
    the observed column bounds `3, 27/2, 48, 181` by an explicit
    grade-`k` estimate that gives a genuine local analytic metric, not

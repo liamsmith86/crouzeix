@@ -267,6 +267,34 @@ that, after the tail delay relations are imposed, the grouped
 crossing contributions in (8), together with (11), cancel through
 the first active face.
 
+There is a second false shortcut: replacing the full scalar direct
+map by only L125's Newton edge
+
+\[
+\phi_c(w)\stackrel{?}{=}\frac{w}{1+cw^2}
+=w-cw^3+c^2w^5-\cdots .
+\]
+
+Exact word reduction already fails at grade one, leaving
+\(4S^*S\) beyond L228's target.  The reason is visible without a
+high-order expansion.  The true linear scalar coefficient is
+
+\[
+a_0(c)=1+2c^2+O(c^4).
+\]
+
+The omitted \(2c^2S\) in the operator coefficient changes the
+second Stein slack by
+
+\[
+-(2S)^*S-S^*(2S)=-4S^*S,
+\]
+
+which cancels that spurious term.  Hence L125's filtration remains
+useful for organizing terms, but its bottom edge is insufficient:
+the full theta/ODE scalar coefficients are load-bearing in the
+crossing calculation.
+
 ## 6. Independent regeneration
 
 Run
@@ -289,7 +317,7 @@ implementation and the falsification claim.  The tracked SHA-256 is
 
 ## 7. Next gate
 
-Insert L125's scalar expansion only after (8).  At tail delay
+Insert L125's **full** scalar recurrence only after (8).  At tail delay
 \(\widetilde B_1=\cdots=\widetilde B_{\ell-1}=0\),
 reduce separately:
 

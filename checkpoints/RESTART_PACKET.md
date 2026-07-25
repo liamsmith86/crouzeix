@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-24): after L235 / A180
+## Current general Crabb frontier (2026-07-24): after L236 / A181
 
 L230--L234 close the canonical repaired endpoint through the third
 transfer flag.  Universal bounded polynomial columns cancel the cubic
@@ -28,7 +28,14 @@ arrowhead ellipse pencil whose retained resolvent contains all terminal
 round trips through the single insertion `2cz^−1Ftilde`, with a matching
 exact boundary-metric block formula.  The stronger whole-series tail
 shift is disproved; only the first-active associated coefficient should
-be targeted.
+be targeted.  The Newton bottom edge alone also fails already at grade
+one: retain the full theta/ODE scalar coefficients inside those grouped
+sectors.  L236 then eliminates every complete delay at once: the
+retained resolvent has the scalar self-energy `gamma_r F_r`, and its
+departure from the half-line Catalan fixed point begins exactly with
+`c^r/z^(2r−1)`.  The left-reflection coefficient is one in every
+grade.  The live gate is the remaining right-boundary/Schur-square
+pairing that should produce L228's anticommutator.
 
 Standing constraints: A179 disproves raw simultaneous superposition of
 the L212 representatives; scalar shifts and positive-state
@@ -49,6 +56,10 @@ inserted into the analytic metric; and definite parity is false.
 - `proof/repeated_crabb_one_delay_terminal_block.md` (L235) and
   `experiments/repeated_crabb_one_delay_block.py`: exact
   terminal-crossing resolvent and metric grouping for that recursion.
+- `proof/repeated_crabb_multidelay_terminal_resolvent.md` (L236) and
+  `experiments/repeated_crabb_multidelay_terminal_resolvent.py`:
+  arbitrary-delay continued-fraction resummation and its unit first
+  reflected coefficient.
 - `proof/repeated_crabb_exact_metric_chart.md` (L194): analytic
   metric chart in which any all-series column construction must
   converge.
@@ -63,7 +74,7 @@ inserted into the analytic metric; and definite parity is false.
 
 The material below preserves the chronological derivation.  Any
 embedded phrase calling an older step the “live gate” is historical
-and is superseded by the L235/A180 frontier above.
+and is superseded by the L236/A181 frontier above.
 
 L227 supplies an exact analytic contraction repair for L219's
 boundary metric.  If `H` is its Stein slack, `G=V*HV`, and
@@ -1297,12 +1308,13 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   The former deformation route was superseded by the Schwarzian proof of EL4; see
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
-## Next five concrete actions (refreshed after L235 / A180)
-1. **Extract the all-grade recursion.**  Expand L125 only after L235's
-   zero/one/two-crossing resolvent grouping and prove the first-active
-   coefficient modulo the tail delay ideal.  Relate it to the
-   partial-right-ideal preparation pattern in L230--L234.  Do not seek
-   the disproved whole-series shift or another isolated jet.
+## Next five concrete actions (refreshed after L236 / A181)
+1. **Finish the all-grade first face.**  Use L236's exact unit
+   left-reflection coefficient, the full L125 theta/ODE scalar map,
+   and L221's shifted metric to compute the one remaining
+   right-boundary/Schur-square pairing.  The target is L228's
+   `E_1F_r+F_rE_1`.  Do not seek the disproved whole-series shift,
+   use only the Newton bottom edge, or compute another isolated jet.
 2. **Prove a convergent coefficient bound.**  Replace the observed
    bounds `3, 27/2, 48, 181` by an explicit grade-`k` estimate that
    yields a local analytic L194 metric.
@@ -1316,15 +1328,17 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
 
 ## Paste-ready continuation instruction
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix`.
-Read the newest L235 section of `RESEARCH_STATE.md`, L228, L235,
-L230--L234, and A178/A180.  The cubic-through-sextic preparation chain is
+Read the newest L236 section of `RESEARCH_STATE.md`, L228, L235--L236,
+L230--L234, and A178/A180/A181.  The cubic-through-sextic preparation chain is
 proved exactly through transfer grade three, but it is explicitly
 non-inductive: no arbitrary-grade `C_k` or convergent coefficient
-bound is known.  Use L235's exact terminal-crossing resolvent grouping
-to prove L228's first-active one-delay coefficient and seek the uniform
-partial-right-ideal recurrence behind the odd cancellation, even
-transfer Gram, and Schur-budget margin.  The whole-series tail shift is
-false.
+bound is known.  L236 now gives the arbitrary-grade left-terminal
+recurrence: its first reflected coefficient is exactly one.  Pair that
+term with the right defect and Schur square, using the full scalar
+theta/ODE recurrence, to prove L228's first-active anticommutator and
+seek the uniform partial-right-ideal recurrence behind the odd
+cancellation, even transfer Gram, and Schur-budget margin.  The
+whole-series tail shift and Newton-edge-only shortcut are false.
 Do not compute another isolated grade unless it exposes that
 recurrence.  Respect A179 (no raw L212 superposition), do not use
 scalar shifts, positive-state scalarizations, or rank-dependent
