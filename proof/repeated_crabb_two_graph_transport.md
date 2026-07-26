@@ -1,5 +1,11 @@
 # Exact two-graph transport makes the preparation problem finite-jet
 
+> **Route update.**  L290 identifies one sufficient hereditary
+> state-channel invariant for the mixed pairing below.  L291 then
+> quotients every nonendpoint state motion into a bounded graph gauge
+> and shows that the exact live invariant is the factorization of the
+> complete endpoint residual itself.
+
 ## 1. Result (L289, 2026-07-26)
 
 Let \(H\) and \(\widetilde H\) be Hermitian matrices or formal

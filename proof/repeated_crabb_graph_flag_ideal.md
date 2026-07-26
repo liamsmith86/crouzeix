@@ -1,5 +1,13 @@
 # Hereditary transfer flags survive exact nonlinear Schur transport
 
+> **Route update.**  L291 subsequently proves that the hereditary
+> state form below is sufficient but stronger than necessary.  Every
+> admissible positive-interior transport is a bounded graph gauge plus
+> its literal endpoint residual, and flag zero is equivalent
+> pointwise to hereditary factorization of that endpoint residual.
+> The live A178 target is therefore the bounded endpoint factor, not
+> state-ideal membership.
+
 ## 1. Result (L290, 2026-07-26)
 
 Let \(S\) be a matrix-valued partial-isometry colligation with initial

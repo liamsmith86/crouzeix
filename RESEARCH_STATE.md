@@ -192,13 +192,45 @@
   endpoint factors `X_jB_j*+B_jY_j*`, so it vanishes on the surviving
   transfer flag despite arbitrary graph motion.  This is a
   one-sided/hereditary condition, not L285's false raw two-sided
-  ideal claim.  Extracting bounded physical representatives in that
-  hereditary class—or factoring their complete mixed-graph pairings
-  directly—and proving uniform margins through grade `L` is the live
-  gate.
+  ideal claim.  L291/A238 then proves that state heredity is stronger
+  than necessary: every positive-interior state transport is a
+  locally bounded endpoint-quotient-fixing graph congruence plus its
+  literal endpoint residual, and flag-zero endpoint residuals are
+  exactly `X[B_1 ... B_r]*+[B_1 ... B_r]X*`.  Extracting bounded
+  physical endpoint factors directly—without the pointwise
+  pseudoinverse used only to prove equivalence—and proving uniform
+  margins through grade `L` is the live gate.
   The circular-normal merger is downstream.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
+
+## NEWEST (2026-07-26): L291 removes nonendpoint state algebra from the flag debt
+- Block elimination writes every positive-interior Schur state as
+  `L_H*diag(U(H),D)L_H`.  Matching two interiors by the canonical
+  positive congruence gives
+  `Htilde=R*HR+diag(U(Htilde)−U(H),0)`, where
+  `R=[[I,0],[K,C]]` is analytic and locally bounded.
+- Thus all state motion except the literal Schur-endpoint residual is
+  an endpoint-quotient-fixing graph gauge.  The gauge cannot create a
+  rank-change singularity.
+- For `Bcal=[B_1 ... B_r]`, a Hermitian endpoint residual `Q` has
+  zero compression to the joint surviving flag exactly when
+  `Q=X Bcal*+Bcal X*`.  This is an if-and-only-if statement at each
+  fixed matrix, not merely L290's sufficient state-channel theorem.
+- **Critical scope:** the fixed-rank converse formula uses
+  `Bcal`'s Moore--Penrose inverse only to prove existence.  It may
+  blow up across rank changes and must not be inserted in the metric.
+  A178 still needs explicit bounded endpoint factors or L282's
+  bounded-energy certificate.
+- **Strategic correction:** do not require the large transported
+  metric witnesses themselves to lie in a delay word ideal.  Use
+  L285/L194 to construct admissible states, then factor only L289's
+  complete endpoint residual and retain the even direct-Gram/Schur
+  budget.
+- Ranks one through four and independently moving complex positive
+  interiors pass the normal-form, flag, and converse audits.  Dataset
+  SHA-256:
+  `c7eea10f5d4e58b25a13fe67040d671816245dc0be8b5fafccc276a61b997bb0`.
 
 ## NEWEST (2026-07-26): L290 identifies the exact nonlinear transfer-flag invariant
 - Put `D_j=ES^jF` and `B_j=W*(S*)^jV`.  Every endpoint graph from
@@ -218,11 +250,11 @@
   the channel generator must remain exposed against a graph column.
   Arbitrary words `XD_jY` need not have this property, so L290 does
   not revive the raw ideal invariance disproved by L285.
-- **Live gate:** prove that the physical arbitrary-grade L285
-  recurrence admits bounded representatives of this hereditary form,
-  or factor each complete L289 mixed-graph pairing directly in the
-  endpoint flag ideal.  L290 alone does not preserve the even direct
-  Gram/Schur budgets or prove finite-jet positivity.
+- **Live gate (narrowed by L291):** factor each complete L289
+  mixed-graph pairing directly in the endpoint flag ideal.  A
+  hereditary state representative remains sufficient, but is not a
+  required induction invariant.  L290 alone does not preserve the
+  even direct Gram/Schur budgets or prove finite-jet positivity.
 - Generic and rank-changing audits through defect multiplicity five
   pass.  Dataset SHA-256:
   `c0bd78fd90f4d1c7260cff29fb3a4c4d7bf8b10eb3497d6365bbc8061fef60a8`.
@@ -358,13 +390,13 @@
   homological solve is physical rather than bookkeeping.  Dataset
   SHA-256:
   `54dc8db20c3b301f7d75978ccb126ab75741417f531ec1db4cd87eb871d7a350`.
-- **Live gate (updated by L290):** prove that L285's endpoint target
-  has either a bounded polynomial/hereditary-channel preimage with uniform
+- **Live gate (updated by L291):** prove that L285's endpoint target
+  has either a bounded polynomial endpoint factor with uniform
   finite-jet margins through the terminal grade or a uniformly
   bounded-energy Markov preimage.  Do not compute another isolated
   grade.  L286 subsequently supplies the first such polynomial
-  preimage, through degree five only.  Raw two-sided ideal membership
-  is not enough; L290 gives the exact graph-facing sufficient form.
+  preimage, through degree five only.  Raw two-sided state-ideal
+  membership is not enough and, by L291, is not required.
 
 ## NEWEST (2026-07-25): L284 makes every existing preparation delay-normalized modulo an endpoint-null gauge
 - If `Z=Z*`, `Y=Z−S*ZS`, and
@@ -5343,7 +5375,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L290/A237)
+## Current next actions (Epoch 6, refreshed after L291/A238)
 1. **Close bounded repeated-elliptic selection.**  Use L283 as the
    exact complete-delay boundary condition and L284's endpoint-null
    normalizations as the gauge convention.  L285 already gives the
@@ -5353,16 +5385,19 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    upper motion through an earlier transfer channel.  L289 replaces
    all nonlinear endpoint bookkeeping by one mixed-graph pairing and
    proves fixed length needs only a finite jet through grade `L`.
-   L290 gives the exact sufficient invariant for its transport:
-   construct bounded physical state changes ending in exposed
-   channels `ES^jF`, or factor the complete mixed-graph pairing
-   directly as `X_jB_j*+B_jY_j*`.  Use this to state and prove the
-   arbitrary-grade parity recursion: odd homological cancellation
-   followed by an even hereditary flag motion that preserves the
-   physical direct Gram and preceding odd Schur budget.  Prove a uniform
-   positive finite-jet margin through the terminal transfer; do not
+   L290 gives an exact sufficient state invariant, while L291 proves
+   that it is stronger than necessary and quotients all nonendpoint
+   motion into a bounded graph gauge.  Factor the complete
+   mixed-graph endpoint pairing directly as
+   `X_j[B_1 ... B_r]*+[B_1 ... B_r]X_j*`.  Use this
+   to state and prove the arbitrary-grade parity recursion: odd
+   homological cancellation followed by an even hereditary flag
+   motion that preserves the physical direct Gram and preceding odd
+   Schur budget.  Prove a uniform positive finite-jet margin through
+   the terminal transfer; do not
    demand endpoint-null even gauges, infer anything from raw
-   two-sided ideal membership, or compute an isolated seventh grade.
+   two-sided state-ideal membership, insert L291's fixed-rank
+   pseudoinverse, or compute an isolated seventh grade.
 2. **Treat A178 and L282 as one selection gate.**  Use L204/L280 to
    translate any proposed polynomial successor into its Markov
    coboundary and energy, or translate an L282 flux estimate back to a
@@ -5539,12 +5574,14 @@ Current A178 transport packet:
   proof/repeated_crabb_two_graph_transport.md (L289 exact mixed-graph
   endpoint transport and finite-jet stop condition), and
   proof/repeated_crabb_graph_flag_ideal.md (L290 exact exposed-channel
-  to endpoint-flag functoriality); matching
+  to endpoint-flag functoriality), and
+  proof/repeated_crabb_endpoint_gauge_normal_form.md (L291 graph-gauge
+  quotient and pointwise endpoint-factor equivalence); matching
   regenerators use the same
-  basenames under experiments/.  Resume by placing the physical
-  L285 recurrence in L290's hereditary graph-compatible class, or by
-  factoring its L289 endpoint pairing directly; do not compute grade
-  seven.
+  basenames under experiments/.  Resume by factoring the physical
+  L285/L289 endpoint residual directly with bounded transfer factors;
+  do not force its state witnesses into an ideal, use a
+  rank-changing pseudoinverse, or compute grade seven.
 proof/ — read in this order for the current frontier:
   crabb_disk_normal_tube.md (L152 uniform disk-normal anchor),
   crabb_disk_flat_elliptic_face.md (L151 weighted raw face),
