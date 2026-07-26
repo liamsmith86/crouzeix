@@ -1,5 +1,10 @@
 # The first Markov gap is the Schur-parameter commutator Laplacian
 
+> **Route update.**  L294 subsequently proves the exact nonlinear
+> numerator/Dirichlet Cauchy--Schwarz estimate for L212's canonical
+> channel-minus-Gram target.  The remaining debt is to compare the
+> fully transported L285/L289 physical face with that target.
+
 ## 1. Result (L293, 2026-07-26)
 
 Retain L218's matrix-Schur chart for a square inner transfer near the
@@ -86,17 +91,17 @@ possible failure mode from L282: a closing Markov gap cannot have an
 uncontrolled first exponent.  Its leading square is exactly the
 simultaneous commutator defect of the first nonzero Schur jets.
 
-L293 does **not** prove L282's physical flux inequality.  The
-remaining task is now sharper:
+L293 alone does **not** prove L282's physical flux inequality.  L294
+subsequently proves it for the canonical target.  The remaining task
+is now sharper:
 
-> express the positive part of the first physical endpoint flux as
-> the active transfer amplitude paired with the same commutators in
-> (4), while retaining L279's strict negative value on their common
-> kernel.
+> prove that the first fully transported physical endpoint equals,
+> or is no larger than, L294's canonical target modulo favorable
+> Grams and prior-flag factors.
 
-If that pairing is obtained, Cauchy--Schwarz gives L282's desired
-gap-free bound.  L293 also does not replace L292's endpoint-valuation
-route; it gives the exact leading geometry of its Markov alternative.
+L294 then gives L282's desired gap-free bound.  L293 also does not
+replace L292's endpoint-valuation route; it gives the exact leading
+geometry of its Markov alternative.
 
 ## 2. First transfer jet in Schur coordinates
 
@@ -247,11 +252,13 @@ There are therefore only two cases on a hypothetical failure arc.
    Schur order.  At a fully reducing first active block, L279 gives
    the strict negative endpoint trace.
 
-What is still missing is the numerator identity connecting these two
-cases.  Merely invoking compactness would not be enough: the required
-linear commutator factor must be derived from the physical
-Riemann/Schur endpoint so that the square-root exponent in (17) is
-preserved.
+L294 subsequently supplies the exact numerator identity for L212's
+canonical target, at full amplitude rather than only in this first
+jet.  What is still missing is the physical comparison: the
+L285/L289 transported endpoint must equal or lie below that target
+modulo already favorable terms.  Merely invoking compactness would
+not prove this comparison, and A179 forbids raw all-series
+superposition.
 
 ## 6. Exact regeneration
 

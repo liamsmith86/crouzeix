@@ -206,12 +206,45 @@
   equivalent L282 route: in L218's independent matrix-Schur
   coordinates, the first Markov gap is exactly the simultaneous
   commutator Laplacian of the first Schur jets.  Its exponent and
-  square root are therefore controlled.  The unique live step on
-  that route is to factor the positive physical endpoint flux through
-  the active transfer amplitude and those same commutators.
+  square root are therefore controlled.  L294/A241 now supplies the
+  exact nonlinear numerator pairing for L212's canonical
+  channel-minus-Gram target and proves L282 with constant `28`,
+  including flags.  The unique live step is no longer a spectral-gap
+  or numerator estimate: identify or dominate L285/L289's complete
+  transported physical face by that canonical target modulo favorable
+  Grams and prior-flag factors.
   The circular-normal merger is downstream.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
+
+## NEWEST (2026-07-26): L294 closes the gap-free energy estimate for the canonical physical target
+- Put `A_Y=Phi*(Y)` and
+  `G_k=Phi(B_k*B_k)−B_kB_k*`.  Channel adjointness gives the exact
+  scalar pairing
+  `<Y,G_k>=−Re tr B_k*(YB_k−B_kA_Y)`.
+- L280's Dirichlet form is the sum over all grades of the squared
+  defects `||YB_n−B_nA_Y||²`.  One Cauchy--Schwarz step therefore
+  gives
+  `|<Y,G_k>|<=||B_k|| sqrt(<Y,(I−Phi Phi*)Y>)`
+  with no inverse or spectral-gap constant.
+- The flagged version uses
+  `G_(k,P)=P{Phi(B_k*PB_k)−B_kB_k*}P` and replaces `B_k` by
+  `PB_k`; this is exactly L282's quantitative inequality.
+- Consequently L212's canonical candidate
+  `12B_kB_k*−28Phi(B_k*B_k)
+   =−16B_kB_k*−28G_k`
+  satisfies L282 with constant `28`, and L212's explicit response
+  changes it exactly to the favorable Gram `−16B_kB_k*`.
+- **Critical scope:** this does not prove the fully transported
+  physical face is the canonical candidate.  L212 stated that
+  identity conditionally, and A179 disproves raw simultaneous
+  superposition.  The live theorem is now the physical comparison
+  after L285/L289 mixed-graph transport, not another range,
+  pseudoinverse, or spectral-gap estimate.
+- Exact full and flagged pairings, Dirichlet identities, positive-face
+  cases, and correction residuals pass in multiplicities two through
+  four.  Dataset SHA-256:
+  `1ea9886ad59dc1c0facfa93f43cc17b00a67db57c67a512cceca9621b5fa8110`.
 
 ## NEWEST (2026-07-26): L293 identifies the exact first Markov gap in Schur coordinates
 - Right-normalize L218's transfer so its terminal unitary is `I` and
@@ -230,11 +263,10 @@
   has a fixed quadratic exponent and kernel equal to their common
   commutant.  L281's physical state-column norm has exactly twice
   this energy.
-- **Live numerator gate:** derive the positive part of L282's
-  physical endpoint pairing as active transfer amplitude times these
-  commutators.  Cauchy--Schwarz would then prove the gap-free energy
-  bound; on the common commutant L279 already supplies the strict
-  negative trace.  L293 does not prove this pairing.
+- L294 subsequently proves the exact nonlinear numerator pairing and
+  Cauchy--Schwarz bound for L212's canonical channel-minus-Gram
+  target.  What remains is to compare the fully transported physical
+  face with that target; L293 alone does not provide that comparison.
 - The exact all-basis checker passes in lengths three through five,
   multiplicities two and three.  Dataset SHA-256:
   `2e5c20fabc9fed72a752a802cee12374e751327585144afb04883b93f6a17059`.
@@ -5438,7 +5470,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L293/A240)
+## Current next actions (Epoch 6, refreshed after L294/A241)
 1. **Close bounded repeated-elliptic selection.**  Use L283 as the
    exact complete-delay boundary condition and L284's endpoint-null
    normalizations as the gauge convention.  L285 already gives the
@@ -5462,15 +5494,15 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    demand endpoint-null even gauges, infer anything from raw
    two-sided state-ideal membership, insert L291's fixed-rank
    pseudoinverse, or compute an isolated seventh grade.
-2. **Use L293 to attack the same gate without a pseudoinverse.**
-   In L218's Schur coordinates, derive the first positive physical
-   endpoint pairing as `active transfer × commutator`.  L293 proves
-   that the matching L282 denominator is exactly the squared norm of
-   those commutators; L279 handles their common kernel.  If this
-   factorization holds, apply Cauchy--Schwarz and translate the
-   bounded energy back to L281's physical state column.  A failure
-   must be logged against L292's Smith valuation obstruction rather
-   than hidden by a compactness or pseudoinverse argument.
+2. **Prove the physical comparison with L294's canonical target.**
+   L294 already gives the exact all-amplitude numerator pairing and
+   L282 bound for
+   `12B_kB_k*−28Phi(B_k*B_k)`, including flags; do not re-estimate a
+   Markov eigenvalue or commutator.  Use L285's triangular transport
+   and L289's complete mixed-graph endpoint to show each first
+   physical face equals this target, or is no larger modulo favorable
+   Grams and prior-flag factors.  A failure must be logged against
+   L292's Smith valuations and A179's false raw superposition.
 3. **Only after selection closes, finish the repeated
    circular-normal/elliptic merger.**  Derive L199's later
    Schur-orthogonal normal response and avoid spending the same disk
@@ -5649,11 +5681,14 @@ Current A178 transport packet:
   arcwise Smith-valuation criterion and pointwise-only
   obstructions), and
   proof/repeated_crabb_schur_markov_laplacian.md (L293 exact
-  Schur-jet commutator form of the alternative Markov gap); matching
+  Schur-jet commutator form of the alternative Markov gap), and
+  proof/repeated_crabb_canonical_flux_inequality.md (L294 exact
+  canonical flux/Dirichlet pairing and flagged L282 bound); matching
   regenerators use the same
-  basenames under experiments/.  Resume by deriving L293's physical
-  flux numerator pairing (or equivalently L292's valuations) for the
-  L285/L289 endpoint residual; do not force state witnesses into an
+  basenames under experiments/.  Resume by comparing L285/L289's
+  complete physical endpoint with L294's canonical target (or
+  equivalently proving L292's valuations); do not force state
+  witnesses into an
   ideal, use a rank-changing pseudoinverse, confuse pointwise flag
   zero with bounded divisibility, or compute grade seven.
 proof/ — read in this order for the current frontier:
