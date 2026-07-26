@@ -172,11 +172,46 @@
   obstruction that the next even metric coefficient cannot generally
   be made endpoint-null.  The live rule must alternate odd
   homological cancellation with control of a nonzero even physical
-  face.  Extracting and bounding that parity recursion is the live
-  gate.  The
+  face.  L288/A235 now solves that finite even successor under the
+  correct weaker condition: the recomputed sextic column is
+  triple-delay divisible, and its complete upper-endpoint motion,
+  including the nonlinear quartic Schur cross, factors through
+  `ESF`.  It therefore vanishes on the surviving partial flag and
+  leaves L234's effective sextic budget unchanged.  The nonlinear
+  lower Schur coefficient is not globally invariant, and the
+  coefficient bound `1021/2` is not a summable majorant.  Extracting
+  and bounding this odd-null/even-flag-ideal parity recursion in
+  arbitrary grade is the live gate.  The
   circular-normal merger is downstream.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
+
+## NEWEST (2026-07-26): L288 transports the trace-carrying sextic face through the surviving flag
+- Keep L287's nonzero even trace rather than trying to erase it.  An
+  explicit 141-word Hermitian witness (`l1=881/2`) and 116-word
+  perpendicular correction (`l1=261`) solve the transported sextic
+  Stein equation exactly.
+- With L287's 40-word parallel correction, the recomputed 142-word
+  sextic lift has coefficient bound `1021/2` and lies in the
+  triple-delay ideal.  It vanishes when `B_1=B_2=B_3=0`.
+- The raw metric corner is not enough to test L234.  After adding the
+  first nonlinear quartic Schur cross, the complete sixth upper
+  change is a 40-word polynomial (`l1=96`) with the exact
+  factorization `A_1(ESF)+(A_1ESF)*`; `A_1` has ten words and
+  `l1=24`.  Hence the motion vanishes already on `ker B_1*`, and
+  L234's direct and effective sextic faces survive unchanged on
+  `ker B_1* intersect ker B_2*`.
+- **Scope guard:** the separately recomputed nonlinear lower Schur
+  coefficient is not globally unchanged at order six.  L288 is a
+  Stein/upper-flag transport certificate, not global two-endpoint
+  invariance, an arbitrary-grade parity theorem, or a summable
+  convergence bound.  Translate any final selection through L194's
+  exact lower-tight chart.
+- Exact residuals are zero.  The tracked audit covers unstructured,
+  rank-changing multiplicities three through five, and triple-delay
+  samples; an additional 35-case stress pass succeeded.  Dataset
+  SHA-256:
+  `aaf15d56428af913f025be1d0132d256b72a892907f6f69bdba8881781a5dfa1`.
 
 ## NEWEST (2026-07-25): L287 proves endpoint-null transport must stop at the next even face
 - Recompute the sextic forcing from both L286 factor changes and both
@@ -5235,17 +5270,19 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L287/A234)
+## Current next actions (Epoch 6, refreshed after L288/A235)
 1. **Close bounded repeated-elliptic selection.**  Use L283 as the
    exact complete-delay boundary condition and L284's endpoint-null
    normalizations as the gauge convention.  L285 already gives the
    exact transport recurrence, L286 solves its first odd successor,
-   and L287 proves the next even coefficient has unavoidable trace.
-   State the parity recursion: odd homological cancellation followed
-   by an even effective face containing transported metric response,
-   direct transfer Gram, and preceding odd Schur cost.  Prove a
-   uniform positive margin and coefficient majorant; do not demand
-   endpoint-null even gauges or compute another isolated grade.
+   L287 proves the next even coefficient has unavoidable trace, and
+   L288 solves that finite even successor by factoring its complete
+   upper motion through an earlier transfer channel.  State and prove
+   the arbitrary-grade parity recursion: odd homological cancellation
+   followed by an even flag-ideal motion that preserves the physical
+   direct Gram and preceding odd Schur budget.  Prove a uniform
+   positive margin and summable coefficient majorant; do not demand
+   endpoint-null even gauges or compute an isolated seventh grade.
 2. **Treat A178 and L282 as one selection gate.**  Use L204/L280 to
    translate any proposed polynomial successor into its Markov
    coboundary and energy, or translate an L282 flux estimate back to a
@@ -5411,7 +5448,16 @@ terminal edge independently of the physical theta/metric balance
 theta/coisometric cancellation (A206).
 Keep committing+pushing after each task (user instruction).
 
-## Files map (handoff-ready, refreshed 2026-07-25)
+## Files map (handoff-ready, refreshed 2026-07-26)
+Current A178 transport packet:
+  proof/repeated_crabb_gauge_transport_homology.md (L285 recurrence),
+  proof/repeated_crabb_first_gauge_transport.md (L286 odd successor),
+  proof/repeated_crabb_sextic_transport_trace_obstruction.md
+  (L287 global-null obstruction), and
+  proof/repeated_crabb_second_gauge_transport.md (L288 correct
+  flag-preserving even successor); matching regenerators use the same
+  basenames under experiments/.  Resume from L288's
+  odd-null/even-flag-ideal pattern, not by computing grade seven.
 proof/ — read in this order for the current frontier:
   crabb_disk_normal_tube.md (L152 uniform disk-normal anchor),
   crabb_disk_flat_elliptic_face.md (L151 weighted raw face),
