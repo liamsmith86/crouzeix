@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-26): after L302 / A249
+## Current general Crabb frontier (2026-07-26): after L303 / A250
 
 The accidental two-agent interval has been reconciled.  Commits
 `87c5107`, `4c7a152`, `2f82d15`, and `dcab861` form one linear history
@@ -15,9 +15,13 @@ and banked as L272/A219.  A second single-agent reconciliation through
 L287/A234 found no stopped-agent artifact, branch, staged overlap, or
 competing next-action instruction.  L288/A235, L289/A236,
 L290/A237, L291/A238, L292/A239, L293/A240, L294/A241,
-L295/A242, L296/A243, L297/A244, L298/A245, L299/A246, and
-L300/A247, L301/A248, and L302/A249 were
+L295/A242, L296/A243, L297/A244, L298/A245, L299/A246,
+L300/A247, L301/A248, L302/A249, and L303/A250 were
 then derived, audited, and documented by the sole active agent.
+The L303 checkpoint repeated the concurrency audit: all four handoff
+commits are ancestors of the single `master`, one worktree exists, no
+staging/branch conflict exists, the L248/L249 hashes remain
+byte-identical, and only the explicitly scoped L303 files were live.
 Resume as one agent from the
 bounded repeated-elliptic selection gate below.  The now-completed
 A194 route
@@ -159,9 +163,20 @@ relative grade-one response, and A203/L257 turns its transport into
   lower-tight.  The compulsory parallel lower neutralization leaves
   the prior-flag upper cost
   `(9/4)B_1B_1*+(7/4)(B_1B_1*)²`, which vanishes on `ker B_1*`.
-  The live lower-tight debt is now a gap-free ordered-flag/Smith
-  response bound plus L289's complete moving-graph quartic assembly,
-  followed by transport through the finite active transfer flag.
+  L303/A250 now assembles **all** moving-Schur crosses at a fixed
+  partial scale `0<theta<1`.  Before quartic lower neutralization the
+  complete endpoint differences begin
+  `(-theta B_1*B_1,+4theta B_1B_1*)c²`; after adding its exact
+  quartic parallel correction, the upper quartic cost is
+  `−(8theta+4theta²)L−(8theta−4theta²)L²`.  This is supported on the
+  already active range and is dominated by the quadratic gain for
+  `|c|<=1/2`, while the lower face retains
+  `(1−theta)c²B_1*B_1`.  Fix `theta=1/2`; `theta=1` is only a
+  lower-tight associated-graded limit.  The live debt is now a
+  gap-free analytic response/Smith bound through rank changes,
+  followed by transport of that fixed partial-scale mechanism through
+  the finite active transfer flag.  Do not redo the complete quartic
+  graph assembly.
   On the raw
   route, retain its lower budget, split off L283's
   favorable `−12` Gram, and derive a flux pairing only for the mixed
@@ -919,6 +934,15 @@ before their theta/coisometric cancellation.
   exact cyclic-word certificate plus unstructured, rank-changing,
   delayed, and nonscalar reducing-weight audits; tracked data hash
   `c8e3b4edfadcb95d8d313f20e3d1056865983df8f51ac254d1d9974d524a6816`.
+- `proof/repeated_crabb_retightening_full_quartic.md` (L303/A250):
+  exact complete moving-Schur endpoint differences at arbitrary
+  retightening scale, partial-scale lower/upper margins, and the
+  warning that `theta=1` is only an associated-graded limit.
+- `experiments/repeated_crabb_retightening_full_quartic.py`: exact
+  degree-two-in-`theta` word certificate plus full unstructured,
+  rank-changing, delayed, and nonscalar reducing-weight Schur-series
+  audits; tracked data hash
+  `7e8cd50fbcb95d99866089c89a0d9b0b684bc32403fa153ae3c822628d8c41d0`.
 - `experiments/repeated_crabb_markov_response.py`: arbitrary
   multiplier, bistochastic, summed-response, Dirichlet, observability-
   preimage, state-energy, polarized-collapse, and repeated-apex
@@ -2172,40 +2196,28 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   The former deformation route was superseded by the Schwarzian proof of EL4; see
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
-## Next five concrete actions (refreshed after L302 / A249)
-1. Use L285--L299 to prove the arbitrary-grade parity recursion in
-   the mixed graph coordinate: solve removable odd endpoint homology,
-   then factor each complete physical endpoint pairing directly as
-   `X_j[B_1 ... B_r]*+[B_1 ... B_r]X_j*`.  L291 makes state-level
-   ideal membership unnecessary, and L292 says boundedness is exactly
-   the finite Smith-valuation list along every L197 arc.  Derive
-   those valuations from the physical arbitrary-grade recurrence,
-   preserve the even direct Gram and prior Schur budget, and prove a
-   uniform positive finite-jet margin through terminal grade `L`.
-   Do not demand endpoint-null even gauges, infinite summability, raw
-   state-ideal invariance, a rank-changing pseudoinverse, pointwise
-   flag zero alone, or an isolated seventh grade.  L282 remains the
-   bounded-energy certificate language.
-2. Bound and assemble the two-ended quartic response.
-   L300 already gives the gap-free cubic response bound and L301
-   transports any selected cubic representative one moving order
-   without a Markov gap.  L302 has now computed both endpoint classes:
-   upper quotient
-   `P_4=(15/4)B_1B_1*+(1/2)(B_1B_1*)²` and lower corner
-   `K_4=6B_1*B_1+(9/4)(B_1*B_1)²`.  Parallel lower neutralization
-   leaves only the prior-flag upper cost
-   `(9/4)B_1B_1*+(7/4)(B_1B_1*)²`.
-   Do not recompute these invariants, redo the cubic range solve,
-   force a scalar multiple of L230's column, or call `−P_4` alone
-   lower-tight.  Prove a direct L281/L292 bound for the
-   lower-neutral response and assemble the complete moving Schur
-   endpoint with L289.  Only then lift the mechanism to an all-series
-   recurrence.  If that
-   ordered homology bound fails, return to the raw normalization:
-   retain its lower budget, split off L283's
-   `−12B_kB_k*`, discard bounded prior-flag factors, and use L296 on
-   the surviving polarization columns with total energy
-   `O(||U*B_k||²)`.  Do not mix endpoint ledgers.
+## Next five concrete actions (refreshed after L303 / A250)
+1. Fix `theta=1/2` and prove a uniformly bounded analytic
+   perpendicular column for L303's already assembled quartic response
+   congruences through rank changes.  Pair the full residual with
+   L281's observability defect and bound its numerator by the retained
+   transfer amplitude; equivalently prove L292's Smith valuations on
+   every L197 failure arc.  Reuse L300--L301.  Do not recompute
+   L302's invariant, omit L303's nonlinear Schur squares, use L291's
+   pointwise pseudoinverse, or infer bounded divisibility from
+   pointwise prior-flag zero.
+2. Once item 1 closes, lift the fixed partial-scale mechanism to the
+   arbitrary-grade mixed graph recurrence.  Use L283's complete-delay
+   boundary, L285's triangular transport, L289's finite-jet
+   sufficiency, L290's hereditary endpoint factors, and L292's
+   valuation test.  Preserve the retained lower budget and quadratic
+   upper gain, and prove a uniform positive margin through terminal
+   grade `L`.  Do not demand exact lower-tightness, endpoint-null even
+   gauges, infinite summability, raw state-ideal invariance, or an
+   isolated seventh grade.  If the partial-scale bound fails, return
+   to the raw normalization and apply L296 only after separating
+   favorable Grams and bounded prior-flag factors; do not mix endpoint
+   ledgers.
 3. After bounded elliptic selection closes, derive the later
    Schur-orthogonal circular-normal response and merge the branches
    without spending the same disk Gram twice.
@@ -2245,9 +2257,9 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    not compute another isolated grade.  Then finish the
    normal/elliptic merger, retaining the full CP route as fallback.
 
-## Paste-ready continuation instruction (current after L302/A249)
+## Paste-ready continuation instruction (current after L303/A250)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix` as
-the sole repository-writing agent.  Read L197, L220, L227, L283--L302,
+the sole repository-writing agent.  Read L197, L220, L227, L283--L303,
 plus the newest `RESEARCH_STATE.md` section.  L277--L279 have proved
 every lower delayed face, the active `+4||B_k||²` volume coefficient,
 the `+2||B_k||²` dual-Schur trace, and the
@@ -2328,11 +2340,17 @@ is `(15/4)B_1B_1*+(1/2)(B_1B_1*)²`, but its lower corner is
 calling the attractive upper sign lower-tight.  Parallel lower
 neutralization leaves the prior-flag upper cost
 `(9/4)B_1B_1*+(7/4)(B_1B_1*)²`, zero on `ker B_1*`.  Do not
-recompute these invariants.  Prove a gap-free L281/L292 ordered
-response bound through rank changes and assemble L289's full moving
-Schur endpoint before addressing the later sextic self-cost or
-all-series recurrence.  Do not mix
-endpoint ledgers, assume A179's false
+recompute these invariants.  L303 now assembles every nonlinear
+moving-Schur cross at scale `theta` and proves that any fixed
+`0<theta<1` is pointwise safe through quartic order after the exact
+quartic lower neutralizer.  Fix `theta=1/2`: its retained lower
+quadratic margin and upper quadratic gain dominate the quartic
+cost.  Do not use `theta=1` as though exact lower-tightness were
+already safe at higher orders.  Prove only a gap-free L281/L292
+analytic response bound for L303's two congruences through rank
+changes, then lift the fixed partial-scale mechanism through the
+finite transfer flag.  L289's complete quartic graph assembly is
+done.  Do not mix endpoint ledgers, assume A179's false
 raw superposition, retry the no-extra-correction shortcut, or
 re-estimate the Markov gap.
 If that effective-route factorization fails, retain the raw lower

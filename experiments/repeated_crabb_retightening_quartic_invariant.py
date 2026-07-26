@@ -103,6 +103,37 @@ class QuarticInvariantRecord:
     all_checks_passed: bool
 
 
+@dataclass(frozen=True)
+class ExactQuarticComponents:
+    """Reusable exact polynomials behind L302's certificate."""
+
+    metric: Polynomial
+    frame: Polynomial
+    cubic: Polynomial
+    effective_upper_trace_lift: Polynomial
+    lower_corner: Polynomial
+    metric_stein_residual: Polynomial
+    cubic_hermitian_residual: Polynomial
+    dual_telescope_residual: Polynomial
+
+
+@dataclass(frozen=True)
+class NumericalQuarticComponents:
+    """Reusable numerical components of L302's representative."""
+
+    base_metric: list[Matrix]
+    equality_metric: Matrix
+    metric_two: Matrix
+    metric_three: Matrix
+    metric_four: Matrix
+    metric_four_quadratic: Matrix
+    endpoint: Matrix
+    lower_corner: Matrix
+    first_transfer: Matrix
+    cubic_norm: float
+    factor_error: float
+
+
 def finite_stein_sum(
     forcing: Polynomial,
     maximum_steps: int = 8,
@@ -150,8 +181,8 @@ def retightening_frame_lift() -> Polynomial:
 
 
 @lru_cache(maxsize=1)
-def exact_certificate() -> tuple[int, int, int, int, int]:
-    """Return exact residual counts for the quartic trace certificate."""
+def exact_quartic_components() -> ExactQuarticComponents:
+    """Return the exact reusable two-ended quartic components."""
 
     operator = operator_series(DEGREE)
     canonical_factor = exact_canonical_factor_lifts(DEGREE)
@@ -222,30 +253,6 @@ def exact_certificate() -> tuple[int, int, int, int, int]:
         finite_quartic,
         multiply(cubic, dual_solution),
     )
-    first_left_gram = left_gram_lift()
-    predicted_left_lift = add(
-        scale(Fraction(15, 4), first_left_gram),
-        scale(
-            Fraction(1, 2),
-            multiply(first_left_gram, first_left_gram),
-        ),
-    )
-    cyclic_residual = cyclic_trace_classes(
-        add(
-            effective_trace_lift,
-            scale(-1, predicted_left_lift),
-        )
-    )
-    first_right_gram = multiply(
-        multiply(
-            multiply(
-                multiply(E, S),
-                F,
-            ),
-            STAR,
-        ),
-        E,
-    )
     lower_corner = scale(
         -1,
         multiply(
@@ -278,6 +285,47 @@ def exact_certificate() -> tuple[int, int, int, int, int]:
             E,
         ),
     )
+    return ExactQuarticComponents(
+        metric=metric,
+        frame=frame,
+        cubic=cubic,
+        effective_upper_trace_lift=effective_trace_lift,
+        lower_corner=lower_corner,
+        metric_stein_residual=metric_stein_residual,
+        cubic_hermitian_residual=cubic_hermitian_residual,
+        dual_telescope_residual=dual_residual,
+    )
+
+
+@lru_cache(maxsize=1)
+def exact_certificate() -> tuple[int, int, int, int, int]:
+    """Return exact residual counts for the quartic trace certificate."""
+
+    components = exact_quartic_components()
+    first_left_gram = left_gram_lift()
+    predicted_left_lift = add(
+        scale(Fraction(15, 4), first_left_gram),
+        scale(
+            Fraction(1, 2),
+            multiply(first_left_gram, first_left_gram),
+        ),
+    )
+    cyclic_residual = cyclic_trace_classes(
+        add(
+            components.effective_upper_trace_lift,
+            scale(-1, predicted_left_lift),
+        )
+    )
+    first_right_gram = multiply(
+        multiply(
+            multiply(
+                multiply(E, S),
+                F,
+            ),
+            STAR,
+        ),
+        E,
+    )
     predicted_lower_corner = add(
         scale(6, first_right_gram),
         scale(
@@ -286,30 +334,32 @@ def exact_certificate() -> tuple[int, int, int, int, int]:
         ),
     )
     lower_corner_residual = add(
-        lower_corner,
+        components.lower_corner,
         scale(-1, predicted_lower_corner),
     )
     return (
-        len(metric_stein_residual),
-        len(cubic_hermitian_residual),
-        len(dual_residual),
+        len(components.metric_stein_residual),
+        len(components.cubic_hermitian_residual),
+        len(components.dual_telescope_residual),
         len(cyclic_residual),
         len(lower_corner_residual),
     )
 
 
-def quartic_endpoint(
+def numerical_quartic_components(
     partial: Matrix,
     right: Matrix,
     left: Matrix,
-) -> tuple[Matrix, Matrix, Matrix, float, float]:
-    """Return the retained quartic endpoint and its first transfer."""
+) -> NumericalQuarticComponents:
+    """Return all numerical components of L302's representative."""
 
-    _, slack, operator, _ = canonical_metric_slack_and_operator(
-        partial,
-        right,
-        left,
-        DEGREE,
+    base_metric, slack, operator, equality_metric = (
+        canonical_metric_slack_and_operator(
+            partial,
+            right,
+            left,
+            DEGREE,
+        )
     )
     canonical_factor, factor_error = canonical_factor_series(
         slack,
@@ -321,41 +371,73 @@ def quartic_endpoint(
         left,
         1,
     )
-    metric = direction.metric
+    direction_metric = direction.metric
     frame = direction.frame
 
     cubic = -(
-        operator[1].conj().T @ metric @ partial
-        + partial.conj().T @ metric @ operator[1]
+        operator[1].conj().T @ direction_metric @ partial
+        + partial.conj().T @ direction_metric @ operator[1]
         + canonical_factor[1] @ frame.conj().T
         + frame @ canonical_factor[1].conj().T
     )
     cubic_metric = -stein_inverse(partial, cubic)
     quartic = -(
-        operator[2].conj().T @ metric @ partial
-        + partial.conj().T @ metric @ operator[2]
-        + operator[1].conj().T @ metric @ operator[1]
+        operator[2].conj().T @ direction_metric @ partial
+        + partial.conj().T @ direction_metric @ operator[2]
+        + operator[1].conj().T @ direction_metric @ operator[1]
         + canonical_factor[2] @ frame.conj().T
         + frame @ canonical_factor[2].conj().T
         + frame @ frame.conj().T
         + operator[1].conj().T @ cubic_metric @ partial
         + partial.conj().T @ cubic_metric @ operator[1]
     )
+    quartic_green = stein_inverse(partial, quartic)
+    quartic_quadratic_metric = stein_inverse(
+        partial,
+        frame @ frame.conj().T,
+    )
     endpoint = (
         left.conj().T
-        @ stein_inverse(partial, quartic)
+        @ quartic_green
         @ left
     )
     endpoint = (endpoint + endpoint.conj().T) / 2
     lower_corner = right.conj().T @ quartic @ right
     lower_corner = (lower_corner + lower_corner.conj().T) / 2
     first = transfer_coefficient(partial, right, left, 1)
+    return NumericalQuarticComponents(
+        base_metric=base_metric,
+        equality_metric=equality_metric,
+        metric_two=direction_metric,
+        metric_three=cubic_metric,
+        metric_four=-quartic_green,
+        metric_four_quadratic=quartic_quadratic_metric,
+        endpoint=endpoint,
+        lower_corner=lower_corner,
+        first_transfer=first,
+        cubic_norm=float(np.linalg.norm(cubic)),
+        factor_error=factor_error,
+    )
+
+
+def quartic_endpoint(
+    partial: Matrix,
+    right: Matrix,
+    left: Matrix,
+) -> tuple[Matrix, Matrix, Matrix, float, float]:
+    """Return the retained quartic endpoint and its first transfer."""
+
+    components = numerical_quartic_components(
+        partial,
+        right,
+        left,
+    )
     return (
-        endpoint,
-        lower_corner,
-        first,
-        float(np.linalg.norm(cubic)),
-        factor_error,
+        components.endpoint,
+        components.lower_corner,
+        components.first_transfer,
+        components.cubic_norm,
+        components.factor_error,
     )
 
 

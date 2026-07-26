@@ -138,15 +138,17 @@ on the next surviving upper flag after its lower endpoint is restored.
 On the already active \(B\)-range it is a higher-order cost beneath
 the strict quadratic margin.
 
-L302 closes the quartic **two-ended pointwise homology class**.  It
-does not yet:
+L302 closes the quartic **two-ended pointwise homology class**.  By
+itself it does not:
 
 1. supply a uniformly bounded analytic column realizing (10) and
    (12) through rank changes; or
 2. combine this Stein-response signature with every nonlinear
    moving Schur-graph term in the complete metric endpoint.
 
-Those are the next ordered-flag/Smith and mixed-graph gates.  In
+L303 subsequently closes item 2, at a fixed partial retightening
+scale, and proves compatible complete lower/upper margins.  Item 1 is
+the remaining ordered-flag/Smith gate.  In
 particular, (7) alone must not be advertised as a completed
 lower-tight quartic correction.
 
