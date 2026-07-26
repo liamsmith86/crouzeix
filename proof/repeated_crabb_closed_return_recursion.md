@@ -130,9 +130,10 @@ far fewer than the pre-renewal mass expansions.
 
 The repeated form (5) is a strong guide, not an induction.  An
 all-grade proof must derive (5) from L243's zero/one-kernel sectors
-and L251/L258's paired renewal, and must prove the two scalar moment
-identities making \(P_k\) trace-zero.  Computing more grades would not
-close that step.
+and L251/L258's paired renewal.  L270 subsequently proved that the
+exact monomial axes force the two scalar moment identities once (5)
+is known, so the remaining gate is the structural decomposition
+itself.  Computing more grades would not close that step.
 
 ## 5. Exact regeneration
 

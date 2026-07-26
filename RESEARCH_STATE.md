@@ -70,8 +70,39 @@
   `G_k−SG_kS*` with zero delayed trace.  The all-grade target is
   therefore a shallow L266 return **plus** explicitly trace-null deep
   Stein divergences, not a wholly shallow operator face.
+  L270/A217 removes the separate radial-coefficient calculation:
+  conditional on L269's structural normal form, arbitrarily long
+  exact monomial axes force `p_k(1)=0` and `p_k'(1)=−1`; L252 then
+  proves complete one-delay trace covariance for every multiplicity.
+  The sole live A194 gate on this route is now to derive that normal
+  form, including its lower vanishings, in arbitrary grade from
+  L243/L251/L258.  The finite grade-`2..5` pattern is still not an
+  induction.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
+
+## NEWEST (2026-07-25): L270 forces the radial moments from exact axes
+- Assume L269's proposed full-minus-tail face
+  `Delta_k=P_k(Q_0,...,Q_k)+R_2−R_1+G_k−SG_kS*`, with
+  `G_k=S(S*)^(k+2)S^(k+2)S*`.  The deep pair has zero trace in every
+  grade because its boundary flux is
+  `||S^(k+2)S*V||_F²=0`; this follows from `S²S*V=0`.
+- On arbitrarily long scalar monomial shifts, L241 makes the physical
+  boundary metric agree with the exact zero-residual axis through the
+  requested face, while L247 says active-edge deletion has zero trace
+  response because `B_k=0`.  Hence
+  `n p_k(1)−p_k'(1)−1=0` for every sufficiently large `n`, forcing
+  `p_k(1)=0` and `p_k'(1)=−1`.
+- Under a general complete matrix delay, L252 then gives
+  `tr P_k=m`, the fixed `R_2−R_1` pair gives `−m`, and the deep
+  divergence gives zero.  Thus the structural normal form alone
+  implies exact scalar one-delay covariance; no formula for its
+  irregular radial coefficients is needed.
+- This is a conditional reduction, not A194: the normal form is proved
+  only at grade two and audited through grade five.  Resume by proving
+  its support/decomposition and all lower vanishings directly, not by
+  computing more grades.
+  `proof/repeated_crabb_radial_moment_forcing.md`.
 
 ## NEWEST (2026-07-25): L256 proves the universal relative base
 - At relative grade one, deleting the active `c²` metric coefficient
@@ -4695,7 +4726,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-25)
-1. **A194/A213/A216: derive the shallow-plus-deep-divergence one-delay recursion.**
+1. **A194/A213/A216/A217: prove the all-grade structural normal form.**
    L267's abstract lossless identity remains valid, but L268 proves
    that a single analytic port carrying only the deflated tail defect
    cannot reproduce the physical associated face: equal traces hide
@@ -4709,8 +4740,12 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    tail-dependent trace term lies in the two-sided leakage ideal with
    no unpaired `B#`; (ii) every deep term assembles into a delayed
    trace-zero divergence/commutator; and (iii) the remaining shallow
-   return obeys L266.  Derive the radial recurrence polynomial and
-   its moments `P_k(1)=0`, `P_k'(1)=−1`; do not cite the finite
+   return obeys L266.  L270 has already proved that the proposed
+   radial form automatically has the only two trace-relevant moments,
+   `p_k(1)=0` and `p_k'(1)=−1`, and hence zero one-delay trace.
+   Do not compute its individual coefficients.  Derive the structural
+   decomposition itself, including the fixed `R_2−R_1` and
+   `G_k−SG_kS*` terms and all lower vanishings; do not cite the finite
    grade-`2..5` pattern as an induction.
    L256 proves the universal relative response
    `[c²]mu°=4||B_1||_F²` for every matrix channel.  Prove that removing
@@ -4774,15 +4809,15 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    L269 proves that deeper boundary terms do occur, paired at the
    first grade as `G_k−SG_kS*`.  Therefore prove that L243's
    zero/one-kernel sectors, L251's paired ports, and L258's renewal
-   assemble into trace-zero deep divergences plus one copy-scalar
-   Laurent return or shift polynomial of boundary depth at most `k`;
+   assemble in the exact L269 normal form: a radial
+   `P_k(Q_0,...,Q_k)`, the fixed pair `R_2−R_1`, and
+   `G_k−SG_kS*`, plus only further trace-null divergences;
    exclude copy-dependent insertions but do not falsely delete the
-   deep terms.  Then compute the shallow return's bilateral-symbol constant from
-   L242's universal three-term jet
-   plus every L245 chain column.  The required value is four, checked
-   but not proved by the grade-one identity L256.  Prove the lower
-   vanishings in the same assembly.  Equivalently the result is
-   L265's divergence `4(X_k−S*X_kS)` modulo trace-null terms.
+   deep terms.  L270 then forces the radial moments and proves that
+   the full-minus-tail trace is zero, so iteration reaches L256's
+   proved value four.  There is no separate symbol-constant
+   calculation on this route.  Prove the lower vanishings in the same
+   structural assembly.
 2. **Then promote the delayed trace law, not more finite evidence.**
    Combining the `+4` volume coefficient with L247's exact metric
    contribution `−2` would give L225's total trace
