@@ -2,20 +2,42 @@
 
 **Last updated:** 2026-07-26 (Epoch 6 — repeated circular/elliptic merger)
 
-## CANONICAL LIVE GATE (2026-07-26, after L318/A266)
+## CANONICAL LIVE GATE (2026-07-26, after L319/A267)
 
-There is exactly one current mathematical gate: **merge L318's proved
-fixed repeated-elliptic condition-four metric with L197's
-Schur-orthogonal disk/circular-normal flag, without spending either
-positive margin twice.**  L317's sharp support and L318's
-fixed-`theta=1/2` margin assembly are now closed.  This is current
-next action 3 below.  Every later
+There is exactly one current mathematical gate: **derive the complete
+endpoint-specific later circular-normal response on L197's Schur
+quotients, then merge it with L318 without spending either positive
+margin twice.**  L319 proves that the tempting Schur-only shortcut
+does not supply the missing kernel-block term.  L317's sharp support
+and L318's fixed-`theta=1/2` margin assembly remain closed.  This is
+current next action 3 below.  Every later
 occurrence of “historical gate,”
 “historical frontier,” or “remaining historical task” records what
 was unresolved at that dated checkpoint; none is a concurrent
 frontier.  Actions 1--2 are completed derivation records, action 3
 is live, and action 4 is its ordered successor.  The CP/H-r routes
 remain parked fallbacks.
+
+## L319/A267 SCHUR-ONLY LATER-FLAG OBSTRUCTION (2026-07-26)
+
+- The proposed inference “the old response is the cross block, so
+  the exact Schur square leaves a fresh raw L199 face” is false
+  without an identity for the actual endpoint's kernel block.
+- The exact germs
+  `[[s²,s³],[s³,s⁴+s⁶]]` and
+  `[[s²,s³],[s³,s⁴−s⁶]]` share the positive first face
+  `diag(1,0)`, its reducing kernel, the one-order cross gain, and the
+  transported square `s⁴`, but their Schur quotients are `+s⁶` and
+  `−s⁶`.
+- This does not challenge L197's disk flag, L199's first raw normal
+  absorption, L318's elliptic metric, or Crouzeix.  It prevents
+  stacking the merger on an unproved assertion.
+- The live target is now exact: derive L194's complete later normal
+  critical graph/Gram after disk orthogonalization, including its
+  kernel-block term.  A scalar-only alternative is to quantify
+  L205's channel leakage near the scalar-channel strata.
+- The exact checker passes and regenerates with SHA-256
+  `d272005024eceb7d34da8212871a3af27c6778dc01629bba48c85f9897971952`.
 
 ## L318/A266 FIXED-HALF ELLIPTIC FLAG (2026-07-26)
 
@@ -6329,7 +6351,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L318/A266)
+## Current next actions (Epoch 6, refreshed after L319/A267)
 1. **COMPLETED BY L318: fixed-half-scale margin assembly after L317.**
    The remainder of this item is the derivation record, not a live
    instruction.
@@ -6410,8 +6432,12 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    the transverse disk/circular-normal residual.  At each layer,
    retain L318's `7 Bcal Bcal*` elliptic margin and L197's first
    nonzero disk Gram as separate summands; complete only their mixed
-   cross row and do not spend either diagonal twice.  Derive L199's
-   later Schur-orthogonal normal response in these coordinates.
+   cross row and do not spend either diagonal twice.  L319 proves
+   that exact Schur transport alone does not determine the later
+   kernel block.  Derive L199's complete later Schur-orthogonal
+   normal response from L194's actual prepared endpoint, including
+   that kernel-block term; do not call the quotient a fresh raw face
+   until this identity is proved.
    A curve-selection failure must descend through the finite L197
    flag; on its terminal disk kernel, invoke L318's terminal
    `B_L` margin.  Do not reopen the elliptic preparation or run a

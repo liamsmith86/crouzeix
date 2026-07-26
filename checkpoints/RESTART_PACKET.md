@@ -1,20 +1,25 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-26): after L318 / A266
+## Current general Crabb frontier (2026-07-26): after L319 / A267
 
 The post-L316 consolidation review retired 55 of 75 stale/unclassified
 `OPEN` labels (54 superseded, one obsolete) and left 20 genuinely live
 rows, each attached to ordered next action 1--4.  The one canonical
-live gate is now: merge L318's fixed repeated-elliptic metric with
-L197's transverse disk/circular-normal Schur flag.  L317 proves the
+live gate is now: derive the complete endpoint-specific later
+circular-normal response on L197's Schur quotients, then merge it
+with L318.  L319 proves that first-face positivity plus exact Schur
+transport does not determine the later kernel block: two exact
+polynomial germs with identical first face and cross square have
+opposite sixth-order Schur quotients.  This is a proof-route
+obstruction, not a Crouzeix counterexample.  L317 proves the
 grouped two-channel rule and L318 absorbs its extra-`c` remainder at
 fixed half scale, yielding `I<=P<=4I` and `T*PT<=P` on every fixed
 repeated elliptic chart.  L295 is only a normalization warning after
-L297, every exact disproved route has a banked certificate, all 255
+L297, every exact disproved route has a banked certificate, all 256
 proof notes are free of repeated regenerated blocks, the L312/A259
 dataset hash remains `5b5dac60...6becf`, and Ruff plus `py_compile`
-pass all 305 experiment modules.  L290--L318 are explicitly scoped to
+pass all 306 experiment modules.  L290--L319 are explicitly scoped to
 the fixed finite repeated-Crabb neighbourhood; A259 remains
 conjectural and unused.
 
@@ -2507,7 +2512,7 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    not compute another isolated grade.  Then finish the
    normal/elliptic merger, retaining the full CP route as fallback.
 
-## Paste-ready continuation instruction (current after L318/A266)
+## Paste-ready continuation instruction (current after L319/A267)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix` as
 the sole repository-writing agent.  Read L197, L220, L227, L283--L318,
 A259's explicitly conjectural sharp endpoint-word note, plus the newest
@@ -2540,7 +2545,11 @@ and Stein inequalities, so the fixed repeated elliptic chart now has
 Move to L197's Schur-orthogonal disk/circular-normal merger.  Keep
 L318's elliptic margin and each disk layer's first Gram separate;
 complete only their mixed cross and do not spend either diagonal
-twice.  L277--L279 have proved
+twice.  L319/A267 now forbids the Schur-only shortcut: identical
+first faces, reducing kernels, and cross squares can leave opposite
+later kernel-block signs.  Derive the complete later normal response
+from L194's actual prepared endpoint before calling any quotient a
+fresh L199 face.  L277--L279 have proved
 every lower delayed face, the active `+4||B_k||²` volume coefficient,
 the `+2||B_k||²` dual-Schur trace, and the
 `−16||B_k||²` effective separator trace in arbitrary grade.  Do not
