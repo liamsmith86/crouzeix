@@ -208,6 +208,14 @@ This is not a request for another isolated quintic/sextic
 calculation.  It is the arbitrary-grade normalization law for (1),
 coupled to L301 and L307.
 
+**Subsequent closure.**  L311 closes this scope guard for every
+physical rooted word without claiming that the standalone column
+(1) became ideal-valued.  It realizes the same
+channel-minus-endpoint difference as the relative commutator with
+`X=FqpE`, then applies L305 to its four-word expansion.  The resulting
+alternative column lies in the bridge ideal and is
+`O(||B_j||)`, hence vanishes on every complete delay.
+
 ## 4. Independent regeneration
 
 Run

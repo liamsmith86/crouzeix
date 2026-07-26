@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-26): after L310 / A257
+## Current general Crabb frontier (2026-07-26): after L311 / A258
 
 The accidental two-agent interval has been reconciled.  Commits
 `87c5107`, `4c7a152`, `2f82d15`, and `dcab861` form one linear history
@@ -28,7 +28,12 @@ the literal factor `KB_j*+B_jK*` plus a bounded polynomial response,
 with automatic Smith valuations.  Its standalone converting column
 need not lie in the bridge ideal and can remain nonzero on a complete
 delay, so delay-compatible response normalization—not endpoint
-factorization—is the live gate.
+factorization—was the next gate.  L311/A258 closes it for every
+physical root: the relative commutator with `X=FqpE` has exactly the
+channel-minus-factor endpoint, and its four-word expansion has
+pairwise identical L305 roots.  The resulting polynomial column lies
+in the bridge ideal, is `O(||B_j||)`, and vanishes on complete delay.
+The live gate is now the complete prepared sign/margin assembly.
 The L303 checkpoint repeated the concurrency audit: all four handoff
 commits are ancestors of the single `master`, one worktree exists, no
 staging/branch conflict exists, the L248/L249 hashes remain
@@ -1033,6 +1038,14 @@ before their theta/coisometric cancellation.
   unstructured, rank-chain, and complete-delay audits; tracked data
   hash
   `376523b537a27d4f30f65705e8e6ab536220bf65256901294d931777a7064ae1`.
+- `proof/repeated_crabb_rooted_endpoint_normalization.md` (L311/A258):
+  exact physical relative-commutator replacement of L310's
+  nonideal standalone column, with bridge-ideal lift and linear
+  word-length bound.
+- `experiments/repeated_crabb_rooted_endpoint_normalization.py`:
+  direct defect-expansion, rooted-cancellation, rank-chain, and
+  complete-delay audits; tracked data hash
+  `785aaab8462afccce9c5693a31677c0215c7fd714bcc37ec28fa512bc37ec8c6`.
 - `experiments/repeated_crabb_markov_response.py`: arbitrary
   multiplier, bistochastic, summed-response, Dirichlet, observability-
   preimage, state-energy, polarized-collapse, and repeated-apex
@@ -2286,19 +2299,19 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   The former deformation route was superseded by the Schwarzian proof of EL4; see
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
-## Next five concrete actions (refreshed after L310 / A257)
-1. Normalize L310's complete polarized response compatibly with the
-   cumulative delay ideal.  For each physical root
-   `p(ES^jF)q`, preserve the proved literal factor
-   `KB_j*+B_jK*`, but replace or combine
-   `C_(p,q,j)−C_j(K)` so the selected column vanishes with `B_j` and
-   remains in the bridge module.  Prefer an exact
-   relative-commutator realization built from L305 over a
-   pseudoinverse or an estimate of endpoint-null columns.  Prove a
-   uniform word-length bound and exact cancellation of every rooted
-   quotient.  Do not impose global odd response, factor raw `q`,
-   start an unrelated fifth/seventh march, enumerate a growing graph,
-   discard `−C*C`, split load-bearing cancellations, or assume
+## Next five concrete actions (refreshed after L311 / A258)
+1. Formulate the finite-jet square-completion/margin rule for the
+   complete prepared L306/L307 successor, now using L311's
+   ideal-valued normalized split for every physical root.  At odd
+   orders collect the literal cumulative-transfer factors and absorb
+   them with already retained margins; at even orders isolate the new
+   direct Gram and factor only the prior-transfer cost.  Keep the
+   affine leftover `−(1−theta)R` together with L307's
+   `theta(1−theta)C*C` reserve at fixed `theta=1/2`.  Seek an
+   arbitrary-grade algebraic inequality, not another isolated
+   fifth/seventh coefficient or a growing rooted enumeration.  Do
+   not impose global odd response, factor raw `q`, discard `−C*C`,
+   split load-bearing cancellations, or assume
    `I intersect [A,A]=[A,I]`.
 2. Use that recurrence with L283's complete-delay boundary, L290's
    hereditary endpoint factors, and L292's valuation test to close
@@ -2351,9 +2364,9 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    not compute another isolated grade.  Then finish the
    normal/elliptic merger, retaining the full CP route as fallback.
 
-## Paste-ready continuation instruction (current after L310/A257)
+## Paste-ready continuation instruction (current after L311/A258)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix` as
-the sole repository-writing agent.  Read L197, L220, L227, L283--L310,
+the sole repository-writing agent.  Read L197, L220, L227, L283--L311,
 plus the newest `RESEARCH_STATE.md` section.  L277--L279 have proved
 every lower delayed face, the active `+4||B_k||²` volume coefficient,
 the `+2||B_k||²` dual-Schur trace, and the

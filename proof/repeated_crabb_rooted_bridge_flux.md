@@ -115,8 +115,9 @@ target is a bounded hereditary factor through the cumulative active
 transfer row at odd grades, and a direct transfer-Gram face plus a
 prior-transfer cost chargeable to an earlier retained margin at even
 grades.  L310 subsequently closes the hereditary endpoint factor
-termwise.  Its delay-compatible response normalization and the even
-sign/margin remain open.
+termwise, and L311 gives every physical root a delay-compatible
+ideal-valued normalization.  Only the complete prepared
+sign/margin assembly remains open.
 
 ## 2. Explicit correction column
 
@@ -373,9 +374,11 @@ but L309 proves that this does not persist at quintic order.
 L303--L304 prove the second assertion at quartic order.  L310
 subsequently converts every rooted channel term in (29) to a literal
 bounded hereditary endpoint factor and closes its Smith valuations.
-The remaining gate is the delay-compatible normalization of L310's
-polarized response columns and the sign/margin of the even factor
-sum.  Computing another isolated coefficient would not close it.
+L311 then replaces L310's potentially endpoint-null converting
+column by a physical relative-commutator response in the same bridge
+ideal, closing delay normalization.  The remaining gate is the
+sign/margin assembly of the complete odd/even factor sum.  Computing
+another isolated coefficient would not close it.
 
 ## 7. Independent regeneration
 

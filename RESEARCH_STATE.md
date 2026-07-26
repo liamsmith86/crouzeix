@@ -305,10 +305,16 @@
   polarized L280 converts every L305 rooted channel exactly to
   `KB_j*+B_jK*` plus a bounded response, with automatic L292
   valuations.  Its converting column can remain nonzero and
-  endpoint-null when `B_j=0`, however.  The live step is therefore
-  the delay-compatible normalization of the **complete sum** of those
-  polarized columns and their L301/L307 successors, together with the
-  even margin.  Do not factor the raw `q`, return to a growing graph
+  endpoint-null when `B_j=0`, but L311/A258 now closes that
+  normalization debt: for the physical root, the relative
+  commutator with `X=FqpE` has exactly the channel-minus-factor
+  endpoint, while its four-word defect expansion has pairwise
+  identical L305 roots.  The resulting response column remains in
+  the bridge ideal and is `O(||B_j||)`, so it vanishes on every
+  complete delay.  The live step is now only the prepared finite-jet
+  sign/margin assembly: absorb the bounded hereditary odd factors
+  and prior-transfer even costs using the margins retained at
+  `theta=1/2`.  Do not factor the raw `q`, return to a growing graph
   expansion, or start an unrelated isolated-grade march.
   The
   alternate raw route retains its lower
@@ -329,6 +335,36 @@
   The circular-normal merger is downstream.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
+
+## NEWEST (2026-07-26): L311 makes every physical endpoint split ideal-valued and delay-normalized
+- For a physical root `T=pG_jq`, with
+  `K=W*qpV`, its copy multiplier has the exact state realization
+  `X=WKV*=FqpE`.
+- The Hermitian relative commutator
+  `[G_j,X]+[G_j,X]*` has upper endpoint
+  `Phi(B_j*K+K*B_j)−(KB_j*+B_jK*)`.  It therefore replaces L310's
+  standalone polarized converting column without changing the
+  literal hereditary factor.
+- Expanding `FqpE` as
+  `r−rS*S−SS*r+SS*rS*S`, `r=qp`, gives four differences
+  `G_jx−xG_j`.  Each pair has exactly the same L305 root, so the
+  rooted quotients cancel and L305 supplies an explicit response
+  column whose lift remains in the bridge ideal.
+- Adding that column to L305's original rooted column gives
+  `W*G_S(T+T*)W=KB_j*+B_jK*+M_S(Chat)`, with
+  `Chat V* in I_j` and
+  `||Chat||_F <= (5|p|+4|q|+17)||B_j||_F`.
+  It is polynomial and vanishes identically when `B_j=0`.
+- Complete-delay audits expose the normalization gain sharply: the
+  raw L310 columns have norms approximately `1.02`, `1.21`, and
+  `1.44`, while the physical ideal-valued columns vanish exactly.
+  All 24 general/rank-chain/delayed records pass.  Dataset SHA-256:
+  `785aaab8462afccce9c5693a31677c0215c7fd714bcc37ec28fa512bc37ec8c6`.
+- This closes response selection, endpoint heredity, Smith
+  divisibility, and complete-delay normalization termwise.  It does
+  not prove the sign of the complete prepared coefficient.  The
+  remaining elliptic gate is the all-grade finite-jet
+  square-completion/margin rule for L306/L307.
 
 ## NEWEST (2026-07-26): L310 converts every root to a literal hereditary endpoint factor
 - Polarized L280 gives the exact balanced identity
@@ -351,7 +387,9 @@
 - The new live gate is therefore narrower: normalize the complete sum
   of polarized columns compatibly with every delay flag, or prove
   their L301/L307 successors remain hereditary with sufficient even
-  margins.  Dataset SHA-256:
+  margins.  L311 subsequently closes this debt for every physical
+  root by an ideal-valued relative-commutator normalization.  Dataset
+  SHA-256:
   `376523b537a27d4f30f65705e8e6ab536220bf65256901294d931777a7064ae1`.
 
 ## NEWEST (2026-07-26): L309 disproves global prepared odd-response parity
