@@ -211,12 +211,19 @@
   channel-minus-Gram target and proves L282 with constant `28`,
   including flags, and more generally controls every
   `−aB_kB_k*−bG_k`, `a>=0`, with constant `|b|`.  L295/A242 catches
-  and removes a cross-branch error in the proposed continuation:
-  L227/L285's repair face is `−12I` at the monomial apex, while
-  L212's target is `−16I`, so the complete repair face cannot be
-  dominated by that target.  The live Markov step is instead to
-  separate L283's favorable `−12` Gram and express only L285/L289's
-  mixed transported remainder as a controlled flux.  L296/A243
+  a cross-normalization error in the proposed continuation:
+  L227/L285's **raw upper** repair face is `−12I` at the monomial
+  apex, while L212's **lower-tight** target is `−16I`, so that
+  mismatched comparison is false.  L297/A244 now identifies the
+  entire discrepancy as lower retightening: the endpoint ledger is
+  `(lower,upper)=(+I,−4I)` for the boundary metric,
+  `(+I,−12I)` for the raw repair, and `(0,−16I)` for the
+  lower-tight/effective face.  Thus the raw-to-effective increment is
+  `(-I,-4I)`, and the correctly normalized effective comparison with
+  L212 remains open.  One live route retains the raw lower budget,
+  separates L283's favorable `−12` Gram, and expresses only
+  L285/L289's mixed transported remainder as a controlled flux.
+  L296/A243
   removes the unnecessary restriction to the special quadratic
   `G_k`: every polarized L280 response has an exact observability-
   defect pairing, and a family of polarization columns has L282
@@ -225,10 +232,31 @@
   prior-flag factors, derive polarization columns only for the
   surviving compressed remainder, and prove their total energy is
   `O(||U*B_k||²)`.  The distinct alternative is to prove L212's own
-  exact-axis base in arbitrary grade.
+  exact-axis/lower-tight base in arbitrary grade.  Do not mix the raw
+  and lower-tight endpoint ledgers.
   The circular-normal merger is downstream.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
+
+## NEWEST (2026-07-26): L297 aligns the raw and lower-tight endpoint ledgers
+- At the repeated monomial apex, the boundary metric has endpoint
+  pair `(lower,upper)=(+I,−4I)`.
+- L283's raw L227 canonical repair has pair `(+I,−12I)`, whereas
+  L279/L225's lower-tight effective metric has pair `(0,−16I)`.
+  Therefore lower retightening contributes exactly `(-I,-4I)`.
+- L212's target has lower face zero and upper face `−16I` because
+  `G_L=0` at the apex.  It is therefore aligned with the effective
+  endpoint, not the raw upper endpoint.
+- L295 remains a valid obstruction to comparing the raw upper repair
+  face directly with the lower-tight L212 target, but it does not
+  obstruct a correctly normalized effective comparison.
+- The raw L230--L289 route may retain the favorable lower budget and
+  use L296 on the surviving mixed response.  The separate
+  lower-tight route may seek an effective all-grade L212 identity.
+  Every future face comparison must name its endpoint normalization.
+- Exact endpoint-ledger audits pass in multiplicities one through
+  four.  Dataset SHA-256:
+  `2a493ad3fec9deb6de14b0a8c65943d09eafb82ac3fea34bcf58dc78470575dc`.
 
 ## NEWEST (2026-07-26): L296 polarizes the gap-free flux estimate
 - For an arbitrary copy matrix `X`, put
@@ -242,7 +270,7 @@
 - Summed and flagged versions are literal.  A family `X_j` is
   controlled by `(sum_j||X_j||²)^(1/2)`, and `X=PB_k` recovers L294's
   flagged quadratic flux.
-- Therefore L295's corrected repair route does not need the mixed
+- Therefore the raw repair route does not need the mixed
   L285/L289 remainder to equal a scalar `G_k`.  Modulo favorable
   Grams and prior-flag factors whose compression is zero, it is enough
   to derive polarized response columns and prove total energy
@@ -254,17 +282,19 @@
   Dataset SHA-256:
   `58381726281a8102eb3a53b334b3d0ac11b7dcfaccb3eae3cc64d9750d344c48`.
 
-## NEWEST (2026-07-26): L295 separates the repair and exact-axis branches
+## NEWEST (2026-07-26): L295 obstructs a raw-upper/lower-tight comparison
 - At a repeated monomial apex, `B_L=U` is unitary and
   `Phi(K)=UKU*`, so `G_L=Phi(I)−I=0`.
-- L283's L227/L285 canonical-repair endpoint is exactly `−12I`.
-  L212's canonical target is exactly `12I−28I=−16I`.
-  Their difference is the strictly positive `4I`; no prior transfer
-  row or favorable negative Gram can absorb it at the apex.
-- Therefore the instruction to dominate the complete L285/L289 face
-  by L212's particular target is **false**, not merely unproved.
-  L212's response also vanishes at the apex, so it cannot bridge the
-  mismatch inside the repair branch.
+- L283's raw L227/L285 canonical-repair upper endpoint is exactly
+  `−12I` and retains lower endpoint `+I`.  L212's lower-tight
+  canonical target is exactly `12I−28I=−16I` and has lower endpoint
+  zero.  Comparing only those upper faces produces the strictly
+  positive `4I` discrepancy.
+- Therefore the instruction to dominate the **raw upper** face by
+  L212's **lower-tight** target is false.  L297 subsequently shows
+  that the missing `−4I` is exactly the upper part of the
+  `(-I,-4I)` lower-retightening increment.  The correctly normalized
+  effective comparison remains open.
 - L294 itself survives unchanged and has the branch-neutral
   consequence
   `<Y,−aB_kB_k*−bG_k>_+
@@ -298,10 +328,11 @@
 - **Critical scope:** this does not prove any physical face is the
   canonical candidate.  L212 stated that identity conditionally, and
   A179 disproves raw simultaneous superposition.  L295 additionally
-  disproves comparison of the complete L227/L285 repair face with
-  this particular target.  Use the general flux bound on that
-  branch's mixed remainder, or prove the distinct L212 exact-axis
-  base.
+  disproves comparing the raw L227/L285 upper face directly with this
+  lower-tight target.  L297 shows that their apex gap is precisely
+  lower retightening, so the effective comparison remains open.  Use
+  the general flux bound on the raw branch's mixed remainder, or
+  prove the distinct L212 lower-tight exact-axis base.
 - Exact full and flagged pairings, Dirichlet identities, positive-face
   cases, and correction residuals pass in multiplicities two through
   four.  Dataset SHA-256:
@@ -325,9 +356,10 @@
   commutant.  L281's physical state-column norm has exactly twice
   this energy.
 - L294 subsequently proves the exact nonlinear transfer-flux pairing
-  and Cauchy--Schwarz bound.  L295 disproves comparing the complete
-  L227/L285 face with L212's particular target.  What remains on the
-  repair branch is to pair only the mixed transport remainder after
+  and Cauchy--Schwarz bound.  L295 disproves comparing the raw upper
+  L227/L285 face directly with L212's lower-tight target, while L297
+  shows the effective apex is aligned after lower retightening.  What
+  remains on the raw repair branch is to pair only the mixed transport remainder after
   separating L283's favorable Gram; L293 alone does not identify that
   remainder.
 - The exact all-basis checker passes in lengths three through five,
@@ -5533,7 +5565,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L296/A243)
+## Current next actions (Epoch 6, refreshed after L297/A244)
 1. **Close bounded repeated-elliptic selection.**  Use L283 as the
    exact complete-delay boundary condition and L284's endpoint-null
    normalizations as the gauge convention.  L285 already gives the
@@ -5557,18 +5589,22 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    demand endpoint-null even gauges, infer anything from raw
    two-sided state-ideal membership, insert L291's fixed-rank
    pseudoinverse, or compute an isolated seventh grade.
-2. **Derive and bound the mixed repair polarization columns.**
-   L295 disproves comparison of L285/L289's complete face with L212's
-   target even at the apex; do not resume it.  First split off L283's
-   favorable `−12B_kB_k*` complete-delay face.  First discard
-   L289/L290's bounded prior-flag factors.  Write only the surviving
-   compressed first-flag face as `sum_j beta_j F_j(X_j)` in L296's
-   polarized response notation and prove
-   `sum_j|beta_j|²||X_j||²<=C²||U*B_k||²`.
-   L296 then gives L282 without a spectral-gap estimate or a special
-   `G_k` ansatz.  If the energy bound fails, record the obstruction in
-   L292's Smith-valuation language.  The separate alternative is to
-   prove L212's own exact-axis base identity, not mix metric branches.
+2. **Choose the endpoint normalization, then bound its mixed face.**
+   L295 disproves only the mismatched comparison of L285/L289's raw
+   upper face with L212's lower-tight target.  L297 closes the apex
+   gap: lower retightening contributes `(-I,-4I)`, taking
+   `(+I,-12I)` to `(0,-16I)`.  On the current raw L230--L289 branch,
+   retain its favorable lower budget, split off L283's
+   `−12B_kB_k*` complete-delay upper face, discard L289/L290's bounded
+   prior-flag factors, and write only the surviving compressed
+   first-flag face as `sum_j beta_j F_j(X_j)` in L296's polarized
+   response notation.  Prove
+   `sum_j|beta_j|²||X_j||²<=C²||U*B_k||²`; L296 then gives L282
+   without a spectral-gap estimate.  The distinct lower-tight route
+   is to transport the exact `(-I,-4I)` retightening and prove L212's
+   effective all-grade base.  Do not mix endpoint ledgers.  If the
+   raw energy bound fails, record the obstruction in L292's
+   Smith-valuation language.
 3. **Only after selection closes, finish the repeated
    circular-normal/elliptic merger.**  Derive L199's later
    Schur-orthogonal normal response and avoid spending the same disk
@@ -5751,18 +5787,23 @@ Current A178 transport packet:
   proof/repeated_crabb_canonical_flux_inequality.md (L294 exact
   canonical flux/Dirichlet pairing and flagged L282 bound), and
   proof/repeated_crabb_canonical_target_scope_obstruction.md (L295
-  exact apex separation of the repair and L212 target branches), and
+  exact obstruction to comparing the raw repair upper face directly
+  with L212's lower-tight target), and
   proof/repeated_crabb_polarized_flux_inequality.md (L296 exact
-  single/summed/flagged polarized response-energy bound);
+  single/summed/flagged polarized response-energy bound), and
+  proof/repeated_crabb_lower_retightening_normalization.md (L297 exact
+  raw-to-lower-tight endpoint ledger);
   matching
   regenerators use the same
-  basenames under experiments/.  Resume by splitting L283's
-  favorable `−12` Gram from L285/L289's mixed remainder, discarding
-  bounded prior-flag factors, deriving L296 polarization columns for
-  the surviving compression, and proving their total energy is
-  `O(||U*B_k||²)` (or equivalently proving L292's valuations); do not
-  compare the complete repair face with L212's `−16` target, force
-  state witnesses into an
+  basenames under experiments/.  Resume either on the raw branch by
+  retaining its lower budget, splitting L283's favorable `−12` Gram
+  from L285/L289's mixed remainder, discarding bounded prior-flag
+  factors, deriving L296 polarization columns for the surviving
+  compression, and proving their total energy is
+  `O(||U*B_k||²)` (or equivalently proving L292's valuations), or on
+  the lower-tight branch by transporting L297's exact `(-I,-4I)`
+  retightening and proving L212's effective all-grade base.  Do not
+  mix those endpoint ledgers, force state witnesses into an
   ideal, use a rank-changing pseudoinverse, confuse pointwise flag
   zero with bounded divisibility, or compute grade seven.
 proof/ — read in this order for the current frontier:

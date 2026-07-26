@@ -84,8 +84,8 @@ then L282's required estimate follows immediately:
 \sqrt{\langle\widehat Y,K_{\rm M}\widehat Y\rangle}.}          \tag{7}
 \]
 
-Thus after L295's branch separation, the repair-branch gate is not
-to force every remainder into the special quadratic flux \(G_k\).
+Thus on L295/L297's raw repair normalization, the gate is not to
+force every remainder into the special quadratic flux \(G_k\).
 It is enough, **modulo favorable Grams and prior-flag factors whose
 compression is zero**, to produce L280 polarization columns and
 prove the finite energy bound (6).

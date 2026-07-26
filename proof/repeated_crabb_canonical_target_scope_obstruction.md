@@ -1,9 +1,10 @@
-# The L212 target does not dominate the canonical-repair branch
+# The L212 target does not dominate the raw canonical-repair upper face
 
 > **Route update.**  L296 subsequently proves the gap-free estimate
 > for every polarized L280 response, not only the quadratic \(G_k\).
-> The live repair-branch target is therefore a bound on the total
-> polarization-column energy of the mixed remainder.
+> L297 then identifies the \(4I\) mismatch below as exactly the
+> lower-retightening normalization.  Thus L295 rules out the raw
+> comparison only; the lower-tight/effective comparison remains open.
 
 ## 1. Result (L295, 2026-07-26)
 
@@ -16,12 +17,13 @@ E_k^{\rm L212}
 \]
 
 That target must not be identified with, or used as an upper bound
-for, the L227/L230--L289 canonical-repair preparation.  Already at a
-repeated monomial apex of length \(L\),
+for, the **raw unretightened upper face** of the
+L227/L230--L289 canonical-repair preparation.  Already at a repeated
+monomial apex of length \(L\),
 
 \[
 \boxed{
-E_L^{\rm repair}=-12I,\qquad
+E_L^{\rm raw\ repair}=-12I,\qquad
 E_L^{\rm L212}=-16I.}                            \tag{2}
 \]
 
@@ -29,34 +31,39 @@ Consequently
 
 \[
 \boxed{
-E_L^{\rm repair}-E_L^{\rm L212}=4I\succ0,}       \tag{3}
+E_L^{\rm raw\ repair}-E_L^{\rm L212}=4I\succ0,}  \tag{3}
 \]
 
 so the proposed comparison
 
 \[
-E_L^{\rm repair}\preceq E_L^{\rm L212}
+E_L^{\rm raw\ repair}\preceq E_L^{\rm L212}
 \]
 
 is false.  The difference cannot be hidden among favorable negative
 Grams or prior-flag factors: at the apex every prior transfer row is
 zero and the difference is strictly positive on the terminal flag.
 
-This is a scope obstruction, not a failure of L294.  It separates two
-valid metric constructions:
+This is a scope obstruction, not a failure of L294.  It distinguishes
+two endpoint normalizations:
 
-1. L227/L283's canonical contraction repair has terminal upper face
-   \(-12I\), which is already strictly favorable;
-2. L214--L215's exact-axis preparation has L212's base and reaches
-   \(-16I\) after the L212 correction.
+1. L227/L283's raw canonical contraction repair retains the favorable
+   lower face \(+I\) and has upper face \(-12I\);
+2. L214--L215's lower-tight exact-axis preparation spends that lower
+   face and reaches the upper face \(-16I\).
 
-The live route must therefore do one of the following.
+L297 proves that the four-unit gap in (3) is exactly the
+lower-retightening response.  Therefore L295 does **not** disprove a
+comparison between L212 and L279's lower-retightened effective face;
+both equal \(-16I\) at the apex.  The live route must specify which
+normalization it transports:
 
 1. Prove the all-grade physical base identity for the
    L214--L215/L212 exact-axis construction itself; or
-2. stay in the L227/L285 canonical-repair branch and express its
-   mixed transported remainder as a controlled transfer flux, rather
-   than compare its complete face with (1).
+2. stay in the raw L227/L285 canonical-repair normalization, retain
+   its favorable lower budget, and express its mixed transported
+   remainder as a controlled transfer flux rather than compare its
+   raw upper face with (1).
 
 The second option can still use L294.  More generally, for
 \(a\geq0\) and real \(b\),
@@ -99,8 +106,11 @@ G_L=\Phi(I)-I=0.
 \]
 
 Equation (1) gives \(E_L^{\rm L212}=-16I\).
-Independently, L283 proves that L227's canonical repair has upper
-face \(-12B_LB_L^*=-12I\).  Subtraction proves (3).
+Independently, L283 proves that L227's raw canonical repair has upper
+face \(-12B_LB_L^*=-12I\), while retaining the lower face \(+I\).
+Subtraction proves (3).  L297 records that lower retightening changes
+the endpoint pair by \((-I,-4I)\), so its effective upper face is
+\(-16I\).
 
 The same calculation shows why L212's response cannot repair the
 mismatch inside the canonical-repair branch: its response is
@@ -124,17 +134,16 @@ and
 
 Do not continue the instruction
 
-> show the L285/L289 complete physical endpoint is no larger than
-> L212's canonical target.
+> show the raw L285/L289 upper endpoint is no larger than L212's
+> lower-tight canonical target.
 
-It fails at the most symmetric equality point.  Instead, first
-separate the complete negative Gram already supplied by L283 from
-the mixed graph-transport remainder.  The next load-bearing
-question is whether that remainder has an exact full or weighted
-\(G_k\)-flux representation, or the more general polarized
-observability-defect pairing proved in L296.  Such a representation,
-together with its column-energy bound, avoids the false
-\(-12I\preceq-16I\) comparison.
+It fails at the most symmetric equality point because it mixes
+normalizations.  In the raw branch, first separate the complete
+negative Gram already supplied by L283 from the mixed graph-transport
+remainder, then use L296 if the surviving compression is a polarized
+response.  In the lower-tight branch, the apex obstruction is absent;
+the all-grade effective matrix comparison remains open.  Neither
+route may silently substitute one endpoint ledger for the other.
 
 ## 4. Exact regeneration
 

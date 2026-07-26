@@ -1,12 +1,12 @@
 # The canonical transfer flux already has the gap-free energy bound
 
 > **Scope correction (L295).**  The flux estimate below is exact,
-> but the complete L227/L285 canonical-repair face is not bounded
-> above by L212's particular target: at the monomial apex their faces
-> are `-12I` and `-16I`.  Apply the general flux estimate to the
-> mixed repair remainder after separating its favorable Gram, or
-> prove L212's distinct exact-axis base directly.  L296 supplies the
-> corresponding estimate for arbitrary polarized L280 responses.
+> but the raw unretightened L227/L285 upper face is not bounded above
+> by L212's lower-tight target: at the monomial apex their faces are
+> `-12I` and `-16I`.  L297 shows the difference is exactly the
+> favorable lower face and its retightening response; the effective
+> lower-tight comparison remains open.  L296 supplies the estimate
+> for arbitrary polarized L280 responses in the raw branch.
 
 ## 1. Result (L294, 2026-07-26)
 
@@ -102,9 +102,11 @@ For the L212 exact-axis branch, the live gate is:
 > prove that its all-grade first physical flag face equals (5), or is
 > bounded above by it modulo already favorable terms.
 
-That statement is distinct from the L227/L285 repair branch.  L295
-disproves comparing the latter's complete face with (5).  On that
-branch one must instead separate L283's favorable
+That statement uses a lower-tight normalization.  L295 disproves
+comparing the raw L227/L285 upper face with (5), while L297 shows the
+lower-retightened effective face is apex-aligned with it.  If one
+retains the raw repair normalization, one must instead separate
+L283's favorable
 \(-12B_kB_k^*\) face and identify only the mixed transported
 remainder as a flux controlled below.  On a moving partial flag, the
 compressed form supplies L282's gap-free energy certificate without
@@ -277,9 +279,10 @@ E_{a,b}=-aB_kB_k^*-bG_k,\qquad a\ge0,\ b\in\mathbb R,
 \sqrt{\langle Y,K_{\rm M}Y\rangle}.}              \tag{10}
 \]
 
-L295 shows that this general form, rather than comparison of the
-complete repair face with (5), is the correct possible interface to
-L285/L289.
+L295 shows that this general form, rather than comparison of the raw
+repair upper face with (5), is the correct possible interface to
+L285/L289 when its favorable lower budget is retained.  L297 leaves
+the separately normalized effective comparison open.
 
 ## 5. Relation to L293
 
@@ -301,9 +304,11 @@ then
 Thus L294 supplies the exact nonlinear numerator pairing whose first
 Schur jet is controlled by L293's commutator square.  The two routes
 are now literally the same Cauchy--Schwarz estimate.  L295 separates
-the remaining physical work into two noninterchangeable branches:
-prove the L212 exact-axis base (5), or derive an \(E_{a,b}\)-type
-formula for the L227/L285 mixed remainder.
+the raw repair upper face from L212's lower-tight target, and L297
+identifies their apex gap as lower retightening.  The remaining
+physical work is either to prove the effective lower-tight base (5),
+or retain the raw favorable lower budget and derive an
+\(E_{a,b}\)-type formula for its mixed remainder.
 
 ## 6. Exact regeneration
 

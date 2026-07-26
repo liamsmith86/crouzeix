@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-26): after L296 / A243
+## Current general Crabb frontier (2026-07-26): after L297 / A244
 
 The accidental two-agent interval has been reconciled.  Commits
 `87c5107`, `4c7a152`, `2f82d15`, and `dcab861` form one linear history
@@ -15,7 +15,7 @@ and banked as L272/A219.  A second single-agent reconciliation through
 L287/A234 found no stopped-agent artifact, branch, staged overlap, or
 competing next-action instruction.  L288/A235, L289/A236,
 L290/A237, L291/A238, L292/A239, L293/A240, L294/A241,
-L295/A242, and L296/A243 were
+  L295/A242, L296/A243, and L297/A244 were
 then derived, audited, and documented by the sole active agent.
 Resume as one agent from the
 bounded repeated-elliptic selection gate below.  The now-completed
@@ -122,16 +122,23 @@ relative grade-one response, and A203/L257 turns its transport into
   L294/A241 then proves the exact nonlinear numerator pairing and
   L282 bound for L212's canonical channel-minus-Gram target, including
   flags, and for every `−aB_kB_k*−bG_k` with `a>=0`.
-  L295/A242 disproves comparing L285/L289's complete repair face with
-  L212's particular target: their monomial-apex values are `−12I`
-  and `−16I`.  Split off L283's favorable `−12` Gram and derive a
-  flux pairing only for the mixed transport remainder.  L296/A243
+  L295/A242 disproves comparing L285/L289's raw upper repair face
+  directly with L212's lower-tight target: their monomial-apex upper
+  values are `−12I` and `−16I`.  L297/A244 then identifies the entire
+  gap as lower retightening.  The boundary, raw-repair, and effective
+  endpoint pairs are respectively `(+I,−4I)`, `(+I,−12I)`, and
+  `(0,−16I)`, so raw-to-effective retightening is `(-I,-4I)`.
+  The correctly normalized effective comparison therefore remains
+  open.  On the raw route, retain its lower budget, split off L283's
+  favorable `−12` Gram, and derive a flux pairing only for the mixed
+  transport remainder.  L296/A243
   shows the surviving compressed remainder may use arbitrary
   polarized L280 responses: after bounded prior-flag factors are
   discarded, it is enough to prove that their total column energy is
   `O(||U*B_k||²)`.  Equivalently prove L292's physical valuations and
-  uniform margins.  The distinct alternate branch is to prove L212's
-  own exact-axis physical base.
+  uniform margins.  The distinct alternate branch is to transport
+  L297's exact retightening and prove L212's lower-tight effective
+  all-grade base.  Do not mix endpoint ledgers.
   Do not resume
   an isolated-grade march, demand infinite summability, infer endpoint
   preservation from raw state ideal membership, insert the fixed-rank
@@ -825,8 +832,8 @@ before their theta/coisometric cancellation.
   inequalities, and correction residuals; tracked data hash
   `1ea9886ad59dc1c0facfa93f43cc17b00a67db57c67a512cceca9621b5fa8110`.
 - `proof/repeated_crabb_canonical_target_scope_obstruction.md`
-  (L295/A242): exact monomial-apex obstruction to comparing the
-  complete L227/L285 repair face with L212's target.
+  (L295/A242): exact monomial-apex obstruction to comparing the raw
+  L227/L285 upper repair face directly with L212's lower-tight target.
 - `experiments/repeated_crabb_canonical_target_scope_obstruction.py`:
   exact terminal-unitary branch-separation audits; tracked data hash
   `d983482024c5fd0b998ea0028edafcd56d8336c01d6a4fe4aa493ca10ba0264d`.
@@ -837,6 +844,13 @@ before their theta/coisometric cancellation.
   noncommuting bistochastic-channel polarization audits; tracked data
   hash
   `58381726281a8102eb3a53b334b3d0ac11b7dcfaccb3eae3cc64d9750d344c48`.
+- `proof/repeated_crabb_lower_retightening_normalization.md`
+  (L297/A244): exact boundary/raw-repair/lower-tight endpoint ledger
+  and raw-to-effective `(-I,-4I)` retightening.
+- `experiments/repeated_crabb_lower_retightening_normalization.py`:
+  exact endpoint-normalization audits in multiplicities one through
+  four; tracked data hash
+  `2a493ad3fec9deb6de14b0a8c65943d09eafb82ac3fea34bcf58dc78470575dc`.
 - `experiments/repeated_crabb_markov_response.py`: arbitrary
   multiplier, bistochastic, summed-response, Dirichlet, observability-
   preimage, state-energy, polarized-collapse, and repeated-apex
@@ -2090,8 +2104,8 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   The former deformation route was superseded by the Schwarzian proof of EL4; see
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
-## Next five concrete actions (refreshed after L296 / A243)
-1. Use L285--L296 to prove the arbitrary-grade parity recursion in
+## Next five concrete actions (refreshed after L297 / A244)
+1. Use L285--L297 to prove the arbitrary-grade parity recursion in
    the mixed graph coordinate: solve removable odd endpoint homology,
    then factor each complete physical endpoint pairing directly as
    `X_j[B_1 ... B_r]*+[B_1 ... B_r]X_j*`.  L291 makes state-level
@@ -2104,16 +2118,19 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    state-ideal invariance, a rank-changing pseudoinverse, pointwise
    flag zero alone, or an isolated seventh grade.  L282 remains the
    bounded-energy certificate language.
-2. Do **not** compare L285/L289's complete endpoint with L212's
-   target; L295 disproves that at the apex.  Split off L283's
-   favorable `−12B_kB_k*` face, discard bounded prior-flag factors,
-   and write only the surviving compressed remainder as
-   `sum_j beta_j F_j(X_j)` using L296's polarized L280 response.
-   Prove total column energy
+2. Choose and name the endpoint normalization before comparing
+   faces.  L295 disproves only the raw-upper/lower-tight comparison;
+   L297 shows the apex gap is exactly the `(-I,-4I)` lower
+   retightening.  On the current raw route, retain its lower budget,
+   split off L283's favorable `−12B_kB_k*` upper face, discard
+   bounded prior-flag factors, and write only the surviving
+   compressed remainder as `sum_j beta_j F_j(X_j)` using L296's
+   polarized response.  Prove total column energy
    `sum_j|beta_j|²||X_j||²<=C²||U*B_k||²`; L296 then supplies L282
-   without a Markov inverse or special `G_k` ansatz.  Translate a
-   failure into L292's Smith valuations.  Alternatively prove L212's
-   distinct exact-axis base, without mixing metric branches.
+   without a Markov inverse.  Translate a failure into L292's Smith
+   valuations.  Alternatively transport L297's retightening and
+   prove L212's lower-tight effective all-grade base.  Do not mix the
+   raw and effective endpoint ledgers.
 3. After bounded elliptic selection closes, derive the later
    Schur-orthogonal circular-normal response and merge the branches
    without spending the same disk Gram twice.
@@ -2153,9 +2170,9 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    not compute another isolated grade.  Then finish the
    normal/elliptic merger, retaining the full CP route as fallback.
 
-## Paste-ready continuation instruction (current after L296/A243)
+## Paste-ready continuation instruction (current after L297/A244)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix` as
-the sole repository-writing agent.  Read L197, L220, L227, L283--L296,
+the sole repository-writing agent.  Read L197, L220, L227, L283--L297,
 plus the newest `RESEARCH_STATE.md` section.  L277--L279 have proved
 every lower delayed face, the active `+4||B_k||²` volume coefficient,
 the `+2||B_k||²` dual-Schur trace, and the
@@ -2205,17 +2222,23 @@ Markov route by identifying its first commutator Laplacian.  L294 then
 proves the exact nonlinear numerator pairing and L282 inequality for
 every transfer flux; L212's target
 `12B_kB_k*−28Phi(B_k*B_k)` is one instance.  L295 proves that the
-complete L227/L285 repair face cannot be compared with that target:
-their apex values are `−12I` and `−16I`.  Do not resume that false
-comparison or re-estimate the Markov gap.  Split off L283's favorable
-`−12B_kB_k*` face.  Discard L289/L290's bounded prior-flag factors.
-L296 shows every polarized L280 response has an exact gap-free energy
-estimate, so express only the surviving compressed mixed remainder as
+raw L227/L285 upper face cannot be compared directly with that
+lower-tight target: their apex upper values are `−12I` and `−16I`.
+L297 corrects the scope: the boundary, raw-repair, and lower-tight
+endpoint pairs are `(+I,−4I)`, `(+I,−12I)`, and `(0,−16I)`, so the
+missing `−4I` is exactly lower retightening and the effective
+comparison remains open.  Do not mix those endpoint ledgers or
+re-estimate the Markov gap.  On the raw route retain the lower budget,
+split off L283's favorable `−12B_kB_k*` upper face, and discard
+L289/L290's bounded prior-flag factors.  L296 shows every polarized
+L280 response has an exact gap-free energy estimate, so express only
+the surviving compressed mixed remainder as
 `sum_j beta_j F_j(X_j)` and prove its polarization energy is
 `O(||U*B_k||²)`; equivalently, extract the finite arbitrary-grade
 alternating rule and prove L292's physical valuations while preserving
 the even direct Gram and odd Schur cost.  The distinct alternate route
-is to prove L212's own exact-axis base without mixing the branches.
+is to transport L297's exact `(-I,-4I)` retightening and prove L212's
+lower-tight effective all-grade base.
 Do not compute an isolated seventh grade.
 Only then resume the circular-normal merger and analytic remainder
 audit.  Commit and push each proved milestone."
