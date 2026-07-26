@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-26): after L315 / A263
+## Current general Crabb frontier (2026-07-26): after L316 / A264
 
 The accidental two-agent interval has been reconciled.  Commits
 `87c5107`, `4c7a152`, `2f82d15`, and `dcab861` form one linear history
@@ -74,6 +74,15 @@ normalization preserve both.  Thus the whole affine successor is
 filtered and every endpoint root factors through `c^kB_k`.  The live
 gate is now only multiplier energy and the fixed-`theta=1/2` margin
 assembly.
+L316/A264 sharpens that gate.  The complete L255 doubled-Hardy pencil
+is covariant under transfer-channel sign reversal, and its exact
+endpoint embeddings show that every same-endpoint physical sandwich
+is even in total channel degree.  Hence an isolated L315 root cannot
+survive in the grouped nonresponse endpoint.  The sole live
+calculation is now the quantitative two-channel theorem: prove
+`j+k<=d` for channels `B_j,B_k` occurring at elliptic degree `d`,
+identify equality with L283's direct Gram, and give every other block
+an extra power of `c` before the fixed-half-scale margin assembly.
 The L312/A260 checkpoint repeated the concurrency audit from a clean
 worktree: all four handoff commits are ancestors of the single
 `master`, `master` agrees with `origin/master`, no alternate worktree,
@@ -81,7 +90,7 @@ branch, staging conflict, or untracked artifact existed, and L248/L249
 regenerate byte-identically with the recorded hashes.  The stopped
 agent's L248 continuation recommendation has been superseded by
 L277--L279, which close that volume coefficient.  Resume as one agent
-only from L315's multiplier-energy square completion and then the
+only from L316's two-channel weighted-energy square completion and then the
 fixed-`theta=1/2` finite-flag induction below.  The now-completed
 A194 route
 ran through A196's balanced output form, A197's paired
@@ -1123,6 +1132,13 @@ before their theta/coisometric cancellation.
   mixed-correction, rank-collapse, and complete-delay filtration
   audits; tracked data hash
   `e98a59d70874201afb32272a3e2408e38bda2bc00019f8fdf7cef5ca1ec4b3fb`.
+- `proof/repeated_crabb_channel_parity.md` (L316/A264): exact
+  doubled-Hardy sign covariance, endpoint embeddings, and absence of
+  isolated transfer channels in every grouped closed endpoint.
+- `experiments/repeated_crabb_channel_parity.py`: functional-calculus,
+  metric, endpoint-sandwich, and orientation-Schur covariance audits;
+  tracked data hash
+  `03b23df2857cfd71edf69da66d2dd7df1a8c72a3c667e9a378df8663ed7a5711`.
 - `experiments/repeated_crabb_markov_response.py`: arbitrary
   multiplier, bistochastic, summed-response, Dirichlet, observability-
   preimage, state-energy, polarized-collapse, and repeated-apex
@@ -2446,9 +2462,9 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    not compute another isolated grade.  Then finish the
    normal/elliptic merger, retaining the full CP route as fallback.
 
-## Paste-ready continuation instruction (current after L315/A263)
+## Paste-ready continuation instruction (current after L316/A264)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix` as
-the sole repository-writing agent.  Read L197, L220, L227, L283--L315,
+the sole repository-writing agent.  Read L197, L220, L227, L283--L316,
 A259's explicitly conjectural sharp endpoint-word note, plus the newest
 `RESEARCH_STATE.md` section.  Do not treat A259 as L312: its
 lossless-circuit residual block is unproved.  L312 proves only the
@@ -2465,8 +2481,14 @@ cancellation.  L315 also closes the operator root valuation: the
 filtered rule `d>=2k` in bridge ideal `I_k` survives the full affine
 successor, lower elimination, Stein inversion, and L311 selection.
 Do not redo a dual-Stein telescope.  For each exposed factor through
-`c^kB_k`, use L313 to factor its multiplier through the cumulative
-weighted transfer row, complete squares at `theta=1/2`, and pay only
+`c^kB_k`, use L316 first: exact doubled-Hardy sign covariance proves
+that no isolated transfer channel survives in the grouped
+nonresponse endpoint.  Do not confuse this with elliptic parity;
+L309 remains valid.  Prove next that the second channel `B_j` carries
+enough physical weight that `j+k<=d` at elliptic degree `d`, with
+equality only for L283's principal direct Gram.  Factor the remaining
+endpoint through `[cB_1,c²B_2,...]`, give every nonprincipal block one
+extra `c`, then complete squares at `theta=1/2` and pay only
 prior-transfer costs from retained earlier margins.  Retain `−C*C`
 and L307's reserve.  L277--L279 have proved
 every lower delayed face, the active `+4||B_k||²` volume coefficient,

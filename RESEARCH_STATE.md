@@ -52,6 +52,14 @@
   L312's still-missing **grouped weighted** L306/L307 recurrence,
   followed by the fixed-`theta=1/2` finite-flag induction.  A259
   remains conjectural and is not a competing task.
+- L313--L316 were then derived on the sole-agent line.  L313 closes
+  weighted finite physical words, L314 closes the compulsory frame
+  cross, and L315 preserves displayed bridge-root valuation through
+  the complete affine recurrence.  L316 now proves that a grouped
+  closed endpoint is even under simultaneous sign reversal of every
+  transfer channel.  Thus a single exposed L315 root cannot survive
+  alone outside the response; the sole live debt is the sharp
+  **two-channel** weight/energy estimate and its margin assembly.
 - **Historical pre-L279 route record (superseded):** A194 at the complete
   physical terminal balance, now in A196/L250's balanced output
   coordinates, A197/L251's paired analytic ports, A198/L252's cyclic
@@ -6226,8 +6234,8 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L315/A263)
-1. **Close the multiplier-energy square completion left after L315.**
+## Current next actions (Epoch 6, refreshed after L316/A264)
+1. **Close the two-channel weighted-energy square completion left after L316.**
    L306 sums every rooted successor to
    `q=−Psi_S(Delta*XS+S*XDelta+Delta*XDelta)
       −(C*H+H*C+C*C)`, and L307 proves the formula recurs after a
@@ -6257,14 +6265,25 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    rule `d>=2k` is invariant under all six successor terms, lower
    elimination, Stein inversion, and L311 response selection.  Do
    not redo those sectors or demand a frame/operator cancellation.
-   For each exposed L311 factor
-   `K_(d,k)(c^kB_k)*+(c^kB_k)K_(d,k)*`, use L313's
-   physical-word normal form to factor `K_(d,k)` through the
-   cumulative weighted row.  Complete squares at fixed
+   L316 adds the exact missing parity statement at the grouped
+   physical endpoint: the doubled-Hardy orientation gauge makes every
+   same-endpoint sandwich even in total transfer-channel degree.
+   Therefore an L311 one-root term either cancels/is response or its
+   multiplier contains a second transfer channel.  Prove the sharp
+   path-weight rule: if the two exposed channels are `B_j,B_k` in
+   elliptic degree `d`, then `j+k<=d`, with equality only for the
+   principal direct Gram already identified by L283/L298.  Use L243's
+   reflection-power filtration, L255's doubled-Hardy paths, L313's
+   paid reverse-edge recursion, and L315's displayed root genealogy;
+   do not infer the result merely from abstract ideal membership or
+   parity.  Package the remainder as a bounded quadratic form in
+   `[cB_1,c^2B_2,...]`, with an extra factor of `c` on every
+   nonprincipal block.  Complete squares at fixed
    `theta=1/2`, isolate each even new direct Gram, and bound only the
    prior-transfer cost by retained earlier margins.  Retain `−C*C`
    with L307's reserve.  Do
-   not impose global odd response, factor raw `q`, enumerate L305
+   not impose global odd response, confuse channel parity with
+   elliptic parity, factor raw `q`, enumerate L305
    roots, launch an unrelated fifth/seventh grind, discard `−C*C`,
    split load-bearing square completions, assume A259's unproved
    endpoint-word inequality, or assume
