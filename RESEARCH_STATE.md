@@ -2,11 +2,12 @@
 
 **Last updated:** 2026-07-26 (Epoch 6 — repeated circular/elliptic merger)
 
-## CANONICAL LIVE GATE (2026-07-26, after L323/A271)
+## CANONICAL LIVE GATE (2026-07-26, after L324/A272)
 
 There is exactly one current mathematical gate: **prove the finite
 scalar-channel-stratum flag assembly near a repeated Crabb block,
-using L322's sharp linear reserve and L323's quadratic response cost,
+using L322's sharp linear reserve and L324's joint channel/disk
+quadratic response cost,
 and descending L321's common-eigenline jet flag whenever the leakage
 valuation vanishes.**  L199
 supplies the first transverse disk/circular-normal face, L318 supplies
@@ -22,6 +23,32 @@ frontier.  Actions 1--2 are completed derivation records, action 3
 is live, and action 4 is its ordered successor.  The CP/H-r routes
 remain parked fallbacks.
 
+## L324/A272 JOINT CHANNEL/DISK RESPONSE FACTOR (2026-07-26)
+
+- The first post-L323 adversarial audit found a genuine scope issue:
+  transfer leakage `delta` alone does not measure off-channel disk
+  residuals inside a later L197 response.  L323 remains correct for
+  transfer-only responses; its broader joint-response application has
+  been narrowed in the ledgers.
+- Along a ramified analytic zero-Jensen arc, transport the selected
+  scalar state through every L197 congruence.  The accumulated active
+  Hardy quotient columns `eta_j` satisfy
+  `d asymp sum_j ||eta_j||²`, where `d` is the whole scalar disk loss.
+- One complement-frame sign change flips both L323's transfer cross
+  blocks and every off-channel disk quotient block.  After subtracting
+  L192's channel-preserving scalar response, physical invariance removes
+  total cross degrees zero and one.
+- Hence `|R_full−R_split|<=C(delta+d)`, including mixed
+  `sqrt(delta*d)` terms.  Completing all finite scalar responses at
+  once costs `O((delta+d)²)`, absorbed after shrinking by L322's linear
+  reserve plus fixed retained fractions of the L197 disk squares.
+- This is the endpoint-specific scalar information missing from
+  L319's arbitrary Schur germs.  It does not assert positivity of the
+  complete matrix endpoint.
+- Fifteen exact invariant-monomial and completion audits pass; dataset
+  SHA-256:
+  `c06279887606fcff4954bdc059b8b7fd8a118fbdff4ea6b4e25c7d795eb35472`.
+
 ## L323/A271 TWO-SIDED CHANNEL DEFECT AND RESPONSE FACTOR (2026-07-26)
 
 - In channel frames `B=[[b,r],[c,D]]`, matrix-inner boundary
@@ -35,16 +62,15 @@ remain parked fallbacks.
   changes no physical scalar response.  The finite matrix-Schur
   chart retracts analytically to the block-diagonal inner locus with
   only quadratic diagonal error.
-- Hence the pure scalar normal response, and the difference from
-  L192's already controlled split disk/normal response, are
-  `O(delta)` on L199's zero-Jensen branch.
-- Completing against fixed normal curvature costs `O(delta²)`, which
-  is absorbed by L322's `(4/3)delta` reserve after shrinking.  The
-  response-size obstruction is closed without deriving L319's
-  stronger complete-similarity kernel block.
-- The sole remaining local task is the finite curve-selected flag
-  bookkeeping across L197's disk flag, L321's common-eigenline flag,
-  and L318's separately retained elliptic margin.
+- Hence every transfer-only scalar response which vanishes on the
+  split-inner subchart is `O(delta)`, and its normal completion costs
+  `O(delta²)`.
+- The original downstream sentence also applied that bound to joint
+  disk/normal responses.  That scope was too broad because
+  off-channel disk residuals are not measured by `delta`.  L324
+  corrects it with the accumulated disk loss `d`.
+- Use L324, not this section alone, in the finite curve-selected flag
+  across L197, L321, and L318.
 - Nine deterministic exact matrix-inner path audits pass; dataset
   SHA-256:
   `beca54b375f93da923b105d4a5a1070d1c51a0da6e9f7bba8cee526f235474e2`.
@@ -65,9 +91,10 @@ remain parked fallbacks.
 - Combined with L321, the certified reserve begins at
   `(4/3)Lambda(D)s^(2q)`, quadratic in channel-breaking amplitude.
   L320's older quartic reserve was valid but non-sharp.
-- L323 proves the mixed scalar normal transport is actually
-  `O(1−sigma)`, so its completed-square cost is
-  `O((1−sigma)²)`.  Retain this reserve for the finite flag assembly.
+- L323 proves transfer-only scalar transport is `O(1−sigma)`.
+  L324 adds the accumulated disk loss and proves the actual joint
+  completion costs `O((delta+d)²)`.  Retain the linear reserve for
+  that finite flag assembly.
 - Thirteen sharp/random/actual-transfer audit batches pass; dataset
   SHA-256:
   `52c16681fcddfcb21c08f4483093ea2f9e8a175e4dc8f22d6dfa2e90a46835b2`.
@@ -6452,7 +6479,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L323/A271)
+## Current next actions (Epoch 6, refreshed after L324/A272)
 1. **COMPLETED BY L318: fixed-half-scale margin assembly after L317.**
    The remainder of this item is the derivation record, not a live
    instruction.
@@ -6534,16 +6561,19 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    exact channel into a single-copy full-Hardy block and a smaller
    complementary transfer.  L321 now exposes the first leakage
    coefficient exactly, and L322 upgrades the certified scalar gap to
-   at least `(4/3)(1−sigma)`.  L323 now proves the pure scalar normal
-   response, and the difference from L192's split joint response, are
-   `O(1−sigma)`, so their completed cost is lower order.
+   at least `(4/3)(1−sigma)`.  L323 proves the transfer-only response
+   is `O(delta)`.  L324 corrects the joint scope by including the
+   accumulated L197 scalar disk loss `d`: after subtracting L192's
+   split response, every later scalar transport coefficient is
+   `O(delta+d)`, so its completed cost is `O((delta+d)²)`.
 
    Assemble one curve-selected finite flag.  At each L197 disk layer,
-   retain half of its strict split-channel face, charge the
-   `O((1−sigma)²)` transport cost once to L322, and descend L321's
-   common eigenline when the leakage face vanishes.  Keep L318's
-   elliptic margin separate and use L205/L192 when a channel persists
-   exactly.
+   retain a fixed fraction of every accumulated square, stack all
+   normal/reflected responses before completing them once, and charge
+   the resulting `O((delta+d)²)` cost to L322 plus those retained
+   squares.  Descend L321's common eigenline when the leakage face
+   vanishes.  Keep L318's elliptic margin separate and use L205/L192
+   when a channel persists exactly.
 
    If `Lambda=0`, carry L321's common eigenline through the next
    nonzero transfer jet.  If it persists identically, reduce to the
@@ -6555,8 +6585,9 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    L319 proves that first-face positivity and exact Schur transport
    alone do not determine the stronger complete-similarity
    kernel-block response.  Do not use that shortcut.  Return to the
-   endpoint-specific response only if the scalar leakage induction
-   leaves a term not controlled by L320/L192/L199/L318.
+   endpoint-specific complete-matrix response only if the scalar
+   induction leaves a term not controlled by
+   L192/L197/L199/L318/L322/L324.
 4. **Then close analytic remainders and audit equality strata.**  Use
    the bounded selected columns along the finite L197/L220 flag and
    combine with the banked single-block quotient results before

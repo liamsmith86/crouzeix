@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-26): after L323 / A271
+## Current general Crabb frontier (2026-07-26): after L324 / A272
 
 The post-L316 consolidation review retired 55 of 75 stale/unclassified
 `OPEN` labels (54 superseded, one obsolete) and left 20 genuinely live
@@ -19,8 +19,13 @@ quartic consequence by the sharp endpoint-angle estimate
 `(4/3)(1−sigma)`.  L323 gives exact two-sided off-channel Hardy mass
 `delta=1−sigma` and uses frame-gauge parity to prove the pure scalar
 normal response, and the difference from L192's split response, are
-`O(delta)`.  Their completed cost is `O(delta²)`.  The live step is
-now the finite L197/L321 flag assembly with L318 kept separate.
+`O(delta)` for transfer-only responses.  The immediate adversarial
+audit found that joint disk/normal responses also contain off-channel
+disk residuals.  L324 corrects the scope: if `d` is the accumulated
+L197 scalar disk loss, the joint complement-frame gauge gives response
+`O(delta+d)` and completed cost `O((delta+d)²)`.  L322 plus retained
+L197 squares absorb it after shrinking.  The live step is now the
+finite L197/L321 flag induction with L318 kept separate.
 L319 proves that the alternative Schur-only complete-similarity
 shortcut does not determine the later kernel block; it is now a
 fallback debt rather than a scalar prerequisite.  L317 proves the
@@ -2523,9 +2528,9 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    not compute another isolated grade.  Then finish the
    normal/elliptic merger, retaining the full CP route as fallback.
 
-## Paste-ready continuation instruction (current after L323/A271)
+## Paste-ready continuation instruction (current after L324/A272)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix` as
-the sole repository-writing agent.  Read L197, L220, L227, L283--L323,
+the sole repository-writing agent.  Read L197, L220, L227, L283--L324,
 A259's explicitly conjectural sharp endpoint-word note, plus the newest
 `RESEARCH_STATE.md` section.  Do not treat A259 as L312: its
 lossless-circuit residual block is unproved.  L312 proves only the
@@ -2559,12 +2564,17 @@ score one with an actual split scalar inner channel.  Remove compact
 channel-free anchors by this strict gap.  L321 gives
 `1−sigma=s^(2q)Lambda+...`, while L322 sharpens the norm reserve to
 at least `(4/3)(1−sigma)`, quadratic rather than quartic in the first
-channel-breaking amplitude.  L323 proves the pure scalar normal
-response and the difference from L192's split response are
-`O(1−sigma)`, so normal completion costs only `O((1−sigma)²)`.
-Assemble the finite L197/L321 flag, descending until L205 splits the
-channel and using L192 on that block.  Keep L199's split face and
-L318's elliptic margin separate.  L319/A267 forbids inferring a stronger
+channel-breaking amplitude.  L323 proves exact two-sided transfer
+leakage and the transfer-only `O(delta)` response factor.  Its former
+joint-disk application was too broad: off-channel disk residuals are
+not measured by `delta`.  L324 corrects this by transporting the
+scalar state through all L197 congruences.  If `d` is the accumulated
+disk loss, one joint complement gauge gives response `O(delta+d)` and
+one stacked completion costs `O((delta+d)²)`, absorbed by L322 plus
+retained L197 squares.  Assemble the finite L197/L321 flag, descending
+until L205 splits the channel and using L192 on that block.  Keep
+L199's split face and L318's elliptic margin separate.  L319/A267
+forbids inferring a stronger
 complete-similarity later quotient from Schur algebra alone; reopen
 that endpoint-specific calculation only if the scalar leakage route
 leaves an uncontrolled term.  L277--L279 have proved

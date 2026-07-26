@@ -1,8 +1,11 @@
 # Two-sided scalar-channel defect and response factorization
 
-> **Campaign scope.**  This is a local factorization theorem on the
-> scalarized zero-Jensen branch of the repeated disk chart.  It does
-> not by itself complete the full curve-selection induction.
+> **Campaign scope.**  This is a local factorization theorem for
+> responses whose transverse variables lie in the matrix-inner
+> transfer chart.  L324 corrects its former downstream application
+> to joint disk/normal responses by adding the accumulated L197 disk
+> loss.  This result does not by itself complete the full
+> curve-selection induction.
 
 ## 1. Result (L323, 2026-07-26)
 
@@ -76,9 +79,10 @@ At a maximizing pair for L320,
 \delta(u,v)=1-\sigma(B).                           \tag{7}
 \]
 
-Finally, on any fixed finite matrix-Schur chart near a split scalar
-channel, every real-analytic, defect-frame-gauge-invariant scalar
-response coefficient on a fixed curve-selected extremal branch which
+Finally, on any fixed finite matrix-Schur **transfer** chart near a
+split scalar channel, every real-analytic,
+defect-frame-gauge-invariant scalar response coefficient on a fixed
+curve-selected extremal branch which
 
 1. vanishes on the block-diagonal inner locus, and
 2. is evaluated on L199's scalar zero-Jensen winner,
@@ -102,15 +106,14 @@ normal curvature \(\gamma\) therefore costs only
 which is absorbed by L322's
 \(\frac43(1-\sigma(B))\) reserve after one neighbourhood shrink.
 
-Equation (8) applies directly to the pure scalar circular-normal
-response at an L193 anchor.  For a joint disk/normal response, apply
-it to the **difference from L192's already controlled split-channel
-response**.  That difference is analytic, physical and hence
-defect-frame-gauge invariant, and vanishes on every exactly split
-channel.  Thus the formerly missing later transport correction need
-not be computed coefficient by coefficient.  What remains is to
-assemble this estimate through the finite L197/L321 channel flag and
-the separately retained L318 elliptic margin.
+Equation (8) applies directly to a pure scalar circular-normal
+response at an L193 anchor when its transverse dependence is through
+the equality transfer.  It does **not**, by itself, bound a joint
+disk/normal response containing off-channel Hardy residuals: those
+variables also change sign under the physical frame gauge but are not
+measured by \(\delta\).  L324 includes all accumulated L197 quotient
+squares and proves the corrected bound \(O(\delta+d)\).  That is the
+estimate to use in the finite L197/L321 channel flag.
 
 ## 2. Exact channel defect identities
 
@@ -223,9 +226,10 @@ by a singular frame.
 ## 4. Normal completion
 
 On L199's zero-Jensen winner, a scalar real/imaginary circular-normal
-pair has a positive pure curvature \(\gamma>0\).  After subtracting
-L192's strictly controlled split disk/normal face, the new pure
-anchor response in upper-gap orientation has the form
+pair has a positive pure curvature \(\gamma>0\).  For a response whose
+only cross-channel variables lie in the equality transfer, subtract
+the channel-preserving scalar response.  The remaining upper-gap
+expression has the form
 
 \[
 -\gamma|y|^2
@@ -240,15 +244,16 @@ Completing the displayed square costs
 \le\frac{C^2}{\gamma}(1-\sigma)^2.                 \tag{15}
 \]
 
-There are only finitely many normal modes and finitely many L197
-flag layers for fixed \(L,m\).  Shrink until their summed coefficient
-times \(1-\sigma\) is at most \(2/3\).  L322 retains another
-\(2/3(1-\sigma)\), while the unspent half of each L199 curvature
-absorbs both the \(O(1-\sigma)\) perturbation of L192's strict joint
-face and the analytic terms carrying an extra neighbourhood factor.
+There are only finitely many normal modes for fixed \(L,m\).  Shrink
+until their summed coefficient times \(1-\sigma\) is at most \(2/3\).
+L322 retains another \(2/3(1-\sigma)\), while the unspent half of each
+normal curvature absorbs analytic terms carrying an extra
+neighbourhood factor.  When an L197 disk residual is also active, use
+L324's stacked completion instead of this transfer-only paragraph.
 
-This closes the response-size obstruction, not yet the bookkeeping
-of the complete flag/elliptic assembly.
+This closes the transfer-only response-size obstruction.  L324 closes
+the joint transfer/disk response size; the complete finite
+flag/elliptic bookkeeping remains.
 
 ## 5. Regeneration
 
