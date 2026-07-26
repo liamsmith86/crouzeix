@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-26): after L311 / A259
+## Current general Crabb frontier (2026-07-26): after L312 / A260
 
 The accidental two-agent interval has been reconciled.  Commits
 `87c5107`, `4c7a152`, `2f82d15`, and `dcab861` form one linear history
@@ -40,6 +40,11 @@ proof has an unresolved residual-state block after mixed gate
 orientations.  Even a proof would be unweighted.  The live gate
 remains the complete prepared sign/margin assembly and, specifically,
 physical elliptic weight matching in the full L306/L307 series.
+L312/A260 banks the rigorous fallback: reducing the first reversal
+`a^p s v` gives a constructive prefix factor with norm at most
+`ceil(d/2)` for every length-`d` word.  This closes finite-word
+rank-stable factorization but not grouped weighting; termwise use
+after Stein/Hardy closure would lose the cancellations at issue.
 The L303 checkpoint repeated the concurrency audit: all four handoff
 commits are ancestors of the single `master`, one worktree exists, no
 staging/branch conflict exists, the L248/L249 hashes remain
@@ -1057,8 +1062,12 @@ before their theta/coisometric cancellation.
   the explicit residual-block gap in the tempting lossless-circuit
   proof.
 - `experiments/repeated_crabb_endpoint_word_gram.py`: exhaustive
-  endpoint-word Gram tests through length ten; tracked data hash
-  `72080e8409321c996e842cfa39fe4f34df2e17c8c4249925a46eb6df7cdc60dc`.
+  endpoint-word Gram and constructive-normal-form tests through
+  length ten; tracked data hash
+  `5b5dac6046295c1176d2878365e1627961603282b368bb5e8c14fcd20a56becf`.
+- `proof/repeated_crabb_endpoint_word_normal_form.md` (L312/A260):
+  exact two-letter-deletion recursion and the proved
+  `ceil(d/2)²` transfer-prefix Gram bound.
 - `experiments/repeated_crabb_markov_response.py`: arbitrary
   multiplier, bistochastic, summed-response, Dirichlet, observability-
   preimage, state-energy, polarized-collapse, and repeated-apex
@@ -2312,7 +2321,7 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   The former deformation route was superseded by the Schwarzian proof of EL4; see
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
-## Next five concrete actions (refreshed after L311 / A259)
+## Next five concrete actions (refreshed after L312 / A260)
 1. Formulate the finite-jet square-completion/margin rule for the
    complete prepared L306/L307 successor, now using L311's
    ideal-valued normalized split for every physical root.  At odd
@@ -2324,8 +2333,9 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    arbitrary-grade algebraic inequality, not another isolated
    fifth/seventh coefficient or a growing rooted enumeration.  Do
    not impose global odd response, factor raw `q`, discard `−C*C`,
-   split load-bearing cancellations, assume A259's unproved
-   constant-one endpoint-word bound, or assume
+   split load-bearing cancellations, confuse L312's finite-word bound
+   with the still-missing grouped elliptic valuation, assume A259's
+   unproved constant-one bound, or assume
    `I intersect [A,A]=[A,I]`.
 2. Use that recurrence with L283's complete-delay boundary, L290's
    hereditary endpoint factors, and L292's valuation test to close
@@ -2378,13 +2388,14 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    not compute another isolated grade.  Then finish the
    normal/elliptic merger, retaining the full CP route as fallback.
 
-## Paste-ready continuation instruction (current after L311/A259)
+## Paste-ready continuation instruction (current after L312/A260)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix` as
-the sole repository-writing agent.  Read L197, L220, L227, L283--L311,
-A259's explicitly conjectural endpoint-word note, plus the newest
+the sole repository-writing agent.  Read L197, L220, L227, L283--L312,
+A259's explicitly conjectural sharp endpoint-word note, plus the newest
 `RESEARCH_STATE.md` section.  Do not treat A259 as L312: its
-lossless-circuit residual block is unproved, and raw word length does
-not close elliptic weight matching.  L277--L279 have proved
+lossless-circuit residual block is unproved.  L312 proves only the
+constructive `ceil(d/2)` prefix factor, and raw word length still does
+not close grouped elliptic weight matching.  L277--L279 have proved
 every lower delayed face, the active `+4||B_k||²` volume coefficient,
 the `+2||B_k||²` dual-Schur trace, and the
 `−16||B_k||²` effective separator trace in arbitrary grade.  Do not

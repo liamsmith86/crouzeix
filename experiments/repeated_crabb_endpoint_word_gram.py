@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
-"""Audit finite-horizon Gram domination of every endpoint word.
+"""Audit sharp and constructive Gram bounds for endpoint words.
 
 For a balanced pure partial-isometry colligation and a word ``w`` of
 length ``d`` in ``S,S*``, put ``K_w=W* w V``.  The lossless-circuit
-lemma predicts
+conjecture predicts
 
     K_w K_w* <= sum_{j=1}^d B_j B_j*,
 
-where ``B_j=W*(S*)^j V``.  Equivalently, ``K_w`` factors through the
-first ``d`` transfer row with a contractive right multiplier.  The
-checker exhausts all binary words through the requested horizon on
+where ``B_j=W*(S*)^j V``.  The proved normal-form theorem gives the
+same factorization with norm at most ``ceil(d/2)``.  The checker
+exhausts all binary words through the requested horizon on
 unstructured, rank-changing, and completely delayed colligations.
 """
 
@@ -52,6 +52,9 @@ class EndpointWordGramRecord:
     minimum_gram_slack_eigenvalue: str
     maximum_contracting_factor_norm: str
     maximum_factor_reconstruction_error: str
+    maximum_normal_form_factor_norm: str
+    maximum_normal_form_bound_ratio: str
+    maximum_normal_form_reconstruction_error: str
     maximum_delayed_short_word_norm: str
     all_checks_passed: bool
 
@@ -80,6 +83,55 @@ def binary_words(length: int) -> tuple[str, ...]:
     )
 
 
+def endpoint_normal_form_coefficients(
+    word: str,
+    operator: Matrix,
+    right: Matrix,
+) -> tuple[Matrix, ...]:
+    """Return the constructive prefix coefficients of ``W*word*V``.
+
+    If the current word is ``a^p s v``, use
+
+        (S*)^p S = (S*)^(p-1) - (S*)^(p-1) V V*
+
+    at the left endpoint.  Every pass deletes two letters, and every
+    emitted right multiplier is a contraction ``V* v V``.
+    """
+
+    multiplicity = right.shape[1]
+    coefficients = [
+        np.zeros((multiplicity, multiplicity), dtype=complex)
+        for _ in word
+    ]
+    current = word
+    while current:
+        if current[0] == "s":
+            break
+        initial_adjoint_run = len(current) - len(
+            current.lstrip("a")
+        )
+        if initial_adjoint_run == len(current):
+            coefficients[initial_adjoint_run - 1] += np.eye(
+                multiplicity
+            )
+            break
+
+        suffix = current[initial_adjoint_run + 1 :]
+        transfer_index = initial_adjoint_run - 1
+        if transfer_index >= 1:
+            suffix_value = (
+                word_value(suffix, operator)
+                if suffix
+                else np.eye(len(operator), dtype=complex)
+            )
+            coefficients[transfer_index - 1] -= (
+                right.conj().T @ suffix_value @ right
+            )
+        current = "a" * transfer_index + suffix
+
+    return tuple(coefficients)
+
+
 def audit_case(
     construction_kind: str,
     operator: Matrix,
@@ -99,6 +151,9 @@ def audit_case(
     minimum_slack = np.inf
     maximum_factor_norm = 0.0
     maximum_reconstruction_error = 0.0
+    maximum_normal_factor_norm = 0.0
+    maximum_normal_bound_ratio = 0.0
+    maximum_normal_reconstruction_error = 0.0
     maximum_delayed_word_norm = 0.0
     maximum_energy_identity_error = 0.0
     words_checked = 0
@@ -156,6 +211,34 @@ def audit_case(
                 float(np.linalg.norm(factor, ord=2)),
             )
 
+            normal_coefficients = endpoint_normal_form_coefficients(
+                word,
+                operator,
+                right,
+            )
+            normal_factor = np.vstack(normal_coefficients)
+            normal_reconstruction_error = float(
+                np.linalg.norm(
+                    transfer_row @ normal_factor - endpoint_word
+                )
+            )
+            normal_factor_norm = float(
+                np.linalg.norm(normal_factor, ord=2)
+            )
+            normal_bound = (length + 1) // 2
+            maximum_normal_reconstruction_error = max(
+                maximum_normal_reconstruction_error,
+                normal_reconstruction_error,
+            )
+            maximum_normal_factor_norm = max(
+                maximum_normal_factor_norm,
+                normal_factor_norm,
+            )
+            maximum_normal_bound_ratio = max(
+                maximum_normal_bound_ratio,
+                normal_factor_norm / normal_bound,
+            )
+
             if length < complete_delay:
                 maximum_delayed_word_norm = max(
                     maximum_delayed_word_norm,
@@ -169,6 +252,8 @@ def audit_case(
         and maximum_energy_identity_error < tolerance
         and maximum_factor_norm < 1 + tolerance
         and maximum_reconstruction_error < tolerance
+        and maximum_normal_reconstruction_error < tolerance
+        and maximum_normal_bound_ratio < 1 + tolerance
         and maximum_delayed_word_norm < tolerance
     )
     if not verified:
@@ -178,6 +263,9 @@ def audit_case(
             f"{minimum_slack=}, {maximum_energy_identity_error=}, "
             f"{maximum_factor_norm=}, "
             f"{maximum_reconstruction_error=}, "
+            f"{maximum_normal_factor_norm=}, "
+            f"{maximum_normal_bound_ratio=}, "
+            f"{maximum_normal_reconstruction_error=}, "
             f"{maximum_delayed_word_norm=}"
         )
 
@@ -196,6 +284,15 @@ def audit_case(
         ),
         maximum_factor_reconstruction_error=format_float(
             maximum_reconstruction_error
+        ),
+        maximum_normal_form_factor_norm=format_float(
+            maximum_normal_factor_norm
+        ),
+        maximum_normal_form_bound_ratio=format_float(
+            maximum_normal_bound_ratio
+        ),
+        maximum_normal_form_reconstruction_error=format_float(
+            maximum_normal_reconstruction_error
         ),
         maximum_delayed_short_word_norm=format_float(
             maximum_delayed_word_norm

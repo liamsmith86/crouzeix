@@ -336,6 +336,27 @@
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
 
+## NEWEST (2026-07-26): L312 gives every finite endpoint word a constructive transfer-prefix normal form
+- For a length-`d` word `w`, repeatedly reduce its first reversal
+  `a^p s v` by `a^p s=a^(p−1)(I−VV*)`.  Each step emits the exact
+  term `−B_(p−1)V*vV` and deletes two letters; a terminal `a^r`
+  emits `B_r`.
+- Hence `K_w=W*wV=sum_(j<=d)B_jC_j(w)`.  There are at most
+  `ceil(d/2)` contraction emissions, so the stacked factor has norm
+  at most `ceil(d/2)` and
+  `K_wK_w*<=ceil(d/2)² sum_(j<=d)B_jB_j*`.
+- This is exact, polynomial, rank-stable, and dimension-free.  It
+  proves a weaker fallback to A259 without a pseudoinverse.  A259's
+  constant-one bound remains conjectural.
+- Each emitted transfer index is no larger than the number of
+  `S*` letters.  This is useful for finite elliptic words, but a
+  termwise application after an infinite Stein/Hardy expansion can
+  lose the coisometric cancellations that enforce physical
+  valuation.  The live gate is therefore a **grouped weighted**
+  normal form for L306/L307 in L220's Schur-orthogonal coordinates.
+- The enlarged tracked dataset regenerates with SHA-256
+  `5b5dac6046295c1176d2878365e1627961603282b368bb5e8c14fcd20a56becf`.
+
 ## NEWEST (2026-07-26): A259 isolates a strong unweighted endpoint-word conjecture, but its proof is open
 - For every length-`d` word `w` in `S,S*`, exhaustive tests support
   `K_wK_w* <= sum_(j=1)^d B_jB_j*`, where
@@ -348,7 +369,8 @@
   2,046 words through length ten; separate exhaustive tests through
   length sixteen and random tests through length twenty also pass.
   Tracked dataset SHA-256:
-  `72080e8409321c996e842cfa39fe4f34df2e17c8c4249925a46eb6df7cdc60dc`.
+  The enlarged L312 dataset has SHA-256
+  `5b5dac6046295c1176d2878365e1627961603282b368bb5e8c14fcd20a56becf`.
 - This is **not L312**.  The tempting Julia-colligation circuit proof
   has an unproved residual-block step after mixed gate orientations.
   The nonlinear word `(S*)²S³(S*)²` already contains
@@ -6099,7 +6121,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after A259)
+## Current next actions (Epoch 6, refreshed after L312/A260)
 1. **Construct the hereditary prepared affine recurrence.**
    L306 sums every rooted successor to
    `q=−Psi_S(Delta*XS+S*XDelta+Delta*XDelta)
@@ -6118,10 +6140,12 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    delay-vanishing response.  Derive the remaining weighted
    square-completion from L306--L307's full matrix expression, using
    L305 only as the response/module engine and keeping the affine
-   leftover in L307's scaling identity.  A259's constant-one
-   endpoint-word bound is only a numerical conjecture, and raw word
-   length would not by itself prove the required elliptic weight
-   matching.  Do
+   leftover in L307's scaling identity.  L312 now gives a proved
+   finite-word prefix factor with a `ceil(d/2)` bound, but neither
+   that result nor A259's sharper numerical conjecture may be applied
+   termwise after the infinite Stein/Hardy closure: raw word length
+   does not prove the required elliptic weight matching.  Work in the
+   grouped L220/L236 coordinates.  Do
    not impose global odd response, factor raw `q`, enumerate L305
    roots, launch an unrelated fifth/seventh grind, discard `−C*C`,
    split load-bearing cancellations, assume A259's unproved

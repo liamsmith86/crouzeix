@@ -40,7 +40,9 @@ In particular,
 B_1=\cdots=B_d=0\Longrightarrow K_w=0,           \tag{3}
 \]
 
-which is consistent with L209.  A proof would add the missing
+which is consistent with L209.  L312 subsequently proves (3)
+constructively and gives (1) with the larger factor
+\(\lceil d/2\rceil^2\).  A proof of the sharp statement would add the missing
 constant-one quantitative estimate for the multipliers
 \(K=W^*qpV\) in L310--L311.
 
@@ -179,7 +181,13 @@ Separate untracked stress tests covered:
    words through length twenty; and
 3. the nonlinear word (9), including noncommuting copy matrices.
 
-These tests make (1) a serious conjecture, not a proof.
+These tests make (1) a serious conjecture, not a proof.  The same
+checker independently audits L312's proved normal form.  The tracked
+dataset regenerates with SHA-256
+
+```text
+5b5dac6046295c1176d2878365e1627961603282b368bb5e8c14fcd20a56becf
+```
 
 Run
 
