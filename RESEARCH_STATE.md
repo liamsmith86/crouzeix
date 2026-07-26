@@ -109,12 +109,41 @@
   the two new crossed endpoints and `G_k−SG_kS*`, and exact tail
   embedding propagates coefficient one to every remaining word.  The
   raw direct/immediate/later pieces do not obey this recursion
-  separately.  The only unweighted support debt is now to exclude or
-  trace-null organize words **outside** the proved fan and to prove
-  all lower vanishings.  Exact grades one through six have no such
-  extra word, but that finite fact is not the missing induction.
+  separately.  L276/A223 now removes the unnecessarily strong exact-
+  support debt.  It is enough that lower even faces be two-sided
+  radial (with odd faces zero) and that the active
+  associated difference be cyclically radial through index `k+2`.
+  Long exact axes kill the lower radial operator and the first two
+  active trace moments; the active monomial/full-tail comparison
+  kills the top energy coefficient.  Thus possible words outside the
+  fan need only be controlled modulo trace, not literally excluded.
+  Those cyclic support envelopes are the live gate.  Exact grades one
+  through six satisfy the stronger support statement, but that finite
+  fact is not the missing induction.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
+
+## NEWEST (2026-07-25): L276 replaces exact support by three-test cyclic forcing
+- If the active full-minus-tail closed-defect face is cyclically
+  radial through `Q_(k+2)`, L252 gives
+  `tr Delta_k=p_k(1)n−p_k'(1)m+p_(k,k+2)||B_k||²`.
+- Arbitrarily long exact axes with `B_k=0` force
+  `p_k(1)=p_k'(1)=0`.  On the active monomial, L241+L247 give the
+  edge-deleted value `4m` for both the full grade and its one-layer
+  tail (L256 closes the grade-one endpoint), forcing
+  `p_(k,k+2)=0`.
+- For lower faces, no sharp index bound is required: each formal
+  coefficient is a finite two-sided radial polynomial, and all of
+  its radial projections are linearly independent on a sufficiently
+  long shift whose exact defect is zero.  Every lower radial
+  coefficient therefore vanishes operator-wise, making the active
+  log determinant linear.
+- Iteration ends at L256 and yields the desired edge-deleted volume
+  coefficient `4||B_k||²`.
+- **Still open:** prove the lower odd cancellation/radial envelope and
+  active cyclic-radial envelope from L243/L251/L258/L272.  Do not
+  grind the stronger literal no-extra-word theorem unless it falls
+  out automatically.
 
 ## NEWEST (2026-07-25): L275 propagates coefficient one through the full return fan
 - Define
@@ -135,11 +164,9 @@
 - Exact quotient arithmetic verifies the fan recursion and finds no
   additional nonradial word through grade six.  Tail fan embeddings
   pass through grade twelve.
-- **Still open:** the all-grade theorem that no word outside the fan
-  survives, and every lower closed-return face vanishes.  Do not
-  promote the finite support audit or L275's coefficient theorem to
-  that statement.  Once those two debts close, L273 cancels all
-  interior words and L271/L270 finish the one-delay trace transport.
+- **Still open:** L276's weaker lower radial and active cyclic-radial
+  support envelopes.  Do not promote the finite exact-support audit
+  or L275's coefficient theorem to a literal no-extra-word theorem.
 
 ## NEWEST (2026-07-25): L270 forces the radial moments from exact axes
 - Assume L269's proposed full-minus-tail face
@@ -4890,7 +4917,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-25)
-1. **A194/A213/A216--A222: close support outside the proved fan.**
+1. **A194/A213/A216--A223: prove the minimal cyclic support envelopes.**
    L267's abstract lossless identity remains valid, but L268 proves
    that a single analytic port carrying only the deflated tail defect
    cannot reproduce the physical associated face: equal traces hide
@@ -4908,26 +4935,22 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    recompute that metric half.  L274 fixes the four remote
    coefficients, and L275 now proves coefficient one on every
    endpoint and interior word of the unweighted fan in arbitrary
-   grade.  Do not recompute any fan coefficient.  Prove only that
-   `I−Z_ret` has no additional nonradial support and that all lower
-   faces vanish.  Exact grades one through six support both claims
-   but are not an induction.  L273 then leaves L271's four-word
-   packet automatically.
+   grade.  Do not recompute any fan coefficient.  L276 shows that
+   literal no-extra support is unnecessary.  Prove only that lower
+   odd faces cancel, lower even faces are two-sided radial, and the
+   active associated difference is cyclically
+   radial through index `k+2`.  Exact grades one through six satisfy
+   the stronger support statement but are not an induction.
    L269 disproves the
    stronger claim that the whole
    operator return is shallow: a depth-`k+1` term survives as
-   `G_k−SG_kS*`.  Prove that every deep term assembles into a delayed
-   trace-zero divergence/commutator and that the remaining shallow
-   return obeys L266.  L270 has already proved that the proposed
-   radial form automatically has the only two trace-relevant moments,
-   `p_k(1)=0` and `p_k'(1)=−1`, and hence zero one-delay trace.
-   Do not compute its individual coefficients.  L271 now makes a
-   separate tail calculation unnecessary: derive the single full-face
-   formula `D_k=U_k(Q)−R_1+R_k−4R_(k+1)+H_k`, with `u_k(1)=0` and
-   the four explicit remote words `H_k`, including all lower
-   vanishings.  Its exact deflation algebra gives the fixed
-   `R_2−R_1` and `G_k−SG_kS*` difference automatically.  Do not cite
-   the finite grade-`2..6` support pattern as an induction.
+   `G_k−SG_kS*`.  L271/L270 remain a valid stronger operator route,
+   but L276 supersedes them as the minimal scalar stop condition:
+   long axes and the exact active monomial force all three
+   trace-relevant coefficients of any bounded cyclic-radial
+   difference.  Do not compute individual radial coefficients or
+   classify extra words beyond cyclic support.  Prove the two L276
+   envelopes directly from the first-visit/model-kernel assembly.
    L256 proves the universal relative response
    `[c²]mu°=4||B_1||_F²` for every matrix channel.  Prove that removing
    one clean Hardy layer obeys

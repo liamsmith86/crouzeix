@@ -72,9 +72,11 @@ in the last three lines of (5), and no inherited fan pattern.
 
 L275 proves the **coefficients** of the full fan.  It does not prove
 that the active unweighted face has no additional nonradial words and
-does not prove the lower faces vanish.  Those two statements remain
-the A213/A220--A222 stop condition.  In particular, (3) must not be
-silently upgraded to the full support equality
+does not prove the lower faces vanish.  L276 subsequently shows that
+literal exclusion of every additional word is stronger than the
+scalar problem requires: active cyclic radiality through index
+\(k+2\), together with lower radiality, is enough.  In particular,
+(3) must not be silently upgraded to the full support equality
 \([c^{2k}]\mathfrak U_k=\hbox{radial}+\mathcal F_k\).
 
 ## 2. Fan-restricted first-visit decomposition

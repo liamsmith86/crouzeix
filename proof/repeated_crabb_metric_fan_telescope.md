@@ -93,9 +93,10 @@ which is exactly L271's four-word packet \(H_k\).
 L273 does **not** prove that the physical unweighted return is (3),
 does not prove the lower closed-return vanishings, and does not
 identify the remaining radial polynomial.  L275 subsequently proves
-coefficient one on every word of (3).  The sole remaining nonradial
-question is now whether the physical unweighted return contains any
-additional word.
+coefficient one on every word of (3).  L276 subsequently shows that
+additional words need not be excluded literally; it is enough to
+place the active associated face in the cyclic radial span through
+index \(k+2\), together with the lower radial envelope.
 
 ## 2. Radial coefficients of the metric
 

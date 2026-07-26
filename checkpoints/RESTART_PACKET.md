@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-25): after L275 / A222
+## Current general Crabb frontier (2026-07-25): after L276 / A223
 
 The accidental two-agent interval has been reconciled.  Commits
 `87c5107`, `4c7a152`, `2f82d15`, and `dcab861` form one linear history
@@ -79,11 +79,14 @@ relative grade-one response, and A203/L257 turns its transport into
   direct-plus-immediate-return cancellation
   `1+4(−1)^k−4(−1)^k=1`, while `G_k−SG_kS*` comes from the full and
   deflated direct Grams.  L275/A222 now propagates coefficient one to
-  every one of the `2k+2` fan words.  Prove only that the unweighted
-  renewal has no support outside that fan and that all lower faces
-  vanish; exact grades one through six support both statements but
-  are not an induction.  Do not recompute any fan coefficient, the
-  unpaired-`B#` placement, or the metric convolution.
+  every one of the `2k+2` fan words.  L276/A223 then weakens the
+  remaining stop condition: lower odd faces must cancel, lower even
+  faces need only be two-sided radial, and the
+  active associated difference need only be cyclically radial through
+  index `k+2`.  Exact axes plus the active monomial then force the
+  scalar recursion.  Do not prove literal no-extra support unless it
+  is automatic, or recompute any fan coefficient, the unpaired-`B#`
+  placement, or the metric convolution.
   A195 is a negative guardrail, not a second frontier.
 
 L230--L234 close the canonical repaired endpoint through the third
@@ -539,8 +542,8 @@ before their theta/coisometric cancellation.
 - `proof/repeated_crabb_metric_fan_telescope.md` (L273/A220): exact
   all-grade inverse-metric recurrence.  It cancels all `2k−2`
   interior fan paths and creates no other nonradial support.  The
-  unweighted fan coefficients are now L275; extra support and lower
-  vanishings remain open.
+  unweighted fan coefficients are now L275; L276 reduces the
+  remaining gate to lower radial and active cyclic-radial support.
 - `experiments/repeated_crabb_metric_fan_telescope.py`: exact radial
   product, inverse-boundary, and split-convolution audits through
   grade sixteen; tracked data hash
@@ -562,6 +565,11 @@ before their theta/coisometric cancellation.
   absence of extra nonradial words, plus tail embeddings through
   grade twelve; tracked data hash
   `b35c69ab580c8cb019b47f584c99b408c7404a9a94d975f902726b8321bf599b`.
+- `proof/repeated_crabb_cyclic_support_forcing.md` (L276/A223):
+  exact conditional reduction from lower radial support and active
+  cyclic-radial support through index `k+2` to the complete one-delay
+  scalar recursion.  It proves literal no-extra-word support is
+  unnecessary; the two cyclic support premises remain open.
 - `proof/repeated_crabb_exact_metric_chart.md` (L194): analytic
   metric chart in which any all-series column construction must
   converge.
@@ -1810,26 +1818,25 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   The former deformation route was superseded by the Schwarzian proof of EL4; see
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
-## Next five concrete actions (refreshed after L275 / A222)
-1. **Exclude support outside the proved unweighted fan.**  In L264's port-isolated
+## Next five concrete actions (refreshed after L276 / A223)
+1. **Prove the minimal cyclic support envelopes.**  In L264's port-isolated
    right-half-line gauge, use L272's single leakage sandwich and
    expand only `I−Z_ret`, before the retained output metric is
    multiplied.  L275 proves coefficient one on the complete
    `2k+2`-word fan, while L273 cancels all interior paths and L274
-   fixes the remote packet.  Prove only that no other nonradial word
-   survives and that every lower face vanishes.  Do not promote the
-   exact grade-one-through-six support audit to an induction, repeat
-   any fan extraction, redo ideal placement or metric inversion, or
-   expand the deflated tail.
-2. **Apply the exact deflation reductions.**  L271 then gives L269's
-   radial + fixed-endpoint + deep-divergence difference, and L270
-   forces its two radial moments and zero trace.  These implications
-   are already proved; do not recompute the radial coefficients or
-   independently compare two faces.
-3. **Iterate the proved structural recursion.**  Once item 2 is
-   proved, apply L270 repeatedly and finish at L256's universal
-   relative grade-one value `4||B_k||_F²`.  No separate radial
-   coefficient or symbol-constant computation remains.  Keep the
+   fixes the remote packet.  Prove that odd lower faces cancel, even
+   lower faces are two-sided radial, and the
+   active full-minus-tail difference is cyclically radial through
+   index `k+2`.  Do not prove literal no-extra support unless it is
+   automatic, promote the finite support audit to an induction,
+   repeat fan extraction, or redo ideal placement/metric inversion.
+2. **Apply L276's three-test forcing.**  The lower radial faces then
+   vanish operator-wise on exact long shifts.  Long axes kill the
+   first two active trace moments, and the exact active monomial/full-
+   tail comparison kills the top energy coefficient.  L271/L270 are
+   an optional stronger route, not the minimal stop condition.
+3. **Iterate the scalar recursion.**  Once item 2 applies, finish at
+   L256's universal relative grade-one value `4||B_k||_F²`.  Keep the
    terminal multiplier at its physical value throughout.
 4. **Promote the delayed trace law.**  Combine that `+4`
    volume flux with L247's exact `−2` metric contribution, then state
@@ -1842,8 +1849,8 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
 
 ## Paste-ready continuation instruction
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix`.
-Read the newest L258--L275 sections of `RESEARCH_STATE.md`, the
-corresponding proof notes, and A194/A204--A222.  The live gate is the
+Read the newest L258--L276 sections of `RESEARCH_STATE.md`, the
+corresponding proof notes, and A194/A204--A223.  The live gate is the
 complete-delay volume identity.  L267 proves exact defect transport
 for an abstract lossless Redheffer feedback, but L268 exactly rejects
 the direct physical single-port route: equal scalar traces hide a
@@ -1852,34 +1859,33 @@ one-shot operator congruence.  L269 also proves that the whole
 operator return is not shallow: a depth-`k+1` term survives as a
 trace-zero Stein divergence.  L270 proves conditionally that if
 L269's structural normal form holds, exact axes force its two radial
-moments and L252 closes the scalar recursion.  Therefore do not
-compute the radial coefficients; prove the normal form and lower
-vanishings.  L271 reduces that normal form to the single full-face
-support formula `D_k=U_k(Q)−R_1+R_k−4R_(k+1)+H_k`, with
-  `u_k(1)=0`; prove this formula from the paired first-reflection
-  assembly and do not separately expand the tail.  L272 has proved
+moments and L252 closes the scalar recursion; L271 reduces that
+stronger operator route to one full-face support formula.  L276 now
+supersedes exact normal form as the minimal scalar gate, so do not
+compute radial coefficients or separately expand the tail.  L272 has proved
   A213's two-sided leakage-ideal placement and reduced every active
   term to `tr{L_B Phi(L,L*) L_B}` with copy-scalar `Phi`; do not
   repeat that work.  L273 has also proved that the retained metric
   inverse cancels every interior path of the universal fan.  L275 now
-  proves coefficient one on every word of that fan.  Prove only that
-  the unweighted renewal `I−Z_ret` has no additional nonradial support
-  and that all lower faces vanish.  L274 separately fixed all four remote coefficients:
+  proves coefficient one on every word of that fan.  L276 proves that
+  literal no-extra support is stronger than necessary.  Prove only
+  that lower odd faces cancel, lower even faces are two-sided radial,
+  and the active associated difference is
+  cyclically radial through index `k+2`.  L274 separately fixed all
+  four remote coefficients:
   the crossed pair comes from the parity cancellation between the
   direct Gram and immediate return, while `G_k−SG_kS*` comes from the
   full and tail direct Grams.  Do not recompute any fan coefficient or
   the metric half, and do not promote the grade-one-through-six
-  no-extra-support audit to a theorem.  The resulting
-  shallow-plus-deep-divergence support remains the stop condition.
-  L266 proves
-that every nonconstant
-copy-scalar Laurent shift and every boundary correction of depth at
-most the delay misses the first delayed leakage diagonal.  Derive the
-  copy-scalar middle return in L262/L264's normalized half-line gauge
-  and prove L269's exact radial + fixed-endpoint + deep-divergence
-normal form, including all lower vanishings.  Then use L270 to
-transport the scalar face to L256's proved value four; do not compute
-the irregular radial coefficients.  Do not estimate the huge corner and
+  exact-support audit to a theorem.  Once the two cyclic envelopes are
+  proved, apply L276's long-axis/active-monomial forcing and iterate to
+  L256; L271/L270's exact operator normal form is optional.
+  L266 proves that every nonconstant copy-scalar Laurent shift and
+  every boundary correction of depth at most the delay misses the
+  first delayed leakage diagonal.  Use L243/L251/L258/L272's
+  characteristic-kernel/closed-return organization to prove L276's
+  cyclic envelopes, including operator lower vanishings, rather than
+  the stronger exact support formula.  Do not estimate the huge corner and
 Schur terms separately, detach the doubled terminal edge, split the
 two ellipse orientations, assume positive operator covariance, or
 promote L235's false whole-series tail equality.  Once `+4` is proved,

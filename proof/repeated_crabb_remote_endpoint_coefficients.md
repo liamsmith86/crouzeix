@@ -82,9 +82,10 @@ L274 proves the four nonradial coefficients exposed by the
 full-minus-tail unweighted audits and feeding the L269--L271
 telescopes.  It does **not** prove that these are the only nonradial
 words, does not determine the radial remainder, and does not prove
-the lower closed-return vanishings.  The remaining A213/A220--A221 gate is
-now exclusion or trace-null organization of every additional word;
-the four endpoint normalizations need not be computed again.
+the lower closed-return vanishings.  L276 subsequently shows that
+literal exclusion of every additional word is unnecessary: bounded
+active cyclic radiality and lower radiality suffice.  The four
+endpoint normalizations need not be computed again.
 
 ## 2. Direct-map and metric inputs
 

@@ -78,6 +78,13 @@ cyclic class cancels coefficientwise between those two pieces.  This
 finite cancellation pattern exposes the role expected of L244's
 coisometry, but it does not prove the all-grade congruence.
 
+L276 subsequently weakens the associated-recursion target further.
+For the full-minus-deflated active face it is enough to prove **some**
+cyclic radial representative supported through \(Q_{k+2}\): long
+axes and the active monomial then force all three trace coefficients.
+The explicit three-term identity (4) remains a valid stronger
+full-face target, but it is no longer the minimal scalar gate.
+
 L265 subsequently sharpens the three-term target itself to the
 operator identity
 
