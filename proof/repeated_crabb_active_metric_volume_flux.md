@@ -1,5 +1,11 @@
 # Active metric deletion doubles the intact delay flux
 
+> **Operator closure note (2026-07-25).**  L283 combines this note's
+> exact deletion response with L247's opposite dual-metric response
+> and L258's first-face similarity.  The cancellation proves the full
+> delayed Schur matrix face.  It closes the complete-delay covariance,
+> not A172's mixed partial-flag selection obstruction.
+
 ## 1. Result (L279, 2026-07-25)
 
 Retain the completely delayed pure partial isometry

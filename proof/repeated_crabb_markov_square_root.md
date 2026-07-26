@@ -1,5 +1,12 @@
 # The Markov response has an exact observability square root
 
+> **Route update (2026-07-25).**  L283 proves the stronger all-grade
+> matrix face on completely delayed strata, but A172 shows that the
+> unmodified canonical repair still fails on mixed partial flags.
+> The square-root and dual-energy route here therefore remains a
+> possible way to close bounded selection if its uniform flux
+> inequality can be proved.
+
 ## 1. Result (L281, 2026-07-25)
 
 Retain L280's pure partial-isometry colligation, bistochastic transfer
@@ -46,7 +53,8 @@ The polarized form is
 \]
 
 Thus a closing Markov spectral gap does not itself make the physical
-state preimage singular.  The remaining selection target is exactly:
+state preimage singular.  The remaining selection target on this
+route is exactly:
 
 > solve L280's Poisson inequality with bounded Dirichlet energy.
 
@@ -54,10 +62,11 @@ There is no longer a separate state-synthesis or analytic-preimage
 estimate.  The auxiliary copy variable \(H\) may diverge; the metric
 chart sees only \(2R_H\), whose squared norm is (3).
 
-L281 still does not prove that the physical faces admit a uniformly
+L281 alone does not prove that the physical faces admit a uniformly
 bounded-energy Poisson solution.  L282 subsequently replaces that
 selection debt by an equivalent quantitative off-commutant flux
-inequality.
+inequality.  L283 supplies its exact complete-delay boundary value,
+but not the mixed partial-flag estimate.
 
 ## 2. The defect column and transfer adjoint
 
@@ -198,8 +207,12 @@ square-root choice—to prove a flagwise energy estimate
 
 where \({\cal E}_{\rm active}\) is the first transfer energy on that
 flag.  L279 identifies the separator margin with exactly that energy.
-The next step should derive the inequality from L197/L220's ordered
-feature flag or falsify it numerically on scaled rank chains.
+L283 identifies the full delayed matrix face and supplies the exact
+boundary value needed when all earlier transfer rows vanish.  It does
+not prove this quantitative estimate: A172's mixed partial-flag
+obstruction prevents direct iteration of the canonical repair.  The
+estimate remains a live alternative to A178's explicit right-ideal
+preparation recursion.
 
 ## 6. Regeneration
 

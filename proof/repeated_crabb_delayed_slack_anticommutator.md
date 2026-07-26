@@ -1,5 +1,10 @@
 # The delayed slack candidate is one orbit anticommutator
 
+> **Closure note (2026-07-25).**  L283 proves equation (2) in every
+> grade by a shorter first-face/metric-response synthesis.  The
+> one-delay recursion in Section 6 is no longer open and should not
+> be resumed.
+
 ## 1. Result and status (L228, 2026-07-24)
 
 Retain L225--L227's balanced pure partial isometry

@@ -2,7 +2,10 @@
 
 > **Closure note (2026-07-25).**  L279 proves the complementary
 > edge-deleted flux is \(+4\|B_k\|_F^2\), so the full delayed
-> dual-Schur trace is \(+2\|B_k\|_F^2\) in every grade.
+> dual-Schur trace is \(+2\|B_k\|_F^2\) in every grade.  L283
+> subsequently uses the operator formula (2): it cancels L279's
+> deletion response before taking a trace and proves the full delayed
+> matrix face.
 
 ## 1. Result (L247, 2026-07-24)
 

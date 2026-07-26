@@ -1,5 +1,9 @@
 # The delayed boundary-slack face and its grade-one trace
 
+> **Closure note (2026-07-25).**  L283 proves the former all-grade
+> matrix covariance: the delayed residual is exactly
+> \(E_1F_{k-1}+F_{k-1}E_1\), with endpoint \(2B_kB_k^*\).
+
 ## 1. Status (L225a and candidate L225b, 2026-07-24)
 
 Retain the balanced pure partial isometry

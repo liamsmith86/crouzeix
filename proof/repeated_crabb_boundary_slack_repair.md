@@ -1,5 +1,12 @@
 # The boundary slack has a canonical repair and a compact first face
 
+> **Closure note (2026-07-25).**  L283 proves the delayed residual
+> lift in every completely delayed grade.  The canonical repair
+> therefore has faces \(+B_k^*B_k\) and \(-12B_kB_k^*\) there and
+> remains analytic through transfer-rank changes.  A172 still forbids
+> iterating the unmodified repair through partial flags: mixed odd
+> coefficients require the L230--L234/A178 preparation mechanism.
+
 ## 1. Result (L227, 2026-07-24)
 
 Retain the balanced pure partial isometry

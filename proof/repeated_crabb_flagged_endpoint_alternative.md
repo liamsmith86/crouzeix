@@ -3,12 +3,13 @@
 > **Closure note (2026-07-25).**  L279 proves the all-grade delayed
 > trace \(\operatorname {tr}E_{2k,\mathrm{eff}}
 > =-16\|B_k\|_F^2\), closing this note's pointwise range
-> obstruction.  L280 subsequently identifies the whole response range
-> with the coboundaries of \(I-\Phi\Phi^*\) and supplies an explicit
-> analytic state preimage.  L281 identifies its exact physical
-> observability square root, and L282 dualizes the least Dirichlet
-> cost.  The resulting quantitative off-commutant flux bound remains
-> open.
+> obstruction.  L280--L282 give a valid general Markov/Poisson
+> formulation of bounded selection.  L283 subsequently proves the
+> stronger full matrix face on every completely delayed stratum.
+> It does not close bounded partial-flag selection: A172's mixed odd
+> obstruction remains, with L230--L234 proving only the first three
+> prepared grades.  The live elliptic gate is A178's arbitrary-grade
+> right-ideal recurrence or, alternatively, L282's uniform flux bound.
 
 ## 1. Result (L222, 2026-07-24)
 
@@ -245,11 +246,19 @@ sign/range obstruction is closed.
 L280 identifies the complete response range with the Markov
 coboundaries of \(I-\Phi\Phi^*\).  L281 further supplies the exact
 physical observability-column preimage and proves that its squared
-norm is twice the Markov Dirichlet energy.  The sole remaining
-selection debt is therefore a bounded-energy Poisson solution along
-L197/L220's analytic rank-changing flags, followed by analytic
-remainder domination.  Exact equality with a prescribed matrix Gram
-at every partial flag is not required.
+norm is twice the Markov Dirichlet energy, and L282 gives the exact
+least-energy dual.  These remain valid general theorems.
+
+L283 strengthens the exact delayed data: it proves the complete
+initial/right face
+\(E_1F_{k-1}+F_{k-1}E_1\) and its endpoint \(2B_kB_k^*\).
+L227's canonical repair then has the uniform faces
+\(+B_k^*B_k\) below and \(-12B_kB_k^*\) above on a completely
+delayed stratum.  A172 shows why those faces cannot simply be iterated
+along the L197/L220 flag: earlier nonzero singular transfer rows
+create mixed odd terms.  Bounded rank-changing selection therefore
+still requires A178's arbitrary-grade preparation or L282's uniform
+energy estimate.  The circular-normal merger is downstream.
 
 ## 6. Regeneration
 

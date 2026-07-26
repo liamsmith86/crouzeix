@@ -1,5 +1,12 @@
 # The endpoint response is an exact quantum-Markov coboundary
 
+> **Route update (2026-07-25).**  L281--L282 complete the exact
+> square-root and dual-energy formulation below.  L283 subsequently
+> proves the stronger full matrix face on completely delayed strata.
+> A172 still blocks direct iteration of L227's unmodified repair on
+> mixed partial flags, so the Markov/Poisson route remains a live
+> alternative to A178's explicit preparation recursion.
+
 ## 1. Result (L280, 2026-07-25)
 
 Let \(S\) be a finite pure partial isometry with equal orthogonal
@@ -87,8 +94,8 @@ No kernel projection, selected singular vector, or pseudoinverse
 occurs.  At a repeated monomial Crabb block,
 \(\Phi\Phi^*=I\) and \({\cal C}(H)=0\), as required.
 
-L280 does not yet finish bounded selection.  It converts that problem
-to the sharply smaller **Markov Poisson inequality**
+L280 by itself does not finish bounded selection.  It converts that
+problem to the sharply smaller **Markov Poisson inequality**
 
 \[
 \boxed{\text{find }H=H^*\text{ with }
@@ -235,18 +242,16 @@ Formula (4) separates two issues that were previously mixed.
 1. **Range and analyticity are closed.**  Every Markov coboundary has
    the explicit analytic state preimage \({\cal C}(H)\), and (5)
    shows these coboundaries exhaust the whole response range.
-2. **Only a quantitative Poisson estimate remains.**  As a repeated
-   block becomes reducible, the nonzero spectrum of
+2. **Only a quantitative Poisson estimate remains on this route.**
+   As a repeated block becomes reducible, the nonzero spectrum of
    \(I-\Phi\Phi^*\) may approach zero.  L279 controls the physical
    face on the fixed-point blocks but does not by itself bound a
    Poisson solution or its state preimage.
 
-The next attack should use (9), not a Moore--Penrose inverse.  Along
-L197/L220's analytic flag, compare the first physical endpoint energy
-with the first nonzero Dirichlet energy in (9).  It is sufficient to
-show that a solution of (6) can be chosen with
-\(\|{\cal C}(H)\|\) bounded (and vanishing at the Crabb apex);
-\(\|H\|\) itself need not remain bounded.
+L281--L282 sharpen this formulation.  L283 later proves the full
+complete-delay matrix face, but A172 shows that this does not bypass
+mixed partial-flag selection.  A continuation of the Markov route
+should still use (9), not a Moore--Penrose inverse.
 
 ## 6. Regeneration
 

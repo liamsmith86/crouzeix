@@ -92,7 +92,9 @@ has constant block \(B_k^*\):
 \quad\text{when }n+j=k.                            \tag{7}
 \]
 
-This identifies L228's candidate face without a word expansion.
+This identifies the Hardy cell underlying L228's candidate without a
+word expansion.  L283 subsequently proves that candidate as the exact
+complete-delay residual face in every grade.
 Let \(P_j\) denote coefficient projection onto Hardy row \(j\).  The
 two defect orbits in L228 are
 

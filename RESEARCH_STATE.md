@@ -146,16 +146,52 @@
   Dirichlet form.  L281/A228 then replaces that long column by the
   exact observability defect column `2R_H`.  Its squared norm is twice
   the Markov Dirichlet energy, so a closing spectral gap causes no
-  separate state-synthesis blow-up.  Only a uniformly bounded-energy
-  Poisson solution remains before the normal/elliptic merger.
-  L282/A229 now dualizes its least Dirichlet cost exactly.  Bounded
-  selection is equivalent to one positive-test inequality: the
-  positive endpoint flux must be bounded by the product of the active
-  transfer amplitude and the observability defect.  L279 already
-  proves the zero-defect endpoint, so no Poisson inverse needs to be
-  constructed.
+  separate state-synthesis blow-up.  L282/A229 dualizes its least
+  Dirichlet cost exactly.  L283/A230 then closes the full matrix face
+  on every completely delayed stratum: L258's first-face similarity
+  and the opposite L247/L279 metric responses cancel operator-wise,
+  leaving L278's intact frontier.  L246 conjugates it to L228's former
+  all-grade anticommutator, and L227's canonical analytic repair has
+  exact complete-delay faces `+B_k*B_k` and `−12B_kB_k*`.
+  This does **not** close bounded repeated-elliptic selection.  A172
+  proves that mixed odd coefficients of the unmodified repair can be
+  indefinite when earlier transfer rows are nonzero but singular.
+  The live elliptic frontier remains A178's arbitrary-grade
+  right-ideal preparation, with L282's uniform flux inequality as an
+  alternative route.  The circular-normal merger is downstream.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
+
+## NEWEST (2026-07-25): L283 closes the all-grade complete-delay matrix face
+- L258 makes the edge-deleted closed-return coefficient the first
+  normalized final Schur face, not merely a scalar determinant
+  coefficient.
+- L247's active metric reinsertion is the exact negative of L279's
+  closed-return deletion response.  They cancel before taking a
+  trace, leaving L278's intact face
+  `(ES^kF)(S*)^k+S^kF(S*)^kE`.
+- L246 conjugates that face to
+  `E_1F_(k−1)+F_(k−1)E_1`.  This proves L228's former all-grade
+  candidate, closing A171's covariance debt and A170's
+  complete-delay face.
+- Its Stein endpoint is `2B_kB_k*`.  L227's single analytic
+  canonical repair therefore has exact first active faces
+  `+B_k*B_k` below and `−12B_kB_k*` above on every completely delayed
+  stratum.
+- **Scope guard:** A172 remains load-bearing.  When earlier `B_j` are
+  nonzero but singular, the unmodified canonical repair has an
+  indefinite mixed cubic compression on the next partial flag.
+  L197/L220 do not remove that physical mixed term by themselves.
+  L230--L234 prepare the first three grades; A178's arbitrary-grade
+  right-ideal recursion is still open.  L282's quantitative
+  off-commutant estimate is the alternative bounded-selection route.
+- Exact response/conjugacy algebra passes through grade twelve,
+  numerical endpoints through grade six, and the independent full
+  physical word audit through grade five.  Dataset SHA-256:
+  `e45b478ae10270de59fc443ec076f8715d5dabe7654a26ff6f6df6de1842ed57`.
+- **Live gate:** promote the exact delayed boundary value and the
+  cubic-through-sextic right-ideal certificates into an arbitrary-
+  grade bounded preparation.  Do not compute another isolated grade.
 
 ## NEWEST (2026-07-25): L282 converts bounded selection to one off-commutant flux inequality
 - For `K=I−Phi Phi*`, the least energy of a flagged correction is
@@ -168,10 +204,10 @@
   immediately yields correction energy
   `<=gamma²||U*B_k||²/64`, exactly the scale needed after L281.
 - This uses Slater from L222+L279 and `K^(1/2)`, not a pseudoinverse.
-  L279 proves the zero-denominator case.  The live calculation is now
-  to extend L279's weighted trace algebra off the commutant and bound
-  its residual terms by active transfer amplitude times
-  `||R_(UYU*)||`.
+  L279 proves the zero-denominator case.  L283 subsequently found the
+  stronger exact complete-delay matrix face, but A172 shows that it
+  does not settle mixed partial flags.  This sufficient inequality
+  remains a live alternative to A178's explicit recurrence.
 - The depolarizing two-copy audit compares the closed form with
   independent primal and dual SDPs.  Dataset SHA-256:
   `559e4a7ee92179c2cca7085e9942433158bbb700902988bb3a865d7451369a33`.
@@ -5073,32 +5109,25 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L282/A229)
-1. **Prove the quantitative off-commutant physical flux bound.**
-   L282 makes this exactly equivalent to bounded-energy selection.
-   For every positive flag test `Y`, extend L279's weighted trace
-   calculation from `R_(UYU*)=0` to arbitrary observability defect and
-   prove
-   `<Y,U*EU>_+ <= gamma ||U*B_k|| ||R_(UYU*)||`.
-   Bound the new residual terms directly by Cauchy--Schwarz; do not
-   construct a Poisson inverse, bound `H`, or use discontinuous
-   spectral projections or pseudoinverses.
-2. **Relate the pointwise separator margin to analytic remainder
-   domination.**  The exact margin is
-   `16||B_k||_F²` at the first active flag.  Prove that the selected
-   correction has the matching vanishing order and a locally uniform
-   norm bound, so higher terms cannot consume this margin.  Distinguish
-   the case `B_k=0`, which advances to the next finite flag, from a
-   genuine rank jump.
-3. **Finish the repeated normal/elliptic merger.**  L197 closes the
-   disk Schur flag and L199 closes only the first raw circular-normal
-   face.  Derive the later Schur-orthogonal normal response and merge
-   it with the now-closed elliptic pointwise flag without spending the
-   same negative square twice.
-4. **Keep A178's finite preparation-column route secondary.**  The
-   cubic-through-sextic columns are not an induction.  Resume it only
-   if the analytic-selection route needs a uniform right-ideal
-   recurrence; do not compute another isolated grade.
+## Current next actions (Epoch 6, corrected after the L283/A172 audit)
+1. **Close bounded repeated-elliptic selection.**  Use L283 as the
+   exact complete-delay boundary condition and L230--L234 as the
+   right-ideal mixed-flag template.  State and prove an arbitrary-
+   grade recursion for the prepared odd column, even direct Gram, and
+   preceding odd Schur cost.  Do not compute an isolated grade four.
+2. **Keep L282 as the alternate selection route.**  If the right-ideal
+   recursion does not expose an inductive object, return to the exact
+   positive-test quotient and prove the uniform off-commutant flux
+   estimate.  L283 supplies the zero/delayed boundary data but not the
+   quantitative mixed-flag estimate.
+3. **Only after selection closes, finish the repeated
+   circular-normal/elliptic merger.**  Derive L199's later
+   Schur-orthogonal normal response and avoid spending the same disk
+   negative square twice.
+4. **Then close analytic remainders and audit equality strata.**  Use
+   the bounded selected columns along the finite L197/L220 flag and
+   combine with the banked single-block quotient results before
+   claiming a neighbourhood theorem.
 5. **Retain the CP/H-r routes as fallbacks, not concurrent
    frontiers.**  Test the full block-Toeplitz CP correction if the
    local merger stalls.  Return to shifted Möbius/odd-phase H-r only

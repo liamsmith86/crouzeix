@@ -1,5 +1,11 @@
 # Bounded Markov selection is one positive-test flux inequality
 
+> **Route update (2026-07-25).**  L283 subsequently proves the full
+> residual matrix on completely delayed strata.  A172 still blocks
+> direct iteration of L227's unmodified repair through mixed partial
+> flags, so the off-commutant estimate below remains a live
+> alternative to A178's explicit preparation recursion.
+
 ## 1. Result (L282, 2026-07-25)
 
 Let

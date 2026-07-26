@@ -1,5 +1,11 @@
 # The canonical Stein repair fails the partial-flag metric bound
 
+> **Scope note (2026-07-25).**  L283 subsequently proves L228's
+> complete-delay anticommutator in every grade.  The counterexample
+> below remains decisive: it occurs with an earlier transfer row
+> nonzero but singular, so the exact delayed theorem cannot be
+> iterated through partial flags without mixed-term preparation.
+
 ## 1. Status (A172, 2026-07-24)
 
 Retain L219--L228's balanced equality colligation

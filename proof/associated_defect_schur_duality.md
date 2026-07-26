@@ -1,5 +1,9 @@
 # Initial and final defect Schur faces are associated-grade dual
 
+> **Closure note (2026-07-25).**  L283 applies this operator
+> conjugacy to L278's intact face and proves L228's full delayed
+> matrix anticommutator, not merely its trace.
+
 ## 1. Result (L246, 2026-07-24)
 
 Let

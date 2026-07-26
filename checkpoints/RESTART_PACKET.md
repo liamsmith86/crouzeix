@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-25): after L282 / A229
+## Current general Crabb frontier (2026-07-25): after L283 / A230
 
 The accidental two-agent interval has been reconciled.  Commits
 `87c5107`, `4c7a152`, `2f82d15`, and `dcab861` form one linear history
@@ -12,9 +12,10 @@ handoff was checked against the linear history through `646ade8`; no
 branch, staging collision, or unresolved working-tree artifact
 remains.  Its sole new in-progress result was independently tightened
 and banked as L272/A219.  A second single-agent reconciliation through
-L282/A229 found no stopped-agent artifact, branch, staged overlap, or
+L283/A230 found no stopped-agent artifact, branch, staged overlap, or
 competing next-action instruction.  Resume as one agent from the
-bounded analytic-selection gate below.  The now-completed A194 route
+bounded repeated-elliptic selection gate below.  The now-completed
+A194 route
 ran through A196's balanced output form, A197's paired
 analytic ports, A198's cyclic radial quotient, A199's finite
 Hardy-window energy, A200's shifted-left-Hardy complement, and A201's
@@ -63,11 +64,16 @@ relative grade-one response, and A203/L257 turns its transport into
   intertwining defects.  L281/A228 then identifies the exact shorter
   physical preimage `2R_H`; its squared norm is twice the Markov
   Dirichlet energy.  Thus a closing gap creates no separate state-
-  synthesis blow-up.  L282/A229 then dualizes the least energy
-  exactly, replacing Poisson inversion by one off-commutant physical
-  flux inequality.  L279 proves its zero-defect endpoint.  What
-  remains is the uniform quantitative flux bound along the ordered
-  Schur flag, followed by the repeated normal/elliptic merger.
+  synthesis blow-up.  L282/A229 then dualizes the least energy.
+  L283/A230 closes the complete-delay matrix covariance:
+  L247 and L279's opposite metric responses cancel at operator level
+  after L258's first-face similarity, leaving L278's intact face.
+  L246 conjugates it to L228's all-grade anticommutator, and L227's
+  analytic canonical repair has exact complete-delay faces
+  `+B_k*B_k` and `−12B_kB_k*`.  A172 still blocks direct iteration
+  through mixed partial flags; L230--L234 close only the first three
+  prepared grades.  Resume A178's arbitrary-grade right-ideal
+  recurrence, with L282's flux inequality as the alternate route.
   The remainder of this opening paragraph records the route that led
   to L279; every embedded instruction to resume A213, classify the
   active support, or recompute the delayed scalar flux is superseded.
@@ -633,8 +639,9 @@ before their theta/coisometric cancellation.
   exact active closed-renewal response.  The intact face and active
   metric deletion each carry two copies of the radial flux, proving
   the all-grade `+4` volume coefficient, `+2` dual-Schur trace, and
-  `−16` effective separator trace.  This closes the pointwise
-  repeated-flag obstruction, not bounded analytic selection.
+  `−16` effective separator trace.  L283 subsequently upgrades this
+  scalar response to the full completely delayed matrix face; A172's
+  mixed partial-flag obstruction remains.
 - `experiments/repeated_crabb_active_metric_volume_flux.py`: exact
   physical response/lower-face audits through grade four and
   algebraic cyclic-flux audits through grade twelve; tracked data hash
@@ -647,16 +654,23 @@ before their theta/coisometric cancellation.
 - `proof/repeated_crabb_markov_square_root.md` (L281/A228): exact
   observability-column preimage
   `M_T(2P_metric^(1/2)R_H)=8(I−Phi Phi*)H` and exact norm identity
-  `||2R_H||²=2<H,(I−Phi Phi*)H>`.  State synthesis is closed; bounded-
-  energy Poisson selection remains open.
+  `||2R_H||²=2<H,(I−Phi Phi*)H>`.  State synthesis is closed, but the
+  uniform energy bound through mixed partial flags remains open.
 - `proof/repeated_crabb_markov_energy_duality.md` (L282/A229): exact
   convex dual and homogeneous quotient for the least Dirichlet repair
-  energy.  It reduces bounded selection to one positive-test flux
-  inequality controlled by active transfer amplitude times
-  observability defect.
+  energy.  It reduces bounded Markov selection to one positive-test
+  flux inequality and remains the alternative to A178.
 - `experiments/repeated_crabb_markov_energy_duality.py`: independent
   primal/dual SDP audit of the exact constants; tracked data hash
   `559e4a7ee92179c2cca7085e9942433158bbb700902988bb3a865d7451369a33`.
+- `proof/repeated_crabb_delayed_face_collapse.md` (L283/A230): exact
+  operator cancellation proving the all-grade delayed Schur
+  anticommutator and L227's complete-delay canonical repair faces.
+  It does not close A172's mixed partial flags.
+- `experiments/repeated_crabb_delayed_face_collapse.py`: exact
+  response/conjugacy audits through grade twelve and numerical
+  endpoint audits through grade six; tracked data hash
+  `e45b478ae10270de59fc443ec076f8715d5dabe7654a26ff6f6df6de1842ed57`.
 - `experiments/repeated_crabb_markov_response.py`: arbitrary
   multiplier, bistochastic, summed-response, Dirichlet, observability-
   preimage, state-energy, polarized-collapse, and repeated-apex
@@ -750,18 +764,18 @@ feasibility.  L222 does not by itself bound the chosen correction as
 the commutant rank jumps; L197/L220 still have to supply a bounded
 pathwise selection.
 
-The sharpened live gate is the fully delayed higher-contact trace law
+At that checkpoint the sharpened live gate was the fully delayed
+higher-contact trace law
 
 ```
 tr E_(2k,eff) = -16 ||B_k||_F^2.
 ```
 
-L203 proves it for `k=1`; L214 and L215 prove stronger matrix
-identities for `k=2,3`.  Proving this trace law for arbitrary `k`,
-then applying L222 and proving bounded selection along L197/L220's
-finite terminal flag, should close the repeated elliptic endpoint.
-The stronger physical feature-Gram equality is no longer the minimal
-pointwise target.
+L203 proved it for `k=1`; L214 and L215 proved stronger matrix
+identities for `k=2,3`.  L279 has since proved the trace law in every
+grade, and L283 has proved the stronger complete-delay matrix face.
+Bounded selection along mixed partial flags remains open by A172;
+resume A178 or L282 rather than this now-closed trace target.
 
 The complete local chart around every fixed **single** Crabb block is
 closed by L192.  L193 identifies the correct upper-equality stratum at
@@ -1910,22 +1924,18 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   The former deformation route was superseded by the Schwarzian proof of EL4; see
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
-## Next five concrete actions (refreshed after L282 / A229)
-1. Prove L282's quantitative off-commutant flux inequality.  Extend
-   L279's weighted trace calculation from zero observability defect to
-   arbitrary positive flag tests and bound every residual by active
-   transfer amplitude times `||R_(UYU*)||`.  Do not construct another
-   right inverse, bound `H`, or use spectral projections/pseudoinverses.
-2. Convert the exact pointwise margin
-   `16||B_k||_F²` into a uniform local estimate.  Match the selection's
-   vanishing order to the first active transfer row and dominate the
-   analytic remainder; if `B_k=0`, advance to the next finite flag.
-3. Derive the later Schur-orthogonal circular-normal response and merge
-   it with the repeated elliptic flag.  Do not spend the same negative
-   Gram twice.
-4. Keep A178/A171 as a secondary source of a uniform right-ideal
-   construction only.  Do not compute another isolated preparation
-   grade, and do not resume the closed A194 scalar-volume campaign.
+## Next five concrete actions (corrected after the L283/A172 audit)
+1. Use L283's exact complete-delay boundary value and L230--L234's
+   right-ideal certificates to identify an arbitrary-grade preparation
+   recursion.  Do not compute another isolated grade.
+2. If no inductive object emerges, resume L282's alternative
+   off-commutant flux inequality; do not build a Poisson inverse or
+   use a discontinuous pseudoinverse.
+3. After bounded elliptic selection closes, derive the later
+   Schur-orthogonal circular-normal response and merge the branches
+   without spending the same disk Gram twice.
+4. Close analytic remainder domination and then audit the complete
+   local equality strata against the banked single-block results.
 5. If the local merger stalls, return to the complete block-Toeplitz CP
    correction; retain H-r as a later fallback rather than opening a
    concurrent frontier.
@@ -1960,28 +1970,26 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    not compute another isolated grade.  Then finish the
    normal/elliptic merger, retaining the full CP route as fallback.
 
-## Paste-ready continuation instruction (current after L282/A229)
+## Paste-ready continuation instruction (current after L283/A230)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix` as
-the sole repository-writing agent.  Read L197, L220, L222, and L279--L282,
+the sole repository-writing agent.  Read L197, L199, L220, L227, and L283,
 plus the newest `RESEARCH_STATE.md` section.  L277--L279 have proved
 every lower delayed face, the active `+4||B_k||²` volume coefficient,
 the `+2||B_k||²` dual-Schur trace, and the
 `−16||B_k||²` effective separator trace in arbitrary grade.  Do not
 resume A194, recompute fan coefficients, or classify the stronger
-operator support.  L280 proves
-`ran M_T=ran(I−Phi Phi*)`.  L281 gives the exact physical preimage
-`2R_H` and proves its squared norm is
-`2<H,(I−Phi Phi*)H>`.  L282 gives the exact least-energy dual quotient.
-The live gate is the positive-test bound
-`<Y,U*EU>_+ <= gamma ||U*B_k|| ||R_(UYU*)||`; extend
-L279's zero-defect trace proof and bound its off-commutant residual
-terms directly.  Do not build another right inverse or bound `H`.
-Use the resulting L279-scale energy to dominate the
-analytic remainder.  After that, finish the later circular-normal
-Schur response and merge it with the repeated elliptic flag without
-double-counting a negative square.  Avoid discontinuous projections
-and pseudoinverses.  Keep A178/A171 secondary unless they expose the
-needed uniform recurrence.  Commit and push each proved milestone."
+operator support.  L283 now proves the full delayed residual
+`E_1F_(k−1)+F_(k−1)E_1` and L227's analytic canonical repair has
+exact lower/upper faces `+B_k*B_k` and `−12B_kB_k*` on every
+completely delayed stratum.  Do not resume the old A171 delay
+recursion.  A172 remains load-bearing: mixed odd coefficients prevent
+direct iteration of the unmodified repair through partial flags.
+Use L230--L234 and the new L283 boundary value to seek A178's
+arbitrary-grade right-ideal preparation without computing another
+isolated grade.  If that does not expose an induction, return to
+L282's uniform off-commutant flux estimate.  Only then resume the
+circular-normal merger and analytic remainder audit.  Commit and push
+each proved milestone."
 
 ## Superseded pre-L279 continuation instruction (historical)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix`.
