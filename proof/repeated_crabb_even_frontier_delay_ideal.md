@@ -1,5 +1,9 @@
 # The intact-metric even frontier is exactly the next delay defect
 
+> **Closure note (2026-07-25).**  L279 evaluates this intact face and
+> the active metric-deletion response, closing the remaining delayed
+> scalar flux after the lower even cancellation proved here.
+
 ## 1. Result (L278, 2026-07-25)
 
 Let

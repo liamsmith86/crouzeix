@@ -1,5 +1,9 @@
 # The delayed volume target is one last radial moment
 
+> **Closure note (2026-07-25).**  L279 proves the formerly open
+> physical cyclic identity: the edge-deleted active face is
+> cyclically \(4\{Q_{k+2}-(k+2)Q_1+(k+1)I\}\) in every grade.
+
 ## 1. Result (L252, 2026-07-25)
 
 Retain a finite pure partial isometry with orthogonal defects

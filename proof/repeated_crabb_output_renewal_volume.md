@@ -1,5 +1,9 @@
 # Final-row whitening is an exact closed-return renewal
 
+> **Closure note (2026-07-25).**  L277--L278 prove all lower
+> coefficients vanish, and L279 evaluates this renewal's active
+> edge-deleted trace as \(4\|B_k\|_F^2\) in every grade.
+
 ## 1. Result (L258, 2026-07-25)
 
 Retain L250's edge-deleted balanced volume through a completely

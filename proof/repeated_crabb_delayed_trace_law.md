@@ -1,5 +1,12 @@
 # Candidate reduction of the delayed trace law to endpoint filtration
 
+> **Closure note (2026-07-25).**  The endpoint-filtration route below
+> remains conditional as stated, but L279 proves its scalar conclusion
+> independently: the delayed dual-Schur trace is
+> \(2\|B_k\|_F^2\) and the effective separator trace is
+> \(-16\|B_k\|_F^2\) in every grade.  Do not resume the conditional
+> support classification merely to recover that scalar result.
+
 ## 1. Status (candidate, not a proved lemma, 2026-07-24)
 
 Let \(S\) be a finite pure partial isometry with equal orthogonal

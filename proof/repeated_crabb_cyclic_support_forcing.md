@@ -1,5 +1,9 @@
 # Cyclic support through index \(k+2\) is enough for delay covariance
 
+> **Closure note (2026-07-25).**  L277--L278 prove the lower-face
+> premises, while L279 proves the stronger exact active cyclic class.
+> Thus this conditional sufficient criterion is now satisfied.
+
 ## 1. Result (L276, 2026-07-25)
 
 Retain L250/L258's completely delayed, active-metric-deleted

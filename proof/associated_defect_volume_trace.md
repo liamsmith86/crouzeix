@@ -1,5 +1,9 @@
 # A first defect-Schur trace is one logarithmic volume coefficient
 
+> **Closure note (2026-07-25).**  L279 proves this note's formerly
+> open complete-delay coefficient:
+> \([c^{2k}]\log\mathcal V=4\|B_k\|_F^2\) in every grade.
+
 ## 1. Result (L248, 2026-07-24)
 
 Let \(H(\varepsilon)=H(\varepsilon)^*\) be an analytic matrix series,

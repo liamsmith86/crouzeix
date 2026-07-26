@@ -24,6 +24,11 @@
   independent cleanup above, and no competing branch, staged file, or
   unresolved working-tree artifact remains.  The sole new in-progress
   result was independently tightened and is banked below as L272/A219.
+- At the next single-agent checkpoint the history and working tree
+  were reconciled again through L279/A226.  The subsequent
+  L273--L279 work is one coherent primary-agent line; no stopped-agent
+  artifact, alternate branch, staged overlap, or competing next-action
+  instruction remains.
 - There is now one live mathematical frontier: A194 at the complete
   physical terminal balance, now in A196/L250's balanced output
   coordinates, A197/L251's paired analytic ports, A198/L252's cyclic
@@ -126,10 +131,42 @@
   even face as well: with the physical metric intact, the first even
   frontier is exactly
   `(ES^hF)(S*)^h+S^hF(S*)^hE`, so the next delay annihilates it.
-  All lower coefficients are zero operator-wise.  The sole remaining
-  envelope is active associated cyclic radiality through index `k+2`.
+  All lower coefficients are zero operator-wise.  L279/A226 then
+  linearizes L258's exact closed renewal under deletion of the active
+  metric coefficient.  The response and L278's intact face are each
+  cyclically the same two-unit radial flux, so the edge-deleted
+  log-volume coefficient is exactly `4||B_k||²`, the delayed
+  dual-Schur trace is `2||B_k||²`, and the effective separator trace
+  is `−16||B_k||²` in every grade.  This closes A194 and L222's
+  pointwise range obstruction.  The live repeated-block gate is now
+  bounded analytic selection through commutant-rank changes, followed
+  by the normal/elliptic merger.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
+
+## NEWEST (2026-07-25): L279 closes the all-grade delayed volume flux
+- L277--L278 already make every coefficient below the active
+  edge-deleted face zero operator-wise.
+- Deleting `X_k=[c^(2k)]R` changes L258's exact closed-renewal defect
+  by `P(X_k−SX_kS*)P`; the final-row return term has two zero
+  background cross factors, so no loop contribution is omitted.
+- L273's exact metric formula and the complete delay give
+  `P(X_k−SX_kS*)P ~tr 2H_k`.  L278's intact face is independently
+  `~tr 2H_k`, where
+  `H_k=Q_(k+2)−(k+2)Q_1+(k+1)I`.
+- Hence the full face is `~tr 4H_k`,
+  `[c^(2k)]log V=4||B_k||_F²`, the full dual-Schur trace is
+  `2||B_k||_F²`, and
+  `tr E_(2k,eff)=−16||B_k||_F²`.
+- The exact checker regenerates physical faces through grade four
+  and algebraic cyclic identities through grade twelve; dataset
+  SHA-256 is
+  `521e3e3f1129eaa36832738fb0ab86ffd73c766437bcbf75626522c9e28276b0`.
+- **What remains:** L222 pointwise feasibility is closed, but it does
+  not provide a bounded analytic correction as the commutant rank
+  changes.  Use L197/L220's analytic Schur flags to solve that
+  selection problem before merging the repeated elliptic and normal
+  faces.  Do not continue the now-closed A194 fan/volume grind.
 
 ## NEWEST (2026-07-25): L278 kills every lower even face before edge deletion
 - Keep the physical metric coefficient at degree `2h` and impose only
@@ -4958,7 +4995,37 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed 2026-07-25)
+## Current next actions (Epoch 6, refreshed after L279/A226)
+1. **Construct a bounded analytic repeated-flag correction through
+   commutant-rank changes.**  L222+L279 prove pointwise strict
+   feasibility on every first active delayed reducing summand.  They
+   do not bound a choice of preimage when the response range changes.
+   Re-enter L197's analytic flag and L220's ordered Schur-feature
+   coordinates.  Seek a triangular/Schur-recursive right inverse on
+   constant-rank strata whose norm remains controlled at rank drops;
+   do not use discontinuous spectral projections or pseudoinverses.
+2. **Relate the pointwise separator margin to analytic remainder
+   domination.**  The exact margin is
+   `16||B_k||_F²` at the first active flag.  Prove that the selected
+   correction has the matching vanishing order and a locally uniform
+   norm bound, so higher terms cannot consume this margin.  Distinguish
+   the case `B_k=0`, which advances to the next finite flag, from a
+   genuine rank jump.
+3. **Finish the repeated normal/elliptic merger.**  L197 closes the
+   disk Schur flag and L199 closes only the first raw circular-normal
+   face.  Derive the later Schur-orthogonal normal response and merge
+   it with the now-closed elliptic pointwise flag without spending the
+   same negative square twice.
+4. **Keep A178's finite preparation-column route secondary.**  The
+   cubic-through-sextic columns are not an induction.  Resume it only
+   if the analytic-selection route needs a uniform right-ideal
+   recurrence; do not compute another isolated grade.
+5. **Retain the CP/H-r routes as fallbacks, not concurrent
+   frontiers.**  Test the full block-Toeplitz CP correction if the
+   local merger stalls.  Return to shifted Möbius/odd-phase H-r only
+   after the repeated merger is resolved.
+
+## Superseded pre-L279 next actions (historical; do not resume)
 1. **A194/A213/A216--A225: prove the sole remaining active support envelope.**
    L267's abstract lossless identity remains valid, but L268 proves
    that a single analytic port carrying only the deflated tail defect

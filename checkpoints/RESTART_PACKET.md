@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-25): after L278 / A225
+## Current general Crabb frontier (2026-07-25): after L279 / A226
 
 The accidental two-agent interval has been reconciled.  Commits
 `87c5107`, `4c7a152`, `2f82d15`, and `dcab861` form one linear history
@@ -11,8 +11,11 @@ independently recomputed before banking.  The later stopped-agent
 handoff was checked against the linear history through `646ade8`; no
 branch, staging collision, or unresolved working-tree artifact
 remains.  Its sole new in-progress result was independently tightened
-and banked as L272/A219.  Resume as one agent from the
-A194 gate below through A196's balanced output form, A197's paired
+and banked as L272/A219.  A second single-agent reconciliation through
+L279/A226 found no stopped-agent artifact, branch, staged overlap, or
+competing next-action instruction.  Resume as one agent from the
+bounded analytic-selection gate below.  The now-completed A194 route
+ran through A196's balanced output form, A197's paired
 analytic ports, A198's cyclic radial quotient, A199's finite
 Hardy-window energy, A200's shifted-left-Hardy complement, and A201's
 doubled-Hardy physical pencil.  A202/L256 now supplies the universal
@@ -46,7 +49,19 @@ relative grade-one response, and A203/L257 turns its transport into
   next delay ideal.  L278 closes every lower even face by retaining
   the physical metric and factoring the five-word frontier through
   the same next delay defect.  Only the active cyclic/trace response
-  remains open.  L267/A214 proves the
+  remained open at that checkpoint.  L279/A226 now closes it exactly:
+  active metric deletion changes the closed defect by
+  `P(X_k−SX_kS*)P`; both that response and L278's intact face are
+  cyclically `2H_k`, so the edge-deleted face is `4H_k` and its trace
+  is `4||B_k||²`.  L247 then gives the delayed dual-Schur trace
+  `2||B_k||²`, and L225/L246 give the effective trace
+  `−16||B_k||²`.  L222's pointwise range obstruction is closed in
+  every grade.  What remains is bounded analytic choice through
+  commutant-rank changes and the repeated normal/elliptic merger.
+  The remainder of this opening paragraph records the route that led
+  to L279; every embedded instruction to resume A213, classify the
+  active support, or recompute the delayed scalar flux is superseded.
+  L267/A214 proves the
   classical exact lossless Redheffer defect-transport identity.  It
   would have made the needed metric structural if the physical first
   reflected channel had such a realization.  L268/A215 supplies an
@@ -114,9 +129,11 @@ term-count/coefficient-l1 data
 `C_6: 53/181`.  The next valid advance must expose a uniform
 right-ideal recurrence and a growth bound sufficient for convergence
 in L194's analytic chart; another isolated grade is not by itself
-progress toward the all-grade theorem.  A171/L228's one-delay
-anticommutator recursion remains open and is still the intended
-structural route, not a parked or superseded thread.  L235 now gives
+progress toward the all-grade theorem.  A171/L228's stronger
+one-delay matrix anticommutator recursion remains open, but L279
+supersedes it as a route to the scalar delayed trace.  It is parked
+unless bounded analytic selection requires a uniform matrix-valued
+right-ideal construction.  L235 now gives
 the exact missing organization: one removed delay produces an
 arrowhead ellipse pencil whose retained resolvent contains all terminal
 round trips through the single insertion `2cz^−1Ftilde`, with a matching
@@ -602,6 +619,16 @@ before their theta/coisometric cancellation.
   factorization/embedding audits through delay twelve; tracked data
   hash
   `69a362b89743d7e92416cd6aef56796e08b25a34aac883c94f1ef0428f488a3f`.
+- `proof/repeated_crabb_active_metric_volume_flux.md` (L279/A226):
+  exact active closed-renewal response.  The intact face and active
+  metric deletion each carry two copies of the radial flux, proving
+  the all-grade `+4` volume coefficient, `+2` dual-Schur trace, and
+  `−16` effective separator trace.  This closes the pointwise
+  repeated-flag obstruction, not bounded analytic selection.
+- `experiments/repeated_crabb_active_metric_volume_flux.py`: exact
+  physical response/lower-face audits through grade four and
+  algebraic cyclic-flux audits through grade twelve; tracked data hash
+  `521e3e3f1129eaa36832738fb0ab86ffd73c766437bcbf75626522c9e28276b0`.
 - `proof/repeated_crabb_exact_metric_chart.md` (L194): analytic
   metric chart in which any all-series column construction must
   converge.
@@ -1850,7 +1877,26 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   The former deformation route was superseded by the Schwarzian proof of EL4; see
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
-## Next five concrete actions (refreshed after L278 / A225)
+## Next five concrete actions (refreshed after L279 / A226)
+1. Build a bounded analytic right inverse for L222's endpoint response
+   along L197/L220's ordered Schur flag.  Pointwise feasibility is now
+   proved by L279; control the norm through commutant-rank drops without
+   spectral projections or pseudoinverses.
+2. Convert the exact pointwise margin
+   `16||B_k||_F²` into a uniform local estimate.  Match the selection's
+   vanishing order to the first active transfer row and dominate the
+   analytic remainder; if `B_k=0`, advance to the next finite flag.
+3. Derive the later Schur-orthogonal circular-normal response and merge
+   it with the repeated elliptic flag.  Do not spend the same negative
+   Gram twice.
+4. Keep A178/A171 as a secondary source of a uniform right-ideal
+   construction only.  Do not compute another isolated preparation
+   grade, and do not resume the closed A194 scalar-volume campaign.
+5. If the local merger stalls, return to the complete block-Toeplitz CP
+   correction; retain H-r as a later fallback rather than opening a
+   concurrent frontier.
+
+## Superseded pre-L279 concrete actions (historical; do not resume)
 1. **Prove the sole remaining active cyclic/trace response.**  In L264's port-isolated
    right-half-line gauge, use L272's single leakage sandwich and
    expand only `I−Z_ret`, before the retained output metric is
@@ -1880,7 +1926,25 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    not compute another isolated grade.  Then finish the
    normal/elliptic merger, retaining the full CP route as fallback.
 
-## Paste-ready continuation instruction
+## Paste-ready continuation instruction (current after L279/A226)
+"Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix` as
+the sole repository-writing agent.  Read L197, L220, L222, and L279,
+plus the newest `RESEARCH_STATE.md` section.  L277--L279 have proved
+every lower delayed face, the active `+4||B_k||²` volume coefficient,
+the `+2||B_k||²` dual-Schur trace, and the
+`−16||B_k||²` effective separator trace in arbitrary grade.  Do not
+resume A194, recompute fan coefficients, or classify the stronger
+operator support.  The live gate is bounded analytic selection
+through commutant-rank changes: use L197's analytic flag and L220's
+ordered Schur features to construct a triangular right inverse with a
+locally uniform norm bound, then use the exact L279 margin to dominate
+the analytic remainder.  After that, finish the later circular-normal
+Schur response and merge it with the repeated elliptic flag without
+double-counting a negative square.  Avoid discontinuous projections
+and pseudoinverses.  Keep A178/A171 secondary unless they expose the
+needed uniform recurrence.  Commit and push each proved milestone."
+
+## Superseded pre-L279 continuation instruction (historical)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix`.
 Read the newest L258--L278 sections of `RESEARCH_STATE.md`, the
 corresponding proof notes, and A194/A204--A225.  The live gate is the

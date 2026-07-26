@@ -1,5 +1,9 @@
 # The delayed dual metric face contributes exactly \(-2\|B_k\|_F^2\)
 
+> **Closure note (2026-07-25).**  L279 proves the complementary
+> edge-deleted flux is \(+4\|B_k\|_F^2\), so the full delayed
+> dual-Schur trace is \(+2\|B_k\|_F^2\) in every grade.
+
 ## 1. Result (L247, 2026-07-24)
 
 Retain L225's balanced boundary metric and elliptic transform

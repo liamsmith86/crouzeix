@@ -1,5 +1,9 @@
 # Every lower odd return face lies in the next delay ideal
 
+> **Closure note (2026-07-25).**  L278 closes the lower even faces and
+> L279 evaluates the active face, completing the delayed scalar-flux
+> campaign built on this odd cancellation.
+
 ## 1. Result (L277, 2026-07-25)
 
 Let

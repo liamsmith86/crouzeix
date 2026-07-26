@@ -1,5 +1,11 @@
 # A semidefinite alternative for every repeated endpoint flag
 
+> **Closure note (2026-07-25).**  L279 proves the all-grade delayed
+> trace \(\operatorname {tr}E_{2k,\mathrm{eff}}
+> =-16\|B_k\|_F^2\), closing this note's pointwise range
+> obstruction.  Bounded analytic selection through commutant-rank
+> changes remains open.
+
 ## 1. Result (L222, 2026-07-24)
 
 Retain the physical repeated-equality data
