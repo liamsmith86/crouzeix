@@ -173,10 +173,12 @@ reuse guard:
   through degree five.
 
 The next coefficient must be recomputed from both metric changes
-\(-Z_4,Z_5^{\rm tr}\) and both factor changes in (1).  One must again
-apply L285's lower-corner elimination and endpoint homology.  L286
-does not justify reusing L234's sextic column unchanged and does not
-establish summable arbitrary-grade bounds.
+\(-Z_4,Z_5^{\rm tr}\) and both factor changes in (1).  L287 performs
+that structural test and proves that, after lower-corner elimination,
+the sextic metric coefficient cannot generally be made globally
+endpoint-null: an exact scalar trace survives.  Thus L286 does not
+justify reusing L234's sextic column unchanged, and its endpoint-null
+convention is an odd-step mechanism rather than an all-order gauge.
 
 ## 7. Regeneration
 

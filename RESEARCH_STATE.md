@@ -168,11 +168,41 @@
   L286/A233 solves the first such equation exactly: a bounded
   double-delay-divisible correction transports the normalized
   quartic gauge through quintic order without changing L232--L233's
-  endpoints.  Extracting the arbitrary-grade rule—rather than merely
-  solving the sextic instance—is the live gate.  The
+  endpoints.  L287/A234 then proves by an exact scalar trace
+  obstruction that the next even metric coefficient cannot generally
+  be made endpoint-null.  The live rule must alternate odd
+  homological cancellation with control of a nonzero even physical
+  face.  Extracting and bounding that parity recursion is the live
+  gate.  The
   circular-normal merger is downstream.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
+
+## NEWEST (2026-07-25): L287 proves endpoint-null transport must stop at the next even face
+- Recompute the sextic forcing from both L286 factor changes and both
+  transported metric coefficients, subtract L284's sextic gauge, and
+  perform L285's compulsory lower elimination.  The resulting
+  `H_6^0` has 260 exact words (`l1=756`) and zero lower corner.
+- The fixed lower parallel correction has 40 words (`l1=48`) and lies
+  in the triple-delay ideal, so lower normalization is not the
+  obstruction.
+- The obstruction is upper trace.  On the exact rational scalar-
+  defect partial isometry
+  `[[0,7/9,-4/9,-4/9],[0,-4/9,1/9,-8/9],
+    [0,-4/9,-8/9,1/9],[0,0,0,0]]`,
+  with spectral radius `2/3` and `B_1=−4/9`, rational Stein inversion
+  gives upper endpoint `151040/177147`.
+- L204 proves every remaining perpendicular endpoint response has
+  trace zero; at scalar defect it is identically zero.  Therefore no
+  globally endpoint-null sextic completion exists.  This is an exact
+  falsification, not evidence from an unsuccessful word search.
+- **Strategic correction:** the recursion must cancel removable odd
+  faces as in L286, but at even order retain the transported metric
+  trace and combine it with L283/L234's direct transfer Gram and the
+  preceding odd Schur square.  The physical even face is a budget,
+  not gauge.
+- Dataset SHA-256:
+  `372921b75a883e3066e1d910082e5cb805d4af7b2e37d2999a9863daa3f5bb1c`.
 
 ## NEWEST (2026-07-25): L286 solves the first coupled normalized-gauge successor
 - Starting from L284's normalized quartic column `C_4−N_4`, the old
@@ -196,10 +226,10 @@
 - Dataset SHA-256:
   `ba1ad08b60e250339e910d35de04d700c0b3ffd4e64ff9a7313b68dbb3c35acf`.
 - **Scope guard:** this proves one genuine recursive step, not the
-  arbitrary-grade recurrence.  The sextic forcing must be recomputed
-  from both transported metric coefficients; do not reuse L234's
-  column unchanged or turn the campaign back into an isolated-grade
-  march.
+  arbitrary-grade recurrence.  L287 subsequently shows that the
+  endpoint-null convention itself fails at the recomputed sextic
+  coefficient; do not reuse L234's column unchanged or try to erase
+  the physical even face.
 
 ## NEWEST (2026-07-25): L285 makes gauge transport triangular and rejects raw ideal invariance
 - If `Dtilde=D+C` and `Mtilde=M+X` satisfy the same operator
@@ -5205,17 +5235,17 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L286/A233)
+## Current next actions (Epoch 6, refreshed after L287/A234)
 1. **Close bounded repeated-elliptic selection.**  Use L283 as the
    exact complete-delay boundary condition and L284's endpoint-null
    normalizations as the gauge convention.  L285 already gives the
-   exact transport recurrence and L286 solves its first successor.
-   Extract a uniform homological solver and coefficient majorant from
-   that construction.  The transported sextic equation may be used as
-   a second falsification test, but not banked as progress unless it
-   exposes the arbitrary-grade rule.  L282's uniform off-commutant
-   energy estimate remains an alternative certificate for the same
-   endpoint equation.
+   exact transport recurrence, L286 solves its first odd successor,
+   and L287 proves the next even coefficient has unavoidable trace.
+   State the parity recursion: odd homological cancellation followed
+   by an even effective face containing transported metric response,
+   direct transfer Gram, and preceding odd Schur cost.  Prove a
+   uniform positive margin and coefficient majorant; do not demand
+   endpoint-null even gauges or compute another isolated grade.
 2. **Treat A178 and L282 as one selection gate.**  Use L204/L280 to
    translate any proposed polynomial successor into its Markov
    coboundary and energy, or translate an L282 flux estimate back to a

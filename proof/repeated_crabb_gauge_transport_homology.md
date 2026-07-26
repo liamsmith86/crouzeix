@@ -2,7 +2,9 @@
 
 > **Route update.**  L286 subsequently solves the first instance of
 > this homology with a bounded double-delay-divisible polynomial.
-> The recurrence below remains the live arbitrary-grade framework.
+> L287 then proves the next even metric coefficient cannot generally
+> be endpoint-null.  The recurrence below remains the live framework,
+> but it must alternate odd homology with a retained even face.
 
 ## 1. Result (L285, 2026-07-25)
 
@@ -249,8 +251,11 @@ isolated grade does not address it.
 L286 supplies the first nontrivial positive example: after the
 quartic normalization, its transported quintic correction solves
 (11), preserves both endpoints, and lies in the double-delay ideal.
-That finite success does not yet supply the arbitrary-grade rule or
-summable bounds required here.
+L287 supplies the equally important negative continuation: the next
+even forcing has an exact nonzero scalar endpoint trace, so it cannot
+be solved with target \(H_n=0\).  The arbitrary-grade rule must choose
+the physical even target and prove its positive budget, not impose
+endpoint-null transport at every order.
 
 ## 6. Regeneration
 
