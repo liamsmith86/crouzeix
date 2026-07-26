@@ -146,9 +146,11 @@ relative grade-one response, and A203/L257 turns its transport into
   observability defect, and the cubic has a perpendicular preimage
   `C_3` with
   `||C_3||<=10||R_1||<=20 Gamma_S||B_1||`.  This uses no
-  pseudoinverse or closing Markov gap.  The live lower-tight debt is
-  now to localize the correction's quadratic sextic cost to the next
-  surviving transfer flag, then recurse from L299's six-term formula.
+  pseudoinverse or closing Markov gap.  Its frame elimination uses
+  L298's special `(S*)²F_1=0` and does not automatically iterate.
+  The live lower-tight debt is now to compute the quartic cross made
+  by inserting `C_3`, localize that successor to the next surviving
+  transfer flag, and only then recurse from L299's six-term formula.
   On the raw
   route, retain its lower budget, split off L283's
   favorable `−12` Gram, and derive a flux pairing only for the mixed
@@ -891,7 +893,7 @@ before their theta/coisometric cancellation.
 - `experiments/repeated_crabb_cubic_markov_flux.py`: exact rational,
   unstructured, rank-chain, and reducible Markov-flux audits; tracked
   data hash
-  `3f3cb2f19f2ef058c1549fef1bdb7f8352b93eb901125f3e93cd188039c05e5b`.
+  `1c8bf694c4f0783ce9d3b38da44e046ad3a5b9a406888c1a60ebe95db8eb064d`.
 - `experiments/repeated_crabb_markov_response.py`: arbitrary
   multiplier, bistochastic, summed-response, Dirichlet, observability-
   preimage, state-energy, polarized-collapse, and repeated-apex
@@ -2159,16 +2161,17 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    state-ideal invariance, a rank-changing pseudoinverse, pointwise
    flag zero alone, or an isolated seventh grade.  L282 remains the
    bounded-energy certificate language.
-2. Localize L300's cubic correction cost, then recurse from L299.
+2. Compute L300's quartic successor, then recurse from L299.
    L300 already proves the complete commutant pairing and gives a
    gap-free response column with
    `||C_3||<=20 Gamma_S||B_1||`; do not redo the range solve or force
-   the answer to be a scalar multiple of L230's column.  Compute the
-   exact quadratic Schur cost first created by this column at degree
-   six and, on `ker B_1*`, charge it to the next surviving transfer
-   row via L296 energy or L292 valuations.  Then lift L300's
-   frame-elimination/commutator mechanism to L299's all-series
-   six-term formula rather than expanding isolated grades.  If that
+   the answer to be a scalar multiple of L230's column.  L300 uses
+   L298's special `(S*)²F_1=0`, which the selected response frame need
+   not inherit.  Insert the column into L299's exact defect formula,
+   compute its quartic cross with the raw first frame, and localize
+   that complete successor on `ker B_1*` via L296 energy or L292
+   valuations before considering the later sextic self-cost.  Only
+   then lift the mechanism to an all-series recurrence.  If that
    ordered homology bound fails, return to the raw normalization:
    retain its lower budget, split off L283's
    `−12B_kB_k*`, discard bounded prior-flag factors, and use L296 on
@@ -2284,11 +2287,13 @@ moving frame makes every dual pairing an explicit commutator
 controlled by the L281 defect, and there is a perpendicular column
 `C_3` with
 `||C_3||<=10||R_1||<=20 Gamma_S||B_1||`, without a pseudoinverse or
-Markov-gap loss.  Do not redo that range solve or force L230's stale
-scalar ansatz.  Localize the quadratic sextic cost of L300's column
-to the next surviving transfer row, then recurse from L299's
-six-term formula using the same frame-elimination/commutator
-mechanism.  Do not mix endpoint ledgers, assume A179's false
+Markov-gap loss.  The elimination uses L298's special
+`(S*)²F_1=0`, so it is not automatically hereditary.  Do not redo
+that range solve or force L230's stale scalar ansatz.  Insert the
+selected column into L299's exact formula, compute and localize its
+quartic successor before the later sextic self-cost, and only then
+seek an all-series recurrence.  Do not mix endpoint ledgers, assume
+A179's false
 raw superposition, retry the no-extra-correction shortcut, or
 re-estimate the Markov gap.
 If that effective-route factorization fails, retain the raw lower

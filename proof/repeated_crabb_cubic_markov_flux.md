@@ -92,9 +92,11 @@ coboundary, not an obstruction.
 
 L300 closes the **full cubic range and bounded-energy debt** created
 by L299.  It does not yet prove the sharper ordered-flag estimate
-needed after the cubic is canceled: on \(\ker B_1^*\), the response
-must ultimately be charged to the next surviving transfer row, and
-the quadratic cost of \(C_3\) first enters the sextic face.
+needed after the cubic is canceled.  Inserting \(C_3\) into the
+moving frame creates a new **quartic** cross with the raw first frame
+coefficient; its quadratic self-cost appears later at degree six.
+The quartic successor must be computed and charged to the next
+surviving transfer row before any sextic conclusion is drawn.
 
 ## 2. Eliminate the moving frame
 
@@ -103,7 +105,7 @@ L299 writes
 \[
 {\cal N}_3
 =-\{A_1^*{\mathscr R}S+S^*{\mathscr R}A_1
-     D_1{\mathscr F}^*+{\mathscr F}D_1^*\},       \tag{8}
+     +D_1{\mathscr F}^*+{\mathscr F}D_1^*\},      \tag{8}
 \]
 
 where
@@ -119,8 +121,26 @@ left defect-frame tangents
 \boxed{D_1=-2(S^*)^2V,\qquad L_1=-2S^2W.}         \tag{9}
 \]
 
-Use (1) in the frame cross in (8).  Since
-\((S^*)^2F=0\),
+The following special identity of L298's grade-one frame is
+load-bearing:
+
+\[
+\boxed{(S^*)^2{\mathscr F}=0.}                    \tag{9a}
+\]
+
+Indeed, L298 gives
+
+\[
+{\mathscr F}
+=-\frac12VB_1^*B_1-\frac12(I-E)SWB_1.
+\]
+
+Since \(VB_1^*=ESW\), \(E+(I-E)=I\), and
+\((S^*)^2SW=S^*(S^*S)W=S^*W=0\), equation (9a)
+follows.  This is not a generic consequence of \(S^*W=0\) for an
+arbitrary correction frame.
+
+Now use (1) in the frame cross in (8).  Equation (9a) gives
 
 \[
 (S^*)^2(V{\mathscr F}^*+{\mathscr F}V^*)
@@ -300,5 +320,5 @@ both bounds in (3) and (7).  All 13 records pass.  The tracked
 dataset has SHA-256
 
 ```text
-3f3cb2f19f2ef058c1549fef1bdb7f8352b93eb901125f3e93cd188039c05e5b
+1c8bf694c4f0783ce9d3b38da44e046ad3a5b9a406888c1a60ebe95db8eb064d
 ```

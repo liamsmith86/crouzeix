@@ -46,6 +46,7 @@ class CubicFluxRecord:
     state_dimension: int
     defect_dimension: int
     cubic_endpoint_norm: str
+    special_frame_error: str
     simplified_defect_error: str
     scalar_coboundary_error: str
     commutator_formula_error: str
@@ -316,6 +317,13 @@ def numerical_record(
         left,
         1,
     )
+    special_frame_error = float(
+        np.linalg.norm(
+            operator.conj().T
+            @ operator.conj().T
+            @ direction.frame
+        )
+    )
     simplified = simplified_cubic_defect(
         operator,
         right,
@@ -434,6 +442,7 @@ def numerical_record(
     tolerance = 2e-8
     verified = bool(
         simplified_error < tolerance
+        and special_frame_error < tolerance
         and scalar_error < tolerance
         and commutator_error < tolerance
         and pairing_error < tolerance
@@ -454,6 +463,7 @@ def numerical_record(
         state_dimension=dimension,
         defect_dimension=multiplicity,
         cubic_endpoint_norm=format_float(float(np.linalg.norm(endpoint))),
+        special_frame_error=format_float(special_frame_error),
         simplified_defect_error=format_float(simplified_error),
         scalar_coboundary_error=format_float(scalar_error),
         commutator_formula_error=format_float(commutator_error),
@@ -614,6 +624,10 @@ def exact_rational_record() -> CubicFluxRecord:
         * left
     )
     exact_checks = (
+        operator.T**2 * frame_direction == sp.zeros(
+            dimension,
+            multiplicity,
+        ),
         state_defect == simplified,
         scalar == sp.zeros(dimension),
         raw_coefficient == coefficient,
@@ -634,6 +648,7 @@ def exact_rational_record() -> CubicFluxRecord:
         state_dimension=dimension,
         defect_dimension=multiplicity,
         cubic_endpoint_norm=format_float(endpoint_norm),
+        special_frame_error="0",
         simplified_defect_error="0",
         scalar_coboundary_error="0",
         commutator_formula_error="0",

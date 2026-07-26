@@ -239,10 +239,12 @@
   after eliminating the moving frame, every dual pairing is
   controlled by the exact L281 observability defect, and a response
   column exists with
-  `||C_3||<=10||R_1||<=20 Gamma_S||B_1||`.  The next live step is
-  to localize its later quadratic Schur cost to the next surviving
-  transfer flag, then lift the same commutator mechanism to L299's
-  all-series formula—not expand another complete-delay grade.  The
+  `||C_3||<=10||R_1||<=20 Gamma_S||B_1||`.  The frame elimination
+  uses L298's special `(S*)²F_1=0`, so it is not automatically
+  recursive.  The next live step is to compute the quartic cross made
+  by inserting `C_3`, localize that successor to the next surviving
+  transfer flag, and only then seek an all-series recurrence—not
+  expand another complete-delay grade.  The
   alternate raw route retains its lower
   budget, separates L283's favorable `−12` Gram, and expresses only
   L285/L289's mixed transported remainder as a controlled flux.
@@ -265,9 +267,9 @@
 ## NEWEST (2026-07-26): L300 gives the moving cubic a gap-free Markov preimage
 - L299's cubic frame tangents reduce exactly to
   `D_1=−2(S*)²V` and `L_1=−2S²W`.  Using L298's Stein equation
-  eliminates the frame entirely and writes the cubic forcing as one
-  universal expression linear in the already bounded metric
-  direction `R_1`.
+  and its additional special identity `(S*)²F_1=0` eliminates the
+  frame entirely and writes the cubic forcing as one universal
+  expression linear in the already bounded metric direction `R_1`.
 - If `H_Y−SH_YS*=WYW*` and
   `Z_Y=(I−VV*)H_YV`, cyclic reduction gives
   `<Y,Q_3>=tr(R_1 K_Y)`, where every term of `K_Y` contains `Z_Y`
@@ -279,13 +281,15 @@
   rank projection, or pseudoinverse occurs; `Gamma_S` is uniformly
   bounded on each fixed repeated-block neighbourhood.
 - This closes L299's full cubic range and global bounded-energy debt,
-  including reducible strata.  It does **not** yet localize the
-  correction's quadratic sextic cost on `ker B_1*`; the next theorem
-  must charge that cost to the next surviving transfer row before
+  including reducible strata.  The special identity
+  `(S*)²F_1=0` is not automatic for the selected correction frame.
+  Inserting `C_3` creates a **quartic successor** through its cross
+  with the raw first frame; the quadratic self-cost occurs only later
+  at degree six.  Compute and localize the quartic successor before
   promoting the construction to L299's all-series recursion.
 - Exact rational algebra and 12 independent unstructured,
   rank-chain, and reducible audits pass.  Dataset SHA-256:
-  `3f3cb2f19f2ef058c1549fef1bdb7f8352b93eb901125f3e93cd188039c05e5b`.
+  `1c8bf694c4f0783ce9d3b38da44e046ad3a5b9a406888c1a60ebe95db8eb064d`.
 
 ## NEWEST (2026-07-26): L299 isolates and falsifies the no-extra moving correction
 - If `M−A*MA=DD*` is L227's moving raw pair and `(R,F)` is L298's
@@ -5692,18 +5696,20 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    demand endpoint-null even gauges, infer anything from raw
    two-sided state-ideal membership, insert L291's fixed-rank
    pseudoinverse, or compute an isolated seventh grade.
-2. **Localize L300's cubic cost, then recurse from L299.**  L300 now
+2. **Compute L300's quartic successor, then recurse from L299.**  L300 now
    proves full L222 cokernel compatibility and supplies a response
    column with global gap-free bound
    `||C_3||<=20 Gamma_S||B_1||`; do not redo the cubic range solve or
-   search for a scalar multiple of L230.  The remaining cubic debt is
-   ordered: compute the exact quadratic Schur cost first created by
-   this column at degree six and, on `ker B_1*`, bound/factor it by
-   the next surviving transfer row (equivalently prove the flagged
-   L296 energy estimate or L292 valuations).  Then lift L300's
-   frame-elimination/commutator argument to L299's six-term
-   all-series formula and state the finite recursive moving
-   correction with retained even margins.  Do not retry A246's false
+   search for a scalar multiple of L230.  L300's frame elimination
+   uses the special identity `(S*)²F_1=0`, which need not hold for its
+   selected response column.  Insert that column into L299's exact
+   six-term formula and compute the resulting **quartic** cross with
+   the raw first frame before considering the sextic self-cost.  On
+   `ker B_1*`, bound/factor the complete successor by the next
+   surviving transfer row (equivalently prove the flagged L296 energy
+   estimate or L292 valuations).  Only then state the finite
+   recursive moving correction with retained even margins.  Do not
+   retry A246's false
    prior-flag shortcut.  If the ordered homology bound fails, return
    to the raw normalization:
    retain its lower budget, split off L283's `−12B_kB_k*`, discard
@@ -5912,8 +5918,8 @@ Current A178 transport packet:
   factors, deriving L296 polarization columns for the surviving
   compression, and proving their total energy is
   `O(||U*B_k||²)` (or equivalently proving L292's valuations), or on
-  the lower-tight branch by localizing L300's already bounded cubic
-  response cost to the next surviving transfer flag, then recursing
+  the lower-tight branch by computing and localizing the quartic
+  successor of L300's already bounded cubic response, then recursing
   from L299's six-term all-series formula.  Do not
   mix those endpoint ledgers, force state witnesses into an
   ideal, use a rank-changing pseudoinverse, confuse pointwise flag
