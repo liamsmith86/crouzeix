@@ -336,6 +336,29 @@
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
 
+## NEWEST (2026-07-26): A259 isolates a strong unweighted endpoint-word conjecture, but its proof is open
+- For every length-`d` word `w` in `S,S*`, exhaustive tests support
+  `K_wK_w* <= sum_(j=1)^d B_jB_j*`, where
+  `K_w=W*w(S,S*)V`.
+- Defect telescoping proves that this is exactly
+  `||V*w*Wy||²+||S^(d+1)Wy||²<=||y||²`.  Hence a proof would give a
+  constant-one, dimension-free Douglas factor for every L311 word
+  multiplier through the first `d` transfer blocks.
+- Ten deterministic general/rank-chain/delayed colligations pass all
+  2,046 words through length ten; separate exhaustive tests through
+  length sixteen and random tests through length twenty also pass.
+  Tracked dataset SHA-256:
+  `72080e8409321c996e842cfa39fe4f34df2e17c8c4249925a46eb6df7cdc60dc`.
+- This is **not L312**.  The tempting Julia-colligation circuit proof
+  has an unproved residual-block step after mixed gate orientations.
+  The nonlinear word `(S*)²S³(S*)²` already contains
+  `−(I−B_1B_1*)B_1`, so naive Dyck-path straightening is inadequate.
+- Do not stack the conjecture as a lemma.  Either prove its explicit
+  finite-horizon residual cancellation, or use it only as a guide.
+  More importantly, even a proof is unweighted: the live physical
+  gate remains causal elliptic weight matching in the complete
+  L306/L307 series.
+
 ## NEWEST (2026-07-26): L311 makes every physical endpoint split ideal-valued and delay-normalized
 - For a physical root `T=pG_jq`, with
   `K=W*qpV`, its copy multiplier has the exact state realization
@@ -6076,7 +6099,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L309/A256)
+## Current next actions (Epoch 6, refreshed after A259)
 1. **Construct the hereditary prepared affine recurrence.**
    L306 sums every rooted successor to
    `q=−Psi_S(Delta*XS+S*XDelta+Delta*XDelta)
@@ -6090,12 +6113,19 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
       +X_r Bcal_r*+Bcal_r X_r*`
    with bounded analytic/Smith-divisible columns, and the even
    recurrence as the new direct Gram plus a response and a bounded
-   factor through `Bcal_(r−1)`.  Derive this from L306--L307's full
-   matrix expression, using L305 only as the response/module engine
-   and keeping the affine leftover in L307's scaling identity.  Do
+   factor through `Bcal_(r−1)`.  L310--L311 already make every
+   physical root a literal hereditary factor plus an ideal-valued,
+   delay-vanishing response.  Derive the remaining weighted
+   square-completion from L306--L307's full matrix expression, using
+   L305 only as the response/module engine and keeping the affine
+   leftover in L307's scaling identity.  A259's constant-one
+   endpoint-word bound is only a numerical conjecture, and raw word
+   length would not by itself prove the required elliptic weight
+   matching.  Do
    not impose global odd response, factor raw `q`, enumerate L305
    roots, launch an unrelated fifth/seventh grind, discard `−C*C`,
-   split load-bearing cancellations, or assume
+   split load-bearing cancellations, assume A259's unproved
+   endpoint-word inequality, or assume
    `I intersect [A,A]=[A,I]`.
 2. **Close the fixed partial-scale finite-flag induction.**  Combine
    the recurrence from item 1 with L283's complete-delay boundary,
