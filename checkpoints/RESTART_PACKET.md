@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-25): after L279 / A226
+## Current general Crabb frontier (2026-07-25): after L280 / A227
 
 The accidental two-agent interval has been reconciled.  Commits
 `87c5107`, `4c7a152`, `2f82d15`, and `dcab861` form one linear history
@@ -12,7 +12,7 @@ handoff was checked against the linear history through `646ade8`; no
 branch, staging collision, or unresolved working-tree artifact
 remains.  Its sole new in-progress result was independently tightened
 and banked as L272/A219.  A second single-agent reconciliation through
-L279/A226 found no stopped-agent artifact, branch, staged overlap, or
+L280/A227 found no stopped-agent artifact, branch, staged overlap, or
 competing next-action instruction.  Resume as one agent from the
 bounded analytic-selection gate below.  The now-completed A194 route
 ran through A196's balanced output form, A197's paired
@@ -56,8 +56,13 @@ relative grade-one response, and A203/L257 turns its transport into
   is `4||B_k||²`.  L247 then gives the delayed dual-Schur trace
   `2||B_k||²`, and L225/L246 give the effective trace
   `−16||B_k||²`.  L222's pointwise range obstruction is closed in
-  every grade.  What remains is bounded analytic choice through
-  commutant-rank changes and the repeated normal/elliptic merger.
+  every grade.  L280/A227 then polarizes L212 and identifies the whole
+  response range with `ran(I−Phi Phi*)`, where `Phi` is the
+  bistochastic transfer channel.  Its explicit state preimage is
+  analytic and its Dirichlet form is the sum of squared transfer
+  intertwining defects.  What remains is a gap-free bound on that
+  state preimage as the Markov fixed space changes, followed by the
+  repeated normal/elliptic merger.
   The remainder of this opening paragraph records the route that led
   to L279; every embedded instruction to resume A213, classify the
   active support, or recompute the delayed scalar flux is superseded.
@@ -629,6 +634,15 @@ before their theta/coisometric cancellation.
   physical response/lower-face audits through grade four and
   algebraic cyclic-flux audits through grade twelve; tracked data hash
   `521e3e3f1129eaa36832738fb0ab86ffd73c766437bcbf75626522c9e28276b0`.
+- `proof/repeated_crabb_markov_response.md` (L280/A227): polarized
+  all-grade endpoint preimage and the exact factorization
+  `ran M_T=ran(I−Phi Phi*)`.  Its Dirichlet form identifies the fixed
+  space with L206's commutant.  This removes range inversion but does
+  not yet bound the Poisson state preimage through closing gaps.
+- `experiments/repeated_crabb_markov_response.py`: arbitrary
+  multiplier, bistochastic, summed-response, Dirichlet, and repeated-
+  apex audits; tracked data hash
+  `8017e368a9a84643fb32d3bab70b7810ec3797f0ed6e112d3aa29f4ed91e49a8`.
 - `proof/repeated_crabb_exact_metric_chart.md` (L194): analytic
   metric chart in which any all-series column construction must
   converge.
@@ -1877,11 +1891,13 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   The former deformation route was superseded by the Schwarzian proof of EL4; see
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
-## Next five concrete actions (refreshed after L279 / A226)
+## Next five concrete actions (refreshed after L280 / A227)
 1. Build a bounded analytic right inverse for L222's endpoint response
-   along L197/L220's ordered Schur flag.  Pointwise feasibility is now
-   proved by L279; control the norm through commutant-rank drops without
-   spectral projections or pseudoinverses.
+   along L197/L220's ordered Schur flag.  Use L280's exact
+   `8(I−Phi Phi*)` representation and bound the synthesized state
+   column through its Dirichlet form as the Markov gap closes.
+   Pointwise feasibility is proved by L279; do not bound `H` itself or
+   use spectral projections/pseudoinverses.
 2. Convert the exact pointwise margin
    `16||B_k||_F²` into a uniform local estimate.  Match the selection's
    vanishing order to the first active transfer row and dominate the
@@ -1926,18 +1942,20 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    not compute another isolated grade.  Then finish the
    normal/elliptic merger, retaining the full CP route as fallback.
 
-## Paste-ready continuation instruction (current after L279/A226)
+## Paste-ready continuation instruction (current after L280/A227)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix` as
-the sole repository-writing agent.  Read L197, L220, L222, and L279,
+the sole repository-writing agent.  Read L197, L220, L222, L279, and L280,
 plus the newest `RESEARCH_STATE.md` section.  L277--L279 have proved
 every lower delayed face, the active `+4||B_k||²` volume coefficient,
 the `+2||B_k||²` dual-Schur trace, and the
 `−16||B_k||²` effective separator trace in arbitrary grade.  Do not
 resume A194, recompute fan coefficients, or classify the stronger
-operator support.  The live gate is bounded analytic selection
-through commutant-rank changes: use L197's analytic flag and L220's
-ordered Schur features to construct a triangular right inverse with a
-locally uniform norm bound, then use the exact L279 margin to dominate
+operator support.  L280 proves
+`ran M_T=ran(I−Phi Phi*)` and gives an explicit analytic state
+preimage with Dirichlet form
+`sum||H B_k−B_k Phi*(H)||²`.  The live gate is a gap-free bound on
+that state preimage along L197/L220's analytic flag; `H` itself need
+not be bounded.  Use the exact L279 fixed-point margin to dominate
 the analytic remainder.  After that, finish the later circular-normal
 Schur response and merge it with the repeated elliptic flag without
 double-counting a negative square.  Avoid discontinuous projections

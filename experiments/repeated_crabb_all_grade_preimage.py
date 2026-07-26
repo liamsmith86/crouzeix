@@ -66,18 +66,39 @@ def all_grade_column(
 ) -> tuple[np.ndarray, np.ndarray, float]:
     """Return L212's balanced column, coefficient, and contamination norm."""
 
-    dimension = len(operator)
-    projection = np.eye(dimension) - right @ right.conj().T
     coefficient = transfer_coefficient(
         operator,
         right,
         left,
         grade,
     )
+    column, contamination_norm = generalized_grade_column(
+        operator,
+        right,
+        left,
+        grade,
+        coefficient,
+        scale=-3.5,
+    )
+    return column, coefficient, contamination_norm
+
+
+def generalized_grade_column(
+    operator: np.ndarray,
+    right: np.ndarray,
+    left: np.ndarray,
+    grade: int,
+    multiplier: np.ndarray,
+    scale: float = 1.0,
+) -> tuple[np.ndarray, float]:
+    """Return the polarized L212 column for one copy multiplier."""
+
+    dimension = len(operator)
+    projection = np.eye(dimension) - right @ right.conj().T
     column_core = (
         np.linalg.matrix_power(operator, grade)
         @ left
-        @ coefficient
+        @ multiplier
     )
     contamination = np.zeros_like(column_core)
     for earlier_grade in range(1, grade):
@@ -93,11 +114,11 @@ def all_grade_column(
                 grade - earlier_grade,
             )
             @ right
-            @ coefficient.conj().T
+            @ multiplier.conj().T
             @ earlier
         )
-    column = -3.5 * projection @ (column_core + contamination)
-    return column, coefficient, float(np.linalg.norm(contamination))
+    column = scale * projection @ (column_core + contamination)
+    return column, float(np.linalg.norm(contamination))
 
 
 def gauged_shift(

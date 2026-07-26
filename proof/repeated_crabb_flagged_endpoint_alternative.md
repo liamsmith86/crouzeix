@@ -3,8 +3,10 @@
 > **Closure note (2026-07-25).**  L279 proves the all-grade delayed
 > trace \(\operatorname {tr}E_{2k,\mathrm{eff}}
 > =-16\|B_k\|_F^2\), closing this note's pointwise range
-> obstruction.  Bounded analytic selection through commutant-rank
-> changes remains open.
+> obstruction.  L280 subsequently identifies the whole response range
+> with the coboundaries of \(I-\Phi\Phi^*\) and supplies an explicit
+> analytic state preimage.  A uniform Poisson/Dirichlet bound through
+> closing Markov gaps remains open.
 
 ## 1. Result (L222, 2026-07-24)
 

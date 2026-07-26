@@ -25,8 +25,8 @@
   unresolved working-tree artifact remains.  The sole new in-progress
   result was independently tightened and is banked below as L272/A219.
 - At the next single-agent checkpoint the history and working tree
-  were reconciled again through L279/A226.  The subsequent
-  L273--L279 work is one coherent primary-agent line; no stopped-agent
+  were reconciled again through L280/A227.  The subsequent
+  L273--L280 work is one coherent primary-agent line; no stopped-agent
   artifact, alternate branch, staged overlap, or competing next-action
   instruction remains.
 - There is now one live mathematical frontier: A194 at the complete
@@ -139,10 +139,39 @@
   dual-Schur trace is `2||B_k||²`, and the effective separator trace
   is `−16||B_k||²` in every grade.  This closes A194 and L222's
   pointwise range obstruction.  The live repeated-block gate is now
-  bounded analytic selection through commutant-rank changes, followed
-  by the normal/elliptic merger.
+  bounded selection through commutant-rank changes.  L280/A227 now
+  rewrites the whole response range as the coboundaries of the
+  bistochastic transfer-channel Markov operator
+  `I−Phi Phi*`, with an explicit analytic state preimage and exact
+  Dirichlet form.  Only a uniform Poisson-preimage bound as its gap
+  closes remains before the normal/elliptic merger.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
+
+## NEWEST (2026-07-25): L280 replaces rank-changing range inversion by a Markov Laplacian
+- Polarizing L212 for an arbitrary copy multiplier `X` gives the exact
+  response
+  `8{sym(B_k X*)−Phi(sym(X*B_k))}` with an explicit state column.
+- Setting `X_k=H B_k` and summing all grades yields
+  `M_T(C(H))=8(I−Phi Phi*)H`.  The state column is analytic, uses no
+  projection or pseudoinverse, and vanishes on the repeated monomial
+  apex.
+- The exact Dirichlet identity
+  `<H,(I−Phi Phi*)H>=sum_k||H B_k−B_k Phi*(H)||_F²`
+  identifies the fixed space with L206's self-adjoint colligation
+  commutant.  Therefore
+  `ran M_T=ran(I−Phi Phi*)`: this is the complete response range, not
+  just L212's one coboundary direction.
+- L222's semidefinite problem is now the copy-space Markov Poisson
+  inequality `E+8(I−Phi Phi*)H<0`.  L279 proves its strict
+  fixed-point separator condition.
+- **Sole selection debt:** bound the actual state preimage `C(H)` as
+  the nonzero Markov gap closes along L197/L220's analytic flag.
+  `H` itself may diverge; do not introduce a Moore--Penrose inverse.
+- The exact checker passes arbitrary polarized multipliers, both
+  bistochastic identities, the summed response, the Dirichlet form,
+  and apex vanishing.  Dataset SHA-256:
+  `8017e368a9a84643fb32d3bab70b7810ec3797f0ed6e112d3aa29f4ed91e49a8`.
 
 ## NEWEST (2026-07-25): L279 closes the all-grade delayed volume flux
 - L277--L278 already make every coefficient below the active
@@ -4995,15 +5024,15 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L279/A226)
+## Current next actions (Epoch 6, refreshed after L280/A227)
 1. **Construct a bounded analytic repeated-flag correction through
    commutant-rank changes.**  L222+L279 prove pointwise strict
-   feasibility on every first active delayed reducing summand.  They
-   do not bound a choice of preimage when the response range changes.
-   Re-enter L197's analytic flag and L220's ordered Schur-feature
-   coordinates.  Seek a triangular/Schur-recursive right inverse on
-   constant-rank strata whose norm remains controlled at rank drops;
-   do not use discontinuous spectral projections or pseudoinverses.
+   feasibility.  L280 now identifies the whole response range as
+   `ran(I−Phi Phi*)` and supplies the analytic state column `C(H)`.
+   Re-enter L197/L220's ordered flag and prove a gap-free estimate for
+   `C(H)` solving `E+8(I−Phi Phi*)H<0`.  It is unnecessary to bound
+   `H`; control its Dirichlet/state synthesis instead.  Do not use
+   discontinuous spectral projections or pseudoinverses.
 2. **Relate the pointwise separator margin to analytic remainder
    domination.**  The exact margin is
    `16||B_k||_F²` at the first active flag.  Prove that the selected
