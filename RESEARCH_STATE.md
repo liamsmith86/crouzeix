@@ -347,6 +347,35 @@
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
 
+## NEWEST (2026-07-26): L314 proves the complete raw-frame cross is weighted bridge-causal
+- The canonical repaired frame has the exact graph factor
+  `D=Hcal V(V*Hcal V)^(-1/2)`, with
+  `Hcal=P_bl−A*P_bl A`.  Thus every finite frame coefficient is a
+  finite physical word polynomial; the stable Stein repair never has
+  to be expanded inside the frame.
+- L298's grade-`k` column has the exact lift
+  `C_kV*=−(1/2)G_kG_k*
+    −(1/2)Q{S^kG_k*+sum_(j<k)(S*)^(k−j)G_kG_j*}`,
+  where `G_k=ES^kF`.  It is therefore rooted in the physical
+  grade-`k` bridge ideal.
+- Every coefficient of `(D−V)C*+C(D−V)*` is consequently a finite
+  rooted physical word carrying degree at least `2k`.  L311 converts
+  it to a bounded literal factor through `c^kB_k` plus an
+  ideal-valued response of size
+  `O(c^k||c^kB_k||)`, which vanishes whenever `B_k=0`.
+- This corrects L313's deliberately conservative scope guard.
+  L217 still forbids factoring the raw frame by itself, but the frame
+  never appears by itself in L306.  Its compulsory pairing with
+  `C_k` already restores the weight, so no cancellation against
+  `Psi_S(Delta*XS+S*XDelta)` is required.
+- The remaining weighted debt is now only the moving-operator copy
+  closure
+  `Psi_S(Delta*XS+S*XDelta+Delta*XDelta)`, followed by the
+  fixed-`theta=1/2` finite-jet margin assembly.  Keep `−C*C` intact.
+- Fifteen unstructured/rank-chain/complete-delay records pass.
+  Dataset SHA-256:
+  `c0883301a48aef9211fd62e1c7ee09d418c4a05bdac09eaf48c2232fe476c514`.
+
 ## NEWEST (2026-07-26): L313 proves weighted causality for every finite physical reverse-edge polynomial
 - Keep the enhanced physical reverse edge
   `J=(I+F)S*(I+E)` intact.  On the forward defect chain,
@@ -6164,8 +6193,8 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L313/A261)
-1. **Close the paired Stein/frame covariance left by L313.**
+## Current next actions (Epoch 6, refreshed after L314/A262)
+1. **Close the moving-operator copy weighting left after L314.**
    L306 sums every rooted successor to
    `q=−Psi_S(Delta*XS+S*XDelta+Delta*XDelta)
       −(C*H+H*C+C*C)`, and L307 proves the formula recurs after a
@@ -6187,18 +6216,20 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    finite-word prefix factor with a `ceil(d/2)` bound, but neither
    that result nor A259's sharper numerical conjecture may be applied
    termwise after the infinite Stein/Hardy closure: raw word length
-   does not prove the required elliptic weight matching.  L313 now
-   proves the correct weighted factorization for every finite
-   physical polynomial in `S,J`, including the complete direct-map
-   jet.  Do not redo that sector.  In the grouped L220/L236/L244
-   coordinates, prove specifically that the premature part of
-   `C*H+H*C` cancels against
-   `Psi_S(Delta*XS+S*XDelta)` before coefficient extraction.  Then
-   apply L313 to the remaining causal polynomial and retain
-   `−Psi_S(Delta*XDelta)−C*C` with L307's reserve.  Do
+   does not prove the required elliptic weight matching.  L313 proves
+   the correct weighted factorization for every finite physical
+   polynomial in `S,J`, including the complete direct-map jet.  L314
+   now also closes the frame sector: the canonical graph factor and
+   the exact rooted identity for `C_kV*` make
+   `(D−V)C*+C(D−V)*` a weighted L311 bridge sum.  Do not redo either
+   sector or demand a frame/operator cancellation.  Work only on
+   `Psi_S(Delta*XS+S*XDelta+Delta*XDelta)`: use L298's explicit
+   Stein/orbit representation of `X`, telescope the dual copy closure
+   before expanding it, and reduce the result to L313/L311 weighted
+   factors.  Retain `−C*C` with L307's reserve.  Do
    not impose global odd response, factor raw `q`, enumerate L305
    roots, launch an unrelated fifth/seventh grind, discard `−C*C`,
-   split load-bearing cancellations, assume A259's unproved
+   split load-bearing operator telescopes, assume A259's unproved
    endpoint-word inequality, or assume
    `I intersect [A,A]=[A,I]`.
 2. **Close the fixed partial-scale finite-flag induction.**  Combine

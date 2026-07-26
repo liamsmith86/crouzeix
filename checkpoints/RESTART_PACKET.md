@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-26): after L313 / A261
+## Current general Crabb frontier (2026-07-26): after L314 / A262
 
 The accidental two-agent interval has been reconciled.  Commits
 `87c5107`, `4c7a152`, `2f82d15`, and `dcab861` form one linear history
@@ -50,11 +50,19 @@ physical sector.  Keeping `J=(I+F)S*(I+E)` intact, an exact
 wandering-chain recursion shows that a word with `r` paid reverse
 edges factors through only `B_1,...,B_r`, with a polynomial
 rank-stable bound.  Hence every finite jet of
-`phi_c(S+cJ)−S` factors through `[cB_1,c²B_2,...]`.  L217 prevents
-applying this to the raw defect frame separately.  The unique live
-weight debt is the paired cancellation of the premature frame images
-in `C*H+H*C` against
-`Psi_S(Delta*XS+S*XDelta)`; the finite direct-map sector is closed.
+`phi_c(S+cJ)−S` factors through `[cB_1,c²B_2,...]`.  L314/A262 now
+closes the apparent frame exception without contradicting L217.
+The exact graph factor
+`D=Hcal V(V*Hcal V)^(-1/2)` makes every finite frame jet polynomial,
+while
+`C_kV*=−(1/2)G_kG_k*−(1/2)Q{S^kG_k*
+ +sum_(j<k)(S*)^(k−j)G_kG_j*}`
+roots its compulsory pairing in the grade-`k` bridge ideal.
+L311 then factors the full frame cross through `c^kB_k` with an
+ideal-valued response.  The unique live weight debt is now the
+moving-operator copy closure
+`Psi_S(Delta*XS+S*XDelta+Delta*XDelta)`; the direct-map and frame
+sectors are closed.
 The L312/A260 checkpoint repeated the concurrency audit from a clean
 worktree: all four handoff commits are ancestors of the single
 `master`, `master` agrees with `origin/master`, no alternate worktree,
@@ -62,7 +70,7 @@ branch, staging conflict, or untracked artifact existed, and L248/L249
 regenerate byte-identically with the recorded hashes.  The stopped
 agent's L248 continuation recommendation has been superseded by
 L277--L279, which close that volume coefficient.  Resume as one agent
-only from L313's remaining paired Stein/frame covariance and then the
+only from L314's remaining moving-operator copy closure and then the
 fixed-`theta=1/2` finite-flag induction below.  The now-completed
 A194 route
 ran through A196's balanced output form, A197's paired
@@ -1090,6 +1098,13 @@ before their theta/coisometric cancellation.
   short-word, rank-chain, and complete-delay audits; tracked data
   hash
   `5e20fe4db61c1b80582436faa3c2c98b2d6699fd329d6b006f895196523e0252`.
+- `proof/repeated_crabb_frame_pairing_causality.md` (L314/A262):
+  exact canonical graph factor, rooted identity for `C_kV*`, and
+  weighted L311 normalization of the complete raw-frame cross.
+- `experiments/repeated_crabb_frame_pairing_causality.py`:
+  independent graph-factor, bridge-root, complete-delay, and
+  rank-collapse audits; tracked data hash
+  `c0883301a48aef9211fd62e1c7ee09d418c4a05bdac09eaf48c2232fe476c514`.
 - `experiments/repeated_crabb_markov_response.py`: arbitrary
   multiplier, bistochastic, summed-response, Dirichlet, observability-
   preimage, state-energy, polarized-collapse, and repeated-apex
@@ -2343,8 +2358,8 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   The former deformation route was superseded by the Schwarzian proof of EL4; see
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
-## Next five concrete actions (refreshed after L313 / A261)
-1. Prove the paired Stein/frame covariance needed before the
+## Next five concrete actions (refreshed after L314 / A262)
+1. Prove the moving-operator copy weighting needed before the
    finite-jet square-completion/margin rule for the
    complete prepared L306/L307 successor, now using L311's
    ideal-valued normalized split for every physical root.  At odd
@@ -2356,10 +2371,10 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    arbitrary-grade algebraic inequality, not another isolated
    fifth/seventh coefficient or a growing rooted enumeration.  Do
    not impose global odd response, factor raw `q`, discard `−C*C`,
-   split load-bearing cancellations, redo L313's now-proved finite
-   physical weighting, apply L313 to the raw defect frame, confuse
-   L312's finite-word bound with the still-missing paired
-   Stein/frame valuation, assume A259's
+   split load-bearing operator telescopes, redo L313's finite
+   physical weighting or L314's frame-cross normalization, confuse
+   L312's finite-word bound with the still-missing operator-copy
+   valuation, assume A259's
    unproved constant-one bound, or assume
    `I intersect [A,A]=[A,I]`.
 2. Use that recurrence with L283's complete-delay boundary, L290's
@@ -2413,9 +2428,9 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    not compute another isolated grade.  Then finish the
    normal/elliptic merger, retaining the full CP route as fallback.
 
-## Paste-ready continuation instruction (current after L313/A261)
+## Paste-ready continuation instruction (current after L314/A262)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix` as
-the sole repository-writing agent.  Read L197, L220, L227, L283--L313,
+the sole repository-writing agent.  Read L197, L220, L227, L283--L314,
 A259's explicitly conjectural sharp endpoint-word note, plus the newest
 `RESEARCH_STATE.md` section.  Do not treat A259 as L312: its
 lossless-circuit residual block is unproved.  L312 proves only the
@@ -2425,11 +2440,14 @@ weighted factorization for every finite physical word in
 `S,J=(I+F)S*(I+E)` and for the complete direct-map jet
 `phi_c(S+cJ)−S`; do not redo that sector or expand `J` into raw
 `S*` words.  L217 forbids applying L313 to the Hermitian-gauge defect
-frame separately.  Prove instead that the premature part of
-`C*H+H*C` cancels against
-`Psi_S(Delta*XS+S*XDelta)` in grouped L220/L236/L244 coordinates,
-then use L313 on the remaining causal polynomial while retaining the
-two favorable quadratic squares and L307's reserve.  L277--L279 have proved
+frame separately, but L314 closes its actual paired use: the graph
+factor for `D` and rooted formula for `C_kV*` make the complete frame
+cross a weighted L311 bridge sum.  Do not seek a frame/operator
+cancellation.  Work only on
+`Psi_S(Delta*XS+S*XDelta+Delta*XDelta)`: telescope L298's explicit
+Stein/orbit representation through the dual copy closure before
+expanding it, then use L313/L311 on the remaining causal polynomial.
+Retain `−C*C` and L307's reserve.  L277--L279 have proved
 every lower delayed face, the active `+4||B_k||²` volume coefficient,
 the `+2||B_k||²` dual-Schur trace, and the
 `−16||B_k||²` effective separator trace in arbitrary grade.  Do not

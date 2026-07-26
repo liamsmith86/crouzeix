@@ -1,5 +1,13 @@
 # Physical reverse-edge polynomials have an exact weighted transfer factor
 
+> **Frame update (L314).**  The scope guard in Section 5 is correct
+> for the raw frame *alone* but stronger than necessary for L306.
+> L314 proves that the frame occurs paired with L298's column, whose
+> lift is already rooted in the physical bridge ideal.  That complete
+> frame cross is weighted-causal without cancellation against the
+> operator term.  The remaining weight debt is only the moving-
+> operator copy closure and the finite-jet margin assembly.
+
 ## 1. Result (L313, 2026-07-26)
 
 Let
@@ -230,6 +238,12 @@ nor infer the all-series recurrence from the direct-map corollary.
 Thus the live obstruction is no longer all of L306: it is the
 paired **Stein/frame covariance** that removes the premature images.
 L220/L236/L244 are the natural coordinates for that pairing.
+
+L314 subsequently improves this scope statement.  It uses the exact
+canonical graph factor and \(C_kV^*\in{\cal I}_k\) to prove that the
+complete frame cross is already weighted-causal.  No frame/operator
+cancellation is needed; only the operator-copy term and margin
+assembly remain open.
 
 ## 6. Independent regeneration
 
