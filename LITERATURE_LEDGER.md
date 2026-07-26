@@ -122,10 +122,40 @@ Lemma-by-lemma scope:
    matrix Schur algorithm.  Novelty, if claimed, must be restricted to
    their later use in the Crouzeix endpoint construction.
 
+## Numerical-contraction equality audit for L326 (2026-07-26)
+
+- **Primary source:** H.-L. Gau and P. Y. Wu, *Inner functions of
+  numerical contractions*, Linear Algebra Appl. **430** (2009),
+  2182--2191, DOI `10.1016/j.laa.2008.11.020`.
+- **Theorem 8 is exactly the missing terminal structure.**  If
+  `w(T)<=1`, `T` has no singular unitary part,
+  `||f||_infinity<=1`, and `||f(T)x||=2`, then `f` is inner,
+  `f(0)=0`, and `T` has the orthogonal reducing summand
+  `X_phi S(phi) X_phi^−1`, `phi=zf`, with endpoint scaling
+  `sqrt(2) direct-sum I direct-sum 1/sqrt(2)`.
+- **Theorem 5 identifies that summand.**  It is cyclic and
+  irreducible, has no unitary part, has numerical range the disk, and
+  attains two for `f`.  Thus the reducing scalar model itself and the
+  equality mechanism are classical; do not advertise L326 as a new
+  equality classification.
+- **Campaign-only bookkeeping.**  Near `C_p tensor I_m`, compactness
+  and irreducibility imply every limiting reducing projection is
+  `I_p tensor q`.  Hence the Gau--Wu summand has dimension `p r` and
+  its complement lowers repeated-block copy multiplicity.  This
+  specializes the classical theorem to L325's partial canonical
+  endpoint; it is a local application, not a new model theorem.
+- **Scope correction.**  General L193 disk points need not be
+  nilpotent.  Therefore Gau--Wu's inner `f` cannot generally be
+  replaced by a monomial.  Monomial/Crabb rigidity is valid only on
+  the explicit nilpotent subcase.  `proof/repeated_crabb_scalar_model_split.md`.
+
 ## Known equality structure (R = 2 attained/approached)
 - A = [[0,2],[0,0]], p = z. R = 2 exactly. W(A) = disk radius 1.
 - Crabb matrix family (nilpotent Jordan-like with specific superdiagonal weights √2,1,...,1,√2? — verify): ‖p(A)‖ = 2 with p = z^k, W(A) = unit disk. Attains 2 for higher powers.
-- General principle: equality cases known are nilpotent + monomial + disk. Conjecturally all extremals are these (Greenbaum–Overton observation).
+- Gau--Wu 2009 shows more generally that scalar equality for a numerical
+  contraction splits a disk-model block `X_phi S(zf)X_phi^−1` with
+  inner `f(0)=0`; equality is not restricted to nilpotent monomials.
+  The Crabb family is its monomial specialization.
 
 ## Equivalent / stronger formulations (Track F cautions)
 - Completely bounded version: "W(A) is a complete 2-spectral set" — open, possibly strictly stronger; Paulsen theory: cb-version ⇔ similarity to operator with dilation... (K-spectral ⇒ complete K'-spectral with K' possibly larger). Do NOT conflate.

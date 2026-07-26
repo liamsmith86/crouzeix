@@ -302,21 +302,30 @@ one, and is therefore scalar inner.  In particular,
 The observability model from (4) intertwines \(C\) with the backward
 shift.  Equations (26)--(27) generate a scalar backward-shift cyclic
 subspace.  On L193's full equality manifold, L205's characteristic
-kernel argument proves that this is a reducing scalar full-Hardy
-summand.
+kernel argument proves directly that this is a reducing scalar
+full-Hardy summand.
 
-For a **partial** L197 top endpoint away from that manifold,
-(26)--(27) are the exact terminal relations needed next, but L325
-does not silently promote them to a reducing split.  The remaining
-model-kernel lemma must prove that the scalar cyclic subspace and its
-orthogonal complement reduce \(C\) and respect \(P\), or identify an
-additional partial-endpoint obstruction.  This is now the sole
-zero-face debt in the local induction.
+For a **partial** L197 top endpoint away from that manifold, the
+reducing conclusion is now supplied by L326 rather than by silently
+strengthening (26)--(27).  Gau--Wu's 2009 equality theorem for
+numerical contractions says that scalar norm equality two forces an
+orthogonal reducing summand
 
-The distinction matters: \(\sigma_X(k)=1\) alone can describe an
-\(H^2\) output-line state.  Scalar innerness is asserted only after
-norm equality forces (27), and a reducing split away from the full
-equality manifold is deliberately not claimed here.
+\[
+ X_\phi S(\phi)X_\phi^{-1},\qquad \phi=zf,
+\]
+
+with \(f\) inner and \(f(0)=0\).  Their companion theorem gives this
+summand numerical range equal to the disk.  L326's local commutant
+argument shows that its dimension is a positive multiple of
+\(L+1\), so the orthogonal complement is a strictly
+smaller-multiplicity repeated-Crabb problem.
+
+The distinction still matters: \(\sigma_X(k)=1\) alone can describe
+an \(H^2\) output-line state.  Scalar innerness and the reducing split
+are asserted only after norm equality forces (27) and Gau--Wu applies.
+Also, the general L193 disk point need not be nilpotent, so the model
+inner function is not silently replaced by a monomial.
 
 ## 7. Audit
 

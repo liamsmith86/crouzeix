@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-26): after L325 / A273
+## Current general Crabb frontier (2026-07-26): after L326 / A274
 
 The post-L316 consolidation review retired 55 of 75 stale/unclassified
 `OPEN` labels (54 superseded, one obsolete) and left 20 genuinely live
@@ -27,9 +27,16 @@ L197 scalar disk loss, the joint complement-frame gauge gives response
 adversarial pass found that L322's equality-anchor reserve and `d`
 still could not simply be added.  L325 fixes this with one actual-disk
 defect `Delta=min_k{<D_Xk,k>+1−sigma_X(k)}` and proves a uniform linear
-gap by an exact endpoint-angle matrix.  The live step is now the
-terminal partial-endpoint model-kernel split, followed by the finite
-L197/L321 induction with L318 kept separate.
+gap by an exact endpoint-angle matrix.  L326 then closes the terminal
+partial-endpoint split by Gau--Wu's classical 2009 equality theorem:
+scalar equality two forces a reducing disk-model summand
+`X_phi S(zf)X_phi^−1`.  Local commutant compactness makes its dimension
+`(L+1)r`, so the complement has strictly smaller copy multiplicity.
+The live step is now the quantitative comparison of L324's joint
+response coordinates with L325's same-direction `Delta`, followed by
+the finite L197/L321 induction with L318 kept separate.  General L193
+disk points are not assumed nilpotent; monomial rigidity is used only
+on the explicit nilpotent specialization.
 L319 proves that the alternative Schur-only complete-similarity
 shortcut does not determine the later kernel block; it is now a
 fallback debt rather than a scalar prerequisite.  L317 proves the
@@ -2532,9 +2539,9 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    not compute another isolated grade.  Then finish the
    normal/elliptic merger, retaining the full CP route as fallback.
 
-## Paste-ready continuation instruction (current after L325/A273)
+## Paste-ready continuation instruction (current after L326/A274)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix` as
-the sole repository-writing agent.  Read L197, L220, L227, L283--L325,
+the sole repository-writing agent.  Read L197, L220, L227, L283--L326,
 A259's explicitly conjectural sharp endpoint-word note, plus the newest
 `RESEARCH_STATE.md` section.  Do not treat A259 as L312: its
 lossless-circuit residual block is unproved.  L312 proves only the
@@ -2580,12 +2587,17 @@ reserves separately.  L325 proves the correct joint actual-disk gap:
 with top cluster `X`, disk defect `D_X`, and output-line score
 `sigma_X(k)`, every scalar Schur norm has gap at least
 `c min_k{<D_Xk,k>+1−sigma_X(k)}`.  Its `2x2` angle matrix uses the
-load-bearing contraction row `sqrt(1−t²)`.  At a terminal partial
-endpoint, scalar equality forces `Pk=4k`, `V*C^n k=b_n v`, and
-`f(C)k=Vv`; prove that the generated scalar model is reducing and
-respects `P`.  L205 supplies this only on the full equality manifold.
-Then assemble the finite L197/L321 flag and use L192 on every split
-block.  Keep L199's split face and L318's elliptic margin separate.
+load-bearing contraction row `sqrt(1−t²)`.  L326 closes the terminal
+partial-endpoint zero face by Gau--Wu's classical 2009 theorem:
+scalar equality splits a disk model `X_phi S(zf)X_phi^−1`, and local
+commutant compactness makes its complement a strictly
+smaller-multiplicity repeated-Crabb problem.  Do not rederive that
+model theorem or assume a general L193 point is nilpotent.  First
+prove the quantitative comparison between L324's joint cross
+coordinates and L325's actual same-direction `Delta`; equality of
+zero sets is not enough.  Then assemble the finite L197/L321 flag and
+use L326/L192 on every split block.  Keep L199's split face and L318's
+elliptic margin separate.
 L319/A267
 forbids inferring a stronger
 complete-similarity later quotient from Schur algebra alone; reopen

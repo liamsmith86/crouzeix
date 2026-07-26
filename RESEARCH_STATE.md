@@ -2,25 +2,52 @@
 
 **Last updated:** 2026-07-26 (Epoch 6 — repeated circular/elliptic merger)
 
-## CANONICAL LIVE GATE (2026-07-26, after L325/A273)
+## CANONICAL LIVE GATE (2026-07-26, after L326/A274)
 
-There is exactly one current mathematical gate: **prove that L325's
-terminal scalar-inner cyclic state at a partial L197 top endpoint is
-a reducing scalar model summand (or identify the exact additional
-obstruction), then finish the finite scalar local induction.**
-L325 now supplies one joint linear base reserve for disk and channel
-loss on the same direction; L324 supplies the lower-order joint
-response cost.  L199 supplies the first transverse
-disk/circular-normal face, L318 supplies the elliptic margin, and
-L205/L192 already split the full-equality case.  L319 blocks only the
-stronger Schur-only complete-similarity shortcut.  This is current
-next action 3 below.  Every later
+There is exactly one current mathematical gate: **quantitatively tie
+L324's joint response coordinates to L325's actual joint defect
+\(\Delta\), then assemble the finite rank-stratified scalar local
+estimate using L326's classical terminal split.**
+L325 supplies one joint linear base reserve for disk and channel loss
+on the same direction; L324 supplies the quadratic completion cost.
+L326 closes the terminal zero face by Gau--Wu's classical reducing
+disk-model theorem and strictly lowers copy multiplicity.  L199
+supplies the first transverse disk/circular-normal face, L318 supplies
+the elliptic margin, and L205/L192 split the full-equality case.
+L319 blocks only the stronger Schur-only complete-similarity shortcut.
+This is current next action 3 below.  Every later
 occurrence of “historical gate,”
 “historical frontier,” or “remaining historical task” records what
 was unresolved at that dated checkpoint; none is a concurrent
 frontier.  Actions 1--2 are completed derivation records, action 3
 is live, and action 4 is its ordered successor.  The CP/H-r routes
 remain parked fallbacks.
+
+## L326/A274 CLASSICAL TERMINAL SCALAR MODEL SPLIT (2026-07-26)
+
+- Gau--Wu, Linear Algebra Appl. 430 (2009), Theorems 5 and 8,
+  already prove the missing equality structure: if a numerical
+  contraction satisfies `||f(T)x||=2`, then `f` is inner with
+  `f(0)=0` and `T` has an orthogonal reducing summand
+  `X_phi S(zf) X_phi^−1`.
+- That summand is cyclic, irreducible, has no unitary part, has
+  numerical range the disk, and itself attains two.  This is a
+  classical theorem, not an original campaign breakthrough.
+- A sufficiently small repeated-Crabb neighbourhood has no reducing
+  unitary summand.  Compactness of reducing projections and
+  irreducibility of one Crabb block show that the Gau--Wu summand has
+  dimension `(L+1)r`; its complement is a numerical contraction near
+  multiplicity `m−r`.
+- The first specialization attempt incorrectly assumed every L193
+  disk point was nilpotent.  The proof was corrected before banking:
+  general equality retains the finite Blaschke model.  Only an
+  explicitly nilpotent point forces the monomial `z^L` and one
+  literal Crabb block.
+- Thus L325's terminal partial-endpoint zero face is closed, and the
+  remaining work is the quantitative finite merger rather than a new
+  model-kernel proof.
+- Seven exact nilpotent-model audits pass; dataset SHA-256:
+  `6fb00450f8dd2222d5bf9c0d3466d4832fda40d047e82e984da84617af4dd376`.
 
 ## L325/A273 JOINT ACTUAL-DISK SCALAR GAP (2026-07-26)
 
@@ -42,10 +69,9 @@ remain parked fallbacks.
   this is one joint reserve through all disk rank changes.  On L193's
   equality manifold it reduces to the older channel leakage.
 - At a terminal partial endpoint, scalar equality forces
-  `Pk=4k`, `V*C^n k=b_n v`, and `f(C)k=Vv`.  L205 proves reducing
-  splitting on the full equality manifold, but the corresponding
-  partial-endpoint model-kernel split is not yet banked.  That is the
-  sole zero-face debt before the final induction.
+  `Pk=4k`, `V*C^n k=b_n v`, and `f(C)k=Vv`.  L326 now applies
+  Gau--Wu's classical equality theorem to split the scalar disk-model
+  summand even away from the full L193 equality manifold.
 - Two hundred twenty-five exact angle/allocation records pass; dataset
   SHA-256:
   `bd7e63c2ffaa8ba1bdbe5e6c61cfae1efbb722c107e36eef92b9dfb07cd0c967`.
@@ -6506,7 +6532,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L325/A273)
+## Current next actions (Epoch 6, refreshed after L326/A274)
 1. **COMPLETED BY L318: fixed-half-scale margin assembly after L317.**
    The remainder of this item is the derivation record, not a live
    instruction.
@@ -6591,25 +6617,34 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    L324 includes every accumulated L197 quotient and proves the joint
    response is `O(delta+d)`, so its completed cost is quadratic.
 
-   First close L325's terminal zero face.  At a partial top endpoint,
-   scalar equality gives `Pk=4k`, `V*C^n k=b_n v`, and
-   `f(C)k=Vv`.  Prove from the finite observability/model kernel that
-   this scalar cyclic subspace and its orthogonal complement reduce
-   both `C` and `P`, or record the exact missing obstruction.  L205
-   already proves this only on the full L193 equality manifold.
+   L326 closes L325's terminal zero face by Gau--Wu's classical
+   reducing-model theorem.  The scalar disk-model summand has
+   dimension `(L+1)r`, and its complement is a strictly
+   smaller-multiplicity repeated-Crabb problem.  Do not rederive that
+   model theorem, and do not replace its general finite Blaschke
+   function by a monomial except on an explicitly nilpotent slice.
 
-   Then assemble one finite rank-stratified flag.  At each L197 layer,
+   First prove the quantitative coordinate comparison needed for one
+   finite rank-stratified flag: L324's squared transfer and accumulated
+   quotient cross variables must be bounded by L325's actual
+   same-direction joint defect `Delta`, uniformly on each fixed rank
+   stratum and through support crossings.  Do not merely identify
+   their common zero set or add L322 and L197 reserves from different
+   directions.
+
+   Then, at each L197 layer,
    retain a fixed fraction of every accumulated square, stack all
    normal/reflected responses before completing them once, and charge
    the resulting `O((delta+d)²)` cost to L325's joint linear reserve.
    Descend L321's common eigenline when the equality-anchor leakage
-   face vanishes.  Keep L318's elliptic margin separate and use
-   L205/L192 when a full-equality channel persists exactly.
+   face vanishes.  Keep L318's elliptic margin separate and use L326
+   to remove every exact equality summand.
 
    If `Lambda=0`, carry L321's common eigenline through the next
-   nonzero transfer jet.  If it persists identically, reduce to the
-   split channel by L205 and apply L192; iterate on the complementary
-   multiplicity.  At a tied channel collision, keep L199's first
+   nonzero transfer jet.  If it persists identically, L326 supplies
+   the reducing model and the multiplicity descent; L205/L192 remain
+   the explicit full-equality chart.  At a tied channel collision,
+   keep L199's first
    disk/circular-normal face and L318's elliptic margin as separate
    diagonals.  Do not spend either twice.
 
@@ -6618,7 +6653,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    kernel-block response.  Do not use that shortcut.  Return to the
    endpoint-specific complete-matrix response only if the scalar
    induction leaves a term not controlled by
-   L192/L197/L199/L318/L324/L325.
+   L192/L197/L199/L318/L324/L325/L326.
 4. **Then close analytic remainders and audit equality strata.**  Use
    the bounded selected columns along the finite L197/L220 flag and
    combine with the banked single-block quotient results before

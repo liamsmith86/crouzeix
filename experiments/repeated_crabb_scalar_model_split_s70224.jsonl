@@ -1,0 +1,7 @@
+{"all_checks_passed": true, "dimension": 3, "length": 2, "lower_power_norm_squares": ["2"], "model_equals_crabb_transpose": true, "next_power_vanishes": true, "terminal_power_norm_square": "4"}
+{"all_checks_passed": true, "dimension": 4, "length": 3, "lower_power_norm_squares": ["2", "2"], "model_equals_crabb_transpose": true, "next_power_vanishes": true, "terminal_power_norm_square": "4"}
+{"all_checks_passed": true, "dimension": 5, "length": 4, "lower_power_norm_squares": ["2", "2", "2"], "model_equals_crabb_transpose": true, "next_power_vanishes": true, "terminal_power_norm_square": "4"}
+{"all_checks_passed": true, "dimension": 6, "length": 5, "lower_power_norm_squares": ["2", "2", "2", "2"], "model_equals_crabb_transpose": true, "next_power_vanishes": true, "terminal_power_norm_square": "4"}
+{"all_checks_passed": true, "dimension": 7, "length": 6, "lower_power_norm_squares": ["2", "2", "2", "2", "2"], "model_equals_crabb_transpose": true, "next_power_vanishes": true, "terminal_power_norm_square": "4"}
+{"all_checks_passed": true, "dimension": 8, "length": 7, "lower_power_norm_squares": ["2", "2", "2", "2", "2", "2"], "model_equals_crabb_transpose": true, "next_power_vanishes": true, "terminal_power_norm_square": "4"}
+{"all_checks_passed": true, "dimension": 9, "length": 8, "lower_power_norm_squares": ["2", "2", "2", "2", "2", "2", "2"], "model_equals_crabb_transpose": true, "next_power_vanishes": true, "terminal_power_norm_square": "4"}
