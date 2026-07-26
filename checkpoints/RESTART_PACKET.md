@@ -1,7 +1,31 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-26): after L328 / A276
+## Current general Crabb frontier (2026-07-26): after L329 / A277
+
+L329 proves the scalar Crouzeix conjecture in a full operator
+neighbourhood of every fixed repeated Crabb block
+`C_p tensor I_m`.  The finite merger uses L61/L199's Jensen
+scalarization, L324/L325/L327's same-direction disk/channel reserve
+and response comparison, L317/L318's grouped elliptic margin, and
+L326/L328's one-copy Gau--Wu equality split with induction to L192.
+It is local, scalar, and fixed-dimensional; it is not the global or
+completely bounded conjecture.
+
+The sole live gate is now **global sharp-stratum classification**:
+decide whether every exact ratio-two pair or asymptotically sharp
+sequence reduces to a disk/Gau--Wu model covered by L192/L329.  Do
+not assume `Phi_A(A)` is a numerical contraction, do not replace a
+general finite Blaschke equality model by a monomial, and do not
+reopen the complete-similarity normal flag.  Falsify the proposed
+classification against banked exact witnesses and numerical
+extremals before opening a proof route.  If it survives, use finite
+Blaschke extremality and singular-vector stationarity; for fixed
+dimension, an equality classification plus compactness would leave a
+strict complement, while dimension uniformity remains a separate
+global debt.
+
+### Historical derivation through L328
 
 The post-L316 consolidation review retired 55 of 75 stale/unclassified
 `OPEN` labels (54 superseded, one obsolete) and left 20 genuinely live
@@ -667,7 +691,7 @@ is `||B_k||²` under complete delay.  Thus the physical numerator need
 only be identified with four times this divergence modulo trace-null
 terms; a positive operator Gram is neither true nor needed.
 
-**Current live gate (A194/A211):** evaluate L258's closed-return
+**Historical pre-L279 gate (A194/A211; closed):** evaluate L258's closed-return
 trace using L259--L261's complete leakage-row norm, prove L257's
 associated one-delay coefficient recursion, and iterate to L256's
 universal grade-one response, at the physical `lambda=1`, without assuming
@@ -684,7 +708,23 @@ forbids detaching L245's doubled terminal edge from its physical
 balance.  A206 forbids splitting the two formal ellipse orientations
 before their theta/coisometric cancellation.
 
-## Current frontier files map
+## Current frontier files map (after L329/A277)
+- `proof/repeated_crabb_scalar_local_theorem.md` (L329): the fixed
+  repeated-block scalar neighbourhood theorem and its scope boundary.
+- `experiments/repeated_crabb_scalar_local_merger.py` with
+  `experiments/repeated_crabb_scalar_local_merger_s70224.jsonl`:
+  exact master-square audit for the final scalar completion.
+- `proof/repeated_crabb_joint_channel_disk_factor.md` (L324),
+  `proof/repeated_crabb_joint_disk_scalar_gap.md` (L325), and
+  `proof/repeated_crabb_joint_defect_comparison.md` (L327): the
+  same-direction quantitative interface; do not recompute it.
+- `proof/repeated_crabb_scalar_model_split.md` (L326) and
+  `proof/repeated_crabb_model_size_rigidity.md` (L328): classical
+  Gau--Wu split plus the one-copy local rigidity used by induction.
+- `RESEARCH_STATE.md`: the sole live gate is global sharp-stratum
+  classification, not another repeated-block local coefficient.
+
+### Historical derivation file map
 - `proof/repeated_crabb_canonical_cubic_preimage.md` (L230),
   `proof/repeated_crabb_canonical_quartic_preimage.md` (L232),
   `proof/repeated_crabb_canonical_quintic_preimage.md` (L233), and
@@ -2547,7 +2587,26 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    not compute another isolated grade.  Then finish the
    normal/elliptic merger, retaining the full CP route as fallback.
 
-## Paste-ready continuation instruction (current after L328/A276)
+## Paste-ready continuation instruction (current after L329/A277)
+"Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix`
+as the sole repository-writing agent.  L329/A277 has proved the
+scalar conjecture in a full neighbourhood of every fixed repeated
+Crabb block `C_p tensor I_m`; do not reopen its finite
+Jensen/disk/channel/normal/elliptic merger or promote it to a
+completely bounded theorem.  The sole live gate is global
+sharp-stratum classification.  Falsify first whether every exact
+ratio-two pair or asymptotically sharp normalized sequence must
+reduce to a disk/Gau--Wu model covered by L192/L329.  Do not assume
+`Phi_A(A)` is a numerical contraction and do not replace general
+finite Blaschke models by monomials.  If the reduction survives,
+attack it using Crouzeix's finite Blaschke extremal theorem and
+singular-vector stationarity; separate fixed-dimension compactness
+from the eventual dimension-uniform debt.  If a new sharp stratum
+appears, record its exact limiting data and chart that stratum rather
+than forcing repeated-Crabb coordinates.  Keep CP/H-r as ordered
+fallbacks and commit each independently proved milestone."
+
+## Superseded pre-L329 continuation instruction (historical)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix` as
 the sole repository-writing agent.  Read L197, L220, L227, L283--L328,
 A259's explicitly conjectural sharp endpoint-word note, plus the newest

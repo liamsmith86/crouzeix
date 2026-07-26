@@ -1,28 +1,57 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-26 (Epoch 6 — repeated circular/elliptic merger)
+**Last updated:** 2026-07-26 (Epoch 6 — repeated scalar neighbourhood closed)
 
-## CANONICAL LIVE GATE (2026-07-26, after L328/A276)
+## CANONICAL LIVE GATE (2026-07-26, after L329/A277)
 
-There is exactly one current mathematical gate: **assemble the finite
-rank-stratified scalar local estimate from the now-compatible
-Jensen, disk/channel, circular-normal, and elliptic margins.**
-L325 supplies one joint linear base reserve on the actual norming
-direction; L324 supplies the quadratic completion cost; L327 proves
-their directionwise quantitative equivalence.  L326 closes the
-terminal zero face by Gau--Wu's classical reducing disk-model theorem
-and L328 proves that each equality split removes exactly one
-single-block model inside L192's tube.  L199 supplies the first
-transverse disk/circular-normal face, L318 supplies the elliptic
-margin, and L205/L192 split the full-equality chart.  L319 blocks only
-the stronger Schur-only complete-similarity shortcut.  This is current
-next action 3 below.  Every later
+There is exactly one current mathematical gate:
+**globalize the now-proved fixed repeated-Crabb scalar neighbourhood
+without assuming that every sharp matrix is already a repeated
+Crabb block.**  L329 closes the finite rank-stratified merger of the
+Jensen, actual-disk/channel, scalar normal/reflected, and grouped
+elliptic margins for every fixed `C_p tensor I_m`.  The next question
+is whether an arbitrary scalar ratio-two or asymptotically sharp pair
+must reduce, after the numerical-range conformal normalization, to a
+disk/Gau--Wu model covered by these local charts.  If not, the missing
+sharp stratum must be identified and treated separately.  For a fixed
+matrix size, an equality-stratum classification plus compactness
+would reduce the complement to a uniform strict patch; a full proof
+would additionally have to be dimension-uniform.  L329 is local and
+scalar, not a proof of the global or completely bounded conjecture.
+This is current next action 1 below.  Every later
 occurrence of “historical gate,”
 “historical frontier,” or “remaining historical task” records what
 was unresolved at that dated checkpoint; none is a concurrent
-frontier.  Actions 1--2 are completed derivation records, action 3
-is live, and action 4 is its ordered successor.  The CP/H-r routes
-remain parked fallbacks.
+frontier.  The CP/H-r routes remain parked fallbacks.
+
+## L329/A277 FIXED REPEATED-BLOCK SCALAR NEIGHBOURHOOD (2026-07-26)
+
+- For every fixed `p=L+1>=3` and multiplicity `m`, there is a full
+  operator neighbourhood of `C_p tensor I_m` on which the scalar
+  Crouzeix inequality holds.
+- Crouzeix's 2007 finite extremal theorem reduces scalar norming data
+  to Blaschke products of degree at most `pm−1`, so the direction,
+  function, support, transfer-rank, and finite-disk-flag data admit
+  compact ramified strata.
+- L61/L199 remove positive-Jensen and nonscalar normal branches.
+  L325 supplies the same-direction linear joint disk/channel defect;
+  L324 stacks every scalar normal/reflected response; L327 proves its
+  square coordinates are quantitatively equivalent to that exact
+  defect.  One vector completion therefore costs only the square of
+  a retained linear reserve.
+- L317/L318 retain the grouped elliptic direct Grams and exact
+  analytic tail.  The final associated-graded audit keeps the
+  principal elliptic block inside that exact completion and puts only
+  marked responses through L324, so no metric or curvature is spent
+  twice.
+- L197 makes the disk descent finite.  At exact equality, Gau--Wu
+  (L326) splits a scalar disk model and L328 proves it removes exactly
+  one `p`-dimensional copy; induction terminates at L192.
+- The theorem is scalar, local, and fixed-dimensional.  It does not
+  classify all global sharp pairs and does not prove the completely
+  bounded conjecture.
+- Forty-eight exact master-square audits pass; dataset SHA-256:
+  `3267bb8d19a30edb18abb343b0a5ddca1d83fd90f7ce8ef5017d580e440e814d`.
 
 ## L328/A276 ONE-COPY EQUALITY-MODEL RIGIDITY (2026-07-26)
 
@@ -6580,7 +6609,32 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L328/A276)
+## Current next actions (Epoch 6, refreshed after L329/A277)
+
+1. **LIVE: classify or falsify the global sharp-stratum reduction.**
+   Determine whether every exact scalar ratio-two pair, or every
+   asymptotically sharp sequence after affine and numerical-range
+   conformal normalization, has a disk/Gau--Wu reducing model limit
+   covered by L192/L329.  Test the statement first against banked
+   small exact witnesses and numerical extremals; do not infer it
+   from monomial equality or from `w(Phi_A(A))<=1`, which has not been
+   proved in general.
+2. **If the reduction survives, isolate its exact equality
+   mechanism.**  Use the finite Blaschke extremal and singular-vector
+   stationarity, not the stronger completely bounded similarity
+   route.  For each fixed dimension, combine an equality-stratum
+   classification with compactness to obtain a strict complement.
+   Record separately the still-required dimension-uniform step.
+3. **If a new sharp stratum appears, stop and chart it.**  Do not
+   force it into the repeated-Crabb coordinates.  State the exact
+   limiting operator/function/equality data and open only the minimal
+   new local theorem it requires.
+4. **Keep CP/H-r as ordered fallbacks.**  L319 continues to block the
+   Schur-only complete-similarity shortcut.  Do not reopen a
+   complete-matrix normal flag merely to strengthen L329, which is
+   already closed in the scalar setting.
+
+## Superseded pre-L329 next actions (historical; do not resume)
 1. **COMPLETED BY L318: fixed-half-scale margin assembly after L317.**
    The remainder of this item is the derivation record, not a live
    instruction.

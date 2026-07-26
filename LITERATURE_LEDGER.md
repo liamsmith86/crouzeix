@@ -6,7 +6,7 @@ Papers, theorems, assumptions, possible gaps. Status verified via web 2026-07-24
 | Ref | Result | Method | Notes / gaps to exploit |
 |---|---|---|---|
 | Crouzeix 2004 ("Bounds for analytical functions of matrices") | Conjecture stated; proved for 2×2 (constant 2, sharp) | Direct estimates, conformal maps | 2×2 case: W(A) is an ellipse; sharp via Jordan block [[0,2],[0,0]] |
-| Crouzeix 2007 | Universal constant 11.08 | Cauchy integral + conformal splitting | Superseded |
+| Crouzeix 2007, *Numerical range and functional calculus in Hilbert space*, JFA 244 | Universal constant 11.08; Theorem 2.1 gives an extremal `B∘phi` with `B` a finite Blaschke product of degree at most `n−1` | Cauchy integral + conformal splitting; finite Schur--Pick extremality | The numerical constant is superseded, but the finite-extremal reduction is load-bearing for L329 and is also restated in BGG+20 and Li 2020/2021 |
 | Crouzeix–Palencia 2017 (SIMAX/FoCM) | W(A) is a (1+√2)-spectral set | f(A)+g(A)* via positive double-layer kernel; abstract lemma | THE target to improve. g = Cauchy transform of f̄ conjugate |
 | Ransford–Schwenninger 2018 (SIMAX 1708.08633) | The abstract lemma (‖f(A)+g(A)*‖≤2‖f‖, g=C(f̄)) cannot yield better than 1+√2 in abstract setting | Explicit abstract construction | KEY OBSTRUCTION: need concrete structure of the pair (f(A), g(A)) beyond the abstract hypotheses |
 | Malman–Mashreghi–O'Loughlin–Ransford 2024 | For each fixed N: C_N < 1+√2 | Compactness + strict inequality analysis of C–P equality conditions | Non-constructive; no uniform bound. Their equality analysis of C–P may reveal extremal structure |
@@ -150,6 +150,34 @@ Lemma-by-lemma scope:
   nilpotent.  Therefore Gau--Wu's inner `f` cannot generally be
   replaced by a monomial.  Monomial/Crabb rigidity is valid only on
   the explicit nilpotent subcase.  `proof/repeated_crabb_scalar_model_split.md`.
+
+## Fixed repeated-Crabb neighbourhood audit for L329 (2026-07-26)
+
+- **Finite extremals are classical.**  Crouzeix 2007, Theorem 2.1,
+  proves that an extremal for an `n x n` matrix can be written
+  `B∘phi`, with `B` a finite Blaschke product of degree at most
+  `n−1`.  Bickel--Gorkin--Greenbaum--Li--Overton--Ransford--
+  Schwenninger--Wegert, *Crouzeix's Conjecture and Related Problems*
+  (arXiv:2006.04901), and Kenan Li, arXiv:2002.01027, explicitly
+  restate this fact.  L329 uses it only for compact finite norming
+  data and makes no novelty claim for that reduction.
+- **Closest local literature is weaker or differently scoped.**
+  Lewis--Overton prove partial smoothness of the disk-matrix
+  manifold; Greenbaum--Overton study nonsmooth stationarity/local
+  minimizers; BGG+20 Theorem 3.8 gives a neighbourhood of one Crabb
+  matrix in which extremal Blaschke products have maximal degree.
+  None of these sources states the Crouzeix inequality on a full
+  neighbourhood of `C_p tensor I_m`, and the BGG+20 neighbourhood
+  conclusion is about extremal degree, not the constant-two bound.
+- **Targeted search outcome.**  Searches for “repeated Crabb,”
+  “Crabb block neighbourhood,” and local Crouzeix theorems found no
+  matching repeated-multiplicity result.  The local scalar theorem
+  L329 therefore appears new, but this is not a priority proof and
+  must remain qualified as pending publication-level audit.
+- **Scope guard.**  L329 is fixed `(p,m)`, local, and scalar.  It
+  neither proves a radius uniform in size nor the completely bounded
+  conjecture, and it does not classify arbitrary global sharp
+  sequences.
 
 ## Known equality structure (R = 2 attained/approached)
 - A = [[0,2],[0,0]], p = z. R = 2 exactly. W(A) = disk radius 1.
