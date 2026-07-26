@@ -3,8 +3,13 @@
 > **Route update.**  L286 subsequently solves the first instance of
 > this homology with a bounded double-delay-divisible polynomial.
 > L287 then proves the next even metric coefficient cannot generally
-> be endpoint-null.  The recurrence below remains the live framework,
-> but it must alternate odd homology with a retained even face.
+> be endpoint-null, and L288 solves that even successor under the
+> correct flag-ideal condition.  L289 packages the nonlinear endpoint
+> transport in one mixed-graph identity and proves that fixed length
+> requires only a finite prepared jet, not an infinitely summable
+> selected-column series.  The recurrence below remains the live
+> framework, but it must alternate odd homology with a retained even
+> face.
 
 ## 1. Result (L285, 2026-07-25)
 
@@ -239,8 +244,8 @@ H_n-W^*\mathcal G_S(R_n^0)W.                     \tag{11}
 A successful continuation must prove one of:
 
 1. (11) has a bounded polynomial preimage whose selected endpoint
-   lies in the preceding transfer right ideal, with summable
-   coefficient growth; or
+   lies in the preceding transfer right ideal, with finite bounds and
+   positive margins through the terminal grade; or
 2. (11) has a uniformly bounded-energy Markov preimage by L282's
    off-commutant flux inequality.
 

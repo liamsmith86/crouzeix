@@ -178,13 +178,47 @@
   including the nonlinear quartic Schur cross, factors through
   `ESF`.  It therefore vanishes on the surviving partial flag and
   leaves L234's effective sextic budget unchanged.  The nonlinear
-  lower Schur coefficient is not globally invariant, and the
-  coefficient bound `1021/2` is not a summable majorant.  Extracting
-  and bounding this odd-null/even-flag-ideal parity recursion in
-  arbitrary grade is the live gate.  The
-  circular-normal merger is downstream.
+  lower Schur coefficient is not globally invariant.  L289/A236 now
+  packages every nonlinear endpoint cross in the exact mixed-graph
+  identity
+  `U(Htilde)−U(H)=J_Htilde*(Htilde−H)J_H`.
+  It also corrects the convergence target: at fixed repeated length
+  `L`, L201's invertible terminal `B_L` and L194's analytic tail mean
+  that a positive prepared jet through order `2L` is sufficient.
+  No infinite summable selected-column series is required.
+  Extracting and bounding this finite odd-null/even-flag-ideal
+  recurrence with uniform margins through grade `L` is the live gate.
+  The circular-normal merger is downstream.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
+
+## NEWEST (2026-07-26): L289 makes nonlinear endpoint transport exact and the target finite-jet
+- For two Hermitian upper-gap series, define the endpoint graph
+  `J_H=F−P(PHP)^−1PHF`.  Exact block elimination gives
+  `U(Htilde)−U(H)=J_Htilde*(Htilde−H)J_H`, with the adjoint
+  orientation equal to the same Hermitian difference.
+- Coefficient `n` is the triangular convolution
+  `sum_(i+d+j=n) Jtilde_i* DeltaH_d J_j`.  This includes all graph
+  motion and nonlinear Schur crosses without enumerating them
+  separately.  L288's quartic/sextic three-term `Omega_6` is exactly
+  its first nontrivial instance.
+- The graph columns stay uniformly analytic and bounded near the
+  repeated equality point.  Schur shorting therefore introduces no
+  independent coefficient-growth obstruction.
+- For fixed Crabb length `L`, choose a polynomial free row only
+  through degree `2L`.  If its finite upper jet has a terminal lower
+  bound `delta c^(2L)B_LB_L*`, L201 gives
+  `sigma_min(B_L)>=beta>0` nearby and L194 gives a uniform
+  `O(c^(2L+1))` tail.  The full endpoint is positive for
+  `c<delta beta^2/M`.
+- **Strategic correction:** A178 still needs an arbitrary-grade
+  formula, right-ideal factorizations, Schur budgets, and uniform
+  margins, but only finitely through grade `L` for each fixed
+  repeated block.  Infinite summability uniformly over all grades is
+  not a valid stop condition.
+- Exact rational and formal-series residuals are zero.  Dataset
+  SHA-256:
+  `7fbf04c4b81828d756fabfe3cacd9ba05ec968287f2e583e9d35baddabc76781`.
 
 ## NEWEST (2026-07-26): L288 transports the trace-carrying sextic face through the surviving flag
 - Keep L287's nonzero even trace rather than trying to erase it.  An
@@ -204,9 +238,9 @@
 - **Scope guard:** the separately recomputed nonlinear lower Schur
   coefficient is not globally unchanged at order six.  L288 is a
   Stein/upper-flag transport certificate, not global two-endpoint
-  invariance, an arbitrary-grade parity theorem, or a summable
-  convergence bound.  Translate any final selection through L194's
-  exact lower-tight chart.
+  invariance, an arbitrary-grade parity theorem, or L289's terminal
+  finite-jet certificate.  Translate any final selection through
+  L194's exact lower-tight chart.
 - Exact residuals are zero.  The tracked audit covers unstructured,
   rank-changing multiplicities three through five, and triple-delay
   samples; an additional 35-case stress pass succeeded.  Dataset
@@ -289,11 +323,12 @@
   homological solve is physical rather than bookkeeping.  Dataset
   SHA-256:
   `54dc8db20c3b301f7d75978ccb126ab75741417f531ec1db4cd87eb871d7a350`.
-- **Live gate:** prove that L285's endpoint target has either a
-  bounded polynomial/right-ideal preimage with summable growth or a
-  uniformly bounded-energy Markov preimage.  Do not compute another
-  isolated grade.  L286 subsequently supplies the first such
-  polynomial preimage, through degree five only.
+- **Live gate (updated by L289):** prove that L285's endpoint target
+  has either a bounded polynomial/right-ideal preimage with uniform
+  finite-jet margins through the terminal grade or a uniformly
+  bounded-energy Markov preimage.  Do not compute another isolated
+  grade.  L286 subsequently supplies the first such polynomial
+  preimage, through degree five only.
 
 ## NEWEST (2026-07-25): L284 makes every existing preparation delay-normalized modulo an endpoint-null gauge
 - If `Z=Z*`, `Y=Z−S*ZS`, and
@@ -1422,9 +1457,11 @@
   the first three transfer flags, but the observed growth does not
   constitute an induction or a convergent all-series construction.
   Closing another isolated grade will count as evidence only if it
-  exposes a uniform right-ideal recurrence and a summable/analytic
-  coefficient bound.  L283 has since closed A171/L228's all-grade
-  complete-delay anticommutator.  L284 additionally normalizes each
+  exposes a uniform right-ideal recurrence and finite-jet margins
+  sufficient through the terminal transfer.  L289 proves an infinite
+  summability condition is unnecessary.  L283 has since closed
+  A171/L228's all-grade complete-delay anticommutator.  L284
+  additionally normalizes each
   stored later column by an endpoint-null delay gauge.  The remaining
   recursion is the triangular transport of each such metric-gauge
   change into L285's endpoint homology.  Raw ideal invariance is false;
@@ -5270,19 +5307,23 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L288/A235)
+## Current next actions (Epoch 6, refreshed after L289/A236)
 1. **Close bounded repeated-elliptic selection.**  Use L283 as the
    exact complete-delay boundary condition and L284's endpoint-null
    normalizations as the gauge convention.  L285 already gives the
    exact transport recurrence, L286 solves its first odd successor,
    L287 proves the next even coefficient has unavoidable trace, and
    L288 solves that finite even successor by factoring its complete
-   upper motion through an earlier transfer channel.  State and prove
+   upper motion through an earlier transfer channel.  L289 replaces
+   all nonlinear endpoint bookkeeping by one mixed-graph pairing and
+   proves fixed length needs only a finite jet through grade `L`.
+   State and prove
    the arbitrary-grade parity recursion: odd homological cancellation
    followed by an even flag-ideal motion that preserves the physical
    direct Gram and preceding odd Schur budget.  Prove a uniform
-   positive margin and summable coefficient majorant; do not demand
-   endpoint-null even gauges or compute an isolated seventh grade.
+   positive finite-jet margin through the terminal transfer; do not
+   demand endpoint-null even gauges or compute an isolated seventh
+   grade.
 2. **Treat A178 and L282 as one selection gate.**  Use L204/L280 to
    translate any proposed polynomial successor into its Markov
    coboundary and energy, or translate an L282 flux estimate back to a
@@ -5455,9 +5496,13 @@ Current A178 transport packet:
   proof/repeated_crabb_sextic_transport_trace_obstruction.md
   (L287 global-null obstruction), and
   proof/repeated_crabb_second_gauge_transport.md (L288 correct
-  flag-preserving even successor); matching regenerators use the same
+  flag-preserving even successor), and
+  proof/repeated_crabb_two_graph_transport.md (L289 exact mixed-graph
+  endpoint transport and finite-jet stop condition); matching
+  regenerators use the same
   basenames under experiments/.  Resume from L288's
-  odd-null/even-flag-ideal pattern, not by computing grade seven.
+  odd-null/even-flag-ideal pattern in L289's graph coordinate, not by
+  computing grade seven.
 proof/ — read in this order for the current frontier:
   crabb_disk_normal_tube.md (L152 uniform disk-normal anchor),
   crabb_disk_flat_elliptic_face.md (L151 weighted raw face),

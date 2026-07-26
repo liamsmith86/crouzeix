@@ -48,8 +48,9 @@ sextic compression and its effective sextic face after the quintic
 Schur cost.
 
 L288 is a second exact finite recursive step.  It is not an
-arbitrary-grade preparation recurrence and gives no summable
-all-grade bound.
+arbitrary-grade preparation recurrence or a terminal finite-jet
+certificate.  L289 subsequently proves that an infinitely summable
+all-grade bound is not required for any fixed repeated length.
 
 ## 2. Exact transported equation
 
@@ -127,8 +128,8 @@ large, bound
 \boxed{\|\widetilde C_6\|\le1021/2.}              \tag{8}
 \]
 
-No claim is made that bounds of this size are summable in L194's
-analytic chart.
+No claim is made that this bound participates in L289's still-open
+uniform finite-jet certificate.
 
 ## 4. Complete upper-endpoint factorization
 
