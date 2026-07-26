@@ -86,8 +86,8 @@ the lower closed-return vanishings.  L276 subsequently shows that
 literal exclusion of every additional word is unnecessary: bounded
 active cyclic radiality and lower radiality suffice.  The four
 endpoint normalizations need not be computed again.
-L277 subsequently closes the lower odd faces; lower even radiality
-and active cyclic radiality remain open.
+L277--L278 subsequently close every lower face; active cyclic
+radiality remains open.
 
 ## 2. Direct-map and metric inputs
 

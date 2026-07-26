@@ -97,8 +97,8 @@ coefficient one on every word of (3).  L276 subsequently shows that
 additional words need not be excluded literally; it is enough to
 place the active associated face in the cyclic radial span through
 index \(k+2\), together with the lower radial envelope.
-L277 subsequently proves the lower odd faces vanish; lower even
-radiality and active cyclic radiality remain open.
+L277--L278 subsequently prove every lower face vanishes; active cyclic
+radiality remains open.
 
 ## 2. Radial coefficients of the metric
 

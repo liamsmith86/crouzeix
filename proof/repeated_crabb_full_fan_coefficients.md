@@ -78,8 +78,8 @@ scalar problem requires: active cyclic radiality through index
 \(k+2\), together with lower radiality, is enough.  In particular,
 (3) must not be silently upgraded to the full support equality
 \([c^{2k}]\mathfrak U_k=\hbox{radial}+\mathcal F_k\).
-L277 subsequently proves the lower odd faces vanish; lower even
-radiality and active cyclic radiality remain open.
+L277--L278 subsequently prove every lower face vanishes; active cyclic
+radiality remains open.
 
 ## 2. Fan-restricted first-visit decomposition
 

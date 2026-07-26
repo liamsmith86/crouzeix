@@ -62,10 +62,10 @@ operator word in order to close the scalar volume identity.
 
 L276 proves the implication (2)--(5).  It does **not** itself prove
 the two support premises.  L277 subsequently proves every lower odd
-face vanishes in arbitrary grade.  Exact word arithmetic verifies the
-remaining lower-even and active-cyclic statements through the existing
-finite range, but their arbitrary-grade support theorem is now the
-sole gate on this route.
+face vanishes in arbitrary grade, and L278 proves every lower even
+face vanishes as well.  Exact word arithmetic verifies the remaining
+active-cyclic statement through the existing finite range, but its
+arbitrary-grade theorem is now the sole gate on this route.
 
 ## 2. Exact axes kill every lower radial face
 
@@ -192,7 +192,7 @@ which proves (5).
 
 ## 5. New live support target
 
-After L277, the remaining proof should no longer seek the stronger
+After L277--L278, the remaining proof should no longer seek the stronger
 statement
 
 \[
@@ -201,16 +201,13 @@ statement
 \]
 
 unless that exact identity falls out for free.  It is enough to prove
-the two still-open statements:
+the sole still-open statement:
 
-1. every even lower closed-defect face radializes two-sidedly (no
-   sharp index bound is required); and
-2. every active associated word, including any word outside L275's
+1. every active associated word, including any word outside L275's
    fan, cyclically radializes with index at most \(k+2\).
 
-L277 proves the omitted odd lower-face cancellation.  L275 already
-proves coefficient one on the complete fan, and every
+L277--L278 prove every lower face vanishes.  L275 already proves
+coefficient one on the complete fan, and every
 fan word cyclically reduces to \(Q_{k+2}\).  L273 supplies the exact
 metric convolution.  Thus only cyclic control of possible **extra**
-unweighted words and the lower radiality envelope remain; their
-individual coefficients are irrelevant.
+active words remains; their individual coefficients are irrelevant.

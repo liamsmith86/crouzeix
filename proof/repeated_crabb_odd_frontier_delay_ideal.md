@@ -58,10 +58,10 @@ also satisfies
 \quad(d<2k,\ d\ {\rm odd}).}                    \tag{4}
 \]
 
-This closes the odd-face premise of L276 in arbitrary grade.  It
-does **not** prove the lower even radial envelope or the active
-cyclic-radial envelope; those are now the two remaining support
-statements on the A223 route.
+This closes the odd-face premise of L276 in arbitrary grade.  L278
+subsequently proves every lower even face vanishes as well.  The
+active cyclic-radial envelope is the sole remaining support statement
+on the A223 route.
 
 ## 2. The universal odd frontier
 
