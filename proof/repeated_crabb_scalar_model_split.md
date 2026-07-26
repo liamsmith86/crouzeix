@@ -55,8 +55,9 @@ an inessential copy-unitary gauge), \(T'\) is near
 \(C_p\otimes I_{m-r}\) and is again a numerical contraction.  Thus a
 terminal scalar equality state removes at least one copy's worth of
 the repeated block; the remaining problem has strictly smaller copy
-multiplicity.  If \(r=m\), the whole operator is the classical scalar
-disk-model block and no complement remains.
+multiplicity.  L328 subsequently sharpens the local conclusion to
+\(r=1\): a larger irreducible Gau--Wu model cannot approach several
+short Crabb chains.
 
 Applied to L325, (1) is exactly
 
@@ -129,9 +130,10 @@ product reducing-projection set.  A copy-unitary then aligns it with
 near \(C_p\otimes I_{m-r}\).  Since numerical radius does not increase
 under a reducing compression, \(w(T')\le1\).
 
-This is all the multiplicity induction needs.  It does **not** claim
-that the general model summand has one copy or equals the nilpotent
-Crabb block.
+This already gives a finite multiplicity descent.  L328 adds the
+one-copy conclusion needed to place every separated model directly
+inside L192's single-block tube.  Neither statement claims that the
+general model summand equals the nilpotent Crabb block.
 
 ## 4. Nilpotent specialization and correction of a tempting shortcut
 
@@ -167,14 +169,15 @@ there would be an invalid strengthening.  The reducing model theorem
 At a nonzero L325 joint defect, its linear reserve is available and
 L324's stacked response completion is quadratic.  At zero joint
 defect with scalar norm equality, (2) removes a classical disk-model
-summand and strictly decreases \(m\).  The base \(m=1\) disk summand
-is already handled by (4), while L192 supplies the campaign's
-channel-preserving local response.
+summand and strictly decreases \(m\).  L328 shows that it removes
+exactly one copy and lies in L192's single-block tube.  The base
+\(m=1\) disk summand is already handled by (4), while L192 supplies
+the campaign's channel-preserving local response.
 
 Thus the terminal equality stratum is no longer an open
 model-kernel debt.  What remains is the quantitative finite merger:
-compare L324's joint response coordinates with L325's actual
-\(\Delta\), retain L318's elliptic margin, and assemble the
+use L327's comparison of L324's response coordinates with L325's
+directionwise defect, retain L318's elliptic margin, and assemble the
 rank-stratified scalar estimate without spending a disk square twice.
 
 ## 6. Audit

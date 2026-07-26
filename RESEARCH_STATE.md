@@ -2,7 +2,7 @@
 
 **Last updated:** 2026-07-26 (Epoch 6 — repeated circular/elliptic merger)
 
-## CANONICAL LIVE GATE (2026-07-26, after L327/A275)
+## CANONICAL LIVE GATE (2026-07-26, after L328/A276)
 
 There is exactly one current mathematical gate: **assemble the finite
 rank-stratified scalar local estimate from the now-compatible
@@ -11,7 +11,8 @@ L325 supplies one joint linear base reserve on the actual norming
 direction; L324 supplies the quadratic completion cost; L327 proves
 their directionwise quantitative equivalence.  L326 closes the
 terminal zero face by Gau--Wu's classical reducing disk-model theorem
-and strictly lowers copy multiplicity.  L199 supplies the first
+and L328 proves that each equality split removes exactly one
+single-block model inside L192's tube.  L199 supplies the first
 transverse disk/circular-normal face, L318 supplies the elliptic
 margin, and L205/L192 split the full-equality chart.  L319 blocks only
 the stronger Schur-only complete-similarity shortcut.  This is current
@@ -22,6 +23,27 @@ was unresolved at that dated checkpoint; none is a concurrent
 frontier.  Actions 1--2 are completed derivation records, action 3
 is live, and action 4 is its ordered successor.  The CP/H-r routes
 remain parked fallbacks.
+
+## L328/A276 ONE-COPY EQUALITY-MODEL RIGIDITY (2026-07-26)
+
+- L326 initially permits a Gau--Wu model dimension `(L+1)r`.
+  L328 proves that `r=1` in a sufficiently small repeated-Crabb
+  neighbourhood.
+- In a hypothetical `r>=2` sequence, every zero of the finite
+  Blaschke model tends to zero because it is an eigenvalue of a
+  reducing summand of a matrix tending to the nilpotent apex.
+- Gau--Wu Corollary 3's explicit triangular matrix then tends to the
+  one long Crabb chain `C_((L+1)r)`, whereas reducing-projection
+  compactness makes the same summand tend to
+  `C_(L+1) tensor I_r`.
+- Their `L`th powers have squared norms `2` and `4`, respectively,
+  so they cannot be unitarily equivalent.  Thus the equality model
+  is one nearby scalar disk block and its complement has multiplicity
+  `m−1`.
+- This does not restore the false claim that the nearby model is
+  nilpotent or monomial; only its dimension is rigid.
+- Ten exact power-separation audits pass; dataset SHA-256:
+  `8182c3f7bd1564b1ab4c43115d33d8b854b8a3f02e6d7e93c19d542c4e94133d`.
 
 ## L327/A275 SAME-DIRECTION JOINT DEFECT COMPARISON (2026-07-26)
 
@@ -60,6 +82,8 @@ remain parked fallbacks.
   irreducibility of one Crabb block show that the Gau--Wu summand has
   dimension `(L+1)r`; its complement is a numerical contraction near
   multiplicity `m−r`.
+- L328 sharpens this to `r=1` by comparing the explicit Gau--Wu
+  zero-collision limit with the incompatible long-chain power norm.
 - The first specialization attempt incorrectly assumed every L193
   disk point was nilpotent.  The proof was corrected before banking:
   general equality retains the finite Blaschke model.  Only an
@@ -6556,7 +6580,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L327/A275)
+## Current next actions (Epoch 6, refreshed after L328/A276)
 1. **COMPLETED BY L318: fixed-half-scale margin assembly after L317.**
    The remainder of this item is the derivation record, not a live
    instruction.
@@ -6642,11 +6666,11 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    response is `O(delta+d)`, so its completed cost is quadratic.
 
    L326 closes L325's terminal zero face by Gau--Wu's classical
-   reducing-model theorem.  The scalar disk-model summand has
-   dimension `(L+1)r`, and its complement is a strictly
-   smaller-multiplicity repeated-Crabb problem.  Do not rederive that
-   model theorem, and do not replace its general finite Blaschke
-   function by a monomial except on an explicitly nilpotent slice.
+   reducing-model theorem, and L328 proves the summand has exactly
+   one-copy dimension `L+1`.  It lies in L192's single-block tube and
+   its complement has multiplicity `m−1`.  Do not rederive that model
+   theorem, and do not replace its general finite Blaschke function
+   by a monomial except on an explicitly nilpotent slice.
 
    L327 now proves the required quantitative comparison:
    `delta+d asymp Delta_k` on the same norming direction, uniformly
@@ -6660,12 +6684,13 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    normal/reflected responses before completing them once, and charge
    the resulting `O((delta+d)²)` cost to L325's joint linear reserve.
    Descend L321's common eigenline when the equality-anchor leakage
-   face vanishes.  Keep L318's elliptic margin separate and use L326
-   to remove every exact equality summand.
+   face vanishes.  Keep L318's elliptic margin separate and use
+   L326/L328 to remove every exact one-copy equality summand.
 
    If `Lambda=0`, carry L321's common eigenline through the next
-   nonzero transfer jet.  If it persists identically, L326 supplies
-   the reducing model and the multiplicity descent; L205/L192 remain
+   nonzero transfer jet.  If it persists identically, L326/L328
+   supply the reducing one-copy model and multiplicity descent;
+   L205/L192 remain
    the explicit full-equality chart.  At a tied channel collision,
    keep L199's first
    disk/circular-normal face and L318's elliptic margin as separate
@@ -6676,7 +6701,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    kernel-block response.  Do not use that shortcut.  Return to the
    endpoint-specific complete-matrix response only if the scalar
    induction leaves a term not controlled by
-   L192/L197/L199/L318/L324/L325/L326.
+   L192/L197/L199/L318/L324/L325/L326/L327/L328.
 4. **Then close analytic remainders and audit equality strata.**  Use
    the bounded selected columns along the finite L197/L220 flag and
    combine with the banked single-block quotient results before

@@ -141,9 +141,11 @@ Lemma-by-lemma scope:
 - **Campaign-only bookkeeping.**  Near `C_p tensor I_m`, compactness
   and irreducibility imply every limiting reducing projection is
   `I_p tensor q`.  Hence the Gau--Wu summand has dimension `p r` and
-  its complement lowers repeated-block copy multiplicity.  This
-  specializes the classical theorem to L325's partial canonical
-  endpoint; it is a local application, not a new model theorem.
+  its complement lowers repeated-block copy multiplicity.  L328 then
+  uses Gau--Wu Corollary 3's explicit matrix and an elementary power
+  invariant to prove `r=1` locally.  These specialize the classical
+  theorem to L325's partial canonical endpoint; they are local
+  applications, not a new model theorem.
 - **Scope correction.**  General L193 disk points need not be
   nilpotent.  Therefore Gau--Wu's inner `f` cannot generally be
   replaced by a monomial.  Monomial/Crabb rigidity is valid only on

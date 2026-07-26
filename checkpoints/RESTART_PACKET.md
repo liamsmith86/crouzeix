@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-26): after L327 / A275
+## Current general Crabb frontier (2026-07-26): after L328 / A276
 
 The post-L316 consolidation review retired 55 of 75 stale/unclassified
 `OPEN` labels (54 superseded, one obsolete) and left 20 genuinely live
@@ -32,6 +32,10 @@ partial-endpoint split by Gau--Wu's classical 2009 equality theorem:
 scalar equality two forces a reducing disk-model summand
 `X_phi S(zf)X_phi^−1`.  Local commutant compactness makes its dimension
 `(L+1)r`, so the complement has strictly smaller copy multiplicity.
+L328 sharpens this to `r=1`: Gau--Wu's explicit zero-collision model
+would otherwise tend to one long Crabb chain, while the reducing
+projection tends to several short chains; their `L`th power norms
+are incompatible.
 L327 closes the quantitative interface between L324 and L325: both
 channel losses are squared distances to the same
 observability product-line set, while L197's finite graph gives
@@ -2543,9 +2547,9 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    not compute another isolated grade.  Then finish the
    normal/elliptic merger, retaining the full CP route as fallback.
 
-## Paste-ready continuation instruction (current after L327/A275)
+## Paste-ready continuation instruction (current after L328/A276)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix` as
-the sole repository-writing agent.  Read L197, L220, L227, L283--L327,
+the sole repository-writing agent.  Read L197, L220, L227, L283--L328,
 A259's explicitly conjectural sharp endpoint-word note, plus the newest
 `RESEARCH_STATE.md` section.  Do not treat A259 as L312: its
 lossless-circuit residual block is unproved.  L312 proves only the
@@ -2595,8 +2599,11 @@ load-bearing contraction row `sqrt(1−t²)`.  L326 closes the terminal
 partial-endpoint zero face by Gau--Wu's classical 2009 theorem:
 scalar equality splits a disk model `X_phi S(zf)X_phi^−1`, and local
 commutant compactness makes its complement a strictly
-smaller-multiplicity repeated-Crabb problem.  Do not rederive that
-model theorem or assume a general L193 point is nilpotent.  L327 now
+smaller-multiplicity repeated-Crabb problem.  L328 further proves the
+model has exactly one-copy dimension `L+1`, so it lies in L192's
+single-block tube and leaves multiplicity `m−1`.  Do not rederive
+those model facts or assume a general L193 point is nilpotent.  L327
+now
 proves the missing quantitative comparison:
 `delta+d asymp Delta_k` on the actual norming direction, using
 product-line distance and L197's finite observation graph.  Do not
