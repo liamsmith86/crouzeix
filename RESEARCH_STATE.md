@@ -282,8 +282,15 @@
   single initial-copy energy matrix
   `q=−Psi(Delta*XS+S*XDelta+Delta*XDelta)
   −(C*H+H*C+C*C)`, modulo another gap-free module-preserving
-  response.  The next live step is to factor this copy matrix—not
-  another graph expansion, rooted-word sum, or isolated
+  response.  L307/A254 proves this is the actual affine recurrence,
+  not only its first homogeneous step: a correction canceling a
+  preceding forcing leaves the same six-term successor.  Scaling by
+  `theta` adds the exact positive state/copy terms
+  `theta(1−theta)CC*` and `theta(1−theta)C*C` relative to the scaled
+  successor.  For an affine forcing `R!=0`, however, the predecessor
+  also leaves `−(1−theta)R`; the Gram term is not alone a recursive
+  margin.  The next live step is to factor the full-scale copy matrix.
+  Do not return to a graph expansion, rooted-word sum, or isolated
   complete-delay grade.
   The
   alternate raw route retains its lower
@@ -304,6 +311,37 @@
   The circular-normal merger is downstream.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
+
+## NEWEST (2026-07-26): L307 makes the copy reduction recursive and exposes its Gram reserve
+- For an affine correction
+  `X−S*XS=R+VC*+CV*`, exact expansion gives the moving residual
+  `R+N(X,C)`, where `N` is the same six-term L299 successor.  If the
+  preceding residual is `−R`, it cancels before the successor is
+  evaluated.  Thus L306 applies at every recursive correction, not
+  only to the first homogeneous L298 direction.
+- The initial-copy boundary closes exactly:
+  `Psi_S(VC*+CV*)=C*V+V*C`.  Hence the complete copy value is
+  `Psi_S(R)+q(X,C)`, and L306's homogeneous fixed-base copy term is
+  identically zero.
+- At a real partial scale `0<=theta<=1`,
+  `N(theta X,theta C)=theta N(X,C)+theta(1−theta)CC*` and
+  `q(theta X,theta C)=theta q(X,C)+theta(1−theta)C*C`.
+  Both extra terms are positive semidefinite.  The campaign's fixed
+  `theta=1/2` therefore has a one-quarter correction-frame Gram term
+  in both state and copy space relative to half the full-scale
+  successor.
+- Scope guard: if `R!=0`, the scaled affine correction cancels only
+  `theta R` of the preceding `−R`, leaving `−(1−theta)R`.  L307 is
+  not by itself an arbitrary-step positivity induction.  The live
+  gate remains: prove
+  the full-scale odd part is a bounded response and its even retained
+  part is quadratically divisible by prior transfer rows, then combine
+  the exact scaling term with the controlled affine forcing and earlier
+  strict face margins.
+- All 16 tracked affine-recursion cases pass at scales
+  `0.2,0.5,0.8`, including nonvacuous grades `2,3` after a complete
+  first delay and three rank-collapse scales.  Dataset SHA-256:
+  `0b5f54dfb20b9fba53971ab8d03f7daad7833f4b020b7ee0c8fcf80b9dc4e385`.
 
 ## NEWEST (2026-07-26): L306 collapses the complete rooted class to one copy energy
 - Put `Psi_S(Z)=V*sum_(n>=0)S^nZ(S*)^nV`.  Wold resolution and
@@ -5907,9 +5945,11 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L306/A253)
+## Current next actions (Epoch 6, refreshed after L307/A254)
 1. **Factor the all-series initial-copy energy.**
-   L306 has already summed L305's complete rooted word quotient:
+   L306 has already summed L305's complete rooted word quotient, and
+   L307 proves the same formula recurs after an arbitrary preceding
+   forcing is canceled:
    modulo a constructive gap-free response, the live object is the
    single copy series
    `q=−Psi_S(Delta*XS+S*XDelta+Delta*XDelta)
@@ -5917,8 +5957,10 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    Use the theta/metric ODE, transfer intertwinings, and the full-minus-
    fixed-base form of `q` to prove its odd prepared coefficients are
    response-null and its even lower-neutral coefficients are two-ended
-   transfer Grams dominated by earlier retained margins.  Preserve the
-   complete matrix expression: do not enumerate L305 roots, compute an
+   transfer Grams dominated by earlier retained margins, using
+   L307's positive `theta(1−theta)C*C` term only after the affine
+   leftover `−(1−theta)R` is included.  Preserve
+   the complete matrix expression: do not enumerate L305 roots, compute an
    isolated fifth/seventh coefficient, discard `−C*C`, split terms
    whose cancellation is load-bearing, or assume
    `I intersect [A,A]=[A,I]`.
@@ -5931,9 +5973,11 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    finite positive jet through terminal grade `L`, not infinite
    summability.  Do not demand exact lower-tightness, endpoint-null
    even gauges, raw two-sided state-ideal invariance, or use L291's
-   pointwise pseudoinverse.  L305--L306 have closed response/module
-   stability and reduced the retained class to `q`, but not proved
-   its sign.  If that copy energy is not margin-compatible, return to
+   pointwise pseudoinverse.  L305--L307 have closed response/module
+   stability, affine recursion, and the partial-scale Gram identity,
+   but have not proved the full-scale `q` sign or an affine positivity
+   induction.  If that copy energy
+   is not margin-compatible, return to
    L296's polarized raw
    branch only after separating favorable Grams and bounded prior-flag
    factors; do not mix endpoint ledgers.
@@ -6146,15 +6190,21 @@ Current A178 transport packet:
   ideal-preserving correction), and
   proof/repeated_crabb_copy_energy_quotient.md (L306 exact
   all-series initial-copy energy reduction and gap-free residual
-  response);
+  response), and
+  proof/repeated_crabb_affine_copy_recurrence.md (L307 exact
+  arbitrary-step affine cancellation and partial-scale Gram
+  identity);
   matching
   regenerators use the same
   basenames under experiments/.  Resume on the partial-retightening
-  branch at fixed `theta=1/2` by factoring L306's copy matrix `q`
+  branch at fixed `theta=1/2` by factoring L306--L307's recursively
+  stable copy matrix `q`
   through the finite transfer flag.  Response selection,
-  bridge-module stability, rooted summation, the quartic bound, and
-  the Smith gate are closed.  Prove odd response-nullity and even
-  retained-Gram domination without expanding another isolated grade;
+  bridge-module stability, rooted summation, affine cancellation, the
+  one-quarter copy-Gram scaling term, the quartic bound, and the Smith
+  gate are closed; affine positivity is not.  Prove full-scale odd
+  response-nullity and even
+  prior-transfer Gram domination without expanding another isolated grade;
   do not split the load-bearing terms or assume an abstract
   relative-cyclic excision theorem.  If `q` is not margin-compatible,
   return
