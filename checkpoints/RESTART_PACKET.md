@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-26): after L314 / A262
+## Current general Crabb frontier (2026-07-26): after L315 / A263
 
 The accidental two-agent interval has been reconciled.  Commits
 `87c5107`, `4c7a152`, `2f82d15`, and `dcab861` form one linear history
@@ -62,7 +62,18 @@ L311 then factors the full frame cross through `c^kB_k` with an
 ideal-valued response.  The unique live weight debt is now the
 moving-operator copy closure
 `Psi_S(Delta*XS+S*XDelta+Delta*XDelta)`; the direct-map and frame
-sectors are closed.
+sectors are closed.  L315/A263 subsequently closes that last
+root-valuation debt without a separate dual-Stein calculation.
+Track the bidegree `(d,k)` by requiring `d>=2k` for a coefficient
+with a displayed bounded root presentation in the bridge ideal
+`I_k`; abstract ideal membership alone is not used.  L298 starts
+sharply at `(2k,k)`;
+two-sided multiplication preserves the root, `Delta,H` raise degree,
+and Stein inversion, lower elimination, and L311 response
+normalization preserve both.  Thus the whole affine successor is
+filtered and every endpoint root factors through `c^kB_k`.  The live
+gate is now only multiplier energy and the fixed-`theta=1/2` margin
+assembly.
 The L312/A260 checkpoint repeated the concurrency audit from a clean
 worktree: all four handoff commits are ancestors of the single
 `master`, `master` agrees with `origin/master`, no alternate worktree,
@@ -70,7 +81,7 @@ branch, staging conflict, or untracked artifact existed, and L248/L249
 regenerate byte-identically with the recorded hashes.  The stopped
 agent's L248 continuation recommendation has been superseded by
 L277--L279, which close that volume coefficient.  Resume as one agent
-only from L314's remaining moving-operator copy closure and then the
+only from L315's multiplier-energy square completion and then the
 fixed-`theta=1/2` finite-flag induction below.  The now-completed
 A194 route
 ran through A196's balanced output form, A197's paired
@@ -1105,6 +1116,13 @@ before their theta/coisometric cancellation.
   independent graph-factor, bridge-root, complete-delay, and
   rank-collapse audits; tracked data hash
   `c0883301a48aef9211fd62e1c7ee09d418c4a05bdac09eaf48c2232fe476c514`.
+- `proof/repeated_crabb_weighted_bridge_filtration.md` (L315/A263):
+  exact bidegree/bridge-ideal induction through the full affine
+  recurrence and weighted L311 endpoint extraction.
+- `experiments/repeated_crabb_weighted_bridge_filtration.py`:
+  mixed-correction, rank-collapse, and complete-delay filtration
+  audits; tracked data hash
+  `e98a59d70874201afb32272a3e2408e38bda2bc00019f8fdf7cef5ca1ec4b3fb`.
 - `experiments/repeated_crabb_markov_response.py`: arbitrary
   multiplier, bistochastic, summed-response, Dirichlet, observability-
   preimage, state-energy, polarized-collapse, and repeated-apex
@@ -2358,9 +2376,9 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   The former deformation route was superseded by the Schwarzian proof of EL4; see
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
-## Next five concrete actions (refreshed after L314 / A262)
-1. Prove the moving-operator copy weighting needed before the
-   finite-jet square-completion/margin rule for the
+## Next five concrete actions (refreshed after L315 / A263)
+1. Prove the multiplier-energy bound and finite-jet
+   square-completion/margin rule for the
    complete prepared L306/L307 successor, now using L311's
    ideal-valued normalized split for every physical root.  At odd
    orders collect the literal cumulative-transfer factors and absorb
@@ -2371,10 +2389,10 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    arbitrary-grade algebraic inequality, not another isolated
    fifth/seventh coefficient or a growing rooted enumeration.  Do
    not impose global odd response, factor raw `q`, discard `−C*C`,
-   split load-bearing operator telescopes, redo L313's finite
-   physical weighting or L314's frame-cross normalization, confuse
-   L312's finite-word bound with the still-missing operator-copy
-   valuation, assume A259's
+   split load-bearing square completions, redo L313's finite physical
+   weighting, L314's frame normalization, or L315's filtered-root
+   induction, confuse root valuation with the still-missing
+   multiplier-energy bound, assume A259's
    unproved constant-one bound, or assume
    `I intersect [A,A]=[A,I]`.
 2. Use that recurrence with L283's complete-delay boundary, L290's
@@ -2428,9 +2446,9 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    not compute another isolated grade.  Then finish the
    normal/elliptic merger, retaining the full CP route as fallback.
 
-## Paste-ready continuation instruction (current after L314/A262)
+## Paste-ready continuation instruction (current after L315/A263)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix` as
-the sole repository-writing agent.  Read L197, L220, L227, L283--L314,
+the sole repository-writing agent.  Read L197, L220, L227, L283--L315,
 A259's explicitly conjectural sharp endpoint-word note, plus the newest
 `RESEARCH_STATE.md` section.  Do not treat A259 as L312: its
 lossless-circuit residual block is unproved.  L312 proves only the
@@ -2443,11 +2461,14 @@ weighted factorization for every finite physical word in
 frame separately, but L314 closes its actual paired use: the graph
 factor for `D` and rooted formula for `C_kV*` make the complete frame
 cross a weighted L311 bridge sum.  Do not seek a frame/operator
-cancellation.  Work only on
-`Psi_S(Delta*XS+S*XDelta+Delta*XDelta)`: telescope L298's explicit
-Stein/orbit representation through the dual copy closure before
-expanding it, then use L313/L311 on the remaining causal polynomial.
-Retain `−C*C` and L307's reserve.  L277--L279 have proved
+cancellation.  L315 also closes the operator root valuation: the
+filtered rule `d>=2k` in bridge ideal `I_k` survives the full affine
+successor, lower elimination, Stein inversion, and L311 selection.
+Do not redo a dual-Stein telescope.  For each exposed factor through
+`c^kB_k`, use L313 to factor its multiplier through the cumulative
+weighted transfer row, complete squares at `theta=1/2`, and pay only
+prior-transfer costs from retained earlier margins.  Retain `−C*C`
+and L307's reserve.  L277--L279 have proved
 every lower delayed face, the active `+4||B_k||²` volume coefficient,
 the `+2||B_k||²` dual-Schur trace, and the
 `−16||B_k||²` effective separator trace in arbitrary grade.  Do not

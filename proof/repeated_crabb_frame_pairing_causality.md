@@ -1,5 +1,12 @@
 # The canonical frame cross is weighted bridge-causal
 
+> **Recurrence update (L315).**  The remaining operator-copy weight
+> debt stated below is now closed at the root-valuation level.
+> L315 tracks coefficient degree and bridge ideal simultaneously and
+> proves that the full affine successor, lower elimination, Stein
+> inversion, and L311 normalization preserve \(d\ge2k\).  What
+> remains is multiplier energy and margin assembly, not causality.
+
 ## 1. Result (L314, 2026-07-26)
 
 Retain the balanced repeated-Crabb data
