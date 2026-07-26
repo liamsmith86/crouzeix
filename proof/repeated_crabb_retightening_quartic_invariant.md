@@ -1,5 +1,10 @@
 # The moving quartic has an exact two-ended transfer signature
 
+> **Campaign scope.**  This note is used only in the fixed finite
+> repeated-Crabb neighbourhood; see the L290--L316 scope guard in
+> `LEMMA_LEDGER.md`.  It is not a global or dimension-uniform
+> Crouzeix theorem.
+
 ## 1. Result (L302, 2026-07-26)
 
 Retain L298--L301's balanced pure partial-isometry colligation

@@ -2,6 +2,49 @@
 
 **Last updated:** 2026-07-26 (Epoch 6 — repeated circular/elliptic merger)
 
+## CANONICAL LIVE GATE (2026-07-26, after L316/A264)
+
+There is exactly one current mathematical gate: **prove the sharp
+two-channel path-weight/energy rule for the grouped prepared endpoint
+(`j+k<=d`, with equality only for L283/L298's principal direct Gram),
+then assemble its fixed-`theta=1/2` margins.**  This is current next
+action 1 below.  Every later occurrence of “historical gate,”
+“historical frontier,” or “remaining historical task” records what
+was unresolved at that dated checkpoint; none is a concurrent
+frontier.  Actions 2--4 are ordered successors, not simultaneous
+research directions.  The CP/H-r routes remain parked fallbacks.
+
+## CONSOLIDATION REVIEW (2026-07-26, after L316/A264)
+
+- All 75 lemma status strings containing `OPEN` were adjudicated.
+  Fifty-four stale debts now name the later lemma that superseded
+  them, L297's direct effective-face comparison is obsolete after the
+  L303--L307 partial-scale route, and 20 genuinely live rows point
+  explicitly to ordered next action 1, 2, 3, or 4.  There are now no
+  unclassified `OPEN` strings in the lemma status column.
+- Every exactly disproved row has its proof-file certificate and an
+  explicit downstream guard.  In particular, L297 corrects L295:
+  the `+4I` apex gap is a raw-versus-lower-tight normalization change,
+  not a branch obstruction.  L19 was downgraded to numerical
+  counterevidence because it has no exact certificate and is unused.
+- The canonical gate is the one stated above.  All other former
+  “live gate/frontier” phrases in this file are marked as historical
+  at their dated checkpoint.
+- A same-file repeated-block scan of all 253 proof notes found no
+  remaining regenerated duplicate derivation, conflict marker, or
+  duplicate exact section heading.  Numeric lemma IDs are exactly the
+  312 intended handles through L316, and approach IDs are exactly
+  A1--A264.
+- The tracked endpoint-word dataset still has SHA-256
+  `5b5dac6046295c1176d2878365e1627961603282b368bb5e8c14fcd20a56becf`.
+  Repository-wide Ruff now passes all 303 experiment modules after
+  formatting old scripts and removing only unused names/imports;
+  all 303 modules also pass `py_compile`.
+- The L290--L316 proof notes and lemma ledger now carry the explicit
+  fixed finite repeated-Crabb-neighbourhood scope disclaimer.  A259
+  remains conjectural and unused.  The two-agent incident was not
+  re-audited in this pass.
+
 ## SINGLE-AGENT RECONCILIATION (rechecked 2026-07-26 after L312/A260): concurrent work deconflicted
 - Two agents unintentionally shared this repository while commits
   `87c5107`, `4c7a152`, `2f82d15`, and `dcab861` were made.  The Git
@@ -48,7 +91,7 @@
   with the two hashes above; Ruff, `py_compile`, and the interrupted-
   artifact check pass.  The stopped-agent recommendation to continue
   L248 at the physical multiplier is historical: L277--L279 have
-  since closed that volume coefficient.  The sole live frontier is
+  since closed that volume coefficient.  the historical frontier at that checkpoint is
   L312's still-missing **grouped weighted** L306/L307 recurrence,
   followed by the fixed-`theta=1/2` finite-flag induction.  A259
   remains conjectural and is not a competing task.
@@ -58,7 +101,7 @@
   the complete affine recurrence.  L316 now proves that a grouped
   closed endpoint is even under simultaneous sign reversal of every
   transfer channel.  Thus a single exposed L315 root cannot survive
-  alone outside the response; the sole live debt is the sharp
+  alone outside the response; the historical debt at that checkpoint is the sharp
   **two-channel** weight/energy estimate and its margin assembly.
 - **Historical pre-L279 route record (superseded):** A194 at the complete
   physical terminal balance, now in A196/L250's balanced output
@@ -67,10 +110,10 @@
   A200/L254's shifted-left-Hardy complement, now represented
   physically by A201/L255's doubled-Hardy pencil and anchored at
   relative grade one by A202/L256.  A203/L257 removes the remaining
-  realization choice and states the live step as one canonical
+  realization choice and states the historical step at that checkpoint as one canonical
   model-space coefficient recursion.  A204/L258 now eliminates the
   final output row exactly and rewrites its whitening as a closed-return
-  renewal, so the live calculation contains no one-sided port term.
+  renewal, so the historical calculation at that checkpoint contains no one-sided port term.
   A205/L259 identifies every apparently premature future transfer
   coefficient as an off-diagonal block of the first active causal
   Toeplitz-leakage row; the remaining question is whether the physical
@@ -79,7 +122,7 @@
   proof, while A207/L261 proves that the full row norm then collapses
   to its diagonal energy by matrix-inner Parseval.  A208/L262 proves
   that every genuine normalized half-line Wold sandwich uses exactly
-  this ordinary Hardy metric.  The remaining issue is physical
+  this ordinary Hardy metric.  The remaining historical issue at that checkpoint is physical
   channel placement: prove that L258's first nonconstant closed return
   is that sandwich after the two ellipse orientations have been summed.
   A209/L263 additionally proves that the fixed physical Schur row and
@@ -109,7 +152,8 @@
   related by the first face of a single analytic entrance carrying
   only the tail defect.  A larger network would require an additional
   defect channel and therefore would not make A194 automatic.  The
-  live calculation returns to A213's trace-locality conditions; no
+  historical calculation at that checkpoint returned to A213's
+  trace-locality conditions; no
   operator congruence can replace them.  L269/A216 then corrects the
   second condition: the full face does contain a nonzero
   boundary-depth-`k+1` term, already at grade two, but it appears as
@@ -128,7 +172,7 @@
   `D_k=U_k(Q)−R_1+R_k−4R_(k+1)+H_k`, where `u_k(1)=0` and `H_k`
   is one explicit four-word remote packet.  Exact deflation algebra
   then produces L269 automatically.  Proving this single-face
-  support formula and its lower vanishings is the unique live step.
+  support formula and its lower vanishings is the unique historical step at that checkpoint.
   L272 removes the separate unpaired-`B#`/ideal-placement obligation:
   the remaining calculation is the unilateral copy-scalar return
   between the two leakage projections.  L273/A220 now proves the
@@ -317,7 +361,7 @@
   quintic lower neutralization, the physical upper quintic is
   `66384/15625`, while the scalar response space is zero.  Since
   `B_1!=0`, this is supported on an already active transfer range and
-  does not obstruct the finite flag.  The next live step is therefore
+  does not obstruct the finite flag.  the next historical step at that checkpoint is therefore
   to formulate the prepared affine recurrence modulo bounded
   hereditary cumulative-transfer factors, not global odd-response
   parity.  L310/A257 now closes that endpoint factor termwise:
@@ -330,7 +374,7 @@
   endpoint, while its four-word defect expansion has pairwise
   identical L305 roots.  The resulting response column remains in
   the bridge ideal and is `O(||B_j||)`, so it vanishes on every
-  complete delay.  The live step is now only the prepared finite-jet
+  complete delay.  the historical step at that checkpoint is now only the prepared finite-jet
   sign/margin assembly: absorb the bounded hereditary odd factors
   and prior-transfer even costs using the margins retained at
   `theta=1/2`.  Do not factor the raw `q`, return to a growing graph
@@ -466,7 +510,7 @@
   `S*` letters.  This is useful for finite elliptic words, but a
   termwise application after an infinite Stein/Hardy expansion can
   lose the coisometric cancellations that enforce physical
-  valuation.  The live gate is therefore a **grouped weighted**
+  valuation.  the historical gate at that checkpoint is therefore a **grouped weighted**
   normal form for L306/L307 in L220's Schur-orthogonal coordinates.
 - The enlarged tracked dataset regenerates with SHA-256
   `5b5dac6046295c1176d2878365e1627961603282b368bb5e8c14fcd20a56becf`.
@@ -542,7 +586,7 @@
   `||C_1(K)||=||K||=1`.  It is a nonzero endpoint-null direction and
   cannot be inserted blindly without reviving L284--L288's
   later-successor normalization debt.
-- The new live gate is therefore narrower: normalize the complete sum
+- the new historical gate at that checkpoint is therefore narrower: normalize the complete sum
   of polarized columns compatibly with every delay flag, or prove
   their L301/L307 successors remain hereditary with sufficient even
   margins.  L311 subsequently closes this debt for every physical
@@ -654,7 +698,7 @@
   both an observability defect and an active bridge, giving the
   gap-free response bound.
 - This is an all-series **structural reduction**, not a positivity
-  theorem.  The exact remaining gate is to prove the odd coefficients
+  theorem.  The exact remaining historical gate at that checkpoint is to prove the odd coefficients
   of `q` are response-null and its even coefficients, after compulsory
   lower neutralization, are two-ended transfer Grams dominated by
   earlier retained margins.  Do not drop the negative `C*C` cross or
@@ -720,7 +764,7 @@
   Along every L197 analytic rank-changing arc it forces L292's Smith
   valuations, so the selected response is analytically removable.
   Cubic-through-quartic bounded selection is closed.
-- This is not an all-grade induction.  The live step is now to
+- This is not an all-grade induction.  the historical step at that checkpoint is now to
   identify the arbitrary-grade relative-commutator recurrence which
   keeps every response commutator inside an earlier physical bridge;
   do not compute an isolated next grade.
@@ -819,7 +863,7 @@
   unnecessary.
 - L302 subsequently computes both endpoint classes: the attractive
   upper quotient comes with a compulsory lower corner, and lower
-  neutralization leaves a prior-\(B_1\) upper cost.  The live gate is
+  neutralization leaves a prior-\(B_1\) upper cost.  the historical gate at that checkpoint is
   its bounded full-graph realization, not recomputation of the
   invariant.
 - Exact rational algebra plus unstructured, reducible, and repeated
@@ -1109,7 +1153,7 @@
   the channel generator must remain exposed against a graph column.
   Arbitrary words `XD_jY` need not have this property, so L290 does
   not revive the raw ideal invariance disproved by L285.
-- **Live gate (narrowed by L291):** factor each complete L289
+- **historical gate at that checkpoint (narrowed by L291):** factor each complete L289
   mixed-graph pairing directly in the endpoint flag ideal.  A
   hereditary state representative remains sufficient, but is not a
   required induction invariant.  L290 alone does not preserve the
@@ -1249,7 +1293,7 @@
   homological solve is physical rather than bookkeeping.  Dataset
   SHA-256:
   `54dc8db20c3b301f7d75978ccb126ab75741417f531ec1db4cd87eb871d7a350`.
-- **Live gate (updated by L291):** prove that L285's endpoint target
+- **historical gate at that checkpoint (updated by L291):** prove that L285's endpoint target
   has either a bounded polynomial endpoint factor with uniform
   finite-jet margins through the terminal grade or a uniformly
   bounded-energy Markov preimage.  Do not compute another isolated
@@ -1308,7 +1352,7 @@
   numerical endpoints through grade six, and the independent full
   physical word audit through grade five.  Dataset SHA-256:
   `e45b478ae10270de59fc443ec076f8715d5dabe7654a26ff6f6df6de1842ed57`.
-- **Live gate:** promote the exact delayed boundary value and the
+- **historical gate at that checkpoint:** promote the exact delayed boundary value and the
   cubic-through-sextic right-ideal certificates into an arbitrary-
   grade bounded preparation.  Do not compute another isolated grade.
 
@@ -1342,7 +1386,7 @@
   pairing.
 - Therefore the closing Markov gap has already been absorbed by the
   physical state synthesis.  Do not seek a bounded right inverse or
-  try to bound `H`; the only live selection question is whether the
+  try to bound `H`; the only historical selection question at that checkpoint is whether the
   L279 physical endpoint admits a Poisson correction with Dirichlet
   energy bounded by its first active transfer energy along every
   L197/L220 flag.
@@ -1543,7 +1587,7 @@
   `k=1` base.
 - This closes only ideal placement/no-unpaired-transfer.  It neither
   proves lower vanishings nor bounds the unilateral boundary depth of
-  `Phi`.  The unique live theorem remains L271's full-face support
+  `Phi`.  the unique historical theorem at that checkpoint remains L271's full-face support
   formula: prove that the copy-scalar return telescopes to the radial
   packet, fixed right-orbit endpoints, and four remote words, with
   deeper residue occurring only as L269's trace-zero divergence.
@@ -1668,7 +1712,7 @@
   `B#(x)` column cannot be valued in isolation.  It does **not**
   prove the lower vanishings, the desired `+4`, remove future transfer
   coefficients from a closed path, or establish L257's one-delay
-  recursion.  The remaining gate is now the matrix-inner
+  recursion.  The remaining historical gate at that checkpoint is now the matrix-inner
   autocorrelation/Hardy-index evaluation of these closed returns.
   `proof/repeated_crabb_output_renewal_volume.md`.
 
@@ -2249,7 +2293,7 @@
   `x(1−t)^−1(I−t B(rho)B#(x))`.  Schur-eliminating the right endpoint
   from L238's `2m` scattering matrix therefore leaves exactly
   `I−lambda_r(I+B(rho)B#(x))`, with multiplication order preserved.
-- This removes all higher delay corrections from the live gate.  It
+- This removes all higher delay corrections from the historical gate at that checkpoint.  It
   does not yet prove L228: the remaining calculation must lift the
   contour resolvent back to the state space, combine it with L236's
   Hardy-frame metric, and include the Stein right-defect Schur square.
@@ -2296,7 +2340,7 @@
   recurrence on the A178 line.
 - L221's retained boundary metric has the matching factor `q^r` on
   the promoted left orbits.  Together with L236's two-frame/Hankel
-  normal form, the live gate is now a single
+  normal form, the historical gate at that checkpoint is now a single
   two-boundary coefficient calculation: with the **full** L125
   theta/ODE scalar map, pair L237's left reflection with the right
   defect and include the Schur square to derive L228's
@@ -2633,7 +2677,7 @@
   Stein factorization.  At the repeated apex the face is
   `-4c^(2L)I`.
 - This does not solve contraction: the same boundary metric can have
-  indefinite elliptic Stein slack.  The remaining task is now
+  indefinite elliptic Stein slack.  The remaining historical task at that checkpoint is now
   quantitative—repair the slack while spending strictly less than
   L223's explicit upper budget (or construct a stronger endpoint),
   uniformly through the L222 rank flags.
@@ -2962,7 +3006,7 @@
   every cokernel direction, not only the scalar one.
 - Finite-dimensional Fredholm now proves the oriented matrix face
   `V*XV=0`, `W*XW=−ZZ*` at every fixed equality anchor.
-- The remaining gate is no longer compatibility: it is a bounded
+- The remaining historical gate at that checkpoint is no longer compatibility: it is a bounded
   real-analytic selection through the rank-jumping Crabb apex, followed
   by the same construction on grades `B_2,...,B_L`.
   `proof/repeated_crabb_elliptic_commutant.md`;
@@ -3011,7 +3055,7 @@
   equality amplitude `s` tends to zero.  Every additional cokernel
   condition vanishes.  This is strong bounded-divisibility evidence,
   not an analytic proof.
-- The remaining issue is bounded analytic selection through the rank
+- The remaining historical issue at that checkpoint is bounded analytic selection through the rank
   jump, not pointwise compatibility.
   `proof/repeated_crabb_elliptic_cokernel.md`;
   `experiments/repeated_crabb_elliptic_cokernel.py`.
@@ -3304,7 +3348,7 @@
   circular-range equality manifold modulo symmetries.
 - This is not the global conjecture.  L193 now replaces the naive
   direct-sum repeated stratum by a larger operator-valued Hardy
-  equality manifold; its metric-flag tube is the live frontier.
+  equality manifold; its metric-flag tube is the historical frontier at that checkpoint.
   `proof/crabb_full_local_chart_merger.md`;
   `experiments/crabb_full_equality_elliptic_merger.py`.
 
@@ -3403,7 +3447,7 @@
   exact endpoint-factor checks pass through length ten; terminal
   equality checks pass through length twelve.
 - L185--L186 subsequently classify `R_L=0` and prove its eighth-order
-  fallback.  The remaining task is the nonlinear singular blow-up.
+  fallback.  The remaining historical task at that checkpoint is the nonlinear singular blow-up.
   `proof/crabb_full_disk_sixth_hardy_factor.md`.
 
 ## NEWEST (2026-07-24): L182 proves the all-size cubic response
@@ -3699,7 +3743,7 @@
   terms vanish in every size.
 - L168--L170 split the only remaining direct endpoint response into
   a logarithmic-inner tangent and an optimized-defect relative mode.
-  At this stage the precise remaining gate was to evaluate
+  At this stage the precise remaining historical gate at that checkpoint was to evaluate
   L149/L156's full preparation/endpoint functional on that latter
   mode.  L172 now does so by explicit Cauchy-residue selection.
 - Grade one remains the mandatory discriminator: `m=L+1` is the
@@ -4318,7 +4362,7 @@
   amplitude-degree-two recurrence to an arbitrary-amplitude support
   theorem without writing the required recentered induction.  The
   uniform equality tube is therefore still conditional.  Its precise
-  remaining gate is that Weierstrass preparation and the full Stein
+  remaining historical gate at that checkpoint is that Weierstrass preparation and the full Stein
   critical recurrence preserve the square of the reflected ideal
   generated by `r=c^L` and `w_k=c^ku_k` after recentering at L123's
   exact equality metric.  If this holds, ordinary convergent Newton
@@ -4385,7 +4429,7 @@
   diagonal constants `4,...,4,8/3`.
 - This promotes A98's formerly finite Hessian clue to an all-size
   theorem and proves the outer factor
-  `(I+cS^2)/(I-cS^2)`.  The remaining gate is now solely to insert
+  `(I+cS^2)/(I-cS^2)`.  The remaining historical gate at that checkpoint is now solely to insert
   the operator/Faber linear and constant terms in the same modal
   endpoint formula and prove the completed-square orientation.
   `proof/crabb_defect_hessian_edge.md`;
@@ -4871,7 +4915,7 @@
   with coefficient `||u||²`; at the apex that coefficient must vanish.
 - The local merger should now use variables `(u,v,c)`:
   equality amplitude, non-palindromic disk normal, and elliptic normal.
-  The live calculation is the elliptic deficit generated by nonzero `u`,
+  the historical calculation at that checkpoint is the elliptic deficit generated by nonzero `u`,
   which numerical probing indicates has a circle-grade hierarchy
   beginning with `-64 sum_k |u_k|² |c|^(2k)`.
   `proof/crabb_palindromic_normal_form.md`;
@@ -5220,7 +5264,7 @@
   `−delta(delta²+2r²)I/4`, which dominates uniformly because
   `delta²+2r²>=(2/3)(r+delta)²`.
 - L95--L100 cover the compact complement of the sharp weighted center.  Hence the entire
-  two-copy terminal chart is now locally complete-`2`.  The next live gate is uniformizing
+  two-copy terminal chart is now locally complete-`2`.  the next historical gate at that checkpoint is uniformizing
   L93's arbitrary-copy metric flag and merging the resulting tube with L86's losing-space
   gaps.
   `proof/repeated_p3_terminal_tube.md`;
@@ -5470,7 +5514,7 @@
   two-dimensional anticommuting-symmetry blocks.  Hence every irreducible residual has size at
   most two and is already closed by L88 or L92.
 - This removes the proposed `4 x 4`, `5 x 5`, ... Schur grind and closes all **fixed** directions
-  in the flat copy core.  The remaining issue is genuinely uniform: weighted sequences where
+  in the flat copy core.  The remaining historical issue at that checkpoint is genuinely uniform: weighted sequences where
   Jensen/flag gaps, `w`, strong normals, losing gaps, and the cubic pair margin collapse
   together.  `proof/repeated_p3_flat_metric_flag.md`.
 
@@ -5493,7 +5537,7 @@
 - A higher-dimensional unitarily irreducible nonnormal block with `w!=0` has strict
   matrix-Jensen descent.  Minimal reducing blocks that can carry equality are one-dimensional,
   hence are precisely nearby single `C3` blocks controlled by L73 and domain monotonicity.
-- The common flat mode creates no new irreducible equality mechanism.  The remaining issue is
+- The common flat mode creates no new irreducible equality mechanism.  The remaining historical issue at that checkpoint is
   the weighted transition `w->0`, centered on the `w=0` nonnormal copy matrix treated at three
   copies by L89.  `proof/repeated_p3_common_mode_rigidity.md`.
 
@@ -6550,7 +6594,7 @@ Current A178 transport packet:
   mix those endpoint ledgers, force state witnesses into an
   ideal, use a rank-changing pseudoinverse, confuse pointwise flag
   zero with bounded divisibility, or compute grade seven.
-proof/ — read in this order for the current frontier:
+proof/ — read in this order for the canonical gate and ordered successors:
   crabb_disk_normal_tube.md (L152 uniform disk-normal anchor),
   crabb_disk_flat_elliptic_face.md (L151 weighted raw face),
   crabb_reflected_hardy_lift.md (L149--L150 equality tube),

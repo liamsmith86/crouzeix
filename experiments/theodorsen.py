@@ -14,9 +14,11 @@ to drive the Pullback machinery (resolvent calculus, extremal Blaschke search).
 
 Certificates: convex tangent winding, DLP positivity for the matrix, mass = 2I.
 """
+
 import numpy as np
 
 from crouzeix import nr_support
+
 
 def hilbert_periodic(f):
     """Conjugate function (periodic Hilbert transform) via FFT: H[e^{ikt}] = -i sgn(k) e^{ikt}."""
@@ -26,6 +28,7 @@ def hilbert_periodic(f):
     mult = -1j * np.sign(k)
     mult[0] = 0.0
     return np.real(np.fft.ifft(F * mult))
+
 
 def boundary_polar(A, N=4096, inflate=0.0):
     """rho(theta) of the boundary of W(A) (optionally offset outward by `inflate`)
@@ -42,12 +45,14 @@ def boundary_polar(A, N=4096, inflate=0.0):
         ang, rad = ang[::-1], rad[::-1]
     return zc, ang, rad
 
+
 def rho_of(theta, ang, rad):
     """Interpolate radius at polar angle theta (periodic)."""
     t0 = ang[0]
     per = 2 * np.pi
     x = np.mod(theta - t0, per) + t0
     return np.interp(x, ang, rad, period=per)
+
 
 def theodorsen_map(A, N=1024, inflate=0.0, iters=200, tol=1e-13):
     """Return boundary z(t), z'(t) (t-grid uniform on [0,2pi)) of a conformal map
@@ -69,6 +74,7 @@ def theodorsen_map(A, N=1024, inflate=0.0, iters=200, tol=1e-13):
     zp = np.fft.ifft(1j * k * np.fft.fft(z))
     return z, zp, err
 
+
 class GeneralPullback:
     """Pullback-machinery clone driven by numerical boundary data z(t), z'(t)."""
 
@@ -81,30 +87,33 @@ class GeneralPullback:
     # duck-typed methods matching extremal_pullback.Pullback
     def resolvent_stack(self, A):
         n = A.shape[0]
-        I = np.eye(n, dtype=complex)
+        identity = np.eye(n, dtype=complex)
         T = np.empty((self.N, n, n), dtype=complex)
         for j in range(self.N):
-            T[j] = (self.dz[j] * (2 * np.pi / self.N) / (2j * np.pi)) \
-                * np.linalg.inv(self.z[j] * I - A)
+            T[j] = (self.dz[j] * (2 * np.pi / self.N) / (2j * np.pi)) * np.linalg.inv(
+                self.z[j] * identity - A
+            )
         return T
 
     def calc(self, hvals, A, T=None):
         if T is None:
             T = self.resolvent_stack(A)
-        return np.einsum('j,jkl->kl', hvals, T)
+        return np.einsum("j,jkl->kl", hvals, T)
 
     def dlp_certificate(self, A):
         n = A.shape[0]
-        I = np.eye(n, dtype=complex)
+        identity = np.eye(n, dtype=complex)
         S = np.zeros((n, n), dtype=complex)
         lmin = np.inf
         for j in range(self.N):
-            B = (self.dz[j] / (2j * np.pi)) * np.linalg.inv(self.z[j] * I - A)
+            B = (self.dz[j] / (2j * np.pi)) * np.linalg.inv(
+                self.z[j] * identity - A
+            )
             Q = B + B.conj().T
             lmin = min(lmin, np.linalg.eigvalsh(Q)[0])
             S += Q
         S *= 2 * np.pi / self.N
-        return lmin, np.linalg.norm(S - 2 * I, 2)
+        return lmin, np.linalg.norm(S - 2 * identity, 2)
 
     def unitality_certificate(self):
         """calc of h=1 must equal I for any inside point: use Cauchy of 1 at centroid."""
@@ -118,6 +127,7 @@ class GeneralPullback:
         if T is None:
             T = self.resolvent_stack(A)
         from extremal_pullback import blaschke, blaschke_prime_at_zero
+
         alphas = list(alphas)
         for i in range(len(alphas)):
             for j in range(i):
@@ -137,9 +147,11 @@ class GeneralPullback:
         for a in alphas:
             zi.append(np.sum(self.z / (self.w - a) * dw) / (2j * np.pi))
             dpsi_i.append(np.sum(self.z / (self.w - a) ** 2 * dw) / (2j * np.pi))
-        zi = np.array(zi); dpsi_i = np.array(dpsi_i)
-        ri = np.array([dpsi_i[i] / blaschke_prime_at_zero(alphas, i)
-                       for i in range(len(alphas))])
+        zi = np.array(zi)
+        dpsi_i = np.array(dpsi_i)
+        ri = np.array(
+            [dpsi_i[i] / blaschke_prime_at_zero(alphas, i) for i in range(len(alphas))]
+        )
         g0v = 1.0 / Bv - sum(r / (self.z - z0) for r, z0 in zip(ri, zi))
         g0A = self.calc(g0v, A, T)
         C = x0.conj() @ (g0A @ f0A @ x0)
@@ -147,9 +159,21 @@ class GeneralPullback:
         v = f0A @ x0 + Gv
         W = np.linalg.norm(v)
         beta = x0.conj() @ v
-        q = np.sqrt(max(W ** 2 - abs(beta) ** 2, 0.0))
+        q = np.sqrt(max(W**2 - abs(beta) ** 2, 0.0))
         s_phase = 2 + C.real / 2 - q
-        return dict(K=K, c=abs(C), C=C, G=np.linalg.norm(Gv), W=W, beta=beta,
-                    diag=diag, q=q, s_phase=s_phase,
-                    lhs=q, rhs=2 - abs(C) / 2, slack=2 - abs(C) / 2 - q,
-                    x0=x0, u0=u0)
+        return dict(
+            K=K,
+            c=abs(C),
+            C=C,
+            G=np.linalg.norm(Gv),
+            W=W,
+            beta=beta,
+            diag=diag,
+            q=q,
+            s_phase=s_phase,
+            lhs=q,
+            rhs=2 - abs(C) / 2,
+            slack=2 - abs(C) / 2 - q,
+            x0=x0,
+            u0=u0,
+        )

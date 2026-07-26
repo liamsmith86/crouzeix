@@ -38,11 +38,11 @@ def dlp_min_eig_integral(M, z, zp):
     """L = sum over theta grid of lambda_min(Q(theta)) * dtheta, Q = P*|z'|."""
     N = len(z)
     n = M.shape[0]
-    I = np.eye(n, dtype=complex)
+    identity = np.eye(n, dtype=complex)
     L = 0.0
     lmins = np.empty(N)
     for j in range(N):
-        Rj = np.linalg.inv(z[j] * I - M)
+        Rj = np.linalg.inv(z[j] * identity - M)
         B = (zp[j] / (2j * np.pi)) * Rj
         Q = B + B.conj().T
         lmins[j] = np.linalg.eigvalsh(Q)[0]
@@ -51,7 +51,7 @@ def dlp_min_eig_integral(M, z, zp):
     # sanity: total mass integral should be 2I
     S = np.zeros((n, n), dtype=complex)
     for j in range(N):
-        Rj = np.linalg.inv(z[j] * I - M)
+        Rj = np.linalg.inv(z[j] * identity - M)
         B = (zp[j] / (2j * np.pi)) * Rj
         S += B + B.conj().T
     S *= 2 * np.pi / N
@@ -62,10 +62,10 @@ def cauchy_matrix(fvals, z, zp, M):
     """(1/2pi i) sum f(z_j) (z_j - M)^{-1} z'_j dtheta  (f holomorphic inside)."""
     N = len(z)
     n = M.shape[0]
-    I = np.eye(n, dtype=complex)
+    identity = np.eye(n, dtype=complex)
     S = np.zeros((n, n), dtype=complex)
     for j in range(N):
-        S += fvals[j] * zp[j] * np.linalg.inv(z[j] * I - M)
+        S += fvals[j] * zp[j] * np.linalg.inv(z[j] * identity - M)
     return S * (2 * np.pi / N) / (2j * np.pi)
 
 def phi_on_inner(pvals_outer, z_out, zp_out, z_in):

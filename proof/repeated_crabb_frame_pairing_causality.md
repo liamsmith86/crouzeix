@@ -1,5 +1,10 @@
 # The canonical frame cross is weighted bridge-causal
 
+> **Campaign scope.**  This note is used only in the fixed finite
+> repeated-Crabb neighbourhood; see the L290--L316 scope guard in
+> `LEMMA_LEDGER.md`.  It is not a global or dimension-uniform
+> Crouzeix theorem.
+
 > **Recurrence update (L315).**  The remaining operator-copy weight
 > debt stated below is now closed at the root-valuation level.
 > L315 tracks coefficient degree and bridge ideal simultaneously and

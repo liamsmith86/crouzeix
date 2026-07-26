@@ -8,13 +8,13 @@ nonnegativity statement remains a conjecture.
 
 from __future__ import annotations
 
-from math import asin, cos, pi, sin, sqrt
+from math import asin, pi, sin, sqrt
 
 import numpy as np
 import sympy as sp
 from scipy.special import ellipk, ellipkinc
 
-from slice_similarity_duality import elliptic_modulus, modal_slice, rotation
+from slice_similarity_duality import modal_slice, rotation
 
 
 def audit_discriminant_factorization() -> None:

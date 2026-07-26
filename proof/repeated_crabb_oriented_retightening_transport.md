@@ -1,5 +1,10 @@
 # One orbit Gram and one-seventh of L212 retighten every transfer grade
 
+> **Campaign scope.**  This note is used only in the fixed finite
+> repeated-Crabb neighbourhood; see the L290--L316 scope guard in
+> `LEMMA_LEDGER.md`.  It is not a global or dimension-uniform
+> Crouzeix theorem.
+
 > **Moving-series update.**  L299 derives the exact six-term
 > nonlinear defect created by inserting this fixed-base correction
 > into L227's moving operator/frame.  It begins cubically and is not

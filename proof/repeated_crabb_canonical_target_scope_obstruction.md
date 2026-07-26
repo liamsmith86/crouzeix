@@ -1,5 +1,10 @@
 # The L212 target does not dominate the raw canonical-repair upper face
 
+> **Campaign scope.**  This note is used only in the fixed finite
+> repeated-Crabb neighbourhood; see the L290--L316 scope guard in
+> `LEMMA_LEDGER.md`.  It is not a global or dimension-uniform
+> Crouzeix theorem.
+
 > **Route update.**  L296 subsequently proves the gap-free estimate
 > for every polarized L280 response, not only the quadratic \(G_k\).
 > L297 then identifies the \(4I\) mismatch below as exactly the

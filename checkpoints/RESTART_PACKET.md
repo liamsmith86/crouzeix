@@ -3,6 +3,19 @@
 
 ## Current general Crabb frontier (2026-07-26): after L316 / A264
 
+The post-L316 consolidation review retired 55 of 75 stale/unclassified
+`OPEN` labels (54 superseded, one obsolete) and left 20 genuinely live
+rows, each attached to ordered next action 1--4.  The one canonical
+live gate is: prove the grouped two-channel rule `j+k<=d`, with
+equality only for L283/L298's principal direct Gram, and assemble its
+fixed-half-scale margins.  L295 is only a normalization warning after
+L297, every exact disproved route has a banked certificate, all 253
+proof notes are free of repeated regenerated blocks, the L312/A259
+dataset hash remains `5b5dac60...6becf`, and Ruff plus `py_compile`
+pass all 303 experiment modules.  L290--L316 are explicitly scoped to
+the fixed finite repeated-Crabb neighbourhood; A259 remains
+conjectural and unused.
+
 The accidental two-agent interval has been reconciled.  Commits
 `87c5107`, `4c7a152`, `2f82d15`, and `dcab861` form one linear history
 with no overwritten content or unresolved merge.  L248 was regenerated

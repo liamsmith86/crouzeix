@@ -1,5 +1,10 @@
 # Physical reverse-edge polynomials have an exact weighted transfer factor
 
+> **Campaign scope.**  This note is used only in the fixed finite
+> repeated-Crabb neighbourhood; see the L290--L316 scope guard in
+> `LEMMA_LEDGER.md`.  It is not a global or dimension-uniform
+> Crouzeix theorem.
+
 > **Frame update (L314).**  The scope guard in Section 5 is correct
 > for the raw frame *alone* but stronger than necessary for L306.
 > L314 proves that the frame occurs paired with L298's column, whose

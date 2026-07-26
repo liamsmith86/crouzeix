@@ -7,6 +7,7 @@ values f0(e_j) = B(tau_j), g0(e_j); sublattice weights q_j = <Q_j x0, x0>
 
 Usage: sym4_sweep.py count seed
 """
+
 import json
 import sys
 
@@ -16,6 +17,7 @@ from crouzeix import nr_support
 from theodorsen import theodorsen_map, GeneralPullback
 from minkowski_test import best_extremal
 from extremal_pullback import blaschke
+
 
 def one(ws, seed):
     a1, b1, a2, b2, a3, b3 = ws
@@ -57,12 +59,13 @@ def one(ws, seed):
         struct = "ODD"
         alpha = complex(rest[0])
     from zero_geometry import phi_of_points
+
     taus = phi_of_points(pb, [e1, e2])
     # g0 at e1, e2 via extremal_data pieces: use pb.extremal_data internals — recompute g0 values
-    T = pb.resolvent_stack(A)
     Bv = blaschke(pb.w, al)
     # g0 boundary values: 1/Bv - PP; reuse extremal_data by evaluating g0 at points via Cauchy:
     from extremal_pullback import blaschke_prime_at_zero
+
     alz = list(al)
     dw = 1j * pb.w * (2 * np.pi / pb.N)
     zi, ri = [], []
@@ -71,9 +74,11 @@ def one(ws, seed):
         dpsi = np.sum(pb.z / (pb.w - aa) ** 2 * dw) / (2j * np.pi)
         ri.append(dpsi / blaschke_prime_at_zero(alz, i))
     g0v = 1.0 / Bv - sum(r / (pb.z - z0) for r, z0 in zip(ri, zi))
+
     def g0_at(p):
         # g0 analytic in Omega: Cauchy from boundary values
         return np.sum(g0v * pb.dz / (pb.z - p)) * (2 * np.pi / pb.N) / (2j * np.pi)
+
     g0e = [g0_at(e1), g0_at(e2)]
     f0e = [complex(blaschke(np.array([t]), al)[0]) for t in taus]
     # sublattice weights: x0 lives in odd or even sublattice
@@ -95,22 +100,40 @@ def one(ws, seed):
         Qk = np.outer(V[:, k], Vi[k, :])
         qs.append(complex(xb.conj() @ (Qk @ xb)))
     rho_formula = sum((f0e[j] * g0e[j] * qs[j]).real for j in range(2))
-    return dict(ws=list(ws), e1=e1, e2=e2, K=d["K"], rho=d["C"].real, diag=d["diag"],
-                struct=struct, alpha=[alpha.real, alpha.imag] if struct == "ODD" else None,
-                taus=[[t.real, t.imag] for t in taus], sub=sub,
-                f0e=[[v.real, v.imag] for v in f0e], g0e=[[v.real, v.imag] for v in g0e],
-                qs=[[q.real, q.imag] for q in qs], rho_formula=rho_formula)
+    return dict(
+        ws=list(ws),
+        e1=e1,
+        e2=e2,
+        K=d["K"],
+        rho=d["C"].real,
+        diag=d["diag"],
+        struct=struct,
+        alpha=[alpha.real, alpha.imag] if struct == "ODD" else None,
+        taus=[[t.real, t.imag] for t in taus],
+        sub=sub,
+        f0e=[[v.real, v.imag] for v in f0e],
+        g0e=[[v.real, v.imag] for v in g0e],
+        qs=[[q.real, q.imag] for q in qs],
+        rho_formula=rho_formula,
+    )
+
 
 def main():
-    count = int(sys.argv[1]); seed = int(sys.argv[2])
+    count = int(sys.argv[1])
+    seed = int(sys.argv[2])
     rng = np.random.default_rng(seed)
     got = tries = 0
     with open(f"sym4_sweep_s{seed}.jsonl", "w") as fh:
         while got < count and tries < 40 * count:
             tries += 1
-            ws = [rng.uniform(0.8, 2.2), rng.uniform(-0.4, 0.4),
-                  rng.uniform(0.6, 2.0), rng.uniform(-0.4, 0.4),
-                  rng.uniform(0.8, 2.2), rng.uniform(-0.4, 0.4)]
+            ws = [
+                rng.uniform(0.8, 2.2),
+                rng.uniform(-0.4, 0.4),
+                rng.uniform(0.6, 2.0),
+                rng.uniform(-0.4, 0.4),
+                rng.uniform(0.8, 2.2),
+                rng.uniform(-0.4, 0.4),
+            ]
             r = one(ws, seed + tries)
             if r is None:
                 continue
@@ -118,10 +141,14 @@ def main():
             fh.write(json.dumps(r) + "\n")
             fh.flush()
             err = abs(r["rho_formula"] - r["rho"])
-            print(f"[{got}] K={r['K']:.4f} rho={r['rho']:+.6f} formula={r['rho_formula']:+.6f} "
-                  f"(err {err:.1e}) {r['struct']} sub={r['sub']} "
-                  f"q1={r['qs'][0][0]:+.3f} q2={r['qs'][1][0]:+.3f}", flush=True)
+            print(
+                f"[{got}] K={r['K']:.4f} rho={r['rho']:+.6f} formula={r['rho_formula']:+.6f} "
+                f"(err {err:.1e}) {r['struct']} sub={r['sub']} "
+                f"q1={r['qs'][0][0]:+.3f} q2={r['qs'][1][0]:+.3f}",
+                flush=True,
+            )
     print("DONE", flush=True)
+
 
 if __name__ == "__main__":
     main()

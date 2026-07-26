@@ -1,5 +1,10 @@
 # The canonical transfer flux already has the gap-free energy bound
 
+> **Campaign scope.**  This note is used only in the fixed finite
+> repeated-Crabb neighbourhood; see the L290--L316 scope guard in
+> `LEMMA_LEDGER.md`.  It is not a global or dimension-uniform
+> Crouzeix theorem.
+
 > **Scope correction (L295).**  The flux estimate below is exact,
 > but the raw unretightened L227/L285 upper face is not bounded above
 > by L212's lower-tight target: at the monomial apex their faces are

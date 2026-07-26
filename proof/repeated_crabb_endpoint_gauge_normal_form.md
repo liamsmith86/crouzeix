@@ -1,5 +1,10 @@
 # Every Schur transport is a graph gauge plus its endpoint residual
 
+> **Campaign scope.**  This note is used only in the fixed finite
+> repeated-Crabb neighbourhood; see the L290--L316 scope guard in
+> `LEMMA_LEDGER.md`.  It is not a global or dimension-uniform
+> Crouzeix theorem.
+
 > **Route update.**  L292 subsequently replaces the fixed-rank
 > pseudoinverse existence factor below by an exact analytic
 > Smith-valuation criterion along every L197 failure arc.  Pointwise

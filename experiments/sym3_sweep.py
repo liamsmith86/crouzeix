@@ -6,6 +6,7 @@ correlation of extremal zeros with eigenvalue-Blaschke critical points).
 
 Usage: sym3_sweep.py count seed
 """
+
 import json
 import sys
 
@@ -15,6 +16,7 @@ from crouzeix import nr_support
 from theodorsen import theodorsen_map, GeneralPullback
 from minkowski_test import best_extremal
 from zero_geometry import phi_of_points
+
 
 def one(a, b, c, dd, seed):
     A = np.array([[0, a, 0], [b, 0, c], [0, dd, 0]], dtype=complex)
@@ -48,17 +50,34 @@ def one(a, b, c, dd, seed):
     dw = 1j * pb.w * (2 * np.pi / pb.N)
     z1 = float((np.sum(pb.z / (pb.w - alpha) * dw) / (2j * np.pi)).real)
     dpsi = float((np.sum(pb.z / (pb.w - alpha) ** 2 * dw) / (2j * np.pi)).real)
-    v = (tau ** 2 - alpha ** 2) / (1 - alpha ** 2 * tau ** 2)
-    Bp = 2 * alpha / (1 - alpha ** 4)
+    v = (tau**2 - alpha**2) / (1 - alpha**2 * tau**2)
+    Bp = 2 * alpha / (1 - alpha**4)
     r1 = dpsi / Bp
-    g0v = -1.0 / alpha ** 2 + 2 * r1 / z1 if alpha > 1e-9 else 0.0
-    gev = 1.0 / v - 2 * r1 * z1 / (e ** 2 - z1 ** 2)
-    return dict(a=a, b=b, c=c, d=dd, e=e, kappa=kappa, tau=tau, alpha=alpha,
-                z1=z1, dpsi=dpsi, K=d["K"], rho=d["C"].real, g0=g0v, ge=gev,
-                diag=d["diag"], zeros=[[x.real, x.imag] for x in al])
+    g0v = -1.0 / alpha**2 + 2 * r1 / z1 if alpha > 1e-9 else 0.0
+    gev = 1.0 / v - 2 * r1 * z1 / (e**2 - z1**2)
+    return dict(
+        a=a,
+        b=b,
+        c=c,
+        d=dd,
+        e=e,
+        kappa=kappa,
+        tau=tau,
+        alpha=alpha,
+        z1=z1,
+        dpsi=dpsi,
+        K=d["K"],
+        rho=d["C"].real,
+        g0=g0v,
+        ge=gev,
+        diag=d["diag"],
+        zeros=[[x.real, x.imag] for x in al],
+    )
+
 
 def main():
-    count = int(sys.argv[1]); seed = int(sys.argv[2])
+    count = int(sys.argv[1])
+    seed = int(sys.argv[2])
     rng = np.random.default_rng(seed)
     with open(f"sym3_sweep_s{seed}.jsonl", "w") as fh:
         got = 0
@@ -75,10 +94,13 @@ def main():
             got += 1
             fh.write(json.dumps(r) + "\n")
             fh.flush()
-            print(f"[{got}/{count}] K={r['K']:.4f} rho={r['rho']:+.6f} kappa={r['kappa']:.2f} "
-                  f"tau={r['tau']:.3f} alpha={r['alpha']:.3f} g0={r['g0']:+.4f} ge={r['ge']:+.4f}",
-                  flush=True)
+            print(
+                f"[{got}/{count}] K={r['K']:.4f} rho={r['rho']:+.6f} kappa={r['kappa']:.2f} "
+                f"tau={r['tau']:.3f} alpha={r['alpha']:.3f} g0={r['g0']:+.4f} ge={r['ge']:+.4f}",
+                flush=True,
+            )
     print("DONE", flush=True)
+
 
 if __name__ == "__main__":
     main()

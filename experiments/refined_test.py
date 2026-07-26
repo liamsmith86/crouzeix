@@ -12,7 +12,6 @@ L6 check: K^2 <= K*sqrt(W^2-|beta|^2) + c + |beta|*diag  (algebraic, must hold).
 L7 test: sqrt(W^2-|beta|^2) <= 2 - c/2 ?
 """
 import json
-import sys
 
 import numpy as np
 from scipy.optimize import minimize

@@ -13,13 +13,14 @@ import json
 import numpy as np
 from scipy.optimize import minimize
 
-from crouzeix import poly_z, poly_A, opnorm
+from crouzeix import poly_z, poly_A
 from adversarial_L7 import quantities
 from refined_test import find_extremal_poly, refined_quantities
+from star_inequality import offset_curve
 
 EPS = 0.05
 
-recs = [json.loads(l) for l in open("advL7_n3_d4_s12.jsonl")]
+recs = [json.loads(line) for line in open("advL7_n3_d4_s12.jsonl")]
 r = max(recs, key=lambda q: q["viol"])
 M = np.array(r["A_re"]) + 1j * np.array(r["A_im"])
 cp = list(np.array(r["c_re"]) + 1j * np.array(r["c_im"]))
@@ -33,7 +34,6 @@ print("step1 strict re-eval:", "REJECTED" if q is None else
 # step 2: exact orthogonality. Solve for x in span{x0, v} with <p(M)x,x>=0,
 # staying close to x0. Use v = eigvec direction reducing the form.
 pM = poly_A([c for c in cp], M)  # note: quantities renormalizes internally; do same
-from star_inequality import offset_curve
 _, z_out, _ = offset_curve(M, EPS, 4096)
 m = np.max(np.abs(poly_z(cp, z_out)))
 cpn = [c / m for c in cp]

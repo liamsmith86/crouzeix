@@ -1,5 +1,10 @@
 # Every polarized endpoint response has a gap-free energy bound
 
+> **Campaign scope.**  This note is used only in the fixed finite
+> repeated-Crabb neighbourhood; see the L290--L316 scope guard in
+> `LEMMA_LEDGER.md`.  It is not a global or dimension-uniform
+> Crouzeix theorem.
+
 ## 1. Result (L296, 2026-07-26)
 
 Retain L280's bistochastic transfer channel

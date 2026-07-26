@@ -1,5 +1,10 @@
 # The first Markov gap is the Schur-parameter commutator Laplacian
 
+> **Campaign scope.**  This note is used only in the fixed finite
+> repeated-Crabb neighbourhood; see the L290--L316 scope guard in
+> `LEMMA_LEDGER.md`.  It is not a global or dimension-uniform
+> Crouzeix theorem.
+
 > **Route update.**  L294 subsequently proves the exact nonlinear
 > numerator/Dirichlet Cauchy--Schwarz estimate for L212's canonical
 > channel-minus-Gram target.  L295 then proves that the complete

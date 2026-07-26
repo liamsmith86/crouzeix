@@ -323,6 +323,15 @@ handle `A179`.
   `1e-15`. The shared Stein solver now checks the defining equation and retries in complex
   arithmetic. Never trust a Lyapunov output solely because the input spectral radius is below
   one.
+- P10. **Cheap exact falsifiers before structural proof routes.**  L308 and L309 together
+  consumed roughly four and a half hours on raw and prepared odd-response parity before the
+  same scalar-copy colligation killed both:
+  `S=[[0,3/5,-4/5],[0,4/5,3/5],[0,0,0]]`,
+  `V=e1`, `W=e3`, `B_1=-4/5`.  It gives the exact nonzero traces
+  `33264/15625` and `66384/15625`.  Before opening any new parity,
+  vanishing, or sign proof route in the repeated endpoint sector,
+  test it first against this witness and every other banked small
+  exact witness.  Cheap refutation first; structural proof second.
 - **Meta-pattern (important):** every relaxation of extremality so far admits sharp counterconfigurations: abstract lemma (R–S, non-unital α), domain-only constants (MMOR, thin quadrilaterals), scalar localization (L10, odd-symmetric mechanism — ours), free-map S ≤ 1, soft D2 classes (convex; odd+G'↑). Conjecture-strength inequalities must engage TRUE extremal/critical structure (global maximality of f₀ + positive extremal measure + critical domain), not just its first-order shadows.
 
 ## Epoch 2 outcome

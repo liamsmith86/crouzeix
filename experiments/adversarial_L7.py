@@ -10,6 +10,7 @@ over A (n x n complex), p (deg d), x0 (unit, orthogonality via penalty).
 
 Usage: adversarial_L7.py n d restarts seed [eps]
 """
+
 import json
 import sys
 
@@ -18,6 +19,7 @@ from scipy.optimize import minimize
 
 from crouzeix import poly_z, poly_A, opnorm
 from star_inequality import offset_curve, cauchy_matrix, phi_on_inner
+
 
 def quantities(M, cp, x0, eps, N=192, tol=1e-6):
     """Compute L7' quantities with self-certification. Returns None if the
@@ -81,24 +83,27 @@ def quantities(M, cp, x0, eps, N=192, tol=1e-6):
     rhs = 2 - c_val / 2
     return lhs, rhs, c_val, diag, cp
 
+
 def main():
-    n = int(sys.argv[1]); d = int(sys.argv[2])
-    restarts = int(sys.argv[3]); seed = int(sys.argv[4])
+    n = int(sys.argv[1])
+    d = int(sys.argv[2])
+    restarts = int(sys.argv[3])
+    seed = int(sys.argv[4])
     eps = float(sys.argv[5]) if len(sys.argv) > 5 else 0.05
     rng = np.random.default_rng(seed)
     n2 = n * n
     PEN = 30.0
 
     def unpack(x):
-        A = (x[:n2] + 1j * x[n2:2 * n2]).reshape(n, n)
+        A = (x[:n2] + 1j * x[n2 : 2 * n2]).reshape(n, n)
         nf = np.linalg.norm(A)
         if nf < 1e-8:
             return None
         A = A / nf  # scale-normalize (L7' is scale-covariant with Omega)
         o = 2 * n2
-        cp = x[o:o + d + 1] + 1j * x[o + d + 1:o + 2 * (d + 1)]
+        cp = x[o : o + d + 1] + 1j * x[o + d + 1 : o + 2 * (d + 1)]
         o += 2 * (d + 1)
-        x0 = x[o:o + n] + 1j * x[o + n:o + 2 * n]
+        x0 = x[o : o + n] + 1j * x[o + n : o + 2 * n]
         nx = np.linalg.norm(x0)
         if nx < 1e-12:
             return None
@@ -118,15 +123,16 @@ def main():
         if q is None:
             return 0.0
         lhs, rhs, c_val, diag, _ = q
-        return -(lhs - rhs) + PEN * diag ** 2
+        return -(lhs - rhs) + PEN * diag**2
 
     fname = f"advL7_n{n}_d{d}_s{seed}.jsonl"
     best = -10
     with open(fname, "w") as fh:
         for t in range(restarts):
             x_init = rng.standard_normal(2 * n2 + 2 * (d + 1) + 2 * n)
-            res = minimize(obj, x_init, method="L-BFGS-B",
-                           options={"maxiter": 500, "eps": 1e-7})
+            res = minimize(
+                obj, x_init, method="L-BFGS-B", options={"maxiter": 500, "eps": 1e-7}
+            )
             u = unpack(res.x)
             if u is None:
                 continue
@@ -139,18 +145,31 @@ def main():
                 continue
             lhs, rhs, c_val, diag, cpn = q
             viol = lhs - rhs
-            rec = dict(trial=t, viol=viol, lhs=lhs, rhs=rhs, c=c_val, diag=diag,
-                       A_re=A.real.tolist(), A_im=A.imag.tolist(),
-                       c_re=np.real(cpn).tolist(), c_im=np.imag(cpn).tolist(),
-                       x0_re=x0.real.tolist(), x0_im=x0.imag.tolist())
+            rec = dict(
+                trial=t,
+                viol=viol,
+                lhs=lhs,
+                rhs=rhs,
+                c=c_val,
+                diag=diag,
+                A_re=A.real.tolist(),
+                A_im=A.imag.tolist(),
+                c_re=np.real(cpn).tolist(),
+                c_im=np.imag(cpn).tolist(),
+                x0_re=x0.real.tolist(),
+                x0_im=x0.imag.tolist(),
+            )
             fh.write(json.dumps(rec) + "\n")
             fh.flush()
             if viol > best:
                 best = viol
-                print(f"[n={n} d={d} s={seed}] t={t}: viol={viol:+.6f} "
-                      f"(lhs={lhs:.5f} rhs={rhs:.5f} c={c_val:.5f} diag={diag:.2e})",
-                      flush=True)
+                print(
+                    f"[n={n} d={d} s={seed}] t={t}: viol={viol:+.6f} "
+                    f"(lhs={lhs:.5f} rhs={rhs:.5f} c={c_val:.5f} diag={diag:.2e})",
+                    flush=True,
+                )
     print(f"DONE advL7 n={n} d={d} s={seed}: max viol = {best:+.8f}", flush=True)
+
 
 if __name__ == "__main__":
     main()

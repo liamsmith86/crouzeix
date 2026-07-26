@@ -7,10 +7,12 @@ and extremal zeros alpha_i. Test candidate laws:
   (b) alpha_i ~ zeros of B such that Pick matrix of (w_j -> B... ) singular (consistency).
 Report raw data for pattern hunting.
 """
+
 import numpy as np
 
 from theodorsen import theodorsen_map, GeneralPullback
 from minkowski_test import best_extremal
+
 
 def phi_of_points(pb, pts):
     """phi(p) for interior p via boundary correspondence: phi = psi^{-1};
@@ -25,10 +27,11 @@ def phi_of_points(pb, pts):
         out.append(val)
     return np.array(out)
 
+
 def hyperbolic_critical_points(wjs):
     """Critical points of the Blaschke product with zeros at w_j (candidate law:
     extremal zeros = critical points of the 'eigenvalue Blaschke')."""
-    from numpy.polynomial import polynomial as P
+
     # B(w) = prod (w - w_j)/(1 - conj(w_j) w); B'/B = sum [1/(w-w_j) + conj(w_j)/(1-conj(w_j)w)]
     # critical points: sum_j (1-|w_j|^2) / ((w-w_j)(1-conj(w_j)w)) = 0
     # clear denominators -> polynomial; roots inside D are the hyperbolic critical points.
@@ -38,13 +41,21 @@ def hyperbolic_critical_points(wjs):
         term = np.array([1.0], dtype=complex) * (1 - abs(wjs[j]) ** 2)
         for k in range(n):
             if k != j:
-                fac1 = np.array([-wjs[k], 1.0])          # (w - w_k)
-                fac2 = np.array([1.0, -np.conj(wjs[k])])  # (1 - conj(w_k) w)
-                term = np.polymul(np.polymul(term, fac1[::-1])[::-1] if False else np.polymul(term[::-1], fac1[::-1])[::-1], np.array([1.0]))
+                fac1 = np.array([-wjs[k], 1.0])  # (w - w_k)
+                term = np.polymul(
+                    np.polymul(term, fac1[::-1])[::-1]
+                    if False
+                    else np.polymul(term[::-1], fac1[::-1])[::-1],
+                    np.array([1.0]),
+                )
         num = num  # placeholder — do numerically instead
+
     # numeric root find on the rational equation instead:
     def g(w):
-        return sum((1 - abs(wj) ** 2) / ((w - wj) * (1 - np.conj(wj) * w)) for wj in wjs)
+        return sum(
+            (1 - abs(wj) ** 2) / ((w - wj) * (1 - np.conj(wj) * w)) for wj in wjs
+        )
+
     # sample grid, Newton polish
     roots = []
     for r0 in np.linspace(0.05, 0.9, 8):
@@ -67,20 +78,29 @@ def hyperbolic_critical_points(wjs):
                     roots.append(w)
     return np.array(roots)
 
+
 if __name__ == "__main__":
     rng = np.random.default_rng(17)
     from crouzeix import crabb_matrix
+
     mats = []
-    E = rng.standard_normal((3, 3)) + 1j * rng.standard_normal((3, 3)); E /= np.linalg.norm(E, 2)
+    E = rng.standard_normal((3, 3)) + 1j * rng.standard_normal((3, 3))
+    E /= np.linalg.norm(E, 2)
     mats.append(("crabb2+0.3E", crabb_matrix(2) + 0.3 * E))
-    mats.append(("tri(2,.2,1.4,.1)", np.array([[0, 2.0, 0], [0.2, 0, 1.4], [0, 0.1, 0]], dtype=complex)))
+    mats.append(
+        (
+            "tri(2,.2,1.4,.1)",
+            np.array([[0, 2.0, 0], [0.2, 0, 1.4], [0, 0.1, 0]], dtype=complex),
+        )
+    )
     A = rng.standard_normal((3, 3)) + 1j * rng.standard_normal((3, 3))
     mats.append(("random", A))
     for label, A in mats:
         try:
             z, zp, terr = theodorsen_map(A, N=1024, inflate=0.005)
         except Exception as e:
-            print(label, "map fail", e); continue
+            print(label, "map fail", e)
+            continue
         pb = GeneralPullback(z, zp)
         al, d = best_extremal(pb, A, 2, 3)
         eigs = np.linalg.eigvals(A)

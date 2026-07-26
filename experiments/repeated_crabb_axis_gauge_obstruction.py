@@ -83,7 +83,6 @@ def exact_axis_data() -> dict[str, object]:
 
     c = sp.symbols("c", real=True)
     dimension = LENGTH + 1
-    base_metric = sp.diag(1, *([2] * (LENGTH - 1)), 4)
     metric_root = sp.diag(
         1,
         *([sp.sqrt(2)] * (LENGTH - 1)),

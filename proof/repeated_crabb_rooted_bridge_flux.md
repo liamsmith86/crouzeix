@@ -1,5 +1,10 @@
 # Every rooted bridge splits into a retained channel and an ideal response
 
+> **Campaign scope.**  This note is used only in the fixed finite
+> repeated-Crabb neighbourhood; see the L290--L316 scope guard in
+> `LEMMA_LEDGER.md`.  It is not a global or dimension-uniform
+> Crouzeix theorem.
+
 ## 1. Result (L305, 2026-07-26)
 
 Retain the balanced pure partial-isometry colligation

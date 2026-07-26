@@ -199,7 +199,6 @@ def fiber_cross_residuals(
         fiber = function.conj().T @ lifted_kernel
         outer_fiber = outer_map.conj().T @ fiber
         coefficient = np.vdot(outer_kernel, outer_fiber)
-        inner_fiber = fiber - coefficient * outer_map @ outer_kernel
         maximum_alignment = max(
             maximum_alignment,
             float(

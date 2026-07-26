@@ -15,7 +15,6 @@ import sys
 import numpy as np
 
 from crouzeix import nr_support, crabb_matrix
-from extremal_pullback import find_extremal_blaschke
 from theodorsen import hilbert_periodic, GeneralPullback
 
 def support_W(A, N):

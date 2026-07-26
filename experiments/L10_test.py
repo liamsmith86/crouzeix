@@ -1,4 +1,4 @@
-"""Test scalar candidate L10 on synthetic configurations.
+r"""Test scalar candidate L10 on synthetic configurations.
 
 Omega: ellipse x = a cos t, y = b sin t (smooth convex).
 w: Cauchy transform of point masses:  w(z) = sum_j a_j / (2 pi i (z - z_j)),
@@ -13,9 +13,11 @@ Quantities:
   RHS = (2 - c/2)^2
 L10: LHS <= RHS ?
 """
+
 import numpy as np
 
 rng = np.random.default_rng(0)
+
 
 def ellipse(a, b, N):
     t = np.linspace(0, 2 * np.pi, N, endpoint=False)
@@ -23,17 +25,23 @@ def ellipse(a, b, N):
     zp = -a * np.sin(t) + 1j * b * np.cos(t)  # dz/dt
     return z, zp
 
+
 def poly_z(c, z):
     out = np.full(np.shape(z), c[-1], dtype=complex)
     for k in range(len(c) - 2, -1, -1):
         out = out * z + c[k]
     return out
 
+
 def phi_at(pvals, z, zp, pts):
     """g(z0) = (1/2pi i) oint conj(p(sigma))/(sigma - z0) dsigma for z0 strictly inside."""
     N = len(z)
-    return np.array([np.sum(np.conj(pvals) * zp / (z - z0)) for z0 in pts]) \
-        * (2 * np.pi / N) / (2j * np.pi)
+    return (
+        np.array([np.sum(np.conj(pvals) * zp / (z - z0)) for z0 in pts])
+        * (2 * np.pi / N)
+        / (2j * np.pi)
+    )
+
 
 def check_config(a_ell, b_ell, zs, ams, cp, N=4096, verbose=False):
     z, zp = ellipse(a_ell, b_ell, N)
@@ -41,7 +49,7 @@ def check_config(a_ell, b_ell, zs, ams, cp, N=4096, verbose=False):
     w = np.zeros(N, dtype=complex)
     for zj, aj in zip(zs, ams):
         w += aj / (2j * np.pi * (z - zj))
-    nu = 2 * np.real(w * zp) * dt          # dnu at nodes (>= 0 required)
+    nu = 2 * np.real(w * zp) * dt  # dnu at nodes (>= 0 required)
     if nu.min() < -1e-10 * max(1.0, np.abs(nu).max()):
         return None  # positivity fails -> outside admissible class
     # normalize p on boundary
@@ -57,33 +65,38 @@ def check_config(a_ell, b_ell, zs, ams, cp, N=4096, verbose=False):
     g_at = phi_at(pv, z, zp, np.array(zs))
     c_val = abs(np.sum(np.array(ams) * g_at * pz))
     rhs = (2 - c_val / 2) ** 2
-    return dict(lhs=lhs, rhs=rhs, c=c_val, con=con, mass=mass,
-                viol=lhs - rhs, numin=nu.min())
+    return dict(
+        lhs=lhs, rhs=rhs, c=c_val, con=con, mass=mass, viol=lhs - rhs, numin=nu.min()
+    )
+
 
 def project_constraint(cp, zs, ams, deg):
     """Adjust p |-> p - lambda*q so that sum a_j p(z_j) = 0, using q(z)=z^k with
     largest |sum a_j z_j^k| (k>=0)."""
-    zsa = np.array(zs); ama = np.array(ams)
+    zsa = np.array(zs)
+    ama = np.array(ams)
     s = np.sum(ama * poly_z(cp, zsa))
     best_k, best_m = 0, 0
     for k in range(deg + 1):
-        mk = abs(np.sum(ama * zsa ** k))
+        mk = abs(np.sum(ama * zsa**k))
         if mk > best_m:
             best_m, best_k = mk, k
     if best_m < 1e-12:
         return cp
-    lam = s / np.sum(ama * zsa ** best_k)
+    lam = s / np.sum(ama * zsa**best_k)
     cp = list(cp)
     cp[best_k] -= lam
     return cp
+
 
 def random_trial(deg=6, npts=3, shape=(1.0, 0.6)):
     a_ell, b_ell = shape
     # random interior points (inside a margin)
     zs = []
     while len(zs) < npts:
-        x = rng.uniform(-a_ell, a_ell); y = rng.uniform(-b_ell, b_ell)
-        if (x / a_ell) ** 2 + (y / b_ell) ** 2 < 0.7 ** 2:
+        x = rng.uniform(-a_ell, a_ell)
+        y = rng.uniform(-b_ell, b_ell)
+        if (x / a_ell) ** 2 + (y / b_ell) ** 2 < 0.7**2:
             zs.append(x + 1j * y)
     kind = rng.integers(0, 2)
     if kind == 0:
@@ -96,6 +109,7 @@ def random_trial(deg=6, npts=3, shape=(1.0, 0.6)):
     cp = project_constraint(cp, zs, am, deg)
     return check_config(a_ell, b_ell, zs, am, cp)
 
+
 if __name__ == "__main__":
     # sanity: Crabb-in-scalar-form (disk, point mass at 0, p=z^2) -> equality
     r = check_config(1.0, 1.0, [0.0], [1.0], [0, 0, 1.0])
@@ -106,11 +120,16 @@ if __name__ == "__main__":
     for shape in [(1.0, 0.9), (1.0, 0.6), (1.0, 0.3), (1.0, 0.15)]:
         for _ in range(400):
             tried += 1
-            r = random_trial(deg=rng.integers(2, 9), npts=rng.integers(1, 5), shape=shape)
+            r = random_trial(
+                deg=rng.integers(2, 9), npts=rng.integers(1, 5), shape=shape
+            )
             if r is None or r["con"] > 1e-8:
                 continue
             accepted += 1
             if worst is None or r["viol"] > worst["viol"]:
                 worst = dict(r, shape=shape)
     print(f"accepted {accepted}/{tried}")
-    print("worst:", {k: (round(v, 6) if isinstance(v, float) else v) for k, v in worst.items()})
+    print(
+        "worst:",
+        {k: (round(v, 6) if isinstance(v, float) else v) for k, v in worst.items()},
+    )
