@@ -2,20 +2,44 @@
 
 **Last updated:** 2026-07-26 (Epoch 6 — repeated circular/elliptic merger)
 
-## CANONICAL LIVE GATE (2026-07-26, after L317/A265)
+## CANONICAL LIVE GATE (2026-07-26, after L318/A266)
 
-There is exactly one current mathematical gate: **use L317's exact
-finite-jet form
-`U=Bcal(c){D_dir+cR(c)}Bcal(c)*+response` to absorb the bounded
-Hermitian `cR(c)` at fixed `theta=1/2`, while retaining L307's
-`-C*C`/partial-scale Gram reserve.**  The sharp support
-`j+k<=d`, with equality only for L283/L298's principal direct Gram,
-is now proved.  This is current next action 1 below.  Every later
+There is exactly one current mathematical gate: **merge L318's proved
+fixed repeated-elliptic condition-four metric with L197's
+Schur-orthogonal disk/circular-normal flag, without spending either
+positive margin twice.**  L317's sharp support and L318's
+fixed-`theta=1/2` margin assembly are now closed.  This is current
+next action 3 below.  Every later
 occurrence of “historical gate,”
 “historical frontier,” or “remaining historical task” records what
 was unresolved at that dated checkpoint; none is a concurrent
-frontier.  Actions 2--4 are ordered successors, not simultaneous
-research directions.  The CP/H-r routes remain parked fallbacks.
+frontier.  Actions 1--2 are completed derivation records, action 3
+is live, and action 4 is its ordered successor.  The CP/H-r routes
+remain parked fallbacks.
+
+## L318/A266 FIXED-HALF ELLIPTIC FLAG (2026-07-26)
+
+- In physical upper-gap orientation, L227/L283 supplies direct
+  coefficient `12` in every grade and L298/L303 adds `4theta`.
+  At `theta=1/2`, the zero-slack middle block is therefore `14I`.
+- L317 gives
+  `U_<=2L=Bcal(c){14I+cR_L(c)}Bcal(c)*` after the bounded
+  response is canceled.  Every affine leftover and the complete
+  L307 square are retained inside the bounded Hermitian `R_L`.
+- On a compact repeated-block neighbourhood, `||R_L||<=M_L`.
+  Hence `14I+cR_L>=7I` for `c<=7/M_L`, uniformly through transfer-
+  rank changes.
+- L201 keeps terminal `B_L` uniformly invertible.  Its
+  `7c^(2L)B_LB_L*` margin absorbs L289's uniform analytic
+  `O(c^(2L+1))` tail.  L194 supplies `P>=I` and
+  `P-T*PT>=0` exactly for the selected free row.
+- Therefore `I<=P<=4I` and `T*PT<=P` on every fixed repeated
+  elliptic chart for sufficiently small `c`.  This is not yet a
+  full operator neighbourhood: transverse disk/circular-normal
+  residuals remain to be merged through L197.
+- Eighteen endpoint-direction, noncommuting Weyl, and terminal-tail
+  audits pass.  Dataset SHA-256:
+  `2938008cb4b25fc86123940945418f14ea726365899dbecd633affe75a4243fe`.
 
 ## L317/A265 SHARP TWO-CHANNEL SUPPORT (2026-07-26)
 
@@ -6305,8 +6329,10 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L317/A265)
-1. **Close the fixed-half-scale margin assembly left after L317.**
+## Current next actions (Epoch 6, refreshed after L318/A266)
+1. **COMPLETED BY L318: fixed-half-scale margin assembly after L317.**
+   The remainder of this item is the derivation record, not a live
+   instruction.
    L306 sums every rooted successor to
    `q=−Psi_S(Delta*XS+S*XDelta+Delta*XDelta)
       −(C*H+H*C+C*C)`, and L307 proves the formula recurs after a
@@ -6360,7 +6386,9 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    split load-bearing square completions, assume A259's unproved
    endpoint-word inequality, or assume
    `I intersect [A,A]=[A,I]`.
-2. **Close the fixed partial-scale finite-flag induction.**  Combine
+2. **COMPLETED BY L318: fixed partial-scale finite-flag induction.**
+   The remainder of this item is the derivation record, not a live
+   instruction.  Combine
    the recurrence from item 1 with L283's complete-delay boundary,
    L290's hereditary endpoint factors, and L292's valuation test.
    Preserve at every active grade a fixed fraction of the lower direct
@@ -6376,10 +6404,18 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    L296's polarized raw
    branch only after separating favorable Grams and bounded prior-flag
    factors; do not mix endpoint ledgers.
-3. **Only after selection closes, finish the repeated
-   circular-normal/elliptic merger.**  Derive L199's later
-   Schur-orthogonal normal response and avoid spending the same disk
-   negative square twice.
+3. **LIVE: finish the repeated circular-normal/elliptic merger.**
+   L318 proves the fixed repeated-elliptic chart.  Put its positive
+   upper endpoint into L197's exact Schur-orthogonal coordinates for
+   the transverse disk/circular-normal residual.  At each layer,
+   retain L318's `7 Bcal Bcal*` elliptic margin and L197's first
+   nonzero disk Gram as separate summands; complete only their mixed
+   cross row and do not spend either diagonal twice.  Derive L199's
+   later Schur-orthogonal normal response in these coordinates.
+   A curve-selection failure must descend through the finite L197
+   flag; on its terminal disk kernel, invoke L318's terminal
+   `B_L` margin.  Do not reopen the elliptic preparation or run a
+   concurrent CP/H-r attack.
 4. **Then close analytic remainders and audit equality strata.**  Use
    the bounded selected columns along the finite L197/L220 flag and
    combine with the banked single-block quotient results before

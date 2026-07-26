@@ -1,20 +1,20 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-26): after L317 / A265
+## Current general Crabb frontier (2026-07-26): after L318 / A266
 
 The post-L316 consolidation review retired 55 of 75 stale/unclassified
 `OPEN` labels (54 superseded, one obsolete) and left 20 genuinely live
 rows, each attached to ordered next action 1--4.  The one canonical
-live gate is now: absorb L317's bounded extra-`c` Hermitian remainder
-at fixed half scale while retaining L307's square reserve.  L317
-proves the grouped two-channel rule `j+k<=d`, with equality only for
-L283/L298's principal direct Gram, and packages the finite jet as
-`Bcal(c){D_dir+cR(c)}Bcal(c)*+response`.  L295 is only a normalization warning after
-L297, every exact disproved route has a banked certificate, all 254
+live gate is now: merge L318's fixed repeated-elliptic metric with
+L197's transverse disk/circular-normal Schur flag.  L317 proves the
+grouped two-channel rule and L318 absorbs its extra-`c` remainder at
+fixed half scale, yielding `I<=P<=4I` and `T*PT<=P` on every fixed
+repeated elliptic chart.  L295 is only a normalization warning after
+L297, every exact disproved route has a banked certificate, all 255
 proof notes are free of repeated regenerated blocks, the L312/A259
 dataset hash remains `5b5dac60...6becf`, and Ruff plus `py_compile`
-pass all 304 experiment modules.  L290--L317 are explicitly scoped to
+pass all 305 experiment modules.  L290--L318 are explicitly scoped to
 the fixed finite repeated-Crabb neighbourhood; A259 remains
 conjectural and unused.
 
@@ -105,8 +105,15 @@ stable future row grouped.  Every nonprincipal block has at least one
 power of slack, unequal equality returns vanish, and the principal
 same-grade row is L283/L298's direct Gram.  The tracked six-case audit
 reconstructs 6,120 marked words and has SHA-256
-`f3f24239...2ed51`.  Resume from the fixed-`theta=1/2` square
-completion of `cR(c)`; do not reopen two-channel support.
+`f3f24239...2ed51`.  At that checkpoint the next step was the
+fixed-`theta=1/2` square completion of `cR(c)`.
+L318/A266 closes that square completion and the finite flag.  In
+physical upper-gap orientation the direct block is `14I`; for
+`c<=7/||R_L||` the middle block stays at least `7I`, and L201/L289
+use terminal `B_L` to absorb the exact analytic tail.  L194 closes
+the lower and Stein inequalities.  Its 18-record audit has SHA-256
+`2938008c...243fe`.  Resume only the L197 disk/circular-normal merger;
+the elliptic preparation is closed.
 The L312/A260 checkpoint repeated the concurrency audit from a clean
 worktree: all four handoff commits are ancestors of the single
 `master`, `master` agrees with `origin/master`, no alternate worktree,
@@ -114,8 +121,8 @@ branch, staging conflict, or untracked artifact existed, and L248/L249
 regenerate byte-identically with the recorded hashes.  The stopped
 agent's L248 continuation recommendation has been superseded by
 L277--L279, which close that volume coefficient.  Resume as one agent
-only from L317's fixed-half-scale margin assembly and then the
-fixed-`theta=1/2` finite-flag induction below.  The now-completed
+only from L318's circular-normal/elliptic merger.  The fixed-half
+finite elliptic flag is complete.  The now-completed
 A194 route
 ran through A196's balanced output form, A197's paired
 analytic ports, A198's cyclic radial quotient, A199's finite
@@ -1170,6 +1177,13 @@ before their theta/coisometric cancellation.
   words, continuant-port valuations, noncommuting Potapov leakage
   returns, and Rees regrouping; tracked data hash
   `f3f24239f45beb756b4da21fd5ce7d7ce6fc25e662cefbfd344c395fde52ed51`.
+- `proof/repeated_crabb_fixed_half_flag.md` (L318/A266): global
+  middle-space square completion and terminal analytic-tail
+  absorption for every fixed repeated elliptic chart.
+- `experiments/repeated_crabb_fixed_half_flag.py`: retightening
+  endpoint directions, noncommuting Hermitian Weyl bounds, and
+  terminal-tail audits; tracked data hash
+  `2938008cb4b25fc86123940945418f14ea726365899dbecd633affe75a4243fe`.
 - `experiments/repeated_crabb_markov_response.py`: arbitrary
   multiplier, bistochastic, summed-response, Dirichlet, observability-
   preimage, state-energy, polarized-collapse, and repeated-apex
@@ -2493,9 +2507,9 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    not compute another isolated grade.  Then finish the
    normal/elliptic merger, retaining the full CP route as fallback.
 
-## Paste-ready continuation instruction (current after L317/A265)
+## Paste-ready continuation instruction (current after L318/A266)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix` as
-the sole repository-writing agent.  Read L197, L220, L227, L283--L317,
+the sole repository-writing agent.  Read L197, L220, L227, L283--L318,
 A259's explicitly conjectural sharp endpoint-word note, plus the newest
 `RESEARCH_STATE.md` section.  Do not treat A259 as L312: its
 lossless-circuit residual block is unproved.  L312 proves only the
@@ -2518,9 +2532,15 @@ It packages the finite jet as
 `Bcal(c){D_dir+cR(c)}Bcal(c)*+response`, with bounded Hermitian,
 polynomial, rank-stable `R`.  Do not reopen path weighting or infer
 anything from raw frame summands such as L217's early `B_5`.
-Complete squares at `theta=1/2` directly in this grouped form and pay
-only prior-transfer costs from retained earlier margins.  Retain
-`−C*C`, L307's reserve, and its affine leftover.  L277--L279 have proved
+L318 has completed the `theta=1/2` squares: the physical middle block
+is `14I+cR_L`, remains at least `7I` after one neighbourhood shrink,
+and terminal `B_L` absorbs the analytic tail.  L194 closes the lower
+and Stein inequalities, so the fixed repeated elliptic chart now has
+`I<=P<=4I` and `T*PT<=P`.  Do not reopen the elliptic preparation.
+Move to L197's Schur-orthogonal disk/circular-normal merger.  Keep
+L318's elliptic margin and each disk layer's first Gram separate;
+complete only their mixed cross and do not spend either diagonal
+twice.  L277--L279 have proved
 every lower delayed face, the active `+4||B_k||²` volume coefficient,
 the `+2||B_k||²` dual-Schur trace, and the
 `−16||B_k||²` effective separator trace in arbitrary grade.  Do not
@@ -2634,9 +2654,9 @@ neutralization exactly on that example, yet the upper quintic remains
 `66384/15625` while the response space is zero.  Since `B_1!=0`, this
 is an already-active-range term, not a finite-flag obstruction.  Do
 not factor raw `q` or impose global prepared odd response.
-Use L317's prepared affine Rees form; isolate even direct Grams and
-dominate its extra-`c` prior-transfer costs by earlier margins, then lift
-the fixed partial-scale mechanism through the finite transfer flag.
+L317's Rees form and L318's fixed partial-scale transfer flag are now
+closed.  Use them as one banked elliptic summand while descending
+through L197's finite disk flag.
 Do not enumerate roots, discard `−C*C`, split cancellation-dependent
 pieces, or assume abstract cyclic excision.  The complete quartic
 graph, response, rooted summation, and module stability are done.
@@ -2649,8 +2669,9 @@ budget, split off L283's favorable `−12B_kB_k*`, discard bounded
 prior-flag factors, and use L296 on the surviving polarization
 columns with energy `O(||U*B_k||²)`.
 Do not compute an isolated seventh grade.
-Only then resume the circular-normal merger and analytic remainder
-audit.  Commit and push each proved milestone."
+Resume the circular-normal merger now; perform the analytic remainder
+audit only after that merger closes.  Commit and push each proved
+milestone."
 
 ## Superseded pre-L279 continuation instruction (historical)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix`.
