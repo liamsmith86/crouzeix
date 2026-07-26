@@ -148,8 +148,33 @@
   the Markov Dirichlet energy, so a closing spectral gap causes no
   separate state-synthesis blow-up.  Only a uniformly bounded-energy
   Poisson solution remains before the normal/elliptic merger.
+  L282/A229 now dualizes its least Dirichlet cost exactly.  Bounded
+  selection is equivalent to one positive-test inequality: the
+  positive endpoint flux must be bounded by the product of the active
+  transfer amplitude and the observability defect.  L279 already
+  proves the zero-defect endpoint, so no Poisson inverse needs to be
+  constructed.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
+
+## NEWEST (2026-07-25): L282 converts bounded selection to one off-commutant flux inequality
+- For `K=I−Phi Phi*`, the least energy of a flagged correction is
+  exactly
+  `sup_(Y>=0){<Y,U*EU>−16<UYU*,K(UYU*)>}`.
+  Optimizing the scale of `Y` gives the homogeneous quotient
+  `(1/64)sup <Y,U*EU>_+²/<UYU*,K(UYU*)>`.
+- Therefore a uniform inequality
+  `<Y,U*EU>_+ <= gamma ||U*B_k|| sqrt(<UYU*,K(UYU*)>)`
+  immediately yields correction energy
+  `<=gamma²||U*B_k||²/64`, exactly the scale needed after L281.
+- This uses Slater from L222+L279 and `K^(1/2)`, not a pseudoinverse.
+  L279 proves the zero-denominator case.  The live calculation is now
+  to extend L279's weighted trace algebra off the commutant and bound
+  its residual terms by active transfer amplitude times
+  `||R_(UYU*)||`.
+- The depolarizing two-copy audit compares the closed form with
+  independent primal and dual SDPs.  Dataset SHA-256:
+  `559e4a7ee92179c2cca7085e9942433158bbb700902988bb3a865d7451369a33`.
 
 ## NEWEST (2026-07-25): L281 square-roots the Markov response by the physical observability column
 - Let `Hcal_H−S Hcal_H S*=W H W*` and
@@ -5048,15 +5073,15 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L281/A228)
-1. **Prove bounded-energy Markov Poisson selection through
-   commutant-rank changes.**  L222+L279 prove pointwise strict
-   feasibility, L280 identifies the response with
-   `ran(I−Phi Phi*)`, and L281 proves that the physical column
-   realizing `8(I−Phi Phi*)H` has squared norm exactly
-   `2<H,(I−Phi Phi*)H>`.  Re-enter L197/L220's ordered flag and bound
-   this Dirichlet energy by the first active transfer energy.  Do not
-   build another right inverse, bound `H`, or use discontinuous
+## Current next actions (Epoch 6, refreshed after L282/A229)
+1. **Prove the quantitative off-commutant physical flux bound.**
+   L282 makes this exactly equivalent to bounded-energy selection.
+   For every positive flag test `Y`, extend L279's weighted trace
+   calculation from `R_(UYU*)=0` to arbitrary observability defect and
+   prove
+   `<Y,U*EU>_+ <= gamma ||U*B_k|| ||R_(UYU*)||`.
+   Bound the new residual terms directly by Cauchy--Schwarz; do not
+   construct a Poisson inverse, bound `H`, or use discontinuous
    spectral projections or pseudoinverses.
 2. **Relate the pointwise separator margin to analytic remainder
    domination.**  The exact margin is

@@ -55,7 +55,9 @@ estimate.  The auxiliary copy variable \(H\) may diverge; the metric
 chart sees only \(2R_H\), whose squared norm is (3).
 
 L281 still does not prove that the physical faces admit a uniformly
-bounded-energy Poisson solution.  That is the sole selection debt.
+bounded-energy Poisson solution.  L282 subsequently replaces that
+selection debt by an equivalent quantitative off-commutant flux
+inequality.
 
 ## 2. The defect column and transfer adjoint
 

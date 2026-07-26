@@ -5,8 +5,10 @@
 > =-16\|B_k\|_F^2\), closing this note's pointwise range
 > obstruction.  L280 subsequently identifies the whole response range
 > with the coboundaries of \(I-\Phi\Phi^*\) and supplies an explicit
-> analytic state preimage.  A uniform Poisson/Dirichlet bound through
-> closing Markov gaps remains open.
+> analytic state preimage.  L281 identifies its exact physical
+> observability square root, and L282 dualizes the least Dirichlet
+> cost.  The resulting quantitative off-commutant flux bound remains
+> open.
 
 ## 1. Result (L222, 2026-07-24)
 

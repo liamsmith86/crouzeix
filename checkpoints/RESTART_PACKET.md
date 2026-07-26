@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-25): after L281 / A228
+## Current general Crabb frontier (2026-07-25): after L282 / A229
 
 The accidental two-agent interval has been reconciled.  Commits
 `87c5107`, `4c7a152`, `2f82d15`, and `dcab861` form one linear history
@@ -12,7 +12,7 @@ handoff was checked against the linear history through `646ade8`; no
 branch, staging collision, or unresolved working-tree artifact
 remains.  Its sole new in-progress result was independently tightened
 and banked as L272/A219.  A second single-agent reconciliation through
-L281/A228 found no stopped-agent artifact, branch, staged overlap, or
+L282/A229 found no stopped-agent artifact, branch, staged overlap, or
 competing next-action instruction.  Resume as one agent from the
 bounded analytic-selection gate below.  The now-completed A194 route
 ran through A196's balanced output form, A197's paired
@@ -63,9 +63,11 @@ relative grade-one response, and A203/L257 turns its transport into
   intertwining defects.  L281/A228 then identifies the exact shorter
   physical preimage `2R_H`; its squared norm is twice the Markov
   Dirichlet energy.  Thus a closing gap creates no separate state-
-  synthesis blow-up.  What remains is bounded-energy Poisson
-  selection along the ordered Schur flag, followed by the repeated
-  normal/elliptic merger.
+  synthesis blow-up.  L282/A229 then dualizes the least energy
+  exactly, replacing Poisson inversion by one off-commutant physical
+  flux inequality.  L279 proves its zero-defect endpoint.  What
+  remains is the uniform quantitative flux bound along the ordered
+  Schur flag, followed by the repeated normal/elliptic merger.
   The remainder of this opening paragraph records the route that led
   to L279; every embedded instruction to resume A213, classify the
   active support, or recompute the delayed scalar flux is superseded.
@@ -647,6 +649,14 @@ before their theta/coisometric cancellation.
   `M_T(2P_metric^(1/2)R_H)=8(I−Phi Phi*)H` and exact norm identity
   `||2R_H||²=2<H,(I−Phi Phi*)H>`.  State synthesis is closed; bounded-
   energy Poisson selection remains open.
+- `proof/repeated_crabb_markov_energy_duality.md` (L282/A229): exact
+  convex dual and homogeneous quotient for the least Dirichlet repair
+  energy.  It reduces bounded selection to one positive-test flux
+  inequality controlled by active transfer amplitude times
+  observability defect.
+- `experiments/repeated_crabb_markov_energy_duality.py`: independent
+  primal/dual SDP audit of the exact constants; tracked data hash
+  `559e4a7ee92179c2cca7085e9942433158bbb700902988bb3a865d7451369a33`.
 - `experiments/repeated_crabb_markov_response.py`: arbitrary
   multiplier, bistochastic, summed-response, Dirichlet, observability-
   preimage, state-energy, polarized-collapse, and repeated-apex
@@ -1900,12 +1910,11 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   The former deformation route was superseded by the Schwarzian proof of EL4; see
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
-## Next five concrete actions (refreshed after L281 / A228)
-1. Prove bounded-energy Markov Poisson selection along L197/L220's
-   ordered Schur flag.  L281 already supplies the exact physical state
-   column and identifies its squared norm with twice the Dirichlet
-   energy.  Bound that energy by the first active transfer energy.
-   Pointwise feasibility is proved by L279; do not construct another
+## Next five concrete actions (refreshed after L282 / A229)
+1. Prove L282's quantitative off-commutant flux inequality.  Extend
+   L279's weighted trace calculation from zero observability defect to
+   arbitrary positive flag tests and bound every residual by active
+   transfer amplitude times `||R_(UYU*)||`.  Do not construct another
    right inverse, bound `H`, or use spectral projections/pseudoinverses.
 2. Convert the exact pointwise margin
    `16||B_k||_F²` into a uniform local estimate.  Match the selection's
@@ -1951,9 +1960,9 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    not compute another isolated grade.  Then finish the
    normal/elliptic merger, retaining the full CP route as fallback.
 
-## Paste-ready continuation instruction (current after L281/A228)
+## Paste-ready continuation instruction (current after L282/A229)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix` as
-the sole repository-writing agent.  Read L197, L220, L222, and L279--L281,
+the sole repository-writing agent.  Read L197, L220, L222, and L279--L282,
 plus the newest `RESEARCH_STATE.md` section.  L277--L279 have proved
 every lower delayed face, the active `+4||B_k||²` volume coefficient,
 the `+2||B_k||²` dual-Schur trace, and the
@@ -1962,10 +1971,12 @@ resume A194, recompute fan coefficients, or classify the stronger
 operator support.  L280 proves
 `ran M_T=ran(I−Phi Phi*)`.  L281 gives the exact physical preimage
 `2R_H` and proves its squared norm is
-`2<H,(I−Phi Phi*)H>`.  The live gate is bounded-energy Poisson
-selection along L197/L220's analytic flag, with energy controlled by
-the first active transfer row; do not build another right inverse or
-bound `H`.  Use the exact L279 fixed-point margin to dominate the
+`2<H,(I−Phi Phi*)H>`.  L282 gives the exact least-energy dual quotient.
+The live gate is the positive-test bound
+`<Y,U*EU>_+ <= gamma ||U*B_k|| ||R_(UYU*)||`; extend
+L279's zero-defect trace proof and bound its off-commutant residual
+terms directly.  Do not build another right inverse or bound `H`.
+Use the resulting L279-scale energy to dominate the
 analytic remainder.  After that, finish the later circular-normal
 Schur response and merge it with the repeated elliptic flag without
 double-counting a negative square.  Avoid discontinuous projections
