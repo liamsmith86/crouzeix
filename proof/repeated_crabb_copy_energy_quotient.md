@@ -96,12 +96,16 @@ Then
 and expansion of \(A=S+\Delta\), \(D=V+H\) gives (6) directly.
 
 L306 is a structural all-series reduction.  It does not prove that
-(6) is favorable.  The remaining partial-retightening gate is now
-precise:
+(6) is favorable.  L309 subsequently disproves the initially proposed
+global odd-response target, even after the first triangular
+preparations.  The valid partial-retightening gate is:
 
-1. its odd prepared coefficients must be response-null; and
-2. its even quotient, after the compulsory lower neutralization,
-   must be a two-ended transfer Gram dominated by an earlier retained
+1. after compulsory lower neutralization, each odd retained class
+   must factor boundedly through the cumulative active transfer row,
+   with only its surviving-flag compression required to be a
+   response; and
+2. each even quotient must be a new direct transfer Gram plus a
+   bounded prior-transfer cost dominated by an earlier retained
    margin.
 
 L300 and L303--L304 prove those statements only at cubic and quartic
@@ -271,7 +275,8 @@ neutralization reduce it to a polynomial in \(B_1B_1^*\) supported
 on the earlier active range.
 
 An all-grade proof should now work directly with (6), using the
-theta/ODE covariance of \(A,D\) and the transfer intertwinings (17).
+theta/ODE covariance of \(A,D\), the transfer intertwinings (17), and
+L309's corrected hereditary odd target.
 It should not:
 
 1. enumerate another state-word coefficient;

@@ -51,14 +51,15 @@ For copy dimension one the homogeneous endpoint-response map is
 identically zero: every response has trace zero, and its output is a
 scalar.  Hence (5) is not a hidden Markov response.
 
-L308 disproves only the **one-shot raw parity shortcut**.  It does not
-contradict L300's cubic response, L301's successor transport, or the
-possibility that the recursively prepared series has response-null
-odd coefficients.  Instead it proves that those preparations are
-load-bearing.  The live all-series object is the L307 affine
-recurrence after each preceding coefficient is canceled or retained;
-one may not factor the original L298 successor as though it were
-already prepared.
+L308 disproves the **one-shot raw parity shortcut**.  It does not
+contradict L300's cubic response or L301's successor transport.
+L309 subsequently shows that even the recursively prepared,
+lower-neutral quintic need not be globally response-null.  Thus the
+preparations remain load-bearing, but their correct target is bounded
+hereditary support through the cumulative active transfer row.  The
+live all-series object is the L307 affine recurrence after each
+preceding coefficient is canceled or retained; one may not factor the
+original L298 successor as though it were already prepared.
 
 ## 2. Exact coefficient
 
@@ -138,7 +139,7 @@ is false.  The valid sequence is triangular:
 2. carry its L301 quartic successor and L303 lower neutralization;
 3. only then test the resulting quintic coefficient; and
 4. formulate the arbitrary-grade recurrence for those **prepared**
-successors.
+   successors modulo bounded cumulative-transfer factors.
 
 This is precisely why L307's forcing \(R\) cannot be suppressed from
 the all-series argument.

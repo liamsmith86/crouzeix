@@ -92,10 +92,12 @@ leftover occurs.
 
 L307 supplies the arbitrary-step algebra and an exact scaling reserve.
 It does **not** prove that the full-scale successor
-\({\mathfrak q}(X,C)\) is favorable.  The remaining gate is to show
-that its odd part is a bounded response and its even retained part is
-quadratic in prior transfer rows, so the reserve and the earlier
-strict margins can absorb it.
+\({\mathfrak q}(X,C)\) is favorable.  L309 later disproves global
+prepared odd-response parity.  The remaining gate is to show that
+each lower-neutral odd retained class is a bounded hereditary factor
+through the cumulative active transfer row, and that each even
+retained part is quadratic in prior transfer rows, so the reserve and
+the earlier strict margins can absorb them.
 
 ## 2. Proof
 
