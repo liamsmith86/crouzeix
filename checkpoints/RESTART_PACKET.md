@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-26): after L292 / A239
+## Current general Crabb frontier (2026-07-26): after L293 / A240
 
 The accidental two-agent interval has been reconciled.  Commits
 `87c5107`, `4c7a152`, `2f82d15`, and `dcab861` form one linear history
@@ -14,7 +14,7 @@ remains.  Its sole new in-progress result was independently tightened
 and banked as L272/A219.  A second single-agent reconciliation through
 L287/A234 found no stopped-agent artifact, branch, staged overlap, or
 competing next-action instruction.  L288/A235, L289/A236,
-L290/A237, L291/A238, and L292/A239 were
+L290/A237, L291/A238, L292/A239, and L293/A240 were
 then derived, audited, and documented by the sole active agent.
 Resume as one agent from the
 bounded repeated-elliptic selection gate below.  The now-completed
@@ -115,7 +115,12 @@ relative grade-one response, and A203/L257 turns its transport into
   L292/A239 makes boundedness exact along every L197 analytic arc:
   the endpoint residual must satisfy finite Smith-coordinate
   valuation inequalities relative to the collapsing transfer row.
-  Derive those physical valuations and uniform margins; do not resume
+  L293/A240 now gives the exact leading geometry of L282's equivalent
+  route: the first Markov gap in matrix-Schur coordinates is the
+  simultaneous commutator Laplacian of the first Schur jets.  Derive
+  the positive physical endpoint flux as active transfer amplitude
+  paired with those same commutators, or equivalently prove L292's
+  physical valuations and uniform margins.  Do not resume
   an isolated-grade march, demand infinite summability, infer endpoint
   preservation from raw state ideal membership, insert the fixed-rank
   pseudoinverse from L291's existence proof, confuse pointwise flag
@@ -793,6 +798,13 @@ before their theta/coisometric cancellation.
 - `experiments/repeated_crabb_endpoint_factor_valuation.py`: exact
   analytic and obstructed valuation examples; tracked data hash
   `a9c28eec243b7854bb7f06959f359a1e9bcb4a40894e6a65aeee4c5eab80136d`.
+- `proof/repeated_crabb_schur_markov_laplacian.md` (L293/A240):
+  exact all-grade matrix-Schur expansion of `I−Phi Phi*` as the
+  simultaneous commutator Laplacian.
+- `experiments/repeated_crabb_schur_markov_laplacian.py`: exact
+  Parseval, full-Hermitian-basis superoperator, Dirichlet, and
+  terminal-skew audits; tracked data hash
+  `2e5c20fabc9fed72a752a802cee12374e751327585144afb04883b93f6a17059`.
 - `experiments/repeated_crabb_markov_response.py`: arbitrary
   multiplier, bistochastic, summed-response, Dirichlet, observability-
   preimage, state-energy, polarized-collapse, and repeated-apex
@@ -2046,7 +2058,7 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   The former deformation route was superseded by the Schwarzian proof of EL4; see
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
-## Next five concrete actions (refreshed after L292 / A239)
+## Next five concrete actions (refreshed after L293 / A240)
 1. Use L285--L292 to prove the arbitrary-grade parity recursion in
    the mixed graph coordinate: solve removable odd endpoint homology,
    then factor each complete physical endpoint pairing directly as
@@ -2060,10 +2072,13 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    state-ideal invariance, a rank-changing pseudoinverse, pointwise
    flag zero alone, or an isolated seventh grade.  L282 remains the
    bounded-energy certificate language.
-2. Treat A178 and L282 as two certificate languages for this one
-   homological equation.  Translate proposed polynomial successors
-   through L204/L280 and audit their Markov energy; do not run a
-   competing pseudoinverse/Poisson recursion.
+2. Use L293 to derive the first positive physical endpoint pairing as
+   `active transfer × commutator`.  Its matching L282 denominator is
+   already exactly the squared commutator norm, while L279 handles
+   the common commutant.  A Cauchy--Schwarz factorization here would
+   give the uniform Markov energy and L281's bounded physical state
+   column.  Translate a failure into L292's Smith-valuation language;
+   do not use compactness or a pseudoinverse to hide the exponent.
 3. After bounded elliptic selection closes, derive the later
    Schur-orthogonal circular-normal response and merge the branches
    without spending the same disk Gram twice.
@@ -2103,9 +2118,9 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    not compute another isolated grade.  Then finish the
    normal/elliptic merger, retaining the full CP route as fallback.
 
-## Paste-ready continuation instruction (current after L292/A239)
+## Paste-ready continuation instruction (current after L293/A240)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix` as
-the sole repository-writing agent.  Read L197, L220, L227, L283--L292,
+the sole repository-writing agent.  Read L197, L220, L227, L283--L293,
 plus the newest `RESEARCH_STATE.md` section.  L277--L279 have proved
 every lower delayed face, the active `+4||B_k||²` volume coefficient,
 the `+2||B_k||²` dual-Schur trace, and the
@@ -2150,11 +2165,15 @@ endpoint residual factored through `[B_1 ... B_r]`.  Its pointwise
 pseudoinverse factor is not an admissible rank-changing selection.
 L292 makes the missing bound a finite Smith-valuation test along each
 L197 analytic arc and proves by examples that pointwise flag zero can
-still force `s^-1` or `s^-2` blow-up.  Extract the finite
-arbitrary-grade alternating rule and prove those physical valuation
-inequalities: cancel odd homology, then factor the retained even
-endpoint motion directly while preserving its direct Gram and odd
-Schur cost.
+still force `s^-1` or `s^-2` blow-up.  L293 sharpens the equivalent
+Markov route: in L218's matrix-Schur coordinates the first nonzero
+`I−Phi Phi*` face is exactly the simultaneous commutator Laplacian,
+with Dirichlet form twice the sum of squared commutators.  Derive the
+positive physical endpoint flux as active transfer amplitude paired
+with those same commutators; Cauchy--Schwarz would close L282, while
+L279 already handles their common kernel.  Equivalently, extract the
+finite arbitrary-grade alternating rule and prove L292's physical
+valuations while preserving the even direct Gram and odd Schur cost.
 Do not compute an isolated seventh grade.
 Only then resume the circular-normal merger and analytic remainder
 audit.  Commit and push each proved milestone."

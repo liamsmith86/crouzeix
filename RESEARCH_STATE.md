@@ -202,10 +202,42 @@
   L292/A239 to finite Smith-coordinate valuation inequalities along
   L197's analytic failure arcs.  Deriving those physical
   arbitrary-grade divisibilities and proving uniform margins through
-  grade `L` is the live gate.
+  grade `L` is one live certificate.  L293/A240 now sharpens the
+  equivalent L282 route: in L218's independent matrix-Schur
+  coordinates, the first Markov gap is exactly the simultaneous
+  commutator Laplacian of the first Schur jets.  Its exponent and
+  square root are therefore controlled.  The unique live step on
+  that route is to factor the positive physical endpoint flux through
+  the active transfer amplitude and those same commutators.
   The circular-normal merger is downstream.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
+
+## NEWEST (2026-07-26): L293 identifies the exact first Markov gap in Schur coordinates
+- Right-normalize L218's transfer so its terminal unitary is `I` and
+  write `Gamma_j=epsilon Delta_j+O(epsilon²)`.
+- L218's reflected tangent has coefficient pairs
+  `Delta_j` at degree `j` and `-Delta_j*` at degree `2L-j`.
+  The two inner Parseval identities determine the Hermitian part of
+  the order-two terminal coefficient; its skew part cancels from
+  `I−Phi Phi*`.
+- The resulting exact first face is
+  `sum_j([Delta_j*,[Delta_j,H]]+
+  [Delta_j,[Delta_j*,H]])`.  On Hermitian `H`, its Dirichlet form is
+  `2 sum_j ||[H,Delta_j]||_F²`.
+- Along any analytic arc, take the first nonzero Schur order.  The
+  same formula applies to its leading jets, so a closing Markov gap
+  has a fixed quadratic exponent and kernel equal to their common
+  commutant.  L281's physical state-column norm has exactly twice
+  this energy.
+- **Live numerator gate:** derive the positive part of L282's
+  physical endpoint pairing as active transfer amplitude times these
+  commutators.  Cauchy--Schwarz would then prove the gap-free energy
+  bound; on the common commutant L279 already supplies the strict
+  negative trace.  L293 does not prove this pairing.
+- The exact all-basis checker passes in lengths three through five,
+  multiplicities two and three.  Dataset SHA-256:
+  `2e5c20fabc9fed72a752a802cee12374e751327585144afb04883b93f6a17059`.
 
 ## NEWEST (2026-07-26): L292 makes bounded endpoint selection an exact valuation problem
 - Along any one-variable analytic arc, write the joint earlier
@@ -5406,7 +5438,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L292/A239)
+## Current next actions (Epoch 6, refreshed after L293/A240)
 1. **Close bounded repeated-elliptic selection.**  Use L283 as the
    exact complete-delay boundary condition and L284's endpoint-null
    normalizations as the gauge convention.  L285 already gives the
@@ -5430,11 +5462,15 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    demand endpoint-null even gauges, infer anything from raw
    two-sided state-ideal membership, insert L291's fixed-rank
    pseudoinverse, or compute an isolated seventh grade.
-2. **Treat A178 and L282 as one selection gate.**  Use L204/L280 to
-   translate any proposed polynomial successor into its Markov
-   coboundary and energy, or translate an L282 flux estimate back to a
-   bounded state column.  Do not run the two routes as undocumented
-   competing recursions or use a discontinuous pseudoinverse.
+2. **Use L293 to attack the same gate without a pseudoinverse.**
+   In L218's Schur coordinates, derive the first positive physical
+   endpoint pairing as `active transfer × commutator`.  L293 proves
+   that the matching L282 denominator is exactly the squared norm of
+   those commutators; L279 handles their common kernel.  If this
+   factorization holds, apply Cauchy--Schwarz and translate the
+   bounded energy back to L281's physical state column.  A failure
+   must be logged against L292's Smith valuation obstruction rather
+   than hidden by a compactness or pseudoinverse argument.
 3. **Only after selection closes, finish the repeated
    circular-normal/elliptic merger.**  Derive L199's later
    Schur-orthogonal normal response and avoid spending the same disk
@@ -5611,11 +5647,13 @@ Current A178 transport packet:
   quotient and pointwise endpoint-factor equivalence), and
   proof/repeated_crabb_endpoint_factor_valuation.md (L292 exact
   arcwise Smith-valuation criterion and pointwise-only
-  obstructions); matching
+  obstructions), and
+  proof/repeated_crabb_schur_markov_laplacian.md (L293 exact
+  Schur-jet commutator form of the alternative Markov gap); matching
   regenerators use the same
-  basenames under experiments/.  Resume by deriving L292's valuation
-  inequalities for the physical L285/L289 endpoint residual and its
-  arbitrary-grade recurrence; do not force state witnesses into an
+  basenames under experiments/.  Resume by deriving L293's physical
+  flux numerator pairing (or equivalently L292's valuations) for the
+  L285/L289 endpoint residual; do not force state witnesses into an
   ideal, use a rank-changing pseudoinverse, confuse pointwise flag
   zero with bounded divisibility, or compute grade seven.
 proof/ — read in this order for the current frontier:
