@@ -2,21 +2,46 @@
 
 **Last updated:** 2026-07-26 (Epoch 6 — repeated circular/elliptic merger)
 
-## CANONICAL LIVE GATE (2026-07-26, after L319/A267)
+## CANONICAL LIVE GATE (2026-07-26, after L320/A268)
 
-There is exactly one current mathematical gate: **derive the complete
-endpoint-specific later circular-normal response on L197's Schur
-quotients, then merge it with L318 without spending either positive
-margin twice.**  L319 proves that the tempting Schur-only shortcut
-does not supply the missing kernel-block term.  L317's sharp support
-and L318's fixed-`theta=1/2` margin assembly remain closed.  This is
-current next action 3 below.  Every later
+There is exactly one current mathematical gate: **prove the finite
+scalar-channel-stratum induction near a repeated Crabb block, using
+L320's quantitative leakage reserve to remove channel-free
+noncommuting anchors and L205/L192 on every exact split channel.**
+L199 supplies the first transverse disk/circular-normal face and L318
+supplies the elliptic margin.  L319 blocks only the stronger
+Schur-only complete-similarity shortcut; deriving its missing
+kernel-block response is now a fallback, not a prerequisite for the
+scalar conjecture.  This is current next action 3 below.  Every later
 occurrence of “historical gate,”
 “historical frontier,” or “remaining historical task” records what
 was unresolved at that dated checkpoint; none is a concurrent
 frontier.  Actions 1--2 are completed derivation records, action 3
 is live, and action 4 is its ordered successor.  The CP/H-r routes
 remain parked fallbacks.
+
+## L320/A268 QUANTITATIVE SCALAR-CHANNEL RESERVE (2026-07-26)
+
+- For `P=2I−VV*+2WW*` and any contraction `F`, the exact input,
+  contraction, and output loss decomposition gives
+  `||P^(−1/2)FP^(1/2)||²<=4−(1−||V*FW||)²`.
+- For `F=f(C)`, scalar Hardy Parseval and L201's transfer coefficients
+  bound the endpoint corner by `sqrt(sigma(B))`, where
+  `sigma(B)=sup_(u,v)sum|u*B_nv|²`.
+- Hence
+  `||f(T)||²<=4−(1−sqrt(sigma(B)))²`.
+  L205 identifies `sigma=1` exactly with a constant scalar inner
+  channel.
+- Every compact channel-free part of L193's noncommuting equality
+  manifold therefore has a uniform strict scalar tube.  Only the
+  scalar-channel strata remain sharp.  Exact channels split off as
+  single-copy full-Hardy blocks by L205.
+- The live proof is now a finite induction on channel multiplicity:
+  use L192 on split channels, charge channel-breaking cross motion to
+  L320, use L199 for the first transverse disk/normal face, and retain
+  L318's elliptic margin.
+- Eleven deterministic audit records pass; dataset SHA-256:
+  `973f669a8ae58492c65b73492fbb8b3c5651764ba6aefa0db94adb323c05c40b`.
 
 ## L319/A267 SCHUR-ONLY LATER-FLAG OBSTRUCTION (2026-07-26)
 
@@ -6351,7 +6376,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L319/A267)
+## Current next actions (Epoch 6, refreshed after L320/A268)
 1. **COMPLETED BY L318: fixed-half-scale margin assembly after L317.**
    The remainder of this item is the derivation record, not a live
    instruction.
@@ -6426,22 +6451,25 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    L296's polarized raw
    branch only after separating favorable Grams and bounded prior-flag
    factors; do not mix endpoint ledgers.
-3. **LIVE: finish the repeated circular-normal/elliptic merger.**
-   L318 proves the fixed repeated-elliptic chart.  Put its positive
-   upper endpoint into L197's exact Schur-orthogonal coordinates for
-   the transverse disk/circular-normal residual.  At each layer,
-   retain L318's `7 Bcal Bcal*` elliptic margin and L197's first
-   nonzero disk Gram as separate summands; complete only their mixed
-   cross row and do not spend either diagonal twice.  L319 proves
-   that exact Schur transport alone does not determine the later
-   kernel block.  Derive L199's complete later Schur-orthogonal
-   normal response from L194's actual prepared endpoint, including
-   that kernel-block term; do not call the quotient a fresh raw face
-   until this identity is proved.
-   A curve-selection failure must descend through the finite L197
-   flag; on its terminal disk kernel, invoke L318's terminal
-   `B_L` margin.  Do not reopen the elliptic preparation or run a
-   concurrent CP/H-r attack.
+3. **LIVE: close the scalar-channel-stratum induction.**
+   Work on the scalar conjecture, not the stronger complete-similarity
+   normal flag.  L320 gives a strict quantitative reserve whenever
+   L201's transfer lacks an exact scalar channel.  L205 splits every
+   exact channel into a single-copy full-Hardy block and a smaller
+   complementary transfer.  Along a curve-selected sharp sequence,
+   expose the first channel-leakage coefficient.  If it is nonzero,
+   charge all channel-breaking cross motion to L320's
+   `(1−sqrt(sigma))²` reserve.  If it vanishes identically, reduce to
+   the split channel and apply L192; iterate on the complementary
+   multiplicity.  At a tied channel collision, use L199's first
+   disk/circular-normal face and L318's separately retained elliptic
+   margin.  Do not spend either diagonal twice.
+
+   L319 proves that first-face positivity and exact Schur transport
+   alone do not determine the stronger complete-similarity
+   kernel-block response.  Do not use that shortcut.  Return to the
+   endpoint-specific response only if the scalar leakage induction
+   leaves a term not controlled by L320/L192/L199/L318.
 4. **Then close analytic remainders and audit equality strata.**  Use
    the bounded selected columns along the finite L197/L220 flag and
    combine with the banked single-block quotient results before

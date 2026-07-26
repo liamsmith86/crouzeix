@@ -1,25 +1,28 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-26): after L319 / A267
+## Current general Crabb frontier (2026-07-26): after L320 / A268
 
 The post-L316 consolidation review retired 55 of 75 stale/unclassified
 `OPEN` labels (54 superseded, one obsolete) and left 20 genuinely live
 rows, each attached to ordered next action 1--4.  The one canonical
-live gate is now: derive the complete endpoint-specific later
-circular-normal response on L197's Schur quotients, then merge it
-with L318.  L319 proves that first-face positivity plus exact Schur
-transport does not determine the later kernel block: two exact
-polynomial germs with identical first face and cross square have
-opposite sixth-order Schur quotients.  This is a proof-route
-obstruction, not a Crouzeix counterexample.  L317 proves the
+live gate is now the finite scalar-channel-stratum induction.  L320
+proves the quantitative reserve
+`||f(T)||²<=4−(1−sqrt(sigma(B)))²`, and L205 says
+`sigma=1` exactly on a split scalar inner channel.  Thus every compact
+channel-free part of L193's noncommuting equality manifold has a
+strict scalar tube; the sharp sequence must descend through finitely
+many scalar channels, using L192/L199/L318 at the channel strata.
+L319 proves that the alternative Schur-only complete-similarity
+shortcut does not determine the later kernel block; it is now a
+fallback debt rather than a scalar prerequisite.  L317 proves the
 grouped two-channel rule and L318 absorbs its extra-`c` remainder at
 fixed half scale, yielding `I<=P<=4I` and `T*PT<=P` on every fixed
 repeated elliptic chart.  L295 is only a normalization warning after
-L297, every exact disproved route has a banked certificate, all 256
+L297, every exact disproved route has a banked certificate, all 257
 proof notes are free of repeated regenerated blocks, the L312/A259
 dataset hash remains `5b5dac60...6becf`, and Ruff plus `py_compile`
-pass all 306 experiment modules.  L290--L319 are explicitly scoped to
+pass all 307 experiment modules.  L290--L320 are explicitly scoped to
 the fixed finite repeated-Crabb neighbourhood; A259 remains
 conjectural and unused.
 
@@ -2512,7 +2515,7 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    not compute another isolated grade.  Then finish the
    normal/elliptic merger, retaining the full CP route as fallback.
 
-## Paste-ready continuation instruction (current after L319/A267)
+## Paste-ready continuation instruction (current after L320/A268)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix` as
 the sole repository-writing agent.  Read L197, L220, L227, L283--L318,
 A259's explicitly conjectural sharp endpoint-word note, plus the newest
@@ -2542,14 +2545,17 @@ is `14I+cR_L`, remains at least `7I` after one neighbourhood shrink,
 and terminal `B_L` absorbs the analytic tail.  L194 closes the lower
 and Stein inequalities, so the fixed repeated elliptic chart now has
 `I<=P<=4I` and `T*PT<=P`.  Do not reopen the elliptic preparation.
-Move to L197's Schur-orthogonal disk/circular-normal merger.  Keep
-L318's elliptic margin and each disk layer's first Gram separate;
-complete only their mixed cross and do not spend either diagonal
-twice.  L319/A267 now forbids the Schur-only shortcut: identical
-first faces, reducing kernels, and cross squares can leave opposite
-later kernel-block signs.  Derive the complete later normal response
-from L194's actual prepared endpoint before calling any quotient a
-fresh L199 face.  L277--L279 have proved
+Move to the scalar-channel-stratum induction.  L320 gives the exact
+reserve `4−||f(T)||² >= (1−sqrt(sigma(B)))²`, while L205 identifies
+score one with an actual split scalar inner channel.  Remove compact
+channel-free anchors by this strict gap.  On the sharp strata, split
+one scalar channel, use L192 on that single-copy block, and induct on
+the complementary transfer; charge the first channel-breaking cross
+to L320.  Keep L199's first disk/circular-normal face and L318's
+elliptic margin separate.  L319/A267 forbids inferring a stronger
+complete-similarity later quotient from Schur algebra alone; reopen
+that endpoint-specific calculation only if the scalar leakage route
+leaves an uncontrolled term.  L277--L279 have proved
 every lower delayed face, the active `+4||B_k||²` volume coefficient,
 the `+2||B_k||²` dual-Schur trace, and the
 `−16||B_k||²` effective separator trace in arbitrary grade.  Do not
