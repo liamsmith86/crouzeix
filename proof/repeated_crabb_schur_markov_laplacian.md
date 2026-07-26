@@ -2,8 +2,11 @@
 
 > **Route update.**  L294 subsequently proves the exact nonlinear
 > numerator/Dirichlet Cauchy--Schwarz estimate for L212's canonical
-> channel-minus-Gram target.  The remaining debt is to compare the
-> fully transported L285/L289 physical face with that target.
+> channel-minus-Gram target.  L295 then proves that the complete
+> L227/L285 repair face cannot be compared with that particular
+> target: their apex values are respectively `-12I` and `-16I`.
+> The remaining debt on that branch is to pair only its mixed
+> transport remainder after separating the favorable `-12` Gram.
 
 ## 1. Result (L293, 2026-07-26)
 
@@ -92,16 +95,18 @@ uncontrolled first exponent.  Its leading square is exactly the
 simultaneous commutator defect of the first nonzero Schur jets.
 
 L293 alone does **not** prove L282's physical flux inequality.  L294
-subsequently proves it for the canonical target.  The remaining task
-is now sharper:
+subsequently proves it for every transfer flux \(G_k\).  L295 shows
+that one proposed application to the complete repair face was false.
+The remaining task is now sharper:
 
-> prove that the first fully transported physical endpoint equals,
-> or is no larger than, L294's canonical target modulo favorable
-> Grams and prior-flag factors.
+> separate L283's favorable \(-12B_kB_k^*\) face and express the
+> remaining mixed L285/L289 transport as a bounded transfer flux, or
+> prove the distinct L212 exact-axis physical base in arbitrary
+> grade.
 
-L294 then gives L282's desired gap-free bound.  L293 also does not
-replace L292's endpoint-valuation route; it gives the exact leading
-geometry of its Markov alternative.
+L294 then gives L282's desired gap-free bound for such a flux.  L293
+also does not replace L292's endpoint-valuation route; it gives the
+exact leading geometry of its Markov alternative.
 
 ## 2. First transfer jet in Schur coordinates
 
@@ -252,13 +257,14 @@ There are therefore only two cases on a hypothetical failure arc.
    Schur order.  At a fully reducing first active block, L279 gives
    the strict negative endpoint trace.
 
-L294 subsequently supplies the exact numerator identity for L212's
-canonical target, at full amplitude rather than only in this first
-jet.  What is still missing is the physical comparison: the
-L285/L289 transported endpoint must equal or lie below that target
-modulo already favorable terms.  Merely invoking compactness would
-not prove this comparison, and A179 forbids raw all-series
-superposition.
+L294 subsequently supplies the exact numerator identity for every
+\(G_k\)-flux, at full amplitude rather than only in this first jet.
+L295 proves that the complete L285/L289 endpoint does **not** lie
+below L212's particular target: at the apex the former is \(-12I\)
+and the latter is \(-16I\).  What is still missing is the physical
+remainder identity after the favorable L283 Gram is separated.
+Merely invoking compactness would not prove that identity, and A179
+forbids raw all-series superposition.
 
 ## 6. Exact regeneration
 

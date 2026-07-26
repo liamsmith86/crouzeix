@@ -209,15 +209,44 @@
   square root are therefore controlled.  L294/A241 now supplies the
   exact nonlinear numerator pairing for L212's canonical
   channel-minus-Gram target and proves L282 with constant `28`,
-  including flags.  The unique live step is no longer a spectral-gap
-  or numerator estimate: identify or dominate L285/L289's complete
-  transported physical face by that canonical target modulo favorable
-  Grams and prior-flag factors.
+  including flags, and more generally controls every
+  `−aB_kB_k*−bG_k`, `a>=0`, with constant `|b|`.  L295/A242 catches
+  and removes a cross-branch error in the proposed continuation:
+  L227/L285's repair face is `−12I` at the monomial apex, while
+  L212's target is `−16I`, so the complete repair face cannot be
+  dominated by that target.  The live Markov step is instead to
+  separate L283's favorable `−12` Gram and express only L285/L289's
+  mixed transported remainder as a controlled flux.  The distinct
+  alternative is to prove L212's own exact-axis base in arbitrary
+  grade.
   The circular-normal merger is downstream.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
 
-## NEWEST (2026-07-26): L294 closes the gap-free energy estimate for the canonical physical target
+## NEWEST (2026-07-26): L295 separates the repair and exact-axis branches
+- At a repeated monomial apex, `B_L=U` is unitary and
+  `Phi(K)=UKU*`, so `G_L=Phi(I)−I=0`.
+- L283's L227/L285 canonical-repair endpoint is exactly `−12I`.
+  L212's canonical target is exactly `12I−28I=−16I`.
+  Their difference is the strictly positive `4I`; no prior transfer
+  row or favorable negative Gram can absorb it at the apex.
+- Therefore the instruction to dominate the complete L285/L289 face
+  by L212's particular target is **false**, not merely unproved.
+  L212's response also vanishes at the apex, so it cannot bridge the
+  mismatch inside the repair branch.
+- L294 itself survives unchanged and has the branch-neutral
+  consequence
+  `<Y,−aB_kB_k*−bG_k>_+
+   <=|b|||B_k||sqrt(<Y,(I−Phi Phi*)Y>)`
+  for `a>=0`.  The live repair-branch question is whether the mixed
+  transport remainder, after removing L283's favorable `−12` Gram,
+  has this flux form or an equally direct observability-defect
+  pairing.
+- Exact terminal-unitary audits pass in multiplicities one through
+  four.  Dataset SHA-256:
+  `d983482024c5fd0b998ea0028edafcd56d8336c01d6a4fe4aa493ca10ba0264d`.
+
+## NEWEST (2026-07-26): L294 closes the gap-free energy estimate for the canonical flux target
 - Put `A_Y=Phi*(Y)` and
   `G_k=Phi(B_k*B_k)−B_kB_k*`.  Channel adjointness gives the exact
   scalar pairing
@@ -235,12 +264,13 @@
    =−16B_kB_k*−28G_k`
   satisfies L282 with constant `28`, and L212's explicit response
   changes it exactly to the favorable Gram `−16B_kB_k*`.
-- **Critical scope:** this does not prove the fully transported
-  physical face is the canonical candidate.  L212 stated that
-  identity conditionally, and A179 disproves raw simultaneous
-  superposition.  The live theorem is now the physical comparison
-  after L285/L289 mixed-graph transport, not another range,
-  pseudoinverse, or spectral-gap estimate.
+- **Critical scope:** this does not prove any physical face is the
+  canonical candidate.  L212 stated that identity conditionally, and
+  A179 disproves raw simultaneous superposition.  L295 additionally
+  disproves comparison of the complete L227/L285 repair face with
+  this particular target.  Use the general flux bound on that
+  branch's mixed remainder, or prove the distinct L212 exact-axis
+  base.
 - Exact full and flagged pairings, Dirichlet identities, positive-face
   cases, and correction residuals pass in multiplicities two through
   four.  Dataset SHA-256:
@@ -263,10 +293,12 @@
   has a fixed quadratic exponent and kernel equal to their common
   commutant.  L281's physical state-column norm has exactly twice
   this energy.
-- L294 subsequently proves the exact nonlinear numerator pairing and
-  Cauchy--Schwarz bound for L212's canonical channel-minus-Gram
-  target.  What remains is to compare the fully transported physical
-  face with that target; L293 alone does not provide that comparison.
+- L294 subsequently proves the exact nonlinear transfer-flux pairing
+  and Cauchy--Schwarz bound.  L295 disproves comparing the complete
+  L227/L285 face with L212's particular target.  What remains on the
+  repair branch is to pair only the mixed transport remainder after
+  separating L283's favorable Gram; L293 alone does not identify that
+  remainder.
 - The exact all-basis checker passes in lengths three through five,
   multiplicities two and three.  Dataset SHA-256:
   `2e5c20fabc9fed72a752a802cee12374e751327585144afb04883b93f6a17059`.
@@ -5470,7 +5502,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L294/A241)
+## Current next actions (Epoch 6, refreshed after L295/A242)
 1. **Close bounded repeated-elliptic selection.**  Use L283 as the
    exact complete-delay boundary condition and L284's endpoint-null
    normalizations as the gauge convention.  L285 already gives the
@@ -5494,15 +5526,17 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    demand endpoint-null even gauges, infer anything from raw
    two-sided state-ideal membership, insert L291's fixed-rank
    pseudoinverse, or compute an isolated seventh grade.
-2. **Prove the physical comparison with L294's canonical target.**
-   L294 already gives the exact all-amplitude numerator pairing and
-   L282 bound for
-   `12B_kB_k*−28Phi(B_k*B_k)`, including flags; do not re-estimate a
-   Markov eigenvalue or commutator.  Use L285's triangular transport
-   and L289's complete mixed-graph endpoint to show each first
-   physical face equals this target, or is no larger modulo favorable
-   Grams and prior-flag factors.  A failure must be logged against
-   L292's Smith valuations and A179's false raw superposition.
+2. **Derive a flux formula for only the mixed repair remainder.**
+   L295 disproves comparison of L285/L289's complete face with L212's
+   target even at the apex; do not resume it.  First split off L283's
+   favorable `−12B_kB_k*` complete-delay face.  Use L285's triangular
+   transport and L289's mixed graphs to express the remaining first
+   flag face as `−aB_kB_k*−bG_k`, a nonnegative weighted sum of such
+   terms, or a direct pairing with L280's observability defects.
+   L294 then gives L282 without a spectral-gap estimate.  If this
+   fails, record the obstruction in L292's Smith-valuation language.
+   The separate alternative is to prove L212's own exact-axis base
+   identity, not to mix the two metric branches.
 3. **Only after selection closes, finish the repeated
    circular-normal/elliptic merger.**  Derive L199's later
    Schur-orthogonal normal response and avoid spending the same disk
@@ -5683,12 +5717,16 @@ Current A178 transport packet:
   proof/repeated_crabb_schur_markov_laplacian.md (L293 exact
   Schur-jet commutator form of the alternative Markov gap), and
   proof/repeated_crabb_canonical_flux_inequality.md (L294 exact
-  canonical flux/Dirichlet pairing and flagged L282 bound); matching
+  canonical flux/Dirichlet pairing and flagged L282 bound), and
+  proof/repeated_crabb_canonical_target_scope_obstruction.md (L295
+  exact apex separation of the repair and L212 target branches);
+  matching
   regenerators use the same
-  basenames under experiments/.  Resume by comparing L285/L289's
-  complete physical endpoint with L294's canonical target (or
-  equivalently proving L292's valuations); do not force state
-  witnesses into an
+  basenames under experiments/.  Resume by splitting L283's
+  favorable `−12` Gram from L285/L289's mixed remainder and deriving
+  an L294-controlled flux formula for that remainder (or equivalently
+  proving L292's valuations); do not compare the complete repair face
+  with L212's `−16` target, force state witnesses into an
   ideal, use a rank-changing pseudoinverse, confuse pointwise flag
   zero with bounded divisibility, or compute grade seven.
 proof/ — read in this order for the current frontier:

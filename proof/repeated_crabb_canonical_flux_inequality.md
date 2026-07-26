@@ -1,5 +1,12 @@
 # The canonical transfer flux already has the gap-free energy bound
 
+> **Scope correction (L295).**  The flux estimate below is exact,
+> but the complete L227/L285 canonical-repair face is not bounded
+> above by L212's particular target: at the monomial apex their faces
+> are `-12I` and `-16I`.  Apply the general flux estimate to the
+> mixed repair remainder after separating its favorable Gram, or
+> prove L212's distinct exact-axis base directly.
+
 ## 1. Result (L294, 2026-07-26)
 
 Retain L280's bistochastic transfer channel
@@ -89,17 +96,18 @@ polynomial column.  The physical identification was the conditional
 equation (6) of L212 and raw simultaneous superposition is false by
 A179/L220.
 
-The live A178 gate is therefore narrower than L292/L293 alone made
-visible:
+For the L212 exact-axis branch, the live gate is:
 
-> after L285/L289 mixed-graph transport, prove that each first
-> physical flag face equals (5), or is bounded above by it modulo
-> already favorable Gram terms and prior-flag factors.
+> prove that its all-grade first physical flag face equals (5), or is
+> bounded above by it modulo already favorable terms.
 
-Once that physical comparison is established globally, L212 supplies
-the bounded polynomial correction directly.  On a moving partial
-flag, the compressed form below supplies L282's gap-free energy
-certificate without inserting the flag projection into the metric.
+That statement is distinct from the L227/L285 repair branch.  L295
+disproves comparing the latter's complete face with (5).  On that
+branch one must instead separate L283's favorable
+\(-12B_kB_k^*\) face and identify only the mixed transported
+remainder as a flux controlled below.  On a moving partial flag, the
+compressed form supplies L282's gap-free energy certificate without
+inserting the flag projection into the metric.
 
 ## 2. Exact pairing identity
 
@@ -255,6 +263,23 @@ candidate.  A179 says that inserting its raw columns simultaneously
 does not produce the required physical endpoint series; (9) does not
 revive that false claim.
 
+The same proof gives the branch-neutral corollary
+
+\[
+E_{a,b}=-aB_kB_k^*-bG_k,\qquad a\ge0,\ b\in\mathbb R,
+\]
+
+\[
+\boxed{
+\langle Y,E_{a,b}\rangle_+
+\le |b|\,\|B_k\|_F
+\sqrt{\langle Y,K_{\rm M}Y\rangle}.}              \tag{10}
+\]
+
+L295 shows that this general form, rather than comparison of the
+complete repair face with (5), is the correct possible interface to
+L285/L289.
+
 ## 5. Relation to L293
 
 L293 expands the right side of (2) in L218's matrix-Schur
@@ -274,8 +299,10 @@ then
 
 Thus L294 supplies the exact nonlinear numerator pairing whose first
 Schur jet is controlled by L293's commutator square.  The two routes
-are now literally the same Cauchy--Schwarz estimate; only the
-physical comparison with (5) remains.
+are now literally the same Cauchy--Schwarz estimate.  L295 separates
+the remaining physical work into two noninterchangeable branches:
+prove the L212 exact-axis base (5), or derive an \(E_{a,b}\)-type
+formula for the L227/L285 mixed remainder.
 
 ## 6. Exact regeneration
 
