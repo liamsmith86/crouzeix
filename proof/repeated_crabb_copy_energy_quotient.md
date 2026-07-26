@@ -254,7 +254,32 @@ contains an active bridge.  L305 therefore supplies the same
 gap-free \(O(\|B_j\|)\) response bound rather than merely pointwise
 cokernel orthogonality.
 
-## 4. Independent regeneration
+## 4. Why (6) is the correct next object
+
+Formula (6) separates three effects without expanding a grade:
+
+1. the two linear moving-operator crosses;
+2. the quadratic moving-operator cross; and
+3. the complete frame energy
+   \(C^*H+H^*C+C^*C\).
+
+The negative square \(-C^*C\) is already favorable.  The only
+possible indefinite content is the paired motion of the raw operator
+and frame.  At cubic order L300 proves that paired motion is
+response-null.  At quartic order L302--L304 plus L303's lower
+neutralization reduce it to a polynomial in \(B_1B_1^*\) supported
+on the earlier active range.
+
+An all-grade proof should now work directly with (6), using the
+theta/ODE covariance of \(A,D\) and the transfer intertwinings (17).
+It should not:
+
+1. enumerate another state-word coefficient;
+2. assume the two ellipse orientations cancel separately (L260);
+3. discard the favorable square \(-C^*C\); or
+4. replace the bounded response by a rank-changing pseudoinverse.
+
+## 5. Independent regeneration
 
 Run
 
@@ -288,57 +313,3 @@ cc538f27b3c5395a90def31a062bad12bf2449589cecf0823b139764f1275d65
 
 These floating audits test the complete nonlinear assembly and rank
 collapse; the proof is (9)--(19).
-
-## 4. Why (6) is the correct next object
-
-Formula (6) separates three effects without expanding a grade:
-
-1. the two linear moving-operator crosses;
-2. the quadratic moving-operator cross; and
-3. the complete frame energy
-   \(C^*H+H^*C+C^*C\).
-
-The negative square \(-C^*C\) is already favorable.  The only
-possible indefinite content is the paired motion of the raw operator
-and frame.  At cubic order L300 proves that paired motion is
-response-null.  At quartic order L302--L304 plus L303's lower
-neutralization reduce it to a polynomial in \(B_1B_1^*\) supported
-on the earlier active range.
-
-An all-grade proof should now work directly with (6), using the
-theta/ODE covariance of \(A,D\) and the transfer intertwinings (17).
-It should not:
-
-1. enumerate another state-word coefficient;
-2. assume the two ellipse orientations cancel separately (L260);
-3. discard the favorable square \(-C^*C\); or
-4. replace the bounded response by a rank-changing pseudoinverse.
-
-## 5. Independent regeneration
-
-Run
-
-```bash
-OPENBLAS_NUM_THREADS=1 PYTHONPATH=experiments \
-  .venv/bin/python -u \
-  experiments/repeated_crabb_copy_energy_quotient.py \
-  --output \
-  experiments/repeated_crabb_copy_energy_quotient_s70226.jsonl
-```
-
-The checker constructs the actual degree-four canonical moving
-operator and Hermitian-gauge defect frame, then verifies:
-
-1. L298's fixed-base Stein/frame equation;
-2. L299's compact six-term defect;
-3. the equality of (6) and (8);
-4. synthesis of the endpoint remainder after retaining
-   \(\Phi({\mathfrak q})\); and
-5. unstructured, rank-changing down to
-   \(\|B_1\|\simeq10^{-3}\), and complete-delay cases.
-
-All 16 records pass.  The tracked dataset has SHA-256
-
-```text
-DATASET_SHA256
-```
