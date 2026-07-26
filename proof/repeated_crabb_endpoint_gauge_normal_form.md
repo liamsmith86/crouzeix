@@ -1,5 +1,11 @@
 # Every Schur transport is a graph gauge plus its endpoint residual
 
+> **Route update.**  L292 subsequently replaces the fixed-rank
+> pseudoinverse existence factor below by an exact analytic
+> Smith-valuation criterion along every L197 failure arc.  Pointwise
+> flag zero is not enough for bounded selection; the physical
+> endpoint residual must satisfy the relative valuation bounds.
+
 ## 1. Result (L291, 2026-07-26)
 
 Let \(H,\widetilde H\) be Hermitian state matrices split into a fixed

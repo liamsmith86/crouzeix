@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-26): after L291 / A238
+## Current general Crabb frontier (2026-07-26): after L292 / A239
 
 The accidental two-agent interval has been reconciled.  Commits
 `87c5107`, `4c7a152`, `2f82d15`, and `dcab861` form one linear history
@@ -14,7 +14,7 @@ remains.  Its sole new in-progress result was independently tightened
 and banked as L272/A219.  A second single-agent reconciliation through
 L287/A234 found no stopped-agent artifact, branch, staged overlap, or
 competing next-action instruction.  L288/A235, L289/A236,
-L290/A237, and L291/A238 were
+L290/A237, L291/A238, and L292/A239 were
 then derived, audited, and documented by the sole active agent.
 Resume as one agent from the
 bounded repeated-elliptic selection gate below.  The now-completed
@@ -111,11 +111,16 @@ relative grade-one response, and A203/L257 turns its transport into
   endpoint-quotient-fixing graph congruence plus its literal endpoint
   residual, and flag-zero residuals are exactly
   `X[B_1 ... B_r]*+[B_1 ... B_r]X*`.  Extract the finite
-  arbitrary-grade odd-null/even-endpoint-factor parity rule with
-  uniform margins; do not resume an isolated-grade march, demand
-  infinite summability, infer endpoint preservation from raw state
-  ideal membership, insert the fixed-rank pseudoinverse from L291's
-  existence proof, or try to gauge away every even face.
+  arbitrary-grade odd-null/even-endpoint-factor parity rule.
+  L292/A239 makes boundedness exact along every L197 analytic arc:
+  the endpoint residual must satisfy finite Smith-coordinate
+  valuation inequalities relative to the collapsing transfer row.
+  Derive those physical valuations and uniform margins; do not resume
+  an isolated-grade march, demand infinite summability, infer endpoint
+  preservation from raw state ideal membership, insert the fixed-rank
+  pseudoinverse from L291's existence proof, confuse pointwise flag
+  zero with bounded factorization, or try to gauge away every even
+  face.
   The remainder of this opening paragraph records the route that led
   to L279; every embedded instruction to resume A213, classify the
   active support, or recompute the delayed scalar flux is superseded.
@@ -782,6 +787,12 @@ before their theta/coisometric cancellation.
   residual, flag compression, and fixed-rank converse; tracked data
   hash
   `c7eea10f5d4e58b25a13fe67040d671816245dc0be8b5fafccc276a61b997bb0`.
+- `proof/repeated_crabb_endpoint_factor_valuation.md` (L292/A239):
+  exact one-variable Smith-valuation criterion for bounded endpoint
+  factors, including pointwise-feasible blow-up obstructions.
+- `experiments/repeated_crabb_endpoint_factor_valuation.py`: exact
+  analytic and obstructed valuation examples; tracked data hash
+  `a9c28eec243b7854bb7f06959f359a1e9bcb4a40894e6a65aeee4c5eab80136d`.
 - `experiments/repeated_crabb_markov_response.py`: arbitrary
   multiplier, bistochastic, summed-response, Dirichlet, observability-
   preimage, state-energy, polarized-collapse, and repeated-apex
@@ -2035,17 +2046,20 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   The former deformation route was superseded by the Schwarzian proof of EL4; see
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
-## Next five concrete actions (refreshed after L291 / A238)
-1. Use L285--L291 to prove the arbitrary-grade parity recursion in
+## Next five concrete actions (refreshed after L292 / A239)
+1. Use L285--L292 to prove the arbitrary-grade parity recursion in
    the mixed graph coordinate: solve removable odd endpoint homology,
    then factor each complete physical endpoint pairing directly as
    `X_j[B_1 ... B_r]*+[B_1 ... B_r]X_j*`.  L291 makes state-level
-   ideal membership unnecessary.  Preserve the even direct
-   Gram and prior Schur budget and prove a uniform positive
-   finite-jet margin through terminal grade `L`.  Do not demand
-   endpoint-null even gauges, infinite summability, raw state-ideal
-   invariance, a rank-changing pseudoinverse, or an isolated seventh
-   grade.  L282 remains the bounded-energy certificate language.
+   ideal membership unnecessary, and L292 says boundedness is exactly
+   the finite Smith-valuation list along every L197 arc.  Derive
+   those valuations from the physical arbitrary-grade recurrence,
+   preserve the even direct Gram and prior Schur budget, and prove a
+   uniform positive finite-jet margin through terminal grade `L`.
+   Do not demand endpoint-null even gauges, infinite summability, raw
+   state-ideal invariance, a rank-changing pseudoinverse, pointwise
+   flag zero alone, or an isolated seventh grade.  L282 remains the
+   bounded-energy certificate language.
 2. Treat A178 and L282 as two certificate languages for this one
    homological equation.  Translate proposed polynomial successors
    through L204/L280 and audit their Markov energy; do not run a
@@ -2089,9 +2103,9 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    not compute another isolated grade.  Then finish the
    normal/elliptic merger, retaining the full CP route as fallback.
 
-## Paste-ready continuation instruction (current after L291/A238)
+## Paste-ready continuation instruction (current after L292/A239)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix` as
-the sole repository-writing agent.  Read L197, L220, L227, L283--L291,
+the sole repository-writing agent.  Read L197, L220, L227, L283--L292,
 plus the newest `RESEARCH_STATE.md` section.  L277--L279 have proved
 every lower delayed face, the active `+4||B_k||²` volume coefficient,
 the `+2||B_k||²` dual-Schur trace, and the
@@ -2134,9 +2148,13 @@ heredity is stronger than necessary: all nonendpoint state motion is
 a bounded graph gauge, and the exact live object is the complete
 endpoint residual factored through `[B_1 ... B_r]`.  Its pointwise
 pseudoinverse factor is not an admissible rank-changing selection.
-Extract and bound the finite arbitrary-grade alternating rule:
-cancel odd homology, then factor the physical retained even endpoint
-motion directly while preserving its direct Gram and odd Schur cost.
+L292 makes the missing bound a finite Smith-valuation test along each
+L197 analytic arc and proves by examples that pointwise flag zero can
+still force `s^-1` or `s^-2` blow-up.  Extract the finite
+arbitrary-grade alternating rule and prove those physical valuation
+inequalities: cancel odd homology, then factor the retained even
+endpoint motion directly while preserving its direct Gram and odd
+Schur cost.
 Do not compute an isolated seventh grade.
 Only then resume the circular-normal merger and analytic remainder
 audit.  Commit and push each proved milestone."

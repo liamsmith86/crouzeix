@@ -198,11 +198,41 @@
   literal endpoint residual, and flag-zero endpoint residuals are
   exactly `X[B_1 ... B_r]*+[B_1 ... B_r]X*`.  Extracting bounded
   physical endpoint factors directly—without the pointwise
-  pseudoinverse used only to prove equivalence—and proving uniform
-  margins through grade `L` is the live gate.
+  pseudoinverse used only to prove equivalence—is reduced by
+  L292/A239 to finite Smith-coordinate valuation inequalities along
+  L197's analytic failure arcs.  Deriving those physical
+  arbitrary-grade divisibilities and proving uniform margins through
+  grade `L` is the live gate.
   The circular-normal merger is downstream.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
+
+## NEWEST (2026-07-26): L292 makes bounded endpoint selection an exact valuation problem
+- Along any one-variable analytic arc, write the joint earlier
+  transfer row in Smith form
+  `Bcal=P diag(s^nu_1,...,s^nu_rho,0) Q` and put
+  `Ghat=P^-1 G P^-*` for L289's complete endpoint residual.
+- A locally bounded analytic factor `G=X Bcal*+Bcal X*` exists if
+  and only if: the generic-kernel block of `Ghat` is zero;
+  active-active entry `(a,b)` vanishes to order at least
+  `min(nu_a,nu_b)`; and active-kernel entry `(a,k)` vanishes to order
+  at least `nu_a`.
+- Sufficiency is constructive and triangular; every division is by
+  a certified Smith power.  No pseudoinverse or rank projection is
+  used.
+- **New guardrail:** pointwise flag zero is not enough.  The scalar
+  family `Bcal=s²,G=s` satisfies the pointwise condition, including at
+  the enlarged origin flag, but forces `X=1/(2s)`.  A mixed
+  `(nu_1,nu_2)=(1,3)` cross can force `s^-2`.
+- By L197 curve selection, a hidden local blow-up would appear on an
+  analytic arc.  A178's exact remaining selection target is therefore
+  to derive these finite valuation inequalities from the physical
+  arbitrary-grade endpoint recurrence, then retain the even
+  finite-jet margin.  L292 does not prove those physical
+  divisibilities.
+- Exact positive and obstruction cases pass with zero symbolic
+  residuals.  Dataset SHA-256:
+  `a9c28eec243b7854bb7f06959f359a1e9bcb4a40894e6a65aeee4c5eab80136d`.
 
 ## NEWEST (2026-07-26): L291 removes nonendpoint state algebra from the flag debt
 - Block elimination writes every positive-interior Schur state as
@@ -220,8 +250,9 @@
 - **Critical scope:** the fixed-rank converse formula uses
   `Bcal`'s Moore--Penrose inverse only to prove existence.  It may
   blow up across rank changes and must not be inserted in the metric.
-  A178 still needs explicit bounded endpoint factors or L282's
-  bounded-energy certificate.
+  L292 now replaces it along every analytic arc by an exact
+  Smith-valuation criterion; the physical valuation bounds remain
+  open.
 - **Strategic correction:** do not require the large transported
   metric witnesses themselves to lie in a delay word ideal.  Use
   L285/L194 to construct admissible states, then factor only L289's
@@ -5375,7 +5406,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L291/A238)
+## Current next actions (Epoch 6, refreshed after L292/A239)
 1. **Close bounded repeated-elliptic selection.**  Use L283 as the
    exact complete-delay boundary condition and L284's endpoint-null
    normalizations as the gauge convention.  L285 already gives the
@@ -5389,12 +5420,13 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    that it is stronger than necessary and quotients all nonendpoint
    motion into a bounded graph gauge.  Factor the complete
    mixed-graph endpoint pairing directly as
-   `X_j[B_1 ... B_r]*+[B_1 ... B_r]X_j*`.  Use this
-   to state and prove the arbitrary-grade parity recursion: odd
-   homological cancellation followed by an even hereditary flag
-   motion that preserves the physical direct Gram and preceding odd
-   Schur budget.  Prove a uniform positive finite-jet margin through
-   the terminal transfer; do not
+   `X_j[B_1 ... B_r]*+[B_1 ... B_r]X_j*`.  L292
+   makes boundedness equivalent, along every L197 arc, to finite
+   Smith-coordinate valuation inequalities.  Derive those
+   inequalities from the arbitrary-grade odd/even transport rule,
+   retain the physical direct Gram and preceding odd Schur budget,
+   and prove a uniform positive finite-jet margin through the
+   terminal transfer; do not
    demand endpoint-null even gauges, infer anything from raw
    two-sided state-ideal membership, insert L291's fixed-rank
    pseudoinverse, or compute an isolated seventh grade.
@@ -5576,12 +5608,16 @@ Current A178 transport packet:
   proof/repeated_crabb_graph_flag_ideal.md (L290 exact exposed-channel
   to endpoint-flag functoriality), and
   proof/repeated_crabb_endpoint_gauge_normal_form.md (L291 graph-gauge
-  quotient and pointwise endpoint-factor equivalence); matching
+  quotient and pointwise endpoint-factor equivalence), and
+  proof/repeated_crabb_endpoint_factor_valuation.md (L292 exact
+  arcwise Smith-valuation criterion and pointwise-only
+  obstructions); matching
   regenerators use the same
-  basenames under experiments/.  Resume by factoring the physical
-  L285/L289 endpoint residual directly with bounded transfer factors;
-  do not force its state witnesses into an ideal, use a
-  rank-changing pseudoinverse, or compute grade seven.
+  basenames under experiments/.  Resume by deriving L292's valuation
+  inequalities for the physical L285/L289 endpoint residual and its
+  arbitrary-grade recurrence; do not force state witnesses into an
+  ideal, use a rank-changing pseudoinverse, confuse pointwise flag
+  zero with bounded divisibility, or compute grade seven.
 proof/ — read in this order for the current frontier:
   crabb_disk_normal_tube.md (L152 uniform disk-normal anchor),
   crabb_disk_flat_elliptic_face.md (L151 weighted raw face),
