@@ -45,12 +45,15 @@ L312/A260 banks the rigorous fallback: reducing the first reversal
 `ceil(d/2)` for every length-`d` word.  This closes finite-word
 rank-stable factorization but not grouped weighting; termwise use
 after Stein/Hardy closure would lose the cancellations at issue.
-The L303 checkpoint repeated the concurrency audit: all four handoff
-commits are ancestors of the single `master`, one worktree exists, no
-staging/branch conflict exists, the L248/L249 hashes remain
-byte-identical, and only the explicitly scoped L303 files were live.
-Resume as one agent from the
-bounded repeated-elliptic selection gate below.  The now-completed
+The L312/A260 checkpoint repeated the concurrency audit from a clean
+worktree: all four handoff commits are ancestors of the single
+`master`, `master` agrees with `origin/master`, no alternate worktree,
+branch, staging conflict, or untracked artifact exists, and L248/L249
+regenerate byte-identically with the recorded hashes.  The stopped
+agent's L248 continuation recommendation has been superseded by
+L277--L279, which close that volume coefficient.  Resume as one agent
+only from the grouped weighted L306/L307 recurrence and then the
+fixed-`theta=1/2` finite-flag induction below.  The now-completed
 A194 route
 ran through A196's balanced output form, A197's paired
 analytic ports, A198's cyclic radial quotient, A199's finite

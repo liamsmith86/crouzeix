@@ -2,7 +2,7 @@
 
 **Last updated:** 2026-07-26 (Epoch 6 — repeated circular/elliptic merger)
 
-## SINGLE-AGENT RECONCILIATION (2026-07-25): concurrent work deconflicted
+## SINGLE-AGENT RECONCILIATION (rechecked 2026-07-26 after L312/A260): concurrent work deconflicted
 - Two agents unintentionally shared this repository while commits
   `87c5107`, `4c7a152`, `2f82d15`, and `dcab861` were made.  The Git
   history stayed linear, each commit recorded an explicit coherent
@@ -41,6 +41,17 @@
   checker, dataset, and its backward-compatible L302 helper refactor.
   No mathematical result or next-action instruction from the stopped
   agent remains unaccounted for.
+- The L312/A260 checkpoint repeated the audit from a clean worktree.
+  All four overlap commits are ancestors of `master`; `master` is the
+  only local branch and worktree and agrees with `origin/master`.
+  L248 and L249 were regenerated again in `/tmp`, byte-identically,
+  with the two hashes above; Ruff, `py_compile`, and the interrupted-
+  artifact check pass.  The stopped-agent recommendation to continue
+  L248 at the physical multiplier is historical: L277--L279 have
+  since closed that volume coefficient.  The sole live frontier is
+  L312's still-missing **grouped weighted** L306/L307 recurrence,
+  followed by the fixed-`theta=1/2` finite-flag induction.  A259
+  remains conjectural and is not a competing task.
 - **Historical pre-L279 route record (superseded):** A194 at the complete
   physical terminal balance, now in A196/L250's balanced output
   coordinates, A197/L251's paired analytic ports, A198/L252's cyclic
@@ -368,8 +379,7 @@
 - Ten deterministic general/rank-chain/delayed colligations pass all
   2,046 words through length ten; separate exhaustive tests through
   length sixteen and random tests through length twenty also pass.
-  Tracked dataset SHA-256:
-  The enlarged L312 dataset has SHA-256
+  The enlarged L312 tracked dataset has SHA-256
   `5b5dac6046295c1176d2878365e1627961603282b368bb5e8c14fcd20a56becf`.
 - This is **not L312**.  The tempting Julia-colligation circuit proof
   has an unproved residual-block step after mixed gate orientations.
