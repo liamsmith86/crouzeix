@@ -173,11 +173,14 @@ whose normalized version is delay-divisible.
 The remaining induction has a precise extra term.  After normalizing
 order \(r\), the state metric changes by \(-Z_r\); the forcing at
 orders \(r+1,r+2,\ldots\) must be transported before the next
-normalization is chosen.  A valid recursion must prove that those
-transport terms remain in the preceding right ideal and keep a
-summable coefficient bound.  One may not normalize all three stored
-columns independently and then reuse L233--L234's later coefficients
-unchanged.
+normalization is chosen.  L285 derives that triangular transport and
+shows that its raw first successor is **not** in the preceding delay
+ideal.  A valid recursion must instead solve L285's endpoint homology
+with a right-ideal representative, or use the uniform Markov-energy
+estimate as an alternative certificate for that endpoint equation,
+while keeping a summable coefficient bound.  One may not normalize
+all three stored columns independently and then reuse L233--L234's
+later coefficients unchanged.
 
 ## 6. Regeneration
 

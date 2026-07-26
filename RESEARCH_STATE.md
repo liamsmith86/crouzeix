@@ -161,11 +161,43 @@
   alternative route.  L284/A231 now removes one finite-gauge
   obstruction: each stored order-four--six column has a globally
   endpoint-null normalization that vanishes on its matching complete
-  delay.  The transport of each metric normalization into later
-  orders is the live recursive term.  The circular-normal merger is
-  downstream.
+  delay.  L285/A232 derives the exact triangular transport of each
+  normalization and disproves automatic delay-ideal preservation at
+  its first successor.  After the compulsory lower correction, every
+  successor is exactly one L204/L280 endpoint homology equation.
+  Bounded solution of that equation—by a polynomial right-ideal
+  representative or L282 energy—is the live gate.  The
+  circular-normal merger is downstream.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
+
+## NEWEST (2026-07-25): L285 makes gauge transport triangular and rejects raw ideal invariance
+- If `Dtilde=D+C` and `Mtilde=M+X` satisfy the same operator
+  Stein-factor equation, exact coefficient subtraction gives
+  `X_n−S*X_nS=R_n+C_nV*+VC_n*`, where `R_n` depends only on earlier
+  gauge and metric coefficients.  The transport is triangular.
+- Put `K_n=V*R_nV`.  The parallel column `−V K_n/2` removes the
+  lower corner.  The remaining perpendicular column must solve
+  exactly one L204 endpoint equation; L280 identifies its range with
+  the Markov coboundaries.  Thus A178 and L282 are two certificate
+  languages for the same coefficientwise homology, not independent
+  recursions.
+- The tempting stronger invariant is false.  For L284's quartic
+  gauge, the raw first successor
+  `R_5=−N_4D_1*−D_1N_4*−T_1*Z_4S−S*Z_4T_1` has 100 reduced words.
+  Its quotient modulo the first delay ideal has 28 nonzero words
+  (`l1=60`), and its `Q` corner still has 20.  Hence raw transport
+  cannot simply be declared right-ideal divisible.
+- Exact recurrence, Hermiticity, and lower-corner residuals are zero.
+  A single-delay matrix with `B_1=0`, `B_2≠0` has nonzero raw
+  successor endpoint norm `3.53e−2`, confirming that the next
+  homological solve is physical rather than bookkeeping.  Dataset
+  SHA-256:
+  `54dc8db20c3b301f7d75978ccb126ab75741417f531ec1db4cd87eb871d7a350`.
+- **Live gate:** prove that L285's endpoint target has either a
+  bounded polynomial/right-ideal preimage with summable growth or a
+  uniformly bounded-energy Markov preimage.  Do not compute another
+  isolated grade.
 
 ## NEWEST (2026-07-25): L284 makes every existing preparation delay-normalized modulo an endpoint-null gauge
 - If `Z=Z*`, `Y=Z−S*ZS`, and
@@ -187,9 +219,9 @@
   simultaneously to the stored series.  Replacing `C_4` changes the
   fifth and later metric forcing, and replacing `C_5` changes the
   sixth and later forcing.  A direct rank-chain scope guard leaves a
-  fifth-flag residual `5.99e−3` after naïve simultaneous reuse.  A
-  valid induction must transport those changes and prove they remain
-  in the preceding right ideal with a summable bound.
+  fifth-flag residual `5.99e−3` after naïve simultaneous reuse.
+  L285 now shows that even the raw first transport is not delay-ideal
+  divisible; the correct next object is its endpoint homology target.
 
 ## NEWEST (2026-07-25): L283 closes the all-grade complete-delay matrix face
 - L258 makes the edge-deleted closed-return coefficient the first
@@ -1298,8 +1330,10 @@
   coefficient bound.  L283 has since closed A171/L228's all-grade
   complete-delay anticommutator.  L284 additionally normalizes each
   stored later column by an endpoint-null delay gauge.  The remaining
-  recursion is the transport of each such metric-gauge change into
-  later right-ideal forcing; it is not another delay-face calculation.
+  recursion is the triangular transport of each such metric-gauge
+  change into L285's endpoint homology.  Raw ideal invariance is false;
+  the required right-ideal representative must be selected by solving
+  that homology.  This is not another delay-face calculation.
   `proof/repeated_crabb_canonical_sextic_preimage.md`;
   `experiments/repeated_crabb_canonical_sextic_preimage.py`.
 
@@ -5140,18 +5174,20 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L284/A231)
+## Current next actions (Epoch 6, refreshed after L285/A232)
 1. **Close bounded repeated-elliptic selection.**  Use L283 as the
    exact complete-delay boundary condition and L284's endpoint-null
-   normalizations as the gauge convention.  Derive the one-step
-   transport of `−Z_r` into orders `r+1,r+2,...`; prove the transported
-   terms remain in the preceding right ideal and obtain a summable
-   coefficient bound.  Do not compute an isolated grade four.
-2. **Keep L282 as the alternate selection route.**  If the right-ideal
-   recursion does not expose an inductive object, return to the exact
-   positive-test quotient and prove the uniform off-commutant flux
-   estimate.  L283 supplies the zero/delayed boundary data but not the
-   quantitative mixed-flag estimate.
+   normalizations as the gauge convention.  L285 already gives the
+   exact transport recurrence and disproves raw ideal invariance.
+   Prove that its endpoint target has a bounded polynomial/right-ideal
+   preimage with summable growth, or use L282's uniform
+   off-commutant energy estimate as an alternative certificate for
+   the same endpoint equation.  Do not compute an isolated grade four.
+2. **Treat A178 and L282 as one selection gate.**  Use L204/L280 to
+   translate any proposed polynomial successor into its Markov
+   coboundary and energy, or translate an L282 flux estimate back to a
+   bounded state column.  Do not run the two routes as undocumented
+   competing recursions or use a discontinuous pseudoinverse.
 3. **Only after selection closes, finish the repeated
    circular-normal/elliptic merger.**  Derive L199's later
    Schur-orthogonal normal response and avoid spending the same disk

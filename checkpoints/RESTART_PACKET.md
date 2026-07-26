@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-25): after L284 / A231
+## Current general Crabb frontier (2026-07-25): after L285 / A232
 
 The accidental two-agent interval has been reconciled.  Commits
 `87c5107`, `4c7a152`, `2f82d15`, and `dcab861` form one linear history
@@ -12,7 +12,7 @@ handoff was checked against the linear history through `646ade8`; no
 branch, staging collision, or unresolved working-tree artifact
 remains.  Its sole new in-progress result was independently tightened
 and banked as L272/A219.  A second single-agent reconciliation through
-L284/A231 found no stopped-agent artifact, branch, staged overlap, or
+L285/A232 found no stopped-agent artifact, branch, staged overlap, or
 competing next-action instruction.  Resume as one agent from the
 bounded repeated-elliptic selection gate below.  The now-completed
 A194 route
@@ -74,10 +74,14 @@ relative grade-one response, and A203/L257 turns its transport into
   through mixed partial flags; L230--L234 close only the first three
   prepared grades.  Resume A178's arbitrary-grade right-ideal
   recurrence, with L282's flux inequality as the alternate route.
-  L284/A231 now gives each stored order-four--six column a globally
+  L284/A231 gives each stored order-four--six column a globally
   endpoint-null normalization that vanishes on its matching complete
-  delay.  These choices are not simultaneous: the live recursive term
-  is the transport of each metric change `−Z_r` into later forcing.
+  delay.  L285/A232 derives the exact triangular transport of those
+  choices and disproves automatic delay-ideal preservation at the
+  first successor.  After lower-corner elimination, every successor
+  is exactly one L204/L280 endpoint equation.  The live gate is a
+  bounded polynomial/right-ideal or Markov-energy solution of that
+  common homology problem.
   The remainder of this opening paragraph records the route that led
   to L279; every embedded instruction to resume A213, classify the
   active support, or recompute the delayed scalar flux is superseded.
@@ -684,6 +688,15 @@ before their theta/coisometric cancellation.
   Hermiticity/support/forcing/delay-ideal certificates plus independent
   matrix audits; tracked data hash
   `9dad8b6817a2e3b56b50f7089d63252e057828d818700c4ae6d5b004ece62d17`.
+- `proof/repeated_crabb_gauge_transport_homology.md` (L285/A232):
+  exact triangular transport recurrence, lower-corner elimination,
+  and reduction of every successor to L204/L280's endpoint homology.
+  The raw first successor of the quartic gauge is proved not to lie
+  in the first delay ideal.
+- `experiments/repeated_crabb_gauge_transport_homology.py`: exact
+  recurrence and non-ideal certificates plus independent matrix
+  audits; tracked data hash
+  `54dc8db20c3b301f7d75978ccb126ab75741417f531ec1db4cd87eb871d7a350`.
 - `experiments/repeated_crabb_markov_response.py`: arbitrary
   multiplier, bistochastic, summed-response, Dirichlet, observability-
   preimage, state-energy, polarized-collapse, and repeated-apex
@@ -1937,14 +1950,17 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   The former deformation route was superseded by the Schwarzian proof of EL4; see
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
-## Next five concrete actions (refreshed after L284 / A231)
-1. Use L283's exact delayed boundary value and L284's gauge convention
-   to derive the one-step transport of `−Z_r` into every later forcing.
-   Prove that transport remains in the preceding right ideal and has
-   a summable coefficient bound.  Do not compute an isolated grade.
-2. If no inductive object emerges, resume L282's alternative
-   off-commutant flux inequality; do not build a Poisson inverse or
-   use a discontinuous pseudoinverse.
+## Next five concrete actions (refreshed after L285 / A232)
+1. Use L285's exact recurrence to identify the endpoint target after
+   lower-corner elimination.  Prove that target has a bounded
+   polynomial/right-ideal preimage with summable growth, or prove
+   L282's bounded-energy alternative for the same endpoint equation.
+   Raw ideal invariance is
+   false; do not try to establish it or compute an isolated grade.
+2. Treat A178 and L282 as two certificate languages for this one
+   homological equation.  Translate proposed polynomial successors
+   through L204/L280 and audit their Markov energy; do not run a
+   competing pseudoinverse/Poisson recursion.
 3. After bounded elliptic selection closes, derive the later
    Schur-orthogonal circular-normal response and merge the branches
    without spending the same disk Gram twice.
@@ -1984,9 +2000,9 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    not compute another isolated grade.  Then finish the
    normal/elliptic merger, retaining the full CP route as fallback.
 
-## Paste-ready continuation instruction (current after L284/A231)
+## Paste-ready continuation instruction (current after L285/A232)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix` as
-the sole repository-writing agent.  Read L197, L220, L227, L283, and L284,
+the sole repository-writing agent.  Read L197, L220, L227, L283--L285,
 plus the newest `RESEARCH_STATE.md` section.  L277--L279 have proved
 every lower delayed face, the active `+4||B_k||²` volume coefficient,
 the `+2||B_k||²` dual-Schur trace, and the
@@ -2002,12 +2018,14 @@ Use L230--L234 and the new L283 boundary value to seek A178's
 arbitrary-grade right-ideal preparation without computing another
 isolated grade.  L284 shows that every stored later column can be
 made delay-divisible by subtracting a global endpoint-null gauge, but
-the normalizations are not simultaneous.  Derive how each metric
-change `−Z_r` propagates into later forcing and prove that propagation
-stays in the preceding right ideal with summable bounds.  If that
-does not expose an induction, return to L282's uniform off-commutant
-flux estimate.  Only then resume the circular-normal merger and
-analytic remainder audit.  Commit and push each proved milestone."
+the normalizations are not simultaneous.  L285 derives their exact
+triangular transport and disproves raw delay-ideal invariance at the
+first successor.  Do not try to prove that false invariant.  After
+the compulsory lower correction, solve the resulting L204/L280
+endpoint homology with either a bounded polynomial/right-ideal
+representative and summable bounds or L282's equivalent uniform
+Markov-energy estimate.  Only then resume the circular-normal merger
+and analytic remainder audit.  Commit and push each proved milestone."
 
 ## Superseded pre-L279 continuation instruction (historical)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix`.
