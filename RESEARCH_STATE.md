@@ -234,10 +234,16 @@
   six quadratic terms and proves it begins cubically.  A rational
   rank-one flag example has nonzero cubic compression on
   `ker B_1*`, so the no-extra-correction insertion is false: the
-  defect is not automatically a prior-flag factor.  The next live
-  step is to feed L299's compact cubic forcing into L280/L296 or
-  L289/L292 and construct the active mixed homology correction, not
-  expand another complete-delay grade.  The alternate raw route retains its lower
+  defect is not automatically a prior-flag factor.  L300/A247 now
+  closes the resulting full cubic range and bounded-energy problem:
+  after eliminating the moving frame, every dual pairing is
+  controlled by the exact L281 observability defect, and a response
+  column exists with
+  `||C_3||<=10||R_1||<=20 Gamma_S||B_1||`.  The next live step is
+  to localize its later quadratic Schur cost to the next surviving
+  transfer flag, then lift the same commutator mechanism to L299's
+  all-series formula—not expand another complete-delay grade.  The
+  alternate raw route retains its lower
   budget, separates L283's favorable `−12` Gram, and expresses only
   L285/L289's mixed transported remainder as a controlled flux.
   L296/A243
@@ -255,6 +261,31 @@
   The circular-normal merger is downstream.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
+
+## NEWEST (2026-07-26): L300 gives the moving cubic a gap-free Markov preimage
+- L299's cubic frame tangents reduce exactly to
+  `D_1=−2(S*)²V` and `L_1=−2S²W`.  Using L298's Stein equation
+  eliminates the frame entirely and writes the cubic forcing as one
+  universal expression linear in the already bounded metric
+  direction `R_1`.
+- If `H_Y−SH_YS*=WYW*` and
+  `Z_Y=(I−VV*)H_YV`, cyclic reduction gives
+  `<Y,Q_3>=tr(R_1 K_Y)`, where every term of `K_Y` contains `Z_Y`
+  and `||K_Y||_F<=20||Z_Y||_F`.
+- L281 identifies `2||Z_Y||²` with the exact Markov Dirichlet
+  energy.  Hence `Q_3` annihilates the complete L206 cokernel and has
+  a perpendicular response column with
+  `||C_3||<=10||R_1||<=20 Gamma_S||B_1||`.  No Markov inverse,
+  rank projection, or pseudoinverse occurs; `Gamma_S` is uniformly
+  bounded on each fixed repeated-block neighbourhood.
+- This closes L299's full cubic range and global bounded-energy debt,
+  including reducible strata.  It does **not** yet localize the
+  correction's quadratic sextic cost on `ker B_1*`; the next theorem
+  must charge that cost to the next surviving transfer row before
+  promoting the construction to L299's all-series recursion.
+- Exact rational algebra and 12 independent unstructured,
+  rank-chain, and reducible audits pass.  Dataset SHA-256:
+  `3f3cb2f19f2ef058c1549fef1bdb7f8352b93eb901125f3e93cd188039c05e5b`.
 
 ## NEWEST (2026-07-26): L299 isolates and falsifies the no-extra moving correction
 - If `M−A*MA=DD*` is L227's moving raw pair and `(R,F)` is L298's
@@ -5637,7 +5668,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L299/A246)
+## Current next actions (Epoch 6, refreshed after L300/A247)
 1. **Close bounded repeated-elliptic selection.**  Use L283 as the
    exact complete-delay boundary condition and L284's endpoint-null
    normalizations as the gauge convention.  L285 already gives the
@@ -5661,18 +5692,20 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    demand endpoint-null even gauges, infer anything from raw
    two-sided state-ideal membership, insert L291's fixed-rank
    pseudoinverse, or compute an isolated seventh grade.
-2. **Repair L299's compact moving defect.**  The six-term all-series
-   formula is proved, and its cubic is lower-tight, but the rational
-   counterexample disproves automatic prior-flag factorization.  Do
-   not test that false shortcut again.  Feed
-   `N_3=−(A_1*R_1S+S*R_1A_1+D_1F_1*+F_1D_1*)` into L280's exact
-   response range.  Derive an explicit bounded L296 polarization
-   family (compare with, but do not assume equality to, L230's cubic
-   column), verify every L222 commutant pairing, and prove its column
-   energy/Smith valuations through rank changes.  Then use L299's
-   six-term formula—not isolated grades—to state the recursive
-   moving correction and its finite-jet margin.  If that active
-   homology bound fails, return to the raw normalization:
+2. **Localize L300's cubic cost, then recurse from L299.**  L300 now
+   proves full L222 cokernel compatibility and supplies a response
+   column with global gap-free bound
+   `||C_3||<=20 Gamma_S||B_1||`; do not redo the cubic range solve or
+   search for a scalar multiple of L230.  The remaining cubic debt is
+   ordered: compute the exact quadratic Schur cost first created by
+   this column at degree six and, on `ker B_1*`, bound/factor it by
+   the next surviving transfer row (equivalently prove the flagged
+   L296 energy estimate or L292 valuations).  Then lift L300's
+   frame-elimination/commutator argument to L299's six-term
+   all-series formula and state the finite recursive moving
+   correction with retained even margins.  Do not retry A246's false
+   prior-flag shortcut.  If the ordered homology bound fails, return
+   to the raw normalization:
    retain its lower budget, split off L283's `−12B_kB_k*`, discard
    bounded prior-flag factors, and use L296 on the surviving
    polarization columns with total energy
@@ -5868,7 +5901,9 @@ Current A178 transport packet:
   proof/repeated_crabb_oriented_retightening_transport.md (L298 exact
   all-grade Stein-compatible oriented retightening), and
   proof/repeated_crabb_moving_retightening_defect.md (L299 exact
-  six-term nonlinear defect and rational cubic flag obstruction);
+  six-term nonlinear defect and rational cubic flag obstruction), and
+  proof/repeated_crabb_cubic_markov_flux.md (L300 exact
+  frame-eliminated cubic pairing and gap-free response-column bound);
   matching
   regenerators use the same
   basenames under experiments/.  Resume either on the raw branch by
@@ -5877,9 +5912,9 @@ Current A178 transport packet:
   factors, deriving L296 polarization columns for the surviving
   compression, and proving their total energy is
   `O(||U*B_k||²)` (or equivalently proving L292's valuations), or on
-  the lower-tight branch by deriving a bounded L280/L296 response
-  column for L299's lower-tight but non-flag-zero cubic defect, then
-  recursing from its six-term all-series formula.  Do not
+  the lower-tight branch by localizing L300's already bounded cubic
+  response cost to the next surviving transfer flag, then recursing
+  from L299's six-term all-series formula.  Do not
   mix those endpoint ledgers, force state witnesses into an
   ideal, use a rank-changing pseudoinverse, confuse pointwise flag
   zero with bounded divisibility, or compute grade seven.

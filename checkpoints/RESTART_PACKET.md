@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-26): after L299 / A246
+## Current general Crabb frontier (2026-07-26): after L300 / A247
 
 The accidental two-agent interval has been reconciled.  Commits
 `87c5107`, `4c7a152`, `2f82d15`, and `dcab861` form one linear history
@@ -15,7 +15,8 @@ and banked as L272/A219.  A second single-agent reconciliation through
 L287/A234 found no stopped-agent artifact, branch, staged overlap, or
 competing next-action instruction.  L288/A235, L289/A236,
 L290/A237, L291/A238, L292/A239, L293/A240, L294/A241,
-L295/A242, L296/A243, L297/A244, L298/A245, and L299/A246 were
+L295/A242, L296/A243, L297/A244, L298/A245, L299/A246, and
+L300/A247 were
 then derived, audited, and documented by the sole active agent.
 Resume as one agent from the
 bounded repeated-elliptic selection gate below.  The now-completed
@@ -139,9 +140,16 @@ relative grade-one response, and A203/L257 turns its transport into
   reduces that defect exactly to six quadratic terms and proves it
   begins cubically.  An exact rational rank-one flag has nonzero
   cubic compression on `ker B_1*`, so automatic prior-flag
-  factorization is false.  Repair L299's compact lower-tight cubic by
-  an explicit bounded L280/L296 response, then recurse from the
-  six-term formula.  On the raw
+  factorization is false.  L300/A247 repairs its full response-range
+  and bounded-energy debt: after eliminating the moving frame, every
+  dual pairing is an explicit commutator controlled by the L281
+  observability defect, and the cubic has a perpendicular preimage
+  `C_3` with
+  `||C_3||<=10||R_1||<=20 Gamma_S||B_1||`.  This uses no
+  pseudoinverse or closing Markov gap.  The live lower-tight debt is
+  now to localize the correction's quadratic sextic cost to the next
+  surviving transfer flag, then recurse from L299's six-term formula.
+  On the raw
   route, retain its lower budget, split off L283's
   favorable `−12` Gram, and derive a flux pairing only for the mixed
   transport remainder.  L296/A243
@@ -877,6 +885,13 @@ before their theta/coisometric cancellation.
 - `experiments/repeated_crabb_moving_retightening_defect.py`: exact
   rational and nearby rank-chain cubic audits; tracked data hash
   `caea7e9741a255ba6319e573050be51cd951889f8755bc286156885cae9622a9`.
+- `proof/repeated_crabb_cubic_markov_flux.md` (L300/A247): exact
+  frame-eliminated cubic formula, full-cokernel compatibility, and
+  gap-free bounded response-column theorem.
+- `experiments/repeated_crabb_cubic_markov_flux.py`: exact rational,
+  unstructured, rank-chain, and reducible Markov-flux audits; tracked
+  data hash
+  `3f3cb2f19f2ef058c1549fef1bdb7f8352b93eb901125f3e93cd188039c05e5b`.
 - `experiments/repeated_crabb_markov_response.py`: arbitrary
   multiplier, bistochastic, summed-response, Dirichlet, observability-
   preimage, state-energy, polarized-collapse, and repeated-apex
@@ -2130,7 +2145,7 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   The former deformation route was superseded by the Schwarzian proof of EL4; see
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
-## Next five concrete actions (refreshed after L299 / A246)
+## Next five concrete actions (refreshed after L300 / A247)
 1. Use L285--L299 to prove the arbitrary-grade parity recursion in
    the mixed graph coordinate: solve removable odd endpoint homology,
    then factor each complete physical endpoint pairing directly as
@@ -2144,15 +2159,18 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    state-ideal invariance, a rank-changing pseudoinverse, pointwise
    flag zero alone, or an isolated seventh grade.  L282 remains the
    bounded-energy certificate language.
-2. Repair L299's compact moving defect.  Its six-term formula and
-   cubic lower tightness are proved, while the rational example
-   disproves automatic prior-flag factorization.  Feed the explicit
-   cubic forcing into L280, derive a bounded L296 polarization family
-   (compare with but do not assume L230's column), verify the L222
-   commutant pairings, and prove its energy/Smith valuations through
-   rank changes.  Then recurse using L299's all-series formula rather
-   than isolated grades.  If that active homology bound fails, return
-   to the raw normalization: retain its lower budget, split off L283's
+2. Localize L300's cubic correction cost, then recurse from L299.
+   L300 already proves the complete commutant pairing and gives a
+   gap-free response column with
+   `||C_3||<=20 Gamma_S||B_1||`; do not redo the range solve or force
+   the answer to be a scalar multiple of L230's column.  Compute the
+   exact quadratic Schur cost first created by this column at degree
+   six and, on `ker B_1*`, charge it to the next surviving transfer
+   row via L296 energy or L292 valuations.  Then lift L300's
+   frame-elimination/commutator mechanism to L299's all-series
+   six-term formula rather than expanding isolated grades.  If that
+   ordered homology bound fails, return to the raw normalization:
+   retain its lower budget, split off L283's
    `−12B_kB_k*`, discard bounded prior-flag factors, and use L296 on
    the surviving polarization columns with total energy
    `O(||U*B_k||²)`.  Do not mix endpoint ledgers.
@@ -2195,9 +2213,9 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    not compute another isolated grade.  Then finish the
    normal/elliptic merger, retaining the full CP route as fallback.
 
-## Paste-ready continuation instruction (current after L299/A246)
+## Paste-ready continuation instruction (current after L300/A247)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix` as
-the sole repository-writing agent.  Read L197, L220, L227, L283--L299,
+the sole repository-writing agent.  Read L197, L220, L227, L283--L300,
 plus the newest `RESEARCH_STATE.md` section.  L277--L279 have proved
 every lower delayed face, the active `+4||B_k||²` volume coefficient,
 the `+2||B_k||²` dual-Schur trace, and the
@@ -2260,10 +2278,17 @@ sums solve the fixed-`S` base-colligation transport, not the full
 moving series.  L299 computes that residual exactly as six quadratic
 terms beginning cubically.  Its cubic is lower-tight, but an exact
 rational rank-one example has nonzero compression on `ker B_1*`, so
-automatic prior-flag factorization is false.  Derive a bounded
-L280/L296 response family for L299's explicit cubic, verify L222's
-commutant pairings and L292's valuations, then recurse from the
-six-term formula.  Do not mix endpoint ledgers, assume A179's false
+automatic prior-flag factorization is false.  L300 nevertheless
+closes its full response range and global energy: eliminating the
+moving frame makes every dual pairing an explicit commutator
+controlled by the L281 defect, and there is a perpendicular column
+`C_3` with
+`||C_3||<=10||R_1||<=20 Gamma_S||B_1||`, without a pseudoinverse or
+Markov-gap loss.  Do not redo that range solve or force L230's stale
+scalar ansatz.  Localize the quadratic sextic cost of L300's column
+to the next surviving transfer row, then recurse from L299's
+six-term formula using the same frame-elimination/commutator
+mechanism.  Do not mix endpoint ledgers, assume A179's false
 raw superposition, retry the no-extra-correction shortcut, or
 re-estimate the Markov gap.
 If that effective-route factorization fails, retain the raw lower
