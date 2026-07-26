@@ -1,5 +1,11 @@
 # One orbit Gram and one-seventh of L212 retighten every transfer grade
 
+> **Moving-series update.**  L299 derives the exact six-term
+> nonlinear defect created by inserting this fixed-base correction
+> into L227's moving operator/frame.  It begins cubically and is not
+> automatically a prior-flag factor.  L298 remains the all-grade
+> complete-delay boundary value; L299 is the active homology forcing.
+
 ## 1. Result (L298, 2026-07-26)
 
 Retain the balanced pure partial-isometry data

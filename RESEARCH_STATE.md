@@ -230,7 +230,14 @@
   arbitrary grade; weighted sums close the fixed-`S`
   base-colligation transport.  The live effective-route debt is now
   the nonlinear defect produced by the moving elliptic operator and
-  prior prepared grades.  The alternate raw route retains its lower
+  prior prepared grades.  L299/A246 reduces that defect exactly to
+  six quadratic terms and proves it begins cubically.  A rational
+  rank-one flag example has nonzero cubic compression on
+  `ker B_1*`, so the no-extra-correction insertion is false: the
+  defect is not automatically a prior-flag factor.  The next live
+  step is to feed L299's compact cubic forcing into L280/L296 or
+  L289/L292 and construct the active mixed homology correction, not
+  expand another complete-delay grade.  The alternate raw route retains its lower
   budget, separates L283's favorable `−12` Gram, and expresses only
   L285/L289's mixed transported remainder as a controlled flux.
   L296/A243
@@ -243,10 +250,33 @@
   surviving compressed remainder, and prove their total energy is
   `O(||U*B_k||²)`.  Do not mix the raw and lower-tight endpoint
   ledgers or treat L298's fixed-`S` weighted sum as an already
-  completed moving metric series.
+  completed moving metric series; L299 explicitly disproves that
+  shortcut.
   The circular-normal merger is downstream.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
+
+## NEWEST (2026-07-26): L299 isolates and falsifies the no-extra moving correction
+- If `M−A*MA=DD*` is L227's moving raw pair and `(R,F)` is L298's
+  weighted fixed-base correction, put `Delta=A−S`, `H=D−V`.
+  The entire corrected residual is exactly
+  `N=−Delta*RS−S*RDelta−Delta*RDelta−HF*−FH*−FF*`.
+- Since `Delta,H=O(c)` and `R,F=O(c²)`, `N=O(c³)`.  This explains
+  why L298 closes every first completely delayed even face.
+- The cubic forcing is
+  `N_3=−(A_1*R_1S+S*R_1A_1+D_1F_1*+F_1D_1*)` and has zero lower
+  corner.
+- It is not automatically a prior-flag factor.  On an exact rational
+  six-state, two-copy partial isometry with rank-one `B_1`, its upper
+  Stein response is trace-zero indefinite and has surviving-flag
+  compression `2985984/54865681>0` on `ker B_1*`.
+- Therefore the direct all-series insertion of L298 with no further
+  homology correction is false.  L298 itself remains valid; L299
+  provides the compact active forcing that must now be repaired by
+  L280/L296 or L289/L292.
+- The rational case and nine nearby noncommuting rank-chain cases
+  pass.  Dataset SHA-256:
+  `caea7e9741a255ba6319e573050be51cd951889f8755bc286156885cae9622a9`.
 
 ## NEWEST (2026-07-26): L298 retightens every transfer grade explicitly
 - For `A_k=B_k*B_k`, the right-orbit Gram
@@ -5607,7 +5637,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L298/A245)
+## Current next actions (Epoch 6, refreshed after L299/A246)
 1. **Close bounded repeated-elliptic selection.**  Use L283 as the
    exact complete-delay boundary condition and L284's endpoint-null
    normalizations as the gauge convention.  L285 already gives the
@@ -5631,19 +5661,18 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    demand endpoint-null even gauges, infer anything from raw
    two-sided state-ideal membership, insert L291's fixed-rank
    pseudoinverse, or compute an isolated seventh grade.
-2. **Transport L298 through the moving elliptic series.**  L298
-   closes the weighted fixed-`S` correction and every completely
-   delayed lower-tight first face.  Form its weighted metric/frame
-   pair `(R(c),F_rt(c))` and compute the exact nonlinear defect after
-   replacing `S,V` by the pulled operator and L227's moving raw defect
-   frame.  Use one resolvent identity, not isolated-grade expansion:
-   the only new terms are the two operator cross terms, their
-   quadratic term, the moving-frame crosses, and
-   `F_rt(c)F_rt(c)*`.  Prove that this defect factors through prior
-   transfer flags in L289/L290's sense, or satisfies L292's
-   valuations with a uniform finite-jet margin.  Do not infer this
-   from the fixed-`S` sum or raw superposition; A179/A172 still apply.
-   If that factorization fails, return to the raw normalization:
+2. **Repair L299's compact moving defect.**  The six-term all-series
+   formula is proved, and its cubic is lower-tight, but the rational
+   counterexample disproves automatic prior-flag factorization.  Do
+   not test that false shortcut again.  Feed
+   `N_3=−(A_1*R_1S+S*R_1A_1+D_1F_1*+F_1D_1*)` into L280's exact
+   response range.  Derive an explicit bounded L296 polarization
+   family (compare with, but do not assume equality to, L230's cubic
+   column), verify every L222 commutant pairing, and prove its column
+   energy/Smith valuations through rank changes.  Then use L299's
+   six-term formula—not isolated grades—to state the recursive
+   moving correction and its finite-jet margin.  If that active
+   homology bound fails, return to the raw normalization:
    retain its lower budget, split off L283's `−12B_kB_k*`, discard
    bounded prior-flag factors, and use L296 on the surviving
    polarization columns with total energy
@@ -5837,7 +5866,9 @@ Current A178 transport packet:
   proof/repeated_crabb_lower_retightening_normalization.md (L297 exact
   raw-to-lower-tight endpoint ledger), and
   proof/repeated_crabb_oriented_retightening_transport.md (L298 exact
-  all-grade Stein-compatible oriented retightening);
+  all-grade Stein-compatible oriented retightening), and
+  proof/repeated_crabb_moving_retightening_defect.md (L299 exact
+  six-term nonlinear defect and rational cubic flag obstruction);
   matching
   regenerators use the same
   basenames under experiments/.  Resume either on the raw branch by
@@ -5846,9 +5877,9 @@ Current A178 transport packet:
   factors, deriving L296 polarization columns for the surviving
   compression, and proving their total energy is
   `O(||U*B_k||²)` (or equivalently proving L292's valuations), or on
-  the lower-tight branch by inserting L298's closed weighted
-  base-colligation transport into the moving elliptic operator and
-  factoring its nonlinear defect through prior flags.  Do not
+  the lower-tight branch by deriving a bounded L280/L296 response
+  column for L299's lower-tight but non-flag-zero cubic defect, then
+  recursing from its six-term all-series formula.  Do not
   mix those endpoint ledgers, force state witnesses into an
   ideal, use a rank-changing pseudoinverse, confuse pointwise flag
   zero with bounded divisibility, or compute grade seven.
