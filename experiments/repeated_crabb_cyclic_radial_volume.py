@@ -301,6 +301,140 @@ class DelayedQuotient:
             result[degree] = self.scale(-1, convolution)
         return result
 
+    def constant_series(
+        self,
+        polynomial: Polynomial,
+    ) -> Series:
+        """Return a series with one prescribed constant coefficient."""
+
+        return [
+            polynomial,
+            *({} for _ in range(self.maximum_degree)),
+        ]
+
+    def series_subtract(
+        self,
+        left: Series,
+        right: Series,
+    ) -> Series:
+        """Subtract two quotient series."""
+
+        return [
+            self.add(
+                left_coefficient,
+                self.scale(-1, right_coefficient),
+            )
+            for left_coefficient, right_coefficient in zip(
+                left,
+                right,
+                strict=True,
+            )
+        ]
+
+    def compress_series(
+        self,
+        series: Series,
+        left: Polynomial,
+        right: Polynomial,
+    ) -> Series:
+        """Apply constant left and right quotient factors."""
+
+        return [
+            self.multiply(
+                self.multiply(left, coefficient),
+                right,
+            )
+            for coefficient in series
+        ]
+
+    def closed_return_defect_for(
+        self,
+        partial: Polynomial,
+        initial: Polynomial,
+        final: Polynomial,
+        identity: Polynomial,
+        active_degree: int,
+    ) -> Series:
+        """Return L258's edge-deleted closed-return defect series."""
+
+        operator = self.operator_series_for(
+            partial,
+            initial,
+            final,
+            identity,
+        )
+        metric = self.metric_series_for(
+            partial,
+            initial,
+            final,
+            identity,
+        )
+        metric[active_degree] = {}
+        output_gram = self.series_multiply(
+            self.series_multiply(
+                operator,
+                self.inverse_series(metric, identity),
+            ),
+            self.series_adjoint(operator),
+        )
+        retained = self.add(
+            identity,
+            self.scale(-1, final),
+        )
+        retained_gram = self.compress_series(
+            output_gram,
+            retained,
+            retained,
+        )
+        entrance = self.compress_series(
+            output_gram,
+            retained,
+            final,
+        )
+        exit_ = self.compress_series(
+            output_gram,
+            final,
+            retained,
+        )
+        loop = self.compress_series(
+            output_gram,
+            final,
+            final,
+        )
+        loop_denominator = self.series_subtract(
+            self.constant_series(identity),
+            loop,
+        )
+        renewal = [
+            self.add(direct, returned)
+            for direct, returned in zip(
+                retained_gram,
+                self.series_multiply(
+                    self.series_multiply(
+                        entrance,
+                        self.inverse_series(
+                            loop_denominator,
+                            identity,
+                        ),
+                    ),
+                    exit_,
+                ),
+                strict=True,
+            )
+        ]
+        retained_metric = self.compress_series(
+            metric,
+            retained,
+            retained,
+        )
+        return self.series_subtract(
+            self.constant_series(retained),
+            self.series_multiply(
+                retained_metric,
+                renewal,
+            ),
+        )
+
     def mass_components_for(
         self,
         partial: Polynomial,

@@ -63,8 +63,13 @@
   related by the first face of a single analytic entrance carrying
   only the tail defect.  A larger network would require an additional
   defect channel and therefore would not make A194 automatic.  The
-  live calculation returns to A213's two explicitly open
-  trace-locality conditions; no operator congruence can replace them.
+  live calculation returns to A213's trace-locality conditions; no
+  operator congruence can replace them.  L269/A216 then corrects the
+  second condition: the full face does contain a nonzero
+  boundary-depth-`k+1` term, already at grade two, but it appears as
+  `G_k−SG_kS*` with zero delayed trace.  The all-grade target is
+  therefore a shallow L266 return **plus** explicitly trace-null deep
+  Stein divergences, not a wholly shallow operator face.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
 
@@ -257,11 +262,12 @@
   sizes `2,3,4`, delays `1,2,4`, and shifts through absolute degree
   four.  The exact invariant-subspace proof is independent of this
   audit.
-- The remaining A194 theorem has two explicit parts: prove that the
-  fully assembled zero/one-kernel physical return is copy-scalar and
-  either Laurent or of boundary depth at most `k` after L262/L264
-  normalization, and compute its bilateral-symbol constant as four
-  while proving all earlier coefficients vanish.
+- L269 shows how this theorem must be used physically: the fully
+  assembled return is not wholly shallow.  First separate its
+  depth-`k+1` trace-zero Stein divergences, then prove that the
+  remainder is copy-scalar and either Laurent or of boundary depth at
+  most `k`.  Compute that remainder's bilateral-symbol constant as
+  four while proving all earlier coefficients vanish.
   L242's universal reflected jet and L256's grade-one result are
   checks, not substitutes for that derivation.
   `proof/repeated_crabb_toeplitz_return_rigidity.md`.
@@ -314,6 +320,33 @@
   `fb53ef7433874e6be9887f68519bd467bf9c403e96864288b36d6aa2b4da4f65`.
   `proof/repeated_crabb_lossless_feedback_obstruction.md`;
   `experiments/repeated_crabb_lossless_feedback_obstruction.py`.
+
+## NEWEST (2026-07-25): L269 finds the missing deep trace divergence
+- Compute L258's operator-valued closed return before tracing and
+  compare a full grade-two delay with its embedded grade-one tail.
+  The exact difference is
+  `−2I+5Q_1−R_1−3Q_2+R_2+G_2−SG_2S*`, where
+  `G_2=S(S*)^4S^4S*`.
+- The first five terms have zero trace by L252.  The two deep terms
+  reduce to the same cyclic representative `Q_4`, so they also have
+  zero trace.  This proves the grade-two scalar recursion while
+  retaining the operator mismatch seen in L268.
+- On the unilateral half-line, `G_2` has boundary depth three.  It is
+  nonzero in the `B_1=0` operator quotient.  Therefore A213's original
+  demand that the complete return have depth at most `k=2` is false.
+  L266 must be applied only after deep terms are split off as
+  trace-zero divergences.
+- Exact grades `2..5` all collapse to
+  `radial P_k+G_k−SG_kS*`, with only `7,8,9,8` words and zero cyclic
+  difference.  This is much smaller than the pre-renewal expansion
+  and suggests the correct all-grade recurrence, but remains finite
+  evidence beyond grade two.
+- The next proof must derive this split from L243/L251/L258 and prove
+  the two scalar radial moment identities `P_k(1)=0`,
+  `P_k'(1)=−1`.  The tracked exact dataset hash is
+  `0398cee7f133b13ab4bc1f332e5d8e030f8ce86e92929e547cc9b30cce48a988`.
+  `proof/repeated_crabb_closed_return_recursion.md`;
+  `experiments/repeated_crabb_closed_return_recursion.py`.
 
 ## NEWEST (2026-07-25): L253 identifies the target as Toeplitz leakage
 - If `T_B` is the causal Toeplitz multiplier of the matrix-inner
@@ -4662,19 +4695,23 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-25)
-1. **A194/A213: close the two trace-locality stop conditions after L268 rejects the one-shot operator route.**
+1. **A194/A213/A216: derive the shallow-plus-deep-divergence one-delay recursion.**
    L267's abstract lossless identity remains valid, but L268 proves
    that a single analytic port carrying only the deflated tail defect
    cannot reproduce the physical associated face: equal traces hide
    a rank increase from one to two.  Do not search for another
    one-shot operator congruence.  A larger multiport network is useful
    only if its extra defect channel is explicitly evaluated, which is
-   equivalent to the remaining trace calculation.  Prove A213's two
-   stated debts after the full renewal and both contour
-   integrations: (i) two-sided leakage-ideal placement with no
-   copy-dependent denominator or one-sided `B#`, and (ii) absorption
-   of every mixed half-line product before the boundary-depth/row
-   filtration.  Do not cite the candidate synthesis as a theorem.
+   equivalent to the remaining trace calculation.  L269 also
+   disproves the stronger claim that the whole operator return is
+   shallow: a depth-`k+1` term survives as `G_k−SG_kS*`.  Prove after
+   the full renewal and both contour integrations that (i) every
+   tail-dependent trace term lies in the two-sided leakage ideal with
+   no unpaired `B#`; (ii) every deep term assembles into a delayed
+   trace-zero divergence/commutator; and (iii) the remaining shallow
+   return obeys L266.  Derive the radial recurrence polynomial and
+   its moments `P_k(1)=0`, `P_k'(1)=−1`; do not cite the finite
+   grade-`2..5` pattern as an induction.
    L256 proves the universal relative response
    `[c²]mu°=4||B_1||_F²` for every matrix channel.  Prove that removing
    one clean Hardy layer obeys
@@ -4734,11 +4771,13 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    `[Psi_phys]_0||B_k||²`.  Its low-depth extension covers
    copy-scalar shift words only when every unilateral boundary
    correction lies below row `k`; depth `k+1` can fail.  Therefore
-   first prove—without assuming it—that L243's zero/one-kernel
-   sectors, L251's paired ports, and L258's renewal assemble into one
-   copy-scalar Laurent return or a shift polynomial of boundary depth
-   at most `k`; exclude both copy-dependent insertions and deeper
-   boundary terms.  Then compute its bilateral-symbol constant from
+   L269 proves that deeper boundary terms do occur, paired at the
+   first grade as `G_k−SG_kS*`.  Therefore prove that L243's
+   zero/one-kernel sectors, L251's paired ports, and L258's renewal
+   assemble into trace-zero deep divergences plus one copy-scalar
+   Laurent return or shift polynomial of boundary depth at most `k`;
+   exclude copy-dependent insertions but do not falsely delete the
+   deep terms.  Then compute the shallow return's bilateral-symbol constant from
    L242's universal three-term jet
    plus every L245 chain column.  The required value is four, checked
    but not proved by the grade-one identity L256.  Prove the lower

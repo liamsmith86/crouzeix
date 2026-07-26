@@ -137,7 +137,7 @@ with \(\Phi\) copy-scalar.  Indeed, a term with one displayed
 rotated; a second nonconstant inverse-kernel sector is excluded by
 L243.
 
-## 4. Proposed Hardy-row filtration (open)
+## 4. Proposed Hardy-row filtration modulo deep divergences (open)
 
 It is not enough to count the length of raw words in \(L,L^*\).
 Mixed unilateral resolvents can have boundary projections of
@@ -162,18 +162,22 @@ the two contour-resolvent factors in the physical
 Conditional on that product-level absorption, what remains outside
 \({\cal L}_B\) is finite.  L245's chain features
 have distances \(d\leq r\), and L243's sole nonconstant kernel sector
-can add only the first tail step.  The required product-level
-conclusion is that, after normal ordering, every scalar shift word in
-\(\Phi\) has boundary depth at most
+can add only the first tail step.  The original proposed conclusion
+was that, after normal ordering, every scalar shift word in
+\(\Phi\) had boundary depth at most
 
 \[
 r+1=k.                                            \tag{10}
 \]
 
-L262 supplies the ordinary metric for this complete paired word.
-Thus L266's low-depth form applies.  The point of using (9) first is
-that a raw, uncollapsed half-line resolvent would have no such depth
-bound.
+L269 disproves that literal operator statement already at grade two.
+The exact closed-return difference contains a nonzero depth-\(k+1\)
+term \(G_k-SG_kS^*\).  Its delayed trace is zero, but neither word
+vanishes in the operator quotient.  The corrected requirement is to
+split every such deep term into a trace-zero Stein divergence (or
+commutator) and apply L266 only to the remaining depth-at-most-\(k\)
+part.  The point of using (9) first is still that a raw, uncollapsed
+half-line resolvent has no controlled remainder at all.
 
 The second required conclusion is a row filtration.  In a coefficient of
 \({\cal L}_B\), an analytic transfer letter \(B_i\) comes from
@@ -197,9 +201,10 @@ i=\ell=k.                                         \tag{12}
 All future adjoint columns remain in the complete \(k\)-th leakage
 row; they are not discarded term by term.
 
-Once these open placement and depth claims hold, L266 applies word by
-word.  If \(\sigma_0(\Phi)\) is the constant coefficient of the
-bilateral symbol, then
+Once the open placement claim and the corrected
+shallow-plus-trace-null decomposition hold, L266 applies word by word
+to the shallow part.  If \(\sigma_0(\Phi)\) is the constant
+coefficient of its bilateral symbol, then
 
 \[
 \operatorname {tr}
@@ -254,13 +259,14 @@ against the formulas, not accepted from the desired conclusion.
    nonconstant inverse-kernel sector, but this must be counted across
    the complete \(A\,R^{-1}A^*\) product, not separately per
    resolvent.
-2. **Depth/row filtration.**  The use of L239 in Section 4 must be
+2. **Depth/row filtration modulo divergences.**  The use of L239 in Section 4 must be
    checked after the two contour integrations implicit in
    \(A\,R^{-1}A^*\), not only inside one resolvent.  Every mixed
    half-line product must be absorbed into the model/leakage
    projection before the finite \(r+1\) depth count is applied.
-   Otherwise a deep unilateral boundary word survives and L266
-   cannot be used.
+   L269 proves that depth \(k+1\) words do survive, so the required
+   theorem is that they assemble into delayed trace-zero Stein
+   divergences before L266 is applied to the shallow remainder.
 
 Existing exact word audits through grade seven and floating
 full-pipeline audits through grade eight reproduce (1)--(2), including
