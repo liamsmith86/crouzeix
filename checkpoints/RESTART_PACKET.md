@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-26): after L320 / A268
+## Current general Crabb frontier (2026-07-26): after L321 / A269
 
 The post-L316 consolidation review retired 55 of 75 stale/unclassified
 `OPEN` labels (54 superseded, one obsolete) and left 20 genuinely live
@@ -11,18 +11,23 @@ proves the quantitative reserve
 `||f(T)||²<=4−(1−sqrt(sigma(B)))²`, and L205 says
 `sigma=1` exactly on a split scalar inner channel.  Thus every compact
 channel-free part of L193's noncommuting equality manifold has a
-strict scalar tube; the sharp sequence must descend through finitely
-many scalar channels, using L192/L199/L318 at the channel strata.
+strict scalar tube.  L321 computes the leading degeneration:
+`1−sigma=s^(2q)Lambda+...`, with `Lambda` the common-eigenline
+variance of the off-monomial transfer jet, so L320's norm reserve is
+only `(Lambda²/4)s^(4q)+...`.  The live step is to prove that every
+channel-breaking positive remainder has this quartic scale or is paid
+separately by L199/L318; when `Lambda=0`, descend the common-eigenline
+jet flag until L205 splits an exact channel.
 L319 proves that the alternative Schur-only complete-similarity
 shortcut does not determine the later kernel block; it is now a
 fallback debt rather than a scalar prerequisite.  L317 proves the
 grouped two-channel rule and L318 absorbs its extra-`c` remainder at
 fixed half scale, yielding `I<=P<=4I` and `T*PT<=P` on every fixed
 repeated elliptic chart.  L295 is only a normalization warning after
-L297, every exact disproved route has a banked certificate, all 257
+L297, every exact disproved route has a banked certificate, all 258
 proof notes are free of repeated regenerated blocks, the L312/A259
 dataset hash remains `5b5dac60...6becf`, and Ruff plus `py_compile`
-pass all 307 experiment modules.  L290--L320 are explicitly scoped to
+pass all 308 experiment modules.  L290--L321 are explicitly scoped to
 the fixed finite repeated-Crabb neighbourhood; A259 remains
 conjectural and unused.
 
@@ -2515,9 +2520,9 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    not compute another isolated grade.  Then finish the
    normal/elliptic merger, retaining the full CP route as fallback.
 
-## Paste-ready continuation instruction (current after L320/A268)
+## Paste-ready continuation instruction (current after L321/A269)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix` as
-the sole repository-writing agent.  Read L197, L220, L227, L283--L318,
+the sole repository-writing agent.  Read L197, L220, L227, L283--L321,
 A259's explicitly conjectural sharp endpoint-word note, plus the newest
 `RESEARCH_STATE.md` section.  Do not treat A259 as L312: its
 lossless-circuit residual block is unproved.  L312 proves only the
@@ -2548,11 +2553,14 @@ and Stein inequalities, so the fixed repeated elliptic chart now has
 Move to the scalar-channel-stratum induction.  L320 gives the exact
 reserve `4−||f(T)||² >= (1−sqrt(sigma(B)))²`, while L205 identifies
 score one with an actual split scalar inner channel.  Remove compact
-channel-free anchors by this strict gap.  On the sharp strata, split
-one scalar channel, use L192 on that single-copy block, and induct on
-the complementary transfer; charge the first channel-breaking cross
-to L320.  Keep L199's first disk/circular-normal face and L318's
-elliptic margin separate.  L319/A267 forbids inferring a stronger
+channel-free anchors by this strict gap.  L321 gives
+`1−sigma=s^(2q)Lambda+...`, so the available norm reserve is quartic,
+not quadratic, in the first channel-breaking amplitude.  Prove the
+prepared positive remainder has the same quartic valuation or charge
+it to L199/L318; if `Lambda=0`, descend its common-eigenline jet flag
+until L205 splits the channel, then use L192 on that block and induct
+on the complement.  Keep L199's first disk/circular-normal face and
+L318's elliptic margin separate.  L319/A267 forbids inferring a stronger
 complete-similarity later quotient from Schur algebra alone; reopen
 that endpoint-specific calculation only if the scalar leakage route
 leaves an uncontrolled term.  L277--L279 have proved

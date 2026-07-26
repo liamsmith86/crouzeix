@@ -2,23 +2,50 @@
 
 **Last updated:** 2026-07-26 (Epoch 6 — repeated circular/elliptic merger)
 
-## CANONICAL LIVE GATE (2026-07-26, after L320/A268)
+## CANONICAL LIVE GATE (2026-07-26, after L321/A269)
 
 There is exactly one current mathematical gate: **prove the finite
 scalar-channel-stratum induction near a repeated Crabb block, using
-L320's quantitative leakage reserve to remove channel-free
-noncommuting anchors and L205/L192 on every exact split channel.**
-L199 supplies the first transverse disk/circular-normal face and L318
-supplies the elliptic margin.  L319 blocks only the stronger
-Schur-only complete-similarity shortcut; deriving its missing
-kernel-block response is now a fallback, not a prerequisite for the
-scalar conjecture.  This is current next action 3 below.  Every later
+L321's exact channel-leakage valuation to match the quartic L320
+reserve against the mixed local remainder, and descending the
+common-eigenline jet flag whenever that valuation vanishes.**  L199
+supplies the first transverse disk/circular-normal face, L318 supplies
+the elliptic margin, and L205/L192 split any channel which persists
+exactly.  L319 blocks only the stronger Schur-only
+complete-similarity shortcut; deriving its missing kernel-block
+response is now a fallback, not a prerequisite for the scalar
+conjecture.  This is current next action 3 below.  Every later
 occurrence of “historical gate,”
 “historical frontier,” or “remaining historical task” records what
 was unresolved at that dated checkpoint; none is a concurrent
 frontier.  Actions 1--2 are completed derivation records, action 3
 is live, and action 4 is its ordered successor.  The CP/H-r routes
 remain parked fallbacks.
+
+## L321/A269 LEADING SCALAR-CHANNEL VALUATION (2026-07-26)
+
+- Along an analytic matrix-inner curve through `B_0(z)=z^L I_m`,
+  suppose the first transfer jet has order `q`, with off-monomial
+  coefficients `D_n`.
+- The fixed-input product score is the top eigenvalue of the trace-one
+  covariance `sum B_n vv* B_n*`.  Uniform leading-eigenvalue
+  separation gives
+  `1−sigma(B_s)=s^(2q)Lambda(D)+O(s^(2q+1))`, where
+  `Lambda=min_v sum_(n!=L)||(I−vv*)D_nv||²`.
+- `Lambda=0` exactly when the off-monomial jets have a common
+  eigenvector.  The monomial coefficient jet only rotates the common
+  output line and contributes no first leakage.
+- L320's actual scalar norm reserve therefore starts at
+  `(Lambda²/4)s^(4q)`.  It cannot pay an arbitrary quadratic
+  channel-breaking term.
+- The live merger must show that the channel-breaking part of the
+  prepared local remainder is also quartic (or is paid separately by
+  L199/L318).  On `Lambda=0`, carry the common eigenline to the next
+  nonzero jet; if it persists exactly, L205 splits it and L192 handles
+  the scalar block.
+- Four deterministic exact matrix-Schur path audits pass; dataset
+  SHA-256:
+  `72b24fe92a8c2ec97148015cc540fba0f3a7bd7df3455bd8c886c4576c2fc035`.
 
 ## L320/A268 QUANTITATIVE SCALAR-CHANNEL RESERVE (2026-07-26)
 
@@ -6376,7 +6403,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L320/A268)
+## Current next actions (Epoch 6, refreshed after L321/A269)
 1. **COMPLETED BY L318: fixed-half-scale margin assembly after L317.**
    The remainder of this item is the derivation record, not a live
    instruction.
@@ -6456,14 +6483,21 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    normal flag.  L320 gives a strict quantitative reserve whenever
    L201's transfer lacks an exact scalar channel.  L205 splits every
    exact channel into a single-copy full-Hardy block and a smaller
-   complementary transfer.  Along a curve-selected sharp sequence,
-   expose the first channel-leakage coefficient.  If it is nonzero,
-   charge all channel-breaking cross motion to L320's
-   `(1−sqrt(sigma))²` reserve.  If it vanishes identically, reduce to
-   the split channel and apply L192; iterate on the complementary
-   multiplicity.  At a tied channel collision, use L199's first
-   disk/circular-normal face and L318's separately retained elliptic
-   margin.  Do not spend either diagonal twice.
+   complementary transfer.  L321 now exposes the first leakage
+   coefficient exactly: `1−sigma=s^(2q)Lambda+...`, and the L320
+   reserve is only `(Lambda²/4)s^(4q)+...`.  Derive the prepared scalar
+   local quotient in the same channel-adapted coordinates and show
+   every positive channel-breaking term has that quartic valuation,
+   or charge it separately to L199's first disk/circular-normal face
+   or L318's elliptic margin.  Do not spend the L320 reserve as though
+   it were quadratic.
+
+   If `Lambda=0`, carry L321's common eigenline through the next
+   nonzero transfer jet.  If it persists identically, reduce to the
+   split channel by L205 and apply L192; iterate on the complementary
+   multiplicity.  At a tied channel collision, keep L199's first
+   disk/circular-normal face and L318's elliptic margin as separate
+   diagonals.  Do not spend either twice.
 
    L319 proves that first-face positivity and exact Schur transport
    alone do not determine the stronger complete-similarity
