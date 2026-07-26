@@ -242,10 +242,23 @@ With
 equations (9)--(20) give
 
 \[
- 4-\|P^{-1/2}FP^{1/2}x\|^2
+4-\|P^{-1/2}FP^{1/2}x\|^2
  \ge c_{L,m}\{d+1-\sigma_X(k)\}
- \ge c_{L,m}\Delta(P,C).                          \tag{22}
+\ge c_{L,m}\Delta(P,C).                          \tag{22}
 \]
+
+The first inequality in (22) is the directionwise statement
+
+\[
+4-\|P^{-1/2}FP^{1/2}x\|^2
+\ge c_{L,m}\Delta_k,\qquad
+\Delta_k=d+1-\sigma_X(k).                         \tag{22a}
+\]
+
+L327 retains this \(\Delta_k\) and proves that it is quantitatively
+equivalent to L324's accumulated response coordinates on the same
+scalar branch.  One must not minimize over a different \(k\) before
+paying a direction-attached response.
 
 If \(a=0\), (13) supplies the fixed loss
 \(\mu R^2\); decreasing \(c_{L,m}\) if necessary gives the same

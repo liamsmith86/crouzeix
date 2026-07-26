@@ -2,26 +2,48 @@
 
 **Last updated:** 2026-07-26 (Epoch 6 — repeated circular/elliptic merger)
 
-## CANONICAL LIVE GATE (2026-07-26, after L326/A274)
+## CANONICAL LIVE GATE (2026-07-26, after L327/A275)
 
-There is exactly one current mathematical gate: **quantitatively tie
-L324's joint response coordinates to L325's actual joint defect
-\(\Delta\), then assemble the finite rank-stratified scalar local
-estimate using L326's classical terminal split.**
-L325 supplies one joint linear base reserve for disk and channel loss
-on the same direction; L324 supplies the quadratic completion cost.
-L326 closes the terminal zero face by Gau--Wu's classical reducing
-disk-model theorem and strictly lowers copy multiplicity.  L199
-supplies the first transverse disk/circular-normal face, L318 supplies
-the elliptic margin, and L205/L192 split the full-equality case.
-L319 blocks only the stronger Schur-only complete-similarity shortcut.
-This is current next action 3 below.  Every later
+There is exactly one current mathematical gate: **assemble the finite
+rank-stratified scalar local estimate from the now-compatible
+Jensen, disk/channel, circular-normal, and elliptic margins.**
+L325 supplies one joint linear base reserve on the actual norming
+direction; L324 supplies the quadratic completion cost; L327 proves
+their directionwise quantitative equivalence.  L326 closes the
+terminal zero face by Gau--Wu's classical reducing disk-model theorem
+and strictly lowers copy multiplicity.  L199 supplies the first
+transverse disk/circular-normal face, L318 supplies the elliptic
+margin, and L205/L192 split the full-equality chart.  L319 blocks only
+the stronger Schur-only complete-similarity shortcut.  This is current
+next action 3 below.  Every later
 occurrence of “historical gate,”
 “historical frontier,” or “remaining historical task” records what
 was unresolved at that dated checkpoint; none is a concurrent
 frontier.  Actions 1--2 are completed derivation records, action 3
 is live, and action 4 is its ordered successor.  The CP/H-r routes
 remain parked fallbacks.
+
+## L327/A275 SAME-DIRECTION JOINT DEFECT COMPARISON (2026-07-26)
+
+- Retain L325's pre-minimization defect on the scalar norming
+  direction:
+  `Delta_k=<D_Xk,k>+1−sigma_X(k)`.  Paying a response by
+  `min_k Delta_k` from another direction would be invalid.
+- Observability Parseval identifies `1−sigma_X(k)` with squared
+  distance of `O_C k` to the rank-one product-line set.  At L324's
+  terminal equality retraction, matrix-inner Parseval identifies
+  `delta` with distance to the same set.
+- Undoing L197's finite least-squares flag gives
+  `O_C k−O_eq(Wu)=sum_j G_j eta_j`, with bounded analytic graph
+  columns, while `<D_Xk,k> asymp sum_j||eta_j||² asymp d`.
+- The one-Lipschitz distance inequality and Young give
+  `Delta_k asymp delta+d`.  Hence L324's
+  `O((delta+d)²)` stacked completion is a higher-order cost paid by a
+  retained fraction of L325's linear directionwise reserve.
+- The statement is curvewise through finite ramified rank strata and
+  uses neither a global maximizing frame nor a pseudoinverse.
+- Twenty-eight exact distance/Young audits pass; dataset SHA-256:
+  `8eea0b6f8a2a721155634d02a47f1335f5b075307d67b09c66bd7c44338c74ba`.
 
 ## L326/A274 CLASSICAL TERMINAL SCALAR MODEL SPLIT (2026-07-26)
 
@@ -93,8 +115,10 @@ remain parked fallbacks.
   total cross degrees zero and one.
 - Hence `|R_full−R_split|<=C(delta+d)`, including mixed
   `sqrt(delta*d)` terms.  Completing all finite scalar responses at
-  once costs `O((delta+d)²)`, absorbed after shrinking by L322's linear
-  reserve plus fixed retained fractions of the L197 disk squares.
+  once costs `O((delta+d)²)`.  L327 now proves
+  `delta+d asymp Delta_k` on the actual L325 norming direction, so a
+  retained fraction of L325's linear reserve absorbs that cost after
+  shrinking.
 - This is the endpoint-specific scalar information missing from
   L319's arbitrary Schur germs.  It does not assert positivity of the
   complete matrix endpoint.
@@ -6532,7 +6556,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L326/A274)
+## Current next actions (Epoch 6, refreshed after L327/A275)
 1. **COMPLETED BY L318: fixed-half-scale margin assembly after L317.**
    The remainder of this item is the derivation record, not a live
    instruction.
@@ -6624,15 +6648,14 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    model theorem, and do not replace its general finite Blaschke
    function by a monomial except on an explicitly nilpotent slice.
 
-   First prove the quantitative coordinate comparison needed for one
-   finite rank-stratified flag: L324's squared transfer and accumulated
-   quotient cross variables must be bounded by L325's actual
-   same-direction joint defect `Delta`, uniformly on each fixed rank
-   stratum and through support crossings.  Do not merely identify
-   their common zero set or add L322 and L197 reserves from different
-   directions.
+   L327 now proves the required quantitative comparison:
+   `delta+d asymp Delta_k` on the same norming direction, uniformly
+   along each ramified finite rank stratum.  Retain `Delta_k` until
+   every direction-attached response has been paid; do not replace it
+   prematurely by `min_k Delta_k`.
 
-   Then, at each L197 layer,
+   Assemble the final finite curve-selected estimate.  At each L197
+   layer,
    retain a fixed fraction of every accumulated square, stack all
    normal/reflected responses before completing them once, and charge
    the resulting `O((delta+d)²)` cost to L325's joint linear reserve.

@@ -12,7 +12,8 @@
 Fix a Crabb length \(L\), copy multiplicity \(m\), and a
 real-analytic arc in L194's repeated disk/normal chart.  After finite
 ramification, choose analytic input/output scalar-channel frames
-\(v(s),u(s)\) for L201's equality-anchor transfer.  Put
+\(v(s),u(s)\) for L201's equality-anchor transfer, with \(v(s)\)
+maximizing the fixed-\(u(s)\) product-line score.  Put
 
 \[
  \delta(s)
@@ -58,10 +59,18 @@ After shrinking,
  \le \varepsilon_0(\delta+d).                    \tag{5}
 \]
 
-L325 subsequently supplies one joint linear reserve for these two
-losses on the same actual-disk norming direction.  Choose
-\(\varepsilon_0\) below its local constant; that reserve then
-absorbs every later **scalar** transport correction after shrinking.
+L325 subsequently supplies one joint linear reserve on the same
+actual-disk norming direction.  L327 proves the missing quantitative
+interface
+
+\[
+ \delta+d\asymp
+ \langle D_Xk,k\rangle+1-\sigma_X(k)
+\]
+
+for that direction.  Choose \(\varepsilon_0\) below the directionwise
+L325 constant; the reserve then absorbs every later **scalar**
+transport correction after shrinking.
 The abstract negative Schur quotient in L319 cannot occur as an
 unpaid scalar response: its actual channel-breaking part must carry
 either transfer leakage or one of the accumulated disk square
@@ -236,16 +245,17 @@ The remaining assembly is finite but must still be written
 explicitly:
 
 1. use L61/L199 to enter a maximal zero-Jensen winner;
-2. apply (3)--(17) simultaneously with L325's joint actual-disk gap;
+2. apply (3)--(17) simultaneously with L325's directionwise joint
+   actual-disk gap, using L327's quantitative comparison;
 3. retain L318's elliptic margin in the marked reflected coordinates;
 4. if \(\delta\) vanishes to the current order, follow L321's common
    eigenline; and
 5. if it vanishes identically, use L205 to split a scalar channel and
    descend in copy multiplicity, with L192 as the base.
 
-The only acceptable proof of the next theorem is this finite
-curve-selected induction.  Neither abstract ideal membership nor
-L197 positivity alone supplies it.
+L327 closes the response/defect comparison needed in item 2.  The
+remaining theorem is the finite curve-selected merger.  Neither
+abstract ideal membership nor L197 positivity alone supplies it.
 
 ## 6. Audit
 
