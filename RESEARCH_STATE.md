@@ -347,6 +347,39 @@
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
 
+## NEWEST (2026-07-26): L313 proves weighted causality for every finite physical reverse-edge polynomial
+- Keep the enhanced physical reverse edge
+  `J=(I+F)S*(I+E)` intact.  On the forward defect chain,
+  `S*S^hW=S^(h−1)W−VB_(h−1)*`,
+  `J*W=2SW+2VB_1*`, and
+  `J*S^hW=S^(h+1)W+VB_(h+1)*`.
+- Following the unique chain-valued path through a word with `r`
+  copies of `J` emits only `VB_j*` with `j<=r`.  Passing an emission
+  through the remaining suffix gives the explicit polynomial
+  factor
+  `W*w(S,J)V=sum_(j<=r)B_jC_j(w)`, with stacked norm at most
+  `(|w|+1)4^r`.
+- Therefore every causal physical polynomial
+  `P=sum alpha c^d w`, `d>=#J(w)`, factors through the weighted row
+  `[cB_1,c²B_2,...]`, with a displayed rank-stable bound.  L125's
+  scalar filtration shows that every finite jet of the actual direct
+  map `phi_c(S+cJ)−S` is causal in this sense.
+- This is the first genuinely weighted version of L312 and closes the
+  finite conformal-map part of L306's multiplier problem.  It also
+  explains why expanding `E,F` inside `J` and counting raw `S*`
+  letters gives the wrong filtration.
+- Scope guard: L217 proves that the raw Hermitian-gauge defect frame
+  contains premature future-transfer images.  L313 must not be
+  applied to that frame separately.  The remaining grouped weight
+  debt is now the specific cancellation of the noncausal part of
+  `C*H+H*C` against
+  `Psi_S(Delta*XS+S*XDelta)`.  After that pairing, L313 and the
+  favorable quadratic squares can be used.
+- Forty-two general/rank-chain/complete-delay records pass; each also
+  checks all 510 physical words through length eight.  Dataset
+  SHA-256:
+  `5e20fe4db61c1b80582436faa3c2c98b2d6699fd329d6b006f895196523e0252`.
+
 ## NEWEST (2026-07-26): L312 gives every finite endpoint word a constructive transfer-prefix normal form
 - For a length-`d` word `w`, repeatedly reduce its first reversal
   `a^p s v` by `a^p s=a^(p−1)(I−VV*)`.  Each step emits the exact
@@ -6131,8 +6164,8 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L312/A260)
-1. **Construct the hereditary prepared affine recurrence.**
+## Current next actions (Epoch 6, refreshed after L313/A261)
+1. **Close the paired Stein/frame covariance left by L313.**
    L306 sums every rooted successor to
    `q=−Psi_S(Delta*XS+S*XDelta+Delta*XDelta)
       −(C*H+H*C+C*C)`, and L307 proves the formula recurs after a
@@ -6154,8 +6187,15 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    finite-word prefix factor with a `ceil(d/2)` bound, but neither
    that result nor A259's sharper numerical conjecture may be applied
    termwise after the infinite Stein/Hardy closure: raw word length
-   does not prove the required elliptic weight matching.  Work in the
-   grouped L220/L236 coordinates.  Do
+   does not prove the required elliptic weight matching.  L313 now
+   proves the correct weighted factorization for every finite
+   physical polynomial in `S,J`, including the complete direct-map
+   jet.  Do not redo that sector.  In the grouped L220/L236/L244
+   coordinates, prove specifically that the premature part of
+   `C*H+H*C` cancels against
+   `Psi_S(Delta*XS+S*XDelta)` before coefficient extraction.  Then
+   apply L313 to the remaining causal polynomial and retain
+   `−Psi_S(Delta*XDelta)−C*C` with L307's reserve.  Do
    not impose global odd response, factor raw `q`, enumerate L305
    roots, launch an unrelated fifth/seventh grind, discard `−C*C`,
    split load-bearing cancellations, assume A259's unproved
