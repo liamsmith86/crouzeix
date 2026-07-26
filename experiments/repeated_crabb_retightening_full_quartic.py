@@ -110,6 +110,16 @@ class FullQuarticRecord:
     all_checks_passed: bool
 
 
+@dataclass(frozen=True)
+class ExactFullQuarticPolynomials:
+    """Reusable exact residuals behind L303's complete endpoint audit."""
+
+    lower_delta_residual: Polynomial
+    balanced_upper_residual: Polynomial
+    neutralized_upper_residual: Polynomial
+    actual_neutralized_upper_residual: Polynomial
+
+
 def cross_square_delta(
     base_cross: Polynomial,
     change_cross: Polynomial,
@@ -148,10 +158,10 @@ def right_gram_lift() -> Polynomial:
     )
 
 
-def exact_residuals_at_scale(
+def exact_full_quartic_polynomials(
     retightening_scale: Fraction,
-) -> tuple[int, int, int]:
-    """Return exact endpoint residuals at one rational scale."""
+) -> ExactFullQuarticPolynomials:
+    """Return the exact complete endpoint polynomials at one scale."""
 
     theta = retightening_scale
     components = exact_quartic_components()
@@ -276,13 +286,22 @@ def exact_residuals_at_scale(
             multiply(first_left_gram, first_left_gram),
         ),
     )
-    upper_residual = cyclic_trace_classes(
-        add(
-            balanced_upper_delta,
-            scale(-1, predicted_balanced_upper),
-        )
+    balanced_upper_residual = add(
+        balanced_upper_delta,
+        scale(-1, predicted_balanced_upper),
     )
 
+    lower_neutralizer_right = add(
+        scale(
+            4 * theta + theta * theta / 2,
+            first_right_gram,
+        ),
+        scale(
+            Fraction(9, 2) * theta
+            - Fraction(3, 4) * theta * theta,
+            multiply(first_right_gram, first_right_gram),
+        ),
+    )
     lower_neutralizer_left = add(
         scale(
             4 * theta + theta * theta / 2,
@@ -305,16 +324,39 @@ def exact_residuals_at_scale(
             multiply(first_left_gram, first_left_gram),
         ),
     )
-    neutralized_residual = cyclic_trace_classes(
-        add(
-            neutralized_upper,
-            scale(-1, predicted_neutralized_upper),
-        )
+    neutralized_upper_residual = add(
+        neutralized_upper,
+        scale(-1, predicted_neutralized_upper),
     )
+    actual_neutralized_upper_residual = add(
+        balanced_upper_delta,
+        scale(-1, lower_neutralizer_right),
+        scale(-1, predicted_neutralized_upper),
+    )
+    return ExactFullQuarticPolynomials(
+        lower_delta_residual=lower_residual,
+        balanced_upper_residual=balanced_upper_residual,
+        neutralized_upper_residual=neutralized_upper_residual,
+        actual_neutralized_upper_residual=(
+            actual_neutralized_upper_residual
+        ),
+    )
+
+
+def exact_residuals_at_scale(
+    retightening_scale: Fraction,
+) -> tuple[int, int, int]:
+    """Return exact endpoint residual counts at one rational scale."""
+
+    polynomials = exact_full_quartic_polynomials(retightening_scale)
     return (
-        len(lower_residual),
-        len(upper_residual),
-        len(neutralized_residual),
+        len(polynomials.lower_delta_residual),
+        len(cyclic_trace_classes(polynomials.balanced_upper_residual)),
+        len(
+            cyclic_trace_classes(
+                polynomials.neutralized_upper_residual
+            )
+        ),
     )
 
 

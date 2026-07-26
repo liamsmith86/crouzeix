@@ -135,10 +135,11 @@ partial scale such as \(\theta=1/2\) avoids that unnecessary debt.
 
 L303 closes the complete quartic **pointwise quotient and margin**
 for \(0<\theta<1\).
-It does not yet provide a uniformly bounded analytic perpendicular
-column realizing the two response congruences through rank changes.
-That L281/L292 flux/Smith bound is the remaining quartic gate before
-the recurrence can be promoted.
+By itself it does not provide a uniformly bounded analytic
+perpendicular column realizing the response congruences through rank
+changes.  L304 subsequently closes that L281/L292 flux/Smith gate at
+the fixed robust choice \(\theta=1/2\).  Promoting the mechanism to an
+arbitrary-grade recurrence remains open.
 
 ## 2. Only the second metric cross enters
 

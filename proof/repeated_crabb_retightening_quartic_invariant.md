@@ -147,8 +147,9 @@ itself it does not:
    moving Schur-graph term in the complete metric endpoint.
 
 L303 subsequently closes item 2, at a fixed partial retightening
-scale, and proves compatible complete lower/upper margins.  Item 1 is
-the remaining ordered-flag/Smith gate.  In
+scale, and proves compatible complete lower/upper margins.  L304
+subsequently closes item 1 at \(\theta=1/2\) by a gap-free
+relative-commutator bound.  In
 particular, (7) alone must not be advertised as a completed
 lower-tight quartic correction.
 

@@ -268,9 +268,12 @@
   L303/A250 subsequently incorporates every moving Schur-graph cross
   at fixed partial scale.  It restores the quartic lower face and
   proves compatible lower/upper margins for every `0<theta<1`.
-  Therefore the next live step is only a gap-free analytic
-  ordered-flag/Smith realization of that complete response through
-  rank changes—not another graph expansion or complete-delay grade.
+  L304/A251 closes the remaining gap-free analytic
+  ordered-flag/Smith realization at `theta=1/2` by factoring the
+  complete residual into relative commutators containing `ESF` and
+  bounding the off-cokernel dual-telescope error.  The next live step
+  is the arbitrary-grade recurrence behind that module—not another
+  graph expansion or isolated complete-delay grade.
   The
   alternate raw route retains its lower
   budget, separates L283's favorable `−12` Gram, and expresses only
@@ -290,6 +293,42 @@
   The circular-normal merger is downstream.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
+
+## NEWEST (2026-07-26): L304 closes rank-stable selection through the quartic
+- Fix `theta=1/2` and subtract L303's retained balanced upper class
+  `−(5/4)B_1B_1*−(3/4)(B_1B_1*)²` from the complete lower-neutral
+  quartic coefficient.
+- Put `G=ESF=VB_1*W*`.  Exact word algebra factors the remaining
+  effective state trace lift into 28 relative commutators
+  `alpha[ell,p(G or G*)q]`, with
+  `sum|alpha|=177/16`.  Pairing against an observability Gramian
+  supplies `||Z_Y||` from `[H_Y,S]` or `[H_Y,S*]`, while the bridge
+  supplies `||B_1||`.  Thus the finite part is bounded by
+  `(177/16)||B_1||||Z_Y||`.
+- L302's one nonlocal dual-telescope substitution remains controlled
+  off the cokernel:
+  `|epsilon_Y|<=33 Gamma_S||N_3||||Z_Y||`, and
+  `||N_3||<=(20Gamma_S+2)||B_1||`.  Hence the **complete** convenient
+  quartic residual has a perpendicular response column
+  `O(||B_1||)` without a Markov spectral-gap inverse.
+- L300's admissible cubic column differs from the convenient
+  metric-only representative by a compatible Stein direction of size
+  `O(||B_1||)`.  L301 transports that difference one order forward
+  with the same scaling and zero lower corner.  Therefore L303's
+  lower margin and retained upper descent survive the admissible
+  selection.
+- The bound is uniform on a fixed repeated-block neighbourhood.
+  Along every L197 analytic rank-changing arc it forces L292's Smith
+  valuations, so the selected response is analytically removable.
+  Cubic-through-quartic bounded selection is closed.
+- This is not an all-grade induction.  The live step is now to
+  identify the arbitrary-grade relative-commutator recurrence which
+  keeps every response commutator inside an earlier physical bridge;
+  do not compute an isolated next grade.
+- The exact 28-term certificate has zero residual words.  Nineteen
+  tracked cases and 79 fresh unstructured, rank-changing, delayed,
+  and reducible stress cases pass.  Dataset SHA-256:
+  `881bd89b39171ab2603148d54092f605683ece63d65bb61e5394e0e7347f725c`.
 
 ## NEWEST (2026-07-26): L303 closes the complete partial-retightening quartic margin
 - Scale L298's grade-one retightening by a fixed
@@ -317,11 +356,10 @@
   limit; no positivity claim is made for its uncomputed higher lower
   faces.
 - This closes L289's **complete pointwise Schur-graph assembly through
-  quartic order**.  It does not yet produce uniformly bounded analytic
-  perpendicular columns for the response congruences through rank
-  changes.  Prove that L281 flux bound, equivalently L292's ordered
-  Smith divisibility, before promoting the construction to all
-  transfer grades.
+  quartic order**.  At the L303 checkpoint the uniformly bounded
+  response through rank changes was still open; L304 subsequently
+  closes it at `theta=1/2` by a relative-commutator flux estimate.
+  Only the arbitrary-grade promotion remains.
 - The exact degree-two-in-`theta` residuals vanish at three exact
   scales and at additional rational audit scales.  The 22 tracked
   cases and 160 fresh unstructured, rank-changing, delayed, and
@@ -5797,36 +5835,32 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L303/A250)
-1. **Bound the already assembled partial-retightening response.**
-   Fix `theta=1/2`; do not optimize or send it to one.  L303 has
-   already included every quartic moving-Schur cross, restored the
-   quartic lower coefficient, and proved pointwise lower/upper
-   margins.  The sole quartic debt is a uniformly bounded analytic
-   perpendicular column for its two response congruences through rank
-   changes.  Pair the full residual directly with L281's observability
-   defect and seek a numerator bound by the retained transfer
-   amplitude; equivalently verify L292's Smith-coordinate valuations
-   along each L197 failure arc.  Reuse L300--L301's gap-free
-   response machinery.  Do not recompute L302's endpoint invariants,
-   omit L303's Schur squares, use L291's pointwise pseudoinverse, or
-   claim that pointwise prior-flag vanishing alone supplies bounded
-   divisibility.
-2. **Lift the partial-scale mechanism rather than marching another
-   isolated grade.**  Once item 1 closes, formulate the arbitrary-grade
-   odd response/even lower-neutral recurrence in L289's complete graph
-   coordinate, with one fixed `0<theta<1`.  Use L283 as the
-   complete-delay boundary condition, L285's triangular transport,
+## Current next actions (Epoch 6, refreshed after L304/A251)
+1. **Extract the arbitrary-grade relative-commutator recurrence.**
+   L304 has closed the complete bounded analytic selection through
+   quartic order at fixed `theta=1/2`.  Its decisive algebraic
+   invariant is not the 28-term list itself but
+   `D_k in [Alg(S), <ES^jF: j<k>]`: after subtraction of the retained
+   transfer polynomial, every response commutator must contain an
+   earlier physical bridge.  Formulate and prove this invariant under
+   L285's triangular transport and L289's complete mixed-graph
+   shorting.  Use the moving dual-Stein telescope as a controlled
+   commutator error, as in L304, rather than expanding its Green sum.
+   Do not compute an isolated fifth/seventh grade or promote the
+   finite 28-term certificate by pattern recognition.
+2. **Close the fixed partial-scale finite-flag induction.**  Combine
+   the recurrence from item 1 with L283's complete-delay boundary,
    L290's hereditary endpoint factors, and L292's valuation test.
-   Prove a uniform finite-jet margin through the terminal transfer;
-   L289 shows no infinite summability theorem is needed.  Preserve
-   the retained lower budget and prior quadratic upper gain.  Do not
-   demand exact lower-tightness, endpoint-null even gauges, raw
-   two-sided state-ideal invariance, or compute an isolated seventh
-   grade.  If the bounded partial-scale recurrence fails, return to
-   the raw normalization and use L296 only on the surviving
-   polarization columns after favorable Grams and bounded prior-flag
-   factors are separated; do not mix endpoint ledgers.
+   Preserve at every active grade a fixed fraction of the lower direct
+   Gram and the earlier quadratic upper gain; charge each even
+   prior-bridge cost to that earlier margin.  L289 requires only a
+   finite positive jet through terminal grade `L`, not infinite
+   summability.  Do not demand exact lower-tightness, endpoint-null
+   even gauges, raw two-sided state-ideal invariance, or use L291's
+   pointwise pseudoinverse.  If the relative-commutator module fails
+   to be transport-stable, return to L296's polarized raw branch only
+   after separating favorable Grams and bounded prior-flag factors;
+   do not mix endpoint ledgers.
 3. **Only after selection closes, finish the repeated
    circular-normal/elliptic merger.**  Derive L199's later
    Schur-orthogonal normal response and avoid spending the same disk
@@ -6027,22 +6061,27 @@ Current A178 transport packet:
   exact two-ended quartic class and prior-flag lower neutralization),
   and proof/repeated_crabb_retightening_full_quartic.md (L303 exact
   complete partial-retightening Schur-graph assembly and pointwise
-  margin);
+  margin), and
+  proof/repeated_crabb_retightening_quartic_flux.md (L304 exact
+  relative-commutator flux and rank-stable analytic quartic
+  selection);
   matching
   regenerators use the same
   basenames under experiments/.  Resume on the partial-retightening
-  branch at fixed `theta=1/2` by deriving a gap-free analytic response
-  bound for L303's two congruences and then transporting that mechanism
-  through the finite transfer flag.  If that fails, return to the raw
+  branch at fixed `theta=1/2` by extracting L304's arbitrary-grade
+  relative-commutator module and transporting that mechanism through
+  the finite transfer flag.  The quartic response bound and Smith
+  gate are closed.  If the module fails to be transport-stable,
+  return to the raw
   branch by
   retaining its lower budget, splitting L283's favorable `−12` Gram
   from L285/L289's mixed remainder, discarding bounded prior-flag
   factors, deriving L296 polarization columns for the surviving
   compression, and proving their total energy is
   `O(||U*B_k||²)` (or equivalently proving L292's valuations).
-  L303 has already assembled L289's complete moving-graph quartic
-  endpoint; do not redo that bookkeeping or force the boundary choice
-  `theta=1`.
+  L303--L304 have already assembled and bounded L289's complete
+  moving-graph quartic endpoint; do not redo that bookkeeping or force
+  the boundary choice `theta=1`.
   Do not
   mix those endpoint ledgers, force state witnesses into an
   ideal, use a rank-changing pseudoinverse, confuse pointwise flag

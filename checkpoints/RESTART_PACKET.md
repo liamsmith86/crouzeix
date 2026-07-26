@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-26): after L303 / A250
+## Current general Crabb frontier (2026-07-26): after L304 / A251
 
 The accidental two-agent interval has been reconciled.  Commits
 `87c5107`, `4c7a152`, `2f82d15`, and `dcab861` form one linear history
@@ -16,7 +16,7 @@ L287/A234 found no stopped-agent artifact, branch, staged overlap, or
 competing next-action instruction.  L288/A235, L289/A236,
 L290/A237, L291/A238, L292/A239, L293/A240, L294/A241,
 L295/A242, L296/A243, L297/A244, L298/A245, L299/A246,
-L300/A247, L301/A248, L302/A249, and L303/A250 were
+L300/A247, L301/A248, L302/A249, L303/A250, and L304/A251 were
 then derived, audited, and documented by the sole active agent.
 The L303 checkpoint repeated the concurrency audit: all four handoff
 commits are ancestors of the single `master`, one worktree exists, no
@@ -173,10 +173,15 @@ relative grade-one response, and A203/L257 turns its transport into
   `|c|<=1/2`, while the lower face retains
   `(1−theta)c²B_1*B_1`.  Fix `theta=1/2`; `theta=1` is only a
   lower-tight associated-graded limit.  The live debt is now a
-  gap-free analytic response/Smith bound through rank changes,
-  followed by transport of that fixed partial-scale mechanism through
-  the finite active transfer flag.  Do not redo the complete quartic
-  graph assembly.
+  transport of that fixed partial-scale mechanism through the finite
+  active transfer flag.  L304/A251 closes the intervening
+  rank-changing response/Smith gate: the complete `theta=1/2`
+  residual is a 28-term relative commutator containing `ESF` or its
+  adjoint, while the one dual-telescope error is
+  `O(||B_1||||Z_Y||)`.  The resulting admissible quartic column is
+  `O(||B_1||)` across rank collapse.  Extract the arbitrary-grade
+  relative-commutator recurrence; do not redo the complete quartic
+  graph assembly or its bounded response.
   On the raw
   route, retain its lower budget, split off L283's
   favorable `−12` Gram, and derive a flux pairing only for the mixed
@@ -943,6 +948,13 @@ before their theta/coisometric cancellation.
   rank-changing, delayed, and nonscalar reducing-weight Schur-series
   audits; tracked data hash
   `7e8cd50fbcb95d99866089c89a0d9b0b684bc32403fa153ae3c822628d8c41d0`.
+- `proof/repeated_crabb_retightening_quartic_flux.md` (L304/A251):
+  exact 28-term relative-commutator factorization, off-cokernel
+  dual-telescope bound, and analytic `O(||B_1||)` quartic selection.
+- `experiments/repeated_crabb_retightening_quartic_flux.py`: exact
+  certificate regeneration plus complete pairing, flux, response,
+  rank-chain, delay, and reducible audits; tracked data hash
+  `881bd89b39171ab2603148d54092f605683ece63d65bb61e5394e0e7347f725c`.
 - `experiments/repeated_crabb_markov_response.py`: arbitrary
   multiplier, bistochastic, summed-response, Dirichlet, observability-
   preimage, state-energy, polarized-collapse, and repeated-apex
@@ -2196,28 +2208,27 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   The former deformation route was superseded by the Schwarzian proof of EL4; see
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
-## Next five concrete actions (refreshed after L303 / A250)
-1. Fix `theta=1/2` and prove a uniformly bounded analytic
-   perpendicular column for L303's already assembled quartic response
-   congruences through rank changes.  Pair the full residual with
-   L281's observability defect and bound its numerator by the retained
-   transfer amplitude; equivalently prove L292's Smith valuations on
-   every L197 failure arc.  Reuse L300--L301.  Do not recompute
-   L302's invariant, omit L303's nonlinear Schur squares, use L291's
-   pointwise pseudoinverse, or infer bounded divisibility from
-   pointwise prior-flag zero.
-2. Once item 1 closes, lift the fixed partial-scale mechanism to the
-   arbitrary-grade mixed graph recurrence.  Use L283's complete-delay
-   boundary, L285's triangular transport, L289's finite-jet
-   sufficiency, L290's hereditary endpoint factors, and L292's
-   valuation test.  Preserve the retained lower budget and quadratic
-   upper gain, and prove a uniform positive margin through terminal
-   grade `L`.  Do not demand exact lower-tightness, endpoint-null even
-   gauges, infinite summability, raw state-ideal invariance, or an
-   isolated seventh grade.  If the partial-scale bound fails, return
-   to the raw normalization and apply L296 only after separating
-   favorable Grams and bounded prior-flag factors; do not mix endpoint
-   ledgers.
+## Next five concrete actions (refreshed after L304 / A251)
+1. Extract L304's arbitrary-grade relative-commutator invariant:
+   after subtracting the retained transfer polynomial, prove the
+   grade-`k` complete response lies in
+   `[Alg(S), <ES^jF: j<k>]`.  Show this module is preserved by L285's
+   triangular transport and L289's nonlinear mixed-graph shorting.
+   Treat moving Green terms by L304's off-commutant dual-Stein
+   telescope, not by expanding them.  Do not compute an isolated
+   fifth/seventh grade or promote the 28-term certificate by pattern
+   recognition.
+2. Use that recurrence with L283's complete-delay boundary, L290's
+   hereditary endpoint factors, and L292's valuation test to close
+   the fixed `theta=1/2` finite-flag induction.  Retain a fixed
+   fraction of each lower direct Gram and prior quadratic upper gain,
+   and charge even prior-bridge costs to those earlier margins.  L289
+   requires only a finite positive jet through terminal grade `L`.
+   Do not demand exact lower-tightness, endpoint-null even gauges,
+   infinite summability, raw state-ideal invariance, or a pointwise
+   pseudoinverse.  If the module is not transport-stable, return to
+   L296's raw polarized branch only after separating favorable Grams
+   and bounded prior-flag factors; do not mix endpoint ledgers.
 3. After bounded elliptic selection closes, derive the later
    Schur-orthogonal circular-normal response and merge the branches
    without spending the same disk Gram twice.
@@ -2257,9 +2268,9 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    not compute another isolated grade.  Then finish the
    normal/elliptic merger, retaining the full CP route as fallback.
 
-## Paste-ready continuation instruction (current after L303/A250)
+## Paste-ready continuation instruction (current after L304/A251)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix` as
-the sole repository-writing agent.  Read L197, L220, L227, L283--L303,
+the sole repository-writing agent.  Read L197, L220, L227, L283--L304,
 plus the newest `RESEARCH_STATE.md` section.  L277--L279 have proved
 every lower delayed face, the active `+4||B_k||²` volume coefficient,
 the `+2||B_k||²` dual-Schur trace, and the
@@ -2346,11 +2357,14 @@ moving-Schur cross at scale `theta` and proves that any fixed
 quartic lower neutralizer.  Fix `theta=1/2`: its retained lower
 quadratic margin and upper quadratic gain dominate the quartic
 cost.  Do not use `theta=1` as though exact lower-tightness were
-already safe at higher orders.  Prove only a gap-free L281/L292
-analytic response bound for L303's two congruences through rank
-changes, then lift the fixed partial-scale mechanism through the
-finite transfer flag.  L289's complete quartic graph assembly is
-done.  Do not mix endpoint ledgers, assume A179's false
+already safe at higher orders.  L304 proves the missing L281/L292
+bound: the complete residual is a relative commutator containing the
+first bridge, its telescope error is `O(||B_1||||Z_Y||)`, and the
+admissible quartic column is `O(||B_1||)` through rank collapse.
+Extract that relative-commutator module in arbitrary grade and then
+lift the fixed partial-scale mechanism through the finite transfer
+flag.  The complete quartic graph and response are done.  Do not mix
+endpoint ledgers, assume A179's false
 raw superposition, retry the no-extra-correction shortcut, or
 re-estimate the Markov gap.
 If that effective-route factorization fails, retain the raw lower
