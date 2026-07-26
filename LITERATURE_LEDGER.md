@@ -160,6 +160,12 @@ Lemma-by-lemma scope:
   cover arbitrary Gau--Wu models; L192/L329 cover only their local
   monomial collision sector.  This correction is a direct
   application of the classical source, not a novelty claim.
+- **L331 stationarity scope.**  Gau--Wu prove the exact disk model
+  and equality but do not state the ambient numerical-range/Riemann
+  first-variation identity used here.  L331's Poisson-weighted
+  support-projection residue cancellation appears campaign-specific
+  pending a broader variational-literature audit.  It is only
+  stationarity and must not be advertised as a local inequality.
 
 ## Fixed repeated-Crabb neighbourhood audit for L329 (2026-07-26)
 

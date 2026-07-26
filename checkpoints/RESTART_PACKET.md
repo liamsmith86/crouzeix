@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-26): after L330 / A278
+## Current general Crabb frontier (2026-07-26): after L331 / A279
 
 L329 proves the scalar Crouzeix conjecture in a full operator
 neighbourhood of every fixed repeated Crabb block
@@ -21,14 +21,22 @@ has `W(G_a)=D` and
 points already lie outside L192/L329 away from the monomial
 zero-collision corner.
 
-The sole live gate is now **a scalar neighbourhood theorem at an
-arbitrary fixed Gau--Wu disk model**, beginning with `G_a`.  For fixed
-`a`, the support spectrum `1,-1,a cos(theta)` has gap `1-|a|`, so use
-ordinary analytic disk/support charts rather than the repeated
-collision flag.  Do not replace general finite Blaschke functions by
-monomials.  Only after arbitrary model blocks and their direct sums
-have local patches should the campaign return to global sharp-sequence
-classification, fixed-dimension compactness, and dimension uniformity.
+L331 now proves exact ambient stationarity at every fixed nonzero
+`G_a`.  Differentiating the rational extremal gives
+`L_a(E)=r_aE_12−aE_13+2aE_22+r_aE_23`; L101's Riemann correction is
+paid by a Poisson-weighted support projection identity.  After
+`a=2q/(1+q²)`, residues at `0,q,a` reproduce the same coefficient
+matrix, so the real first derivative vanishes for every complex
+direction.
+
+The sole live gate is the **optimized transverse Hessian at `G_a`**.
+Quotient affine/unitary, disk-model `a`, and extremal-phase tangents;
+differentiate the support/Riemann chart, rational functional
+calculus, top singular value, and moving degree-two Blaschke zero
+together.  Test its sign at rational `q` before proving a symbolic
+Gram.  The fixed support gap `1-|a|` permits ordinary analytic
+Morse--Bott coordinates.  L331 is stationarity only, not the desired
+local theorem.
 
 ### Historical derivation through L328
 
@@ -713,7 +721,11 @@ forbids detaching L245's doubled terminal edge from its physical
 balance.  A206 forbids splitting the two formal ellipse orientations
 before their theta/coisometric cancellation.
 
-## Current frontier files map (after L330/A278)
+## Current frontier files map (after L331/A279)
+- `proof/gau_wu_ambient_stationarity.md` (L331),
+  `experiments/gau_wu_ambient_stationarity.py`, and
+  `experiments/gau_wu_disk_model.py`: exact first variation and the
+  shared symbolic model.  The next calculation is second order.
 - `proof/gau_wu_noncrabb_sharp_stratum.md` (L330) and
   `experiments/gau_wu_noncrabb_sharp_stratum.py`: exact non-Crabb
   Gau--Wu equality family and the corrected local frontier.
@@ -2596,7 +2608,27 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    not compute another isolated grade.  Then finish the
    normal/elliptic merger, retaining the full CP route as fallback.
 
-## Paste-ready continuation instruction (current after L330/A278)
+## Paste-ready continuation instruction (current after L331/A279)
+"Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix`
+as the sole repository-writing agent.  L330 exposes the nonnilpotent
+Gau--Wu equality family `G_a`; L331 proves that after L101's
+numerical-range conformal normalization its sharp scalar branch is
+stationary in every complex ambient direction.  The exact cancellation
+is the Poisson-weighted support-projection residue identity in
+`proof/gau_wu_ambient_stationarity.md`.  Do not redo first order.
+The sole live gate is the optimized transverse Hessian at fixed
+`0<|a|<1`.  Quotient affine/unitary, `a`-motion, and extremal phase;
+differentiate the simple support/Riemann chart, rational functional
+calculus, top singular value, and moving degree-two Blaschke zero
+together.  Do not freeze `f_a` when reading the optimized sign.
+Diagonalize at rational Schwarz parameters `q` first; record any
+positive direction or unexpected kernel before symbolic work.  If
+the normal Hessian is strictly negative, package it as a Gram and
+then use ordinary analytic Morse--Bott/curve selection with support
+gap `1-|a|`.  Do not import the repeated-Crabb flag except at the
+collision `a=0`.  Commit each independently proved milestone."
+
+## Superseded pre-L331 continuation instruction (historical)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix`
 as the sole repository-writing agent.  L329 proves the scalar
 conjecture locally at every fixed repeated Crabb block, but L330

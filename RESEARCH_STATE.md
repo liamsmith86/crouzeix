@@ -2,27 +2,50 @@
 
 **Last updated:** 2026-07-26 (Epoch 6 — repeated scalar neighbourhood closed)
 
-## CANONICAL LIVE GATE (2026-07-26, after L330/A278)
+## CANONICAL LIVE GATE (2026-07-26, after L331/A279)
 
 There is exactly one current mathematical gate:
-**prove or falsify a scalar neighbourhood theorem at an arbitrary
-fixed Gau--Wu disk model.**  L330 shows that the first post-L329
-globalization wording was already too narrow: the exact family
-`G_a` has `W(G_a)=D` and scalar ratio two but has spectrum
-`{0,0,a}`, so for `a!=0` it is not affine-similar to a Crabb block.
-General finite Blaschke products give many such nonnilpotent equality
-models.  L329 covers their monomial zero-collision corner, not the
-whole known sharp set.  Start with the explicit `3 x 3` family
-`G_a`, whose support eigenvalues are `1,-1,a cos(theta)` and hence
-have gap `1-|a|`.  Only after arbitrary fixed Gau--Wu models and their
-finite direct sums have local scalar patches should the campaign ask
-whether every global sharp sequence approaches that larger manifold.
-Fixed-dimension compactness and eventual dimension uniformity remain
-separate later debts.  This is current next action 1 below.  Every later
+**compute and sign the optimized transverse second variation at the
+fixed nonzero Gau--Wu model `G_a`.**  L331 proves that the raw
+Frechet derivative of the sharp function and L101's support/Riemann
+correction cancel exactly in every complex ambient direction, so
+there is no missed first-order obstruction.  The support eigenvalue
+remains simple with gap `1-|a|`.  Identify the tangent of the exact
+disk/Gau--Wu equality manifold (including affine, unitary, and
+Blaschke-zero motion), optimize the moving scalar Blaschke parameter
+and singular vectors, and derive the Hessian on a complementary
+normal slice.  Falsify its sign at rational `a` before seeking a
+symbolic certificate.  A strict normal Hessian would give the
+Morse--Bott core of the first non-Crabb local theorem; a kernel must
+be classified before any higher-order expansion.  This is current
+next action 1 below.  Every later
 occurrence of “historical gate,”
 “historical frontier,” or “remaining historical task” records what
 was unresolved at that dated checkpoint; none is a concurrent
 frontier.  The CP/H-r routes remain parked fallbacks.
+
+## L331/A279 AMBIENT STATIONARITY AT `G_a` (2026-07-26)
+
+- For an arbitrary complex direction `E`, let `s_E` be the first
+  support variation and `H_s` its analytic Schwarz transform.  L101
+  gives normalized direction `Gcal_E=E−G_aH_s(G_a)`.
+- Differentiating `f_a(X)=X(X−aI)(I−aX)^−1` gives the exact scalar
+  functional
+  `L_a(E)=r_aE_12−aE_13+2aE_22+r_aE_23`.
+- The minimal polynomial gives
+  `L_a(G_a)=4` and `L_a(G_a^(k+1))=2a^k`.
+- The top support projection is an explicit quadratic polynomial in
+  `Re(e^(−i theta)G_a)`.  After rationalizing
+  `a=2q/(1+q²)`, the Poisson-weighted support mean has only the
+  interior poles `0,q,a`; their nine entrywise residues reproduce
+  exactly the Frechet-gradient matrix.
+- Therefore `Re L_a(Gcal_E)=0`, so the squared sharp scalar norm has
+  zero first derivative in every ambient direction.
+- This proves stationarity, not a neighbourhood theorem.  The
+  optimized transverse Hessian is the sole live local calculation.
+- Ninety-five exact direction audits and the free-symbol residue
+  identity pass; dataset SHA-256:
+  `23630cbbf378a5a6de520b15c67db5de7c1d822b3a7c890c81272d433a154293`.
 
 ## L330/A278 NONCRABB GAU--WU SHARP STRATUM (2026-07-26)
 
@@ -6630,7 +6653,31 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L330/A278)
+## Current next actions (Epoch 6, refreshed after L331/A279)
+
+1. **LIVE: derive the optimized Hessian at fixed `G_a`.**  Use the
+   simple support projection and its first derivative to obtain the
+   second Riemann/operator tangent.  Differentiate the rational
+   functional calculus, singular value, and the degree-two Blaschke
+   zero simultaneously; do not freeze `f_a` when reading the
+   optimized sign.
+2. **Quotient exact equality tangents first.**  Include affine and
+   unitary orbits, disk-model motion in `a`, and harmless extremal
+   phase.  Compute the Hessian only on an explicit complementary
+   normal slice, or its kernel will contain expected zero modes and
+   obscure the sign.
+3. **Falsification before proof.**  Evaluate the exact/rationalized
+   Hessian at several rational Schwarz parameters `q` and diagonalize
+   numerically at high precision.  If a positive direction appears,
+   record it before trying a symbolic factorization.  If the only
+   kernel is tangent, derive a parameter-uniform negative Gram for
+   each fixed compact `|a|<1`.
+4. **Only then assemble the nonlinear local patch.**  Use ordinary
+   analytic Morse--Bott/curve selection with the support gap
+   `1-|a|`; do not import repeated-Crabb ramification unless the
+   calculation is taken to the collision `a=0`.
+
+## Superseded pre-L331 Gau--Wu actions (historical)
 
 1. **LIVE: attack the arbitrary Gau--Wu disk-model neighbourhood,
    starting with `G_a`.**  Recenter the disk-manifold and

@@ -12,6 +12,8 @@ from pathlib import Path
 
 import sympy as sp
 
+from gau_wu_disk_model import blaschke_value, gau_wu_matrix
+
 
 @dataclass(frozen=True)
 class GauWuSharpRecord:
@@ -32,14 +34,7 @@ def symbolic_identities() -> None:
     parameter = sp.symbols("a", real=True)
     phase = sp.symbols("z", nonzero=True)
     eigenvalue = sp.symbols("lambda")
-    edge = sp.sqrt(2 * (1 - parameter**2))
-    matrix = sp.Matrix(
-        [
-            [0, edge, -2 * parameter],
-            [0, parameter, edge],
-            [0, 0, 0],
-        ]
-    )
+    matrix = gau_wu_matrix(parameter)
     support = (matrix / phase + phase * matrix.T) / 2
     expected_characteristic = (
         (eigenvalue - 1)
@@ -53,12 +48,7 @@ def symbolic_identities() -> None:
     if sp.simplify(actual_characteristic - expected_characteristic) != 0:
         raise RuntimeError("symbolic support factorization failed")
 
-    identity = sp.eye(3)
-    functional_value = sp.simplify(
-        matrix
-        * (matrix - parameter * identity)
-        * (identity - parameter * matrix).inv()
-    )
+    functional_value = blaschke_value(matrix, parameter)
     if functional_value != 2 * sp.eye(3)[:, 0] * sp.eye(3)[2, :]:
         raise RuntimeError("symbolic Blaschke functional calculus failed")
 
@@ -67,20 +57,8 @@ def audit_parameter(parameter: Fraction) -> GauWuSharpRecord:
     """Verify one rational member exactly."""
 
     value = sp.Rational(parameter.numerator, parameter.denominator)
-    edge = sp.sqrt(2 * (1 - value**2))
-    matrix = sp.Matrix(
-        [
-            [0, edge, -2 * value],
-            [0, value, edge],
-            [0, 0, 0],
-        ]
-    )
-    identity = sp.eye(3)
-    functional_value = sp.simplify(
-        matrix
-        * (matrix - value * identity)
-        * (identity - value * matrix).inv()
-    )
+    matrix = gau_wu_matrix(value)
+    functional_value = blaschke_value(matrix, value)
     expected_value = sp.zeros(3)
     expected_value[0, 2] = 2
     gram = sp.simplify(functional_value.T * functional_value)
