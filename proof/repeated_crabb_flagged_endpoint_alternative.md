@@ -227,25 +227,27 @@ meets the negative cone at every nonzero parameter.  L197's analytic
 flag or L220's Schur coordinates must still be used to prove bounded
 selection along approaching paths.
 
-## 5. What remains
+## 5. Current closure status
 
-The next target is the gauge-invariant higher-contact trace law
+L279 subsequently proved the gauge-invariant all-grade law
 
 \[
 \operatorname {tr}E_{2k,\mathrm{eff}}
 =-16\|B_k\|_F^2                                    \tag{14}
 \]
 
-on a completely delayed reducing summand, after lower tightening
-and previous upper Schur elimination.  L203 proves (14) for \(k=1\);
-L214--L215 prove the stronger matrix identity for \(k=2,3\).
+on every completely delayed reducing summand, after lower tightening
+and previous upper Schur elimination.  Thus L222's pointwise
+sign/range obstruction is closed.
 
-A proof of (14) for all \(k\), together with L222, is sufficient for
-the pointwise sign/range part of the repeated elliptic flag.  One
-must additionally prove bounded pathwise selection through rank
-changes before invoking analytic remainder domination.  Exact
-equality with a prescribed matrix Gram at every partial flag is no
-longer required.
+L280 identifies the complete response range with the Markov
+coboundaries of \(I-\Phi\Phi^*\).  L281 further supplies the exact
+physical observability-column preimage and proves that its squared
+norm is twice the Markov Dirichlet energy.  The sole remaining
+selection debt is therefore a bounded-energy Poisson solution along
+L197/L220's analytic rank-changing flags, followed by analytic
+remainder domination.  Exact equality with a prescribed matrix Gram
+at every partial flag is not required.
 
 ## 6. Regeneration
 

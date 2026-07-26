@@ -45,6 +45,9 @@ class MarkovResponseRecord:
     right_unital_error: str
     markov_response_error: str
     dirichlet_defect_error: str
+    observability_preimage_error: str
+    state_dirichlet_error: str
+    polarized_column_collapse_error: str
     endpoint_column_norm: str
     all_checks_passed: bool
 
@@ -248,6 +251,33 @@ def audit_case(
         ).real
     )
     dirichlet_error = abs(dirichlet_defect - dirichlet)
+    identity_state = np.eye(len(operator), dtype=complex)
+    right_projection = identity_state - right @ right.conj().T
+    observability = dual_stein_inverse(
+        operator,
+        left @ endpoint @ left.conj().T,
+    )
+    observability_column = right_projection @ observability @ right
+    observability_response = endpoint_motion(
+        physical,
+        right,
+        left,
+        2 * metric_root @ observability_column,
+    )
+    observability_error = float(
+        np.linalg.norm(
+            observability_response - expected_markov_response
+        )
+    )
+    state_dirichlet_error = abs(
+        4 * float(np.linalg.norm(observability_column) ** 2)
+        - 2 * dirichlet
+    )
+    column_collapse_error = float(
+        np.linalg.norm(
+            aggregate_column - 2 * observability_column
+        )
+    )
     column_norm = float(np.linalg.norm(aggregate_column))
 
     spectral_radius = float(
@@ -262,6 +292,9 @@ def audit_case(
         and right_unital_error < tolerance
         and markov_error < tolerance
         and dirichlet_error < tolerance
+        and observability_error < tolerance
+        and state_dirichlet_error < tolerance
+        and column_collapse_error < tolerance
         and (not is_apex or column_norm < tolerance)
     )
     if not verified:
@@ -273,6 +306,9 @@ def audit_case(
             f"right={right_unital_error:.3e}, "
             f"markov={markov_error:.3e}, "
             f"dirichlet={dirichlet_error:.3e}, "
+            f"observability={observability_error:.3e}, "
+            f"state={state_dirichlet_error:.3e}, "
+            f"collapse={column_collapse_error:.3e}, "
             f"column={column_norm:.3e}"
         )
 
@@ -289,6 +325,15 @@ def audit_case(
         right_unital_error=format_float(right_unital_error),
         markov_response_error=format_float(markov_error),
         dirichlet_defect_error=format_float(dirichlet_error),
+        observability_preimage_error=format_float(
+            observability_error
+        ),
+        state_dirichlet_error=format_float(
+            state_dirichlet_error
+        ),
+        polarized_column_collapse_error=format_float(
+            column_collapse_error
+        ),
         endpoint_column_norm=format_float(column_norm),
         all_checks_passed=verified,
     )

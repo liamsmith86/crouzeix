@@ -25,8 +25,8 @@
   unresolved working-tree artifact remains.  The sole new in-progress
   result was independently tightened and is banked below as L272/A219.
 - At the next single-agent checkpoint the history and working tree
-  were reconciled again through L280/A227.  The subsequent
-  L273--L280 work is one coherent primary-agent line; no stopped-agent
+  were reconciled again through L281/A228.  The subsequent
+  L273--L281 work is one coherent primary-agent line; no stopped-agent
   artifact, alternate branch, staged overlap, or competing next-action
   instruction remains.
 - There is now one live mathematical frontier: A194 at the complete
@@ -143,10 +143,33 @@
   rewrites the whole response range as the coboundaries of the
   bistochastic transfer-channel Markov operator
   `I−Phi Phi*`, with an explicit analytic state preimage and exact
-  Dirichlet form.  Only a uniform Poisson-preimage bound as its gap
-  closes remains before the normal/elliptic merger.
+  Dirichlet form.  L281/A228 then replaces that long column by the
+  exact observability defect column `2R_H`.  Its squared norm is twice
+  the Markov Dirichlet energy, so a closing spectral gap causes no
+  separate state-synthesis blow-up.  Only a uniformly bounded-energy
+  Poisson solution remains before the normal/elliptic merger.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
+
+## NEWEST (2026-07-25): L281 square-roots the Markov response by the physical observability column
+- Let `Hcal_H−S Hcal_H S*=W H W*` and
+  `R_H=(I−VV*)Hcal_HV`.  Then the balanced metric column `2R_H`
+  realizes the complete response exactly:
+  `M_T(2P_metric^(1/2)R_H)=8(I−Phi Phi*)H`.
+- Stein balance gives the exact energy identity
+  `||2R_H||_F²=2<H,(I−Phi Phi*)H>`.  Its polarized form identifies
+  the Markov Dirichlet pairing with the physical observability-column
+  pairing.
+- Therefore the closing Markov gap has already been absorbed by the
+  physical state synthesis.  Do not seek a bounded right inverse or
+  try to bound `H`; the only live selection question is whether the
+  L279 physical endpoint admits a Poisson correction with Dirichlet
+  energy bounded by its first active transfer energy along every
+  L197/L220 flag.
+- The shared L280/L281 checker passes the endpoint, state-energy,
+  polarized-column-collapse, bistochastic, Dirichlet, and repeated-
+  apex audits.  Dataset SHA-256:
+  `18a8c075ceb72d50871d7ff2d1ae443e8e5732dc2ce0e3f6957dc41901dc7fda`.
 
 ## NEWEST (2026-07-25): L280 replaces rank-changing range inversion by a Markov Laplacian
 - Polarizing L212 for an arbitrary copy multiplier `X` gives the exact
@@ -165,13 +188,14 @@
 - L222's semidefinite problem is now the copy-space Markov Poisson
   inequality `E+8(I−Phi Phi*)H<0`.  L279 proves its strict
   fixed-point separator condition.
-- **Sole selection debt:** bound the actual state preimage `C(H)` as
-  the nonzero Markov gap closes along L197/L220's analytic flag.
-  `H` itself may diverge; do not introduce a Moore--Penrose inverse.
+- **Superseded selection formulation:** this originally left a bound
+  on the long state preimage `C(H)`.  L281 replaces it by the shorter
+  physical column `2R_H`, whose norm is exactly the Dirichlet energy.
+  The remaining debt is bounded-energy Poisson selection.
 - The exact checker passes arbitrary polarized multipliers, both
   bistochastic identities, the summed response, the Dirichlet form,
   and apex vanishing.  Dataset SHA-256:
-  `8017e368a9a84643fb32d3bab70b7810ec3797f0ed6e112d3aa29f4ed91e49a8`.
+  `18a8c075ceb72d50871d7ff2d1ae443e8e5732dc2ce0e3f6957dc41901dc7fda`.
 
 ## NEWEST (2026-07-25): L279 closes the all-grade delayed volume flux
 - L277--L278 already make every coefficient below the active
@@ -5024,15 +5048,16 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L280/A227)
-1. **Construct a bounded analytic repeated-flag correction through
+## Current next actions (Epoch 6, refreshed after L281/A228)
+1. **Prove bounded-energy Markov Poisson selection through
    commutant-rank changes.**  L222+L279 prove pointwise strict
-   feasibility.  L280 now identifies the whole response range as
-   `ran(I−Phi Phi*)` and supplies the analytic state column `C(H)`.
-   Re-enter L197/L220's ordered flag and prove a gap-free estimate for
-   `C(H)` solving `E+8(I−Phi Phi*)H<0`.  It is unnecessary to bound
-   `H`; control its Dirichlet/state synthesis instead.  Do not use
-   discontinuous spectral projections or pseudoinverses.
+   feasibility, L280 identifies the response with
+   `ran(I−Phi Phi*)`, and L281 proves that the physical column
+   realizing `8(I−Phi Phi*)H` has squared norm exactly
+   `2<H,(I−Phi Phi*)H>`.  Re-enter L197/L220's ordered flag and bound
+   this Dirichlet energy by the first active transfer energy.  Do not
+   build another right inverse, bound `H`, or use discontinuous
+   spectral projections or pseudoinverses.
 2. **Relate the pointwise separator margin to analytic remainder
    domination.**  The exact margin is
    `16||B_k||_F²` at the first active flag.  Prove that the selected

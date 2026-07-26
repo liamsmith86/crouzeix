@@ -269,8 +269,10 @@ The checker independently verifies:
 5. vanishing of \({\cal C}(H)\) on a gauged repeated monomial block.
 
 The records use three unstructured noncommuting partial isometries and
-one repeated monomial block.  The tracked data file has SHA-256
+one repeated monomial block.  L281 subsequently extends the checker
+with the observability square-root identities.  The tracked data file
+has SHA-256
 
 ```text
-8017e368a9a84643fb32d3bab70b7810ec3797f0ed6e112d3aa29f4ed91e49a8
+18a8c075ceb72d50871d7ff2d1ae443e8e5732dc2ce0e3f6957dc41901dc7fda
 ```
