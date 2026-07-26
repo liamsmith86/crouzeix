@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-25): after L266 / A212
+## Current general Crabb frontier (2026-07-25): after L267 / A214
 
 The accidental two-agent interval has been reconciled.  Commits
 `87c5107`, `4c7a152`, `2f82d15`, and `dcab861` form one linear history
@@ -35,11 +35,19 @@ relative grade-one response, and A203/L257 turns its transport into
   triangular right-orbit Stein divergence.  L266/A212 proves that any
   copy-scalar Laurent return, or shift polynomial of boundary depth at
   most the delay, contributes only its bilateral-symbol constant
-  between the delayed leakage projections.
-  Resume by proving that the complete L243/L251/L258 physical return
-  has exactly this copy-scalar form and depth after L262/L264
-  normalization, then compute its constant as four and prove every
-  lower vanishing.
+  between the delayed leakage projections.  A213 records the resulting
+  trace-locality synthesis but leaves two explicit stop conditions:
+  full-renewal two-sided leakage-ideal placement and post-contour
+  depth/row filtration.  It is not a theorem.  L267/A214 proves the
+  classical exact lossless Redheffer defect-transport identity.  It
+  would make the needed metric structural if the physical first
+  reflected channel had such an associated-order feedback
+  realization, but that realization is open.  Resume with a
+  falsification-first comparison of L242--L245/L258's relative
+  three-coefficient jet against a candidate copy-scalar lossless
+  feedback on generic noncommuting delayed tails.  A mismatch rejects
+  A214; a match still requires a uniform factorization and closure of
+  both A213 stop conditions.
   A195 is a negative guardrail, not a second frontier.
 
 L230--L234 close the canonical repaired endpoint through the third
@@ -446,6 +454,17 @@ before their theta/coisometric cancellation.
   delayed leakage row.  Depth `k+1` can fail.  The physical return
   form/depth, its symbol constant four, and all lower vanishings remain
   open.
+- `proof/repeated_crabb_first_reflection_trace_locality.md` (A213):
+  conditional synthesis of L243--L266.  Its ideal-placement and
+  post-contour depth/row claims are explicit stop conditions, not
+  proved lemmas.
+- `proof/lossless_redheffer_defect_transport.md` (L267/A214): exact
+  classical initial/final defect transport for a unitary Redheffer
+  feedback.  The physical associated-order feedback realization is
+  open; test its relative jet before building on it.
+- `experiments/lossless_redheffer_defect_transport.py`: deterministic
+  noncommutative audit of L267; tracked data hash
+  `972f9f2516914af778a637a192f3dfb0bc42bac83cda3201893be00a4e1809a3`.
 - `proof/repeated_crabb_exact_metric_chart.md` (L194): analytic
   metric chart in which any all-series column construction must
   converge.
@@ -1694,36 +1713,47 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   The former deformation route was superseded by the Schwarzian proof of EL4; see
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
-## Next five concrete actions (refreshed after L266 / A212)
-1. **Derive the physical return symbol.**  In L264's port-isolated
+## Next five concrete actions (refreshed after L267 / A214)
+1. **Falsify or realize the lossless feedback jet.**  Compare the
+   relative `D_0,D_1,D_2` physical jet from L242--L245/L258 with a
+   candidate copy-scalar unitary Redheffer feedback for generic
+   noncommuting delayed tails.  A mismatch rejects A214.  A match is
+   only evidence until the associated-order factorization is proved.
+2. **Close A213's two stop conditions.**  In L264's port-isolated
    right-half-line gauge, insert L243's zero/one inverse-kernel sectors
    and every L245/L251 paired chain column into L258's closed renewal.
    Prove that the assembled first-active return is
    `P_kL_B Psi_phys(L,L*)L_BP_k` with `Psi_phys` copy-scalar and either
    Laurent or of unilateral boundary depth at most `k`.  Do not assume
-   away a surviving copy-dependent insertion or deep boundary term.
-2. **Compute the one remaining scalar.**  Use L242's universal
+   away a surviving copy-dependent insertion or deep boundary term,
+   and perform the depth count only after both contour integrations.
+3. **Compute the one remaining scalar.**  Use L242's universal
    three-coefficient jet with the full theta/direct-map/metric
    orientation sum to prove `[Psi_phys]_0=4` and all lower
    coefficient vanishings.  L256 is a normalization check, not the
    proof; keep the terminal multiplier at its physical value.
-3. **Promote the delayed trace law.**  Combine the resulting `+4`
+4. **Promote the delayed trace law.**  Combine the resulting `+4`
    volume flux with L247's exact `−2` metric contribution, then state
    the delayed separator trace without upgrading finite audits to
    operator covariance.
-4. **Return to A178's convergence/selection debt.**  Seek the uniform
+5. **Return to the global debts.**  Seek A178's uniform
    right-ideal recurrence behind the finite preparation columns; do
-   not compute another isolated grade.
-5. **Finish the normal/elliptic merger, retaining the full CP route as
-   fallback.**  Do not retry scalar shifts, positive-state
-   scalarizations, raw L212 superposition, discontinuous
-   pseudoinverses, or definite parity.
+   not compute another isolated grade.  Then finish the
+   normal/elliptic merger, retaining the full CP route as fallback.
 
 ## Paste-ready continuation instruction
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix`.
-Read the newest L258--L266 sections of `RESEARCH_STATE.md`, the
-corresponding proof notes, and A194/A204--A212.  The live gate is the
-complete-delay volume identity.  L266 proves that every nonconstant
+Read the newest L258--L267 sections of `RESEARCH_STATE.md`, the
+corresponding proof notes, and A194/A204--A214.  The live gate is the
+complete-delay volume identity.  L267 proves exact defect transport
+for an abstract lossless Redheffer feedback, but the repeated-Crabb
+physical feedback realization is open.  First compare its relative
+three-coefficient jet with L242--L245/L258 for generic noncommuting
+tails; reject the route on any mismatch.  If it survives, prove the
+uniform associated-order factorization.  In parallel, treat A213's
+two-sided leakage-ideal placement and post-contour depth/row
+filtration as stop conditions, not established facts.  L266 proves
+that every nonconstant
 copy-scalar Laurent shift and every boundary correction of depth at
 most the delay misses the first delayed leakage diagonal.  Derive the
 fully assembled L243/L251/L258 return in L262/L264's normalized

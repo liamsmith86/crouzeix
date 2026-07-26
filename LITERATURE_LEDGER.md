@@ -203,6 +203,15 @@ Lemma-by-lemma scope:
   grade and therefore does not prove A95's grade-block Hessian conjecture.  Any use here must
   explicitly derive the Crabb equality tangent-to-Schur-parameter Jacobian and the optimized
   endpoint quadratic; first-order sparsity of the CMV matrix alone is insufficient.
+- [x] Y. Arlinskii, arXiv:1109.4020, *Schur parameters, Toeplitz matrices, and Krein
+  shorted operators* -- develops the classical conservative-system/Schur-parameter
+  framework and expresses shorted Toeplitz defect operators through Schur-parameter
+  products.  Campaign L267's unitary Redheffer initial/final defect congruences belong to
+  this classical lossless-feedback circle and carry no novelty claim.  The campaign-specific
+  open question is narrower: whether the L243/L251/L258 repeated-Crabb first reflected
+  coefficient admits one copy-scalar lossless feedback realization through associated order.
+  Neither the cited shorted-defect theory nor the abstract L267 identity establishes that
+  physical factorization.
 - [x] Bruns--Vetter, *Determinantal Rings* (Springer LNM 1327, 1988), chapters on maximal
   minors and their powers -- the ideal of maximal minors of a generic matrix has coincident
   symbolic and ordinary powers.  L155 uses only the elementary low-degree consequence for a

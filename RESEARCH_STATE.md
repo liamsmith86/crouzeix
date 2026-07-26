@@ -47,13 +47,22 @@
   right-half-line metric while continuing to delete the active left
   orbit, final corner, and cross row.  A211/L265 rewrites the target
   itself as four times one finite right-half-line Stein divergence.
-  A212/L266 now proves that any copy-scalar Laurent return—and any
+  A212/L266 proves that any copy-scalar Laurent return—and any
   unilateral shift polynomial whose boundary depth is at most the
   delay—contributes only its bilateral-symbol constant between the
-  delayed leakage projections.  The single live calculation is
-  therefore to derive the complete physical return form and depth
-  from L243/L251/L258 after L262/L264 normalization, prove the lower
-  vanishings, and show that this constant is four.
+  delayed leakage projections.  A213 records the tempting synthesis
+  of these facts, but deliberately leaves two stop conditions open:
+  two-sided leakage-ideal placement after the full renewal and a
+  depth/row filtration after both contour integrations.  It is not a
+  proof of A194.  A214/L267 supplies a separate exact structural
+  tool: unitary Redheffer feedback transports both defect operators
+  by explicit entrance-column congruences.  The identity is classical
+  and proved, but the physical associated-order feedback realization
+  is open.  The live calculation is now to test that realization at
+  L242's relative three-coefficient jet for generic noncommuting
+  delayed tails.  A mismatch rejects A214; a match must still be
+  upgraded to an all-delay factorization before it can close A213's
+  two stop conditions or A194.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
 
@@ -254,6 +263,31 @@
   L242's universal reflected jet and L256's grade-one result are
   checks, not substitutes for that derivation.
   `proof/repeated_crabb_toeplitz_return_rigidity.md`.
+
+## NEWEST (2026-07-25): L267 exposes exact lossless defect transport
+- For a unitary colligation
+  `U=[[A,B],[C,D]]`, the Redheffer feedback
+  `Phi(Z)=A+BZ(I−DZ)^−1C` satisfies the exact noncommutative identities
+  `I−Phi*Phi=C*(I−Z*D*)^−1(I−Z*Z)(I−DZ)^−1C`
+  and its final-defect analogue.
+- Thus a genuine lossless entry/return network cannot silently insert
+  an unknown positive tail metric.  It transports the tail defect
+  through one explicit port column.  This is classical
+  conservative-systems theory, not a novelty claim.
+- A deterministic audit used sixty noncommuting feedback matrices in
+  three rectangular block layouts; both identities passed with
+  largest residual `1.433e−15`.  The tracked dataset hash is
+  `972f9f2516914af778a637a192f3dfb0bc42bac83cda3201893be00a4e1809a3`.
+- L267 does **not** identify the repeated-Crabb physical map with such
+  a feedback.  Analytic functional calculus does not generally
+  commute with Redheffer feedback, and L251's paired channel alone is
+  insufficient.  The next falsification-first step is to compare
+  L243's zero/one-kernel relative three-coefficient physical jet with
+  a candidate lossless feedback for generic noncommuting tails.  Do
+  not promote A213's candidate trace-locality synthesis unless its
+  ideal-placement and depth/row stop conditions are closed.
+  `proof/lossless_redheffer_defect_transport.md`;
+  `experiments/lossless_redheffer_defect_transport.py`.
 
 ## NEWEST (2026-07-25): L253 identifies the target as Toeplitz leakage
 - If `T_B` is the causal Toeplitz multiplier of the matrix-inner
@@ -4602,8 +4636,21 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-25)
-1. **A194/A198--A212: derive the complete copy-scalar return and its constant term.**
-   L256 now proves the universal relative response
+1. **A194/A213--A214: falsify or realize the lossless physical return, then close the two trace-locality stop conditions.**
+   L267 proves exact defect transport for an abstract unitary
+   Redheffer feedback, but not for the physical repeated-Crabb map.
+   First compare the relative `D_0,D_1,D_2` physical jet from
+   L242--L245/L258 with a candidate copy-scalar lossless feedback on
+   generic noncommuting tails and delays.  A mismatch rejects A214 and
+   routes directly back to the explicit A213 trace-ideal calculation;
+   a match is only evidence until the associated-order factorization
+   is proved uniformly.  In either case, the proof must close A213's
+   two stated debts after the full renewal and both contour
+   integrations: (i) two-sided leakage-ideal placement with no
+   copy-dependent denominator or one-sided `B#`, and (ii) absorption
+   of every mixed half-line product before the boundary-depth/row
+   filtration.  Do not cite the candidate synthesis as a theorem.
+   L256 proves the universal relative response
    `[c²]mu°=4||B_1||_F²` for every matrix channel.  Prove that removing
    one clean Hardy layer obeys
    `[c^(2k)]mu°_(B,k)=[c^(2k−2)]mu°_(Btilde,k−1)`
