@@ -109,10 +109,14 @@ therefore be corrected without leaving that ideal.
 L305 closes the **response-selection/module-stability** part of the
 arbitrary-grade recurrence.  It does not prove that the retained
 rooted terms have the required positive even margins.  That is now
-the sole live algebraic gate for the partial-retightening induction:
-show that the sum of (5) over the complete physical forcing either
-cancels or is a transfer-Gram face chargeable to an earlier retained
-margin.
+the sole live algebraic gate for the partial-retightening induction.
+L309 subsequently rules out global odd cancellation.  The valid
+target is a bounded hereditary factor through the cumulative active
+transfer row at odd grades, and a direct transfer-Gram face plus a
+prior-transfer cost chargeable to an earlier retained margin at even
+grades.  L310 subsequently closes the hereditary endpoint factor
+termwise.  Its delay-compatible response normalization and the even
+sign/margin remain open.
 
 ## 2. Explicit correction column
 
@@ -357,15 +361,21 @@ The second term is now closed constructively and remains eligible
 for the next recurrence step.  The induction still must prove that
 the first term:
 
-1. cancels at every odd preparation grade; and
-2. at every even grade is a two-ended transfer Gram dominated by the
-   fixed partial-retightening margin.
+1. at every odd preparation grade is a bounded hereditary endpoint
+   factor through the cumulative active transfer row, modulo the
+   displayed response; and
+2. at every even grade is the new two-ended transfer Gram plus a
+   bounded prior-transfer cost dominated by the fixed
+   partial-retightening margins.
 
-L300 proves the first assertion at cubic order.  L303--L304 prove the
-second at quartic order.  L305 supplies the arbitrary-word mechanism
-behind both, but not the required all-grade identity for the rooted
-quotient.  Computing another isolated coefficient would not close
-that gate.
+L300 proves the stronger global-response statement at cubic order,
+but L309 proves that this does not persist at quintic order.
+L303--L304 prove the second assertion at quartic order.  L310
+subsequently converts every rooted channel term in (29) to a literal
+bounded hereditary endpoint factor and closes its Smith valuations.
+The remaining gate is the delay-compatible normalization of L310's
+polarized response columns and the sign/margin of the even factor
+sum.  Computing another isolated coefficient would not close it.
 
 ## 7. Independent regeneration
 

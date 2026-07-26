@@ -299,11 +299,17 @@
   `66384/15625`, while the scalar response space is zero.  Since
   `B_1!=0`, this is supported on an already active transfer range and
   does not obstruct the finite flag.  The next live step is therefore
-  to formulate the prepared affine recurrence **modulo bounded
-  hereditary cumulative-transfer factors**, not global odd-response
-  parity.  Do not factor the raw `q`, return to a graph
-  expansion/rooted-word sum, or start an unrelated isolated-grade
-  march.
+  to formulate the prepared affine recurrence modulo bounded
+  hereditary cumulative-transfer factors, not global odd-response
+  parity.  L310/A257 now closes that endpoint factor termwise:
+  polarized L280 converts every L305 rooted channel exactly to
+  `KB_j*+B_jK*` plus a bounded response, with automatic L292
+  valuations.  Its converting column can remain nonzero and
+  endpoint-null when `B_j=0`, however.  The live step is therefore
+  the delay-compatible normalization of the **complete sum** of those
+  polarized columns and their L301/L307 successors, together with the
+  even margin.  Do not factor the raw `q`, return to a growing graph
+  expansion, or start an unrelated isolated-grade march.
   The
   alternate raw route retains its lower
   budget, separates L283's favorable `−12` Gram, and expresses only
@@ -323,6 +329,30 @@
   The circular-normal merger is downstream.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
+
+## NEWEST (2026-07-26): L310 converts every root to a literal hereditary endpoint factor
+- Polarized L280 gives the exact balanced identity
+  `Phi(B_j*K+K*B_j)=KB_j*+B_jK*−M_S(C_j(K))`, with
+  `C_j(K)=Q{S^jWK+sum_(ell<j)(S*)^(j−ell)VK*B_ell}`.
+- The column is perpendicular, polynomial/analytic, and satisfies
+  `||C_j(K)||<=j||K||`.  Combining it with L305 turns every rooted
+  word `p(ES^jF)q` into the literal factor
+  `K_pq B_j*+B_jK_pq*` plus a bounded response.
+- The literal factor vanishes on `ker B_j*` and has an explicit
+  bounded multiplier, so its L292 Smith valuations are automatic.
+  This closes the hereditary endpoint quotient required by L309,
+  term by term and without a pseudoinverse.
+- Scope guard: the converting column need not lie in L305's bridge
+  ideal or vanish on a complete delay.  Three exact-structure
+  numerical cases have `B_1=0`, factor/response zero, but
+  `||C_1(K)||=||K||=1`.  It is a nonzero endpoint-null direction and
+  cannot be inserted blindly without reviving L284--L288's
+  later-successor normalization debt.
+- The new live gate is therefore narrower: normalize the complete sum
+  of polarized columns compatibly with every delay flag, or prove
+  their L301/L307 successors remain hereditary with sufficient even
+  margins.  Dataset SHA-256:
+  `376523b537a27d4f30f65705e8e6ab536220bf65256901294d931777a7064ae1`.
 
 ## NEWEST (2026-07-26): L309 disproves global prepared odd-response parity
 - L309 repeats L308's rational scalar-copy colligation, but now
