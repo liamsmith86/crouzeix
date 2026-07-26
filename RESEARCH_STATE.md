@@ -2,17 +2,44 @@
 
 **Last updated:** 2026-07-26 (Epoch 6 — repeated circular/elliptic merger)
 
-## CANONICAL LIVE GATE (2026-07-26, after L316/A264)
+## CANONICAL LIVE GATE (2026-07-26, after L317/A265)
 
-There is exactly one current mathematical gate: **prove the sharp
-two-channel path-weight/energy rule for the grouped prepared endpoint
-(`j+k<=d`, with equality only for L283/L298's principal direct Gram),
-then assemble its fixed-`theta=1/2` margins.**  This is current next
-action 1 below.  Every later occurrence of “historical gate,”
+There is exactly one current mathematical gate: **use L317's exact
+finite-jet form
+`U=Bcal(c){D_dir+cR(c)}Bcal(c)*+response` to absorb the bounded
+Hermitian `cR(c)` at fixed `theta=1/2`, while retaining L307's
+`-C*C`/partial-scale Gram reserve.**  The sharp support
+`j+k<=d`, with equality only for L283/L298's principal direct Gram,
+is now proved.  This is current next action 1 below.  Every later
+occurrence of “historical gate,”
 “historical frontier,” or “remaining historical task” records what
 was unresolved at that dated checkpoint; none is a concurrent
 frontier.  Actions 2--4 are ordered successors, not simultaneous
 research directions.  The CP/H-r routes remain parked fallbacks.
+
+## L317/A265 SHARP TWO-CHANNEL SUPPORT (2026-07-26)
+
+- L313's wandering-chain factorization now starts at an arbitrary
+  paid root height: a word with `r` physical reverse edges next to
+  `B_k` exposes only `B_a`, `a<=k+r`.
+- Stable Stein terms are not factored termwise.  L243/L245/L251 and
+  L255/L272 first close them into a Toeplitz leakage return; L266
+  kills every nonconstant shortest return, L261 keeps the diagonal,
+  and L277--L283 include the exceptional deep boundary divergence.
+- Therefore every retained pair at elliptic degree `d` satisfies
+  `j+k<=d`.  Equality forces `j=k=d/2` and is exactly the direct
+  L283/L298 Gram.  Every other block has one extra power of `c`.
+- Through a fixed terminal jet this gives
+  `U=Bcal(c){D_dir+cR(c)}Bcal(c)*+M_S(C_rsp)`, with
+  bounded polynomial/rank-stable `R` and L311-normalized response.
+  The statement is deliberately grouped: L217's raw order-four
+  `B_5` frame term can form an apparent `B_1/B_5` equality cross
+  before physical closure.
+- Six noncommuting audits reconstruct all 6,120 marked words through
+  length seven and separately test continuant-port valuation,
+  noncommuting Potapov leakage-shift annihilation, and Rees
+  regrouping.  Dataset SHA-256:
+  `f3f24239f45beb756b4da21fd5ce7d7ce6fc25e662cefbfd344c395fde52ed51`.
 
 ## CONSOLIDATION REVIEW (2026-07-26, after L316/A264)
 
@@ -6278,8 +6305,8 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L316/A264)
-1. **Close the two-channel weighted-energy square completion left after L316.**
+## Current next actions (Epoch 6, refreshed after L317/A265)
+1. **Close the fixed-half-scale margin assembly left after L317.**
    L306 sums every rooted successor to
    `q=−Psi_S(Delta*XS+S*XDelta+Delta*XDelta)
       −(C*H+H*C+C*C)`, and L307 proves the formula recurs after a
@@ -6309,23 +6336,24 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    rule `d>=2k` is invariant under all six successor terms, lower
    elimination, Stein inversion, and L311 response selection.  Do
    not redo those sectors or demand a frame/operator cancellation.
-   L316 adds the exact missing parity statement at the grouped
-   physical endpoint: the doubled-Hardy orientation gauge makes every
-   same-endpoint sandwich even in total transfer-channel degree.
-   Therefore an L311 one-root term either cancels/is response or its
-   multiplier contains a second transfer channel.  Prove the sharp
-   path-weight rule: if the two exposed channels are `B_j,B_k` in
-   elliptic degree `d`, then `j+k<=d`, with equality only for the
-   principal direct Gram already identified by L283/L298.  Use L243's
-   reflection-power filtration, L255's doubled-Hardy paths, L313's
-   paid reverse-edge recursion, and L315's displayed root genealogy;
-   do not infer the result merely from abstract ideal membership or
-   parity.  Package the remainder as a bounded quadratic form in
-   `[cB_1,c^2B_2,...]`, with an extra factor of `c` on every
-   nonprincipal block.  Complete squares at fixed
-   `theta=1/2`, isolate each even new direct Gram, and bound only the
-   prior-transfer cost by retained earlier margins.  Retain `−C*C`
-   with L307's reserve.  Do
+   L316 adds exact grouped channel parity, and L317 now closes the
+   sharp support that parity alone could not supply.  The marked
+   L313 recursion, L243/L245 port valuation, and L255/L266 closed
+   leakage return prove that a pair `B_j,B_k` at elliptic degree `d`
+   satisfies `j+k<=d`; equality is only L283/L298's principal direct
+   Gram.  Hence the complete finite jet is already packaged as
+   `Bcal(c){D_dir+cR(c)}Bcal(c)*+response`, with `R` locally bounded,
+   Hermitian, polynomial, and rank-stable.
+
+   Work directly with that grouped form.  At fixed `theta=1/2`,
+   isolate each new direct Gram and complete squares against the
+   `cR(c)` blocks in increasing flag order.  Charge only the prior-
+   transfer Schur cost to an earlier retained margin, and use the
+   extra `c` plus a sufficiently small common neighbourhood to make
+   the bound strict.  Carry L307's affine leftover at every step and
+   retain `−C*C` together with its positive partial-scale reserve;
+   do not re-expand the square into separately estimated terms.
+   Do
    not impose global odd response, confuse channel parity with
    elliptic parity, factor raw `q`, enumerate L305
    roots, launch an unrelated fifth/seventh grind, discard `−C*C`,

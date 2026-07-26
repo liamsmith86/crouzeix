@@ -1,18 +1,20 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-26): after L316 / A264
+## Current general Crabb frontier (2026-07-26): after L317 / A265
 
 The post-L316 consolidation review retired 55 of 75 stale/unclassified
 `OPEN` labels (54 superseded, one obsolete) and left 20 genuinely live
 rows, each attached to ordered next action 1--4.  The one canonical
-live gate is: prove the grouped two-channel rule `j+k<=d`, with
-equality only for L283/L298's principal direct Gram, and assemble its
-fixed-half-scale margins.  L295 is only a normalization warning after
-L297, every exact disproved route has a banked certificate, all 253
+live gate is now: absorb L317's bounded extra-`c` Hermitian remainder
+at fixed half scale while retaining L307's square reserve.  L317
+proves the grouped two-channel rule `j+k<=d`, with equality only for
+L283/L298's principal direct Gram, and packages the finite jet as
+`Bcal(c){D_dir+cR(c)}Bcal(c)*+response`.  L295 is only a normalization warning after
+L297, every exact disproved route has a banked certificate, all 254
 proof notes are free of repeated regenerated blocks, the L312/A259
 dataset hash remains `5b5dac60...6becf`, and Ruff plus `py_compile`
-pass all 303 experiment modules.  L290--L316 are explicitly scoped to
+pass all 304 experiment modules.  L290--L317 are explicitly scoped to
 the fixed finite repeated-Crabb neighbourhood; A259 remains
 conjectural and unused.
 
@@ -96,6 +98,15 @@ calculation is now the quantitative two-channel theorem: prove
 `j+k<=d` for channels `B_j,B_k` occurring at elliptic degree `d`,
 identify equality with L283's direct Gram, and give every other block
 an extra power of `c` before the fixed-half-scale margin assembly.
+L317/A265 closes that quantitative support theorem.  The marked
+wandering recursion controls every finite physical multiplier, while
+the exact L243/L245/L251 ports and L255/L266 leakage return keep the
+stable future row grouped.  Every nonprincipal block has at least one
+power of slack, unequal equality returns vanish, and the principal
+same-grade row is L283/L298's direct Gram.  The tracked six-case audit
+reconstructs 6,120 marked words and has SHA-256
+`f3f24239...2ed51`.  Resume from the fixed-`theta=1/2` square
+completion of `cR(c)`; do not reopen two-channel support.
 The L312/A260 checkpoint repeated the concurrency audit from a clean
 worktree: all four handoff commits are ancestors of the single
 `master`, `master` agrees with `origin/master`, no alternate worktree,
@@ -103,7 +114,7 @@ branch, staging conflict, or untracked artifact existed, and L248/L249
 regenerate byte-identically with the recorded hashes.  The stopped
 agent's L248 continuation recommendation has been superseded by
 L277--L279, which close that volume coefficient.  Resume as one agent
-only from L316's two-channel weighted-energy square completion and then the
+only from L317's fixed-half-scale margin assembly and then the
 fixed-`theta=1/2` finite-flag induction below.  The now-completed
 A194 route
 ran through A196's balanced output form, A197's paired
@@ -1152,6 +1163,13 @@ before their theta/coisometric cancellation.
   metric, endpoint-sandwich, and orientation-Schur covariance audits;
   tracked data hash
   `03b23df2857cfd71edf69da66d2dd7df1a8c72a3c667e9a378df8663ed7a5711`.
+- `proof/repeated_crabb_two_channel_weight.md` (L317/A265): exact
+  marked-chain, closed-leakage, and zero-slack filtration proving
+  `j+k<=d`, with equality only in the principal direct Gram.
+- `experiments/repeated_crabb_two_channel_weight.py`: marked physical
+  words, continuant-port valuations, noncommuting Potapov leakage
+  returns, and Rees regrouping; tracked data hash
+  `f3f24239f45beb756b4da21fd5ce7d7ce6fc25e662cefbfd344c395fde52ed51`.
 - `experiments/repeated_crabb_markov_response.py`: arbitrary
   multiplier, bistochastic, summed-response, Dirichlet, observability-
   preimage, state-energy, polarized-collapse, and repeated-apex
@@ -2475,9 +2493,9 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    not compute another isolated grade.  Then finish the
    normal/elliptic merger, retaining the full CP route as fallback.
 
-## Paste-ready continuation instruction (current after L316/A264)
+## Paste-ready continuation instruction (current after L317/A265)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix` as
-the sole repository-writing agent.  Read L197, L220, L227, L283--L316,
+the sole repository-writing agent.  Read L197, L220, L227, L283--L317,
 A259's explicitly conjectural sharp endpoint-word note, plus the newest
 `RESEARCH_STATE.md` section.  Do not treat A259 as L312: its
 lossless-circuit residual block is unproved.  L312 proves only the
@@ -2493,17 +2511,16 @@ cross a weighted L311 bridge sum.  Do not seek a frame/operator
 cancellation.  L315 also closes the operator root valuation: the
 filtered rule `d>=2k` in bridge ideal `I_k` survives the full affine
 successor, lower elimination, Stein inversion, and L311 selection.
-Do not redo a dual-Stein telescope.  For each exposed factor through
-`c^kB_k`, use L316 first: exact doubled-Hardy sign covariance proves
-that no isolated transfer channel survives in the grouped
-nonresponse endpoint.  Do not confuse this with elliptic parity;
-L309 remains valid.  Prove next that the second channel `B_j` carries
-enough physical weight that `j+k<=d` at elliptic degree `d`, with
-equality only for L283's principal direct Gram.  Factor the remaining
-endpoint through `[cB_1,c²B_2,...]`, give every nonprincipal block one
-extra `c`, then complete squares at `theta=1/2` and pay only
-prior-transfer costs from retained earlier margins.  Retain `−C*C`
-and L307's reserve.  L277--L279 have proved
+Do not redo a dual-Stein telescope.  L316 proves exact grouped channel
+parity, and L317 now proves the missing sharp support:
+`j+k<=d`, with equality only for L283/L298's principal direct Gram.
+It packages the finite jet as
+`Bcal(c){D_dir+cR(c)}Bcal(c)*+response`, with bounded Hermitian,
+polynomial, rank-stable `R`.  Do not reopen path weighting or infer
+anything from raw frame summands such as L217's early `B_5`.
+Complete squares at `theta=1/2` directly in this grouped form and pay
+only prior-transfer costs from retained earlier margins.  Retain
+`−C*C`, L307's reserve, and its affine leftover.  L277--L279 have proved
 every lower delayed face, the active `+4||B_k||²` volume coefficient,
 the `+2||B_k||²` dual-Schur trace, and the
 `−16||B_k||²` effective separator trace in arbitrary grade.  Do not
@@ -2617,9 +2634,8 @@ neutralization exactly on that example, yet the upper quintic remains
 `66384/15625` while the response space is zero.  Since `B_1!=0`, this
 is an already-active-range term, not a finite-flag obstruction.  Do
 not factor raw `q` or impose global prepared odd response.
-Construct the prepared affine recurrence modulo bounded hereditary
-cumulative-transfer factors; isolate even direct Grams and dominate
-the prior-transfer costs by earlier margins, then lift
+Use L317's prepared affine Rees form; isolate even direct Grams and
+dominate its extra-`c` prior-transfer costs by earlier margins, then lift
 the fixed partial-scale mechanism through the finite transfer flag.
 Do not enumerate roots, discard `−C*C`, split cancellation-dependent
 pieces, or assume abstract cyclic excision.  The complete quartic
