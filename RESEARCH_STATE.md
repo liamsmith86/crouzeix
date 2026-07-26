@@ -241,10 +241,14 @@
   column exists with
   `||C_3||<=10||R_1||<=20 Gamma_S||B_1||`.  The frame elimination
   uses L298's special `(S*)²F_1=0`, so it is not automatically
-  recursive.  The next live step is to compute the quartic cross made
-  by inserting `C_3`, localize that successor to the next surviving
-  transfer flag, and only then seek an all-series recurrence—not
-  expand another complete-delay grade.  The
+  recursive.  L301/A248 now closes the generic first successor:
+  every direction `X−S*XS=VC*+CV*` produces a moving successor in
+  the Markov range with preimage norm at most `10||X||+2||C||`.
+  Thus the retained quartic commutant pairing is independent of the
+  chosen L300 preimage.  The next live step is to compute and sign
+  that physical invariant, then localize only its response remainder
+  to the next surviving transfer flag—not expand another
+  complete-delay grade.  The
   alternate raw route retains its lower
   budget, separates L283's favorable `−12` Gram, and expresses only
   L285/L289's mixed transported remainder as a controlled flux.
@@ -263,6 +267,31 @@
   The circular-normal merger is downstream.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
+
+## NEWEST (2026-07-26): L301 transports every first successor into the Markov range
+- For any fixed-base direction
+  `X−S*XS=VC*+CV*`, its first moving successor is
+  `T(X,C)=−(A_1*XS+S*XA_1+D_1C*+CD_1*)`.
+- Exact reduction gives L300's universal metric expression plus the
+  remainder `−2{(S*)²CV*+VC*S²}`.  If
+  `Z_Y=(I−VV*)H_YV`, the full dual pairing is
+  `<Y,tau>=tr(XK_Y)−4 Re tr Z_Y*(S*)²C`.
+- Hence
+  `|<Y,tau>|<=(20||X||+4||C||)||Z_Y||`, so every successor
+  annihilates the full L206 cokernel and has a perpendicular response
+  preimage bounded by `10||X||+2||C||`.  No pseudoinverse or Markov
+  gap occurs.
+- In particular, two bounded L300 cubic preimages change the quartic
+  successor only by a bounded Markov response.  The retained
+  commutant/separator component of the physical quartic is therefore
+  selection-independent; simultaneous cubic/quartic optimization is
+  unnecessary.
+- The next gate is to compute that invariant physical quartic pairing
+  and prove its favorable sign on every reducing block, then apply
+  L301/L280 only to its response component.
+- Exact rational algebra plus unstructured, reducible, and repeated
+  monomial audits pass.  Dataset SHA-256:
+  `24ca5eade9348ee61821c24604abd8dcbb8ad1156e62cb021f89e9e193343d7c`.
 
 ## NEWEST (2026-07-26): L300 gives the moving cubic a gap-free Markov preimage
 - L299's cubic frame tangents reduce exactly to
@@ -5672,7 +5701,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L300/A247)
+## Current next actions (Epoch 6, refreshed after L301/A248)
 1. **Close bounded repeated-elliptic selection.**  Use L283 as the
    exact complete-delay boundary condition and L284's endpoint-null
    normalizations as the gauge convention.  L285 already gives the
@@ -5696,20 +5725,22 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    demand endpoint-null even gauges, infer anything from raw
    two-sided state-ideal membership, insert L291's fixed-rank
    pseudoinverse, or compute an isolated seventh grade.
-2. **Compute L300's quartic successor, then recurse from L299.**  L300 now
+2. **Compute the selection-independent quartic invariant.**  L300 now
    proves full L222 cokernel compatibility and supplies a response
    column with global gap-free bound
    `||C_3||<=20 Gamma_S||B_1||`; do not redo the cubic range solve or
    search for a scalar multiple of L230.  L300's frame elimination
    uses the special identity `(S*)²F_1=0`, which need not hold for its
-   selected response column.  Insert that column into L299's exact
-   six-term formula and compute the resulting **quartic** cross with
-   the raw first frame before considering the sextic self-cost.  On
-   `ker B_1*`, bound/factor the complete successor by the next
-   surviving transfer row (equivalently prove the flagged L296 energy
-   estimate or L292 valuations).  Only then state the finite
-   recursive moving correction with retained even margins.  Do not
-   retry A246's false
+   selected response column.  L301 closes precisely that generic
+   first successor and proves that changing the cubic preimage changes
+   the quartic only by a bounded Markov response.  Therefore use any
+   convenient cubic representative, compute the retained physical
+   quartic pairing on each L206 reducing block, and prove it is
+   favorable.  Then redistribute the response component with
+   L301/L280 and prove its ordered flag energy/Smith valuations.
+   Only after that sign/margin closes should the all-series
+   recurrence and later sextic self-cost be addressed.  Do not retry
+   A246's false
    prior-flag shortcut.  If the ordered homology bound fails, return
    to the raw normalization:
    retain its lower budget, split off L283's `−12B_kB_k*`, discard
@@ -5909,7 +5940,9 @@ Current A178 transport packet:
   proof/repeated_crabb_moving_retightening_defect.md (L299 exact
   six-term nonlinear defect and rational cubic flag obstruction), and
   proof/repeated_crabb_cubic_markov_flux.md (L300 exact
-  frame-eliminated cubic pairing and gap-free response-column bound);
+  frame-eliminated cubic pairing and gap-free response-column bound),
+  and proof/repeated_crabb_successor_markov_transport.md (L301 exact
+  universal first-successor response and selection independence);
   matching
   regenerators use the same
   basenames under experiments/.  Resume either on the raw branch by
@@ -5918,8 +5951,9 @@ Current A178 transport packet:
   factors, deriving L296 polarization columns for the surviving
   compression, and proving their total energy is
   `O(||U*B_k||²)` (or equivalently proving L292's valuations), or on
-  the lower-tight branch by computing and localizing the quartic
-  successor of L300's already bounded cubic response, then recursing
+  the lower-tight branch by computing the selection-independent
+  retained quartic invariant exposed by L301, proving its favorable
+  reducing-block sign, and redistributing only its response part
   from L299's six-term all-series formula.  Do not
   mix those endpoint ledgers, force state witnesses into an
   ideal, use a rank-changing pseudoinverse, confuse pointwise flag

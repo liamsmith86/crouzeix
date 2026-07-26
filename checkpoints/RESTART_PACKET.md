@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-26): after L300 / A247
+## Current general Crabb frontier (2026-07-26): after L301 / A248
 
 The accidental two-agent interval has been reconciled.  Commits
 `87c5107`, `4c7a152`, `2f82d15`, and `dcab861` form one linear history
@@ -16,7 +16,7 @@ L287/A234 found no stopped-agent artifact, branch, staged overlap, or
 competing next-action instruction.  L288/A235, L289/A236,
 L290/A237, L291/A238, L292/A239, L293/A240, L294/A241,
 L295/A242, L296/A243, L297/A244, L298/A245, L299/A246, and
-L300/A247 were
+L300/A247 and L301/A248 were
 then derived, audited, and documented by the sole active agent.
 Resume as one agent from the
 bounded repeated-elliptic selection gate below.  The now-completed
@@ -148,9 +148,13 @@ relative grade-one response, and A203/L257 turns its transport into
   `||C_3||<=10||R_1||<=20 Gamma_S||B_1||`.  This uses no
   pseudoinverse or closing Markov gap.  Its frame elimination uses
   L298's special `(S*)²F_1=0` and does not automatically iterate.
-  The live lower-tight debt is now to compute the quartic cross made
-  by inserting `C_3`, localize that successor to the next surviving
-  transfer flag, and only then recurse from L299's six-term formula.
+  L301/A248 closes the generic first successor: every fixed-base
+  direction produces a bounded Markov response one moving order
+  later, with preimage norm at most `10||X||+2||C||`.  Thus changing
+  the L300 cubic preimage changes the quartic only by a response.  The
+  live lower-tight debt is now to compute the selection-independent
+  physical quartic commutant pairing, prove its favorable sign, and
+  redistribute only the response remainder before recursing.
   On the raw
   route, retain its lower budget, split off L283's
   favorable `−12` Gram, and derive a flux pairing only for the mixed
@@ -894,6 +898,13 @@ before their theta/coisometric cancellation.
   unstructured, rank-chain, and reducible Markov-flux audits; tracked
   data hash
   `1c8bf694c4f0783ce9d3b38da44e046ad3a5b9a406888c1a60ebe95db8eb064d`.
+- `proof/repeated_crabb_successor_markov_transport.md` (L301/A248):
+  exact universal first-successor decomposition, gap-free response
+  bound, and quartic selection-independence theorem.
+- `experiments/repeated_crabb_successor_markov_transport.py`: exact
+  rational, unstructured, reducible, and monomial-apex successor
+  audits; tracked data hash
+  `24ca5eade9348ee61821c24604abd8dcbb8ad1156e62cb021f89e9e193343d7c`.
 - `experiments/repeated_crabb_markov_response.py`: arbitrary
   multiplier, bistochastic, summed-response, Dirichlet, observability-
   preimage, state-energy, polarized-collapse, and repeated-apex
@@ -2147,7 +2158,7 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   The former deformation route was superseded by the Schwarzian proof of EL4; see
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
-## Next five concrete actions (refreshed after L300 / A247)
+## Next five concrete actions (refreshed after L301 / A248)
 1. Use L285--L299 to prove the arbitrary-grade parity recursion in
    the mixed graph coordinate: solve removable odd endpoint homology,
    then factor each complete physical endpoint pairing directly as
@@ -2161,17 +2172,19 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    state-ideal invariance, a rank-changing pseudoinverse, pointwise
    flag zero alone, or an isolated seventh grade.  L282 remains the
    bounded-energy certificate language.
-2. Compute L300's quartic successor, then recurse from L299.
+2. Compute and sign the retained quartic invariant.
    L300 already proves the complete commutant pairing and gives a
    gap-free response column with
    `||C_3||<=20 Gamma_S||B_1||`; do not redo the range solve or force
    the answer to be a scalar multiple of L230's column.  L300 uses
    L298's special `(S*)²F_1=0`, which the selected response frame need
-   not inherit.  Insert the column into L299's exact defect formula,
-   compute its quartic cross with the raw first frame, and localize
-   that complete successor on `ker B_1*` via L296 energy or L292
-   valuations before considering the later sextic self-cost.  Only
-   then lift the mechanism to an all-series recurrence.  If that
+   not inherit.  L301 proves that its generic first successor is
+   always another bounded response, so the quartic commutant pairing
+   is independent of the selected cubic representative.  Use a
+   convenient representative to compute that physical pairing on
+   every reducing block, prove it favorable, then redistribute only
+   its response component and prove the ordered L296/L292 bound.
+   Only then lift the mechanism to an all-series recurrence.  If that
    ordered homology bound fails, return to the raw normalization:
    retain its lower budget, split off L283's
    `−12B_kB_k*`, discard bounded prior-flag factors, and use L296 on
@@ -2216,9 +2229,9 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    not compute another isolated grade.  Then finish the
    normal/elliptic merger, retaining the full CP route as fallback.
 
-## Paste-ready continuation instruction (current after L300/A247)
+## Paste-ready continuation instruction (current after L301/A248)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix` as
-the sole repository-writing agent.  Read L197, L220, L227, L283--L300,
+the sole repository-writing agent.  Read L197, L220, L227, L283--L301,
 plus the newest `RESEARCH_STATE.md` section.  L277--L279 have proved
 every lower delayed face, the active `+4||B_k||²` volume coefficient,
 the `+2||B_k||²` dual-Schur trace, and the
@@ -2289,11 +2302,14 @@ controlled by the L281 defect, and there is a perpendicular column
 `||C_3||<=10||R_1||<=20 Gamma_S||B_1||`, without a pseudoinverse or
 Markov-gap loss.  The elimination uses L298's special
 `(S*)²F_1=0`, so it is not automatically hereditary.  Do not redo
-that range solve or force L230's stale scalar ansatz.  Insert the
-selected column into L299's exact formula, compute and localize its
-quartic successor before the later sextic self-cost, and only then
-seek an all-series recurrence.  Do not mix endpoint ledgers, assume
-A179's false
+that range solve or force L230's stale scalar ansatz.  L301 now proves
+that every generic first successor is itself a bounded Markov
+response, so changing the cubic representative changes the quartic
+only inside the response range.  Compute the selection-independent
+physical quartic commutant pairing, prove its favorable sign on each
+reducing block, and redistribute only its response part before the
+later sextic self-cost or an all-series recurrence.  Do not mix
+endpoint ledgers, assume A179's false
 raw superposition, retry the no-extra-correction shortcut, or
 re-estimate the Markov gap.
 If that effective-route factorization fails, retain the raw lower
