@@ -281,8 +281,11 @@ E_{a,b}=-aB_kB_k^*-bG_k,\qquad a\ge0,\ b\in\mathbb R,
 
 L295 shows that this general form, rather than comparison of the raw
 repair upper face with (5), is the correct possible interface to
-L285/L289 when its favorable lower budget is retained.  L297 leaves
-the separately normalized effective comparison open.
+L285/L289 when its favorable lower budget is retained.  L297 removes
+the apex obstruction to the effective normalization, and L298
+subsequently closes the desired complete-delay lower-tight face by
+using one seventh of this preimage together with a negative orbit
+Gram.  The nonlinear moving-series transport remains open.
 
 ## 5. Relation to L293
 

@@ -6,10 +6,12 @@
 > raw L227/L285 repair upper face cannot be compared with that
 > lower-tight target: their apex values are respectively `-12I` and
 > `-16I`.  L297 identifies the gap as lower retightening, so the
-> effective comparison remains open.  If the raw favorable lower
-> budget is retained, pair only its mixed transport remainder;
-> L296 handles arbitrary polarized responses once their column energy
-> is controlled.
+> direct comparison is not obstructed.  L298 subsequently bypasses
+> that comparison and closes the desired complete-delay lower-tight
+> face by an exact orbit-Gram/L212 cancellation.  Its moving-series
+> defect remains open.  If the raw favorable lower budget is retained,
+> pair only its mixed transport remainder; L296 handles arbitrary
+> polarized responses once their column energy is controlled.
 
 ## 1. Result (L293, 2026-07-26)
 

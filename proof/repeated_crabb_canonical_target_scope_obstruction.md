@@ -4,7 +4,9 @@
 > for every polarized L280 response, not only the quadratic \(G_k\).
 > L297 then identifies the \(4I\) mismatch below as exactly the
 > lower-retightening normalization.  Thus L295 rules out the raw
-> comparison only; the lower-tight/effective comparison remains open.
+> comparison only.  L298 subsequently bypasses the remaining
+> comparison and closes the desired completely delayed lower-tight
+> face by an exact orbit-Gram/L212 cancellation.
 
 ## 1. Result (L295, 2026-07-26)
 
@@ -141,9 +143,11 @@ It fails at the most symmetric equality point because it mixes
 normalizations.  In the raw branch, first separate the complete
 negative Gram already supplied by L283 from the mixed graph-transport
 remainder, then use L296 if the surviving compression is a polarized
-response.  In the lower-tight branch, the apex obstruction is absent;
-the all-grade effective matrix comparison remains open.  Neither
-route may silently substitute one endpoint ledger for the other.
+response.  In the lower-tight branch, L298 now closes every
+completely delayed first face directly; its fixed-base correction
+still has to be transported through the nonlinear moving series.
+Neither route may silently substitute one endpoint ledger for the
+other.
 
 ## 4. Exact regeneration
 

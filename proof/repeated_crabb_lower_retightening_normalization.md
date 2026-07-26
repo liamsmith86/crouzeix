@@ -114,12 +114,15 @@ There are now two correctly scoped possibilities.
    surviving polarized response.
 2. **Lower-tight/effective branch (L214--L215/L279).**  Spend the
    lower face and seek the effective upper target \(-16B_kB_k^*\).
-   L297 shows that L212 is correctly normalized at the apex.  Its
-   all-grade partial-flag physical identification remains open.
+   L297 shows that L212 is correctly normalized at the apex.  L298
+   subsequently constructs the exact complete-delay face in every
+   grade by combining a negative orbit Gram with one seventh of
+   L212.  Transport through the full moving series and partial flags
+   remains open.
 
-The branches may ultimately be equivalent by an analytic
-retightening transport, but that equivalence has not been proved and
-must not be assumed inside L285/L289.
+L298 supplies the analytic retightening direction at the fixed base
+colligation.  Its equivalence with the complete nonlinear L285/L289
+transport has not been proved and must not be assumed.
 
 ## 4. Exact regeneration
 

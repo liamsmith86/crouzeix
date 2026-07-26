@@ -219,9 +219,19 @@
   `(lower,upper)=(+I,−4I)` for the boundary metric,
   `(+I,−12I)` for the raw repair, and `(0,−16I)` for the
   lower-tight/effective face.  Thus the raw-to-effective increment is
-  `(-I,-4I)`, and the correctly normalized effective comparison with
-  L212 remains open.  One live route retains the raw lower budget,
-  separates L283's favorable `−12` Gram, and expresses only
+  `(-I,-4I)`, so the correctly normalized effective comparison with
+  L212 is not obstructed.  L298/A245 then supplies the
+  noncommutative transport directly: the negative right-orbit Gram
+  contributes `(-B_k*B_k,-4C(B_k*B_k))`, and one seventh of L212
+  returns `+4(C(B_k*B_k)-B_kB_k*)` upstairs.  The channel terms
+  cancel, giving the exact Stein-compatible pair
+  `(-B_k*B_k,-4B_kB_k*)` in every grade.  Added to L283, this closes
+  the completely delayed lower-tight face as `(0,-16B_kB_k*)` in
+  arbitrary grade; weighted sums close the fixed-`S`
+  base-colligation transport.  The live effective-route debt is now
+  the nonlinear defect produced by the moving elliptic operator and
+  prior prepared grades.  The alternate raw route retains its lower
+  budget, separates L283's favorable `−12` Gram, and expresses only
   L285/L289's mixed transported remainder as a controlled flux.
   L296/A243
   removes the unnecessary restriction to the special quadratic
@@ -231,12 +241,39 @@
   The live repair-branch target is now to discard L290's bounded
   prior-flag factors, derive polarization columns only for the
   surviving compressed remainder, and prove their total energy is
-  `O(||U*B_k||²)`.  The distinct alternative is to prove L212's own
-  exact-axis/lower-tight base in arbitrary grade.  Do not mix the raw
-  and lower-tight endpoint ledgers.
+  `O(||U*B_k||²)`.  Do not mix the raw and lower-tight endpoint
+  ledgers or treat L298's fixed-`S` weighted sum as an already
+  completed moving metric series.
   The circular-normal merger is downstream.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
+
+## NEWEST (2026-07-26): L298 retightens every transfer grade explicitly
+- For `A_k=B_k*B_k`, the right-orbit Gram
+  `Omega(A_k)=G_S(VA_kV*)` has physical endpoint pair
+  `(+A_k,+4C(A_k))`.  Its negative removes L283's raw lower face but
+  initially costs `−4C(A_k)` upstairs.
+- Let `D_k` be one seventh of L212's balanced column.  Its lower
+  endpoint is zero and its upper endpoint is
+  `+4(C(A_k)−B_kB_k*)`.
+- Therefore
+  `R_k=−Omega(A_k)+G_S(VD_k*+D_kV*)`, with frame column
+  `F_k=−VA_k/2+D_k`, obeys the exact Stein equation
+  `R_k−S*R_kS=VF_k*+F_kV*` and has physical endpoint pair
+  `(-B_k*B_k,-4B_kB_k*)`.
+- Adding this to L283's completely delayed raw face
+  `(+B_k*B_k,-12B_kB_k*)` gives the lower-tight effective face
+  `(0,-16B_kB_k*)` in **every** grade.  This extends L214--L215
+  without computing another isolated coefficient.
+- Arbitrary real weighted sums also close exactly for the fixed base
+  colligation; weights `|c|^(2k)` give the two oriented reflected
+  Grams.  This does not yet close the full moving elliptic series:
+  substituting the pulled operator creates nonlinear cross terms, and
+  A179/A172 remain valid warnings.
+- Exact algebra proves the result.  Twenty-seven independent
+  noncommuting, completely delayed, and apex audits pass through
+  grade six.  Dataset SHA-256:
+  `ba5a8c971e377824280ad4afdc63b029d26f108534ec506a3328db4a4c8d1c7c`.
 
 ## NEWEST (2026-07-26): L297 aligns the raw and lower-tight endpoint ledgers
 - At the repeated monomial apex, the boundary metric has endpoint
@@ -252,8 +289,10 @@
   obstruct a correctly normalized effective comparison.
 - The raw L230--L289 route may retain the favorable lower budget and
   use L296 on the surviving mixed response.  The separate
-  lower-tight route may seek an effective all-grade L212 identity.
-  Every future face comparison must name its endpoint normalization.
+  lower-tight route is now closed on every completely delayed first
+  face by L298; its live debt is the moving-series/mixed-flag
+  transport.  Every future face comparison must name its endpoint
+  normalization.
 - Exact endpoint-ledger audits pass in multiplicities one through
   four.  Dataset SHA-256:
   `2a493ad3fec9deb6de14b0a8c65943d09eafb82ac3fea34bcf58dc78470575dc`.
@@ -294,7 +333,8 @@
   L212's **lower-tight** target is false.  L297 subsequently shows
   that the missing `−4I` is exactly the upper part of the
   `(-I,-4I)` lower-retightening increment.  The correctly normalized
-  effective comparison remains open.
+  completely delayed face is subsequently closed by L298; only its
+  nonlinear moving-series/mixed-flag transport remains open.
 - L294 itself survives unchanged and has the branch-neutral
   consequence
   `<Y,−aB_kB_k*−bG_k>_+
@@ -330,9 +370,11 @@
   A179 disproves raw simultaneous superposition.  L295 additionally
   disproves comparing the raw L227/L285 upper face directly with this
   lower-tight target.  L297 shows that their apex gap is precisely
-  lower retightening, so the effective comparison remains open.  Use
-  the general flux bound on the raw branch's mixed remainder, or
-  prove the distinct L212 lower-tight exact-axis base.
+  lower retightening, and L298 constructs the exact all-grade
+  lower-tight complete-delay face without assuming L212's candidate
+  base.  Use the general flux bound on the raw branch's mixed
+  remainder, or transport L298's weighted fixed-`S` correction
+  through the full moving series.
 - Exact full and flagged pairings, Dirichlet identities, positive-face
   cases, and correction residuals pass in multiplicities two through
   four.  Dataset SHA-256:
@@ -5565,7 +5607,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L297/A244)
+## Current next actions (Epoch 6, refreshed after L298/A245)
 1. **Close bounded repeated-elliptic selection.**  Use L283 as the
    exact complete-delay boundary condition and L284's endpoint-null
    normalizations as the gauge convention.  L285 already gives the
@@ -5589,22 +5631,23 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    demand endpoint-null even gauges, infer anything from raw
    two-sided state-ideal membership, insert L291's fixed-rank
    pseudoinverse, or compute an isolated seventh grade.
-2. **Choose the endpoint normalization, then bound its mixed face.**
-   L295 disproves only the mismatched comparison of L285/L289's raw
-   upper face with L212's lower-tight target.  L297 closes the apex
-   gap: lower retightening contributes `(-I,-4I)`, taking
-   `(+I,-12I)` to `(0,-16I)`.  On the current raw L230--L289 branch,
-   retain its favorable lower budget, split off L283's
-   `−12B_kB_k*` complete-delay upper face, discard L289/L290's bounded
-   prior-flag factors, and write only the surviving compressed
-   first-flag face as `sum_j beta_j F_j(X_j)` in L296's polarized
-   response notation.  Prove
-   `sum_j|beta_j|²||X_j||²<=C²||U*B_k||²`; L296 then gives L282
-   without a spectral-gap estimate.  The distinct lower-tight route
-   is to transport the exact `(-I,-4I)` retightening and prove L212's
-   effective all-grade base.  Do not mix endpoint ledgers.  If the
-   raw energy bound fails, record the obstruction in L292's
-   Smith-valuation language.
+2. **Transport L298 through the moving elliptic series.**  L298
+   closes the weighted fixed-`S` correction and every completely
+   delayed lower-tight first face.  Form its weighted metric/frame
+   pair `(R(c),F_rt(c))` and compute the exact nonlinear defect after
+   replacing `S,V` by the pulled operator and L227's moving raw defect
+   frame.  Use one resolvent identity, not isolated-grade expansion:
+   the only new terms are the two operator cross terms, their
+   quadratic term, the moving-frame crosses, and
+   `F_rt(c)F_rt(c)*`.  Prove that this defect factors through prior
+   transfer flags in L289/L290's sense, or satisfies L292's
+   valuations with a uniform finite-jet margin.  Do not infer this
+   from the fixed-`S` sum or raw superposition; A179/A172 still apply.
+   If that factorization fails, return to the raw normalization:
+   retain its lower budget, split off L283's `−12B_kB_k*`, discard
+   bounded prior-flag factors, and use L296 on the surviving
+   polarization columns with total energy
+   `O(||U*B_k||²)`.  Do not mix endpoint ledgers.
 3. **Only after selection closes, finish the repeated
    circular-normal/elliptic merger.**  Derive L199's later
    Schur-orthogonal normal response and avoid spending the same disk
@@ -5792,7 +5835,9 @@ Current A178 transport packet:
   proof/repeated_crabb_polarized_flux_inequality.md (L296 exact
   single/summed/flagged polarized response-energy bound), and
   proof/repeated_crabb_lower_retightening_normalization.md (L297 exact
-  raw-to-lower-tight endpoint ledger);
+  raw-to-lower-tight endpoint ledger), and
+  proof/repeated_crabb_oriented_retightening_transport.md (L298 exact
+  all-grade Stein-compatible oriented retightening);
   matching
   regenerators use the same
   basenames under experiments/.  Resume either on the raw branch by
@@ -5801,8 +5846,9 @@ Current A178 transport packet:
   factors, deriving L296 polarization columns for the surviving
   compression, and proving their total energy is
   `O(||U*B_k||²)` (or equivalently proving L292's valuations), or on
-  the lower-tight branch by transporting L297's exact `(-I,-4I)`
-  retightening and proving L212's effective all-grade base.  Do not
+  the lower-tight branch by inserting L298's closed weighted
+  base-colligation transport into the moving elliptic operator and
+  factoring its nonlinear defect through prior flags.  Do not
   mix those endpoint ledgers, force state witnesses into an
   ideal, use a rank-changing pseudoinverse, confuse pointwise flag
   zero with bounded divisibility, or compute grade seven.
