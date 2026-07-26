@@ -77,7 +77,12 @@
   The sole live A194 gate on this route is now to derive that normal
   form, including its lower vanishings, in arbitrary grade from
   L243/L251/L258.  The finite grade-`2..5` pattern is still not an
-  induction.
+  induction.  L271/A218 reduces that two-system theorem to one
+  simpler full-face support formula:
+  `D_k=U_k(Q)−R_1+R_k−4R_(k+1)+H_k`, where `u_k(1)=0` and `H_k`
+  is one explicit four-word remote packet.  Exact deflation algebra
+  then produces L269 automatically.  Proving this single-face
+  support formula and its lower vanishings is the unique live step.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
 
@@ -103,6 +108,28 @@
   its support/decomposition and all lower vanishings directly, not by
   computing more grades.
   `proof/repeated_crabb_radial_moment_forcing.md`.
+
+## NEWEST (2026-07-25): L271 reduces deflation to one full-face support theorem
+- Write the proposed full active face as
+  `D_k=U_k(Q)−R_1+R_k−4R_(k+1)+H_k`, where `H_k` consists of the
+  two crossed remote words, `R_(k+2)`, and `G_k`, and the radial
+  coefficients obey `u_k(1)=0`.
+- For the embedded tail `T=S(I−F)=S²S*`, the complete-delay quotient
+  gives exactly `Q_j(T)=Q_j+R_1−I` and `R_j(T)=R_(j+1)`.
+  The zero radial symbol cancels the apparent extra `R_1`.
+- Three tail remote words become the identical full remote words;
+  the fourth becomes `SG_kS*`.  Subtracting the tail template from
+  the full template therefore gives L269's normal form verbatim.
+- The exact audit checks every generator and remote-word identity
+  through grade twelve and regenerates SHA-256
+  `db416897f988a131b83aa61a0a881d264053ac7ca0066c81f7e420132a5fe17c`.
+  This validates the arbitrary-grade algebraic implication, not the
+  open full-face premise.
+- Resume by proving only the one-system support formula from
+  L242--L245's first-reflection jet, L258's renewal, and L244's
+  coisometric background.  Do not independently expand the tail.
+  `proof/repeated_crabb_full_face_deflation.md`;
+  `experiments/repeated_crabb_full_face_deflation.py`.
 
 ## NEWEST (2026-07-25): L256 proves the universal relative base
 - At relative grade one, deleting the active `c²` metric coefficient
@@ -4726,7 +4753,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-25)
-1. **A194/A213/A216/A217: prove the all-grade structural normal form.**
+1. **A194/A213/A216--A218: prove the universal full-face support theorem.**
    L267's abstract lossless identity remains valid, but L268 proves
    that a single analytic port carrying only the deflated tail defect
    cannot reproduce the physical associated face: equal traces hide
@@ -4743,10 +4770,13 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    return obeys L266.  L270 has already proved that the proposed
    radial form automatically has the only two trace-relevant moments,
    `p_k(1)=0` and `p_k'(1)=−1`, and hence zero one-delay trace.
-   Do not compute its individual coefficients.  Derive the structural
-   decomposition itself, including the fixed `R_2−R_1` and
-   `G_k−SG_kS*` terms and all lower vanishings; do not cite the finite
-   grade-`2..5` pattern as an induction.
+   Do not compute its individual coefficients.  L271 now makes a
+   separate tail calculation unnecessary: derive the single full-face
+   formula `D_k=U_k(Q)−R_1+R_k−4R_(k+1)+H_k`, with `u_k(1)=0` and
+   the four explicit remote words `H_k`, including all lower
+   vanishings.  Its exact deflation algebra gives the fixed
+   `R_2−R_1` and `G_k−SG_kS*` difference automatically.  Do not cite
+   the finite grade-`2..5` pattern as an induction.
    L256 proves the universal relative response
    `[c²]mu°=4||B_1||_F²` for every matrix channel.  Prove that removing
    one clean Hardy layer obeys
