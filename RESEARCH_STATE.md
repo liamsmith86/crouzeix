@@ -1,6 +1,6 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-25 (Epoch 6 — repeated circular/elliptic merger)
+**Last updated:** 2026-07-26 (Epoch 6 — repeated circular/elliptic merger)
 
 ## SINGLE-AGENT RECONCILIATION (2026-07-25): concurrent work deconflicted
 - Two agents unintentionally shared this repository while commits
@@ -186,11 +186,46 @@
   `L`, L201's invertible terminal `B_L` and L194's analytic tail mean
   that a positive prepared jet through order `2L` is sufficient.
   No infinite summable selected-column series is required.
-  Extracting and bounding this finite odd-null/even-flag-ideal
-  recurrence with uniform margins through grade `L` is the live gate.
+  L290/A237 then identifies the exact graph-compatible sufficient
+  invariant: a Hermitian state motion ending in exposed channels
+  `ES^jF` is carried by the full nonlinear Schur shorting into
+  endpoint factors `X_jB_j*+B_jY_j*`, so it vanishes on the surviving
+  transfer flag despite arbitrary graph motion.  This is a
+  one-sided/hereditary condition, not L285's false raw two-sided
+  ideal claim.  Extracting bounded physical representatives in that
+  hereditary class—or factoring their complete mixed-graph pairings
+  directly—and proving uniform margins through grade `L` is the live
+  gate.
   The circular-normal merger is downstream.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
+
+## NEWEST (2026-07-26): L290 identifies the exact nonlinear transfer-flag invariant
+- Put `D_j=ES^jF` and `B_j=W*(S*)^jV`.  Every endpoint graph from
+  L289 satisfies `FJ_H=W`, hence the exact channel identity
+  `D_jJ_H=VB_j*`.
+- Therefore a Hermitian state motion
+  `DeltaH=sum_j(A_jD_j+D_j*A_j*)` has the complete nonlinear endpoint
+  motion
+  `DeltaU=sum_j{(J_Htilde*A_jV)B_j*+
+                 B_j(J_H*A_jV)*}`.
+  This formula includes both moving graphs and every Schur cross.
+- Compression to any surviving flag with `B_j*U=0` is exactly zero.
+  The corresponding norm is bounded by the sum of the graph-factor
+  norms times `||B_j||`, so L289's bounded analytic graphs introduce
+  no additional loss.
+- **Scope guard:** the relevant invariant is hereditary/one-sided:
+  the channel generator must remain exposed against a graph column.
+  Arbitrary words `XD_jY` need not have this property, so L290 does
+  not revive the raw ideal invariance disproved by L285.
+- **Live gate:** prove that the physical arbitrary-grade L285
+  recurrence admits bounded representatives of this hereditary form,
+  or factor each complete L289 mixed-graph pairing directly in the
+  endpoint flag ideal.  L290 alone does not preserve the even direct
+  Gram/Schur budgets or prove finite-jet positivity.
+- Generic and rank-changing audits through defect multiplicity five
+  pass.  Dataset SHA-256:
+  `c0bd78fd90f4d1c7260cff29fb3a4c4d7bf8b10eb3497d6365bbc8061fef60a8`.
 
 ## NEWEST (2026-07-26): L289 makes nonlinear endpoint transport exact and the target finite-jet
 - For two Hermitian upper-gap series, define the endpoint graph
@@ -323,12 +358,13 @@
   homological solve is physical rather than bookkeeping.  Dataset
   SHA-256:
   `54dc8db20c3b301f7d75978ccb126ab75741417f531ec1db4cd87eb871d7a350`.
-- **Live gate (updated by L289):** prove that L285's endpoint target
-  has either a bounded polynomial/right-ideal preimage with uniform
+- **Live gate (updated by L290):** prove that L285's endpoint target
+  has either a bounded polynomial/hereditary-channel preimage with uniform
   finite-jet margins through the terminal grade or a uniformly
   bounded-energy Markov preimage.  Do not compute another isolated
   grade.  L286 subsequently supplies the first such polynomial
-  preimage, through degree five only.
+  preimage, through degree five only.  Raw two-sided ideal membership
+  is not enough; L290 gives the exact graph-facing sufficient form.
 
 ## NEWEST (2026-07-25): L284 makes every existing preparation delay-normalized modulo an endpoint-null gauge
 - If `Z=Z*`, `Y=Z−S*ZS`, and
@@ -5307,7 +5343,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L289/A236)
+## Current next actions (Epoch 6, refreshed after L290/A237)
 1. **Close bounded repeated-elliptic selection.**  Use L283 as the
    exact complete-delay boundary condition and L284's endpoint-null
    normalizations as the gauge convention.  L285 already gives the
@@ -5317,13 +5353,16 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    upper motion through an earlier transfer channel.  L289 replaces
    all nonlinear endpoint bookkeeping by one mixed-graph pairing and
    proves fixed length needs only a finite jet through grade `L`.
-   State and prove
-   the arbitrary-grade parity recursion: odd homological cancellation
-   followed by an even flag-ideal motion that preserves the physical
-   direct Gram and preceding odd Schur budget.  Prove a uniform
+   L290 gives the exact sufficient invariant for its transport:
+   construct bounded physical state changes ending in exposed
+   channels `ES^jF`, or factor the complete mixed-graph pairing
+   directly as `X_jB_j*+B_jY_j*`.  Use this to state and prove the
+   arbitrary-grade parity recursion: odd homological cancellation
+   followed by an even hereditary flag motion that preserves the
+   physical direct Gram and preceding odd Schur budget.  Prove a uniform
    positive finite-jet margin through the terminal transfer; do not
-   demand endpoint-null even gauges or compute an isolated seventh
-   grade.
+   demand endpoint-null even gauges, infer anything from raw
+   two-sided ideal membership, or compute an isolated seventh grade.
 2. **Treat A178 and L282 as one selection gate.**  Use L204/L280 to
    translate any proposed polynomial successor into its Markov
    coboundary and energy, or translate an L282 flux estimate back to a
@@ -5498,11 +5537,14 @@ Current A178 transport packet:
   proof/repeated_crabb_second_gauge_transport.md (L288 correct
   flag-preserving even successor), and
   proof/repeated_crabb_two_graph_transport.md (L289 exact mixed-graph
-  endpoint transport and finite-jet stop condition); matching
+  endpoint transport and finite-jet stop condition), and
+  proof/repeated_crabb_graph_flag_ideal.md (L290 exact exposed-channel
+  to endpoint-flag functoriality); matching
   regenerators use the same
-  basenames under experiments/.  Resume from L288's
-  odd-null/even-flag-ideal pattern in L289's graph coordinate, not by
-  computing grade seven.
+  basenames under experiments/.  Resume by placing the physical
+  L285 recurrence in L290's hereditary graph-compatible class, or by
+  factoring its L289 endpoint pairing directly; do not compute grade
+  seven.
 proof/ — read in this order for the current frontier:
   crabb_disk_normal_tube.md (L152 uniform disk-normal anchor),
   crabb_disk_flat_elliptic_face.md (L151 weighted raw face),

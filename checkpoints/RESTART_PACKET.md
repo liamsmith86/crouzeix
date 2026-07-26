@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-26): after L289 / A236
+## Current general Crabb frontier (2026-07-26): after L290 / A237
 
 The accidental two-agent interval has been reconciled.  Commits
 `87c5107`, `4c7a152`, `2f82d15`, and `dcab861` form one linear history
@@ -13,7 +13,8 @@ branch, staging collision, or unresolved working-tree artifact
 remains.  Its sole new in-progress result was independently tightened
 and banked as L272/A219.  A second single-agent reconciliation through
 L287/A234 found no stopped-agent artifact, branch, staged overlap, or
-competing next-action instruction.  L288/A235 and L289/A236 were
+competing next-action instruction.  L288/A235, L289/A236, and
+L290/A237 were
 then derived, audited, and documented by the sole active agent.
 Resume as one agent from the
 bounded repeated-elliptic selection gate below.  The now-completed
@@ -99,10 +100,16 @@ relative grade-one response, and A203/L257 turns its transport into
   `U(Htilde)−U(H)=J_Htilde*(Htilde−H)J_H` and proves that, for fixed
   length `L`, a positive jet through order `2L` is enough: L201's
   terminal `B_L` is uniformly invertible and absorbs L194's analytic
-  tail.  Extract the finite arbitrary-grade
-  odd-null/even-flag-ideal parity rule with uniform margins; do not
-  resume an isolated-grade march, demand infinite summability, or try
-  to gauge away every even face.
+  tail.  L290/A237 identifies the exact graph-compatible sufficient
+  invariant: since `ES^jF J_H=VB_j*`, every state change
+  `sum_j(A_jES^jF+h.c.)` is transported into endpoint factors
+  `X_jB_j*+B_jY_j*` and vanishes on the surviving transfer flag even
+  while both graph columns move.  This is a hereditary one-sided
+  condition, not L285's false raw two-sided ideal claim.  Extract the
+  finite arbitrary-grade odd-null/even-hereditary-flag parity rule
+  with uniform margins; do not resume an isolated-grade march, demand
+  infinite summability, infer flag preservation from raw ideal
+  membership, or try to gauge away every even face.
   The remainder of this opening paragraph records the route that led
   to L279; every embedded instruction to resume A213, classify the
   active support, or recompute the delayed scalar flux is superseded.
@@ -753,6 +760,13 @@ before their theta/coisometric cancellation.
   two-graph audit, formal series audit through degree eight, and
   terminal-tail domination regression; tracked data hash
   `7fbf04c4b81828d756fabfe3cacd9ba05ec968287f2e583e9d35baddabc76781`.
+- `proof/repeated_crabb_graph_flag_ideal.md` (L290/A237): exact
+  hereditary exposed-channel transport into the nonlinear endpoint
+  transfer-flag ideal, with the raw two-sided-ideal scope guard.
+- `experiments/repeated_crabb_graph_flag_ideal.py`: generic and
+  rank-changing audits of the graph identity, hereditary
+  factorization, flag compression, and norm bound; tracked data hash
+  `c0bd78fd90f4d1c7260cff29fb3a4c4d7bf8b10eb3497d6365bbc8061fef60a8`.
 - `experiments/repeated_crabb_markov_response.py`: arbitrary
   multiplier, bistochastic, summed-response, Dirichlet, observability-
   preimage, state-energy, polarized-collapse, and repeated-apex
@@ -2006,16 +2020,17 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   The former deformation route was superseded by the Schwarzian proof of EL4; see
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
-## Next five concrete actions (refreshed after L289 / A236)
-1. Use L285--L289 to prove the arbitrary-grade parity recursion in
-   the mixed graph coordinate:
-   solve removable odd endpoint homology, then select an even
-   right-ideal correction whose complete endpoint motion factors
-   through already removed transfer channels, as L288 does at sextic
-   order.  Prove a uniform positive finite-jet margin through the
-   terminal grade `L`.  Do not demand endpoint-null even gauges,
-   infinite summability, raw ideal invariance, or an isolated seventh
-   grade.  L282 remains the bounded-energy certificate language.
+## Next five concrete actions (refreshed after L290 / A237)
+1. Use L285--L290 to prove the arbitrary-grade parity recursion in
+   the mixed graph coordinate: solve removable odd endpoint homology,
+   then express each physical transport change in L290's hereditary
+   form `sum_j(A_jES^jF+h.c.)`, or factor its complete endpoint
+   pairing directly as `X_jB_j*+B_jY_j*`.  Preserve the even direct
+   Gram and prior Schur budget and prove a uniform positive
+   finite-jet margin through terminal grade `L`.  Do not demand
+   endpoint-null even gauges, infinite summability, raw ideal
+   invariance, or an isolated seventh grade.  L282 remains the
+   bounded-energy certificate language.
 2. Treat A178 and L282 as two certificate languages for this one
    homological equation.  Translate proposed polynomial successors
    through L204/L280 and audit their Markov energy; do not run a
@@ -2059,9 +2074,9 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    not compute another isolated grade.  Then finish the
    normal/elliptic merger, retaining the full CP route as fallback.
 
-## Paste-ready continuation instruction (current after L289/A236)
+## Paste-ready continuation instruction (current after L290/A237)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix` as
-the sole repository-writing agent.  Read L197, L220, L227, L283--L289,
+the sole repository-writing agent.  Read L197, L220, L227, L283--L290,
 plus the newest `RESEARCH_STATE.md` section.  L277--L279 have proved
 every lower delayed face, the active `+4||B_k||²` volume coefficient,
 the `+2||B_k||²` dual-Schur trace, and the
@@ -2096,9 +2111,14 @@ coefficient globally and its large bound is not an induction.  L289
 shows that the complete endpoint difference is one exact mixed-graph
 pairing and that fixed length requires only a finite positive jet
 through grade `L`; do not impose an infinite summability debt.
-Extract and bound the finite arbitrary-grade alternating rule: cancel odd
-homology, then force the retained even motion into already removed
-transfer ideals while preserving its direct Gram and odd Schur cost.
+L290 now proves the correct nonlinear flag invariant: exposed
+hereditary state channels `ES^jF` become endpoint factors through
+`B_j` under the complete moving-graph shorting.  Do not confuse this
+with L285's false raw two-sided ideal claim.  Extract and bound the
+finite arbitrary-grade alternating rule: cancel odd homology, then
+put the physical retained even motion in L290's hereditary form—or
+factor its L289 mixed-graph pairing directly—while preserving its
+direct Gram and odd Schur cost.
 Do not compute an isolated seventh grade.
 Only then resume the circular-normal merger and analytic remainder
 audit.  Commit and push each proved milestone."
