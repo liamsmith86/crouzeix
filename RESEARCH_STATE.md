@@ -165,11 +165,41 @@
   normalization and disproves automatic delay-ideal preservation at
   its first successor.  After the compulsory lower correction, every
   successor is exactly one L204/L280 endpoint homology equation.
-  Bounded solution of that equation—by a polynomial right-ideal
-  representative or L282 energy—is the live gate.  The
+  L286/A233 solves the first such equation exactly: a bounded
+  double-delay-divisible correction transports the normalized
+  quartic gauge through quintic order without changing L232--L233's
+  endpoints.  Extracting the arbitrary-grade rule—rather than merely
+  solving the sextic instance—is the live gate.  The
   circular-normal merger is downstream.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
+
+## NEWEST (2026-07-25): L286 solves the first coupled normalized-gauge successor
+- Starting from L284's normalized quartic column `C_4−N_4`, the old
+  normalized quintic `C_5−N_5` must be changed because of L285's raw
+  transport.  The corrected column is
+  `Ctilde_5=C_5−N_5+K_5`.
+- An explicit 58-word Hermitian witness `Z_5^tr` (`l1=70`) and
+  48-word perpendicular correction `K_5` (`l1=127/2`) satisfy the
+  complete transported Stein coboundary with zero exact residual.
+  Both endpoint compressions of `Z_5^tr` vanish.
+- Exact quotient reduction gives `K_5∈I_2` and
+  `Ctilde_5 V*∈I_2`.  The new quintic lift has 36 words and
+  coefficient bound `112`, improving L284's individually normalized
+  bound `122`.  Hence it vanishes whenever `B_1=B_2=0`.
+- Because the degree-four and degree-five metric changes are both
+  endpoint-null, and the base has no degree-one endpoint cross, the
+  full lower and upper endpoints through degree five are unchanged.
+  L232's positive quartic face and L233's fifth partial-flag
+  cancellation therefore survive every existing rank-changing case.
+  Independent full-series matrix recomputation agrees to `4.3e−13`.
+- Dataset SHA-256:
+  `ba1ad08b60e250339e910d35de04d700c0b3ffd4e64ff9a7313b68dbb3c35acf`.
+- **Scope guard:** this proves one genuine recursive step, not the
+  arbitrary-grade recurrence.  The sextic forcing must be recomputed
+  from both transported metric coefficients; do not reuse L234's
+  column unchanged or turn the campaign back into an isolated-grade
+  march.
 
 ## NEWEST (2026-07-25): L285 makes gauge transport triangular and rejects raw ideal invariance
 - If `Dtilde=D+C` and `Mtilde=M+X` satisfy the same operator
@@ -197,7 +227,8 @@
 - **Live gate:** prove that L285's endpoint target has either a
   bounded polynomial/right-ideal preimage with summable growth or a
   uniformly bounded-energy Markov preimage.  Do not compute another
-  isolated grade.
+  isolated grade.  L286 subsequently supplies the first such
+  polynomial preimage, through degree five only.
 
 ## NEWEST (2026-07-25): L284 makes every existing preparation delay-normalized modulo an endpoint-null gauge
 - If `Z=Z*`, `Y=Z−S*ZS`, and
@@ -5174,15 +5205,17 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L285/A232)
+## Current next actions (Epoch 6, refreshed after L286/A233)
 1. **Close bounded repeated-elliptic selection.**  Use L283 as the
    exact complete-delay boundary condition and L284's endpoint-null
    normalizations as the gauge convention.  L285 already gives the
-   exact transport recurrence and disproves raw ideal invariance.
-   Prove that its endpoint target has a bounded polynomial/right-ideal
-   preimage with summable growth, or use L282's uniform
-   off-commutant energy estimate as an alternative certificate for
-   the same endpoint equation.  Do not compute an isolated grade four.
+   exact transport recurrence and L286 solves its first successor.
+   Extract a uniform homological solver and coefficient majorant from
+   that construction.  The transported sextic equation may be used as
+   a second falsification test, but not banked as progress unless it
+   exposes the arbitrary-grade rule.  L282's uniform off-commutant
+   energy estimate remains an alternative certificate for the same
+   endpoint equation.
 2. **Treat A178 and L282 as one selection gate.**  Use L204/L280 to
    translate any proposed polynomial successor into its Markov
    coboundary and energy, or translate an L282 flux estimate back to a

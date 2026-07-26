@@ -180,7 +180,10 @@ with a right-ideal representative, or use the uniform Markov-energy
 estimate as an alternative certificate for that endpoint equation,
 while keeping a summable coefficient bound.  One may not normalize
 all three stored columns independently and then reuse L233--L234's
-later coefficients unchanged.
+later coefficients unchanged.  L286 subsequently solves the first
+such transport: it recomputes the quintic column after changing the
+quartic gauge and makes the two normalizations simultaneous through
+degree five.
 
 ## 6. Regeneration
 

@@ -1,5 +1,9 @@
 # Gauge transport is a triangular endpoint homology problem
 
+> **Route update.**  L286 subsequently solves the first instance of
+> this homology with a bounded double-delay-divisible polynomial.
+> The recurrence below remains the live arbitrary-grade framework.
+
 ## 1. Result (L285, 2026-07-25)
 
 Let
@@ -241,6 +245,12 @@ A successful continuation must prove one of:
 This is one gate with two certificate languages.  It should not be
 split into competing undocumented recursions, and computing another
 isolated grade does not address it.
+
+L286 supplies the first nontrivial positive example: after the
+quartic normalization, its transported quintic correction solves
+(11), preserves both endpoints, and lies in the double-delay ideal.
+That finite success does not yet supply the arbitrary-grade rule or
+summable bounds required here.
 
 ## 6. Regeneration
 
