@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-25): after L276 / A223
+## Current general Crabb frontier (2026-07-25): after L277 / A224
 
 The accidental two-agent interval has been reconciled.  Commits
 `87c5107`, `4c7a152`, `2f82d15`, and `dcab861` form one linear history
@@ -41,9 +41,10 @@ relative grade-one response, and A203/L257 turns its transport into
   most the delay, contributes only its bilateral-symbol constant
   between the delayed leakage projections.  A213 records the resulting
   trace-locality synthesis.  L272 closes full-renewal two-sided ideal
-  placement, and L273 closes the retained-metric interior fan.  The
-  unweighted post-contour support/depth theorem and lower vanishings
-  remain open.  L267/A214 proves the
+  placement, and L273 closes the retained-metric interior fan.  L277
+  now closes every lower odd face by factoring its frontier through
+  the next delay ideal.  The lower even and active cyclic support
+  envelopes remain open.  L267/A214 proves the
   classical exact lossless Redheffer defect-transport identity.  It
   would have made the needed metric structural if the physical first
   reflected channel had such a realization.  L268/A215 supplies an
@@ -84,9 +85,14 @@ relative grade-one response, and A203/L257 turns its transport into
   faces need only be two-sided radial, and the
   active associated difference need only be cyclically radial through
   index `k+2`.  Exact axes plus the active monomial then force the
-  scalar recursion.  Do not prove literal no-extra support unless it
-  is automatic, or recompute any fan coefficient, the unpaired-`B#`
-  placement, or the metric convolution.
+  scalar recursion.  L277/A224 proves the odd half of this premise:
+  the universal degree-`2h+1` frontier factors through
+  `ES^hF` and its adjoint, so the next complete delay annihilates it,
+  and the even retained metric cannot restore an odd face.  Resume
+  with lower even two-sided radiality and active cyclic radiality
+  through `k+2`.  Do not prove literal no-extra support unless it is
+  automatic, or recompute any odd frontier, fan coefficient, the
+  unpaired-`B#` placement, or the metric convolution.
   A195 is a negative guardrail, not a second frontier.
 
 L230--L234 close the canonical repaired endpoint through the third
@@ -491,13 +497,15 @@ before their theta/coisometric cancellation.
   annihilation of every nonconstant copy-scalar Laurent shift and
   every unilateral boundary correction shallower than the first
   delayed leakage row.  Depth `k+1` can fail.  The physical return
-  form/depth and all lower vanishings remain open.  L270 makes a
+  form/depth and lower even structure remain open; L277 closes the
+  lower odd faces.  L270 makes a
   separate symbol-constant computation unnecessary if L269's exact
   structural normal form is proved.
 - `proof/repeated_crabb_first_reflection_trace_locality.md` (A213):
   conditional synthesis of L243--L266.  L272 closes its ideal-
   placement condition; the post-contour copy-scalar depth/support and
-  lower vanishings remain explicit stop conditions.
+  lower even structure remain explicit stop conditions, while L277
+  closes the lower odd faces.
 - `proof/lossless_redheffer_defect_transport.md` (L267/A214): exact
   classical initial/final defect transport for a unitary Redheffer
   feedback.  L268 rejects the direct physical single-port
@@ -534,7 +542,7 @@ before their theta/coisometric cancellation.
   shifted-Hankel sandwich, closed-cycle normal ordering, and
   product-level proof that only one leakage selection reaches the
   active delayed coefficient.  Copy-scalar boundary depth and lower
-  vanishings remain open.
+  even support remain open; L277 closes the lower odd faces.
 - `experiments/repeated_crabb_hankel_leakage_ideal.py`: deterministic
   orientation/model-projection audit on one through four channels;
   tracked data hash
@@ -543,7 +551,8 @@ before their theta/coisometric cancellation.
   all-grade inverse-metric recurrence.  It cancels all `2k−2`
   interior fan paths and creates no other nonradial support.  The
   unweighted fan coefficients are now L275; L276 reduces the
-  remaining gate to lower radial and active cyclic-radial support.
+  remaining gate to lower even radial and active cyclic-radial
+  support, while L277 closes the lower odd faces.
 - `experiments/repeated_crabb_metric_fan_telescope.py`: exact radial
   product, inverse-boundary, and split-convolution audits through
   grade sixteen; tracked data hash
@@ -551,7 +560,7 @@ before their theta/coisometric cancellation.
 - `proof/repeated_crabb_remote_endpoint_coefficients.md` (L274/A221):
   all-grade source extraction fixing the two crossed and two deep
   unweighted full-minus-tail coefficients.  It does not exclude
-  additional support or prove lower vanishings.
+  additional support or prove lower even radiality.
 - `experiments/repeated_crabb_remote_endpoint_coefficients.py`: exact
   separation of direct, immediate-return, and later-return sources in
   grades two through four; tracked data hash
@@ -559,7 +568,7 @@ before their theta/coisometric cancellation.
 - `proof/repeated_crabb_full_fan_coefficients.md` (L275/A222):
   all-grade first-visit/tail-embedding induction proving coefficient
   one on every word of the complete unweighted fan.  Extra support
-  and lower vanishings remain open.
+  and lower even radiality remain open; L277 closes lower odd faces.
 - `experiments/repeated_crabb_full_fan_coefficients.py`: exact
   fan-layer/full-face audits through grade six, including finite
   absence of extra nonradial words, plus tail embeddings through
@@ -569,7 +578,18 @@ before their theta/coisometric cancellation.
   exact conditional reduction from lower radial support and active
   cyclic-radial support through index `k+2` to the complete one-delay
   scalar recursion.  It proves literal no-extra-word support is
-  unnecessary; the two cyclic support premises remain open.
+  unnecessary; L277 proves its odd lower-face requirement, leaving
+  lower even and active cyclic support.
+- `proof/repeated_crabb_odd_frontier_delay_ideal.md` (L277/A224):
+  all-grade first-visit recursion and explicit factorization of every
+  first odd frontier through `ES^hF` and its adjoint.  The next delay
+  annihilates the frontier, and even metric convolution preserves the
+  zero odd faces.
+- `experiments/repeated_crabb_odd_frontier_delay_ideal.py`: exact
+  physical frontier/tail-layer audits through delay four and
+  factorization/recursion audits through delay twelve; tracked data
+  hash
+  `33db94361e88fedf9de151b5155a1d8e3bcbfe42241affe1f38476467fbbaa5f`.
 - `proof/repeated_crabb_exact_metric_chart.md` (L194): analytic
   metric chart in which any all-series column construction must
   converge.
@@ -1818,14 +1838,15 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   The former deformation route was superseded by the Schwarzian proof of EL4; see
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
-## Next five concrete actions (refreshed after L276 / A223)
-1. **Prove the minimal cyclic support envelopes.**  In L264's port-isolated
+## Next five concrete actions (refreshed after L277 / A224)
+1. **Prove the two remaining cyclic support envelopes.**  In L264's port-isolated
    right-half-line gauge, use L272's single leakage sandwich and
    expand only `I−Z_ret`, before the retained output metric is
    multiplied.  L275 proves coefficient one on the complete
    `2k+2`-word fan, while L273 cancels all interior paths and L274
-   fixes the remote packet.  Prove that odd lower faces cancel, even
-   lower faces are two-sided radial, and the
+   fixes the remote packet.  L277 proves that all odd lower faces
+   cancel; do not recompute them.  Prove that even lower faces are
+   two-sided radial and the
    active full-minus-tail difference is cyclically radial through
    index `k+2`.  Do not prove literal no-extra support unless it is
    automatic, promote the finite support audit to an induction,
@@ -1849,8 +1870,8 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
 
 ## Paste-ready continuation instruction
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix`.
-Read the newest L258--L276 sections of `RESEARCH_STATE.md`, the
-corresponding proof notes, and A194/A204--A223.  The live gate is the
+Read the newest L258--L277 sections of `RESEARCH_STATE.md`, the
+corresponding proof notes, and A194/A204--A224.  The live gate is the
 complete-delay volume identity.  L267 proves exact defect transport
 for an abstract lossless Redheffer feedback, but L268 exactly rejects
 the direct physical single-port route: equal scalar traces hide a
@@ -1869,15 +1890,17 @@ compute radial coefficients or separately expand the tail.  L272 has proved
   inverse cancels every interior path of the universal fan.  L275 now
   proves coefficient one on every word of that fan.  L276 proves that
   literal no-extra support is stronger than necessary.  Prove only
-  that lower odd faces cancel, lower even faces are two-sided radial,
-  and the active associated difference is
+  that lower even faces are two-sided radial and the active associated
+  difference is
   cyclically radial through index `k+2`.  L274 separately fixed all
   four remote coefficients:
   the crossed pair comes from the parity cancellation between the
   direct Gram and immediate return, while `G_k−SG_kS*` comes from the
   full and tail direct Grams.  Do not recompute any fan coefficient or
   the metric half, and do not promote the grade-one-through-six
-  exact-support audit to a theorem.  Once the two cyclic envelopes are
+  exact-support audit to a theorem.  L277 already proves every lower
+  odd face vanishes by factoring its frontier through the next delay
+  ideal; do not recompute odd grades.  Once the two remaining cyclic envelopes are
   proved, apply L276's long-axis/active-monomial forcing and iterate to
   L256; L271/L270's exact operator normal form is optional.
   L266 proves that every nonconstant copy-scalar Laurent shift and

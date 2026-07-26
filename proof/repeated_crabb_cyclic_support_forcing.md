@@ -60,10 +60,12 @@ if they cyclically radialize without exceeding index \(k+2\).
 Therefore the campaign need not prove literal absence of every extra
 operator word in order to close the scalar volume identity.
 
-L276 proves the implication (2)--(5).  It does **not** prove the two
-support premises.  Exact word arithmetic verifies them through the
-existing finite range, but the arbitrary-grade cyclic-support theorem
-is now the sole gate on this route.
+L276 proves the implication (2)--(5).  It does **not** itself prove
+the two support premises.  L277 subsequently proves every lower odd
+face vanishes in arbitrary grade.  Exact word arithmetic verifies the
+remaining lower-even and active-cyclic statements through the existing
+finite range, but their arbitrary-grade support theorem is now the
+sole gate on this route.
 
 ## 2. Exact axes kill every lower radial face
 
@@ -190,21 +192,24 @@ which proves (5).
 
 ## 5. New live support target
 
-The remaining proof should no longer seek the stronger statement
+After L277, the remaining proof should no longer seek the stronger
+statement
 
 \[
 [c^{2k}]\mathfrak U_k
 =\text{radial}+\mathcal F_k
 \]
 
-unless that exact identity falls out for free.  It is enough to prove:
+unless that exact identity falls out for free.  It is enough to prove
+the two still-open statements:
 
-1. every odd lower closed-defect face vanishes, while every even face
-   radializes two-sidedly (no sharp index bound is required); and
+1. every even lower closed-defect face radializes two-sidedly (no
+   sharp index bound is required); and
 2. every active associated word, including any word outside L275's
    fan, cyclically radializes with index at most \(k+2\).
 
-L275 already proves coefficient one on the complete fan, and every
+L277 proves the omitted odd lower-face cancellation.  L275 already
+proves coefficient one on the complete fan, and every
 fan word cyclically reduces to \(Q_{k+2}\).  L273 supplies the exact
 metric convolution.  Thus only cyclic control of possible **extra**
 unweighted words and the lower radiality envelope remain; their
