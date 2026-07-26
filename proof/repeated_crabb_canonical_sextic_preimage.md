@@ -1,5 +1,10 @@
 # A polynomial sextic preparation closes the third upper flag
 
+> **Gauge update (2026-07-25).**  L284 gives an endpoint-equivalent
+> sixth column that vanishes when \(B_1=B_2=B_3=0\).  The result is
+> through order six in the preceding L230/L232/L233 gauge; it does not
+> supply a simultaneous all-series normalization.
+
 ## 1. Result (L234, 2026-07-24)
 
 Retain the balanced equality colligation

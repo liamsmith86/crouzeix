@@ -1,5 +1,11 @@
 # A polynomial quintic preparation clears the second transfer flag
 
+> **Gauge update (2026-07-25).**  L284 gives an endpoint-equivalent
+> representative of this fifth column that vanishes when
+> \(B_1=B_2=0\).  This is an order-five normalization statement, not
+> permission to combine it with a changed quartic gauge without
+> recomputing the fifth forcing.
+
 ## 1. Result (L233, 2026-07-24)
 
 Retain the balanced equality colligation

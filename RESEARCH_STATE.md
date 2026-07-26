@@ -158,9 +158,38 @@
   indefinite when earlier transfer rows are nonzero but singular.
   The live elliptic frontier remains A178's arbitrary-grade
   right-ideal preparation, with L282's uniform flux inequality as an
-  alternative route.  The circular-normal merger is downstream.
+  alternative route.  L284/A231 now removes one finite-gauge
+  obstruction: each stored order-four--six column has a globally
+  endpoint-null normalization that vanishes on its matching complete
+  delay.  The transport of each metric normalization into later
+  orders is the live recursive term.  The circular-normal merger is
+  downstream.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
+
+## NEWEST (2026-07-25): L284 makes every existing preparation delay-normalized modulo an endpoint-null gauge
+- If `Z=Z*`, `Y=Z−S*ZS`, and
+  `EZE=FZF=EYE=QYQ=0`, then `P=QYE=N V*`,
+  `Y=P+P*`, and the Stein response of `N` is exactly `Z`.  Both
+  endpoint compressions vanish, so `N` is a global endpoint-null
+  gauge without a response inverse.
+- Explicit witnesses `Z_4,Z_5,Z_6` satisfy this certificate and
+  match the delayed quotient of the stored L232--L234 columns.
+  Subtracting the gauges produces endpoint-equivalent order-four,
+  order-five, and order-six columns that vanish under complete delays
+  of lengths one, two, and three respectively.
+- Every exact Hermiticity, corner-support, forcing, perpendicularity,
+  and delay-ideal residual has zero words.  Independent unstructured
+  and delayed matrix audits agree.  The normalized coefficient
+  l1-bounds are `25`, `122`, and `851/2`.  Dataset SHA-256:
+  `9dad8b6817a2e3b56b50f7089d63252e057828d818700c4ae6d5b004ece62d17`.
+- **Scope guard:** the three normalizations cannot simply be applied
+  simultaneously to the stored series.  Replacing `C_4` changes the
+  fifth and later metric forcing, and replacing `C_5` changes the
+  sixth and later forcing.  A direct rank-chain scope guard leaves a
+  fifth-flag residual `5.99e−3` after naïve simultaneous reuse.  A
+  valid induction must transport those changes and prove they remain
+  in the preceding right ideal with a summable bound.
 
 ## NEWEST (2026-07-25): L283 closes the all-grade complete-delay matrix face
 - L258 makes the edge-deleted closed-return coefficient the first
@@ -1266,9 +1295,11 @@
   constitute an induction or a convergent all-series construction.
   Closing another isolated grade will count as evidence only if it
   exposes a uniform right-ideal recurrence and a summable/analytic
-  coefficient bound.  A171/L228's one-delay anticommutator recursion
-  remains open and is **still the intended structural route** to
-  arbitrary grade; it is neither parked nor superseded by L230--L234.
+  coefficient bound.  L283 has since closed A171/L228's all-grade
+  complete-delay anticommutator.  L284 additionally normalizes each
+  stored later column by an endpoint-null delay gauge.  The remaining
+  recursion is the transport of each such metric-gauge change into
+  later right-ideal forcing; it is not another delay-face calculation.
   `proof/repeated_crabb_canonical_sextic_preimage.md`;
   `experiments/repeated_crabb_canonical_sextic_preimage.py`.
 
@@ -5109,12 +5140,13 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, corrected after the L283/A172 audit)
+## Current next actions (Epoch 6, refreshed after L284/A231)
 1. **Close bounded repeated-elliptic selection.**  Use L283 as the
-   exact complete-delay boundary condition and L230--L234 as the
-   right-ideal mixed-flag template.  State and prove an arbitrary-
-   grade recursion for the prepared odd column, even direct Gram, and
-   preceding odd Schur cost.  Do not compute an isolated grade four.
+   exact complete-delay boundary condition and L284's endpoint-null
+   normalizations as the gauge convention.  Derive the one-step
+   transport of `−Z_r` into orders `r+1,r+2,...`; prove the transported
+   terms remain in the preceding right ideal and obtain a summable
+   coefficient bound.  Do not compute an isolated grade four.
 2. **Keep L282 as the alternate selection route.**  If the right-ideal
    recursion does not expose an inductive object, return to the exact
    positive-test quotient and prove the uniform off-commutant flux

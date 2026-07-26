@@ -1,5 +1,10 @@
 # A polynomial quartic preparation makes the canonical endpoint positive
 
+> **Gauge update (2026-07-25).**  L284 subtracts a globally
+> endpoint-null polynomial gauge from \(C_4\), producing an
+> endpoint-equivalent quartic column that vanishes whenever \(B_1=0\).
+> Later prepared orders must be recomputed in that normalized gauge.
+
 ## 1. Result (L232, 2026-07-24)
 
 Retain L231's cubic-prepared balanced equality colligation

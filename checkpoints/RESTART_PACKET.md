@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-25): after L283 / A230
+## Current general Crabb frontier (2026-07-25): after L284 / A231
 
 The accidental two-agent interval has been reconciled.  Commits
 `87c5107`, `4c7a152`, `2f82d15`, and `dcab861` form one linear history
@@ -12,7 +12,7 @@ handoff was checked against the linear history through `646ade8`; no
 branch, staging collision, or unresolved working-tree artifact
 remains.  Its sole new in-progress result was independently tightened
 and banked as L272/A219.  A second single-agent reconciliation through
-L283/A230 found no stopped-agent artifact, branch, staged overlap, or
+L284/A231 found no stopped-agent artifact, branch, staged overlap, or
 competing next-action instruction.  Resume as one agent from the
 bounded repeated-elliptic selection gate below.  The now-completed
 A194 route
@@ -74,6 +74,10 @@ relative grade-one response, and A203/L257 turns its transport into
   through mixed partial flags; L230--L234 close only the first three
   prepared grades.  Resume A178's arbitrary-grade right-ideal
   recurrence, with L282's flux inequality as the alternate route.
+  L284/A231 now gives each stored order-four--six column a globally
+  endpoint-null normalization that vanishes on its matching complete
+  delay.  These choices are not simultaneous: the live recursive term
+  is the transport of each metric change `−Z_r` into later forcing.
   The remainder of this opening paragraph records the route that led
   to L279; every embedded instruction to resume A213, classify the
   active support, or recompute the delayed scalar flux is superseded.
@@ -671,6 +675,15 @@ before their theta/coisometric cancellation.
   response/conjugacy audits through grade twelve and numerical
   endpoint audits through grade six; tracked data hash
   `e45b478ae10270de59fc443ec076f8715d5dabe7654a26ff6f6df6de1842ed57`.
+- `proof/repeated_crabb_delay_normalized_preparations.md` (L284/A231):
+  explicit global endpoint-null gauges for the existing order-four,
+  order-five, and order-six columns.  Their normalized representatives
+  vanish on complete delays of lengths one, two, and three.  Earlier
+  gauge changes still have to be transported into later forcing.
+- `experiments/repeated_crabb_delay_normalized_preparations.py`: exact
+  Hermiticity/support/forcing/delay-ideal certificates plus independent
+  matrix audits; tracked data hash
+  `9dad8b6817a2e3b56b50f7089d63252e057828d818700c4ae6d5b004ece62d17`.
 - `experiments/repeated_crabb_markov_response.py`: arbitrary
   multiplier, bistochastic, summed-response, Dirichlet, observability-
   preimage, state-energy, polarized-collapse, and repeated-apex
@@ -1924,10 +1937,11 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   The former deformation route was superseded by the Schwarzian proof of EL4; see
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
-## Next five concrete actions (corrected after the L283/A172 audit)
-1. Use L283's exact complete-delay boundary value and L230--L234's
-   right-ideal certificates to identify an arbitrary-grade preparation
-   recursion.  Do not compute another isolated grade.
+## Next five concrete actions (refreshed after L284 / A231)
+1. Use L283's exact delayed boundary value and L284's gauge convention
+   to derive the one-step transport of `−Z_r` into every later forcing.
+   Prove that transport remains in the preceding right ideal and has
+   a summable coefficient bound.  Do not compute an isolated grade.
 2. If no inductive object emerges, resume L282's alternative
    off-commutant flux inequality; do not build a Poisson inverse or
    use a discontinuous pseudoinverse.
@@ -1970,9 +1984,9 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    not compute another isolated grade.  Then finish the
    normal/elliptic merger, retaining the full CP route as fallback.
 
-## Paste-ready continuation instruction (current after L283/A230)
+## Paste-ready continuation instruction (current after L284/A231)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix` as
-the sole repository-writing agent.  Read L197, L199, L220, L227, and L283,
+the sole repository-writing agent.  Read L197, L220, L227, L283, and L284,
 plus the newest `RESEARCH_STATE.md` section.  L277--L279 have proved
 every lower delayed face, the active `+4||B_k||²` volume coefficient,
 the `+2||B_k||²` dual-Schur trace, and the
@@ -1986,10 +2000,14 @@ recursion.  A172 remains load-bearing: mixed odd coefficients prevent
 direct iteration of the unmodified repair through partial flags.
 Use L230--L234 and the new L283 boundary value to seek A178's
 arbitrary-grade right-ideal preparation without computing another
-isolated grade.  If that does not expose an induction, return to
-L282's uniform off-commutant flux estimate.  Only then resume the
-circular-normal merger and analytic remainder audit.  Commit and push
-each proved milestone."
+isolated grade.  L284 shows that every stored later column can be
+made delay-divisible by subtracting a global endpoint-null gauge, but
+the normalizations are not simultaneous.  Derive how each metric
+change `−Z_r` propagates into later forcing and prove that propagation
+stays in the preceding right ideal with summable bounds.  If that
+does not expose an induction, return to L282's uniform off-commutant
+flux estimate.  Only then resume the circular-normal merger and
+analytic remainder audit.  Commit and push each proved milestone."
 
 ## Superseded pre-L279 continuation instruction (historical)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix`.
