@@ -184,15 +184,15 @@ energy:
 
 L262 proves that every genuine entry/return sandwich through L244's
 normalized half-line uses exactly this ordinary unweighted Hardy
-metric.  The remaining proof obligation is therefore the more
-specific channel-placement statement
+metric.  L272 now proves the placement part of the former obligation:
 
 \[
 \boxed{\text{place L258's first physical return between L262's
 Wold unitary and its adjoint.}}                                    \tag{7a}
 \]
 
-L263 additionally proves that the fixed physical Schur port and the
+namely, every active term has the leakage-sandwich form with a
+copy-scalar middle return.  L263 additionally proves that the fixed physical Schur port and the
 analytic motion of the background defect graph/Wold basis cannot
 change this first new face.  Thus (7a) may be checked in the constant
 Hardy compression after the background graph is removed.  What
@@ -207,12 +207,12 @@ port-isolated right-half-line gauge.  An arbitrary retained
 coefficient is not free; its response is
 \(-\operatorname {tr}(EX)\).
 
-Without (7a), calling the endpoint-word statement proved would still
-be circular: L251 pairs the ports and L262 proves the metric of a
-Wold sandwich, but neither identifies the complete first
-nonconstant term in L258 with that sandwich.  L260 also disproves
-the shortcut of checking the two formal ellipse orientations
-separately.
+The remaining content of (7a) is support, not placement: identify the
+copy-scalar middle return, its lower vanishings, and its first
+bilateral constant modulo trace-null deep divergences.  L273 proves
+the retained-metric cancellation of every interior fan path, leaving
+only the unweighted full-fan theorem.  L260 still disproves the
+shortcut of checking the two formal ellipse orientations separately.
 
 ## 3. Classification of the first trace face
 
@@ -323,14 +323,14 @@ evaluates the full theta/ODE direct map, metric, Stein product,
 pivot inverse, and Schur square.  Grades one through five overlap
 L228's exact noncommutative audit; grades six through eight extend
 the independent floating falsification range.  It also records the
-stronger matrix covariance error.  These audits do not prove (7a).
+stronger matrix covariance error.  These audits do not prove the
+remaining support part of (7a).
 The tracked SHA-256 is
 `1c2307a744c396c10ba8e0937ad0e4f2a3f00cb7a6aa5a8ae1cde7df4c1ea0a0`.
 
-L266 narrows the still-missing proof of (7a).  After L262/L264
-normalization, it is enough to show that the complete first-active
-return from L243/L251/L258 is a copy-scalar Laurent series
-\(\Psi_{\rm phys}(L)\), because
+L272 proves that the complete first-active return is copy-scalar
+between two leakage projections.  L266 then applies if its shallow
+part is a Laurent series \(\Psi_{\rm phys}(L)\), because
 
 \[
 P_k{\cal L}_B\Psi_{\rm phys}(L){\cal L}_BP_k
@@ -339,7 +339,8 @@ P_k{\cal L}_B\Psi_{\rm phys}(L){\cal L}_BP_k
 
 The same conclusion holds for a copy-scalar shift polynomial whose
 unilateral boundary depth is at most \(k\); depth \(k+1\) is a genuine
-obstruction.  The remaining scalar calculation is that the bilateral
-symbol has constant \(4\), including all lower coefficient vanishings.
-Neither the finite audits nor L266 establishes that physical
-form/depth statement or its constant term.
+obstruction.  L273 removes the metric half of this depth calculation
+by cancelling every interior fan word.  The remaining scalar
+calculation is the unweighted full-fan theorem, its lower vanishings,
+and hence bilateral constant \(4\).  Neither the finite audits nor
+L266 establishes that unweighted support theorem.

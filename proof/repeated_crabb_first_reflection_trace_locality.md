@@ -72,7 +72,7 @@ This order is essential: L260 forbids separating the two ellipse
 orientations, and L249 forbids varying the doubled terminal edge away
 from its physical value.
 
-## 3. Proposed leakage-ideal placement (open)
+## 3. Leakage-ideal placement (proved by L272)
 
 Let
 
@@ -107,15 +107,15 @@ P_i{\cal L}_BP_j
 \]
 
 The scalar \(I\) part again belongs to the cancelled half-line
-background.  The required conclusion is that every first nonconstant
-tail term lies in the two-sided ideal
+background.  L272 proves that every first nonconstant tail term lies
+in the two-sided ideal
 
 \[
 {\cal A}{\cal L}_B{\cal A}.                       \tag{7}
 \]
 
-The banked ingredients suggesting that there should be no unpaired
-copy matrix outside this ideal are:
+The banked ingredients used by L272 to exclude an unpaired copy
+matrix outside this ideal are:
 
 1. L245's exterior chain columns are scalar continuant features.
 2. L251 proves that every analytic tail-to-chain crossing is paired
@@ -124,8 +124,8 @@ copy matrix outside this ideal are:
 4. L262 turns the normalized intervening half-line metric into the
    ordinary Hardy metric.
 
-What remains to be proved from those ingredients is that, after
-cyclicity, every active scalar term has the form
+Its closed-cycle normal ordering and product-level L243 valuation
+prove that, after cyclicity, every active scalar term has the form
 
 \[
 \operatorname {tr}
@@ -135,7 +135,8 @@ cyclicity, every active scalar term has the form
 with \(\Phi\) copy-scalar.  Indeed, a term with one displayed
 \({\cal L}_B\) may be replaced by \({\cal L}_B^2\) and cyclically
 rotated; a second nonconstant inverse-kernel sector is excluded by
-L243.
+L243.  This is now banked.  It does not control the unilateral
+boundary depth or support of \(\Phi\).
 
 ## 4. Proposed Hardy-row filtration modulo deep divergences (open)
 
@@ -154,13 +155,13 @@ W^*(I-\rho T^*)^{-1}(I-xT)^{-1}W
 
 For a single resolvent, the unbounded mixed half-line expression is
 already the model kernel.  Its scalar part is removed by L244, and
-its non-scalar part is absorbed into \({\cal L}_B\) through (6).  The
-open issue is whether this absorption remains valid after multiplying
-the two contour-resolvent factors in the physical
+its non-scalar part is absorbed into \({\cal L}_B\) through (6).
+L272 proves that this absorption remains valid after multiplying the
+two contour-resolvent factors in the physical
 \(A R^{-1}A^*\) expression.
 
-Conditional on that product-level absorption, what remains outside
-\({\cal L}_B\) is finite.  L245's chain features
+What remains between the two displayed leakage projections is
+copy-scalar and finite.  L245's chain features
 have distances \(d\leq r\), and L243's sole nonconstant kernel sector
 can add only the first tail step.  The original proposed conclusion
 was that, after normal ordering, every scalar shift word in
@@ -201,8 +202,7 @@ i=\ell=k.                                         \tag{12}
 All future adjoint columns remain in the complete \(k\)-th leakage
 row; they are not discarded term by term.
 
-Once the open placement claim and the corrected
-shallow-plus-trace-null decomposition hold, L266 applies word by word
+Once the corrected shallow-plus-trace-null decomposition holds, L266 applies word by word
 to the shallow part.  If \(\sigma_0(\Phi)\) is the constant
 coefficient of its bilateral symbol, then
 
@@ -241,25 +241,20 @@ Therefore the edge-deleted/volume face is exactly \(4m\).  In (11),
 \]
 
 for every \(k\).  Substitution in (14) then proves (2), conditional on
-Sections 3--4.
+Section 4.
 
 This normalization uses the complete physical network at the same
 grade.  It does not detach and square the terminal multiplier ruled
 out by L249.
 
-## 6. Stop conditions before promotion
+## 6. Remaining stop condition before promotion
 
-Two claims above are load-bearing and must be checked directly
-against the formulas, not accepted from the desired conclusion.
+L272 closes ideal placement across the complete
+\(A\,R^{-1}A^*\) product and L258 renewal.  One load-bearing claim
+remains and must be checked directly against the formulas, not
+accepted from the desired conclusion.
 
-1. **Ideal placement.**  Expanding L258's renewal with L251's two
-   port orientations must leave no one-sided
-   \(B^\sharp(x)\), no copy-dependent renewal denominator, and no
-   active term outside the trace ideal (7).  L243 allows one
-   nonconstant inverse-kernel sector, but this must be counted across
-   the complete \(A\,R^{-1}A^*\) product, not separately per
-   resolvent.
-2. **Depth/row filtration modulo divergences.**  The use of L239 in Section 4 must be
+1. **Depth/row filtration modulo divergences.**  The use of L239 in Section 4 must be
    checked after the two contour integrations implicit in
    \(A\,R^{-1}A^*\), not only inside one resolvent.  Every mixed
    half-line product must be absorbed into the model/leakage
@@ -271,4 +266,7 @@ against the formulas, not accepted from the desired conclusion.
 Existing exact word audits through grade seven and floating
 full-pipeline audits through grade eight reproduce (1)--(2), including
 generic noncommuting tails.  They are strong falsification tests but
-do not replace these two all-grade checks.
+do not replace this all-grade check.  L273 now proves the retained
+metric-inverse cancellation of every interior fan word, so the live
+part of this check is only the unweighted full-fan support and lower
+vanishings.

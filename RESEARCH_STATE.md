@@ -94,7 +94,12 @@
   support formula and its lower vanishings is the unique live step.
   L272 removes the separate unpaired-`B#`/ideal-placement obligation:
   the remaining calculation is the unilateral copy-scalar return
-  between the two leakage projections.
+  between the two leakage projections.  L273/A220 now proves the
+  retained-metric half of that return in arbitrary grade: it cancels
+  every interior word of the universal fan with coefficient `−1`.
+  The unique nonradial gate is therefore the unweighted theorem that
+  the physical closed return supplies the full fan and no additional
+  support; lower vanishings remain part of the same gate.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
 
@@ -171,6 +176,34 @@
   `68e5a2bdc7a535f94238fa3c5f64451abea54330441b3c00e915699791342ea6`.
   `proof/repeated_crabb_hankel_leakage_ideal.md`;
   `experiments/repeated_crabb_hankel_leakage_ideal.py`.
+
+## NEWEST (2026-07-25): L273 proves the metric fan telescope
+- L219's grade-`h` metric coefficient is radial:
+  `X_h=R_h−R_(h+1)+sum_(d|h)(−1)^(h/d)(Q_d−Q_(d+1))`, with top
+  boundary `Q_(h+1)−R_(h+1)`.
+- Below the first missing delay, formal inverse recurrence preserves
+  radiality and gives top boundary
+  `[Y_j]_top=−Q_(j+1)+R_(j+1)`.  The exact load-bearing reduction is
+  `(Q_a−R_a)(−Q_b+R_b)=Q_min+R_min−2I` whenever
+  `ES^(a+b−2)F=0` is available.
+- Deleting the active coefficient gives
+  `[q^k](R°)^−1=−sum_(h=1)^(k−1)X_hY_(k−h)`.  At each split, the
+  first unavailable delay leaves exactly
+  `Q_(h+1)R_(k−h+1)` and `R_(h+1)Q_(k−h+1)`.  Therefore the metric
+  inverse has coefficient `−1` on all `2k−2` interior fan words and
+  no other nonradial support.
+- The observed unweighted return has a `2k+2`-word fan.  L273 proves
+  that, if this unweighted support is established all-grade, the
+  metric cancels every interior path and leaves exactly L271's four
+  endpoints: the two crossed words, `R_(k+2)`, and `G_k`.
+- This does not prove the unweighted full-fan premise or lower
+  vanishings.  Those are now the sole nonradial support gate; the
+  metric convolution must not be recomputed.
+- The exact audit checks every inverse convolution and radial product
+  through grade sixteen.  Tracked SHA-256:
+  `bbf8afbe36d039f98a3c8c5df6dc257d34f4e354fe70e126265618ea89d7acff`.
+  `proof/repeated_crabb_metric_fan_telescope.md`;
+  `experiments/repeated_crabb_metric_fan_telescope.py`.
 
 ## NEWEST (2026-07-25): L256 proves the universal relative base
 - At relative grade one, deleting the active `c²` metric coefficient
@@ -4794,7 +4827,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-25)
-1. **A194/A213/A216--A219: prove the universal full-face support theorem.**
+1. **A194/A213/A216--A220: prove the unweighted full-fan theorem.**
    L267's abstract lossless identity remains valid, but L268 proves
    that a single analytic port carrying only the deflated tail defect
    cannot reproduce the physical associated face: equal traces hide
@@ -4806,7 +4839,14 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    sandwich form `tr{L_B Phi(L,L*) L_B}` with copy-scalar `Phi`; do
    not repeat the unpaired-`B#` or ideal-placement calculation.  It
    does not control the unilateral boundary depth of `Phi` or prove
-   lower vanishings.  L269 disproves the stronger claim that the whole
+   lower vanishings.  L273 has separately proved the complete
+   metric-inverse convolution: it contributes `−1` on every one of
+   the `2k−2` interior fan words and no other nonradial term.  Do not
+   recompute that metric half.  Prove that the unweighted renewal
+   `I−Z_ret` supplies the full `2k+2`-word fan and no additional
+   nonradial support, while proving all lower faces vanish.  L273 then
+   leaves L271's four-word packet automatically.  L269 disproves the
+   stronger claim that the whole
    operator return is shallow: a depth-`k+1` term survives as
    `G_k−SG_kS*`.  Prove that every deep term assembles into a delayed
    trace-zero divergence/commutator and that the remaining shallow

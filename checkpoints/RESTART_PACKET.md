@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-25): after L272 / A219
+## Current general Crabb frontier (2026-07-25): after L273 / A220
 
 The accidental two-agent interval has been reconciled.  Commits
 `87c5107`, `4c7a152`, `2f82d15`, and `dcab861` form one linear history
@@ -40,9 +40,10 @@ relative grade-one response, and A203/L257 turns its transport into
   copy-scalar Laurent return, or shift polynomial of boundary depth at
   most the delay, contributes only its bilateral-symbol constant
   between the delayed leakage projections.  A213 records the resulting
-  trace-locality synthesis but leaves two explicit stop conditions:
-  full-renewal two-sided leakage-ideal placement and post-contour
-  depth/row filtration.  It is not a theorem.  L267/A214 proves the
+  trace-locality synthesis.  L272 closes full-renewal two-sided ideal
+  placement, and L273 closes the retained-metric interior fan.  The
+  unweighted post-contour support/depth theorem and lower vanishings
+  remain open.  L267/A214 proves the
   classical exact lossless Redheffer defect-transport identity.  It
   would have made the needed metric structural if the physical first
   reflected channel had such a realization.  L268/A215 supplies an
@@ -71,8 +72,12 @@ relative grade-one response, and A203/L257 turns its transport into
   the leakage ideal, and L243's product valuation leaves a single
   active sandwich `tr{L_B Phi(L,L*) L_B}`.  The copy-scalar depth and
   support of `Phi`, together with all earlier vanishings, are the sole
-  live gate.  Prove L271's one-face formula; do not repeat the
-  unpaired-`B#` calculation.
+  live gate.  L273/A220 additionally proves that the retained metric
+  inverse contributes `−1` to every interior fan word and nothing
+  else nonradial.  Prove only that the unweighted renewal supplies the
+  full fan and no extra support, with all lower vanishings; L273 then
+  leaves L271's four endpoints automatically.  Do not repeat the
+  unpaired-`B#` or metric-convolution calculations.
   A195 is a negative guardrail, not a second frontier.
 
 L230--L234 close the canonical repaired endpoint through the third
@@ -525,6 +530,14 @@ before their theta/coisometric cancellation.
   orientation/model-projection audit on one through four channels;
   tracked data hash
   `68e5a2bdc7a535f94238fa3c5f64451abea54330441b3c00e915699791342ea6`.
+- `proof/repeated_crabb_metric_fan_telescope.md` (L273/A220): exact
+  all-grade inverse-metric recurrence.  It cancels all `2k−2`
+  interior fan paths and creates no other nonradial support.  The
+  unweighted full-fan theorem and lower vanishings remain open.
+- `experiments/repeated_crabb_metric_fan_telescope.py`: exact radial
+  product, inverse-boundary, and split-convolution audits through
+  grade sixteen; tracked data hash
+  `bbf8afbe36d039f98a3c8c5df6dc257d34f4e354fe70e126265618ea89d7acff`.
 - `proof/repeated_crabb_exact_metric_chart.md` (L194): analytic
   metric chart in which any all-series column construction must
   converge.
@@ -1773,15 +1786,15 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   The former deformation route was superseded by the Schwarzian proof of EL4; see
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
-## Next five concrete actions (refreshed after L272 / A219)
-1. **Prove the universal full-face support theorem.**  In L264's
-   port-isolated right-half-line gauge, use L272's already-proved
-   single leakage sandwich and normal-order only its copy-scalar
-   middle return.  Prove directly that the first active face is
-   `U_k(Q)−R_1+R_k−4R_(k+1)+H_k`, where `u_k(1)=0` and `H_k` is
-   L271's four-word remote packet.  Prove all lower vanishings in the
-   same assembly.  Do not repeat ideal placement or expand the
-   deflated tail.
+## Next five concrete actions (refreshed after L273 / A220)
+1. **Prove the unweighted full-fan theorem.**  In L264's port-isolated
+   right-half-line gauge, use L272's single leakage sandwich and
+   expand only `I−Z_ret`, before the retained output metric is
+   multiplied.  Prove that its active nonradial support is the full
+   `2k+2`-word fan in L273 (3), with coefficient one, and prove every
+   lower face vanishes.  L273 already cancels all interior fan paths,
+   leaving L271's four endpoints.  Do not repeat ideal placement,
+   recompute the metric inverse, or expand the deflated tail.
 2. **Apply the exact deflation reductions.**  L271 then gives L269's
    radial + fixed-endpoint + deep-divergence difference, and L270
    forces its two radial moments and zero trace.  These implications
@@ -1803,8 +1816,8 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
 
 ## Paste-ready continuation instruction
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix`.
-Read the newest L258--L272 sections of `RESEARCH_STATE.md`, the
-corresponding proof notes, and A194/A204--A219.  The live gate is the
+Read the newest L258--L273 sections of `RESEARCH_STATE.md`, the
+corresponding proof notes, and A194/A204--A220.  The live gate is the
 complete-delay volume identity.  L267 proves exact defect transport
 for an abstract lossless Redheffer feedback, but L268 exactly rejects
 the direct physical single-port route: equal scalar traces hide a
@@ -1821,8 +1834,13 @@ support formula `D_k=U_k(Q)−R_1+R_k−4R_(k+1)+H_k`, with
   assembly and do not separately expand the tail.  L272 has proved
   A213's two-sided leakage-ideal placement and reduced every active
   term to `tr{L_B Phi(L,L*) L_B}` with copy-scalar `Phi`; do not
-  repeat that work.  The shallow-plus-deep-divergence support and lower
-  vanishings remain stop conditions.  L266 proves
+  repeat that work.  L273 has also proved that the retained metric
+  inverse cancels every interior path of the universal fan.  Prove
+  that the unweighted renewal `I−Z_ret` supplies the complete fan and
+  no additional nonradial support, together with all lower
+  vanishings; do not recompute the metric half.  The resulting
+  shallow-plus-deep-divergence support remains the stop condition.
+  L266 proves
 that every nonconstant
 copy-scalar Laurent shift and every boundary correction of depth at
 most the delay misses the first delayed leakage diagonal.  Derive the
