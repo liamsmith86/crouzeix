@@ -102,12 +102,44 @@
   crossed coefficient is the physical cancellation
   `1+4(−1)^k−4(−1)^k=1`; `G_k` comes only from the full direct Gram
   and `−SG_kS*` only from the subtracted tail direct Gram.  The unique
-  nonradial gate is therefore no longer endpoint normalization:
-  exclude or trace-null organize every additional unweighted word,
-  supply the interior fan needed by L273, and prove the lower
-  vanishings.
+  nonradial gate is therefore no longer endpoint normalization.
+  L275/A222 now completes the coefficient problem for the entire
+  `2k+2`-word fan.  After the final-row loops have been resummed, the
+  inherited fan is the coefficient-shifted tail fan; L274 supplies
+  the two new crossed endpoints and `G_k−SG_kS*`, and exact tail
+  embedding propagates coefficient one to every remaining word.  The
+  raw direct/immediate/later pieces do not obey this recursion
+  separately.  The only unweighted support debt is now to exclude or
+  trace-null organize words **outside** the proved fan and to prove
+  all lower vanishings.  Exact grades one through six have no such
+  extra word, but that finite fact is not the missing induction.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
+
+## NEWEST (2026-07-25): L275 propagates coefficient one through the full return fan
+- Define
+  `A_(k,j)=(S*)^j S^(k+2) (S*)^(k+2−j)`,
+  `B_(k,j)=S^(j+2)(S*)^(k+2)S^(k−j)`, and
+  `G_k=S(S*)^(k+2)S^(k+2)S*`.  L275 proves that the active
+  unweighted renewal has coefficient one on all
+  `A_(k,0..k)`, `B_(k,0..k−1)`, and `G_k`.
+- The load-bearing recursion is fan-restricted, not a forbidden
+  whole-series equality.  Once L258 has summed the final-row loops,
+  every inherited fan path is the exact tail path with its clean
+  layer removed and coefficient degree lowered by two.  L274 adds
+  `A_(k,k)`, `B_(k,0)`, `G_k`, and `−SG_kS*`; the tail fan supplies
+  every inherited word and `+SG_kS*`, so induction closes.
+- The cancellation is physical and cannot be split.  For example,
+  the grade-four raw direct/immediate/later differences for
+  `A_(4,0)` are `−32,+64,−32`; only their sum is zero.
+- Exact quotient arithmetic verifies the fan recursion and finds no
+  additional nonradial word through grade six.  Tail fan embeddings
+  pass through grade twelve.
+- **Still open:** the all-grade theorem that no word outside the fan
+  survives, and every lower closed-return face vanishes.  Do not
+  promote the finite support audit or L275's coefficient theorem to
+  that statement.  Once those two debts close, L273 cancels all
+  interior words and L271/L270 finish the one-delay trace transport.
 
 ## NEWEST (2026-07-25): L270 forces the radial moments from exact axes
 - Assume L269's proposed full-minus-tail face
@@ -4858,7 +4890,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-25)
-1. **A194/A213/A216--A221: prove the unweighted full-fan theorem.**
+1. **A194/A213/A216--A222: close support outside the proved fan.**
    L267's abstract lossless identity remains valid, but L268 proves
    that a single analytic port carrying only the deflated tail defect
    cannot reproduce the physical associated face: equal traces hide
@@ -4873,13 +4905,14 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    lower vanishings.  L273 has separately proved the complete
    metric-inverse convolution: it contributes `−1` on every one of
    the `2k−2` interior fan words and no other nonradial term.  Do not
-   recompute that metric half.  L274 has also fixed the four remote
-   coefficients in arbitrary grade: each crossed coefficient is
-   `1+4(−1)^k−4(−1)^k=1`, and the deep pair is exactly
-   `G_k−SG_kS*`.  Prove that the unweighted renewal `I−Z_ret` supplies
-   every interior fan word and no additional nonradial support, while
-   proving all lower faces vanish.  Do not recompute the remote
-   packet.  L273 then leaves L271's four-word packet automatically.
+   recompute that metric half.  L274 fixes the four remote
+   coefficients, and L275 now proves coefficient one on every
+   endpoint and interior word of the unweighted fan in arbitrary
+   grade.  Do not recompute any fan coefficient.  Prove only that
+   `I−Z_ret` has no additional nonradial support and that all lower
+   faces vanish.  Exact grades one through six support both claims
+   but are not an induction.  L273 then leaves L271's four-word
+   packet automatically.
    L269 disproves the
    stronger claim that the whole
    operator return is shallow: a depth-`k+1` term survives as
@@ -4894,7 +4927,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    the four explicit remote words `H_k`, including all lower
    vanishings.  Its exact deflation algebra gives the fixed
    `R_2−R_1` and `G_k−SG_kS*` difference automatically.  Do not cite
-   the finite grade-`2..5` pattern as an induction.
+   the finite grade-`2..6` support pattern as an induction.
    L256 proves the universal relative response
    `[c²]mu°=4||B_1||_F²` for every matrix channel.  Prove that removing
    one clean Hardy layer obeys

@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-25): after L274 / A221
+## Current general Crabb frontier (2026-07-25): after L275 / A222
 
 The accidental two-agent interval has been reconciled.  Commits
 `87c5107`, `4c7a152`, `2f82d15`, and `dcab861` form one linear history
@@ -78,10 +78,12 @@ relative grade-one response, and A203/L257 turns its transport into
   coefficients all-grade: the crossed words are the complete
   direct-plus-immediate-return cancellation
   `1+4(−1)^k−4(−1)^k=1`, while `G_k−SG_kS*` comes from the full and
-  deflated direct Grams.  Prove only that the unweighted renewal
-  supplies every interior fan word and no extra nonradial support,
-  with all lower vanishings; do not recompute the remote coefficients,
-  the unpaired-`B#` placement, or the metric convolution.
+  deflated direct Grams.  L275/A222 now propagates coefficient one to
+  every one of the `2k+2` fan words.  Prove only that the unweighted
+  renewal has no support outside that fan and that all lower faces
+  vanish; exact grades one through six support both statements but
+  are not an induction.  Do not recompute any fan coefficient, the
+  unpaired-`B#` placement, or the metric convolution.
   A195 is a negative guardrail, not a second frontier.
 
 L230--L234 close the canonical repaired endpoint through the third
@@ -537,7 +539,8 @@ before their theta/coisometric cancellation.
 - `proof/repeated_crabb_metric_fan_telescope.md` (L273/A220): exact
   all-grade inverse-metric recurrence.  It cancels all `2k−2`
   interior fan paths and creates no other nonradial support.  The
-  unweighted full-fan theorem and lower vanishings remain open.
+  unweighted fan coefficients are now L275; extra support and lower
+  vanishings remain open.
 - `experiments/repeated_crabb_metric_fan_telescope.py`: exact radial
   product, inverse-boundary, and split-convolution audits through
   grade sixteen; tracked data hash
@@ -550,6 +553,15 @@ before their theta/coisometric cancellation.
   separation of direct, immediate-return, and later-return sources in
   grades two through four; tracked data hash
   `4d360bee00b01b1f4e658c8ac4a634d78f0ea519714cd392b11dc3d22176b8d2`.
+- `proof/repeated_crabb_full_fan_coefficients.md` (L275/A222):
+  all-grade first-visit/tail-embedding induction proving coefficient
+  one on every word of the complete unweighted fan.  Extra support
+  and lower vanishings remain open.
+- `experiments/repeated_crabb_full_fan_coefficients.py`: exact
+  fan-layer/full-face audits through grade six, including finite
+  absence of extra nonradial words, plus tail embeddings through
+  grade twelve; tracked data hash
+  `b35c69ab580c8cb019b47f584c99b408c7404a9a94d975f902726b8321bf599b`.
 - `proof/repeated_crabb_exact_metric_chart.md` (L194): analytic
   metric chart in which any all-series column construction must
   converge.
@@ -1798,17 +1810,17 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   The former deformation route was superseded by the Schwarzian proof of EL4; see
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
-## Next five concrete actions (refreshed after L274 / A221)
-1. **Prove the unweighted full-fan theorem.**  In L264's port-isolated
+## Next five concrete actions (refreshed after L275 / A222)
+1. **Exclude support outside the proved unweighted fan.**  In L264's port-isolated
    right-half-line gauge, use L272's single leakage sandwich and
    expand only `I−Z_ret`, before the retained output metric is
-   multiplied.  Prove that its active nonradial support is the full
-   `2k+2`-word fan in L273 (3), with coefficient one, and prove every
-   lower face vanishes.  L273 already cancels all interior fan paths,
-   while L274 already fixes the four remote coefficients in the
-   full-minus-tail recursion.  Do not repeat endpoint extraction,
-   ideal placement, recompute the metric inverse, or expand the
-   deflated tail.
+   multiplied.  L275 proves coefficient one on the complete
+   `2k+2`-word fan, while L273 cancels all interior paths and L274
+   fixes the remote packet.  Prove only that no other nonradial word
+   survives and that every lower face vanishes.  Do not promote the
+   exact grade-one-through-six support audit to an induction, repeat
+   any fan extraction, redo ideal placement or metric inversion, or
+   expand the deflated tail.
 2. **Apply the exact deflation reductions.**  L271 then gives L269's
    radial + fixed-endpoint + deep-divergence difference, and L270
    forces its two radial moments and zero trace.  These implications
@@ -1830,8 +1842,8 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
 
 ## Paste-ready continuation instruction
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix`.
-Read the newest L258--L274 sections of `RESEARCH_STATE.md`, the
-corresponding proof notes, and A194/A204--A221.  The live gate is the
+Read the newest L258--L275 sections of `RESEARCH_STATE.md`, the
+corresponding proof notes, and A194/A204--A222.  The live gate is the
 complete-delay volume identity.  L267 proves exact defect transport
 for an abstract lossless Redheffer feedback, but L268 exactly rejects
 the direct physical single-port route: equal scalar traces hide a
@@ -1849,14 +1861,15 @@ support formula `D_k=U_k(Q)−R_1+R_k−4R_(k+1)+H_k`, with
   A213's two-sided leakage-ideal placement and reduced every active
   term to `tr{L_B Phi(L,L*) L_B}` with copy-scalar `Phi`; do not
   repeat that work.  L273 has also proved that the retained metric
-  inverse cancels every interior path of the universal fan.  Prove
-  that the unweighted renewal `I−Z_ret` supplies the complete fan and
-  no additional nonradial support, together with all lower
-  vanishings.  L274 has separately fixed all four remote coefficients:
+  inverse cancels every interior path of the universal fan.  L275 now
+  proves coefficient one on every word of that fan.  Prove only that
+  the unweighted renewal `I−Z_ret` has no additional nonradial support
+  and that all lower faces vanish.  L274 separately fixed all four remote coefficients:
   the crossed pair comes from the parity cancellation between the
   direct Gram and immediate return, while `G_k−SG_kS*` comes from the
-  full and tail direct Grams.  Do not recompute those endpoints or the
-  metric half.  The resulting
+  full and tail direct Grams.  Do not recompute any fan coefficient or
+  the metric half, and do not promote the grade-one-through-six
+  no-extra-support audit to a theorem.  The resulting
   shallow-plus-deep-divergence support remains the stop condition.
   L266 proves
 that every nonconstant
