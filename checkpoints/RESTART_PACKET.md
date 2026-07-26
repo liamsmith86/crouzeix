@@ -1,13 +1,17 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-25): after L271 / A218
+## Current general Crabb frontier (2026-07-25): after L272 / A219
 
 The accidental two-agent interval has been reconciled.  Commits
 `87c5107`, `4c7a152`, `2f82d15`, and `dcab861` form one linear history
 with no overwritten content or unresolved merge.  L248 was regenerated
 byte-identically, and the incoming L249 artifacts were cleaned and
-independently recomputed before banking.  Resume as one agent from the
+independently recomputed before banking.  The later stopped-agent
+handoff was checked against the linear history through `646ade8`; no
+branch, staging collision, or unresolved working-tree artifact
+remains.  Its sole new in-progress result was independently tightened
+and banked as L272/A219.  Resume as one agent from the
 A194 gate below through A196's balanced output form, A197's paired
 analytic ports, A198's cyclic radial quotient, A199's finite
 Hardy-window energy, A200's shifted-left-Hardy complement, and A201's
@@ -62,8 +66,13 @@ relative grade-one response, and A203/L257 turns its transport into
   theorem:
   `D_k=U_k(Q)−R_1+R_k−4R_(k+1)+H_k`, `u_k(1)=0`.
   Exact tail power algebra then yields L269 without separately
-  expanding the tail.  This single-face formula and its earlier
-  vanishings are the live gate.
+  expanding the tail.  L272/A219 now closes A213's separate
+  ideal-placement stop: every closed transfer cycle normal-orders into
+  the leakage ideal, and L243's product valuation leaves a single
+  active sandwich `tr{L_B Phi(L,L*) L_B}`.  The copy-scalar depth and
+  support of `Phi`, together with all earlier vanishings, are the sole
+  live gate.  Prove L271's one-face formula; do not repeat the
+  unpaired-`B#` calculation.
   A195 is a negative guardrail, not a second frontier.
 
 L230--L234 close the canonical repaired endpoint through the third
@@ -472,9 +481,9 @@ before their theta/coisometric cancellation.
   separate symbol-constant computation unnecessary if L269's exact
   structural normal form is proved.
 - `proof/repeated_crabb_first_reflection_trace_locality.md` (A213):
-  conditional synthesis of L243--L266.  Its ideal-placement and
-  post-contour depth/row claims are explicit stop conditions, not
-  proved lemmas.
+  conditional synthesis of L243--L266.  L272 closes its ideal-
+  placement condition; the post-contour copy-scalar depth/support and
+  lower vanishings remain explicit stop conditions.
 - `proof/lossless_redheffer_defect_transport.md` (L267/A214): exact
   classical initial/final defect transport for a unitary Redheffer
   feedback.  L268 rejects the direct physical single-port
@@ -507,6 +516,15 @@ before their theta/coisometric cancellation.
   every tail power and remote-word transport identity through grade
   twelve; tracked data hash
   `db416897f988a131b83aa61a0a881d264053ac7ca0066c81f7e420132a5fe17c`.
+- `proof/repeated_crabb_hankel_leakage_ideal.md` (L272/A219): exact
+  shifted-Hankel sandwich, closed-cycle normal ordering, and
+  product-level proof that only one leakage selection reaches the
+  active delayed coefficient.  Copy-scalar boundary depth and lower
+  vanishings remain open.
+- `experiments/repeated_crabb_hankel_leakage_ideal.py`: deterministic
+  orientation/model-projection audit on one through four channels;
+  tracked data hash
+  `68e5a2bdc7a535f94238fa3c5f64451abea54330441b3c00e915699791342ea6`.
 - `proof/repeated_crabb_exact_metric_chart.md` (L194): analytic
   metric chart in which any all-series column construction must
   converge.
@@ -1755,14 +1773,15 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   The former deformation route was superseded by the Schwarzian proof of EL4; see
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
-## Next five concrete actions (refreshed after L271 / A218)
+## Next five concrete actions (refreshed after L272 / A219)
 1. **Prove the universal full-face support theorem.**  In L264's
-   port-isolated right-half-line gauge, insert L243's zero/one
-   inverse-kernel sectors and every L245/L251 paired chain column into
-   L258's closed renewal.  Prove directly that the first active face
-   is `U_k(Q)−R_1+R_k−4R_(k+1)+H_k`, where `u_k(1)=0` and `H_k`
-   is L271's four-word remote packet.  Prove all lower vanishings in
-   the same assembly.  Do not expand the deflated tail.
+   port-isolated right-half-line gauge, use L272's already-proved
+   single leakage sandwich and normal-order only its copy-scalar
+   middle return.  Prove directly that the first active face is
+   `U_k(Q)−R_1+R_k−4R_(k+1)+H_k`, where `u_k(1)=0` and `H_k` is
+   L271's four-word remote packet.  Prove all lower vanishings in the
+   same assembly.  Do not repeat ideal placement or expand the
+   deflated tail.
 2. **Apply the exact deflation reductions.**  L271 then gives L269's
    radial + fixed-endpoint + deep-divergence difference, and L270
    forces its two radial moments and zero trace.  These implications
@@ -1784,8 +1803,8 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
 
 ## Paste-ready continuation instruction
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix`.
-Read the newest L258--L271 sections of `RESEARCH_STATE.md`, the
-corresponding proof notes, and A194/A204--A218.  The live gate is the
+Read the newest L258--L272 sections of `RESEARCH_STATE.md`, the
+corresponding proof notes, and A194/A204--A219.  The live gate is the
 complete-delay volume identity.  L267 proves exact defect transport
 for an abstract lossless Redheffer feedback, but L268 exactly rejects
 the direct physical single-port route: equal scalar traces hide a
@@ -1798,17 +1817,17 @@ moments and L252 closes the scalar recursion.  Therefore do not
 compute the radial coefficients; prove the normal form and lower
 vanishings.  L271 reduces that normal form to the single full-face
 support formula `D_k=U_k(Q)−R_1+R_k−4R_(k+1)+H_k`, with
-`u_k(1)=0`; prove this formula from the paired first-reflection
-assembly and do not separately expand the tail.  Treat A213's
-two-sided leakage-ideal placement and the
-shallow-plus-deep-divergence split as stop conditions, not established
-facts.  L266 proves
+  `u_k(1)=0`; prove this formula from the paired first-reflection
+  assembly and do not separately expand the tail.  L272 has proved
+  A213's two-sided leakage-ideal placement and reduced every active
+  term to `tr{L_B Phi(L,L*) L_B}` with copy-scalar `Phi`; do not
+  repeat that work.  The shallow-plus-deep-divergence support and lower
+  vanishings remain stop conditions.  L266 proves
 that every nonconstant
 copy-scalar Laurent shift and every boundary correction of depth at
 most the delay misses the first delayed leakage diagonal.  Derive the
-fully assembled L243/L251/L258 return in L262/L264's normalized
-half-line gauge, prove that no copy-dependent insertion survives,
-and prove L269's exact radial + fixed-endpoint + deep-divergence
+  copy-scalar middle return in L262/L264's normalized half-line gauge
+  and prove L269's exact radial + fixed-endpoint + deep-divergence
 normal form, including all lower vanishings.  Then use L270 to
 transport the scalar face to L256's proved value four; do not compute
 the irregular radial coefficients.  Do not estimate the huge corner and
