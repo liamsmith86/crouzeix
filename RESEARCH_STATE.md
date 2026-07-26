@@ -271,14 +271,20 @@
   L304/A251 closes the remaining gap-free analytic
   ordered-flag/Smith realization at `theta=1/2` by factoring the
   complete residual into relative commutators containing `ESF` and
-  bounding the off-cokernel dual-telescope error.  L305/A252 now
+  bounding the off-cokernel dual-telescope error.  L305/A252 then
   supplies the arbitrary-word mechanism without assuming abstract
   cyclic excision: every rooted bridge word is one explicit retained
   channel plus an ideal-valued bounded response.  The response,
   lower elimination, and subsequent transport preserve the
-  cumulative bridge module.  The next live step is to evaluate the
-  complete rooted retained quotient—not another graph expansion or
-  isolated complete-delay grade.
+  cumulative bridge module.  L306/A253 now evaluates the complete
+  rooted class without a growing word expansion.  Wold resolution and
+  response-cokernel covariance collapse all six L299 terms to the
+  single initial-copy energy matrix
+  `q=−Psi(Delta*XS+S*XDelta+Delta*XDelta)
+  −(C*H+H*C+C*C)`, modulo another gap-free module-preserving
+  response.  The next live step is to factor this copy matrix—not
+  another graph expansion, rooted-word sum, or isolated
+  complete-delay grade.
   The
   alternate raw route retains its lower
   budget, separates L283's favorable `−12` Gram, and expresses only
@@ -298,6 +304,39 @@
   The circular-normal merger is downstream.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
+
+## NEWEST (2026-07-26): L306 collapses the complete rooted class to one copy energy
+- Put `Psi_S(Z)=V*sum_(n>=0)S^nZ(S*)^nV`.  Wold resolution and
+  L305 show that the upper Stein endpoint of a bridge-ideal state
+  `Z` is `Phi(Psi_S(Z))` modulo a perpendicular response whose norm
+  is linear in the active bridge amplitudes and whose lift remains in
+  their cumulative module.
+- If `Delta=A−S`, `H=D−V`, and the prepared correction satisfies
+  `X−S*XS=VC*+CV*`, the complete L299 endpoint therefore has retained
+  representative
+  `Phi(q)`, where
+  `q=−Psi_S(Delta*XS+S*XDelta+Delta*XDelta)
+     −(C*H+H*C+C*C)`.
+  This is also exactly the moving full copy energy minus its fixed-base
+  copy energy.
+- The response-cokernel identity `Z_Y=0` makes its observability
+  Gramian commute with `S,S*` and intertwine every `B_j`.  The physical
+  Hermitian-gauge frame and L298/L305 prepared columns are covariant
+  for those intertwinings, so all three frame products close in the
+  same finite copy matrix.  Off the cokernel, each failure contains
+  both an observability defect and an active bridge, giving the
+  gap-free response bound.
+- This is an all-series **structural reduction**, not a positivity
+  theorem.  The exact remaining gate is to prove the odd coefficients
+  of `q` are response-null and its even coefficients, after compulsory
+  lower neutralization, are two-ended transfer Grams dominated by
+  earlier retained margins.  Do not drop the negative `C*C` cross or
+  split its potentially large pieces.
+- All 16 tracked mixed-grade cases pass, including nonvacuous
+  grades `2,3` on the complete-first-delay stratum and three
+  rank-collapse scales; 100 additional mixed-grade stress cases also
+  pass.  Dataset SHA-256:
+  `cc538f27b3c5395a90def31a062bad12bf2449589cecf0823b139764f1275d65`.
 
 ## NEWEST (2026-07-26): L305 makes every rooted bridge response constructive
 - For every word term `T=p(ES^jF)q`, the complete upper Stein endpoint
@@ -5868,22 +5907,21 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L305/A252)
-1. **Evaluate the arbitrary-grade rooted retained quotient.**
-   L305 replaces the uncertain abstract cyclic-excision step by an
-   exact constructive formula for every word `p(ES^jF)q`: its upper
-   endpoint is one rooted `Phi` term plus an explicit response column
-   of size `O(||B_j||)` whose state lift remains in the same bridge
-   ideal.  L298's directions, L299's moving defect, L285 lower
-   elimination, Stein inversion, and this selected response therefore
-   form a closed cumulative-ideal recurrence.  The sole remaining
-   algebraic content is the sum of the rooted `Phi` terms: prove that
-   it cancels at odd preparation grades and is a two-ended
-   transfer-Gram polynomial dominated by an earlier retained margin
-   at even grades.  Do this from L298/L299's all-series identities,
-   not by computing an isolated fifth/seventh coefficient.  Do not
-   assume the stronger and unproved equality
-   `I intersect [A,A]=[A,I]`; L305 makes it unnecessary.
+## Current next actions (Epoch 6, refreshed after L306/A253)
+1. **Factor the all-series initial-copy energy.**
+   L306 has already summed L305's complete rooted word quotient:
+   modulo a constructive gap-free response, the live object is the
+   single copy series
+   `q=−Psi_S(Delta*XS+S*XDelta+Delta*XDelta)
+      −(C*H+H*C+C*C)`.
+   Use the theta/metric ODE, transfer intertwinings, and the full-minus-
+   fixed-base form of `q` to prove its odd prepared coefficients are
+   response-null and its even lower-neutral coefficients are two-ended
+   transfer Grams dominated by earlier retained margins.  Preserve the
+   complete matrix expression: do not enumerate L305 roots, compute an
+   isolated fifth/seventh coefficient, discard `−C*C`, split terms
+   whose cancellation is load-bearing, or assume
+   `I intersect [A,A]=[A,I]`.
 2. **Close the fixed partial-scale finite-flag induction.**  Combine
    the recurrence from item 1 with L283's complete-delay boundary,
    L290's hereditary endpoint factors, and L292's valuation test.
@@ -5893,9 +5931,10 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    finite positive jet through terminal grade `L`, not infinite
    summability.  Do not demand exact lower-tightness, endpoint-null
    even gauges, raw two-sided state-ideal invariance, or use L291's
-   pointwise pseudoinverse.  L305 has closed response/module
-   stability, but not the sign of the rooted quotient.  If that
-   quotient is not margin-compatible, return to L296's polarized raw
+   pointwise pseudoinverse.  L305--L306 have closed response/module
+   stability and reduced the retained class to `q`, but not proved
+   its sign.  If that copy energy is not margin-compatible, return to
+   L296's polarized raw
    branch only after separating favorable Grams and bounded prior-flag
    factors; do not mix endpoint ledgers.
 3. **Only after selection closes, finish the repeated
@@ -6104,16 +6143,21 @@ Current A178 transport packet:
   selection), and
   proof/repeated_crabb_rooted_bridge_flux.md (L305 exact
   arbitrary-word rooted quotient/response split and
-  ideal-preserving correction);
+  ideal-preserving correction), and
+  proof/repeated_crabb_copy_energy_quotient.md (L306 exact
+  all-series initial-copy energy reduction and gap-free residual
+  response);
   matching
   regenerators use the same
   basenames under experiments/.  Resume on the partial-retightening
-  branch at fixed `theta=1/2` by evaluating L305's complete rooted
-  quotient through the finite transfer flag.  Response selection,
-  bridge-module stability, the quartic bound, and the Smith gate are
-  closed.  Prove odd rooted cancellation and even retained-Gram
-  domination; do not assume an abstract relative-cyclic excision
-  theorem.  If the rooted quotient is not margin-compatible, return
+  branch at fixed `theta=1/2` by factoring L306's copy matrix `q`
+  through the finite transfer flag.  Response selection,
+  bridge-module stability, rooted summation, the quartic bound, and
+  the Smith gate are closed.  Prove odd response-nullity and even
+  retained-Gram domination without expanding another isolated grade;
+  do not split the load-bearing terms or assume an abstract
+  relative-cyclic excision theorem.  If `q` is not margin-compatible,
+  return
   to the raw
   branch by
   retaining its lower budget, splitting L283's favorable `−12` Gram

@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-26): after L305 / A252
+## Current general Crabb frontier (2026-07-26): after L306 / A253
 
 The accidental two-agent interval has been reconciled.  Commits
 `87c5107`, `4c7a152`, `2f82d15`, and `dcab861` form one linear history
@@ -16,8 +16,8 @@ L287/A234 found no stopped-agent artifact, branch, staged overlap, or
 competing next-action instruction.  L288/A235, L289/A236,
 L290/A237, L291/A238, L292/A239, L293/A240, L294/A241,
 L295/A242, L296/A243, L297/A244, L298/A245, L299/A246,
-L300/A247, L301/A248, L302/A249, L303/A250, L304/A251, and
-L305/A252 were
+L300/A247, L301/A248, L302/A249, L303/A250, L304/A251,
+L305/A252, and L306/A253 were
 then derived, audited, and documented by the sole active agent.
 The L303 checkpoint repeated the concurrency audit: all four handoff
 commits are ancestors of the single `master`, one worktree exists, no
@@ -186,10 +186,15 @@ relative grade-one response, and A203/L257 turns its transport into
   perpendicular response column of size `O(||B_j||)` whose state lift
   remains in the same bridge ideal.  L298's direction, L299's moving
   defect, L285 lower elimination, Stein inversion, and the selected
-  response are therefore module-stable.  The live gate is only the
-  complete rooted quotient: prove odd cancellation and even
-  earlier-margin Gram domination.  Do not redo the complete quartic
-  graph assembly or assume abstract cyclic excision.
+  response are therefore module-stable.  L306/A253 then sums the
+  complete rooted class without a growing word expansion: modulo a
+  further gap-free module-preserving response, it is the single
+  initial-copy energy
+  `q=−Psi(Delta*XS+S*XDelta+Delta*XDelta)
+  −(C*H+H*C+C*C)`.  The live gate is its factorization: prove odd
+  response-nullity and even earlier-margin Gram domination.  Do not
+  redo the complete quartic graph assembly, enumerate roots, discard
+  `−C*C`, or assume abstract cyclic excision.
   On the raw
   route, retain its lower budget, split off L283's
   favorable `−12` Gram, and derive a flux pairing only for the mixed
@@ -971,6 +976,14 @@ before their theta/coisometric cancellation.
   rank-changing, delayed, relative-root, norm, and ideal-lift audits;
   tracked data hash
   `b7602e5634dc372b2519f1673722ca3dce9af17b73b8c87709338dec37de920b`.
+- `proof/repeated_crabb_copy_energy_quotient.md` (L306/A253): exact
+  all-series collapse of the complete L299 rooted class to one
+  initial-copy energy matrix, with a gap-free module-preserving
+  residual response.
+- `experiments/repeated_crabb_copy_energy_quotient.py`: simultaneous
+  mixed-grade, rank-collapse, and nonvacuous complete-delay audits;
+  tracked data hash
+  `cc538f27b3c5395a90def31a062bad12bf2449589cecf0823b139764f1275d65`.
 - `experiments/repeated_crabb_markov_response.py`: arbitrary
   multiplier, bistochastic, summed-response, Dirichlet, observability-
   preimage, state-energy, polarized-collapse, and repeated-apex
@@ -2224,16 +2237,18 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   The former deformation route was superseded by the Schwarzian proof of EL4; see
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
-## Next five concrete actions (refreshed after L305 / A252)
-1. Evaluate L305's arbitrary-grade rooted retained quotient.  For the
-   complete L298/L299/L285 forcing, sum the explicit roots
-   `B_j*W*qpV` before applying `Phi`.  Prove from the all-series
-   identities that the sum cancels at odd preparation grades and is a
-   two-ended transfer-Gram polynomial dominated by an earlier margin
-   at even grades.  The response column and cumulative bridge-module
-   stability are already constructive.  Do not compute an isolated
-   fifth/seventh grade, infer a pattern from L304's 28 terms, or
-   assume `I intersect [A,A]=[A,I]`.
+## Next five concrete actions (refreshed after L306 / A253)
+1. Factor L306's all-series initial-copy energy
+   `q=−Psi(Delta*XS+S*XDelta+Delta*XDelta)
+      −(C*H+H*C+C*C)`.
+   Use its full-minus-fixed-base form, the theta/metric ODE, and
+   transfer intertwinings to prove odd response-nullity and even
+   lower-neutral two-ended Gram domination by earlier margins.  The
+   rooted summation, response column, and cumulative bridge-module
+   stability are already closed.  Do not compute an isolated
+   fifth/seventh grade, enumerate L305 roots, discard `−C*C`, split
+   large pieces whose cancellation is the theorem, or assume
+   `I intersect [A,A]=[A,I]`.
 2. Use that recurrence with L283's complete-delay boundary, L290's
    hereditary endpoint factors, and L292's valuation test to close
    the fixed `theta=1/2` finite-flag induction.  Retain a fixed
@@ -2285,9 +2300,9 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    not compute another isolated grade.  Then finish the
    normal/elliptic merger, retaining the full CP route as fallback.
 
-## Paste-ready continuation instruction (current after L305/A252)
+## Paste-ready continuation instruction (current after L306/A253)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix` as
-the sole repository-writing agent.  Read L197, L220, L227, L283--L305,
+the sole repository-writing agent.  Read L197, L220, L227, L283--L306,
 plus the newest `RESEARCH_STATE.md` section.  L277--L279 have proved
 every lower delayed face, the active `+4||B_k||²` volume coefficient,
 the `+2||B_k||²` dual-Schur trace, and the
@@ -2383,11 +2398,18 @@ every `p(ES^jF)q` has an exact rooted `Phi` term plus an explicit
 perpendicular response column of size `O(||B_j||)` whose state lift
 remains in the same bridge ideal.  L298/L299 transport, L285 lower
 elimination, Stein inversion, and response selection are therefore
-module-stable.  Sum and evaluate the complete rooted quotient in
-arbitrary grade: prove odd cancellation and even earlier-margin Gram
-domination, then lift the fixed partial-scale mechanism through the
-finite transfer flag.  Do not assume abstract cyclic excision.  The
-complete quartic graph and response are done.  Do not mix
+module-stable.  L306 has now summed the complete rooted quotient:
+modulo another gap-free response, it is the single initial-copy
+matrix
+`q=−Psi(Delta*XS+S*XDelta+Delta*XDelta)
+   −(C*H+H*C+C*C)`.
+Factor this full copy energy in arbitrary grade: prove odd
+response-nullity and even earlier-margin Gram domination, then lift
+the fixed partial-scale mechanism through the finite transfer flag.
+Do not enumerate roots, discard `−C*C`, split cancellation-dependent
+pieces, or assume abstract cyclic excision.  The complete quartic
+graph, response, rooted summation, and module stability are done.
+Do not mix
 endpoint ledgers, assume A179's false
 raw superposition, retry the no-extra-correction shortcut, or
 re-estimate the Markov gap.
