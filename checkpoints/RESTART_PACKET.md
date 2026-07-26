@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-26): after L322 / A270
+## Current general Crabb frontier (2026-07-26): after L323 / A271
 
 The post-L316 consolidation review retired 55 of 75 stale/unclassified
 `OPEN` labels (54 superseded, one obsolete) and left 20 genuinely live
@@ -16,20 +16,21 @@ strict scalar tube.  L321 computes the leading degeneration:
 variance of the off-monomial transfer jet.  L322 replaces L320's weak
 quartic consequence by the sharp endpoint-angle estimate
 `||f(T)||²<=(4+sigma+sqrt(sigma²+8sigma))/2`, hence gap at least
-`(4/3)(1−sigma)`.  The live step is to factor the mixed
-circular-normal/disk response by `sqrt(1−sigma)` and complete it
-against L199/L318; when `Lambda=0`, descend the common-eigenline jet
-flag until L205 splits an exact channel.
+`(4/3)(1−sigma)`.  L323 gives exact two-sided off-channel Hardy mass
+`delta=1−sigma` and uses frame-gauge parity to prove the pure scalar
+normal response, and the difference from L192's split response, are
+`O(delta)`.  Their completed cost is `O(delta²)`.  The live step is
+now the finite L197/L321 flag assembly with L318 kept separate.
 L319 proves that the alternative Schur-only complete-similarity
 shortcut does not determine the later kernel block; it is now a
 fallback debt rather than a scalar prerequisite.  L317 proves the
 grouped two-channel rule and L318 absorbs its extra-`c` remainder at
 fixed half scale, yielding `I<=P<=4I` and `T*PT<=P` on every fixed
 repeated elliptic chart.  L295 is only a normalization warning after
-L297, every exact disproved route has a banked certificate, all 259
+L297, every exact disproved route has a banked certificate, all 260
 proof notes are free of repeated regenerated blocks, the L312/A259
 dataset hash remains `5b5dac60...6becf`, and Ruff plus `py_compile`
-pass all 309 experiment modules.  L290--L322 are explicitly scoped to
+pass all 310 experiment modules.  L290--L323 are explicitly scoped to
 the fixed finite repeated-Crabb neighbourhood; A259 remains
 conjectural and unused.
 
@@ -2522,9 +2523,9 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    not compute another isolated grade.  Then finish the
    normal/elliptic merger, retaining the full CP route as fallback.
 
-## Paste-ready continuation instruction (current after L322/A270)
+## Paste-ready continuation instruction (current after L323/A271)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix` as
-the sole repository-writing agent.  Read L197, L220, L227, L283--L322,
+the sole repository-writing agent.  Read L197, L220, L227, L283--L323,
 A259's explicitly conjectural sharp endpoint-word note, plus the newest
 `RESEARCH_STATE.md` section.  Do not treat A259 as L312: its
 lossless-circuit residual block is unproved.  L312 proves only the
@@ -2558,12 +2559,12 @@ score one with an actual split scalar inner channel.  Remove compact
 channel-free anchors by this strict gap.  L321 gives
 `1−sigma=s^(2q)Lambda+...`, while L322 sharpens the norm reserve to
 at least `(4/3)(1−sigma)`, quadratic rather than quartic in the first
-channel-breaking amplitude.  Factor the mixed normal/disk response
-by `sqrt(1−sigma)` and complete it against L199/L318.  If `Lambda=0`,
-descend its common-eigenline jet flag until L205 splits the channel,
-then use L192 on that block and induct on the complement.  Keep
-L199's first disk/circular-normal face and L318's elliptic margin
-separate.  L319/A267 forbids inferring a stronger
+channel-breaking amplitude.  L323 proves the pure scalar normal
+response and the difference from L192's split response are
+`O(1−sigma)`, so normal completion costs only `O((1−sigma)²)`.
+Assemble the finite L197/L321 flag, descending until L205 splits the
+channel and using L192 on that block.  Keep L199's split face and
+L318's elliptic margin separate.  L319/A267 forbids inferring a stronger
 complete-similarity later quotient from Schur algebra alone; reopen
 that endpoint-specific calculation only if the scalar leakage route
 leaves an uncontrolled term.  L277--L279 have proved
