@@ -1,0 +1,1 @@
+{"all_checks_passed": true, "full_earlier_coefficients_vanish": true, "full_face": [["2", "0"], ["0", "2"]], "full_face_rank": 2, "full_face_trace": "4", "full_first_active_degree": 4, "tail_earlier_coefficients_vanish": true, "tail_face": [["0", "0"], ["0", "4"]], "tail_face_rank": 1, "tail_face_trace": "4", "tail_first_active_degree": 2}

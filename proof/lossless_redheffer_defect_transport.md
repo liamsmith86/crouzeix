@@ -49,13 +49,14 @@ an unknown positive weight into a tail defect.  It only applies the
 explicit entrance column and its adjoint.  This is the abstract
 network identity sought in A194.
 
-L267 does **not** yet close A194.  One still has to prove that the
-first reflected coefficient of L243/L245/L251, after L258's renewal,
-is the associated coefficient of one feedback map (1) with a
-copy-scalar lossless colligation.  Functional calculus does not
-commute with Redheffer feedback in general, so L251's common channel
-alone is insufficient.  This qualification prevents a false upgrade
-of the exact abstract identity into the missing physical placement.
+L267 does **not** close A194.  L268 subsequently proves that the full
+one-delay closed-return quotient cannot be obtained by transporting
+the deflated quotient as the sole non-background defect through one
+analytic lossless port: their exact first faces have ranks two and
+one, despite equal traces.  Functional calculus does not commute with
+Redheffer feedback in general, and L251's common channel is
+insufficient.  L267 may organize individual subchannels, but the
+complete physical trace still requires an additional cancellation.
 
 ## 2. Initial-defect proof
 
@@ -138,14 +139,13 @@ then transport L244's half-line cancellation and make L261's Hardy
 return automatic.  L245 fixes the remote amplitude and L241 fixes
 the resulting scalar normalization.
 
-Equation (7) is not presently proved.  The safe next test is to
-insert L243's zero/one kernel sectors into both sides and compare the
-relative three-coefficient jet.  A mismatch would show that the
-lossless route is only heuristic.  A match would only justify seeking
-the uniform associated-order factorization (7); it would not prove
-that factorization or close A194.  L242's all-delay scalar jet would
-then provide the coefficients that the exact factorization must
-transport.
+Equation (7), with the deflated quotient as the sole feedback defect,
+is false by L268's exact rank obstruction.  A larger lossless network
+could evade that obstruction only by adding another independent
+defect channel.  Such a channel would itself have to be evaluated and
+cancelled, so it would not reduce A194 to L267.  The live route is
+therefore A213's trace-ideal calculation, not a search for another
+one-shot port.
 
 The identity itself is classical in conservative systems/Redheffer
 theory.  Related shorted-defect formulas appear in Y. Arlinskii,
@@ -166,5 +166,6 @@ The tracked output is
 SHA-256
 `972f9f2516914af778a637a192f3dfb0bc42bac83cda3201893be00a4e1809a3`.
 The checker passes Ruff and `py_compile`.  This audit tests the
-noncommutative algebra of L267; it does not test or assume the open
-physical factorization (7).
+noncommutative algebra of L267; it does not assume the physical
+factorization (7), whose direct single-port form is disproved by
+L268.

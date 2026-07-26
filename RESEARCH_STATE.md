@@ -54,15 +54,17 @@
   of these facts, but deliberately leaves two stop conditions open:
   two-sided leakage-ideal placement after the full renewal and a
   depth/row filtration after both contour integrations.  It is not a
-  proof of A194.  A214/L267 supplies a separate exact structural
-  tool: unitary Redheffer feedback transports both defect operators
-  by explicit entrance-column congruences.  The identity is classical
-  and proved, but the physical associated-order feedback realization
-  is open.  The live calculation is now to test that realization at
-  L242's relative three-coefficient jet for generic noncommuting
-  delayed tails.  A mismatch rejects A214; a match must still be
-  upgraded to an all-delay factorization before it can close A213's
-  two stop conditions or A194.
+  proof of A194.  A214/L267 supplies the classical exact
+  defect-transport identity for an abstract unitary Redheffer
+  feedback.  L268/A215 has now rejected its hoped-for one-shot
+  physical use: on the exact grade-two monomial, the full active
+  closed-return quotient is `diag(2,2)` while the deflated tail face
+  is `diag(0,4)`.  Their traces agree, but ranks two and one cannot be
+  related by the first face of a single analytic entrance carrying
+  only the tail defect.  A larger network would require an additional
+  defect channel and therefore would not make A194 automatic.  The
+  live calculation returns to A213's two explicitly open
+  trace-locality conditions; no operator congruence can replace them.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
 
@@ -279,15 +281,39 @@
   largest residual `1.433e−15`.  The tracked dataset hash is
   `972f9f2516914af778a637a192f3dfb0bc42bac83cda3201893be00a4e1809a3`.
 - L267 does **not** identify the repeated-Crabb physical map with such
-  a feedback.  Analytic functional calculus does not generally
-  commute with Redheffer feedback, and L251's paired channel alone is
-  insufficient.  The next falsification-first step is to compare
-  L243's zero/one-kernel relative three-coefficient physical jet with
-  a candidate lossless feedback for generic noncommuting tails.  Do
-  not promote A213's candidate trace-locality synthesis unless its
-  ideal-placement and depth/row stop conditions are closed.
+  a feedback.  L268's exact rank test subsequently rejects the direct
+  single-port identification.  Analytic functional calculus does not
+  generally commute with Redheffer feedback, and L251's paired channel
+  alone is insufficient.  Do not promote A213's candidate
+  trace-locality synthesis unless its ideal-placement and depth/row
+  stop conditions are closed.
   `proof/lossless_redheffer_defect_transport.md`;
   `experiments/lossless_redheffer_defect_transport.py`.
+
+## NEWEST (2026-07-25): L268 rejects the one-shot lossless shortcut
+- On the scalar grade-two monomial, exact rational series give
+  `[c^4]D_ret=diag(2,2)` on the full retained two-dimensional space.
+  Every earlier coefficient vanishes.
+- The independently balanced deflated tail has
+  `[c^2]D_ret_tail=diag(0,4)`, with every earlier coefficient zero.
+  The associated scalar traces are both four, but the face ranks are
+  two and one.
+- If L267 transported the tail quotient as the sole non-background
+  defect, L263's graph quotient would give
+  `K_full=Q(c)*K_tail Q(c)`.  Positivity of the tail's leading scalar
+  face and the two-degree delay force `Q(c)=cQ_1+...`, so the full
+  first face would be `4Q_1*Q_1`, of rank at most one.  This
+  contradicts `2I_2`.
+- Therefore the complete physical delay removal is not one
+  single-port lossless feedback of the deflated quotient.  L267
+  remains correct and may organize subchannels, but a larger network
+  would need an extra independently evaluated defect channel.  The
+  scalar theorem remains viable and is now confirmed to require the
+  trace-only A213 cancellation.
+- The exact checker uses no floating tolerance; tracked SHA-256:
+  `fb53ef7433874e6be9887f68519bd467bf9c403e96864288b36d6aa2b4da4f65`.
+  `proof/repeated_crabb_lossless_feedback_obstruction.md`;
+  `experiments/repeated_crabb_lossless_feedback_obstruction.py`.
 
 ## NEWEST (2026-07-25): L253 identifies the target as Toeplitz leakage
 - If `T_B` is the causal Toeplitz multiplier of the matrix-inner
@@ -4636,16 +4662,15 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-25)
-1. **A194/A213--A214: falsify or realize the lossless physical return, then close the two trace-locality stop conditions.**
-   L267 proves exact defect transport for an abstract unitary
-   Redheffer feedback, but not for the physical repeated-Crabb map.
-   First compare the relative `D_0,D_1,D_2` physical jet from
-   L242--L245/L258 with a candidate copy-scalar lossless feedback on
-   generic noncommuting tails and delays.  A mismatch rejects A214 and
-   routes directly back to the explicit A213 trace-ideal calculation;
-   a match is only evidence until the associated-order factorization
-   is proved uniformly.  In either case, the proof must close A213's
-   two stated debts after the full renewal and both contour
+1. **A194/A213: close the two trace-locality stop conditions after L268 rejects the one-shot operator route.**
+   L267's abstract lossless identity remains valid, but L268 proves
+   that a single analytic port carrying only the deflated tail defect
+   cannot reproduce the physical associated face: equal traces hide
+   a rank increase from one to two.  Do not search for another
+   one-shot operator congruence.  A larger multiport network is useful
+   only if its extra defect channel is explicitly evaluated, which is
+   equivalent to the remaining trace calculation.  Prove A213's two
+   stated debts after the full renewal and both contour
    integrations: (i) two-sided leakage-ideal placement with no
    copy-dependent denominator or one-sided `B#`, and (ii) absorption
    of every mixed half-line product before the boundary-depth/row
