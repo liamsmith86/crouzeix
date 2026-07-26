@@ -2,13 +2,14 @@
 
 **Last updated:** 2026-07-26 (Epoch 6 — repeated circular/elliptic merger)
 
-## CANONICAL LIVE GATE (2026-07-26, after L321/A269)
+## CANONICAL LIVE GATE (2026-07-26, after L322/A270)
 
 There is exactly one current mathematical gate: **prove the finite
 scalar-channel-stratum induction near a repeated Crabb block, using
-L321's exact channel-leakage valuation to match the quartic L320
-reserve against the mixed local remainder, and descending the
-common-eigenline jet flag whenever that valuation vanishes.**  L199
+L322's sharp linear channel reserve to absorb the
+channel-breaking circular-normal/disk response, and descending
+L321's common-eigenline jet flag whenever the leakage valuation
+vanishes.**  L199
 supplies the first transverse disk/circular-normal face, L318 supplies
 the elliptic margin, and L205/L192 split any channel which persists
 exactly.  L319 blocks only the stronger Schur-only
@@ -21,6 +22,30 @@ was unresolved at that dated checkpoint; none is a concurrent
 frontier.  Actions 1--2 are completed derivation records, action 3
 is live, and action 4 is its ordered successor.  The CP/H-r routes
 remain parked fallbacks.
+
+## L322/A270 SHARP LINEAR SCALAR-CHANNEL GAP (2026-07-26)
+
+- For `P=2I−VV*+2WW*`, every contraction `F` obeys the sharp
+  endpoint-angle bound
+  `||P^(−1/2)FP^(1/2)||²
+   <=(4+s²+s sqrt(s²+8))/2`,
+  where `s=||V*FW||`.
+- The proof reduces the endpoint geometry to a `2x2` matrix with
+  trace `4+s²` and determinant `4`.  A unitary rotation through the
+  middle eigenspace of `P` attains equality for every `s`.
+- L320's Hardy corner estimate `s²<=sigma(B)` therefore gives
+  `||f(T)||²<=(4+sigma+sqrt(sigma²+8sigma))/2
+   <=4−(4/3)(1−sigma)`.
+- Combined with L321, the certified reserve begins at
+  `(4/3)Lambda(D)s^(2q)`, quadratic in channel-breaking amplitude.
+  L320's older quartic reserve was valid but non-sharp.
+- The live merger is now to prove that the mixed normal/disk response
+  vanishes on an exact L205 channel and hence factors by
+  `sqrt(1−sigma)`; its square is then paid by L322 while L199/L318
+  retain their pure curvatures.
+- Thirteen sharp/random/actual-transfer audit batches pass; dataset
+  SHA-256:
+  `52c16681fcddfcb21c08f4483093ea2f9e8a175e4dc8f22d6dfa2e90a46835b2`.
 
 ## L321/A269 LEADING SCALAR-CHANNEL VALUATION (2026-07-26)
 
@@ -35,20 +60,21 @@ remain parked fallbacks.
 - `Lambda=0` exactly when the off-monomial jets have a common
   eigenvector.  The monomial coefficient jet only rotates the common
   output line and contributes no first leakage.
-- L320's actual scalar norm reserve therefore starts at
-  `(Lambda²/4)s^(4q)`.  It cannot pay an arbitrary quadratic
-  channel-breaking term.
-- The live merger must show that the channel-breaking part of the
-  prepared local remainder is also quartic (or is paid separately by
-  L199/L318).  On `Lambda=0`, carry the common eigenline to the next
-  nonzero jet; if it persists exactly, L205 splits it and L192 handles
-  the scalar block.
+- L320's older estimate alone supplied only
+  `(Lambda²/4)s^(4q)`, but L322 proves the sharp certified reserve is
+  at least `(4/3)Lambda s^(2q)`.
+- On `Lambda=0`, carry the common eigenline to the next nonzero jet;
+  if it persists exactly, L205 splits it and L192 handles the scalar
+  block.
 - Four deterministic exact matrix-Schur path audits pass; dataset
   SHA-256:
   `72b24fe92a8c2ec97148015cc540fba0f3a7bd7df3455bd8c886c4576c2fc035`.
 
 ## L320/A268 QUANTITATIVE SCALAR-CHANNEL RESERVE (2026-07-26)
 
+- This estimate remains valid, but L322 quantitatively supersedes it.
+  Use L320 only for its Hardy corner bound
+  `||V*f(C)W||²<=sigma(B)`.
 - For `P=2I−VV*+2WW*` and any contraction `F`, the exact input,
   contraction, and output loss decomposition gives
   `||P^(−1/2)FP^(1/2)||²<=4−(1−||V*FW||)²`.
@@ -63,10 +89,8 @@ remain parked fallbacks.
   manifold therefore has a uniform strict scalar tube.  Only the
   scalar-channel strata remain sharp.  Exact channels split off as
   single-copy full-Hardy blocks by L205.
-- The live proof is now a finite induction on channel multiplicity:
-  use L192 on split channels, charge channel-breaking cross motion to
-  L320, use L199 for the first transverse disk/normal face, and retain
-  L318's elliptic margin.
+- The live proof uses L322's linear reserve in the finite channel
+  induction; do not revert to this section's quartic estimate.
 - Eleven deterministic audit records pass; dataset SHA-256:
   `973f669a8ae58492c65b73492fbb8b3c5651764ba6aefa0db94adb323c05c40b`.
 
@@ -84,10 +108,10 @@ remain parked fallbacks.
 - This does not challenge L197's disk flag, L199's first raw normal
   absorption, L318's elliptic metric, or Crouzeix.  It prevents
   stacking the merger on an unproved assertion.
-- The live target is now exact: derive L194's complete later normal
-  critical graph/Gram after disk orthogonalization, including its
-  kernel-block term.  A scalar-only alternative is to quantify
-  L205's channel leakage near the scalar-channel strata.
+- The parked complete-similarity fallback is exact: derive L194's
+  complete later normal critical graph/Gram after disk
+  orthogonalization, including its kernel-block term.  L322's scalar
+  channel route is the canonical live gate instead.
 - The exact checker passes and regenerates with SHA-256
   `d272005024eceb7d34da8212871a3af27c6778dc01629bba48c85f9897971952`.
 
@@ -289,8 +313,8 @@ remain parked fallbacks.
   conditional on L269's structural normal form, arbitrarily long
   exact monomial axes force `p_k(1)=0` and `p_k'(1)=−1`; L252 then
   proves complete one-delay trace covariance for every multiplicity.
-  The sole live A194 gate on this route is now to derive that normal
-  form, including its lower vanishings, in arbitrary grade from
+  The historical A194 gate at that checkpoint was to derive that
+  normal form, including its lower vanishings, in arbitrary grade from
   L243/L251/L258.  The finite grade-`2..5` pattern is still not an
   induction.  L271/A218 reduces that two-system theorem to one
   simpler full-face support formula:
@@ -6403,7 +6427,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L321/A269)
+## Current next actions (Epoch 6, refreshed after L322/A270)
 1. **COMPLETED BY L318: fixed-half-scale margin assembly after L317.**
    The remainder of this item is the derivation record, not a live
    instruction.
@@ -6480,17 +6504,17 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    factors; do not mix endpoint ledgers.
 3. **LIVE: close the scalar-channel-stratum induction.**
    Work on the scalar conjecture, not the stronger complete-similarity
-   normal flag.  L320 gives a strict quantitative reserve whenever
+   normal flag.  L322 gives a sharp linear reserve whenever
    L201's transfer lacks an exact scalar channel.  L205 splits every
    exact channel into a single-copy full-Hardy block and a smaller
    complementary transfer.  L321 now exposes the first leakage
-   coefficient exactly: `1−sigma=s^(2q)Lambda+...`, and the L320
-   reserve is only `(Lambda²/4)s^(4q)+...`.  Derive the prepared scalar
-   local quotient in the same channel-adapted coordinates and show
-   every positive channel-breaking term has that quartic valuation,
-   or charge it separately to L199's first disk/circular-normal face
-   or L318's elliptic margin.  Do not spend the L320 reserve as though
-   it were quadratic.
+   coefficient exactly, and L322 upgrades the certified scalar gap to
+   at least `(4/3)(1−sigma)`.  Derive the prepared scalar local quotient
+   in channel-adapted coordinates.  Prove every mixed
+   circular-normal/disk response vanishes on an exact L205 channel and
+   factors by `sqrt(1−sigma)`; complete its square against L199's
+   normal curvature and spend only a fixed fraction of L322's linear
+   reserve.  Keep L318's elliptic margin separate.
 
    If `Lambda=0`, carry L321's common eigenline through the next
    nonzero transfer jet.  If it persists identically, reduce to the
