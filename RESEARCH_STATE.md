@@ -289,9 +289,14 @@
   `theta(1−theta)CC*` and `theta(1−theta)C*C` relative to the scaled
   successor.  For an affine forcing `R!=0`, however, the predecessor
   also leaves `−(1−theta)R`; the Gram term is not alone a recursive
-  margin.  The next live step is to factor the full-scale copy matrix.
-  Do not return to a graph expansion, rooted-word sum, or isolated
-  complete-delay grade.
+  margin.  L308/A255 then falsifies the one-shot raw-parity shortcut:
+  the unprepared weighted L298 copy energy has exact nonzero quintic
+  scalar trace `33264/15625`, even though its cubic is a response.
+  The next live step is therefore to formulate the **prepared affine
+  copy recurrence**—insert cubic cancellation and quartic lower
+  neutralization before testing the next odd coefficient.  Do not
+  factor the raw `q`, return to a graph expansion/rooted-word sum, or
+  start an unrelated isolated-grade march.
   The
   alternate raw route retains its lower
   budget, separates L283's favorable `−12` Gram, and expresses only
@@ -311,6 +316,28 @@
   The circular-normal merger is downstream.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
+
+## NEWEST (2026-07-26): L308 disproves one-shot odd parity for the raw copy energy
+- For the unprepared weighted L298 correction,
+  `X=sum c^(2k)R_k`, `C=sum c^(2k)F_k`, L300's cubic copy trace is
+  exactly zero, but the raw quintic trace is not identically zero.
+- An exact scalar-copy certificate uses
+  `S=[[0,3/5,−4/5],[0,4/5,3/5],[0,0,0]]`,
+  `V=e_1`, `W=e_3`.  It is a stable partial isometry with
+  `B_1=−4/5`, and reduced word algebra gives
+  `[c^5]tr q_raw=33264/15625>0`.
+- Every homogeneous endpoint response has trace zero.  In copy
+  dimension one that makes the response map identically zero, so the
+  quintic value cannot be hidden in L305's response part.
+- This does not refute prepared odd cancellation.  It proves the
+  preparation is essential: cancel the cubic through L300/L307,
+  carry L301's quartic successor and L303's compulsory lower
+  neutralization, and only then form the next odd successor.  L306's
+  raw `q` cannot be factored directly as an even Gram series.
+- The exact audit has zero cubic cyclic classes, eight nonzero
+  quintic cyclic classes, and an independent floating matrix assembly
+  on the rational input gives `2.128896`.  Dataset SHA-256:
+  `0b755aec840af01085b7edf84078a3299174e025a2ef70d26360829ab8f603ec`.
 
 ## NEWEST (2026-07-26): L307 makes the copy reduction recursive and exposes its Gram reserve
 - For an affine correction
@@ -5945,24 +5972,23 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L307/A254)
-1. **Factor the all-series initial-copy energy.**
-   L306 has already summed L305's complete rooted word quotient, and
-   L307 proves the same formula recurs after an arbitrary preceding
-   forcing is canceled:
-   modulo a constructive gap-free response, the live object is the
-   single copy series
+## Current next actions (Epoch 6, refreshed after L308/A255)
+1. **Construct the prepared affine copy recurrence.**
+   L306 sums every rooted successor to
    `q=−Psi_S(Delta*XS+S*XDelta+Delta*XDelta)
-      −(C*H+H*C+C*C)`.
-   Use the theta/metric ODE, transfer intertwinings, and the full-minus-
-   fixed-base form of `q` to prove its odd prepared coefficients are
-   response-null and its even lower-neutral coefficients are two-ended
-   transfer Grams dominated by earlier retained margins, using
-   L307's positive `theta(1−theta)C*C` term only after the affine
-   leftover `−(1−theta)R` is included.  Preserve
-   the complete matrix expression: do not enumerate L305 roots, compute an
-   isolated fifth/seventh coefficient, discard `−C*C`, split terms
-   whose cancellation is load-bearing, or assume
+      −(C*H+H*C+C*C)`, and L307 proves the formula recurs after a
+   preceding forcing is canceled.  L308 proves that applying it once
+   to the raw weighted L298 correction is insufficient: its quintic
+   scalar trace is nonzero.  Form the triangular prepared successor
+   instead: incorporate L300's cubic correction, L301's transported
+   quartic response, and L303's lower neutralizer into L307's affine
+   forcing before extracting the next odd class.  Seek a generating
+   rule showing **prepared** odd response-nullity and even
+   prior-transfer quadratic divisibility.  Use the full matrix
+   expression and include the affine leftover when invoking L307's
+   Gram scaling term.  Do not factor raw `q`, enumerate L305 roots,
+   launch an unrelated fifth/seventh grind, discard `−C*C`, split
+   load-bearing cancellations, or assume
    `I intersect [A,A]=[A,I]`.
 2. **Close the fixed partial-scale finite-flag induction.**  Combine
    the recurrence from item 1 with L283's complete-delay boundary,
@@ -5974,9 +6000,8 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    summability.  Do not demand exact lower-tightness, endpoint-null
    even gauges, raw two-sided state-ideal invariance, or use L291's
    pointwise pseudoinverse.  L305--L307 have closed response/module
-   stability, affine recursion, and the partial-scale Gram identity,
-   but have not proved the full-scale `q` sign or an affine positivity
-   induction.  If that copy energy
+   stability, affine recursion, and the partial-scale Gram identity;
+   L308 proves raw parity is false.  If the prepared recurrence
    is not margin-compatible, return to
    L296's polarized raw
    branch only after separating favorable Grams and bounded prior-flag
@@ -6193,21 +6218,23 @@ Current A178 transport packet:
   response), and
   proof/repeated_crabb_affine_copy_recurrence.md (L307 exact
   arbitrary-step affine cancellation and partial-scale Gram
-  identity);
+  identity), and
+  proof/repeated_crabb_raw_quintic_obstruction.md (L308 exact
+  obstruction to one-shot raw odd parity);
   matching
   regenerators use the same
   basenames under experiments/.  Resume on the partial-retightening
-  branch at fixed `theta=1/2` by factoring L306--L307's recursively
-  stable copy matrix `q`
-  through the finite transfer flag.  Response selection,
+  branch at fixed `theta=1/2` by constructing L306--L308's
+  **prepared** affine copy recurrence through the finite transfer
+  flag.  Response selection,
   bridge-module stability, rooted summation, affine cancellation, the
   one-quarter copy-Gram scaling term, the quartic bound, and the Smith
-  gate are closed; affine positivity is not.  Prove full-scale odd
-  response-nullity and even
-  prior-transfer Gram domination without expanding another isolated grade;
-  do not split the load-bearing terms or assume an abstract
-  relative-cyclic excision theorem.  If `q` is not margin-compatible,
-  return
+  gate are closed; raw odd parity and affine positivity are not.
+  Insert the cubic response and quartic lower neutralizer before
+  proving prepared odd response-nullity and even prior-transfer Gram
+  domination.  Do not start another isolated-grade march, split the
+  load-bearing terms, or assume an abstract relative-cyclic excision
+  theorem.  If the prepared recurrence is not margin-compatible, return
   to the raw
   branch by
   retaining its lower budget, splitting L283's favorable `−12` Gram

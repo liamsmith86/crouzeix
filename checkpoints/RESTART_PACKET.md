@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-26): after L307 / A254
+## Current general Crabb frontier (2026-07-26): after L308 / A255
 
 The accidental two-agent interval has been reconciled.  Commits
 `87c5107`, `4c7a152`, `2f82d15`, and `dcab861` form one linear history
@@ -17,7 +17,7 @@ competing next-action instruction.  L288/A235, L289/A236,
 L290/A237, L291/A238, L292/A239, L293/A240, L294/A241,
 L295/A242, L296/A243, L297/A244, L298/A245, L299/A246,
 L300/A247, L301/A248, L302/A249, L303/A250, L304/A251,
-L305/A252, L306/A253, and L307/A254 were
+L305/A252, L306/A253, L307/A254, and L308/A255 were
 then derived, audited, and documented by the sole active agent.
 The L303 checkpoint repeated the concurrency audit: all four handoff
 commits are ancestors of the single `master`, one worktree exists, no
@@ -199,10 +199,13 @@ relative grade-one response, and A203/L257 turns its transport into
   the full-scale successor.  If the affine forcing is nonzero, scaling
   also leaves `−(1−theta)R` after combining with the predecessor, so
   this is not alone a recursive positivity margin.  The live gate is
-  the full-scale factorization: prove odd response-nullity and even
-  earlier-margin Gram domination.  Do not redo the complete quartic
-  graph assembly, enumerate roots, discard `−C*C`, or assume abstract
-  cyclic excision.
+  not the raw full-scale factorization: L308/A255 gives an exact
+  scalar-copy obstruction `[c^5]tr q_raw=33264/15625`, so raw odd
+  response parity is false beyond the cubic.  Build the prepared
+  affine recurrence by inserting cubic cancellation and quartic lower
+  neutralization before the next odd test.  Do not redo the complete
+  quartic graph assembly, enumerate roots, discard `−C*C`, or assume
+  abstract cyclic excision.
   On the raw
   route, retain its lower budget, split off L283's
   favorable `−12` Gram, and derive a flux pairing only for the mixed
@@ -999,6 +1002,12 @@ before their theta/coisometric cancellation.
   mixed-grade, rank-collapse, delayed, and three-scale audits; tracked
   data hash
   `0b5f54dfb20b9fba53971ab8d03f7daad7833f4b020b7ee0c8fcf80b9dc4e385`.
+- `proof/repeated_crabb_raw_quintic_obstruction.md` (L308/A255):
+  exact rational obstruction to one-shot raw odd-response parity.
+- `experiments/repeated_crabb_raw_quintic_obstruction.py`: exact
+  cyclic-word plus independent matrix-assembly certificate; tracked
+  data hash
+  `0b755aec840af01085b7edf84078a3299174e025a2ef70d26360829ab8f603ec`.
 - `experiments/repeated_crabb_markov_response.py`: arbitrary
   multiplier, bistochastic, summed-response, Dirichlet, observability-
   preimage, state-energy, polarized-collapse, and repeated-apex
@@ -2252,20 +2261,22 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   The former deformation route was superseded by the Schwarzian proof of EL4; see
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
-## Next five concrete actions (refreshed after L307 / A254)
-1. Factor L306's all-series initial-copy energy
+## Next five concrete actions (refreshed after L308 / A255)
+1. Construct the prepared affine copy recurrence starting from
+   L306's all-series initial-copy energy
    `q=−Psi(Delta*XS+S*XDelta+Delta*XDelta)
       −(C*H+H*C+C*C)`.
-   Use its full-minus-fixed-base form, the theta/metric ODE, and
-   transfer intertwinings to prove full-scale odd response-nullity and
-   even lower-neutral two-ended Gram domination by earlier margins.
-   Use L307's positive `theta(1−theta)C*C` term only together with
-   the affine leftover `−(1−theta)R`; it is not a stand-alone
-   induction.  The rooted summation, affine recurrence, response
-   column, and cumulative bridge-module stability are already closed.
-   Do not compute an isolated
-   fifth/seventh grade, enumerate L305 roots, discard `−C*C`, split
-   large pieces whose cancellation is the theorem, or assume
+   L308 proves raw odd parity false at quintic.  Insert L300's cubic
+   cancellation, L301's quartic successor, and L303's lower
+   neutralizer into L307's forcing before forming the next successor.
+   Seek a generating rule for **prepared** odd response-nullity and
+   even prior-transfer Gram domination.  Use L307's positive
+   `theta(1−theta)C*C` term only with the affine leftover
+   `−(1−theta)R`; it is not a stand-alone induction.  The rooted
+   summation, affine recurrence, response column, and cumulative
+   bridge-module stability are already closed.  Do not factor raw
+   `q`, start an unrelated fifth/seventh march, enumerate L305 roots,
+   discard `−C*C`, split load-bearing cancellations, or assume
    `I intersect [A,A]=[A,I]`.
 2. Use that recurrence with L283's complete-delay boundary, L290's
    hereditary endpoint factors, and L292's valuation test to close
@@ -2318,9 +2329,9 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    not compute another isolated grade.  Then finish the
    normal/elliptic merger, retaining the full CP route as fallback.
 
-## Paste-ready continuation instruction (current after L307/A254)
+## Paste-ready continuation instruction (current after L308/A255)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix` as
-the sole repository-writing agent.  Read L197, L220, L227, L283--L307,
+the sole repository-writing agent.  Read L197, L220, L227, L283--L308,
 plus the newest `RESEARCH_STATE.md` section.  L277--L279 have proved
 every lower delayed face, the active `+4||B_k||²` volume coefficient,
 the `+2||B_k||²` dual-Schur trace, and the
@@ -2427,10 +2438,14 @@ preceding forcing and gives
 Thus `theta=1/2` has a one-quarter positive copy-Gram term relative
 to half the full-scale successor.  If the affine forcing is nonzero,
 the predecessor also leaves `−(1−theta)R`; do not call the Gram term
-alone a recursive margin.  Factor the full-scale copy energy in
-arbitrary grade: prove odd response-nullity and even prior-transfer
-Gram domination by the complete affine ledger and earlier margins,
-then lift
+alone a recursive margin.  L308 now proves the raw full-scale copy
+energy does not have odd response parity: a stable scalar-copy example
+has exact quintic trace `33264/15625`.  Do not factor raw `q`.
+Construct the prepared affine recurrence by inserting L300's cubic
+correction, L301's quartic successor, and L303's lower neutralizer
+before the next odd coefficient.  Prove prepared odd response-nullity
+and even prior-transfer Gram domination by the complete affine ledger
+and earlier margins, then lift
 the fixed partial-scale mechanism through the finite transfer flag.
 Do not enumerate roots, discard `−C*C`, split cancellation-dependent
 pieces, or assume abstract cyclic excision.  The complete quartic
