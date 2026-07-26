@@ -6,7 +6,9 @@
 > L227/L285 repair face cannot be compared with that particular
 > target: their apex values are respectively `-12I` and `-16I`.
 > The remaining debt on that branch is to pair only its mixed
-> transport remainder after separating the favorable `-12` Gram.
+> transport remainder after separating the favorable `-12` Gram;
+> L296 gives the exact bound for arbitrary polarized responses once
+> their column energy is controlled.
 
 ## 1. Result (L293, 2026-07-26)
 

@@ -5,7 +5,8 @@
 > above by L212's particular target: at the monomial apex their faces
 > are `-12I` and `-16I`.  Apply the general flux estimate to the
 > mixed repair remainder after separating its favorable Gram, or
-> prove L212's distinct exact-axis base directly.
+> prove L212's distinct exact-axis base directly.  L296 supplies the
+> corresponding estimate for arbitrary polarized L280 responses.
 
 ## 1. Result (L294, 2026-07-26)
 

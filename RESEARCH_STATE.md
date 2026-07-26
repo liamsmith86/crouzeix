@@ -216,12 +216,43 @@
   L212's target is `−16I`, so the complete repair face cannot be
   dominated by that target.  The live Markov step is instead to
   separate L283's favorable `−12` Gram and express only L285/L289's
-  mixed transported remainder as a controlled flux.  The distinct
-  alternative is to prove L212's own exact-axis base in arbitrary
-  grade.
+  mixed transported remainder as a controlled flux.  L296/A243
+  removes the unnecessary restriction to the special quadratic
+  `G_k`: every polarized L280 response has an exact observability-
+  defect pairing, and a family of polarization columns has L282
+  energy controlled by the sum of their squared Frobenius norms.
+  The live repair-branch target is now to discard L290's bounded
+  prior-flag factors, derive polarization columns only for the
+  surviving compressed remainder, and prove their total energy is
+  `O(||U*B_k||²)`.  The distinct alternative is to prove L212's own
+  exact-axis base in arbitrary grade.
   The circular-normal merger is downstream.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
+
+## NEWEST (2026-07-26): L296 polarizes the gap-free flux estimate
+- For an arbitrary copy matrix `X`, put
+  `F_k(X)=sym(B_kX*)−Phi(sym(X*B_k))`; this is one eighth of L280's
+  exact physical endpoint response.
+- Channel adjointness gives
+  `<Y,F_k(X)>=Re tr X*(YB_k−B_kPhi*(Y))`.
+  L280's Dirichlet form is the sum of the squared defects on the
+  right, so
+  `|<Y,F_k(X)>|<=||X||sqrt(<Y,(I−Phi Phi*)Y>)`.
+- Summed and flagged versions are literal.  A family `X_j` is
+  controlled by `(sum_j||X_j||²)^(1/2)`, and `X=PB_k` recovers L294's
+  flagged quadratic flux.
+- Therefore L295's corrected repair route does not need the mixed
+  L285/L289 remainder to equal a scalar `G_k`.  Modulo favorable
+  Grams and prior-flag factors whose compression is zero, it is enough
+  to derive polarized response columns and prove total energy
+  `<=C²||U*B_k||²`; L282 then follows with constant `C`.  L288 is in
+  the zero-compression factor class and need not itself be a Markov
+  response.
+- Exact single, summed, and flagged audits pass on two noncommuting
+  bistochastic channel families in multiplicities two and three.
+  Dataset SHA-256:
+  `58381726281a8102eb3a53b334b3d0ac11b7dcfaccb3eae3cc64d9750d344c48`.
 
 ## NEWEST (2026-07-26): L295 separates the repair and exact-axis branches
 - At a repeated monomial apex, `B_L=U` is unitary and
@@ -5502,7 +5533,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L295/A242)
+## Current next actions (Epoch 6, refreshed after L296/A243)
 1. **Close bounded repeated-elliptic selection.**  Use L283 as the
    exact complete-delay boundary condition and L284's endpoint-null
    normalizations as the gauge convention.  L285 already gives the
@@ -5526,17 +5557,18 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    demand endpoint-null even gauges, infer anything from raw
    two-sided state-ideal membership, insert L291's fixed-rank
    pseudoinverse, or compute an isolated seventh grade.
-2. **Derive a flux formula for only the mixed repair remainder.**
+2. **Derive and bound the mixed repair polarization columns.**
    L295 disproves comparison of L285/L289's complete face with L212's
    target even at the apex; do not resume it.  First split off L283's
-   favorable `−12B_kB_k*` complete-delay face.  Use L285's triangular
-   transport and L289's mixed graphs to express the remaining first
-   flag face as `−aB_kB_k*−bG_k`, a nonnegative weighted sum of such
-   terms, or a direct pairing with L280's observability defects.
-   L294 then gives L282 without a spectral-gap estimate.  If this
-   fails, record the obstruction in L292's Smith-valuation language.
-   The separate alternative is to prove L212's own exact-axis base
-   identity, not to mix the two metric branches.
+   favorable `−12B_kB_k*` complete-delay face.  First discard
+   L289/L290's bounded prior-flag factors.  Write only the surviving
+   compressed first-flag face as `sum_j beta_j F_j(X_j)` in L296's
+   polarized response notation and prove
+   `sum_j|beta_j|²||X_j||²<=C²||U*B_k||²`.
+   L296 then gives L282 without a spectral-gap estimate or a special
+   `G_k` ansatz.  If the energy bound fails, record the obstruction in
+   L292's Smith-valuation language.  The separate alternative is to
+   prove L212's own exact-axis base identity, not mix metric branches.
 3. **Only after selection closes, finish the repeated
    circular-normal/elliptic merger.**  Derive L199's later
    Schur-orthogonal normal response and avoid spending the same disk
@@ -5719,14 +5751,18 @@ Current A178 transport packet:
   proof/repeated_crabb_canonical_flux_inequality.md (L294 exact
   canonical flux/Dirichlet pairing and flagged L282 bound), and
   proof/repeated_crabb_canonical_target_scope_obstruction.md (L295
-  exact apex separation of the repair and L212 target branches);
+  exact apex separation of the repair and L212 target branches), and
+  proof/repeated_crabb_polarized_flux_inequality.md (L296 exact
+  single/summed/flagged polarized response-energy bound);
   matching
   regenerators use the same
   basenames under experiments/.  Resume by splitting L283's
-  favorable `−12` Gram from L285/L289's mixed remainder and deriving
-  an L294-controlled flux formula for that remainder (or equivalently
-  proving L292's valuations); do not compare the complete repair face
-  with L212's `−16` target, force state witnesses into an
+  favorable `−12` Gram from L285/L289's mixed remainder, discarding
+  bounded prior-flag factors, deriving L296 polarization columns for
+  the surviving compression, and proving their total energy is
+  `O(||U*B_k||²)` (or equivalently proving L292's valuations); do not
+  compare the complete repair face with L212's `−16` target, force
+  state witnesses into an
   ideal, use a rank-changing pseudoinverse, confuse pointwise flag
   zero with bounded divisibility, or compute grade seven.
 proof/ — read in this order for the current frontier:

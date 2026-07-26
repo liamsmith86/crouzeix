@@ -1,5 +1,10 @@
 # The L212 target does not dominate the canonical-repair branch
 
+> **Route update.**  L296 subsequently proves the gap-free estimate
+> for every polarized L280 response, not only the quadratic \(G_k\).
+> The live repair-branch target is therefore a bound on the total
+> polarization-column energy of the mixed remainder.
+
 ## 1. Result (L295, 2026-07-26)
 
 L294 proves a gap-free energy estimate for L212's canonical target
@@ -126,9 +131,10 @@ It fails at the most symmetric equality point.  Instead, first
 separate the complete negative Gram already supplied by L283 from
 the mixed graph-transport remainder.  The next load-bearing
 question is whether that remainder has an exact full or weighted
-\(G_k\)-flux representation, or an equally direct pairing with
-L280's observability defects.  Such a representation would invoke
-(4) without demanding the false \(-12I\preceq-16I\) comparison.
+\(G_k\)-flux representation, or the more general polarized
+observability-defect pairing proved in L296.  Such a representation,
+together with its column-energy bound, avoids the false
+\(-12I\preceq-16I\) comparison.
 
 ## 4. Exact regeneration
 

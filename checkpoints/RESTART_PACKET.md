@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-26): after L295 / A242
+## Current general Crabb frontier (2026-07-26): after L296 / A243
 
 The accidental two-agent interval has been reconciled.  Commits
 `87c5107`, `4c7a152`, `2f82d15`, and `dcab861` form one linear history
@@ -14,8 +14,8 @@ remains.  Its sole new in-progress result was independently tightened
 and banked as L272/A219.  A second single-agent reconciliation through
 L287/A234 found no stopped-agent artifact, branch, staged overlap, or
 competing next-action instruction.  L288/A235, L289/A236,
-L290/A237, L291/A238, L292/A239, L293/A240, L294/A241, and
-L295/A242 were
+L290/A237, L291/A238, L292/A239, L293/A240, L294/A241,
+L295/A242, and L296/A243 were
 then derived, audited, and documented by the sole active agent.
 Resume as one agent from the
 bounded repeated-elliptic selection gate below.  The now-completed
@@ -125,9 +125,13 @@ relative grade-one response, and A203/L257 turns its transport into
   L295/A242 disproves comparing L285/L289's complete repair face with
   L212's particular target: their monomial-apex values are `−12I`
   and `−16I`.  Split off L283's favorable `−12` Gram and derive a
-  flux pairing only for the mixed transport remainder, or equivalently
-  prove L292's physical valuations and uniform margins.  The distinct
-  alternate branch is to prove L212's own exact-axis physical base.
+  flux pairing only for the mixed transport remainder.  L296/A243
+  shows the surviving compressed remainder may use arbitrary
+  polarized L280 responses: after bounded prior-flag factors are
+  discarded, it is enough to prove that their total column energy is
+  `O(||U*B_k||²)`.  Equivalently prove L292's physical valuations and
+  uniform margins.  The distinct alternate branch is to prove L212's
+  own exact-axis physical base.
   Do not resume
   an isolated-grade march, demand infinite summability, infer endpoint
   preservation from raw state ideal membership, insert the fixed-rank
@@ -826,6 +830,13 @@ before their theta/coisometric cancellation.
 - `experiments/repeated_crabb_canonical_target_scope_obstruction.py`:
   exact terminal-unitary branch-separation audits; tracked data hash
   `d983482024c5fd0b998ea0028edafcd56d8336c01d6a4fe4aa493ca10ba0264d`.
+- `proof/repeated_crabb_polarized_flux_inequality.md` (L296/A243):
+  exact single, summed, and flagged polarized response pairing with
+  L280's observability defects.
+- `experiments/repeated_crabb_polarized_flux_inequality.py`: exact
+  noncommuting bistochastic-channel polarization audits; tracked data
+  hash
+  `58381726281a8102eb3a53b334b3d0ac11b7dcfaccb3eae3cc64d9750d344c48`.
 - `experiments/repeated_crabb_markov_response.py`: arbitrary
   multiplier, bistochastic, summed-response, Dirichlet, observability-
   preimage, state-energy, polarized-collapse, and repeated-apex
@@ -2079,8 +2090,8 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
   The former deformation route was superseded by the Schwarzian proof of EL4; see
   proof/D2_landscape.md and proof/el4_schwarzian_theorem.md.
 
-## Next five concrete actions (refreshed after L295 / A242)
-1. Use L285--L295 to prove the arbitrary-grade parity recursion in
+## Next five concrete actions (refreshed after L296 / A243)
+1. Use L285--L296 to prove the arbitrary-grade parity recursion in
    the mixed graph coordinate: solve removable odd endpoint homology,
    then factor each complete physical endpoint pairing directly as
    `X_j[B_1 ... B_r]*+[B_1 ... B_r]X_j*`.  L291 makes state-level
@@ -2095,10 +2106,12 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    bounded-energy certificate language.
 2. Do **not** compare L285/L289's complete endpoint with L212's
    target; L295 disproves that at the apex.  Split off L283's
-   favorable `−12B_kB_k*` face and derive an exact `G_k`-flux,
-   nonnegative weighted-flux, or direct observability-defect pairing
-   only for the mixed transported remainder.  L294 then supplies the
-   all-amplitude L282 estimate without a Markov inverse.  Translate a
+   favorable `−12B_kB_k*` face, discard bounded prior-flag factors,
+   and write only the surviving compressed remainder as
+   `sum_j beta_j F_j(X_j)` using L296's polarized L280 response.
+   Prove total column energy
+   `sum_j|beta_j|²||X_j||²<=C²||U*B_k||²`; L296 then supplies L282
+   without a Markov inverse or special `G_k` ansatz.  Translate a
    failure into L292's Smith valuations.  Alternatively prove L212's
    distinct exact-axis base, without mixing metric branches.
 3. After bounded elliptic selection closes, derive the later
@@ -2140,9 +2153,9 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    not compute another isolated grade.  Then finish the
    normal/elliptic merger, retaining the full CP route as fallback.
 
-## Paste-ready continuation instruction (current after L295/A242)
+## Paste-ready continuation instruction (current after L296/A243)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix` as
-the sole repository-writing agent.  Read L197, L220, L227, L283--L295,
+the sole repository-writing agent.  Read L197, L220, L227, L283--L296,
 plus the newest `RESEARCH_STATE.md` section.  L277--L279 have proved
 every lower delayed face, the active `+4||B_k||²` volume coefficient,
 the `+2||B_k||²` dual-Schur trace, and the
@@ -2195,8 +2208,11 @@ every transfer flux; L212's target
 complete L227/L285 repair face cannot be compared with that target:
 their apex values are `−12I` and `−16I`.  Do not resume that false
 comparison or re-estimate the Markov gap.  Split off L283's favorable
-`−12B_kB_k*` face and express only L285/L289's mixed remainder as an
-L294-controlled flux; equivalently, extract the finite arbitrary-grade
+`−12B_kB_k*` face.  Discard L289/L290's bounded prior-flag factors.
+L296 shows every polarized L280 response has an exact gap-free energy
+estimate, so express only the surviving compressed mixed remainder as
+`sum_j beta_j F_j(X_j)` and prove its polarization energy is
+`O(||U*B_k||²)`; equivalently, extract the finite arbitrary-grade
 alternating rule and prove L292's physical valuations while preserving
 the even direct Gram and odd Schur cost.  The distinct alternate route
 is to prove L212's own exact-axis base without mixing the branches.
