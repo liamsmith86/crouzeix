@@ -271,9 +271,14 @@
   L304/A251 closes the remaining gap-free analytic
   ordered-flag/Smith realization at `theta=1/2` by factoring the
   complete residual into relative commutators containing `ESF` and
-  bounding the off-cokernel dual-telescope error.  The next live step
-  is the arbitrary-grade recurrence behind that module—not another
-  graph expansion or isolated complete-delay grade.
+  bounding the off-cokernel dual-telescope error.  L305/A252 now
+  supplies the arbitrary-word mechanism without assuming abstract
+  cyclic excision: every rooted bridge word is one explicit retained
+  channel plus an ideal-valued bounded response.  The response,
+  lower elimination, and subsequent transport preserve the
+  cumulative bridge module.  The next live step is to evaluate the
+  complete rooted retained quotient—not another graph expansion or
+  isolated complete-delay grade.
   The
   alternate raw route retains its lower
   budget, separates L283's favorable `−12` Gram, and expresses only
@@ -293,6 +298,34 @@
   The circular-normal merger is downstream.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
+
+## NEWEST (2026-07-26): L305 makes every rooted bridge response constructive
+- For every word term `T=p(ES^jF)q`, the complete upper Stein endpoint
+  splits exactly as
+  `Phi(B_j*W*qpV)+h.c.+M_S(C_(p,q,j))`.
+- The perpendicular column is explicit, obeys
+  `||C_(p,q,j)||<=(|p|+1)||B_j||`, and has
+  `C_(p,q,j)V*` in the same two-sided physical bridge ideal.  This is
+  rank-stable and uses no pseudoinverse or Markov-gap inverse.
+- The two terms of a relative commutator
+  `[ell,p(ES^jF)q]` have the same root, so the retained channels cancel
+  and their difference is an explicit ideal-preserving response.
+  L304's 28 terms are a finite instance.  No general assertion
+  `I intersect [A,A]=[A,I]` is needed or made.
+- L298's grade directions have both metric and frame lifts in the
+  cumulative bridge ideal.  Consequently L299's complete six-term
+  moving defect lies there.  L285 lower elimination, Stein inversion,
+  and the L305 response column preserve it, closing the response/module
+  part of the finite recurrence.
+- The remaining algebraic gate is now only the **rooted retained
+  quotient**: prove that its complete physical sum cancels at odd
+  grades and is an earlier-margin-dominated two-ended transfer Gram at
+  even grades.  L300 and L303--L304 establish those statements only at
+  cubic and quartic order.
+- All 38 unstructured, rank-changing, and completely delayed audits
+  pass, including relative-root cancellation and independent
+  ideal-lift reconstruction.  Dataset SHA-256:
+  `b7602e5634dc372b2519f1673722ca3dce9af17b73b8c87709338dec37de920b`.
 
 ## NEWEST (2026-07-26): L304 closes rank-stable selection through the quartic
 - Fix `theta=1/2` and subtract L303's retained balanced upper class
@@ -5835,19 +5868,22 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L304/A251)
-1. **Extract the arbitrary-grade relative-commutator recurrence.**
-   L304 has closed the complete bounded analytic selection through
-   quartic order at fixed `theta=1/2`.  Its decisive algebraic
-   invariant is not the 28-term list itself but
-   `D_k in [Alg(S), <ES^jF: j<k>]`: after subtraction of the retained
-   transfer polynomial, every response commutator must contain an
-   earlier physical bridge.  Formulate and prove this invariant under
-   L285's triangular transport and L289's complete mixed-graph
-   shorting.  Use the moving dual-Stein telescope as a controlled
-   commutator error, as in L304, rather than expanding its Green sum.
-   Do not compute an isolated fifth/seventh grade or promote the
-   finite 28-term certificate by pattern recognition.
+## Current next actions (Epoch 6, refreshed after L305/A252)
+1. **Evaluate the arbitrary-grade rooted retained quotient.**
+   L305 replaces the uncertain abstract cyclic-excision step by an
+   exact constructive formula for every word `p(ES^jF)q`: its upper
+   endpoint is one rooted `Phi` term plus an explicit response column
+   of size `O(||B_j||)` whose state lift remains in the same bridge
+   ideal.  L298's directions, L299's moving defect, L285 lower
+   elimination, Stein inversion, and this selected response therefore
+   form a closed cumulative-ideal recurrence.  The sole remaining
+   algebraic content is the sum of the rooted `Phi` terms: prove that
+   it cancels at odd preparation grades and is a two-ended
+   transfer-Gram polynomial dominated by an earlier retained margin
+   at even grades.  Do this from L298/L299's all-series identities,
+   not by computing an isolated fifth/seventh coefficient.  Do not
+   assume the stronger and unproved equality
+   `I intersect [A,A]=[A,I]`; L305 makes it unnecessary.
 2. **Close the fixed partial-scale finite-flag induction.**  Combine
    the recurrence from item 1 with L283's complete-delay boundary,
    L290's hereditary endpoint factors, and L292's valuation test.
@@ -5857,10 +5893,11 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    finite positive jet through terminal grade `L`, not infinite
    summability.  Do not demand exact lower-tightness, endpoint-null
    even gauges, raw two-sided state-ideal invariance, or use L291's
-   pointwise pseudoinverse.  If the relative-commutator module fails
-   to be transport-stable, return to L296's polarized raw branch only
-   after separating favorable Grams and bounded prior-flag factors;
-   do not mix endpoint ledgers.
+   pointwise pseudoinverse.  L305 has closed response/module
+   stability, but not the sign of the rooted quotient.  If that
+   quotient is not margin-compatible, return to L296's polarized raw
+   branch only after separating favorable Grams and bounded prior-flag
+   factors; do not mix endpoint ledgers.
 3. **Only after selection closes, finish the repeated
    circular-normal/elliptic merger.**  Derive L199's later
    Schur-orthogonal normal response and avoid spending the same disk
@@ -6064,15 +6101,20 @@ Current A178 transport packet:
   margin), and
   proof/repeated_crabb_retightening_quartic_flux.md (L304 exact
   relative-commutator flux and rank-stable analytic quartic
-  selection);
+  selection), and
+  proof/repeated_crabb_rooted_bridge_flux.md (L305 exact
+  arbitrary-word rooted quotient/response split and
+  ideal-preserving correction);
   matching
   regenerators use the same
   basenames under experiments/.  Resume on the partial-retightening
-  branch at fixed `theta=1/2` by extracting L304's arbitrary-grade
-  relative-commutator module and transporting that mechanism through
-  the finite transfer flag.  The quartic response bound and Smith
-  gate are closed.  If the module fails to be transport-stable,
-  return to the raw
+  branch at fixed `theta=1/2` by evaluating L305's complete rooted
+  quotient through the finite transfer flag.  Response selection,
+  bridge-module stability, the quartic bound, and the Smith gate are
+  closed.  Prove odd rooted cancellation and even retained-Gram
+  domination; do not assume an abstract relative-cyclic excision
+  theorem.  If the rooted quotient is not margin-compatible, return
+  to the raw
   branch by
   retaining its lower budget, splitting L283's favorable `−12` Gram
   from L285/L289's mixed remainder, discarding bounded prior-flag
