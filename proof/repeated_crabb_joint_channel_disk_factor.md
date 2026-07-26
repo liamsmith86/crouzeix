@@ -55,11 +55,13 @@ After shrinking,
 
 \[
  O\bigl((\delta+d)^2\bigr)
- \le \frac13\delta+\varepsilon d.                 \tag{5}
+ \le \varepsilon_0(\delta+d).                    \tag{5}
 \]
 
-Thus L322's linear reserve and any fixed retained fraction of L197's
-disk squares absorb every later **scalar** transport correction.
+L325 subsequently supplies one joint linear reserve for these two
+losses on the same actual-disk norming direction.  Choose
+\(\varepsilon_0\) below its local constant; that reserve then
+absorbs every later **scalar** transport correction after shrinking.
 The abstract negative Schur quotient in L319 cannot occur as an
 unpaid scalar response: its actual channel-breaking part must carry
 either transfer leakage or one of the accumulated disk square
@@ -197,7 +199,7 @@ retaining half of it, the new response has the form
 
 \[
  -\frac12 y^*\Gamma y
-2\operatorname{Re}\langle y,R\rangle,
++2\operatorname{Re}\langle y,R\rangle,
 \qquad
 \|R\|\le C(\delta+d).                              \tag{15}
 \]
@@ -206,7 +208,7 @@ Completing one vector square gives
 
 \[
  -\frac12 y^*\Gamma y
-2\operatorname{Re}\langle y,R\rangle
++2\operatorname{Re}\langle y,R\rangle
 \le \frac2\gamma\|R\|^2
 \le C_2(\delta+d)^2.                              \tag{16}
 \]
@@ -214,14 +216,14 @@ Completing one vector square gives
 Because \(0\le\delta\le1\) and \(d\to0\), shrink until
 
 \[
- C_2(\delta+d)\le
- \min\left\{\frac13,\varepsilon\right\}.           \tag{17}
+ C_2(\delta+d)\le\varepsilon_0.                   \tag{17}
 \]
 
-Then (5) follows after harmlessly changing \(\varepsilon\).
-L322 retains at least \((4/3)\delta\), so spending \(1/3\delta\)
-leaves a full \(\delta\) of channel reserve.  L197 permits any fixed
-positive fraction of each active disk square to be retained.
+Then (5) follows.
+On the equality manifold, L322 retains at least
+\((4/3)\delta\).  Off it, use L325's joint actual-disk reserve rather
+than adding that number to a separately selected disk square.  L197
+still identifies the accumulated disk part of L325's joint defect.
 
 No normal curvature, channel reserve, or earlier disk square is
 spent twice: all response coefficients are stacked before the one
@@ -234,7 +236,7 @@ The remaining assembly is finite but must still be written
 explicitly:
 
 1. use L61/L199 to enter a maximal zero-Jensen winner;
-2. apply (3)--(17) simultaneously with L322 and the whole L197 flag;
+2. apply (3)--(17) simultaneously with L325's joint actual-disk gap;
 3. retain L318's elliptic margin in the marked reflected coordinates;
 4. if \(\delta\) vanishes to the current order, follow L321's common
    eigenline; and

@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-26): after L324 / A272
+## Current general Crabb frontier (2026-07-26): after L325 / A273
 
 The post-L316 consolidation review retired 55 of 75 stale/unclassified
 `OPEN` labels (54 superseded, one obsolete) and left 20 genuinely live
@@ -23,9 +23,13 @@ normal response, and the difference from L192's split response, are
 audit found that joint disk/normal responses also contain off-channel
 disk residuals.  L324 corrects the scope: if `d` is the accumulated
 L197 scalar disk loss, the joint complement-frame gauge gives response
-`O(delta+d)` and completed cost `O((delta+d)²)`.  L322 plus retained
-L197 squares absorb it after shrinking.  The live step is now the
-finite L197/L321 flag induction with L318 kept separate.
+`O(delta+d)` and completed cost `O((delta+d)²)`.  A subsequent
+adversarial pass found that L322's equality-anchor reserve and `d`
+still could not simply be added.  L325 fixes this with one actual-disk
+defect `Delta=min_k{<D_Xk,k>+1−sigma_X(k)}` and proves a uniform linear
+gap by an exact endpoint-angle matrix.  The live step is now the
+terminal partial-endpoint model-kernel split, followed by the finite
+L197/L321 induction with L318 kept separate.
 L319 proves that the alternative Schur-only complete-similarity
 shortcut does not determine the later kernel block; it is now a
 fallback debt rather than a scalar prerequisite.  L317 proves the
@@ -2528,9 +2532,9 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    not compute another isolated grade.  Then finish the
    normal/elliptic merger, retaining the full CP route as fallback.
 
-## Paste-ready continuation instruction (current after L324/A272)
+## Paste-ready continuation instruction (current after L325/A273)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix` as
-the sole repository-writing agent.  Read L197, L220, L227, L283--L324,
+the sole repository-writing agent.  Read L197, L220, L227, L283--L325,
 A259's explicitly conjectural sharp endpoint-word note, plus the newest
 `RESEARCH_STATE.md` section.  Do not treat A259 as L312: its
 lossless-circuit residual block is unproved.  L312 proves only the
@@ -2571,9 +2575,18 @@ not measured by `delta`.  L324 corrects this by transporting the
 scalar state through all L197 congruences.  If `d` is the accumulated
 disk loss, one joint complement gauge gives response `O(delta+d)` and
 one stacked completion costs `O((delta+d)²)`, absorbed by L322 plus
-retained L197 squares.  Assemble the finite L197/L321 flag, descending
-until L205 splits the channel and using L192 on that block.  Keep
-L199's split face and L318's elliptic margin separate.  L319/A267
+retained L197 squares.  Do not yet assemble by adding those base
+reserves separately.  L325 proves the correct joint actual-disk gap:
+with top cluster `X`, disk defect `D_X`, and output-line score
+`sigma_X(k)`, every scalar Schur norm has gap at least
+`c min_k{<D_Xk,k>+1−sigma_X(k)}`.  Its `2x2` angle matrix uses the
+load-bearing contraction row `sqrt(1−t²)`.  At a terminal partial
+endpoint, scalar equality forces `Pk=4k`, `V*C^n k=b_n v`, and
+`f(C)k=Vv`; prove that the generated scalar model is reducing and
+respects `P`.  L205 supplies this only on the full equality manifold.
+Then assemble the finite L197/L321 flag and use L192 on every split
+block.  Keep L199's split face and L318's elliptic margin separate.
+L319/A267
 forbids inferring a stronger
 complete-similarity later quotient from Schur algebra alone; reopen
 that endpoint-specific calculation only if the scalar leakage route

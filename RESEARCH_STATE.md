@@ -2,26 +2,53 @@
 
 **Last updated:** 2026-07-26 (Epoch 6 — repeated circular/elliptic merger)
 
-## CANONICAL LIVE GATE (2026-07-26, after L324/A272)
+## CANONICAL LIVE GATE (2026-07-26, after L325/A273)
 
-There is exactly one current mathematical gate: **prove the finite
-scalar-channel-stratum flag assembly near a repeated Crabb block,
-using L322's sharp linear reserve and L324's joint channel/disk
-quadratic response cost,
-and descending L321's common-eigenline jet flag whenever the leakage
-valuation vanishes.**  L199
-supplies the first transverse disk/circular-normal face, L318 supplies
-the elliptic margin, and L205/L192 split any channel which persists
-exactly.  L319 blocks only the stronger Schur-only
-complete-similarity shortcut; deriving its missing kernel-block
-response is now a fallback, not a prerequisite for the scalar
-conjecture.  This is current next action 3 below.  Every later
+There is exactly one current mathematical gate: **prove that L325's
+terminal scalar-inner cyclic state at a partial L197 top endpoint is
+a reducing scalar model summand (or identify the exact additional
+obstruction), then finish the finite scalar local induction.**
+L325 now supplies one joint linear base reserve for disk and channel
+loss on the same direction; L324 supplies the lower-order joint
+response cost.  L199 supplies the first transverse
+disk/circular-normal face, L318 supplies the elliptic margin, and
+L205/L192 already split the full-equality case.  L319 blocks only the
+stronger Schur-only complete-similarity shortcut.  This is current
+next action 3 below.  Every later
 occurrence of “historical gate,”
 “historical frontier,” or “remaining historical task” records what
 was unresolved at that dated checkpoint; none is a concurrent
 frontier.  Actions 1--2 are completed derivation records, action 3
 is live, and action 4 is its ordered successor.  The CP/H-r routes
 remain parked fallbacks.
+
+## L325/A273 JOINT ACTUAL-DISK SCALAR GAP (2026-07-26)
+
+- A first attempted final assembly exposed another invalid shortcut:
+  L322's channel reserve at an equality anchor cannot simply be added
+  to an independently chosen L197 disk compression.
+- For the actual canonical disk metric, use its top spectral cluster
+  `X`, disk defect `D_X=X*(4P^−1−I)X`, and scalar Hardy output-line
+  score `sigma_X(k)` on the same unit direction.
+- The exact three-loss identity retains input upper loss, contraction
+  loss, and output lower loss.  If the scalar row angle is `t`,
+  contraction forces its complementary row below `sqrt(1−t²)`.
+- The resulting `2x2` form has trace `q+mu/2` and determinant
+  `q*mu*(1−t²)/2`.  The other half of the complement gap pays the
+  disk defect.  Thus every scalar Schur function has squared norm at
+  most `4−c*Delta`, where
+  `Delta=min_k{<D_Xk,k>+1−sigma_X(k)}`.
+- `D_X` is analytically congruent to the complete L197 endpoint, so
+  this is one joint reserve through all disk rank changes.  On L193's
+  equality manifold it reduces to the older channel leakage.
+- At a terminal partial endpoint, scalar equality forces
+  `Pk=4k`, `V*C^n k=b_n v`, and `f(C)k=Vv`.  L205 proves reducing
+  splitting on the full equality manifold, but the corresponding
+  partial-endpoint model-kernel split is not yet banked.  That is the
+  sole zero-face debt before the final induction.
+- Two hundred twenty-five exact angle/allocation records pass; dataset
+  SHA-256:
+  `bd7e63c2ffaa8ba1bdbe5e6c61cfae1efbb722c107e36eef92b9dfb07cd0c967`.
 
 ## L324/A272 JOINT CHANNEL/DISK RESPONSE FACTOR (2026-07-26)
 
@@ -6479,7 +6506,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L324/A272)
+## Current next actions (Epoch 6, refreshed after L325/A273)
 1. **COMPLETED BY L318: fixed-half-scale margin assembly after L317.**
    The remainder of this item is the derivation record, not a live
    instruction.
@@ -6556,24 +6583,28 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    factors; do not mix endpoint ledgers.
 3. **LIVE: close the scalar-channel-stratum induction.**
    Work on the scalar conjecture, not the stronger complete-similarity
-   normal flag.  L322 gives a sharp linear reserve whenever
-   L201's transfer lacks an exact scalar channel.  L205 splits every
-   exact channel into a single-copy full-Hardy block and a smaller
-   complementary transfer.  L321 now exposes the first leakage
-   coefficient exactly, and L322 upgrades the certified scalar gap to
-   at least `(4/3)(1−sigma)`.  L323 proves the transfer-only response
-   is `O(delta)`.  L324 corrects the joint scope by including the
-   accumulated L197 scalar disk loss `d`: after subtracting L192's
-   split response, every later scalar transport coefficient is
-   `O(delta+d)`, so its completed cost is `O((delta+d)²)`.
+   normal flag.  L322 gives the sharp equality-anchor reserve, but do
+   not add it to an independently chosen disk loss.  L325 replaces
+   that shortcut by the actual-disk joint defect
+   `Delta=min_k{<D_Xk,k>+1−sigma_X(k)}` and proves a uniform linear
+   scalar gap.  L323 proves the transfer-only response is `O(delta)`.
+   L324 includes every accumulated L197 quotient and proves the joint
+   response is `O(delta+d)`, so its completed cost is quadratic.
 
-   Assemble one curve-selected finite flag.  At each L197 disk layer,
+   First close L325's terminal zero face.  At a partial top endpoint,
+   scalar equality gives `Pk=4k`, `V*C^n k=b_n v`, and
+   `f(C)k=Vv`.  Prove from the finite observability/model kernel that
+   this scalar cyclic subspace and its orthogonal complement reduce
+   both `C` and `P`, or record the exact missing obstruction.  L205
+   already proves this only on the full L193 equality manifold.
+
+   Then assemble one finite rank-stratified flag.  At each L197 layer,
    retain a fixed fraction of every accumulated square, stack all
    normal/reflected responses before completing them once, and charge
-   the resulting `O((delta+d)²)` cost to L322 plus those retained
-   squares.  Descend L321's common eigenline when the leakage face
-   vanishes.  Keep L318's elliptic margin separate and use L205/L192
-   when a channel persists exactly.
+   the resulting `O((delta+d)²)` cost to L325's joint linear reserve.
+   Descend L321's common eigenline when the equality-anchor leakage
+   face vanishes.  Keep L318's elliptic margin separate and use
+   L205/L192 when a full-equality channel persists exactly.
 
    If `Lambda=0`, carry L321's common eigenline through the next
    nonzero transfer jet.  If it persists identically, reduce to the
@@ -6587,7 +6618,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    kernel-block response.  Do not use that shortcut.  Return to the
    endpoint-specific complete-matrix response only if the scalar
    induction leaves a term not controlled by
-   L192/L197/L199/L318/L322/L324.
+   L192/L197/L199/L318/L324/L325.
 4. **Then close analytic remainders and audit equality strata.**  Use
    the bounded selected columns along the finite L197/L220 flag and
    combine with the banked single-block quotient results before
