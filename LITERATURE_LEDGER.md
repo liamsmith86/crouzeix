@@ -150,6 +150,16 @@ Lemma-by-lemma scope:
   nilpotent.  Therefore Gau--Wu's inner `f` cannot generally be
   replaced by a monomial.  Monomial/Crabb rigidity is valid only on
   the explicit nilpotent subcase.  `proof/repeated_crabb_scalar_model_split.md`.
+- **Post-L329 coverage correction (L330).**  Corollary 3 already
+  gives explicit nonnilpotent sharp disk matrices outside the
+  repeated-Crabb stratum.  For zeros `0,a`, the specialized
+  `3 x 3` matrix `G_a` has support eigenvalues
+  `1,-1,a cos(theta)` and satisfies
+  `f_a(G_a)=2E_13`, but its spectrum `{0,0,a}` rules out affine
+  Crabb equivalence when `a!=0`.  Thus any globalization must first
+  cover arbitrary Gau--Wu models; L192/L329 cover only their local
+  monomial collision sector.  This correction is a direct
+  application of the classical source, not a novelty claim.
 
 ## Fixed repeated-Crabb neighbourhood audit for L329 (2026-07-26)
 
@@ -177,7 +187,9 @@ Lemma-by-lemma scope:
 - **Scope guard.**  L329 is fixed `(p,m)`, local, and scalar.  It
   neither proves a radius uniform in size nor the completely bounded
   conjecture, and it does not classify arbitrary global sharp
-  sequences.
+  sequences.  L330 additionally shows that it does not cover all
+  already known Gau--Wu equality points away from the monomial
+  collision.
 
 ## Known equality structure (R = 2 attained/approached)
 - A = [[0,2],[0,0]], p = z. R = 2 exactly. W(A) = disk radius 1.

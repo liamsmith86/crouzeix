@@ -2,27 +2,48 @@
 
 **Last updated:** 2026-07-26 (Epoch 6 — repeated scalar neighbourhood closed)
 
-## CANONICAL LIVE GATE (2026-07-26, after L329/A277)
+## CANONICAL LIVE GATE (2026-07-26, after L330/A278)
 
 There is exactly one current mathematical gate:
-**globalize the now-proved fixed repeated-Crabb scalar neighbourhood
-without assuming that every sharp matrix is already a repeated
-Crabb block.**  L329 closes the finite rank-stratified merger of the
-Jensen, actual-disk/channel, scalar normal/reflected, and grouped
-elliptic margins for every fixed `C_p tensor I_m`.  The next question
-is whether an arbitrary scalar ratio-two or asymptotically sharp pair
-must reduce, after the numerical-range conformal normalization, to a
-disk/Gau--Wu model covered by these local charts.  If not, the missing
-sharp stratum must be identified and treated separately.  For a fixed
-matrix size, an equality-stratum classification plus compactness
-would reduce the complement to a uniform strict patch; a full proof
-would additionally have to be dimension-uniform.  L329 is local and
-scalar, not a proof of the global or completely bounded conjecture.
-This is current next action 1 below.  Every later
+**prove or falsify a scalar neighbourhood theorem at an arbitrary
+fixed Gau--Wu disk model.**  L330 shows that the first post-L329
+globalization wording was already too narrow: the exact family
+`G_a` has `W(G_a)=D` and scalar ratio two but has spectrum
+`{0,0,a}`, so for `a!=0` it is not affine-similar to a Crabb block.
+General finite Blaschke products give many such nonnilpotent equality
+models.  L329 covers their monomial zero-collision corner, not the
+whole known sharp set.  Start with the explicit `3 x 3` family
+`G_a`, whose support eigenvalues are `1,-1,a cos(theta)` and hence
+have gap `1-|a|`.  Only after arbitrary fixed Gau--Wu models and their
+finite direct sums have local scalar patches should the campaign ask
+whether every global sharp sequence approaches that larger manifold.
+Fixed-dimension compactness and eventual dimension uniformity remain
+separate later debts.  This is current next action 1 below.  Every later
 occurrence of “historical gate,”
 “historical frontier,” or “remaining historical task” records what
 was unresolved at that dated checkpoint; none is a concurrent
 frontier.  The CP/H-r routes remain parked fallbacks.
+
+## L330/A278 NONCRABB GAU--WU SHARP STRATUM (2026-07-26)
+
+- For real `0<|a|<1`, let
+  `G_a=[[0,sqrt(2(1−a²)),−2a],
+        [0,a,sqrt(2(1−a²))],[0,0,0]]` and
+  `f_a(z)=z(z−a)/(1−az)`.
+- The support characteristic polynomial is exactly
+  `(lambda−1)(lambda+1)(lambda−a cos(theta))`.
+  Therefore `W(G_a)=D`.
+- Exact rational functional calculus gives `f_a(G_a)=2E_13`, so
+  `G_a` is a scalar equality matrix.
+- Its spectrum is `{0,0,a}`.  For `a!=0` it cannot be an affine image
+  of the single-eigenvalue Crabb block.  This is the smallest exact
+  certificate that L192/L329 do not cover all known equality points.
+- The construction is Gau--Wu Corollary 3 specialized to zeros
+  `0,a`; its equality content is classical.  The campaign result is
+  the corrected scope and ordered frontier.
+- Six rational parameter audits and the free-symbol identities pass;
+  dataset SHA-256:
+  `185c75e1ed68ad4634a366472d0130e8d2ff43143d657d41479d1470b8c1d31a`.
 
 ## L329/A277 FIXED REPEATED-BLOCK SCALAR NEIGHBOURHOOD (2026-07-26)
 
@@ -6609,7 +6630,30 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L329/A277)
+## Current next actions (Epoch 6, refreshed after L330/A278)
+
+1. **LIVE: attack the arbitrary Gau--Wu disk-model neighbourhood,
+   starting with `G_a`.**  Recenter the disk-manifold and
+   scalar-extremal coordinates at a fixed `0<|a|<1`.  First derive the
+   exact first support/Jensen face and the transverse scalar norm
+   Hessian.  Test every proposed sign against rational values of `a`
+   before opening a general proof.
+2. **Exploit the noncollision support gap.**  For fixed `a`,
+   `spec Re(e^{-i theta}G_a)={1,-1,a cos theta}` gives a uniform
+   top-support gap `1-|a|`.  Use ordinary analytic support and Riemann
+   charts; do not import the ramified repeated-Crabb flag unless a
+   genuine multiplicity collision occurs.
+3. **Then extend across the finite Blaschke model manifold and direct
+   sums.**  Keep arbitrary zeros rather than replacing the inner
+   function by a monomial.  L330 proves that this enlargement is
+   logically prior to global sharp-sequence classification.
+4. **Only after those local patches, return to global
+   classification.**  At that stage test whether every exact or
+   asymptotically sharp pair approaches the full Gau--Wu disk-model
+   manifold.  Keep fixed-dimension compactness and dimension-uniform
+   estimates as distinct steps.
+
+## Superseded immediate post-L329 actions (historical; corrected by L330)
 
 1. **LIVE: classify or falsify the global sharp-stratum reduction.**
    Determine whether every exact scalar ratio-two pair, or every

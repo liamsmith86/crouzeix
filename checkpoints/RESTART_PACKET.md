@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-26): after L329 / A277
+## Current general Crabb frontier (2026-07-26): after L330 / A278
 
 L329 proves the scalar Crouzeix conjecture in a full operator
 neighbourhood of every fixed repeated Crabb block
@@ -12,18 +12,23 @@ L326/L328's one-copy Gau--Wu equality split with induction to L192.
 It is local, scalar, and fixed-dimensional; it is not the global or
 completely bounded conjecture.
 
-The sole live gate is now **global sharp-stratum classification**:
-decide whether every exact ratio-two pair or asymptotically sharp
-sequence reduces to a disk/Gau--Wu model covered by L192/L329.  Do
-not assume `Phi_A(A)` is a numerical contraction, do not replace a
-general finite Blaschke equality model by a monomial, and do not
-reopen the complete-similarity normal flag.  Falsify the proposed
-classification against banked exact witnesses and numerical
-extremals before opening a proof route.  If it survives, use finite
-Blaschke extremality and singular-vector stationarity; for fixed
-dimension, an equality classification plus compactness would leave a
-strict complement, while dimension uniformity remains a separate
-global debt.
+L330 immediately corrects the first globalization target.  For
+`0<|a|<1`, the explicit Gau--Wu matrix
+`G_a=[[0,sqrt(2(1−a²)),−2a],[0,a,sqrt(2(1−a²))],[0,0,0]]`
+has `W(G_a)=D` and
+`f_a(G_a)=2E_13` for `f_a=z(z−a)/(1−az)`, but spectrum
+`{0,0,a}` rules out affine Crabb equivalence.  Thus known sharp
+points already lie outside L192/L329 away from the monomial
+zero-collision corner.
+
+The sole live gate is now **a scalar neighbourhood theorem at an
+arbitrary fixed Gau--Wu disk model**, beginning with `G_a`.  For fixed
+`a`, the support spectrum `1,-1,a cos(theta)` has gap `1-|a|`, so use
+ordinary analytic disk/support charts rather than the repeated
+collision flag.  Do not replace general finite Blaschke functions by
+monomials.  Only after arbitrary model blocks and their direct sums
+have local patches should the campaign return to global sharp-sequence
+classification, fixed-dimension compactness, and dimension uniformity.
 
 ### Historical derivation through L328
 
@@ -708,7 +713,10 @@ forbids detaching L245's doubled terminal edge from its physical
 balance.  A206 forbids splitting the two formal ellipse orientations
 before their theta/coisometric cancellation.
 
-## Current frontier files map (after L329/A277)
+## Current frontier files map (after L330/A278)
+- `proof/gau_wu_noncrabb_sharp_stratum.md` (L330) and
+  `experiments/gau_wu_noncrabb_sharp_stratum.py`: exact non-Crabb
+  Gau--Wu equality family and the corrected local frontier.
 - `proof/repeated_crabb_scalar_local_theorem.md` (L329): the fixed
   repeated-block scalar neighbourhood theorem and its scope boundary.
 - `experiments/repeated_crabb_scalar_local_merger.py` with
@@ -721,8 +729,9 @@ before their theta/coisometric cancellation.
 - `proof/repeated_crabb_scalar_model_split.md` (L326) and
   `proof/repeated_crabb_model_size_rigidity.md` (L328): classical
   Gau--Wu split plus the one-copy local rigidity used by induction.
-- `RESEARCH_STATE.md`: the sole live gate is global sharp-stratum
-  classification, not another repeated-block local coefficient.
+- `RESEARCH_STATE.md`: the sole live gate is the arbitrary fixed
+  Gau--Wu disk-model neighbourhood, not another repeated-Crabb
+  coefficient or premature global classification.
 
 ### Historical derivation file map
 - `proof/repeated_crabb_canonical_cubic_preimage.md` (L230),
@@ -2587,7 +2596,26 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    not compute another isolated grade.  Then finish the
    normal/elliptic merger, retaining the full CP route as fallback.
 
-## Paste-ready continuation instruction (current after L329/A277)
+## Paste-ready continuation instruction (current after L330/A278)
+"Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix`
+as the sole repository-writing agent.  L329 proves the scalar
+conjecture locally at every fixed repeated Crabb block, but L330
+corrects the first globalization target: the exact Gau--Wu family
+`G_a` has `W(G_a)=D`, `f_a(G_a)=2E_13`, and spectrum `{0,0,a}`, so
+for `a!=0` it is a known sharp point outside the affine Crabb
+stratum.  The sole live gate is a scalar neighbourhood theorem at an
+arbitrary fixed Gau--Wu disk model, starting with `G_a`.  Exploit its
+simple support spectrum `1,-1,a cos(theta)` and gap `1-|a|`; derive
+the first support/Jensen face and transverse scalar norm Hessian
+exactly, falsifying proposed signs at rational `a` first.  Do not
+assume general finite Blaschke models are monomial and do not reopen
+the repeated collision flag without a real multiplicity collision.
+After the one-block theorem, extend to arbitrary Gau--Wu models and
+finite direct sums.  Only then resume global sharp-sequence
+classification and keep dimension uniformity separate.  Commit each
+independently proved milestone."
+
+## Superseded immediate post-L329 continuation instruction (historical)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix`
 as the sole repository-writing agent.  L329/A277 has proved the
 scalar conjecture in a full neighbourhood of every fixed repeated
