@@ -97,9 +97,15 @@
   between the two leakage projections.  L273/A220 now proves the
   retained-metric half of that return in arbitrary grade: it cancels
   every interior word of the universal fan with coefficient `−1`.
-  The unique nonradial gate is therefore the unweighted theorem that
-  the physical closed return supplies the full fan and no additional
-  support; lower vanishings remain part of the same gate.
+  L274/A221 now also fixes all four remote coefficients of the
+  unweighted full-minus-tail recursion in arbitrary grade.  Each
+  crossed coefficient is the physical cancellation
+  `1+4(−1)^k−4(−1)^k=1`; `G_k` comes only from the full direct Gram
+  and `−SG_kS*` only from the subtracted tail direct Gram.  The unique
+  nonradial gate is therefore no longer endpoint normalization:
+  exclude or trace-null organize every additional unweighted word,
+  supply the interior fan needed by L273, and prove the lower
+  vanishings.
   A195/L249 is only a guardrail against detaching the doubled terminal
   edge, not a competing approach.
 
@@ -204,6 +210,31 @@
   `bbf8afbe36d039f98a3c8c5df6dc257d34f4e354fe70e126265618ea89d7acff`.
   `proof/repeated_crabb_metric_fan_telescope.md`;
   `experiments/repeated_crabb_metric_fan_telescope.py`.
+
+## NEWEST (2026-07-25): L274 fixes the four remote coefficients
+- For the unweighted recursion
+  `Delta_k^U=[c^(2k)]U_k−[c^(2k−2)]U_tail`, the two crossed remote
+  words each split into direct, immediate-return, and later-return
+  coefficients
+  `1+4(−1)^k`, `−4(−1)^k`, and `0`.  Their physical sum is exactly
+  one in every grade.
+- The deep word `G_k=S(S*)^(k+2)S^(k+2)S*` comes only from the full
+  retained direct Gram with coefficient one.  Its shifted negative
+  copy comes only from subtracting the independently balanced tail
+  direct Gram.  No final-row return contributes to either word.
+- The proof is an all-grade run/source extraction from L125/L242's
+  direct-map filtration and L273's lower inverse-metric top boundary.
+  It keeps the doubled endpoint inside the complete immediate
+  entry/exit product, so it does not repeat L249's false detached-port
+  inference.
+- L274 does not exclude additional unweighted words or prove lower
+  vanishings.  Resume by classifying the remaining support; the four
+  remote coefficients are banked and must not be recomputed.
+- The exact direct/immediate/later-return audit passes in grades two
+  through four with tracked SHA-256
+  `4d360bee00b01b1f4e658c8ac4a634d78f0ea519714cd392b11dc3d22176b8d2`.
+  `proof/repeated_crabb_remote_endpoint_coefficients.md`;
+  `experiments/repeated_crabb_remote_endpoint_coefficients.py`.
 
 ## NEWEST (2026-07-25): L256 proves the universal relative base
 - At relative grade one, deleting the active `c²` metric coefficient
@@ -4827,7 +4858,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   flat direction.
 
 ## Current next actions (Epoch 6, refreshed 2026-07-25)
-1. **A194/A213/A216--A220: prove the unweighted full-fan theorem.**
+1. **A194/A213/A216--A221: prove the unweighted full-fan theorem.**
    L267's abstract lossless identity remains valid, but L268 proves
    that a single analytic port carrying only the deflated tail defect
    cannot reproduce the physical associated face: equal traces hide
@@ -4842,10 +4873,14 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    lower vanishings.  L273 has separately proved the complete
    metric-inverse convolution: it contributes `−1` on every one of
    the `2k−2` interior fan words and no other nonradial term.  Do not
-   recompute that metric half.  Prove that the unweighted renewal
-   `I−Z_ret` supplies the full `2k+2`-word fan and no additional
-   nonradial support, while proving all lower faces vanish.  L273 then
-   leaves L271's four-word packet automatically.  L269 disproves the
+   recompute that metric half.  L274 has also fixed the four remote
+   coefficients in arbitrary grade: each crossed coefficient is
+   `1+4(−1)^k−4(−1)^k=1`, and the deep pair is exactly
+   `G_k−SG_kS*`.  Prove that the unweighted renewal `I−Z_ret` supplies
+   every interior fan word and no additional nonradial support, while
+   proving all lower faces vanish.  Do not recompute the remote
+   packet.  L273 then leaves L271's four-word packet automatically.
+   L269 disproves the
    stronger claim that the whole
    operator return is shallow: a depth-`k+1` term survives as
    `G_k−SG_kS*`.  Prove that every deep term assembles into a delayed
