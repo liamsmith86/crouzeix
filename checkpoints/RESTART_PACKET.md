@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current Gau--Wu frontier (2026-07-26): after L347 / A295
+## Current Gau--Wu frontier (2026-07-26): after L348 / A296
 
 L342 gives the exact common scalar/similarity Hessian, and L343 now
 removes its quadratic-size disk bulk.  At every fixed finite
@@ -83,6 +83,21 @@ coefficient, together with the diagonal moving-root equations, from
 L344's fixed-port Euler equation.  Twelve audits through `n=8` give
 corner residual below `6.35e−15`; dataset SHA-256
 `a4bad7eb40ff2aa41d65c8b7cee515acb4f8ae21b1ea4b0caa3eb353f8646829`.
+
+L348 gives the exact diagonal normal form after that cyclic
+coefficient vanishes.  If `P_j` are the simple spectral projections
+and `P_0=I−sum P_j`, then the remaining diagonal conditions are
+
+`v_j=tr(P_jG)`, `v_0=tr(P_0G)/2`,
+and `(Y_1)_(00)−(Y_1)_(LL)=0`.
+
+For a nonzero corner each formula has one explicit fixed cyclic
+correction, so the cyclic condition must be handled first.  These
+root-tracking and endpoint-splitting equations survive numerically
+on the L345 dual lift but are not proved there.  Twelve full
+joint-basis audits have response residual below `1.87e−15`; dataset
+SHA-256
+`d87d5cc883aefe7ad77ab0a7c4ec81c8e8643d9779dfa2c4160b4c2e3875a04c`.
 
 L336 gives the current exact organization.  In compressed-shift
 coordinates write

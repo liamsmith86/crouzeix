@@ -1,8 +1,8 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-26 (Epoch 6 — cyclic corner/shape identity)
+**Last updated:** 2026-07-26 (Epoch 6 — root-tracking flag normal form)
 
-## CANONICAL LIVE GATE (2026-07-26, after L347/A295)
+## CANONICAL LIVE GATE (2026-07-26, after L348/A296)
 
 There is exactly one current mathematical gate:
 **sign the `2n−2` boundary-shape Schur form at every finite
@@ -86,6 +86,13 @@ normalization of L343's polynomial frame (`gamma=1` in the standard
 frame).  Pure zero motion has no cyclic corner.  Therefore derive
 vanishing of this last negative Hardy coefficient from L344's fixed
 port; do not try to repair it by moving a Blaschke zero.
+L348 organizes every remaining diagonal condition.  Once the cyclic
+coefficient vanishes, the `n−2` interior equations say that the
+moving zeros track the simple spectral velocities
+`mu_j=tr(P_jG)`, the sum of the endpoint equations says that the
+last zero tracks `tr(P_0G)/2`, and only the endpoint difference
+`(Y_1)_(00)−(Y_1)_(LL)` remains.  These tracking identities are
+observed on `W_phi` but are not yet proved there.
 L341's paired frames and L340's rank law remain equivalent response
 diagnostics, not separate concurrent gates.  A proposed factor must
 still reproduce their endpoint rank `4n−8`, support increment
@@ -97,6 +104,25 @@ occurrence of “historical gate,”
 “historical frontier,” or “remaining historical task” records what
 was unresolved at that dated checkpoint; none is a concurrent
 frontier.  The CP/H-r routes remain parked fallbacks.
+
+## L348/A296 EXACT ROOT-TRACKING FLAG NORMAL FORM (2026-07-26)
+
+- A southwest commutator gauge writes
+  `G=U+c e_L e_0*+[A,X]`, with `U` upper triangular and
+  `X_(L0)=0`.  Functional calculus gives
+  `Df(A)[[A,X]]=[f(A),X]`.
+- For the simple spectral projections `P_j` and repeated-zero
+  projection `P_0`, exact formulas are
+  `(Y_1)_(jj)=f'(b_j)(tr(P_jG)−v_j)+kappa_j(Y_1)_(L0)` and
+  `(Y_1)_(00)+(Y_1)_(LL)
+   =f'(0)(tr(P_0G)−2v_0)+kappa_0(Y_1)_(L0)`.
+- Hence on the cyclic-free face the diagonal debt is exactly
+  `n−2` simple-root tracking equations, one mean repeated-root
+  tracking equation, and one endpoint-splitting equation.  L348
+  does not prove that the L345 dual lift satisfies them.
+- Twelve full joint-basis audits through `n=8` give response
+  residuals below `1.87e−15`; dataset SHA-256
+  `d87d5cc883aefe7ad77ab0a7c4ec81c8e8643d9779dfa2c4160b4c2e3875a04c`.
 
 ## L347/A295 EXACT CYCLIC-CORNER/SHAPE IDENTITY (2026-07-26)
 
@@ -7117,7 +7143,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L347/A295)
+## Current next actions (Epoch 6, refreshed after L348/A296)
 
 1. **LIVE: sign the boundary-shape Schur form in the conformal
    chart.**  A292 proves that
@@ -7130,8 +7156,10 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    identities from L344's fixed formula.  L347 already identifies
    the corner as
    `4f'(0)hat(omega_phi s_W)(−n)/gamma`; prove this last negative
-   Hardy coefficient vanishes, and derive the diagonal moving-root
-   equations, from
+   Hardy coefficient vanishes.  L348 then turns the diagonal debt
+   into `v_j=tr(P_jG)` at each simple root,
+   `v_0=tr(P_0G)/2` at the repeated pair, and the single endpoint
+   split.  Derive those Euler equations from
    `Hhat^(dagger/2)(I−zeta R*)^−1 Ccal*(H_Cy−s_Cy)`,
    and use L336's exact paired endpoint polarization to derive dual
    isotropy.  Then derive a positive Gram for the negative Hermitian
