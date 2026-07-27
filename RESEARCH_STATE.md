@@ -11,7 +11,7 @@ endpoint flux.**  In shift coordinates,
 coefficients of the right defect at `q` and left defect at `p`, then
 the sharp Hessian is exactly
 `−(r_2+l_2)/2−(|<q,Y_1q>|²+|<p,Y_1p>|²)/4`.
-Therefore prove `r_2+l_2>=0` by coupling the two L117
+Therefore prove `r_2+l_2>=0` by coupling the two L127
 Blaschke--Stein identities.  Do not prove the one-sided signs:
 complete tests falsify each; every standard model with `n=4..8`
 has two negative modes at each endpoint.
@@ -31,7 +31,7 @@ frontier.  The CP/H-r routes remain parked fallbacks.
   `J=−(r_2+l_2)/2−(|Y_1(qq)|²+|Y_1(pp)|²)/4`.
   This is dimension-free and uses the complete moving-zero/Riemann
   jet, not a numerical fit.
-- L117 and its left-handed companion turn `r_2+l_2` into a symmetric
+- L127 and its left-handed companion turn `r_2+l_2` into a symmetric
   scalar flux of the initial and final contraction defects through
   the finite model space of `f`.
 - Cheap falsification is decisive: right and left fluxes separately
@@ -6778,7 +6778,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
 ## Current next actions (Epoch 6, refreshed after L336/A283)
 
 1. **LIVE: prove the symmetric endpoint-flux sign.**  Polarize both
-   L117 Stein identities at `S(zf)`, keep the right endpoint `q` and
+   L127 Stein identities at `S(zf)`, keep the right endpoint `q` and
    left endpoint `p` coupled, and factor `r_2+l_2` through the
    contraction/characteristic residual pair `(R,Z)`.  The desired
    factor must see all `n²` joint directions and may use the

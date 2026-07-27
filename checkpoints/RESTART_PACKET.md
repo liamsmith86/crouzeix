@@ -12,7 +12,7 @@ Then
 `[e²]||XY_eX^−1||=−(r_2+l_2)/2
  −(|<q,Y_1q>|²+|<p,Y_1p>|²)/4`.
 
-By L117 and its left companion, `r_2+l_2` is a symmetric
+By L127 and its left companion, `r_2+l_2` is a symmetric
 two-ended Blaschke--Stein flux.  The sole live gate is to prove this
 sum nonnegative.  Do not split it: each endpoint form separately has
 two negative directions in every standard `n=4..8` model, while the
@@ -2703,7 +2703,7 @@ as the sole repository-writing agent.  L336 rewrites the exact
 arbitrary finite Gau--Wu Hessian as
 `−(r_2+l_2)/2−(|<q,Y_1q>|²+|<p,Y_1p>|²)/4`, where `r_2,l_2` are
 the right and left endpoint coefficients of the complete moving
-Blaschke image.  L117 makes their sum a two-ended Stein flux.  Do not
+Blaschke image.  L127 makes their sum a two-ended Stein flux.  Do not
 redo L332--L335 or attempt either endpoint sign separately: those
 signs are false.  The sole live gate is `r_2+l_2>=0`.  Polarize the
 two Stein identities together at `S(zf)` and seek a positive

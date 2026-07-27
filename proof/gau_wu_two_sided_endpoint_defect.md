@@ -107,7 +107,7 @@ Substitution of (6) in the right side of (3) gives (5).
 ## 3. Why the symmetric flux is the right gate
 
 For any orthonormal basis \(e_1,\ldots,e_{n-1}\) of
-\({\cal K}_{f_\varepsilon}\), L117's Blaschke--Stein identity and
+\({\cal K}_{f_\varepsilon}\), L127's Blaschke--Stein identity and
 its left-handed companion give
 
 \[
