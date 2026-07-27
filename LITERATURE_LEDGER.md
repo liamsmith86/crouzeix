@@ -166,6 +166,25 @@ Lemma-by-lemma scope:
   support-projection residue cancellation appears campaign-specific
   pending a broader variational-literature audit.  It is only
   stationarity and must not be advertised as a local inequality.
+- **L332--L333 second-order/local scope.**  Targeted searches checked
+  Greenbaum--Lewis--Overton, *Variational Analysis of the Crouzeix
+  Ratio* (Math. Programming 164, 2017), Lewis--Overton, *Partial
+  Smoothness of the Numerical Radius at Matrices Whose Fields of
+  Values are Disks* (SIAM J. Matrix Anal. Appl. 41, 2020), Li,
+  *On the Uniqueness of Functions that Maximize the Crouzeix Ratio*
+  (arXiv:2002.01027, revised 2026), and Overton, *Local Minimizers of
+  the Crouzeix Ratio* (arXiv:2105.14176).  The first-order paper
+  establishes nonsmooth stationarity at classical candidate pairs;
+  Lewis--Overton identify the centered `3 x 3` disk-matrix manifold
+  and its dimension; Li proves uniqueness in selected classes and
+  gives nonunique `3 x 3` elliptic examples; Overton gives numerical
+  local-minimizer evidence.  None states L332's optimized
+  support/Riemann/Blaschke five-normal Hessian or L333's scalar
+  constant-two operator neighbourhood at the nonnilpotent Gau--Wu
+  family.  Gau--Wu equality structure and Crouzeix's finite-extremal
+  reduction remain classical inputs.  The Hessian and local theorem
+  therefore appear new pending publication-level audit; do not
+  promote this to a global `3 x 3` or cb theorem.
 
 ## Fixed repeated-Crabb neighbourhood audit for L329 (2026-07-26)
 

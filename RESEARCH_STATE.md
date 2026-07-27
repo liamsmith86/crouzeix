@@ -1,28 +1,64 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-26 (Epoch 6 — repeated scalar neighbourhood closed)
+**Last updated:** 2026-07-26 (Epoch 6 — first non-Crabb Gau--Wu neighbourhood closed)
 
-## CANONICAL LIVE GATE (2026-07-26, after L331/A279)
+## CANONICAL LIVE GATE (2026-07-26, after L333/A280)
 
 There is exactly one current mathematical gate:
-**compute and sign the optimized transverse second variation at the
-fixed nonzero Gau--Wu model `G_a`.**  L331 proves that the raw
-Frechet derivative of the sharp function and L101's support/Riemann
-correction cancel exactly in every complex ambient direction, so
-there is no missed first-order obstruction.  The support eigenvalue
-remains simple with gap `1-|a|`.  Identify the tangent of the exact
-disk/Gau--Wu equality manifold (including affine, unitary, and
-Blaschke-zero motion), optimize the moving scalar Blaschke parameter
-and singular vectors, and derive the Hessian on a complementary
-normal slice.  Falsify its sign at rational `a` before seeking a
-symbolic certificate.  A strict normal Hessian would give the
-Morse--Bott core of the first non-Crabb local theorem; a kernel must
-be classified before any higher-order expansion.  This is current
-next action 1 below.  Every later
+**test and derive the defect-one optimized Hessian at an arbitrary
+finite Gau--Wu disk model.**  L332 proves the complete five-normal
+Hessian at the first nonnilpotent `3 x 3` family and L333 promotes it
+to a full scalar neighbourhood theorem.  The next question is whether
+that strict Morse--Bott mechanism is a general model-space identity
+or an order-three accident.  First falsify it numerically on random
+finite Blaschke data in dimensions `4..8`, quotienting the exact
+affine/unitary/model-zero tangent and optimizing all scalar Blaschke
+zeros.  If the normal Hessian stays negative, derive it from the
+defect-one colligation/Hardy model rather than opening isolated
+fourth-, fifth-, or seventh-grade expansions.  If a kernel or positive
+mode appears, bank the exact smallest witness before choosing a new
+route.  This is current next action 1 below.  Every later
 occurrence of “historical gate,”
 “historical frontier,” or “remaining historical task” records what
 was unresolved at that dated checkpoint; none is a concurrent
 frontier.  The CP/H-r routes remain parked fallbacks.
+
+## L332--L333/A280 STRICT GAU--WU HESSIAN AND LOCAL THEOREM (2026-07-26)
+
+- The exact affine-unitary Gau--Wu equality tangent at a fixed
+  nonzero `G_a` has real dimension `13`, not the preliminary count
+  `12`.  A closed `18 x 18` determinant gives the five bottom-row
+  normal coordinates.
+- The support spectrum `1,-1,a cos(theta)` yields exact first and
+  second Riemann jets.  Rationalizing `a=2q/(1+q²)` reduces every
+  Schwarz mean to residues at `0,q,a`.
+- Because `G_a` is nonnilpotent, the Frechet term must use the
+  degree-five Hermite calculus of the doubled minimal polynomial
+  `z²(z-a)`.  Reusing the old nilpotent power truncation gives a
+  false Hessian and was rejected before banking.
+- The four real velocities of the two Blaschke zeros have a strict
+  negative Hessian.  Its Schur complement is a sparse five-normal
+  form with real `3 x 3` and imaginary `2 x 2` blocks.
+- All five Sylvester minors of the negative form factor into positive
+  rational denominators and four polynomials in `q²`.  Their complete
+  Bernstein coefficient lists are strictly positive on `[0,1]`.
+  Thus the optimized transverse Hessian is negative definite for
+  every fixed `0<|a|<1`.
+- L331 supplies stationarity along the equality manifold.  Gau--Wu
+  irreducibility makes `{0,a}` the unique equality zero pair at the
+  base, while Crouzeix's finite-extremal theorem separates all other
+  degree-at-most-two branches.  The strict Hessian therefore proves
+  the scalar constant-two inequality in a full operator neighbourhood
+  of each fixed nonzero `G_a` and every affine-unitary image.
+- This is local, scalar, and order three.  It degenerates at the
+  Crabb collision `a->0` and support collision `|a|->1`; it is not a
+  global `3 x 3` or completely bounded theorem.
+- Five exact rational specializations regenerate after the free-symbol
+  residue/Hermite derivation; dataset SHA-256:
+  `8d75b8541f19aba118bc73840b2f0c428058b693f582b7c8ab42a017b2999752`.
+  An independent Theodorsen/optimized-Blaschke finite difference
+  matches the exact normal Hessian within `2.93e-5`; dataset SHA-256:
+  `7ea05baeef3557d64761b1e9d731f21a2dddcc670d35ee747f46c0a36c2d85b7`.
 
 ## L331/A279 AMBIENT STATIONARITY AT `G_a` (2026-07-26)
 
@@ -41,8 +77,8 @@ frontier.  The CP/H-r routes remain parked fallbacks.
   exactly the Frechet-gradient matrix.
 - Therefore `Re L_a(Gcal_E)=0`, so the squared sharp scalar norm has
   zero first derivative in every ambient direction.
-- This proves stationarity, not a neighbourhood theorem.  The
-  optimized transverse Hessian is the sole live local calculation.
+- This proved stationarity only at the L331 checkpoint.  The then-live
+  optimized transverse Hessian was closed by L332--L333.
 - Ninety-five exact direction audits and the free-symbol residue
   identity pass; dataset SHA-256:
   `23630cbbf378a5a6de520b15c67db5de7c1d822b3a7c890c81272d433a154293`.
@@ -337,7 +373,8 @@ frontier.  The CP/H-r routes remain parked fallbacks.
 - The parked complete-similarity fallback is exact: derive L194's
   complete later normal critical graph/Gram after disk
   orthogonalization, including its kernel-block term.  L322's scalar
-  channel route is the canonical live gate instead.
+  channel route was the canonical live gate at this historical
+  checkpoint.
 - The exact checker passes and regenerates with SHA-256
   `d272005024eceb7d34da8212871a3af27c6778dc01629bba48c85f9897971952`.
 
@@ -6653,33 +6690,34 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L331/A279)
+## Current next actions (Epoch 6, refreshed after L333/A280)
 
-1. **LIVE: derive the optimized Hessian at fixed `G_a`.**  Use the
-   simple support projection and its first derivative to obtain the
-   second Riemann/operator tangent.  Differentiate the rational
-   functional calculus, singular value, and the degree-two Blaschke
-   zero simultaneously; do not freeze `f_a` when reading the
-   optimized sign.
-2. **Quotient exact equality tangents first.**  Include affine and
-   unitary orbits, disk-model motion in `a`, and harmless extremal
-   phase.  Compute the Hessian only on an explicit complementary
-   normal slice, or its kernel will contain expected zero modes and
-   obscure the sign.
-3. **Falsification before proof.**  Evaluate the exact/rationalized
-   Hessian at several rational Schwarz parameters `q` and diagonalize
-   numerically at high precision.  If a positive direction appears,
-   record it before trying a symbolic factorization.  If the only
-   kernel is tangent, derive a parameter-uniform negative Gram for
-   each fixed compact `|a|<1`.
-4. **Only then assemble the nonlinear local patch.**  Use ordinary
-   analytic Morse--Bott/curve selection with the support gap
-   `1-|a|`; do not import repeated-Crabb ramification unless the
-   calculation is taken to the collision `a=0`.
+1. **LIVE: falsify the arbitrary finite Gau--Wu Hessian.**  Generate
+   random finite Blaschke models in dimensions `4..8`, construct their
+   exact affine/unitary/model-zero tangent numerically, optimize all
+   moving scalar zeros, and diagonalize only the complementary normal
+   Hessian.  Bank the smallest exact witness immediately if a
+   positive mode or unexplained kernel appears.
+2. **If the sign survives, derive one defect-one identity.**  Express
+   the support/Riemann jet, zero-motion Schur complement, and singular
+   value curvature through the model-space reproducing kernels and
+   Gau--Wu colligation.  Seek a dimension-free negative Gram modulo
+   the equality tangent; do not open isolated order-four or
+   order-five coefficient grinds.
+3. **Promote only a proved strict quotient to a local patch.**  Use
+   the fixed-model support gap, finite Blaschke compactness, and
+   Gau--Wu equality uniqueness exactly as in L333.  Keep collisions
+   of model zeros as separate ramified charts already exemplified by
+   L192/L329.
+4. **Then handle sums and global compactness.**  Extend the local
+   theorem across arbitrary finite model strata and their reducing
+   direct sums before asking whether every sharp sequence approaches
+   that full equality set.  The CP/H-r programs remain parked, not
+   concurrent frontiers.
 
 ## Superseded pre-L331 Gau--Wu actions (historical)
 
-1. **LIVE: attack the arbitrary Gau--Wu disk-model neighbourhood,
+1. **HISTORICAL: attack the arbitrary Gau--Wu disk-model neighbourhood,
    starting with `G_a`.**  Recenter the disk-manifold and
    scalar-extremal coordinates at a fixed `0<|a|<1`.  First derive the
    exact first support/Jensen face and the transverse scalar norm
@@ -6702,7 +6740,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
 
 ## Superseded immediate post-L329 actions (historical; corrected by L330)
 
-1. **LIVE: classify or falsify the global sharp-stratum reduction.**
+1. **HISTORICAL: classify or falsify the global sharp-stratum reduction.**
    Determine whether every exact scalar ratio-two pair, or every
    asymptotically sharp sequence after affine and numerical-range
    conformal normalization, has a disk/Gau--Wu reducing model limit
@@ -6800,7 +6838,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    L296's polarized raw
    branch only after separating favorable Grams and bounded prior-flag
    factors; do not mix endpoint ledgers.
-3. **LIVE: close the scalar-channel-stratum induction.**
+3. **COMPLETED BY L329: close the scalar-channel-stratum induction.**
    Work on the scalar conjecture, not the stronger complete-similarity
    normal flag.  L322 gives the sharp equality-anchor reserve, but do
    not add it to an independently chosen disk loss.  L325 replaces

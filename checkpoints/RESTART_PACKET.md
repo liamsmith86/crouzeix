@@ -1,7 +1,35 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current general Crabb frontier (2026-07-26): after L331 / A279
+## Current Gau--Wu frontier (2026-07-26): after L333 / A280
+
+L332 computes the complete optimized scalar Hessian at every fixed
+nonzero three-dimensional Gau--Wu model.  The exact equality tangent
+has dimension 13 and admits a five-dimensional bottom-row
+complement.  After the support/Riemann residues and the required
+nonnilpotent degree-five Hermite calculus, optimizing the four real
+velocities of the two Blaschke zeros gives a sparse real `3 x 3`
+plus imaginary `2 x 2` Hessian.  All five Sylvester minors of its
+negative are positive; four numerator polynomials have strictly
+positive Bernstein coefficients on `q^2 in [0,1]`.
+
+L333 combines that strict Morse--Bott quotient with L331
+stationarity, Gau--Wu equality uniqueness at the irreducible base,
+and Crouzeix's degree-at-most-two finite-extremal theorem.  Therefore
+the scalar Crouzeix conjecture holds in a full operator neighbourhood
+of each fixed `G_a`, `0<|a|<1`, and each affine-unitary image.  This
+is local, scalar, and order three, not a global or completely bounded
+theorem.
+
+The sole live gate is now to determine whether L332 is a general
+defect-one model-space identity.  First falsify the optimized normal
+Hessian on random finite Gau--Wu models in dimensions `4..8`,
+quotienting affine/unitary/all-zero motions.  If it survives, derive
+one arbitrary-degree colligation/Hardy negative Gram; do not start
+isolated dimension or coefficient grinds.  If it fails, bank the
+smallest exact witness before rerouting.
+
+### Historical derivation through L331
 
 L329 proves the scalar Crouzeix conjecture in a full operator
 neighbourhood of every fixed repeated Crabb block
@@ -29,7 +57,7 @@ paid by a Poisson-weighted support projection identity.  After
 matrix, so the real first derivative vanishes for every complex
 direction.
 
-The sole live gate is the **optimized transverse Hessian at `G_a`**.
+The historical gate after L331 was the **optimized transverse Hessian at `G_a`**.
 Quotient affine/unitary, disk-model `a`, and extremal-phase tangents;
 differentiate the support/Riemann chart, rational functional
 calculus, top singular value, and moving degree-two Blaschke zero
@@ -721,11 +749,19 @@ forbids detaching L245's doubled terminal edge from its physical
 balance.  A206 forbids splitting the two formal ellipse orientations
 before their theta/coisometric cancellation.
 
-## Current frontier files map (after L331/A279)
+## Current frontier files map (after L333/A280)
+- `proof/gau_wu_transverse_hessian.md` (L332--L333),
+  `experiments/gau_wu_transverse_hessian.py`,
+  `experiments/gau_wu_transverse_hessian_s70224.jsonl`, and the
+  matching `_numeric` script/dataset: exact five-normal Hessian, sign
+  certificate, independent true-map finite difference, and
+  fixed-model scalar neighbourhood theorem.  The next calculation is
+  arbitrary finite Gau--Wu model degree, not another order-three
+  derivative.
 - `proof/gau_wu_ambient_stationarity.md` (L331),
   `experiments/gau_wu_ambient_stationarity.py`, and
   `experiments/gau_wu_disk_model.py`: exact first variation and the
-  shared symbolic model.  The next calculation is second order.
+  shared symbolic model.  Do not recompute its closed first order.
 - `proof/gau_wu_noncrabb_sharp_stratum.md` (L330) and
   `experiments/gau_wu_noncrabb_sharp_stratum.py`: exact non-Crabb
   Gau--Wu equality family and the corrected local frontier.
@@ -741,9 +777,10 @@ before their theta/coisometric cancellation.
 - `proof/repeated_crabb_scalar_model_split.md` (L326) and
   `proof/repeated_crabb_model_size_rigidity.md` (L328): classical
   Gau--Wu split plus the one-copy local rigidity used by induction.
-- `RESEARCH_STATE.md`: the sole live gate is the arbitrary fixed
-  Gau--Wu disk-model neighbourhood, not another repeated-Crabb
-  coefficient or premature global classification.
+- `RESEARCH_STATE.md`: the sole live gate is the arbitrary finite
+  Gau--Wu optimized Hessian, starting with numerical falsification
+  in dimensions `4..8`, not another repeated-Crabb coefficient or
+  premature global classification.
 
 ### Historical derivation file map
 - `proof/repeated_crabb_canonical_cubic_preimage.md` (L230),
@@ -2608,25 +2645,24 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    not compute another isolated grade.  Then finish the
    normal/elliptic merger, retaining the full CP route as fallback.
 
-## Paste-ready continuation instruction (current after L331/A279)
+## Paste-ready continuation instruction (current after L333/A280)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix`
-as the sole repository-writing agent.  L330 exposes the nonnilpotent
-Gau--Wu equality family `G_a`; L331 proves that after L101's
-numerical-range conformal normalization its sharp scalar branch is
-stationary in every complex ambient direction.  The exact cancellation
-is the Poisson-weighted support-projection residue identity in
-`proof/gau_wu_ambient_stationarity.md`.  Do not redo first order.
-The sole live gate is the optimized transverse Hessian at fixed
-`0<|a|<1`.  Quotient affine/unitary, `a`-motion, and extremal phase;
-differentiate the simple support/Riemann chart, rational functional
-calculus, top singular value, and moving degree-two Blaschke zero
-together.  Do not freeze `f_a` when reading the optimized sign.
-Diagonalize at rational Schwarz parameters `q` first; record any
-positive direction or unexpected kernel before symbolic work.  If
-the normal Hessian is strictly negative, package it as a Gram and
-then use ordinary analytic Morse--Bott/curve selection with support
-gap `1-|a|`.  Do not import the repeated-Crabb flag except at the
-collision `a=0`.  Commit each independently proved milestone."
+as the sole repository-writing agent.  L332 proves the exact
+optimized five-normal Hessian at every fixed nonzero `3 x 3`
+Gau--Wu model, and L333 uses it to prove a full scalar constant-two
+operator neighbourhood.  Do not redo that support/Riemann/Hermite
+calculation.  The sole live gate is whether the same strict
+Morse--Bott mechanism holds at an arbitrary finite Gau--Wu model.
+First falsify it numerically for random finite Blaschke data in
+dimensions `4..8`: quotient the exact affine/unitary/model-zero
+tangent, optimize all scalar zeros, and inspect only the normal
+Hessian.  Bank the smallest positive mode or unexpected kernel
+before opening a proof.  If the sign survives, derive one
+dimension-free defect-one colligation/Hardy negative Gram rather
+than starting isolated dimension or coefficient grinds.  Keep
+zero-collision charts, direct sums, global compactness, and CP/H-r
+as later ordered stages.  Commit each independently proved
+milestone."
 
 ## Superseded pre-L331 continuation instruction (historical)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix`
