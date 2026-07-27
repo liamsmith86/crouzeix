@@ -1,8 +1,8 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-26 (Epoch 6 — conformal dual polarization)
+**Last updated:** 2026-07-26 (Epoch 6 — lower Schur-flag recurrence)
 
-## CANONICAL LIVE GATE (2026-07-26, after L345/A293)
+## CANONICAL LIVE GATE (2026-07-26, after L346/A294)
 
 There is exactly one current mathematical gate:
 **sign the `2n−2` boundary-shape Schur form at every finite
@@ -58,9 +58,13 @@ then, whenever `J_phi` is nondegenerate, phase covariance is
 equivalent exactly to
 `W_phi^T J_phi W_phi=0`.  Numerically, the first Blaschke image of
 this dual range has zero lower triangle and the two L336 endpoint
-forms are separately bilinearly isotropic there.  Prove that
-upper-Schur-flag Euler response from the polynomial support frame
-and L344's exact transport
+forms are separately bilinearly isotropic there.  L346 proves that
+the full lower response is generated exactly by its `n` diagonal
+entries and southwest corner.  Prove only
+
+`diag Y_1(W_phi)=0` and `(Y_1(W_phi))_(L0)=0`
+
+from the polynomial support frame and L344's exact transport
 
 `eta_C(zeta)=Hhat^(dagger/2)(I−zeta R*)^−1 Ccal*
  (H_C(zeta)y_zeta−s_C(zeta)y_zeta)`
@@ -84,6 +88,27 @@ occurrence of “historical gate,”
 “historical frontier,” or “remaining historical task” records what
 was unresolved at that dated checkpoint; none is a concurrent
 frontier.  The CP/H-r routes remain parked fallbacks.
+
+## L346/A294 EXACT LOWER-FLAG RECURRENCE (2026-07-26)
+
+- Differentiating `T_eY_e=Y_eT_e` gives
+  `[S,Y_1]=Y_0C−CY_0`.  Since `Y_0=e_0e_L*`, the right side has no
+  strict lower entries.
+- The strict lower commutator equation is a southwest recurrence.
+  Every coefficient `lambda_i−lambda_j` is nonzero except at the
+  two repeated zero endpoints `(L,0)`, so the corner is the only
+  free strict-lower entry.  Together with the diagonal, `n+1`
+  scalars generate the lower response.
+- Therefore A293's observed `tril Y_1(W)=0` is equivalent exactly to
+  `diag Y_1(W)=0` plus `Y_1(W)_(L0)=0`.  Prove these moving-root and
+  cyclic-closing Euler equations only; do not expand the other
+  lower entries.
+- Interior-zero collisions require a confluent recurrence and are
+  outside this nondegenerate chart.
+- Twelve audits through `n=8` give rank `n+1`, commutator residual
+  `2.28e−15`, and row-space reconstruction residual `4.92e−9`.
+- Dataset SHA-256
+  `537bb48cebeb8c79ff3ba84df566f97a6fe01b5efeb1cd56ce81f70ece7476f3`.
 
 ## L345/A293 EXACT DUAL CRITERION + NUMERICAL HARDY POLARIZATION (2026-07-26)
 
@@ -7065,15 +7090,17 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L345/A293)
+## Current next actions (Epoch 6, refreshed after L346/A294)
 
 1. **LIVE: sign the boundary-shape Schur form in the conformal
    chart.**  A292 proves that
    `2(hat(s_C)(2),...,hat(s_C)(n))` is an exact coordinate in
    `C^(n−1)` for L343's quotient.  L345 says phase covariance is
    equivalent exactly to `W^T J_phi W=0` for
-   `W=J_phi^−1S_y*+iJ_phi^−1S_x*`.  Prove the observed
-   `tril Y_1(W)=0` Euler response from L344's fixed formula
+   `W=J_phi^−1S_y*+iJ_phi^−1S_x*`.  L346 proves that the observed
+   `tril Y_1(W)=0` is equivalent to only
+   `diag Y_1(W)=0` and `Y_1(W)_(L0)=0`.  Prove those `n+1` Euler
+   identities from L344's fixed formula
    `Hhat^(dagger/2)(I−zeta R*)^−1 Ccal*(H_Cy−s_Cy)`,
    and use L336's exact paired endpoint polarization to derive dual
    isotropy.  Then derive a positive Gram for the negative Hermitian

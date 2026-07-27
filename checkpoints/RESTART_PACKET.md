@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current Gau--Wu frontier (2026-07-26): after L345 / A293
+## Current Gau--Wu frontier (2026-07-26): after L346 / A294
 
 L342 gives the exact common scalar/similarity Hessian, and L343 now
 removes its quadratic-size disk bulk.  At every fixed finite
@@ -53,8 +53,11 @@ where
 `W_phi=J_phi^−1S_y*+iJ_phi^−1S_x*`.
 Numerically its first Blaschke image has zero lower triangle and
 each L336 endpoint form is bilinearly isotropic on that complex
-range.  Prove the upper-Schur-flag Euler response and then its
-endpoint isotropy using L344's exact fixed-coordinate transport
+range.  L346 proves the lower response is generated exactly by its
+diagonal and southwest corner.  Prove only
+`diag Y_1(W_phi)=0` and `(Y_1(W_phi))_(L0)=0`, then obtain the full
+upper flag and endpoint isotropy using L344's exact fixed-coordinate
+transport
 
 `Hhat^(dagger/2)(I−zeta R*)^−1 Ccal*(H_Cy−s_Cy)`
 
@@ -901,7 +904,11 @@ forbids detaching L245's doubled terminal edge from its physical
 balance.  A206 forbids splitting the two formal ellipse orientations
 before their theta/coisometric cancellation.
 
-## Current frontier files map (after L345/A293)
+## Current frontier files map (after L346/A294)
+- `proof/gau_wu_lower_flag_recurrence.md` (L346/A294),
+  `experiments/gau_wu_lower_flag_recurrence.py`, and its dataset:
+  exact southwest commutator recurrence reducing A293's full lower
+  flag to `n` diagonal equations and one cyclic corner equation.
 - `proof/gau_wu_conformal_dual_polarization.md` (L345/A293),
   `experiments/gau_wu_conformal_dual_polarization.py`, and its
   dataset: exact dual-isotropy criterion for phase covariance and
@@ -2859,7 +2866,7 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    not compute another isolated grade.  Then finish the
    normal/elliptic merger, retaining the full CP route as fallback.
 
-## Paste-ready continuation instruction (current after L345/A293)
+## Paste-ready continuation instruction (current after L346/A294)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix`
 as the sole repository-writing agent.  L342 proves exact
 scalar/similarity Hessian osculation.  L343 constructs the polynomial
@@ -2880,8 +2887,11 @@ phase covariant and becomes one negative Hermitian matrix.  L345
 proves phase covariance is equivalent to `W^T J_phi W=0`, where
 `W=J_phi^−1S_y*+iJ_phi^−1S_x*`; numerically
 `tril Y_1(W)=0` and both L336 endpoint forms are bilinearly
-isotropic there.  Prove that upper-Schur-flag Euler response from
-L344, polarize L336 to obtain dual isotropy, then derive the negative
+isotropic there.  L346 proves the full lower response is generated
+by `diag Y_1` and its southwest corner.  Prove only
+`diag Y_1(W)=0` and `Y_1(W)_(L0)=0` from L344, use the southwest
+recurrence for the full flag, polarize L336 to obtain dual isotropy,
+then derive the negative
 Hermitian Gram.  Do not infer phase from nearly paired weighted
 eigenvalues or the falsified diagonal-plus-rank-one inverse ansatz.
 Keep the two L342
