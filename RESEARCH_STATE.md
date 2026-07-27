@@ -1,8 +1,8 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-26 (Epoch 6 — Gau--Wu support port identified)
+**Last updated:** 2026-07-26 (Epoch 6 — Gau--Wu boundary loss isolated)
 
-## CANONICAL LIVE GATE (2026-07-26, after L339/A286)
+## CANONICAL LIVE GATE (2026-07-26, after L340/A287)
 
 There is exactly one current mathematical gate:
 **prove L338's purely physical Riesz-energy inequality.**  In shift
@@ -16,9 +16,17 @@ all zero velocities exactly:
 `r_2+l_2=2||k−kappa_C||²+Q(C,0)−2||kappa_C||²`.
 L339 writes L335's reserve as the ordinary boundary energy
 `P_phi(C)=||gamma_C||_(L²)²` of the minimal Ando support-port
-response.  Therefore prove `Q(C,0)>=2||kappa_C||²` as the
-corresponding lossless-port contraction, coupling the two L127
-Blaschke--Stein identities.  Do not prove the one-sided signs:
+response.  L340 then defines the exact loss
+`G_phi=2I+2P_phi−H_phys`, where
+`H_phys=Q(C,0)−2||kappa_C||²`.  In twelve complete models,
+`G_phi` is numerically PSD with rank `6n−14` and nullity
+`(n−4)²`; this rank law is evidence, not a theorem.  Therefore
+identify an explicit boundary response `L_phi` with
+`G_phi=L_phi*L_phi`, and prove the lossless-port estimate
+`||L_phi C||²<=2||C||²+2||gamma_C||_(L²)²`.  This is exactly
+`H_phys>=0`.  Any proposed factor must first reproduce L340's
+rank/nullity law.  Couple the two L127 Blaschke--Stein identities;
+do not prove the one-sided signs:
 complete tests falsify each; every standard model with `n=4..8`
 has two negative modes at each endpoint.
 The first contraction and moving-characteristic residuals have
@@ -31,6 +39,27 @@ occurrence of “historical gate,”
 “historical frontier,” or “remaining historical task” records what
 was unresolved at that dated checkpoint; none is a concurrent
 frontier.  The CP/H-r routes remain parked fallbacks.
+
+## L340/A287 NUMERICAL BOUNDARY-RANK LOSS LAW (2026-07-26)
+
+- After L338's exact zero completion, set
+  `H_phys=Q(C,0)−2||kappa_C||²` and
+  `G_phi=2I+2P_phi−H_phys`.
+- Twelve complete generic models, two per dimension `4..9`, give
+  `G_phi>=0` to roundoff, rank exactly `6n−14`, and nullity exactly
+  `(n−4)²`.  The identity
+  `(n−1)²+1=(6n−14)+(n−4)²` accounts for the full physical normal
+  quotient.
+- This is a numerical structural diagnostic only.  It suggests that
+  the quadratic-size quotient has an automatic bulk and a
+  boundary-size response.  It does not prove either positivity or
+  the rank formula.
+- The live proof target is to derive
+  `G_phi=L_phi*L_phi` from the paired L127 Stein identities and
+  L339's unitary colligation, then prove
+  `||L_phi C||²<=2||C||²+2||gamma_C||_(L²)²`.
+- Dataset SHA-256
+  `5611d1090336303e28f7a423e91114ad53174e3350c62f4350acfa9f127e5572`.
 
 ## L339/A286 UNWEIGHTED ANDO SUPPORT-PORT ENERGY (2026-07-26)
 
@@ -6842,20 +6871,23 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L339/A286)
+## Current next actions (Epoch 6, refreshed after L340/A287)
 
-1. **LIVE: prove the support-port contraction.**  Express L338's
-   `kappa_C` and the remaining first-order endpoint loss as outputs
-   of L339's unitary colligation `U=S+qp*`, then prove their energy is
-   bounded by the physical input energy plus
-   `2||gamma_C||_(L²)²`.  Keep both L127 endpoints coupled.  Do not
-   reconstruct zero velocities or estimate `D_f` separately.
+1. **LIVE: factor and dominate the boundary loss.**  Starting from
+   the paired L127 Stein identities and L339's unitary colligation,
+   derive an explicit response `L_phi` whose Gram is
+   `G_phi=2I+2P_phi−H_phys`, then prove
+   `||L_phi C||²<=2||C||²+2||gamma_C||_(L²)²`.  Before opening a
+   proof route, require the candidate to reproduce L340's numerical
+   rank `6n−14` and nullity `(n−4)²`.  Keep both endpoints coupled;
+   do not reconstruct zero velocities or estimate `D_f` separately.
 2. **Falsify each proposed closed identity before proving it.**  The
    general jet supplies complete normal matrices and zero Schur
-   blocks in dimensions `3..8`; any candidate must reproduce L336's
-   endpoint sum and the combined `(R,Z)` rank.  The right and left
-   signs separately, pointwise `t>=delta²/2`, and the raw
-   partial-isometry residual are already falsified.
+   blocks through dimension nine; any candidate must reproduce
+   L336's endpoint sum, L340's loss Gram, and its active/null
+   singular-value split.  The right and left signs separately,
+   pointwise `t>=delta²/2`, and the raw partial-isometry residual are
+   already falsified.
 3. **Promote only the proved strict quotient to a local patch.**  Use
    the fixed-model support gap, finite Blaschke compactness, and
    Gau--Wu equality uniqueness exactly as in L333.  Keep collisions

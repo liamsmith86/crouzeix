@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current Gau--Wu frontier (2026-07-26): after L339 / A286
+## Current Gau--Wu frontier (2026-07-26): after L340 / A287
 
 L336 gives the current exact organization.  In compressed-shift
 coordinates write
@@ -48,6 +48,17 @@ unitary completion `U=S+qp*` gives an Ando pencil
 Prove the remaining physical loss is an output of this same
 colligation and satisfies its energy contraction.  Do not estimate
 the Poisson weight separately.
+
+L340 supplies the current structural diagnostic.  With
+`H_phys=Q(C,0)−2||kappa_C||²`, define
+`G_phi=2I+2P_phi−H_phys`.  In twelve complete generic models through
+dimension nine, `G_phi` is numerically PSD with rank `6n−14` and
+nullity `(n−4)²`.  This is evidence only.  The current proof target
+is an explicit boundary response `L_phi` satisfying
+`G_phi=L_phi*L_phi`, followed by
+`||L_phi C||²<=2||C||²+2||gamma_C||_(L²)²`.
+Reject any candidate that fails the rank/nullity diagnostic before
+investing in its proof.
 
 L335 remains the exact underlying component.  If
 `t_E=<H_Ev,R H_Ev>` is the second numerical-range support
@@ -814,7 +825,11 @@ forbids detaching L245's doubled terminal edge from its physical
 balance.  A206 forbids splitting the two formal ellipse orientations
 before their theta/coisometric cancellation.
 
-## Current frontier files map (after L339/A286)
+## Current frontier files map (after L340/A287)
+- `proof/gau_wu_physical_loss_rank.md` (L340),
+  `experiments/gau_wu_physical_loss_rank.py`, and its dataset:
+  numerical PSD/rank/nullity law for the reduced loss.  This is the
+  current factorization diagnostic, not a theorem.
 - `proof/gau_wu_support_port_energy.md` (L339),
   `experiments/gau_wu_support_port_energy.py`, and its dataset:
   exact Ando support factor and unweighted port energy.  The live
@@ -2737,7 +2752,7 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    not compute another isolated grade.  Then finish the
    normal/elliptic merger, retaining the full CP route as fallback.
 
-## Paste-ready continuation instruction (current after L339/A286)
+## Paste-ready continuation instruction (current after L340/A287)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix`
 as the sole repository-writing agent.  L336 rewrites the exact
 arbitrary finite Gau--Wu Hessian as
@@ -2753,10 +2768,15 @@ Do not rebuild or numerically optimize the root block.  Prove the
 sole physical gate `Q(C,0)>=2||kappa_C||²` using L339's exact Ando
 port identity
 `P_phi(C)=integral ||(F_zeta*)^dagger H_Cy_zeta||²`.
-Express `kappa_C` and the remaining endpoint loss as outputs of the
-same unitary colligation and prove its energy contraction.  Do not
+L340 defines
+`G_phi=2I+2P_phi−(Q(C,0)−2||kappa_C||²)` and finds numerically, in
+twelve models through dimension nine, rank `6n−14` and nullity
+`(n−4)²`.  This is evidence only.  Express the remaining loss as an
+explicit boundary response `G_phi=L_phi*L_phi`, then prove
+`||L_phi C||²<=2||C||²+2||gamma_C||_(L²)²`.  Require every candidate
+to reproduce L340's rank/nullity law before proving it.  Do not
 estimate `D_f` separately.  Test every candidate against the complete
-L334/L336 forms before proving it.  Do not start isolated
+L334/L336/L340 forms before proving it.  Do not start isolated
 dimension-four or dimension-five expansions.  Keep collision charts,
 direct sums, global compactness, and CP/H-r as later stages.  Commit
 each proved milestone."

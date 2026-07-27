@@ -268,6 +268,13 @@ Lemma-by-lemma scope:
   campaign-specific bridge.  Treat it as a new reduction assembled
   from classical identities, with no claim that the still-open port
   contraction is known or original.
+- **L340 novelty scope.**  L340 is only a numerical structural
+  diagnostic for the still-open physical loss: PSD to roundoff with
+  rank `6n−14` and nullity `(n−4)²` in twelve models.  It is not a
+  theorem and carries no novelty claim.  If an exact response
+  factorization is later proved, its relationship to classical
+  unitary-colligation, Stein, and model-space realization theory must
+  be audited before making any originality statement.
 
 ## Equivalent / stronger formulations (Track F cautions)
 - Completely bounded version: "W(A) is a complete 2-spectral set" — open, possibly strictly stronger; Paulsen theory: cb-version ⇔ similarity to operator with dilation... (K-spectral ⇒ complete K'-spectral with K' possibly larger). Do NOT conflate.

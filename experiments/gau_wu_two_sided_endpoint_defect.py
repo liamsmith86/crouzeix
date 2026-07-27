@@ -50,6 +50,21 @@ class TwoSidedEndpointRecord:
     all_checks_passed: bool
 
 
+@dataclass(frozen=True)
+class EndpointFormAudit:
+    """Complete endpoint forms and their public audit record."""
+
+    record: TwoSidedEndpointRecord
+    matrix: np.ndarray
+    zeros: np.ndarray
+    directions: tuple[np.ndarray, ...]
+    right_form: np.ndarray
+    left_form: np.ndarray
+    two_sided_form: np.ndarray
+    penalty_form: np.ndarray
+    sharp_form: np.ndarray
+
+
 def quadratic_matrix(
     coefficient,
     dimension: int,
@@ -70,13 +85,13 @@ def quadratic_matrix(
     return matrix
 
 
-def audit_model(
+def build_endpoint_form_audit(
     dimension: int,
     sample: int,
     seed: int,
     angle_count: int,
-) -> TwoSidedEndpointRecord:
-    """Audit the exact endpoint identity and its remaining sign gate."""
+) -> EndpointFormAudit:
+    """Build the complete endpoint forms and their audit record."""
 
     rng = np.random.default_rng(seed)
     interior = random_interior_zeros(dimension, rng)
@@ -241,7 +256,7 @@ def audit_model(
             f"rank={combined_rank}/{joint_dimension}"
         )
 
-    return TwoSidedEndpointRecord(
+    record = TwoSidedEndpointRecord(
         dimension=dimension,
         sample=sample,
         seed=seed,
@@ -260,6 +275,33 @@ def audit_model(
         combined_defect_rank=combined_rank,
         all_checks_passed=True,
     )
+    return EndpointFormAudit(
+        record=record,
+        matrix=matrix,
+        zeros=zeros,
+        directions=tuple(directions),
+        right_form=right,
+        left_form=left,
+        two_sided_form=two_sided,
+        penalty_form=penalty,
+        sharp_form=sharp,
+    )
+
+
+def audit_model(
+    dimension: int,
+    sample: int,
+    seed: int,
+    angle_count: int,
+) -> TwoSidedEndpointRecord:
+    """Audit the exact endpoint identity and its remaining sign gate."""
+
+    return build_endpoint_form_audit(
+        dimension,
+        sample,
+        seed,
+        angle_count,
+    ).record
 
 
 def write_records(
