@@ -1,8 +1,8 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-26 (Epoch 6 — L351 joint active chart after A299)
+**Last updated:** 2026-07-26 (Epoch 6 — L352 signed residual covariance)
 
-## CANONICAL LIVE GATE (2026-07-26, after L351/A300)
+## CANONICAL LIVE GATE (2026-07-26, after L352/A301)
 
 There is exactly one current mathematical gate:
 **sign the `2n−2` boundary-shape Schur form at every finite
@@ -139,6 +139,18 @@ the cyclic and simple-root equations simultaneously.  Derive this
 single coupled identity from L342's endpoint residual squares and
 L338's Szegő zero metric; do not stack separate entrywise Euler
 proofs if the coupled derivation is available.
+L352 supplies the first exact half of that derivation.  At zero
+physical forcing, L342's residual map obeys
+
+`R_0(ix,−iv)=(−ir_-,ir_+)`.
+
+The signed endpoint phase preserves both diagonal square weights,
+and the metric/zero residual ranges are weighted-orthogonal
+complementary halves.  The only missing phase step is now the
+physical intertwiner: after eliminating L343's disk fibre, prove
+that L351's `(a,tau)->(ia,−itau)` is carried to this universal
+residual phase.  L352 does not by itself prove that commutative
+diagram or the sign.
 L341's paired frames and L340's rank law remain equivalent response
 diagnostics, not separate concurrent gates.  A proposed factor must
 still reproduce their endpoint rank `4n−8`, support increment
@@ -7246,7 +7258,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L351/A300)
+## Current next actions (Epoch 6, refreshed after L352/A301)
 
 1. **LIVE: sign the boundary-shape Schur form in the conformal
    chart.**  A292 proves that
@@ -7262,7 +7274,10 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    to the single Hardy--Lagrangian equation
    `P J_phi^−1P^T=0` for `P=[S_y+iS_x;tau]`.  Prove that coupled
    equation from L342's two endpoint residual squares and L338's
-   Szegő zero metric.  Its shape block gives phase covariance and
+   Szegő zero metric.  L352 already proves the homogeneous signed
+   covariance `R_0(ix,−iv)=(−ir_-,ir_+)`; prove only that the
+   disk-eliminated physical forcing intertwines L351's signed
+   shape/tracking phase with this endpoint phase.  Its shape block gives phase covariance and
    its cross block gives all remaining Euler identities at once.
    If that coupled derivation fails, return to L344's fixed formula
    entrywise.  L347 already identifies

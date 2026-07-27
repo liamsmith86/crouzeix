@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current Gau--Wu frontier (2026-07-26): after L351 / A300
+## Current Gau--Wu frontier (2026-07-26): after L352 / A301
 
 L342 gives the exact common scalar/similarity Hessian, and L343 now
 removes its quadratic-size disk bulk.  At every fixed finite
@@ -152,6 +152,21 @@ Hardy--Lagrangian identity from L342's two endpoint residual squares
 and L338's Szegő zero metric, not another detached kernel comparison
 or a list of unrelated entrywise equations.  Dataset SHA-256
 `7f00bc8167dbbf27fc96a64b3bf7cddc28c8e4c9aeb66dbb80021b0c4d35d0ac`.
+
+L352 proves the homogeneous residual-side phase exactly:
+
+`R_0(ix,−iv)=(−ir_-,ir_+)`.
+
+Canonical conjugation supplies the opposite endpoint phases for the
+selfadjoint truncated-Toeplitz metric extension, and L338's
+antilinear model conjugation supplies the same rule for zero motion.
+The two L342 square weights preserve this signed phase, and the
+metric/zero residual ranges are orthogonal complementary halves.
+The immediate open bridge is only the physical intertwiner: after
+eliminating L343's disk fibre, prove that L351's
+`(a,tau)->(ia,−itau)` maps to the L352 endpoint phase.  Do not treat
+the commutative diagram as proved.  Dataset SHA-256
+`4b300f489b23ad51830014139640c1d403fc598f4a191bdb16d0751d8dc0e471`.
 
 L336 gives the current exact organization.  In compressed-shift
 coordinates write
