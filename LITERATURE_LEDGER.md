@@ -253,6 +253,13 @@ Lemma-by-lemma scope:
   record it as a classical identity in campaign coordinates, not an
   original theorem.  Its role is to expose the exact Hilbert metric
   for the still-open mixed L336 calculation.
+- **L338 novelty scope.**  The tangent parametrization
+  `h=(zf)k−J_fk`, Szegő kernel Gram, and real Hilbert-space square
+  completion use classical model-space ingredients.  Their assembly
+  eliminates the campaign's moving Blaschke zeros, but it is best
+  classified as a new coordinate reduction rather than a new
+  theorem of independent scope.  No novelty claim is made for the
+  still-open physical Riesz-energy inequality.
 
 ## Equivalent / stronger formulations (Track F cautions)
 - Completely bounded version: "W(A) is a complete 2-spectral set" — open, possibly strictly stronger; Paulsen theory: cb-version ⇔ similarity to operator with dilation... (K-spectral ⇒ complete K'-spectral with K' possibly larger). Do NOT conflate.

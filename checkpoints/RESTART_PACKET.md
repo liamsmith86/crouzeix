@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current Gau--Wu frontier (2026-07-26): after L337 / A284
+## Current Gau--Wu frontier (2026-07-26): after L338 / A285
 
 L336 gives the current exact organization.  In compressed-shift
 coordinates write
@@ -28,8 +28,14 @@ L337 closes the pure zero-motion sector exactly.  At fixed
 
 Thus an inner tangent `g_e=f+e h+...` contributes
 `r_2+l_2=2||P_(zf H²)h||²`.  Use this Hilbert metric to complete the
-mixed physical/zero square; the remaining purely physical form is
-the sole unresolved part of the L336 gate.
+mixed physical/zero square.  L338 performs that completion exactly:
+every tangent is `h_k=(zf)k−J_fk`, and
+
+`r_2+l_2=2||k−kappa_C||²+Q(C,0)−2||kappa_C||²`.
+
+The sole unresolved part is now the purely physical inequality
+`Q(C,0)>=2||kappa_C||²`.  Insert L335's support Gram and express the
+Riesz response through the contraction/characteristic residuals.
 
 L335 remains the exact underlying component.  If
 `t_E=<H_Ev,R H_Ev>` is the second numerical-range support
@@ -796,7 +802,11 @@ forbids detaching L245's doubled terminal edge from its physical
 balance.  A206 forbids splitting the two formal ellipse orientations
 before their theta/coisometric cancellation.
 
-## Current frontier files map (after L337/A284)
+## Current frontier files map (after L338/A285)
+- `proof/gau_wu_mixed_hardy_completion.md` (L338),
+  `experiments/gau_wu_mixed_hardy_completion.py`, and its dataset:
+  exact elimination of every zero velocity.  The sole live gate is
+  the remaining physical Riesz-energy inequality.
 - `proof/gau_wu_zero_motion_endpoint_projection.md` (L337),
   `experiments/gau_wu_zero_motion_endpoint_projection.py`, and its
   dataset: exact pure zero-motion Hardy projection square.  Use it
@@ -2711,7 +2721,7 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    not compute another isolated grade.  Then finish the
    normal/elliptic merger, retaining the full CP route as fallback.
 
-## Paste-ready continuation instruction (current after L337/A284)
+## Paste-ready continuation instruction (current after L338/A285)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix`
 as the sole repository-writing agent.  L336 rewrites the exact
 arbitrary finite Gau--Wu Hessian as
@@ -2720,13 +2730,14 @@ the right and left endpoint coefficients of the complete moving
 Blaschke image.  L127 makes their sum a two-ended Stein flux.  Do not
 redo L332--L335 or attempt either endpoint sign separately: those
 signs are false.  The sole live gate is `r_2+l_2>=0`.  Polarize the
-two Stein identities together at `S(zf)`.  L337 already proves that
-pure zero motion is exactly
-`2||P_(zf H²)h||²`; use that metric to complete the mixed
-physical/zero square and leave one purely physical remainder.  Seek
-its positive factorization through `(R,Z)`, whose combined numerical
-rank is exactly `n²`.  Test every candidate against the complete
-L334/L336 forms before proving it.  Do not start isolated
+two Stein identities together at `S(zf)`.  L338 has already
+eliminated every zero velocity:
+`r_2+l_2=2||k−kappa_C||²+Q(C,0)−2||kappa_C||²`.
+Do not rebuild or numerically optimize the root block.  Prove the
+sole physical gate `Q(C,0)>=2||kappa_C||²` by inserting L335's
+support Gram and expressing `kappa_C` through `(R,Z)`, whose combined
+numerical rank is exactly `n²`.  Test every candidate against the
+complete L334/L336 forms before proving it.  Do not start isolated
 dimension-four or dimension-five expansions.  Keep collision charts,
 direct sums, global compactness, and CP/H-r as later stages.  Commit
 each proved milestone."

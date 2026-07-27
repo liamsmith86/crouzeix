@@ -1,29 +1,56 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-26 (Epoch 6 — Gau--Wu zero-motion flux closed)
+**Last updated:** 2026-07-26 (Epoch 6 — Gau--Wu zero velocities eliminated)
 
-## CANONICAL LIVE GATE (2026-07-26, after L337/A284)
+## CANONICAL LIVE GATE (2026-07-26, after L338/A285)
 
 There is exactly one current mathematical gate:
-**prove positivity of L336's symmetric right/left Blaschke--Stein
-endpoint flux.**  In shift coordinates,
+**prove L338's purely physical Riesz-energy inequality.**  In shift
+coordinates,
 `Y_e=f_e(T_e)=pq*+eY_1+e²Y_2+...`; if `r_2,l_2` are the second
 coefficients of the right defect at `q` and left defect at `p`, then
 the sharp Hessian is exactly
 `−(r_2+l_2)/2−(|<q,Y_1q>|²+|<p,Y_1p>|²)/4`.
-Therefore prove `r_2+l_2>=0` by coupling the two L127
-Blaschke--Stein identities.  Do not prove the one-sided signs:
+L338 writes every inner tangent as `h_k=(zf)k−J_fk` and completes
+all zero velocities exactly:
+`r_2+l_2=2||k−kappa_C||²+Q(C,0)−2||kappa_C||²`.
+Therefore prove `Q(C,0)>=2||kappa_C||²` by coupling the two L127
+Blaschke--Stein identities and inserting L335's physical support
+Gram.  Do not prove the one-sided signs:
 complete tests falsify each; every standard model with `n=4..8`
 has two negative modes at each endpoint.
 The first contraction and moving-characteristic residuals have
 combined numerical rank `n²`, the full joint quotient, and are the
 preferred factor coordinates.  L335's Hardy comparison remains an
-equivalent underlying exact gate, but L336 is the canonical
-organization.  This is current next action 1 below.  Every later
+equivalent underlying exact gate; L336 is the parent endpoint
+identity and L338 is the canonical reduced gate.  This is current
+next action 1 below.  Every later
 occurrence of “historical gate,”
 “historical frontier,” or “remaining historical task” records what
 was unresolved at that dated checkpoint; none is a concurrent
 frontier.  The CP/H-r routes remain parked fallbacks.
+
+## L338/A285 EXACT MIXED HARDY COMPLETION (2026-07-26)
+
+- Modulo phase, every degree-preserving finite-Blaschke tangent is uniquely
+  `h_k=(zf)k−J_f k`, `k in K_f`.  If the zeros `a_j` move with
+  velocities `v_j`, then
+  `k=sum_j conj(v_j)/(1−conj(a_j)z)`.
+- Model calculus gives `h_k(S)q=−J_f k` and
+  `h_k(S)*p=−zk`, so the pure zero block is the exact Szegő Gram
+  `2||k||²`.
+- The mixed physical/zero term is one real functional of `k`.  Its
+  Riesz vector `kappa_C` gives the exact completion
+  `r_2+l_2=2||k−kappa_C||²+Q(C,0)−2||kappa_C||²`.
+  Thus the optimizing zero tangent is `k=kappa_C` and every root
+  velocity has been eliminated without a numerical Schur matrix.
+- The sole remaining gate is the physical inequality
+  `Q(C,0)>=2||kappa_C||²`.  Insert L335's support Gram and express
+  the Riesz response through the contraction/characteristic
+  residuals.
+- Twelve block-Fréchet audits pass within `1.21e−13`; dataset
+  SHA-256
+  `e600a466d6ad1fd78e692f9c370a8a73b6e6fe2101e582f98e232991de83d67c`.
 
 ## L337/A284 EXACT ZERO-MOTION PROJECTION SQUARE (2026-07-26)
 
@@ -34,10 +61,8 @@ frontier.  The CP/H-r routes remain parked fallbacks.
 - Therefore an inner tangent `g_e=f+e h+...` contributes exactly
   `r_2=l_2=||P_(zf H²)h||²`.  The zero acceleration drops out and
   the complete pure zero block is a Hardy projection square.
-- The live next step is to write the mixed physical/zero term as a
-  Riesz pairing in this explicit metric, complete the square, and
-  sign the remaining purely physical form.  L337 does not by itself
-  control that mixed form.
+- The historical next step was to complete the mixed square.  L338
+  now does so exactly; L337 alone did not control the mixed form.
 - Twelve independent finite-model/Fourier checks pass within
   `1.43e−15`; dataset SHA-256
   `233e72245d54a1d71ad1442332d0d26d9dbc5bff207d43c2e42f35390cad8b4f`.
@@ -6792,15 +6817,14 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L337/A284)
+## Current next actions (Epoch 6, refreshed after L338/A285)
 
-1. **LIVE: complete the mixed Hardy square.**  Use L337's exact pure
-   zero metric `2||P_(zf H²)h||²` to represent the mixed
-   physical/zero term by Riesz, eliminate `h` invariantly, and sign
-   the remaining purely physical form.  Keep both L127 endpoint
-   identities coupled and factor the remainder through `(R,Z)`.
-   The desired factor must see all `n²` joint directions and may use
-   `K_(zf)=K_f direct-sum C f`.
+1. **LIVE: prove the physical Riesz-energy bound.**  Expand
+   `Q(C,0)` with L335's positive weighted support Gram, rewrite
+   L338's `kappa_C` through the contraction and characteristic
+   residuals, and prove `2||kappa_C||²<=Q(C,0)`.  Keep both L127
+   endpoints coupled.  Do not reconstruct or numerically optimize
+   zero velocities: L338 has eliminated them exactly.
 2. **Falsify each proposed closed identity before proving it.**  The
    general jet supplies complete normal matrices and zero Schur
    blocks in dimensions `3..8`; any candidate must reproduce L336's
