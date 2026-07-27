@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current Gau--Wu frontier (2026-07-26): after L350 / A299
+## Current Gau--Wu frontier (2026-07-26): after L351 / A300
 
 L342 gives the exact common scalar/similarity Hessian, and L343 now
 removes its quadratic-size disk bulk.  At every fixed finite
@@ -132,6 +132,26 @@ their sum is zero, so both vanish.  The live lower-flag debt is now
 exactly the cyclic coefficient and the `n−2` simple-root equations.
 Dataset SHA-256
 `8e317c98ea8216aae05b979cff0fda8b6766b25980e19b9c3e39e34ee96fed8b`.
+
+L351 now proves that conformal shape together with L349's endpoint
+trace and L348's simple-root mismatches is the complete active joint
+coordinate: it has real rank `4n−4`, and its only kernel is the graph
+over L343's `(n−2)^2` disk fibre.  In the Hardy orientation
+
+`P=[S_y+iS_x;tau]`,
+
+all twelve complete models satisfy the stronger single identity
+
+`P J_phi^−1P^T=0`
+
+in the shape/shape, shape/tracking, and tracking/tracking blocks.
+This is evidence only.  Its shape block is A292 phase covariance and
+its cross block is exactly the remaining cyclic/simple-root debt.
+The immediate proof target is therefore the one coupled
+Hardy--Lagrangian identity from L342's two endpoint residual squares
+and L338's Szegő zero metric, not another detached kernel comparison
+or a list of unrelated entrywise equations.  Dataset SHA-256
+`7f00bc8167dbbf27fc96a64b3bf7cddc28c8e4c9aeb66dbb80021b0c4d35d0ac`.
 
 L336 gives the current exact organization.  In compressed-shift
 coordinates write

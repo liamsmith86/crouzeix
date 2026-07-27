@@ -1,8 +1,8 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-26 (Epoch 6 — kernel-Gram route falsified after L350)
+**Last updated:** 2026-07-26 (Epoch 6 — L351 joint active chart after A299)
 
-## CANONICAL LIVE GATE (2026-07-26, after L350/A298)
+## CANONICAL LIVE GATE (2026-07-26, after L351/A300)
 
 There is exactly one current mathematical gate:
 **sign the `2n−2` boundary-shape Schur form at every finite
@@ -118,6 +118,27 @@ exchange.  Thus its two endpoint diagonal entries agree; L349 says
 their sum is zero, so both entries vanish.  The only live
 lower-flag debts are now the cyclic coefficient and the `n−2`
 simple-root equations.
+L351 shows that these are not a second independent sector.  If
+`tau` consists of L349's endpoint trace and L348's `n−2`
+simple-root mismatches, then
+
+`O_phi=(A_phi,tau):X_phi -> C^(2n−2)`
+
+has exact real rank `4n−4`; its kernel is exactly the graph over
+L343's `(n−2)^2` disk fibre.  Thus shape plus tracking is the
+complete active quotient.  More strongly, all twelve complete
+models satisfy
+
+`P_phi J_phi^−1 P_phi^T=0`,
+`P_phi=[S_y+iS_x;tau]`,
+
+in every shape/shape, shape/tracking, and tracking/tracking block.
+This Hardy--Lagrangian identity is numerical evidence, not a theorem.
+Its first block is A292 phase covariance and its cross block closes
+the cyclic and simple-root equations simultaneously.  Derive this
+single coupled identity from L342's endpoint residual squares and
+L338's Szegő zero metric; do not stack separate entrywise Euler
+proofs if the coupled derivation is available.
 L341's paired frames and L340's rank law remain equivalent response
 diagnostics, not separate concurrent gates.  A proposed factor must
 still reproduce their endpoint rank `4n−8`, support increment
@@ -7225,7 +7246,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after A299)
+## Current next actions (Epoch 6, refreshed after L351/A300)
 
 1. **LIVE: sign the boundary-shape Schur form in the conformal
    chart.**  A292 proves that
@@ -7235,8 +7256,16 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    `W=J_phi^−1S_y*+iJ_phi^−1S_x*`.  L346 proves that the observed
    `tril Y_1(W)=0` is equivalent to only
    `diag Y_1(W)=0` and `Y_1(W)_(L0)=0`.  L349--L350 already close
-   both endpoint diagonal entries.  Prove the remaining `n−1` Euler
-   identities from L344's fixed formula.  L347 already identifies
+   both endpoint diagonal entries.  L351 proves that conformal shape
+   plus endpoint/simple-root tracking is the exact `4n−4`-real
+   active chart, and numerically upgrades the remaining identities
+   to the single Hardy--Lagrangian equation
+   `P J_phi^−1P^T=0` for `P=[S_y+iS_x;tau]`.  Prove that coupled
+   equation from L342's two endpoint residual squares and L338's
+   Szegő zero metric.  Its shape block gives phase covariance and
+   its cross block gives all remaining Euler identities at once.
+   If that coupled derivation fails, return to L344's fixed formula
+   entrywise.  L347 already identifies
    the corner as
    `4f'(0)hat(omega_phi s_W)(−n)/gamma`; prove this last negative
    Hardy coefficient vanishes.  L348 then turns the diagonal debt
