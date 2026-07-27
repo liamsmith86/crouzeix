@@ -67,6 +67,21 @@ Papers, theorems, assumptions, possible gaps. Status verified via web 2026-07-24
   identity.  Treat its novelty as unclassified pending a targeted
   publication audit; do not advertise priority from the current
   search record alone.  `proof/gau_wu_similarity_osculation.md`.
+- **Campaign L343 (2026-07-26):** the polynomial support frame and
+  general-H disk chart are concrete forms of the classical
+  Crouzeix/Lewis--Overton disk-matrix parametrization, while
+  Okubo--Ando supplies the complete-2 bound on the chart.  The
+  inverse-Toeplitz equality coordinates also overlap the classical
+  Toeplitz-moment/Levinson substrate already recorded for L187.
+  Therefore no novelty is claimed for those ingredients.  The
+  campaign-specific contribution is their exact recentering at every
+  finite Gau--Wu equality model and the identification of the
+  common L342 Hessian's strict disk block with the kernel of the
+  `2n−2` non-affine weighted-support quotient.  No matching
+  second-variation quotient theorem has been identified, but its
+  novelty remains unclassified pending a targeted publication audit.
+  The quotient sign itself is still open.
+  `proof/gau_wu_disk_chart_recenter.md`.
 - Compressions of the shift / model space operators with certain Blaschke conditions (Bickel–Gorkin school).
 - Matrices attaining ‖A‖ = numerical radius conditions (Crabb-type equality cases).
 

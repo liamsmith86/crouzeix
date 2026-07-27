@@ -1,12 +1,13 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-26 (Epoch 6 — exact Gau--Wu similarity/scalar osculation)
+**Last updated:** 2026-07-26 (Epoch 6 — Gau--Wu disk-chart recentering)
 
-## CANONICAL LIVE GATE (2026-07-26, after L342/A289)
+## CANONICAL LIVE GATE (2026-07-26, after L343/A290)
 
 There is exactly one current mathematical gate:
-**prove the common scalar/similarity Gau--Wu Hessian is nonpositive.**
-L342 reduces the full second-order L21 SDP exactly to
+**sign the `2n−2` boundary-shape Schur form at every finite
+nondegenerate Gau--Wu equality model.**  L342 first reduces the full
+second-order L21 SDP exactly to
 
 `e_phi(C)=min_(x in C^(n−1)) F_C(x)`,
 
@@ -20,27 +21,66 @@ Hessian for a moving inner tangent, L342 proves the exact square gap
   +||r_+||²_(diag(3,1,...,1))`.
 
 The endpoint residual map in `(x,h)` is bijective, hence
-`min_x F_C(x)=4 max_h J_C(h)`.  Thus Paulsen's stronger similarity
-quantity and the scalar Crouzeix quantity have exactly the same
-quadratic obstruction at every finite nondegenerate Gau--Wu equality
-model.  Prove
+`min_x F_C(x)=4 max_h J_C(h)`.
 
-`min_x F_C(x)<=0`
+L343 now removes the quadratic-size bulk from this common form.
+The L339 polynomial null state gives an exact support frame which
+places every such model on L187's inverse-Toeplitz disk chart, without
+a near-Crabb restriction.  General-H disk directions transverse to
+the equality locus form a `(n−2)^2`-dimensional subspace
+`D_phi`; Okubo--Ando and L183's linearized Hardy residual make the
+common Hessian strictly negative on it.  The canonical shape map
+(with `delta(t)=det(I−tS)` and
+`omega_phi=|delta(conj(zeta))|²D_f`)
 
-for every physical normalized direction `C`.  Start from the explicit
-finite quadratic and L339's support-port energy; seek a canonical
-trial boundary row or a negative-Gram completion.  L341's paired
-frames and L340's rank law are now equivalent response diagnostics,
-not a separate concurrent gate.  A proposed factor must still
-reproduce their endpoint rank `4n−8`, support increment `2n−6`,
-total rank `6n−14`, and nullity `(n−4)²`.  Keep both endpoints
-coupled: the one-sided signs are false.  Do not replace the exact
-quadratic by another dimension-by-dimension SDP grind.  This is
+`Sigma_phi(C)=[omega_phi s_C] mod omega_phi span_R{1,cos(theta),sin(theta)}`
+
+has rank `2n−2` and kernel exactly `D_phi`.  Define
+
+`Hhat_phi(sigma)=max_(Sigma_phi(C)=sigma) e_phi(C)`.
+
+The live theorem is precisely `Hhat_phi(sigma)<=0`.  Use the
+polynomial support frame and L339's support-port energy to derive its
+Hardy/Toeplitz Gram; do not re-expand the already strict disk block.
+L341's paired frames and L340's rank law remain equivalent response
+diagnostics, not separate concurrent gates.  A proposed factor must
+still reproduce their endpoint rank `4n−8`, support increment
+`2n−6`, total rank `6n−14`, and nullity `(n−4)²`.  Keep both
+endpoints coupled: the one-sided signs are false.  Do not replace the
+exact quotient by another dimension-by-dimension SDP grind.  This is
 current next action 1 below.  Every later
 occurrence of “historical gate,”
 “historical frontier,” or “remaining historical task” records what
 was unresolved at that dated checkpoint; none is a concurrent
 frontier.  The CP/H-r routes remain parked fallbacks.
+
+## L343/A290 EXACT DISK-CHART RECENTERING AND SHAPE QUOTIENT (2026-07-26)
+
+- With `delta(t)=det(I−tS)`, the L339 null state gives the explicit
+  polynomial support frame
+  `C=[Lr_(n−1),...,Lr_0]`,
+  `r_j=sum_(k<=j)delta_k S^(j−k)q`.
+- Congruencing the support pencil by `C` gives exactly
+  `K=Hhat+R*Hhat R` and `K A_c=2Hhat R`.  Gau--Wu equality,
+  terminal cyclicity, L183's Hardy defect, and L187's residual
+  factorization force the leading `H^−1` to be Hermitian Toeplitz.
+  Thus every finite nondegenerate model is a global recentering of
+  the same full disk chart, not merely one near the Crabb collision.
+- General-H disk directions transverse to the inverse-Toeplitz
+  equality locus have dimension `(n−2)^2` and strict negative common
+  L342 curvature.
+- The non-affine weighted support motion
+  `Sigma_phi=[omega_phi s] mod omega_phi span{1,cos,sin}` has rank
+  `2n−2` and
+  kernel exactly that disk block.  The sole live form is its Schur
+  maximum.
+- Five audits in dimensions `4..8` match the chart within
+  `1.10e−14`, inverse Toeplitz within `2.23e−14`, and disk/shape
+  kernel projectors within `2.27e−8`.  The open quotient remains
+  negative numerically, with softest tested eigenvalue
+  `−2.16e−9`; this sign is evidence only.
+- Dataset SHA-256
+  `01dabed0b2aad2b584210928396051bd74a585cb5832fec49b3a83036ee10103`.
 
 ## L342/A289 EXACT SIMILARITY/SCALAR OSCULATION (2026-07-26)
 
@@ -6919,16 +6959,16 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L342/A289)
+## Current next actions (Epoch 6, refreshed after L343/A290)
 
-1. **LIVE: sign the universal finite similarity quadratic.**  Use
-   L342's exact reduction
-   `e_phi(C)=min_x F_C(x)=4 max_h J_C(h)`.  Expand only the
-   physical/linear part of `F_C(x)` around its universal curvature
-   `8||x_mid||²+(8/3)|x_L|²`, insert L339's exact support-port energy,
-   and seek either a canonical trial row `x(C)` with `F_C(x(C))<=0`
-   or a dimension-free negative-Gram completion.  L342's two
-   endpoint residual squares must remain intact.  L340/L341's
+1. **LIVE: sign the `2n−2` boundary-shape Schur form.**  Use L343's
+   exact quotient
+   `Sigma_phi(C)=[omega_phi s_C] mod omega_phi span{1,cos,sin}` and
+   `Hhat_phi(sigma)=max_(Sigma_phi(C)=sigma)e_phi(C)`.  Insert L339's
+   support-port energy in the polynomial frame and derive a
+   Hardy/Toeplitz negative Gram for `Hhat_phi`.  Do not re-expand or
+   re-prove the strictly negative `(n−2)^2` disk block.  L342's two
+   endpoint residual squares must remain intact, and L340/L341's
    rank/nullity law remains the falsification gate for any proposed
    factor, not a second task.
 2. **Falsify each proposed closed identity before proving it.**  The
