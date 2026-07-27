@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current Gau--Wu frontier (2026-07-26): after L338 / A285
+## Current Gau--Wu frontier (2026-07-26): after L339 / A286
 
 L336 gives the current exact organization.  In compressed-shift
 coordinates write
@@ -36,6 +36,18 @@ every tangent is `h_k=(zf)k−J_fk`, and
 The sole unresolved part is now the purely physical inequality
 `Q(C,0)>=2||kappa_C||²`.  Insert L335's support Gram and express the
 Riesz response through the contraction/characteristic residuals.
+
+L339 supplies the exact support coordinate for that estimate.  The
+unitary completion `U=S+qp*` gives an Ando pencil
+`F_zeta=UD−zeta E` with
+`F_zeta*F_zeta=I−Re(conj(zeta)A)`.  Its null state has squared norm
+`2D_f(zeta)`, so L335's weighted reserve is exactly
+
+`P_phi(C)=integral ||(F_zeta*)^dagger H_C y_zeta||² dm`.
+
+Prove the remaining physical loss is an output of this same
+colligation and satisfies its energy contraction.  Do not estimate
+the Poisson weight separately.
 
 L335 remains the exact underlying component.  If
 `t_E=<H_Ev,R H_Ev>` is the second numerical-range support
@@ -802,7 +814,11 @@ forbids detaching L245's doubled terminal edge from its physical
 balance.  A206 forbids splitting the two formal ellipse orientations
 before their theta/coisometric cancellation.
 
-## Current frontier files map (after L338/A285)
+## Current frontier files map (after L339/A286)
+- `proof/gau_wu_support_port_energy.md` (L339),
+  `experiments/gau_wu_support_port_energy.py`, and its dataset:
+  exact Ando support factor and unweighted port energy.  The live
+  task is the associated lossless response contraction.
 - `proof/gau_wu_mixed_hardy_completion.md` (L338),
   `experiments/gau_wu_mixed_hardy_completion.py`, and its dataset:
   exact elimination of every zero velocity.  The sole live gate is
@@ -2721,7 +2737,7 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    not compute another isolated grade.  Then finish the
    normal/elliptic merger, retaining the full CP route as fallback.
 
-## Paste-ready continuation instruction (current after L338/A285)
+## Paste-ready continuation instruction (current after L339/A286)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix`
 as the sole repository-writing agent.  L336 rewrites the exact
 arbitrary finite Gau--Wu Hessian as
@@ -2734,10 +2750,13 @@ two Stein identities together at `S(zf)`.  L338 has already
 eliminated every zero velocity:
 `r_2+l_2=2||k−kappa_C||²+Q(C,0)−2||kappa_C||²`.
 Do not rebuild or numerically optimize the root block.  Prove the
-sole physical gate `Q(C,0)>=2||kappa_C||²` by inserting L335's
-support Gram and expressing `kappa_C` through `(R,Z)`, whose combined
-numerical rank is exactly `n²`.  Test every candidate against the
-complete L334/L336 forms before proving it.  Do not start isolated
+sole physical gate `Q(C,0)>=2||kappa_C||²` using L339's exact Ando
+port identity
+`P_phi(C)=integral ||(F_zeta*)^dagger H_Cy_zeta||²`.
+Express `kappa_C` and the remaining endpoint loss as outputs of the
+same unitary colligation and prove its energy contraction.  Do not
+estimate `D_f` separately.  Test every candidate against the complete
+L334/L336 forms before proving it.  Do not start isolated
 dimension-four or dimension-five expansions.  Keep collision charts,
 direct sums, global compactness, and CP/H-r as later stages.  Commit
 each proved milestone."

@@ -1,8 +1,8 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-26 (Epoch 6 — Gau--Wu zero velocities eliminated)
+**Last updated:** 2026-07-26 (Epoch 6 — Gau--Wu support port identified)
 
-## CANONICAL LIVE GATE (2026-07-26, after L338/A285)
+## CANONICAL LIVE GATE (2026-07-26, after L339/A286)
 
 There is exactly one current mathematical gate:
 **prove L338's purely physical Riesz-energy inequality.**  In shift
@@ -14,9 +14,11 @@ the sharp Hessian is exactly
 L338 writes every inner tangent as `h_k=(zf)k−J_fk` and completes
 all zero velocities exactly:
 `r_2+l_2=2||k−kappa_C||²+Q(C,0)−2||kappa_C||²`.
-Therefore prove `Q(C,0)>=2||kappa_C||²` by coupling the two L127
-Blaschke--Stein identities and inserting L335's physical support
-Gram.  Do not prove the one-sided signs:
+L339 writes L335's reserve as the ordinary boundary energy
+`P_phi(C)=||gamma_C||_(L²)²` of the minimal Ando support-port
+response.  Therefore prove `Q(C,0)>=2||kappa_C||²` as the
+corresponding lossless-port contraction, coupling the two L127
+Blaschke--Stein identities.  Do not prove the one-sided signs:
 complete tests falsify each; every standard model with `n=4..8`
 has two negative modes at each endpoint.
 The first contraction and moving-characteristic residuals have
@@ -29,6 +31,29 @@ occurrence of “historical gate,”
 “historical frontier,” or “remaining historical task” records what
 was unresolved at that dated checkpoint; none is a concurrent
 frontier.  The CP/H-r routes remain parked fallbacks.
+
+## L339/A286 UNWEIGHTED ANDO SUPPORT-PORT ENERGY (2026-07-26)
+
+- The defect-one completion `U=S+qp*` is unitary.  With
+  `D=0 direct-sum I/sqrt(2) direct-sum 1` and
+  `E=1 direct-sum I/sqrt(2) direct-sum 0`,
+  `A=2EUD` and the pencil `F_zeta=UD−zeta E` satisfies
+  `F_zeta*F_zeta=I−Re(conj(zeta)A)`.
+- The null state is
+  `y_zeta=(1 direct-sum sqrt(2)I direct-sum 1)
+  (I−conj(zeta)S)^−1q`, and
+  `||y_zeta||²=2D_f(zeta)`.
+- Therefore the minimal support response
+  `gamma_C=(F_zeta*)^dagger H_C y_zeta` obeys
+  `||gamma_C||²=2D_f t_C`, and L335 becomes the unweighted identity
+  `P_phi(C)=integral ||gamma_C||²`.
+- The live gate is now to identify L338's remaining physical loss
+  and `kappa_C` as outputs of this same unitary colligation and prove
+  their energy is bounded by the physical input plus the support
+  port.  The contraction is not yet proved.
+- Twelve polarized support-port audits pass within `1.60e−14`;
+  dataset SHA-256
+  `cae577fc8c856279b734f6e6a7481d0eefc42f531af5ccea80e4863a2371a2d3`.
 
 ## L338/A285 EXACT MIXED HARDY COMPLETION (2026-07-26)
 
@@ -6817,14 +6842,14 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L338/A285)
+## Current next actions (Epoch 6, refreshed after L339/A286)
 
-1. **LIVE: prove the physical Riesz-energy bound.**  Expand
-   `Q(C,0)` with L335's positive weighted support Gram, rewrite
-   L338's `kappa_C` through the contraction and characteristic
-   residuals, and prove `2||kappa_C||²<=Q(C,0)`.  Keep both L127
-   endpoints coupled.  Do not reconstruct or numerically optimize
-   zero velocities: L338 has eliminated them exactly.
+1. **LIVE: prove the support-port contraction.**  Express L338's
+   `kappa_C` and the remaining first-order endpoint loss as outputs
+   of L339's unitary colligation `U=S+qp*`, then prove their energy is
+   bounded by the physical input energy plus
+   `2||gamma_C||_(L²)²`.  Keep both L127 endpoints coupled.  Do not
+   reconstruct zero velocities or estimate `D_f` separately.
 2. **Falsify each proposed closed identity before proving it.**  The
    general jet supplies complete normal matrices and zero Schur
    blocks in dimensions `3..8`; any candidate must reproduce L336's

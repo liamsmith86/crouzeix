@@ -260,6 +260,14 @@ Lemma-by-lemma scope:
   classified as a new coordinate reduction rather than a new
   theorem of independent scope.  No novelty claim is made for the
   still-open physical Riesz-energy inequality.
+- **L339 novelty scope.**  Ando's numerical-contraction
+  factorization, the unitary completion of a defect-one partial
+  isometry, and boundary model-kernel norm
+  `||k_zeta^f||²=D_f(zeta)` are classical.  L339's identification of
+  L335's exact Hessian reserve with that support-port energy is a
+  campaign-specific bridge.  Treat it as a new reduction assembled
+  from classical identities, with no claim that the still-open port
+  contraction is known or original.
 
 ## Equivalent / stronger formulations (Track F cautions)
 - Completely bounded version: "W(A) is a complete 2-spectral set" — open, possibly strictly stronger; Paulsen theory: cb-version ⇔ similarity to operator with dilation... (K-spectral ⇒ complete K'-spectral with K' possibly larger). Do NOT conflate.
