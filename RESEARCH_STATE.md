@@ -168,12 +168,16 @@ It therefore cancels from L340's loss:
 
 where `B_1` is the first conformal-curvature trace and `Xi` contains
 only L341's two coupled first-frame responses.  Thus the loss
-factorization and its phase analysis are first-jet questions.  The
-upper estimate still uses L339's port energy.  Do not carry the
-second support into the output factor, omit `B_1`, or split the two
-frame responses.  In particular `G_phi=−Xi` is false: that
-frame-only form has a negative eigenvalue near `−4`; the positive
-first-curvature reserve `2I−B_1` is load-bearing.
+factorization is a first-jet question.  This is an alternative
+response route, not an identification of L342's common pure physical
+coefficient: the L353 loss is not itself phase Hermitian on the
+scalar shape lift.  It therefore does not close either of L352's
+remaining phase debts.  The upper estimate still uses L339's port
+energy.  If this fallback is used, do not carry the second support
+into the output factor, omit `B_1`, or split the two frame responses.
+In particular `G_phi=−Xi` is false: that frame-only form has a
+negative eigenvalue near `−4`; the positive first-curvature reserve
+`2I−B_1` is load-bearing.
 L341's paired frames and L340's rank law remain equivalent response
 diagnostics, not separate concurrent gates.  A proposed factor must
 still reproduce their endpoint rank `4n−8`, support increment
@@ -7304,11 +7308,13 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    common pure physical coefficient left undetermined by the square
    gap is type `(1,1)` in L344's fixed-port coordinates.  Only both
    together give phase covariance; do not infer (b) from L352.
-   L353 gives the preferred first-jet form for (b):
-   `G_phi=2I−B_1−Xi`.  Factor this coupled form and prove its
-   type-`(1,1)` covariance after disk-fibre elimination before
-   returning to any second-support expression; that expression has
-   already cancelled exactly.
+   L353 sharpens only the alternative L340/L341 response route:
+   `G_phi=2I−B_1−Xi`.  It does not identify the common term in (b),
+   and its loss is not itself phase Hermitian on the scalar shape
+   lift.  Do not substitute it for L344's fixed-port derivation.  If
+   the coupled L351 proof fails and the response fallback is resumed,
+   factor the complete L353 first-jet form; its second-support term
+   has already cancelled exactly.
    The resulting shape block gives phase covariance and
    its cross block gives all remaining Euler identities at once.
    If that coupled derivation fails, return to L344's fixed formula

@@ -4,7 +4,9 @@
 > exact at every finite nondegenerate Gau--Wu model.  They remove the
 > second-support curvature from L340's loss, but they do not prove
 > that loss is positive or contractive.  The sign of the boundary
-> shape form and the Crouzeix conjecture remain open.
+> shape form and the Crouzeix conjecture remain open.  This loss is
+> not L342's common pure physical coefficient and is not itself the
+> phase-Hermitian shape form sought after L352.
 
 ## 1. The inverse-Riemann second jet
 

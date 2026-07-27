@@ -184,10 +184,14 @@ It cancels from L340's loss, leaving
 `G_phi(E)=2||E||_F²−B_1(E)−Xi(E)`,
 
 where `B_1` is the first conformal-curvature trace and `Xi` is the
-sum of the coupled first-frame terms.  Factor this first-jet form and
-prove its type-`(1,1)` covariance after disk-fibre elimination; only
-then compare it with `2I+2P_phi`.  Do not carry `K_t` into the loss
-factor, omit `B_1`, or split the endpoint frames.  Dataset SHA-256
+sum of the coupled first-frame terms.  This sharpens the alternative
+L340/L341 factorization route only.  It does not identify L342's
+common pure physical term, and the L353 loss is not itself phase
+Hermitian on the scalar shape lift.  Do not substitute it for the
+live L344 fixed-port phase derivation.  If the response fallback is
+resumed, factor the complete first-jet form before comparing it with
+`2I+2P_phi`; do not carry `K_t` into the loss factor, omit `B_1`, or
+split the endpoint frames.  Dataset SHA-256
 `15507d65397ecf1e0845c5d7831eb5ebabfd802b16b45e8234e592802546a78e`.
 
 L336 gives the current exact organization.  In compressed-shift
