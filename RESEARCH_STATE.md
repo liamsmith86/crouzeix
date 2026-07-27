@@ -1,6 +1,6 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-26 (Epoch 6 — canonical-conjugation endpoint closure)
+**Last updated:** 2026-07-26 (Epoch 6 — kernel-Gram route falsified after L350)
 
 ## CANONICAL LIVE GATE (2026-07-26, after L350/A298)
 
@@ -76,7 +76,12 @@ pointwise pseudoinverse, re-expand the already strict disk block, or
 infer phase covariance merely from the nearly paired spectrum in
 the weighted coordinate.  A universal-diagonal-plus-rank-one
 inverse ansatz was falsified after resolving its dominant soft
-component; do not reopen it.
+component; do not reopen it.  A299 also falsifies the stronger
+post-pivot estimate `S_phi>=3D G_g^−1D` on the separated rational
+`n=4` roots `3/8+i/4,−1/2−i/4`.  The full shape matrix remains
+positive there, so this rejects only the isolated model-kernel
+comparison.  Keep L342's two endpoint residuals coupled to L344's
+fixed port and the disk-fibre elimination.
 L347 now identifies the cyclic condition exactly:
 
 `(Y_1)_(L0)=4f'(0) hat(sigma_W)(−n)/gamma`,
@@ -143,6 +148,21 @@ frontier.  The CP/H-r routes remain parked fallbacks.
 - Twelve audits through `n=8` give image-symmetry and endpoint
   residuals below `3.16e−12` and `4.49e−14`; dataset SHA-256
   `8e317c98ea8216aae05b979cff0fda8b6766b25980e19b9c3e39e34ee96fed8b`.
+
+## A299 NUMERICAL MODEL-KERNEL LOWER-BOUND FALSIFICATION (2026-07-26)
+
+- After the first shape pivot, the proposed sufficient estimate
+  `S_phi>=3D G_g^−1D` is false.
+- At the separated rational `n=4` roots
+  `3/8+i/4,−1/2−i/4`, its gap eigenvalues are approximately
+  `−0.11585777,1.17891488`, while the complete negative shape matrix
+  is positive definite with minimum eigenvalue `0.06403464`.
+- The first pivot matches `16|b_1b_2|²=1.015625`; independent
+  resolutions 256, 512, and 1024 agree within `7.8e−13`.
+- This falsifies only a stronger Gram shortcut.  It leaves the live
+  phase/lower-flag identities and the conjecture untouched.
+- Dataset SHA-256
+  `2eaf011e0abb51ab6b496e1b9d7b49b44e7b877349450c254cbb4a9342287c26`.
 
 ## L349/A297 EXACT POSTCOMPOSITION EULER IDENTITY (2026-07-26)
 
@@ -7200,7 +7220,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L350/A298)
+## Current next actions (Epoch 6, refreshed after A299)
 
 1. **LIVE: sign the boundary-shape Schur form in the conformal
    chart.**  A292 proves that
@@ -7230,6 +7250,9 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    endpoint residual squares must remain intact, and L340/L341's
    rank/nullity law remains the falsification gate for any proposed
    factor, not a second task.
+   A299 additionally forbids assigning L342's terminal weight three
+   to an isolated inverse model-kernel Gram after the first pivot;
+   keep the endpoint residuals and fixed port coupled.
 2. **Falsify each proposed closed identity before proving it.**  The
    general jet supplies complete normal matrices and zero Schur
    blocks through dimension nine; any candidate must reproduce

@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current Gau--Wu frontier (2026-07-26): after L350 / A298
+## Current Gau--Wu frontier (2026-07-26): after L350 / A299
 
 L342 gives the exact common scalar/similarity Hessian, and L343 now
 removes its quadratic-size disk bulk.  At every fixed finite
@@ -69,6 +69,11 @@ redo the disk block or replace the quotient by another
 dimension-by-dimension SDP computation.  Do not infer exact symmetry
 from the merely near-paired spectrum in weighted coordinates or
 from the falsified universal-diagonal-plus-rank-one inverse ansatz.
+Also do not use the stronger post-pivot comparison
+`S_phi>=3D G_g^−1D`: A299 falsifies it on the separated rational
+`n=4` roots `3/8+i/4,−1/2−i/4`, even though the complete shape
+matrix remains positive.  Keep L342's endpoint residual squares
+coupled to L344's fixed port and the disk-fibre elimination.
 
 L347 identifies the cyclic equation exactly.  If
 `sigma_E=omega_phi s_E` and `Ccal e_0=gamma p`,
