@@ -39,7 +39,7 @@ Proof core: K² = ⟨γ(f₀)x₀, γ(f₀)x₀⟩ = ⟨γ(f₀)x₀, (γ_Φ(f�
 **Prop 8 (Caldwell–Greenbaum–Li)**: inf_ω ‖γ_Φ − ω‖ ≤ 2 − L, where L := ∮ λ_min(P(σ(s))) ds ≥ 0, via ω(f) := ∮ f(σ(s)) λ_min(P(σ(s))) ds.
 
 **⟹ SUFFICIENT CONDITION FOR CROUZEIX (new working target, "Inequality (⋆)"):**
-    c ≤ 2L + (c²/8 rounding? — exact algebra):  K ≤ 2 iff (2−L)/2 + sqrt((2−L)²/4 + c) ≤ 2 iff c ≤ 2L. 
+    c ≤ 2L + (c²/8 rounding? — exact algebra):  K ≤ 2 iff (2−L)/2 + sqrt((2−L)²/4 + c) ≤ 2 iff c ≤ 2L.
     **(⋆):  |∫ Φ(f₀) f₀ dμ| ≤ 2 ∮ λ_min(P(σ)) ds**  at every extremal configuration with K > 1.
 
 ## Sanity checks of (⋆)
