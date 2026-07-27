@@ -69,11 +69,12 @@ redo the disk block or replace the quotient by another
 dimension-by-dimension SDP computation.  Do not infer exact symmetry
 from the merely near-paired spectrum in weighted coordinates or
 from the falsified universal-diagonal-plus-rank-one inverse ansatz.
-Also do not use the stronger post-pivot comparison
-`S_phi>=3D G_g^−1D`: A299 falsifies it on the separated rational
-`n=4` roots `3/8+i/4,−1/2−i/4`, even though the complete shape
-matrix remains positive.  Keep L342's endpoint residual squares
-coupled to L344's fixed port and the disk-fibre elimination.
+Also do not use a fixed post-pivot comparison
+`S_phi>=cD G_g^−1D` with `c>=1`: A299 falsifies weight three at
+moderate rational roots and weight one at separated boundary roots,
+even though both complete shape matrices remain positive.  Keep
+L342's endpoint residual squares coupled to L344's fixed port and
+the disk-fibre elimination.
 
 L347 identifies the cyclic equation exactly.  If
 `sigma_E=omega_phi s_E` and `Ccal e_0=gamma p`,

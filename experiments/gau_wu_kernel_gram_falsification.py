@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Falsify a tempting kernel-Gram lower bound for the Gau--Wu shape form."""
+"""Falsify fixed kernel-Gram multiples for the Gau--Wu shape form."""
 
 from __future__ import annotations
 
@@ -29,14 +29,16 @@ from gau_wu_finite_model import (
 class KernelGramFalsificationRecord:
     """One resolution-independent counterexample record."""
 
+    witness: str
     dimension: int
     interior_zeros: tuple[str, ...]
+    candidate_coefficient: float
     angle_counts: tuple[int, ...]
     first_pivot_errors: tuple[float, ...]
     minimum_candidate_gap_eigenvalues: tuple[float, ...]
     maximum_candidate_gap_eigenvalues: tuple[float, ...]
     minimum_shape_eigenvalues: tuple[float, ...]
-    maximum_resolution_drift: float
+    maximum_relative_resolution_drift: float
     all_checks_passed: bool
 
 
@@ -120,15 +122,22 @@ def negative_shape_matrix(
     return -(hermitian + hermitian.conj().T) / 2
 
 
-def audit_witness(angle_counts: tuple[int, ...]) -> KernelGramFalsificationRecord:
-    """Evaluate the fixed rational witness at several Fourier resolutions."""
+def audit_witness(
+    witness: str,
+    interior_zeros: np.ndarray,
+    candidate_coefficient: float,
+    angle_counts: tuple[int, ...],
+) -> KernelGramFalsificationRecord:
+    """Evaluate one fixed rational witness at several Fourier resolutions."""
 
-    interior_zeros = np.asarray((3 / 8 + 1j / 4, -1 / 2 - 1j / 4))
     degree = len(interior_zeros)
     derivative = np.diag(np.arange(1, degree + 1))
     kernel_gram = model_kernel_gram(interior_zeros)
     proposed_lower_bound = (
-        3 * derivative @ np.linalg.inv(kernel_gram) @ derivative
+        candidate_coefficient
+        * derivative
+        @ np.linalg.inv(kernel_gram)
+        @ derivative
     )
     expected_first_pivot = 16 * abs(np.prod(interior_zeros)) ** 2
 
@@ -154,14 +163,18 @@ def audit_witness(angle_counts: tuple[int, ...]) -> KernelGramFalsificationRecor
 
     reference = shapes[-1]
     maximum_drift = max(
-        float(np.linalg.norm(shape - reference, 2)) for shape in shapes
+        float(
+            np.linalg.norm(shape - reference, 2)
+            / max(np.linalg.norm(reference, 2), 1)
+        )
+        for shape in shapes
     )
     checks = (
         max(pivots) < 2e-10
-        and max(minimum_gaps) < -0.1
+        and max(minimum_gaps) < -0.05
         and min(maximum_gaps) > 1
-        and min(minimum_shapes) > 0.05
-        and maximum_drift < 2e-9
+        and min(minimum_shapes) > 0.03
+        and maximum_drift < 2e-8
     )
     if not checks:
         raise RuntimeError(
@@ -172,33 +185,34 @@ def audit_witness(angle_counts: tuple[int, ...]) -> KernelGramFalsificationRecor
         )
 
     return KernelGramFalsificationRecord(
+        witness=witness,
         dimension=4,
         interior_zeros=tuple(
             f"{zero.real:+.12f}{zero.imag:+.12f}j"
             for zero in interior_zeros
         ),
+        candidate_coefficient=candidate_coefficient,
         angle_counts=angle_counts,
         first_pivot_errors=tuple(pivots),
         minimum_candidate_gap_eigenvalues=tuple(minimum_gaps),
         maximum_candidate_gap_eigenvalues=tuple(maximum_gaps),
         minimum_shape_eigenvalues=tuple(minimum_shapes),
-        maximum_resolution_drift=maximum_drift,
+        maximum_relative_resolution_drift=maximum_drift,
         all_checks_passed=True,
     )
 
 
-def write_record(
-    record: KernelGramFalsificationRecord,
+def write_records(
+    records: list[KernelGramFalsificationRecord],
     output: Path,
 ) -> str:
-    """Write the deterministic record atomically and return its SHA-256."""
+    """Write deterministic records atomically and return their SHA-256."""
 
     output.parent.mkdir(parents=True, exist_ok=True)
     temporary = output.with_suffix(output.suffix + ".tmp")
-    temporary.write_text(
-        json.dumps(asdict(record), sort_keys=True) + "\n",
-        encoding="utf-8",
-    )
+    with temporary.open("w", encoding="utf-8") as stream:
+        for record in records:
+            stream.write(json.dumps(asdict(record), sort_keys=True) + "\n")
     temporary.replace(output)
     return hashlib.sha256(output.read_bytes()).hexdigest()
 
@@ -218,21 +232,40 @@ def parse_args() -> argparse.Namespace:
 
 
 def main() -> None:
-    """Run and persist the fixed rational counterexample."""
+    """Run and persist the fixed rational counterexamples."""
 
     arguments = parse_args()
-    record = audit_witness((256, 512, 1024))
-    digest = write_record(record, arguments.output)
+    angle_counts = (512, 1024, 2048)
+    records = [
+        audit_witness(
+            "moderate_weight_three",
+            np.asarray((3 / 8 + 1j / 4, -1 / 2 - 1j / 4)),
+            3,
+            angle_counts,
+        ),
+        audit_witness(
+            "boundary_weight_one",
+            np.asarray((-41 / 64 - 47j / 64, -34 / 64 - 52j / 64)),
+            1,
+            angle_counts,
+        ),
+    ]
+    digest = write_records(records, arguments.output)
     print(
         json.dumps(
             {
-                "all_checks_passed": record.all_checks_passed,
+                "all_checks_passed": all(
+                    record.all_checks_passed for record in records
+                ),
                 "minimum_gap": min(
-                    record.minimum_candidate_gap_eigenvalues
+                    min(record.minimum_candidate_gap_eigenvalues)
+                    for record in records
                 ),
-                "maximum_resolution_drift": (
-                    record.maximum_resolution_drift
+                "maximum_relative_resolution_drift": max(
+                    record.maximum_relative_resolution_drift
+                    for record in records
                 ),
+                "record_count": len(records),
                 "sha256": digest,
             },
             sort_keys=True,

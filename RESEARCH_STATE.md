@@ -76,12 +76,13 @@ pointwise pseudoinverse, re-expand the already strict disk block, or
 infer phase covariance merely from the nearly paired spectrum in
 the weighted coordinate.  A universal-diagonal-plus-rank-one
 inverse ansatz was falsified after resolving its dominant soft
-component; do not reopen it.  A299 also falsifies the stronger
-post-pivot estimate `S_phi>=3D G_g^−1D` on the separated rational
-`n=4` roots `3/8+i/4,−1/2−i/4`.  The full shape matrix remains
-positive there, so this rejects only the isolated model-kernel
-comparison.  Keep L342's two endpoint residuals coupled to L344's
-fixed port and the disk-fibre elimination.
+component; do not reopen it.  A299 also falsifies every post-pivot
+estimate `S_phi>=cD G_g^−1D` with fixed `c>=1`: weight three fails
+at moderate rational roots, and weight one already fails at
+separated boundary roots.  The full shape matrices remain positive,
+so this rejects only the isolated model-kernel comparisons.  Keep
+L342's two endpoint residuals coupled to L344's fixed port and the
+disk-fibre elimination.
 L347 now identifies the cyclic condition exactly:
 
 `(Y_1)_(L0)=4f'(0) hat(sigma_W)(−n)/gamma`,
@@ -149,20 +150,24 @@ frontier.  The CP/H-r routes remain parked fallbacks.
   residuals below `3.16e−12` and `4.49e−14`; dataset SHA-256
   `8e317c98ea8216aae05b979cff0fda8b6766b25980e19b9c3e39e34ee96fed8b`.
 
-## A299 NUMERICAL MODEL-KERNEL LOWER-BOUND FALSIFICATION (2026-07-26)
+## A299 NUMERICAL FIXED MODEL-KERNEL LOWER-BOUND FALSIFICATION (2026-07-26)
 
-- After the first shape pivot, the proposed sufficient estimate
-  `S_phi>=3D G_g^−1D` is false.
+- After the first shape pivot, every proposed sufficient estimate
+  `S_phi>=cD G_g^−1D` with fixed `c>=1` is numerically false.
 - At the separated rational `n=4` roots
   `3/8+i/4,−1/2−i/4`, its gap eigenvalues are approximately
   `−0.11585777,1.17891488`, while the complete negative shape matrix
   is positive definite with minimum eigenvalue `0.06403464`.
 - The first pivot matches `16|b_1b_2|²=1.015625`; independent
-  resolutions 256, 512, and 1024 agree within `7.8e−13`.
+  resolutions 512, 1024, and 2048 agree to numerical precision.
+- At the separated boundary roots
+  `−41/64−47i/64,−34/64−52i/64`, the weight-one gap already has
+  eigenvalues approximately `−275.39428827,246481.1030077`, while
+  the complete shape matrix remains positive definite.
 - This falsifies only a stronger Gram shortcut.  It leaves the live
   phase/lower-flag identities and the conjecture untouched.
 - Dataset SHA-256
-  `2eaf011e0abb51ab6b496e1b9d7b49b44e7b877349450c254cbb4a9342287c26`.
+  `41352e20a5af43b1d4d1d3d6bfcb6ad193e055abfbb93c902928be08f2cd9d7a`.
 
 ## L349/A297 EXACT POSTCOMPOSITION EULER IDENTITY (2026-07-26)
 
@@ -7250,9 +7255,9 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    endpoint residual squares must remain intact, and L340/L341's
    rank/nullity law remains the falsification gate for any proposed
    factor, not a second task.
-   A299 additionally forbids assigning L342's terminal weight three
-   to an isolated inverse model-kernel Gram after the first pivot;
-   keep the endpoint residuals and fixed port coupled.
+   A299 additionally forbids assigning even one fixed complete copy
+   of the inverse model-kernel Gram after the first pivot; keep the
+   endpoint residuals and fixed port coupled.
 2. **Falsify each proposed closed identity before proving it.**  The
    general jet supplies complete normal matrices and zero Schur
    blocks through dimension nine; any candidate must reproduce
