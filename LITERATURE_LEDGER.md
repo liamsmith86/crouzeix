@@ -237,6 +237,16 @@ Lemma-by-lemma scope:
   contraction splits a disk-model block `X_phi S(zf)X_phi^−1` with
   inner `f(0)=0`; equality is not restricted to nilpotent monomials.
   The Crabb family is its monomial specialization.
+- **L336 novelty scope.**  Its ingredients are classical:
+  simple-singular-value perturbation, the model-space kernel identity,
+  and the right/left finite-Blaschke Stein identities.  The targeted
+  search found Crouzeix's numerical observation that sharp disk
+  matrices appear to be local maxima and Lewis--Overton's
+  partial-smoothness geometry of disk matrices, but no source proving
+  the coupled second-order endpoint-flux identity or its sign at
+  arbitrary Gau--Wu models.  Treat the identity's assembly as
+  campaign-specific and the still-open positivity as having no
+  novelty claim until a publication-level audit.
 
 ## Equivalent / stronger formulations (Track F cautions)
 - Completely bounded version: "W(A) is a complete 2-spectral set" — open, possibly strictly stronger; Paulsen theory: cb-version ⇔ similarity to operator with dilation... (K-spectral ⇒ complete K'-spectral with K' possibly larger). Do NOT conflate.

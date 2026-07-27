@@ -1,27 +1,55 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-26 (Epoch 6 — second-support negative Gram isolated)
+**Last updated:** 2026-07-26 (Epoch 6 — two-sided Gau--Wu defect flux isolated)
 
-## CANONICAL LIVE GATE (2026-07-26, after L335/A282)
+## CANONICAL LIVE GATE (2026-07-26, after L336/A283)
 
 There is exactly one current mathematical gate:
-**prove the remaining Hardy/zero-motion comparison against L335's
-explicit second-support reserve.**  The arbitrary-degree Hessian is
-now exactly
-`H_rest(E,u)−P_phi(E)`, where
-`P_phi(E)=2 integral_(T)(zeta f'/f)t_E dm` is L335's proved
-positive-weight Gram.  Show
-`max_u H_rest(E,u)<=P_phi(E)` by model-space/colligation structure.
-L334's complete forms say only `2(n−2)` real remainder directions
-are dangerous, suggesting the model space of the nonzero-zero factor
-`f/z`; derive that reduction rather than opening isolated
-dimension-four or dimension-five expansions.  The raw
-partial-isometry-defect candidate is forbidden: its kernel misses two
-Hessian directions.  This is current next action 1 below.  Every later
+**prove positivity of L336's symmetric right/left Blaschke--Stein
+endpoint flux.**  In shift coordinates,
+`Y_e=f_e(T_e)=pq*+eY_1+e²Y_2+...`; if `r_2,l_2` are the second
+coefficients of the right defect at `q` and left defect at `p`, then
+the sharp Hessian is exactly
+`−(r_2+l_2)/2−(|<q,Y_1q>|²+|<p,Y_1p>|²)/4`.
+Therefore prove `r_2+l_2>=0` by coupling the two L117
+Blaschke--Stein identities.  Do not prove the one-sided signs:
+complete tests falsify each; every standard model with `n=4..8`
+has two negative modes at each endpoint.
+The first contraction and moving-characteristic residuals have
+combined numerical rank `n²`, the full joint quotient, and are the
+preferred factor coordinates.  L335's Hardy comparison remains an
+equivalent underlying exact gate, but L336 is the canonical
+organization.  This is current next action 1 below.  Every later
 occurrence of “historical gate,”
 “historical frontier,” or “remaining historical task” records what
 was unresolved at that dated checkpoint; none is a concurrent
 frontier.  The CP/H-r routes remain parked fallbacks.
+
+## L336/A283 TWO-SIDED ENDPOINT-DEFECT FLUX (2026-07-26)
+
+- Exact singular-value algebra at `XY_0X^−1=2pq*` gives
+  `J=−(r_2+l_2)/2−(|Y_1(qq)|²+|Y_1(pp)|²)/4`.
+  This is dimension-free and uses the complete moving-zero/Riemann
+  jet, not a numerical fit.
+- L117 and its left-handed companion turn `r_2+l_2` into a symmetric
+  scalar flux of the initial and final contraction defects through
+  the finite model space of `f`.
+- Cheap falsification is decisive: right and left fluxes separately
+  are indefinite.  Every standard model in dimensions `4..8` has
+  two negative modes at each endpoint; the holdouts confirm the
+  failure and generically the same index.  Their sum is positive
+  definite to numerical precision in 12 standard and 42 independent
+  holdout models.  The softest holdout margin is `3.43e−11`, positive
+  but deliberately treated as numerical.
+- The linear residual pair
+  `R=S*C+C*S` and
+  `Z=D(zf)(S)[C]+(z dot f)(S)` has combined rank `n²` on every
+  tested joint quotient; the individual ranks overlap by exactly
+  two.  This explains both the full Hessian rank and the two missing
+  directions in the raw one-defect shortcut, but the rank law is not
+  yet proved.
+- Standard dataset SHA-256:
+  `023ef06315c2524d1dcc0e818698c6ddc1ab1fea4562b3272955b93b5f802cbb`.
 
 ## L335/A282 SECOND-SUPPORT NEGATIVE GRAM (2026-07-26)
 
@@ -6747,18 +6775,20 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L335/A282)
+## Current next actions (Epoch 6, refreshed after L336/A283)
 
-1. **LIVE: prove the Hardy remainder comparison.**  Rewrite
-   `H_rest(E,u)` in the model space of `f/z`, eliminate all zero
-   velocities invariantly, and prove its dangerous part is a
-   contraction of L335's weighted support energy.  Derive the
-   observed positive index `2(n−2)` rather than assuming it.
+1. **LIVE: prove the symmetric endpoint-flux sign.**  Polarize both
+   L117 Stein identities at `S(zf)`, keep the right endpoint `q` and
+   left endpoint `p` coupled, and factor `r_2+l_2` through the
+   contraction/characteristic residual pair `(R,Z)`.  The desired
+   factor must see all `n²` joint directions and may use the
+   decomposition `K_(zf)=K_f direct-sum C f`.
 2. **Falsify each proposed closed identity before proving it.**  The
    general jet supplies complete normal matrices and zero Schur
-   blocks in dimensions `3..8`; any candidate must reproduce them
-   and L335's separated reserve.  In particular it must detect the
-   two-direction kernel failure of the raw partial-isometry residual.
+   blocks in dimensions `3..8`; any candidate must reproduce L336's
+   endpoint sum and the combined `(R,Z)` rank.  The right and left
+   signs separately, pointwise `t>=delta²/2`, and the raw
+   partial-isometry residual are already falsified.
 3. **Promote only the proved strict quotient to a local patch.**  Use
    the fixed-model support gap, finite Blaschke compactness, and
    Gau--Wu equality uniqueness exactly as in L333.  Keep collisions

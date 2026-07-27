@@ -1,22 +1,33 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current Gau--Wu frontier (2026-07-26): after L335 / A282
+## Current Gau--Wu frontier (2026-07-26): after L336 / A283
 
-L335 proves one exact arbitrary-degree component.  If
+L336 gives the current exact organization.  In compressed-shift
+coordinates write
+`Y_e=f_e(T_e)=pq*+eY_1+e²Y_2+...` and let `r_2,l_2` be the second
+coefficients of the right defect at `q` and left defect at `p`.
+Then
+
+`[e²]||XY_eX^−1||=−(r_2+l_2)/2
+ −(|<q,Y_1q>|²+|<p,Y_1p>|²)/4`.
+
+By L117 and its left companion, `r_2+l_2` is a symmetric
+two-ended Blaschke--Stein flux.  The sole live gate is to prove this
+sum nonnegative.  Do not split it: each endpoint form separately has
+two negative directions in every standard `n=4..8` model, while the
+sum survives 54 complete standard/holdout tests.  The first contraction and
+characteristic residuals have combined numerical rank `n²`, exactly
+the joint quotient dimension; prove a positive factorization in
+those coordinates.  This rank law is still numerical.
+
+L335 remains the exact underlying component.  If
 `t_E=<H_Ev,R H_Ev>` is the second numerical-range support
 coefficient, the inverse-Riemann term `−wH_(t_E)(A)` contributes
-
-`−P_phi(E)=−2 integral_T (zeta f'/f)t_E dm`.
-
-The Blaschke angular derivative `zeta f'/f` is a strictly positive
-sum of Poisson kernels, so this is a dimension-free negative Gram.
-The sole live gate is the now-sharp remainder inequality
-`max_u H_rest(E,u)<=P_phi(E)`.  L334 numerically gives the optimized
-remainder positive index `2(n−2)`, suggesting the model space of
-`f/z`, but that reduction is not proved.  A raw linearized
-partial-isometry defect was falsified as the complete residual
-because its kernel misses two Hessian directions.
+`−P_phi(E)=−2 integral_T (zeta f'/f)t_E dm`.  The Blaschke angular
+derivative is a positive Poisson sum.  L336 replaces the indefinite
+remainder bookkeeping by the coupled endpoint flux; it does not yet
+prove its sign.
 
 L334 completes the requested arbitrary-finite-model falsification
 gate.  The general Gau--Wu generator has tangent rank
@@ -775,11 +786,15 @@ forbids detaching L245's doubled terminal edge from its physical
 balance.  A206 forbids splitting the two formal ellipse orientations
 before their theta/coisometric cancellation.
 
-## Current frontier files map (after L335/A282)
+## Current frontier files map (after L336/A283)
+- `proof/gau_wu_two_sided_endpoint_defect.md` (L336),
+  `experiments/gau_wu_two_sided_endpoint_defect.py`, and its standard
+  dataset: exact symmetric endpoint identity, false separate signs,
+  and the open coupled Stein-flux sign.  This is the sole live gate.
 - `proof/gau_wu_second_support_gram.md` (L335),
   `experiments/gau_wu_second_support_gram.py`, and its dataset:
-  exact positive-weight negative Gram and the sharp remaining
-  inequality `max_u H_rest<=P_phi`.
+  exact positive-weight negative Gram underlying L336's coupled
+  organization.
 - `proof/gau_wu_finite_hessian_falsification.md` (L334),
   `experiments/gau_wu_finite_model.py`,
   `experiments/gau_wu_finite_hessian_jet.py`, and the matching
@@ -814,10 +829,10 @@ before their theta/coisometric cancellation.
 - `proof/repeated_crabb_scalar_model_split.md` (L326) and
   `proof/repeated_crabb_model_size_rigidity.md` (L328): classical
   Gau--Wu split plus the one-copy local rigidity used by induction.
-- `RESEARCH_STATE.md`: the sole live gate is the arbitrary finite
-  Gau--Wu optimized Hessian, starting with numerical falsification
-  in dimensions `4..8`, not another repeated-Crabb coefficient or
-  premature global classification.
+- `RESEARCH_STATE.md`: the sole live gate is L336's symmetric
+  right/left endpoint-flux sign, not another repeated-Crabb
+  coefficient, isolated-size Hessian, or premature global
+  classification.
 
 ### Historical derivation file map
 - `proof/repeated_crabb_canonical_cubic_preimage.md` (L230),
@@ -2682,27 +2697,23 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    not compute another isolated grade.  Then finish the
    normal/elliptic merger, retaining the full CP route as fallback.
 
-## Paste-ready continuation instruction (current after L335/A282)
+## Paste-ready continuation instruction (current after L336/A283)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix`
-as the sole repository-writing agent.  L332 proves the exact
-optimized five-normal Hessian at every fixed nonzero `3 x 3`
-Gau--Wu model, and L333 uses it to prove a full scalar constant-two
-operator neighbourhood.  L334's general analytic jet reproduces
-L332 to `1.76e-13` and finds no positive mode in ten complete normal
-Hessians for dimensions `4..8`.  L335 proves exactly that the
-second-support part is
-`−P_phi(E)=−2 integral (zeta f'/f)t_E dm`, a
-positive-weight negative Gram.  Do not redo either calculation.
-The sole live gate is the sharp Hardy remainder comparison
-`max_u H_rest(E,u)<=P_phi(E)`.  Derive L334's observed positive index
-`2(n−2)` through the model space of `f/z`, eliminate zero velocities
-invariantly, and prove the dangerous part is a contraction of
-L335's reserve.  Reject the raw partial-isometry-defect shortcut: its
-kernel misses two Hessian directions.  Test every candidate against
-L332, the complete L334 forms, and L335's separated Gram before
-proving it.  Do not start isolated dimension-four or dimension-five
-expansions.  Keep collision charts, direct sums, global compactness,
-and CP/H-r as later stages.  Commit each proved milestone."
+as the sole repository-writing agent.  L336 rewrites the exact
+arbitrary finite Gau--Wu Hessian as
+`−(r_2+l_2)/2−(|<q,Y_1q>|²+|<p,Y_1p>|²)/4`, where `r_2,l_2` are
+the right and left endpoint coefficients of the complete moving
+Blaschke image.  L117 makes their sum a two-ended Stein flux.  Do not
+redo L332--L335 or attempt either endpoint sign separately: those
+signs are false.  The sole live gate is `r_2+l_2>=0`.  Polarize the
+two Stein identities together at `S(zf)` and seek a positive
+factorization through the contraction and moving-characteristic
+residual pair `(R,Z)`, whose combined numerical rank is exactly
+`n²`.  Test every candidate against the complete L334/L336 forms
+before proving it.  Do not start isolated dimension-four or
+dimension-five expansions.  Keep collision charts, direct sums,
+global compactness, and CP/H-r as later stages.  Commit each proved
+milestone."
 
 ## Superseded pre-L331 continuation instruction (historical)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix`
