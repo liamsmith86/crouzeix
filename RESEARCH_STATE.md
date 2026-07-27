@@ -1,8 +1,8 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-26 (Epoch 6 — root-tracking flag normal form)
+**Last updated:** 2026-07-26 (Epoch 6 — postcomposition Euler identity)
 
-## CANONICAL LIVE GATE (2026-07-26, after L348/A296)
+## CANONICAL LIVE GATE (2026-07-26, after L349/A297)
 
 There is exactly one current mathematical gate:
 **sign the `2n−2` boundary-shape Schur form at every finite
@@ -93,6 +93,16 @@ moving zeros track the simple spectral velocities
 last zero tracks `tr(P_0G)/2`, and only the endpoint difference
 `(Y_1)_(00)−(Y_1)_(LL)` remains.  These tracking identities are
 observed on `W_phi` but are not yet proved there.
+L349 closes the endpoint sum exactly.  Postcomposition by a disk
+automorphism gives pure zero tangents `k_1,k_i` for which
+
+`tau=(Y_1)_(00)+(Y_1)_(LL)
+ =(4/3)(k_1^T J_phi+i k_i^T J_phi)`.
+
+The L345 source is zero on pure zero motion, so `tau(W_phi)=0`.
+After the cyclic coefficient is closed, L348's repeated-root mean
+tracking follows automatically.  Do not carry the endpoint sum as
+an open Euler debt.
 L341's paired frames and L340's rank law remain equivalent response
 diagnostics, not separate concurrent gates.  A proposed factor must
 still reproduce their endpoint rank `4n−8`, support increment
@@ -104,6 +114,24 @@ occurrence of “historical gate,”
 “historical frontier,” or “remaining historical task” records what
 was unresolved at that dated checkpoint; none is a concurrent
 frontier.  The CP/H-r routes remain parked fallbacks.
+
+## L349/A297 EXACT POSTCOMPOSITION EULER IDENTITY (2026-07-26)
+
+- Postcomposing `f` with
+  `beta_(tw)(z)=(z−tw)/(1−t conj(w)z)` moves each zero with velocity
+  `w/f'(a_j)` and has first image `−wI`, because `Y_0²=0`.
+- If `tau(v)=(Y_1(v))_(00)+(Y_1(v))_(LL)`, direct
+  simple-singular-value polarization gives
+  `B_J(v,k_w)=(3/4)Re(conj(w)tau(v))`.
+- Since L345's source has no zero-motion component,
+  `tau(W_phi)=0` exactly.  This proves the endpoint-sum Euler
+  equation, independently of phase covariance or the Hessian sign.
+- The live lower-flag debt is now one cyclic equation, `n−2`
+  simple-root tracking equations, and one endpoint-difference
+  equation.
+- Twelve audits through `n=8` give Euler-row residual below
+  `9.97e−12`; dataset SHA-256
+  `e572460e3f284788bcf5a121e93e49aaa0fb7f0439fa7e2d02c232fde483d1d4`.
 
 ## L348/A296 EXACT ROOT-TRACKING FLAG NORMAL FORM (2026-07-26)
 
@@ -7143,7 +7171,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L348/A296)
+## Current next actions (Epoch 6, refreshed after L349/A297)
 
 1. **LIVE: sign the boundary-shape Schur form in the conformal
    chart.**  A292 proves that
@@ -7157,9 +7185,11 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    the corner as
    `4f'(0)hat(omega_phi s_W)(−n)/gamma`; prove this last negative
    Hardy coefficient vanishes.  L348 then turns the diagonal debt
-   into `v_j=tr(P_jG)` at each simple root,
-   `v_0=tr(P_0G)/2` at the repeated pair, and the single endpoint
-   split.  Derive those Euler equations from
+   into root tracking and an endpoint split, while L349 already
+   proves the endpoint sum and hence the repeated-root mean equation
+   once the corner is zero.  Derive only
+   `v_j=tr(P_jG)` at each simple root and
+   `(Y_1)_(00)−(Y_1)_(LL)=0` from
    `Hhat^(dagger/2)(I−zeta R*)^−1 Ccal*(H_Cy−s_Cy)`,
    and use L336's exact paired endpoint polarization to derive dual
    isotropy.  Then derive a positive Gram for the negative Hermitian

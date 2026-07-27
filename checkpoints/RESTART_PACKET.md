@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current Gau--Wu frontier (2026-07-26): after L348 / A296
+## Current Gau--Wu frontier (2026-07-26): after L349 / A297
 
 L342 gives the exact common scalar/similarity Hessian, and L343 now
 removes its quadratic-size disk bulk.  At every fixed finite
@@ -98,6 +98,21 @@ on the L345 dual lift but are not proved there.  Twelve full
 joint-basis audits have response residual below `1.87e−15`; dataset
 SHA-256
 `d87d5cc883aefe7ad77ab0a7c4ec81c8e8643d9779dfa2c4160b4c2e3875a04c`.
+
+L349 closes the endpoint sum exactly.  Postcomposition of the
+extremal inner function by a disk automorphism gives pure
+zero-motion tangents `k_1,k_i` such that
+
+`(Y_1)_(00)+(Y_1)_(LL)
+ =(4/3)(k_1^T J_phi+i k_i^T J_phi)`.
+
+The L345 source vanishes on these tangents, so this endpoint trace
+is zero on `W_phi` without assuming phase covariance or the sign.
+After the cyclic coefficient vanishes, L348's mean repeated-root
+tracking follows automatically.  The live flag debt is now the
+cyclic coefficient, `n−2` simple-root tracking equations, and the
+endpoint difference.  Dataset SHA-256
+`e572460e3f284788bcf5a121e93e49aaa0fb7f0439fa7e2d02c232fde483d1d4`.
 
 L336 gives the current exact organization.  In compressed-shift
 coordinates write
