@@ -1,7 +1,24 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current Gau--Wu frontier (2026-07-26): after L333 / A280
+## Current Gau--Wu frontier (2026-07-26): after L334 / A281
+
+L334 completes the requested arbitrary-finite-model falsification
+gate.  The general Gau--Wu generator has tangent rank
+`n^2+2n−2` and normal dimension `(n−1)^2+1`.  A general analytic
+support/Riemann/Blaschke jet moves all scalar zeros and forms their
+Schur complement.  It reproduces L332's exact complex `3 x 3`
+spectrum within `1.76e-13`.  Ten complete normal Hessians, two in
+each dimension `4..8`, contain no positive mode.  The softest
+near-collision value is stably negative at `−1.6048e−8` but remains
+numerical, not a proof.
+
+The sole live gate is now one dimension-free defect-one identity:
+rewrite the optimized form as `Q_phi=−R_phi*R_phi` in model-space
+or colligation coordinates and prove quotient injectivity away from
+root collisions.  Do not start isolated dimension-four or
+dimension-five symbolic expansions.  L192/L329 already provide the
+ramified collision charts.
 
 L332 computes the complete optimized scalar Hessian at every fixed
 nonzero three-dimensional Gau--Wu model.  The exact equality tangent
@@ -21,13 +38,9 @@ of each fixed `G_a`, `0<|a|<1`, and each affine-unitary image.  This
 is local, scalar, and order three, not a global or completely bounded
 theorem.
 
-The sole live gate is now to determine whether L332 is a general
-defect-one model-space identity.  First falsify the optimized normal
-Hessian on random finite Gau--Wu models in dimensions `4..8`,
-quotienting affine/unitary/all-zero motions.  If it survives, derive
-one arbitrary-degree colligation/Hardy negative Gram; do not start
-isolated dimension or coefficient grinds.  If it fails, bank the
-smallest exact witness before rerouting.
+The historical gate after L333 was to determine numerically whether
+L332 might be a general defect-one model-space identity.  L334
+closes that falsification gate without proving the identity.
 
 ### Historical derivation through L331
 
@@ -749,7 +762,14 @@ forbids detaching L245's doubled terminal edge from its physical
 balance.  A206 forbids splitting the two formal ellipse orientations
 before their theta/coisometric cancellation.
 
-## Current frontier files map (after L333/A280)
+## Current frontier files map (after L334/A281)
+- `proof/gau_wu_finite_hessian_falsification.md` (L334),
+  `experiments/gau_wu_finite_model.py`,
+  `experiments/gau_wu_finite_hessian_jet.py`, and the matching
+  independent `_numeric` script/datasets: complete finite-model
+  normal-quotient falsification.  Reuse the general jet to test a
+  proposed defect-one Gram; do not mistake its negative samples for
+  a proof.
 - `proof/gau_wu_transverse_hessian.md` (L332--L333),
   `experiments/gau_wu_transverse_hessian.py`,
   `experiments/gau_wu_transverse_hessian_s70224.jsonl`, and the
@@ -2645,23 +2665,23 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    not compute another isolated grade.  Then finish the
    normal/elliptic merger, retaining the full CP route as fallback.
 
-## Paste-ready continuation instruction (current after L333/A280)
+## Paste-ready continuation instruction (current after L334/A281)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix`
 as the sole repository-writing agent.  L332 proves the exact
 optimized five-normal Hessian at every fixed nonzero `3 x 3`
 Gau--Wu model, and L333 uses it to prove a full scalar constant-two
-operator neighbourhood.  Do not redo that support/Riemann/Hermite
-calculation.  The sole live gate is whether the same strict
-Morse--Bott mechanism holds at an arbitrary finite Gau--Wu model.
-First falsify it numerically for random finite Blaschke data in
-dimensions `4..8`: quotient the exact affine/unitary/model-zero
-tangent, optimize all scalar zeros, and inspect only the normal
-Hessian.  Bank the smallest positive mode or unexpected kernel
-before opening a proof.  If the sign survives, derive one
-dimension-free defect-one colligation/Hardy negative Gram rather
-than starting isolated dimension or coefficient grinds.  Keep
-zero-collision charts, direct sums, global compactness, and CP/H-r
-as later ordered stages.  Commit each independently proved
+operator neighbourhood.  L334's general analytic jet reproduces
+L332 to `1.76e-13` and finds no positive mode in ten complete normal
+Hessians for dimensions `4..8`; this is numerical evidence only.
+Do not redo the finite-dimensional falsification.  The sole live
+gate is one dimension-free defect-one/model-space identity for the
+optimized Hessian: derive `Q_phi=−R_phi*R_phi` and prove that its
+kernel is exactly the affine/unitary/zero tangent away from root
+collisions.  Test any proposed formula against L332, the complete
+L334 matrices, and monomial collision limits before proving it.
+Do not start isolated dimension-four or dimension-five expansions.
+Keep zero-collision charts, direct sums, global compactness, and
+CP/H-r as later ordered stages.  Commit each independently proved
 milestone."
 
 ## Superseded pre-L331 continuation instruction (historical)

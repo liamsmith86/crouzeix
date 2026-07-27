@@ -185,6 +185,13 @@ Lemma-by-lemma scope:
   reduction remain classical inputs.  The Hessian and local theorem
   therefore appear new pending publication-level audit; do not
   promote this to a global `3 x 3` or cb theorem.
+- **L334 arbitrary-degree scope.**  L334 is a campaign numerical
+  falsification protocol, not a literature theorem or a novelty
+  claim.  Its general support/Riemann/zero-motion jet finds negative
+  complete normal Hessians in dimensions `4..8`; no checked source
+  supplies the proposed arbitrary-degree defect-one negative Gram.
+  That identity remains unproved and must not inherit L332's exact
+  status from numerical agreement.
 
 ## Fixed repeated-Crabb neighbourhood audit for L329 (2026-07-26)
 

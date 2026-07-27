@@ -1,27 +1,56 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-26 (Epoch 6 — first non-Crabb Gau--Wu neighbourhood closed)
+**Last updated:** 2026-07-26 (Epoch 6 — finite Gau--Wu Hessian falsification survived)
 
-## CANONICAL LIVE GATE (2026-07-26, after L333/A280)
+## CANONICAL LIVE GATE (2026-07-26, after L334/A281)
 
 There is exactly one current mathematical gate:
-**test and derive the defect-one optimized Hessian at an arbitrary
-finite Gau--Wu disk model.**  L332 proves the complete five-normal
-Hessian at the first nonnilpotent `3 x 3` family and L333 promotes it
-to a full scalar neighbourhood theorem.  The next question is whether
-that strict Morse--Bott mechanism is a general model-space identity
-or an order-three accident.  First falsify it numerically on random
-finite Blaschke data in dimensions `4..8`, quotienting the exact
-affine/unitary/model-zero tangent and optimizing all scalar Blaschke
-zeros.  If the normal Hessian stays negative, derive it from the
-defect-one colligation/Hardy model rather than opening isolated
-fourth-, fifth-, or seventh-grade expansions.  If a kernel or positive
-mode appears, bank the exact smallest witness before choosing a new
-route.  This is current next action 1 below.  Every later
+**derive one dimension-free defect-one negative-Gram identity for the
+optimized Hessian at an arbitrary finite Gau--Wu disk model.**  L334's
+general analytic support/Riemann/Blaschke jet reproduces L332 to
+`1.76e-13` and finds no positive mode on ten complete normal
+quotients in dimensions `4..8`.  The generic equality tangent has
+rank `n²+2n−2`, leaving `(n−1)²+1` normal directions.  Rewrite the
+zero-motion Schur complement as `Q_phi=−R_phi*R_phi` in
+defect-one/model-space coordinates and prove that `R_phi` is
+injective modulo affine, unitary, and zero motions away from root
+collisions.  Do not open isolated dimension-four or dimension-five
+symbolic expansions.  This is current next action 1 below.  Every later
 occurrence of “historical gate,”
 “historical frontier,” or “remaining historical task” records what
 was unresolved at that dated checkpoint; none is a concurrent
 frontier.  The CP/H-r routes remain parked fallbacks.
+
+## L334/A281 FINITE GAU--WU HESSIAN FALSIFICATION (2026-07-26)
+
+- For ordered `phi`-zeros `(0,b_1,...,b_(n−2),0)`, the explicit
+  Gau--Wu matrix generator verifies `W(A)=D` and `f(A)=2E_(1n)` to
+  machine precision before any Hessian is accepted.
+- The generic affine/unitary/all-zero tangent has real rank
+  `n²+2n−2`; its full orthogonal normal quotient has dimension
+  `(n−1)²+1`.
+- A general analytic jet samples the simple support projection and
+  reduced resolvent, forms the two inverse-Riemann coefficients by
+  Schwarz transforms, moves all `n−1` Blaschke zeros, and takes the
+  finite-dimensional zero-motion Schur complement.
+- At a complex `3 x 3` model the general code agrees with L332's
+  closed exact spectrum within `1.76e−13`.
+- Ten complete normal Hessians, two in every dimension `4..8`, have
+  no positive eigenvalue.  The softest value is `−1.6048e−8` in an
+  `n=8` near-root-collision sample and is stable from 256 through
+  2048 Fourier nodes; it remains conservatively labelled numerical,
+  not proved.
+- A soft `n=5` jet direction agrees with independent true-map
+  Theodorsen normalization and nonlinear optimization of all zeros
+  across three finite-difference steps.
+- Complete-jet dataset SHA-256:
+  `0caa8336d1ae210d4f2df3d6489e6acd77628834c75d2f3e90faaebd5cb79936`.
+  Independent nonlinear dataset SHA-256:
+  `acc979a2172cafc8832bd81d271a1b14bc0cb630e279d315bca4dbdd400d8435`.
+- This closes the requested cheap falsification only.  It does not
+  prove the arbitrary-degree Hessian or a local theorem beyond L333.
+  The next ordered task is the defect-one/model-space negative Gram
+  and quotient injectivity stated in the canonical gate above.
 
 ## L332--L333/A280 STRICT GAU--WU HESSIAN AND LOCAL THEOREM (2026-07-26)
 
@@ -6690,21 +6719,20 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L333/A280)
+## Current next actions (Epoch 6, refreshed after L334/A281)
 
-1. **LIVE: falsify the arbitrary finite Gau--Wu Hessian.**  Generate
-   random finite Blaschke models in dimensions `4..8`, construct their
-   exact affine/unitary/model-zero tangent numerically, optimize all
-   moving scalar zeros, and diagonalize only the complementary normal
-   Hessian.  Bank the smallest exact witness immediately if a
-   positive mode or unexplained kernel appears.
-2. **If the sign survives, derive one defect-one identity.**  Express
+1. **LIVE: derive one defect-one negative Gram.**  Express
    the support/Riemann jet, zero-motion Schur complement, and singular
    value curvature through the model-space reproducing kernels and
-   Gau--Wu colligation.  Seek a dimension-free negative Gram modulo
-   the equality tangent; do not open isolated order-four or
-   order-five coefficient grinds.
-3. **Promote only a proved strict quotient to a local patch.**  Use
+   Gau--Wu colligation.  Prove `Q_phi=−R_phi*R_phi` and identify
+   `ker R_phi` exactly with affine, unitary, and zero motions.  Treat
+   L334's soft root-collision modes as a conditioning warning, not as
+   permission for an isolated-size coefficient grind.
+2. **Falsify each proposed closed identity before proving it.**  The
+   general jet supplies complete normal matrices and zero Schur
+   blocks in dimensions `3..8`; any candidate must reproduce them,
+   L332's exact family, and the monomial collision limits.
+3. **Promote only the proved strict quotient to a local patch.**  Use
    the fixed-model support gap, finite Blaschke compactness, and
    Gau--Wu equality uniqueness exactly as in L333.  Keep collisions
    of model zeros as separate ramified charts already exemplified by
