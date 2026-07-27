@@ -1,8 +1,8 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-26 (Epoch 6 — L352 signed residual covariance)
+**Last updated:** 2026-07-26 (Epoch 6 — L353 first-jet boundary loss)
 
-## CANONICAL LIVE GATE (2026-07-26, after L352/A301)
+## CANONICAL LIVE GATE (2026-07-26, after L353/A302)
 
 There is exactly one current mathematical gate:
 **sign the `2n−2` boundary-shape Schur form at every finite
@@ -154,6 +154,26 @@ parts: (i) derive the disk-eliminated mixed intertwiner carrying
 L351's `(a,tau)->(ia,−itau)` to the residual phase; and (ii) prove
 that the common pure physical coefficient is type `(1,1)` from
 L344's fixed port.  L352 proves neither part by itself.
+L353 removes a misleading second-order layer from the equivalent
+L340/L341 response problem.  If `G=E−K_s(A)` is the first normalized
+direction and `a=H_Ts−s'`, the inverse-Riemann second operator is
+
+`−DK_s(A)[G]+K_(a²/2)(A)−K_t(A)`.
+
+The paired frame trace and L335--L336 show that the entire `−K_t`
+contribution to the optimized endpoint form is exactly `2P_phi`.
+It therefore cancels from L340's loss:
+
+`G_phi(E)=2||E||_F²−B_1(E)−Xi(E)`,
+
+where `B_1` is the first conformal-curvature trace and `Xi` contains
+only L341's two coupled first-frame responses.  Thus the loss
+factorization and its phase analysis are first-jet questions.  The
+upper estimate still uses L339's port energy.  Do not carry the
+second support into the output factor, omit `B_1`, or split the two
+frame responses.  In particular `G_phi=−Xi` is false: that
+frame-only form has a negative eigenvalue near `−4`; the positive
+first-curvature reserve `2I−B_1` is load-bearing.
 L341's paired frames and L340's rank law remain equivalent response
 diagnostics, not separate concurrent gates.  A proposed factor must
 still reproduce their endpoint rank `4n−8`, support increment
@@ -7261,7 +7281,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L352/A301)
+## Current next actions (Epoch 6, refreshed after L353/A302)
 
 1. **LIVE: sign the boundary-shape Schur form in the conformal
    chart.**  A292 proves that
@@ -7284,6 +7304,11 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    common pure physical coefficient left undetermined by the square
    gap is type `(1,1)` in L344's fixed-port coordinates.  Only both
    together give phase covariance; do not infer (b) from L352.
+   L353 gives the preferred first-jet form for (b):
+   `G_phi=2I−B_1−Xi`.  Factor this coupled form and prove its
+   type-`(1,1)` covariance after disk-fibre elimination before
+   returning to any second-support expression; that expression has
+   already cancelled exactly.
    The resulting shape block gives phase covariance and
    its cross block gives all remaining Euler identities at once.
    If that coupled derivation fails, return to L344's fixed formula

@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current Gau--Wu frontier (2026-07-26): after L352 / A301
+## Current Gau--Wu frontier (2026-07-26): after L353 / A302
 
 L342 gives the exact common scalar/similarity Hessian, and L343 now
 removes its quadratic-size disk bulk.  At every fixed finite
@@ -170,6 +170,25 @@ L351's `(a,tau)->(ia,−itau)` to the L352 endpoint phase, and prove
 the remaining pure physical coefficient is type `(1,1)` using
 L344's fixed port.  Do not treat either part as proved.  Dataset SHA-256
 `4b300f489b23ad51830014139640c1d403fc598f4a191bdb16d0751d8dc0e471`.
+
+L353 removes the second-support curvature from the parallel
+L340/L341 loss problem exactly.  With `G=E−K_s(A)` and
+`a=H_Ts−s'`, the inverse-Riemann second operator is
+
+`−DK_s(A)[G]+K_(a²/2)(A)−K_t(A)`.
+
+The paired frame trace and L335--L336 identify the `−K_t`
+contribution to the optimized endpoint form as exactly `2P_phi`.
+It cancels from L340's loss, leaving
+
+`G_phi(E)=2||E||_F²−B_1(E)−Xi(E)`,
+
+where `B_1` is the first conformal-curvature trace and `Xi` is the
+sum of the coupled first-frame terms.  Factor this first-jet form and
+prove its type-`(1,1)` covariance after disk-fibre elimination; only
+then compare it with `2I+2P_phi`.  Do not carry `K_t` into the loss
+factor, omit `B_1`, or split the endpoint frames.  Dataset SHA-256
+`15507d65397ecf1e0845c5d7831eb5ebabfd802b16b45e8234e592802546a78e`.
 
 L336 gives the current exact organization.  In compressed-shift
 coordinates write
