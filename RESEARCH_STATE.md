@@ -1,8 +1,8 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-26 (Epoch 6 — postcomposition Euler identity)
+**Last updated:** 2026-07-26 (Epoch 6 — canonical-conjugation endpoint closure)
 
-## CANONICAL LIVE GATE (2026-07-26, after L349/A297)
+## CANONICAL LIVE GATE (2026-07-26, after L350/A298)
 
 There is exactly one current mathematical gate:
 **sign the `2n−2` boundary-shape Schur form at every finite
@@ -103,6 +103,15 @@ The L345 source is zero on pure zero motion, so `tau(W_phi)=0`.
 After the cyclic coefficient is closed, L348's repeated-root mean
 tracking follows automatically.  Do not carry the endpoint sum as
 an open Euler debt.
+L350 closes the endpoint difference exactly.  The canonical
+model-space conjugation exchanges the endpoint vectors, fixes the
+Gau--Wu operator under `T -> C T* C`, and preserves both the joint
+Hessian and the complete shape source.  It therefore fixes
+`W_phi`, making `Y_1(W_phi)` complex symmetric under endpoint
+exchange.  Thus its two endpoint diagonal entries agree; L349 says
+their sum is zero, so both entries vanish.  The only live
+lower-flag debts are now the cyclic coefficient and the `n−2`
+simple-root equations.
 L341's paired frames and L340's rank law remain equivalent response
 diagnostics, not separate concurrent gates.  A proposed factor must
 still reproduce their endpoint rank `4n−8`, support increment
@@ -115,6 +124,26 @@ occurrence of “historical gate,”
 was unresolved at that dated checkpoint; none is a concurrent
 frontier.  The CP/H-r routes remain parked fallbacks.
 
+## L350/A298 EXACT CANONICAL-CONJUGATION ENDPOINT CLOSURE (2026-07-26)
+
+- The canonical model-space conjugation exchanges `p=f` and `q=1`.
+  Since it also sends the Gau--Wu weight `X` to `X^−1`, the
+  equality operator satisfies `C A* C=A`.
+- The involution `rho(T)=C T* C` preserves the numerical range,
+  functional calculus, and norm.  On the joint tangent it therefore
+  gives `R^T J_phi R=J_phi` and `S_phi R=S_phi`.
+- Hence `J_phi^−1S_phi*`, and in particular `W_phi`, is fixed by
+  `R`.  Its first image satisfies
+  `Y_1(W_phi)=C Y_1(W_phi)* C`, so the two endpoint diagonal entries
+  are equal.
+- L349 gives their sum zero.  Both endpoint entries therefore vanish
+  exactly, without phase covariance or a sign assumption.
+- The live lower-flag debt is now only one cyclic equation and
+  `n−2` simple-root tracking equations.
+- Twelve audits through `n=8` give image-symmetry and endpoint
+  residuals below `3.16e−12` and `4.49e−14`; dataset SHA-256
+  `8e317c98ea8216aae05b979cff0fda8b6766b25980e19b9c3e39e34ee96fed8b`.
+
 ## L349/A297 EXACT POSTCOMPOSITION EULER IDENTITY (2026-07-26)
 
 - Postcomposing `f` with
@@ -126,9 +155,9 @@ frontier.  The CP/H-r routes remain parked fallbacks.
 - Since L345's source has no zero-motion component,
   `tau(W_phi)=0` exactly.  This proves the endpoint-sum Euler
   equation, independently of phase covariance or the Hessian sign.
-- The live lower-flag debt is now one cyclic equation, `n−2`
-  simple-root tracking equations, and one endpoint-difference
-  equation.
+- At the L349 stage the lower-flag debt was one cyclic equation,
+  `n−2` simple-root tracking equations, and one endpoint-difference
+  equation; L350 subsequently closed that endpoint difference.
 - Twelve audits through `n=8` give Euler-row residual below
   `9.97e−12`; dataset SHA-256
   `e572460e3f284788bcf5a121e93e49aaa0fb7f0439fa7e2d02c232fde483d1d4`.
@@ -7171,7 +7200,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L349/A297)
+## Current next actions (Epoch 6, refreshed after L350/A298)
 
 1. **LIVE: sign the boundary-shape Schur form in the conformal
    chart.**  A292 proves that
@@ -7180,16 +7209,16 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    equivalent exactly to `W^T J_phi W=0` for
    `W=J_phi^−1S_y*+iJ_phi^−1S_x*`.  L346 proves that the observed
    `tril Y_1(W)=0` is equivalent to only
-   `diag Y_1(W)=0` and `Y_1(W)_(L0)=0`.  Prove those `n+1` Euler
+   `diag Y_1(W)=0` and `Y_1(W)_(L0)=0`.  L349--L350 already close
+   both endpoint diagonal entries.  Prove the remaining `n−1` Euler
    identities from L344's fixed formula.  L347 already identifies
    the corner as
    `4f'(0)hat(omega_phi s_W)(−n)/gamma`; prove this last negative
    Hardy coefficient vanishes.  L348 then turns the diagonal debt
-   into root tracking and an endpoint split, while L349 already
-   proves the endpoint sum and hence the repeated-root mean equation
-   once the corner is zero.  Derive only
-   `v_j=tr(P_jG)` at each simple root and
-   `(Y_1)_(00)−(Y_1)_(LL)=0` from
+   into root tracking.  L349--L350 close the endpoint sum and split,
+   hence the repeated-root mean equation once the corner is zero.
+   Derive only
+   `v_j=tr(P_jG)` at each simple root from
    `Hhat^(dagger/2)(I−zeta R*)^−1 Ccal*(H_Cy−s_Cy)`,
    and use L336's exact paired endpoint polarization to derive dual
    isotropy.  Then derive a positive Gram for the negative Hermitian

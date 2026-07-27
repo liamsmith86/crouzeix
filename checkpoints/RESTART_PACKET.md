@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current Gau--Wu frontier (2026-07-26): after L349 / A297
+## Current Gau--Wu frontier (2026-07-26): after L350 / A298
 
 L342 gives the exact common scalar/similarity Hessian, and L343 now
 removes its quadratic-size disk bulk.  At every fixed finite
@@ -110,9 +110,22 @@ The L345 source vanishes on these tangents, so this endpoint trace
 is zero on `W_phi` without assuming phase covariance or the sign.
 After the cyclic coefficient vanishes, L348's mean repeated-root
 tracking follows automatically.  The live flag debt is now the
-cyclic coefficient, `n−2` simple-root tracking equations, and the
-endpoint difference.  Dataset SHA-256
+cyclic coefficient and `n−2` simple-root tracking equations after
+L350 below.  Dataset SHA-256
 `e572460e3f284788bcf5a121e93e49aaa0fb7f0439fa7e2d02c232fde483d1d4`.
+
+L350 closes the endpoint difference exactly.  The canonical
+model-space conjugation exchanges `p=f` and `q=1`, sends the
+Gau--Wu weight `X` to `X^−1`, and therefore fixes the equality
+operator under `T -> C T* C`.  This reflection preserves both the
+joint scalar Hessian and the complete conformal shape source, so it
+fixes `W_phi=J_phi^−1S_y*+iJ_phi^−1S_x*`.  Functional-calculus
+equivariance makes `Y_1(W_phi)` complex symmetric under the endpoint
+exchange.  Its two endpoint diagonal entries are equal; L349 says
+their sum is zero, so both vanish.  The live lower-flag debt is now
+exactly the cyclic coefficient and the `n−2` simple-root equations.
+Dataset SHA-256
+`8e317c98ea8216aae05b979cff0fda8b6766b25980e19b9c3e39e34ee96fed8b`.
 
 L336 gives the current exact organization.  In compressed-shift
 coordinates write

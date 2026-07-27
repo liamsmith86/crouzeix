@@ -4,8 +4,9 @@
 > finite nondegenerate Gau--Wu model.  Conditional on L347's cyclic
 > coefficient vanishing, it turns L346's diagonal equations into
 > ordinary eigenvalue/Blaschke-zero tracking plus one endpoint
-> splitting equation.  It does not prove that the L345 dual lift
-> satisfies those equations.
+> splitting equation.  L349--L350 subsequently close both endpoint
+> entries on the L345 dual lift.  The simple-root tracking equations
+> and cyclic corner remain open.
 
 ## 1. Spectral root velocities
 
@@ -183,13 +184,15 @@ precision,
 once its cyclic residual is resolved.  Equation (16) is evidence,
 not part of this lemma.
 
-The proof target is now ordered:
+After L349--L350, the proof target is now ordered:
 
 1. prove L347's highest negative support coefficient vanishes;
 2. derive the root-tracking Euler equations (8) from the
    zero-velocity part of L344/L345;
-3. prove the remaining endpoint split (9); and
-4. invoke L346 for the rest of the lower flag.
+3. invoke L346 for the rest of the lower flag.
+
+The endpoint split (9) and endpoint trace are already closed by
+L350 and L349 respectively.
 
 Do not use the generally false ungauged formula
 \((Y_1)_{jj}=f'(b_j)(G_{jj}-v_j)\).  A nonzero cyclic corner closes

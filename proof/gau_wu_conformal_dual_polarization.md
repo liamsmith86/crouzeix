@@ -2,8 +2,9 @@
 
 > **Status and scope.**  The dual-isotropy reformulation of A292's
 > phase covariance is exact finite linear algebra.  The isotropy
-> itself, and the associated upper-triangular response law, are
-> numerical observations.  This note identifies a concrete
+> itself, and the complete upper-triangular response law, are
+> not yet proved.  L349--L350 subsequently prove that both endpoint
+> diagonal entries vanish.  This note identifies a concrete
 > Euler--Lagrange/Hardy projection to prove; it does not yet promote
 > the Hermitian collapse or sign the shape form.
 
@@ -134,7 +135,9 @@ Their real signs remain indefinite, as L336 already warned; (10) is
 a complex bilinear statement and does not revive either false
 one-sided positivity claim.
 
-Equations (9)--(10) are not yet proved.  The next exact task is:
+The two endpoint diagonal instances of (9) are proved by
+L349--L350.  The rest of (9), and (10), are not yet proved.  The
+next exact task is:
 
 1. write the Euler equation
    \(J_\phi W_\phi=S_y^T+iS_x^T\) in L344's fixed

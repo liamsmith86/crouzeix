@@ -2,10 +2,10 @@
 
 > **Status and scope.**  The Hessian identity and its consequence for
 > L345's dual lift are exact.  They prove that the sum of L346's two
-> endpoint diagonal generators vanishes on the dual range.  The
-> cyclic coefficient, the interior root-tracking equations, the
-> endpoint difference, phase covariance, and the Hessian sign remain
-> open.
+> endpoint diagonal generators vanishes on the dual range.  L350
+> subsequently proves that the entries agree, so both endpoints are
+> now closed.  The cyclic coefficient, the interior root-tracking
+> equations, phase covariance, and the Hessian sign remain open.
 
 ## 1. A canonical pure zero-motion tangent
 
@@ -122,12 +122,11 @@ velocity of the repeated zero cluster:
  v_0={1\over2}\operatorname {tr}(P_0G).           \tag{12}
 \]
 
-Thus the live lower-flag debt is reduced from L346's \(n+1\)
-generators to:
+Together with L350, the live lower-flag debt is reduced from L346's
+\(n+1\) generators to:
 
 1. L347's one cyclic/highest-mode equation;
-2. the \(n-2\) simple-root tracking equations; and
-3. the one endpoint-difference equation.
+2. the \(n-2\) simple-root tracking equations.
 
 ## 4. Deterministic audit
 
