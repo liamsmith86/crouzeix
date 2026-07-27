@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current Gau--Wu frontier (2026-07-26): after L353 / A302
+## Current Gau--Wu frontier (2026-07-27): after L354 / A303
 
 L342 gives the exact common scalar/similarity Hessian, and L343 now
 removes its quadratic-size disk bulk.  At every fixed finite
@@ -193,6 +193,29 @@ resumed, factor the complete first-jet form before comparing it with
 `2I+2P_phi`; do not carry `K_t` into the loss factor, omit `B_1`, or
 split the endpoint frames.  Dataset SHA-256
 `15507d65397ecf1e0845c5d7831eb5ebabfd802b16b45e8234e592802546a78e`.
+
+L354 now gives an exact normal form for L352's mixed residual
+bridge.  If `Gamma:p^perp->q^perp` is the endpoint restriction of
+the canonical model conjugation, then pure metric residuals lie on
+`r_+=−Gamma r_-` and pure zero residuals lie on the opposite graph.
+L351's tracking isomorphism supplies a fixed corrector
+`T_phi bar(tau)`, and therefore
+
+`Delta_phi=r_++Gamma r_-−T_phi bar(tau)`
+
+is independent of the free metric row and every zero velocity.  Its
+endpoint-trace coordinate vanishes identically, so it lands in the
+`n−2`-dimensional middle model space.  The remaining mixed
+intertwiner is exactly the physical statement
+
+`Delta_phi(C)=B_phi A_phi(C)`
+
+with `B_phi` complex linear.  That factorization and disk-fibre
+annihilation survive twelve models within `3.90e−15`, with real rank
+`2n−4`, but remain numerical.  Prove them from L344's fixed Hardy
+port.  This does not address L352's separate common-pure-term
+type-`(1,1)` debt.  Dataset SHA-256
+`9d3cadeb5deeb464b707c5fc8171f80b1bbe5296360d265a0b96cacd7fe46f02`.
 
 L336 gives the current exact organization.  In compressed-shift
 coordinates write

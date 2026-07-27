@@ -1,8 +1,8 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-26 (Epoch 6 — L353 first-jet boundary loss)
+**Last updated:** 2026-07-27 (Epoch 6 — L354 canonical residual normal form)
 
-## CANONICAL LIVE GATE (2026-07-26, after L353/A302)
+## CANONICAL LIVE GATE (2026-07-27, after L354/A303)
 
 There is exactly one current mathematical gate:
 **sign the `2n−2` boundary-shape Schur form at every finite
@@ -178,6 +178,28 @@ into the output factor, omit `B_1`, or split the two frame responses.
 In particular `G_phi=−Xi` is false: that frame-only form has a
 negative eigenvalue near `−4`; the positive first-curvature reserve
 `2I−B_1` is load-bearing.
+L354 removes every homogeneous variable from L352's mixed
+residual-forcing bridge.  If `Gamma:p^perp->q^perp` is the
+antiunitary endpoint restriction of L350's model conjugation, then
+pure metric residuals obey `r_+=−Gamma r_-`, while pure zero
+residuals obey the opposite graph.  L351's tracking isomorphism gives
+the explicit zero corrector `T_phi bar(tau)`, so
+
+`Delta_phi=r_++Gamma r_-−T_phi bar(tau)`
+
+is exactly independent of the metric boundary row and all zero
+velocities.  Its endpoint-trace component also cancels exactly,
+leaving only an `n−2`-complex-dimensional physical output.  The
+remaining mixed intertwiner is precisely the factorization
+
+`Delta_phi(C)=B_phi A_phi(C)`
+
+with `B_phi` complex linear.  This factorization and its annihilation
+of L343's disk fibre survive twelve complete models at
+`3.90e−15`, with real rank `2n−4`, but remain numerical evidence.
+Prove them from L344's fixed Hardy port; do not promote the fitted
+row-space inclusion.  Even after this physical factor is proved,
+L352's separate common-pure-term type-`(1,1)` debt remains.
 L341's paired frames and L340's rank law remain equivalent response
 diagnostics, not separate concurrent gates.  A proposed factor must
 still reproduce their endpoint rank `4n−8`, support increment
@@ -7285,7 +7307,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L353/A302)
+## Current next actions (Epoch 6, refreshed after L354/A303)
 
 1. **LIVE: sign the boundary-shape Schur form in the conformal
    chart.**  A292 proves that
@@ -7308,6 +7330,14 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    common pure physical coefficient left undetermined by the square
    gap is type `(1,1)` in L344's fixed-port coordinates.  Only both
    together give phase covariance; do not infer (b) from L352.
+   L354 now quotients part (a) exactly:
+   `Delta_phi=r_++Gamma r_-−T_phi bar(tau)` has no metric or
+   zero-motion dependence and lands in the `n−2`-dimensional middle
+   model space.  Prove its numerically exact factorization
+   `Delta_phi=B_phi a` by showing in L344's fixed Hardy coordinates
+   that it annihilates L343's disk fibre and has no `bar(a)` part.
+   This closes only part (a); part (b) remains separate and
+   load-bearing.
    L353 sharpens only the alternative L340/L341 response route:
    `G_phi=2I−B_1−Xi`.  It does not identify the common term in (b),
    and its loss is not itself phase Hermitian on the scalar shape
