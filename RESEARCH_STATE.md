@@ -1,8 +1,8 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-27 (Epoch 6 — L354 canonical residual normal form)
+**Last updated:** 2026-07-27 (Epoch 6 — L355 residual parallel sum)
 
-## CANONICAL LIVE GATE (2026-07-27, after L354/A303)
+## CANONICAL LIVE GATE (2026-07-27, after L355/A304)
 
 There is exactly one current mathematical gate:
 **sign the `2n−2` boundary-shape Schur form at every finite
@@ -200,6 +200,18 @@ of L343's disk fibre survive twelve complete models at
 Prove them from L344's fixed Hardy port; do not promote the fitted
 row-space inclusion.  Even after this physical factor is proved,
 L352's separate common-pure-term type-`(1,1)` debt remains.
+L355 eliminates the metric row in these coordinates exactly.  The
+canonical conjugation intertwines the endpoint weights, so with
+`w=T_phi bar(tau)+Delta_phi(C)` the two residual squares complete to
+
+`e_phi(C)−4J_C(tau)=(1/2)||w||_(D_+)²`.
+
+Thus the unique optimal tracking is
+`bar(tau_opt)=−T_phi^−1Delta_phi(C)`, and its endpoint trace is zero.
+This closes the metric and zero Schur algebra completely.  It also
+makes L351's observed antiholomorphic optimizer exactly equivalent
+to L354's remaining factor `Delta_phi=B_phi a`; it does not identify
+the common physical integration constant `e_phi(C)`.
 L341's paired frames and L340's rank law remain equivalent response
 diagnostics, not separate concurrent gates.  A proposed factor must
 still reproduce their endpoint rank `4n−8`, support increment
@@ -7307,7 +7319,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L354/A303)
+## Current next actions (Epoch 6, refreshed after L355/A304)
 
 1. **LIVE: sign the boundary-shape Schur form in the conformal
    chart.**  A292 proves that
@@ -7338,6 +7350,11 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    that it annihilates L343's disk fibre and has no `bar(a)` part.
    This closes only part (a); part (b) remains separate and
    load-bearing.
+   L355 has already converted all metric/zero elimination to the
+   exact parallel-sum square
+   `e_phi−4J=(1/2)||T_phi bar(tau)+Delta_phi||_(D_+)²`.
+   Do not perform another real Schur complement or separately solve
+   the zero velocities; use this fixed complex formula.
    L353 sharpens only the alternative L340/L341 response route:
    `G_phi=2I−B_1−Xi`.  It does not identify the common term in (b),
    and its loss is not itself phase Hermitian on the scalar shape

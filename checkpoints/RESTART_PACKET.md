@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current Gau--Wu frontier (2026-07-27): after L354 / A303
+## Current Gau--Wu frontier (2026-07-27): after L355 / A304
 
 L342 gives the exact common scalar/similarity Hessian, and L343 now
 removes its quadratic-size disk bulk.  At every fixed finite
@@ -216,6 +216,21 @@ annihilation survive twelve models within `3.90e−15`, with real rank
 port.  This does not address L352's separate common-pure-term
 type-`(1,1)` debt.  Dataset SHA-256
 `9d3cadeb5deeb464b707c5fc8171f80b1bbe5296360d265a0b96cacd7fe46f02`.
+
+L355 then eliminates the metric row exactly.  Canonical conjugation
+intertwines L342's two endpoint weights, so the metric graph and its
+translate complete to
+
+`e_phi(C)−4J_C(tau)
+ =(1/2)||T_phi bar(tau)+Delta_phi(C)||_(D_+)²`.
+
+The unique optimal root tracking is therefore
+`bar(tau_opt)=−T_phi^−1Delta_phi(C)`, and its endpoint trace is zero.
+This finishes the metric/zero Schur algebra and makes L351's observed
+antiholomorphic tracking precisely equivalent to L354's remaining
+complex-linear physical factor.  It does not determine the common
+physical form `e_phi`.  Dataset SHA-256
+`2c99ea653b2b5ddf671db159f115d4e07ac42ca12b1209df429154e5a2797e1c`.
 
 L336 gives the current exact organization.  In compressed-shift
 coordinates write
