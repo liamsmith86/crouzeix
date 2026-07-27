@@ -192,6 +192,13 @@ Lemma-by-lemma scope:
   supplies the proposed arbitrary-degree defect-one negative Gram.
   That identity remains unproved and must not inherit L332's exact
   status from numerical agreement.
+- **L335 support-Gram scope.**  The ingredients—compressed-shift
+  model calculus, Blaschke logarithmic derivatives, and Schwarz
+  transforms—are classical.  Their assembly as the exact
+  second-support contribution to this optimized Crouzeix Hessian is
+  campaign-specific, but no novelty claim is made before a targeted
+  publication audit.  L335 signs only this component; the Hardy and
+  zero-motion remainder remains open.
 
 ## Fixed repeated-Crabb neighbourhood audit for L329 (2026-07-26)
 

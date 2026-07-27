@@ -1,25 +1,53 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-26 (Epoch 6 — finite Gau--Wu Hessian falsification survived)
+**Last updated:** 2026-07-26 (Epoch 6 — second-support negative Gram isolated)
 
-## CANONICAL LIVE GATE (2026-07-26, after L334/A281)
+## CANONICAL LIVE GATE (2026-07-26, after L335/A282)
 
 There is exactly one current mathematical gate:
-**derive one dimension-free defect-one negative-Gram identity for the
-optimized Hessian at an arbitrary finite Gau--Wu disk model.**  L334's
-general analytic support/Riemann/Blaschke jet reproduces L332 to
-`1.76e-13` and finds no positive mode on ten complete normal
-quotients in dimensions `4..8`.  The generic equality tangent has
-rank `n²+2n−2`, leaving `(n−1)²+1` normal directions.  Rewrite the
-zero-motion Schur complement as `Q_phi=−R_phi*R_phi` in
-defect-one/model-space coordinates and prove that `R_phi` is
-injective modulo affine, unitary, and zero motions away from root
-collisions.  Do not open isolated dimension-four or dimension-five
-symbolic expansions.  This is current next action 1 below.  Every later
+**prove the remaining Hardy/zero-motion comparison against L335's
+explicit second-support reserve.**  The arbitrary-degree Hessian is
+now exactly
+`H_rest(E,u)−P_phi(E)`, where
+`P_phi(E)=2 integral_(T)(zeta f'/f)t_E dm` is L335's proved
+positive-weight Gram.  Show
+`max_u H_rest(E,u)<=P_phi(E)` by model-space/colligation structure.
+L334's complete forms say only `2(n−2)` real remainder directions
+are dangerous, suggesting the model space of the nonzero-zero factor
+`f/z`; derive that reduction rather than opening isolated
+dimension-four or dimension-five expansions.  The raw
+partial-isometry-defect candidate is forbidden: its kernel misses two
+Hessian directions.  This is current next action 1 below.  Every later
 occurrence of “historical gate,”
 “historical frontier,” or “remaining historical task” records what
 was unresolved at that dated checkpoint; none is a concurrent
 frontier.  The CP/H-r routes remain parked fallbacks.
+
+## L335/A282 SECOND-SUPPORT NEGATIVE GRAM (2026-07-26)
+
+- For `A=XS(zf)X^−1`, the endpoint model vectors satisfy the exact
+  transition `<p,h(A)q>=2<f,h>_(H²)`.
+- If `t_E=<H_Ev,R H_Ev>` is the polarized second support
+  coefficient and `K_t=wH_t`, the inverse-Riemann term `−K_t(A)`
+  contributes exactly
+  `−2 Re<f,f'K_t>=−2 integral D_f t_E dm`.
+- The weight
+  `D_f(zeta)=zeta f'(zeta)/f(zeta)` is the strictly positive sum of
+  the Poisson kernels of all zeros of `f`.  Thus this entire term is
+  a dimension-free negative Gram, not numerical evidence.
+- The remaining sign is precisely
+  `max_u H_rest(E,u)<=P_phi(E)`.  In every L334 sample the optimized
+  remainder has positive index `2(n−2)`; all other directions are
+  already favorable.  The inertia pattern is numerical and must be
+  derived before use.
+- The Ando support factorization remains useful, but its raw
+  rank-one partial-isometry defect was explicitly kernel-tested and
+  misses two Hessian directions.  Do not use it as the complete
+  residual.
+- Twelve full-normal audits in dimensions `3..8` agree with the
+  exact transition/Schwarz formula within `5.33e−15`; dataset
+  SHA-256:
+  `cb068337f93287075e54239265d493e73108305bd9f98082354b01de16663e93`.
 
 ## L334/A281 FINITE GAU--WU HESSIAN FALSIFICATION (2026-07-26)
 
@@ -6719,19 +6747,18 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L334/A281)
+## Current next actions (Epoch 6, refreshed after L335/A282)
 
-1. **LIVE: derive one defect-one negative Gram.**  Express
-   the support/Riemann jet, zero-motion Schur complement, and singular
-   value curvature through the model-space reproducing kernels and
-   Gau--Wu colligation.  Prove `Q_phi=−R_phi*R_phi` and identify
-   `ker R_phi` exactly with affine, unitary, and zero motions.  Treat
-   L334's soft root-collision modes as a conditioning warning, not as
-   permission for an isolated-size coefficient grind.
+1. **LIVE: prove the Hardy remainder comparison.**  Rewrite
+   `H_rest(E,u)` in the model space of `f/z`, eliminate all zero
+   velocities invariantly, and prove its dangerous part is a
+   contraction of L335's weighted support energy.  Derive the
+   observed positive index `2(n−2)` rather than assuming it.
 2. **Falsify each proposed closed identity before proving it.**  The
    general jet supplies complete normal matrices and zero Schur
-   blocks in dimensions `3..8`; any candidate must reproduce them,
-   L332's exact family, and the monomial collision limits.
+   blocks in dimensions `3..8`; any candidate must reproduce them
+   and L335's separated reserve.  In particular it must detect the
+   two-direction kernel failure of the raw partial-isometry residual.
 3. **Promote only the proved strict quotient to a local patch.**  Use
    the fixed-model support gap, finite Blaschke compactness, and
    Gau--Wu equality uniqueness exactly as in L333.  Keep collisions

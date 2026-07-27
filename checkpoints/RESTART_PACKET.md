@@ -1,7 +1,22 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current Gau--Wu frontier (2026-07-26): after L334 / A281
+## Current Gau--Wu frontier (2026-07-26): after L335 / A282
+
+L335 proves one exact arbitrary-degree component.  If
+`t_E=<H_Ev,R H_Ev>` is the second numerical-range support
+coefficient, the inverse-Riemann term `−wH_(t_E)(A)` contributes
+
+`−P_phi(E)=−2 integral_T (zeta f'/f)t_E dm`.
+
+The Blaschke angular derivative `zeta f'/f` is a strictly positive
+sum of Poisson kernels, so this is a dimension-free negative Gram.
+The sole live gate is the now-sharp remainder inequality
+`max_u H_rest(E,u)<=P_phi(E)`.  L334 numerically gives the optimized
+remainder positive index `2(n−2)`, suggesting the model space of
+`f/z`, but that reduction is not proved.  A raw linearized
+partial-isometry defect was falsified as the complete residual
+because its kernel misses two Hessian directions.
 
 L334 completes the requested arbitrary-finite-model falsification
 gate.  The general Gau--Wu generator has tangent rank
@@ -13,12 +28,10 @@ each dimension `4..8`, contain no positive mode.  The softest
 near-collision value is stably negative at `−1.6048e−8` but remains
 numerical, not a proof.
 
-The sole live gate is now one dimension-free defect-one identity:
-rewrite the optimized form as `Q_phi=−R_phi*R_phi` in model-space
-or colligation coordinates and prove quotient injectivity away from
-root collisions.  Do not start isolated dimension-four or
-dimension-five symbolic expansions.  L192/L329 already provide the
-ramified collision charts.
+The historical gate after L334 was to find one undifferentiated
+defect-one negative Gram.  L335 isolates its second-support part and
+replaces that broad request by the precise Hardy remainder
+comparison above.
 
 L332 computes the complete optimized scalar Hessian at every fixed
 nonzero three-dimensional Gau--Wu model.  The exact equality tangent
@@ -762,7 +775,11 @@ forbids detaching L245's doubled terminal edge from its physical
 balance.  A206 forbids splitting the two formal ellipse orientations
 before their theta/coisometric cancellation.
 
-## Current frontier files map (after L334/A281)
+## Current frontier files map (after L335/A282)
+- `proof/gau_wu_second_support_gram.md` (L335),
+  `experiments/gau_wu_second_support_gram.py`, and its dataset:
+  exact positive-weight negative Gram and the sharp remaining
+  inequality `max_u H_rest<=P_phi`.
 - `proof/gau_wu_finite_hessian_falsification.md` (L334),
   `experiments/gau_wu_finite_model.py`,
   `experiments/gau_wu_finite_hessian_jet.py`, and the matching
@@ -2665,24 +2682,27 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    not compute another isolated grade.  Then finish the
    normal/elliptic merger, retaining the full CP route as fallback.
 
-## Paste-ready continuation instruction (current after L334/A281)
+## Paste-ready continuation instruction (current after L335/A282)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix`
 as the sole repository-writing agent.  L332 proves the exact
 optimized five-normal Hessian at every fixed nonzero `3 x 3`
 Gau--Wu model, and L333 uses it to prove a full scalar constant-two
 operator neighbourhood.  L334's general analytic jet reproduces
 L332 to `1.76e-13` and finds no positive mode in ten complete normal
-Hessians for dimensions `4..8`; this is numerical evidence only.
-Do not redo the finite-dimensional falsification.  The sole live
-gate is one dimension-free defect-one/model-space identity for the
-optimized Hessian: derive `Q_phi=−R_phi*R_phi` and prove that its
-kernel is exactly the affine/unitary/zero tangent away from root
-collisions.  Test any proposed formula against L332, the complete
-L334 matrices, and monomial collision limits before proving it.
-Do not start isolated dimension-four or dimension-five expansions.
-Keep zero-collision charts, direct sums, global compactness, and
-CP/H-r as later ordered stages.  Commit each independently proved
-milestone."
+Hessians for dimensions `4..8`.  L335 proves exactly that the
+second-support part is
+`−P_phi(E)=−2 integral (zeta f'/f)t_E dm`, a
+positive-weight negative Gram.  Do not redo either calculation.
+The sole live gate is the sharp Hardy remainder comparison
+`max_u H_rest(E,u)<=P_phi(E)`.  Derive L334's observed positive index
+`2(n−2)` through the model space of `f/z`, eliminate zero velocities
+invariantly, and prove the dangerous part is a contraction of
+L335's reserve.  Reject the raw partial-isometry-defect shortcut: its
+kernel misses two Hessian directions.  Test every candidate against
+L332, the complete L334 forms, and L335's separated Gram before
+proving it.  Do not start isolated dimension-four or dimension-five
+expansions.  Keep collision charts, direct sums, global compactness,
+and CP/H-r as later stages.  Commit each proved milestone."
 
 ## Superseded pre-L331 continuation instruction (historical)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix`
