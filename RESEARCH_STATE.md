@@ -1,8 +1,8 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-26 (Epoch 6 — fixed Toeplitz support port)
+**Last updated:** 2026-07-26 (Epoch 6 — conformal shape phase chart)
 
-## CANONICAL LIVE GATE (2026-07-26, after L344/A291)
+## CANONICAL LIVE GATE (2026-07-26, after A292)
 
 There is exactly one current mathematical gate:
 **sign the `2n−2` boundary-shape Schur form at every finite
@@ -39,16 +39,27 @@ has rank `2n−2` and kernel exactly `D_phi`.  Define
 
 `Hhat_phi(sigma)=max_(Sigma_phi(C)=sigma) e_phi(C)`.
 
-The live theorem is precisely `Hhat_phi(sigma)<=0`.  Use the
-polynomial support frame and L344's exact transport
+The live theorem is precisely `Hhat_phi(sigma)<=0`.  A292 supplies
+the exact, better-conditioned conformal coordinate
+
+`A_phi(C)=2(hat(s_C)(2),...,hat(s_C)(n)) in C^(n−1)`.
+
+It is an isomorphism on L343's shape quotient.  In fifteen complete
+models the Schur form is phase covariant in this coordinate within
+`3.85e−12`, hence is the realification of one negative Hermitian
+`(n−1)`-square.  The phase covariance and sign are evidence, not
+theorems.  First derive that phase identity from the polynomial
+support frame and L344's exact transport
 
 `eta_C(zeta)=Hhat^(dagger/2)(I−zeta R*)^−1 Ccal*
  (H_C(zeta)y_zeta−s_C(zeta)y_zeta)`
 
-to eliminate the already strict disk variable and identify the
-remaining endpoint output.  This is a fixed inverse-Toeplitz Hardy
-norm, so do not return to L339's moving pointwise pseudoinverse or
-re-expand the already strict disk block.
+after eliminating the already strict disk variable.  Then identify
+the positive Gram for the negative Hermitian matrix.  This is a
+fixed inverse-Toeplitz Hardy norm, so do not return to L339's moving
+pointwise pseudoinverse, re-expand the already strict disk block, or
+infer phase covariance merely from the nearly paired spectrum in
+the weighted coordinate.
 L341's paired frames and L340's rank law remain equivalent response
 diagnostics, not separate concurrent gates.  A proposed factor must
 still reproduce their endpoint rank `4n−8`, support increment
@@ -60,6 +71,28 @@ occurrence of “historical gate,”
 “historical frontier,” or “remaining historical task” records what
 was unresolved at that dated checkpoint; none is a concurrent
 frontier.  The CP/H-r routes remain parked fallbacks.
+
+## A292 EXACT CONFORMAL CHART + NUMERICAL HERMITIAN COLLAPSE (2026-07-26)
+
+- The ordinary support modes
+  `2(hat(s)(2),...,hat(s)(n))` give an exact complex coordinate on
+  `P_n^R/(omega_phi P_1^R)`.  If the low modes of `sigma` are gauged
+  away and these modes of `s=sigma/omega_phi` vanish, then
+  `integral sigma²/omega_phi=integral sigma s=0`, so the quotient
+  class is zero.
+- In these coordinates the live real Schur form commutes numerically
+  with multiplication by `i`; its complex-symmetric block vanishes.
+  Thus the exact-looking target is one Hermitian `(n−1)`-square,
+  not an arbitrary real `(2n−2)`-square.
+- This explains but corrects the preliminary paired-spectrum clue:
+  the weighted L343 coordinates do not carry the obvious complex
+  structure, and their pairs are not exactly equal.
+- Fifteen complete models, three per dimension `4..8`, give maximum
+  phase residual `3.85e−12`; all Hermitian matrices are negative,
+  with softest maximum eigenvalue `−3.51e−7`.  Neither identity is
+  promoted beyond the exact coordinate chart.
+- Dataset SHA-256
+  `41e0bec1e7a37a5ac981a59821191a7ebac44969593187203ffcffa4bc1a0ad6`.
 
 ## L344/A291 EXACT FIXED-TOEPLITZ PORT TRANSPORT (2026-07-26)
 
@@ -6990,18 +7023,19 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L344/A291)
+## Current next actions (Epoch 6, refreshed after A292)
 
-1. **LIVE: sign the `2n−2` boundary-shape Schur form.**  Use L343's
-   exact quotient
-   `Sigma_phi(C)=[omega_phi s_C] mod omega_phi span{1,cos,sin}` and
-   `Hhat_phi(sigma)=max_(Sigma_phi(C)=sigma)e_phi(C)`.  Use L344's
-   fixed formula
+1. **LIVE: sign the boundary-shape Schur form in the conformal
+   chart.**  A292 proves that
+   `2(hat(s_C)(2),...,hat(s_C)(n))` is an exact coordinate in
+   `C^(n−1)` for L343's quotient.  First derive its numerically exact
+   phase covariance from L344's fixed formula
    `Hhat^(dagger/2)(I−zeta R*)^−1 Ccal*(H_Cy−s_Cy)`,
-   eliminate the strict general-H disk variable from its
-   polynomialized forcing, and derive the remaining endpoint-output
-   Gram.  Do not re-expand or re-prove the strictly negative
-   `(n−2)^2` disk block.  L342's two
+   after eliminating the strict general-H disk variable.  Then
+   derive a positive Gram for the negative Hermitian
+   `(n−1)`-square.  Do not infer the phase identity from nearly
+   paired weighted-coordinate eigenvalues, and do not re-expand or
+   re-prove the strictly negative `(n−2)^2` disk block.  L342's two
    endpoint residual squares must remain intact, and L340/L341's
    rank/nullity law remains the falsification gate for any proposed
    factor, not a second task.

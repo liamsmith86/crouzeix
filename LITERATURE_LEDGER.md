@@ -97,6 +97,18 @@ Papers, theorems, assumptions, possible gaps. Status verified via web 2026-07-24
   reduction only: the final endpoint-output domination on the
   `2n−2` shape quotient has not been proved.
   `proof/gau_wu_toeplitz_port_transport.md`.
+- **Campaign A292 / Grunsky caution (2026-07-26):** the exact
+  conformal-Fourier chart is elementary finite Toeplitz positivity,
+  while the observed phase-covariant Hermitian form resembles the
+  classical complex-symmetric contraction forms arising from
+  Grunsky coefficients.  Classical Grunsky inequalities say that
+  the weighted Grunsky matrix of a univalent map is contractive.
+  The campaign has not identified its Gau--Wu Hermitian matrix with
+  a Grunsky matrix, and the finite Blaschke extremal is not itself a
+  univalent map in degree greater than one.  Treat this only as a
+  search cue for a Hardy/Grunsky factor, not as a citation that
+  proves phase covariance or the sign.
+  `proof/gau_wu_conformal_shape_phase.md`.
 - Compressions of the shift / model space operators with certain Blaschke conditions (Bickel–Gorkin school).
 - Matrices attaining ‖A‖ = numerical radius conditions (Crabb-type equality cases).
 
