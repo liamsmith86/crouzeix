@@ -275,6 +275,15 @@ Lemma-by-lemma scope:
   factorization is later proved, its relationship to classical
   unitary-colligation, Stein, and model-space realization theory must
   be audited before making any originality statement.
+- **L341 novelty scope.**  The primal/dual transferred-frame Stein
+  equations are direct applications of L127's classical
+  model-kernel identity, and the moving-kernel square is elementary
+  finite-dimensional perturbation theory.  The identification of
+  the L340 loss kernel with
+  `(s_E,Y_1^opt q,(Y_1^opt)*p)` is presently numerical, not a theorem,
+  and carries no novelty claim.  Any eventual response metric must
+  be compared with classical conservative-realization and
+  observability-Gramian theory before originality is assessed.
 
 ## Equivalent / stronger formulations (Track F cautions)
 - Completely bounded version: "W(A) is a complete 2-spectral set" — open, possibly strictly stronger; Paulsen theory: cb-version ⇔ similarity to operator with dilation... (K-spectral ⇒ complete K'-spectral with K' possibly larger). Do NOT conflate.

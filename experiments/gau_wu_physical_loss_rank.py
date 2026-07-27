@@ -13,7 +13,10 @@ import numpy as np
 
 from gau_wu_finite_hessian_jet import support_jet
 from gau_wu_second_support_gram import boundary_angular_derivative
-from gau_wu_two_sided_endpoint_defect import build_endpoint_form_audit
+from gau_wu_two_sided_endpoint_defect import (
+    EndpointFormAudit,
+    build_endpoint_form_audit,
+)
 
 
 @dataclass(frozen=True)
@@ -37,13 +40,25 @@ class PhysicalLossRankRecord:
     all_checks_passed: bool
 
 
-def audit_model(
+@dataclass(frozen=True)
+class PhysicalLossAudit:
+    """Complete reduced forms and their public rank-audit record."""
+
+    record: PhysicalLossRankRecord
+    endpoint_audit: EndpointFormAudit
+    zero_optimizer: np.ndarray
+    physical_remainder: np.ndarray
+    support_gram: np.ndarray
+    loss_form: np.ndarray
+
+
+def build_physical_loss_audit(
     dimension: int,
     sample: int,
     seed: int,
     angle_count: int,
-) -> PhysicalLossRankRecord:
-    """Audit the reduced physical remainder and its loss rank."""
+) -> PhysicalLossAudit:
+    """Build the reduced physical remainder and its loss-rank audit."""
 
     audit = build_endpoint_form_audit(
         dimension,
@@ -57,10 +72,8 @@ def audit_model(
     physical_block = two_sided[:physical_dimension, :physical_dimension]
     mixed_block = two_sided[:physical_dimension, physical_dimension:]
     zero_block = two_sided[physical_dimension:, physical_dimension:]
-    physical_remainder = physical_block - mixed_block @ np.linalg.solve(
-        zero_block,
-        mixed_block.T,
-    )
+    zero_optimizer = -np.linalg.solve(zero_block, mixed_block.T)
+    physical_remainder = physical_block + mixed_block @ zero_optimizer
 
     _, second_support, _ = support_jet(
         audit.matrix,
@@ -116,7 +129,7 @@ def audit_model(
             f"null={observed_nullity}/{expected_nullity}, "
             f"tail={largest_null}/{smallest_active}"
         )
-    return PhysicalLossRankRecord(
+    record = PhysicalLossRankRecord(
         dimension=dimension,
         sample=sample,
         seed=seed,
@@ -133,6 +146,30 @@ def audit_model(
         largest_null_loss_singular_value=float(largest_null),
         all_checks_passed=True,
     )
+    return PhysicalLossAudit(
+        record=record,
+        endpoint_audit=audit,
+        zero_optimizer=zero_optimizer,
+        physical_remainder=physical_remainder,
+        support_gram=support_gram,
+        loss_form=loss,
+    )
+
+
+def audit_model(
+    dimension: int,
+    sample: int,
+    seed: int,
+    angle_count: int,
+) -> PhysicalLossRankRecord:
+    """Audit the reduced physical remainder and its loss rank."""
+
+    return build_physical_loss_audit(
+        dimension,
+        sample,
+        seed,
+        angle_count,
+    ).record
 
 
 def write_records(

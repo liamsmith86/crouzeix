@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current Gau--Wu frontier (2026-07-26): after L340 / A287
+## Current Gau--Wu frontier (2026-07-26): after L341 / A288
 
 L336 gives the current exact organization.  In compressed-shift
 coordinates write
@@ -59,6 +59,18 @@ is an explicit boundary response `L_phi` satisfying
 `||L_phi C||²<=2||C||²+2||gamma_C||_(L²)²`.
 Reject any candidate that fails the rank/nullity diagnostic before
 investing in its proof.
+
+L341 identifies the response coordinates that candidate must use.
+The primal and dual L127 transferred frames obey exact Stein
+equations, have base values `I−pp*` and `I−qq*`, and their first
+forcing contains the two endpoint vectors
+`u=Y_1^opt q`, `v=(Y_1^opt)*p`.  Together with the first support
+motion define `O_phi=(s,u,v)`.  Numerically,
+`ker O_phi=ker G_phi`; the endpoint rank is `4n−8`, the support adds
+`2n−6`, and the total is `6n−14`.  Derive
+`G_phi=O_phi* M_phi O_phi` from the exact coupled frames and prove
+the port contraction for `M_phi`.  The kernel/rank identification is
+still numerical.
 
 L335 remains the exact underlying component.  If
 `t_E=<H_Ev,R H_Ev>` is the second numerical-range support
@@ -825,7 +837,12 @@ forbids detaching L245's doubled terminal edge from its physical
 balance.  A206 forbids splitting the two formal ellipse orientations
 before their theta/coisometric cancellation.
 
-## Current frontier files map (after L340/A287)
+## Current frontier files map (after L341/A288)
+- `proof/gau_wu_boundary_observation.md` (L341),
+  `experiments/gau_wu_boundary_observation.py`, and its dataset:
+  exact paired transferred-frame equations plus the numerical
+  identification of the canonical observation kernel.  Deriving its
+  positive response metric is the live task.
 - `proof/gau_wu_physical_loss_rank.md` (L340),
   `experiments/gau_wu_physical_loss_rank.py`, and its dataset:
   numerical PSD/rank/nullity law for the reduced loss.  This is the
@@ -2752,7 +2769,7 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    not compute another isolated grade.  Then finish the
    normal/elliptic merger, retaining the full CP route as fallback.
 
-## Paste-ready continuation instruction (current after L340/A287)
+## Paste-ready continuation instruction (current after L341/A288)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix`
 as the sole repository-writing agent.  L336 rewrites the exact
 arbitrary finite Gau--Wu Hessian as
@@ -2774,9 +2791,17 @@ twelve models through dimension nine, rank `6n−14` and nullity
 `(n−4)²`.  This is evidence only.  Express the remaining loss as an
 explicit boundary response `G_phi=L_phi*L_phi`, then prove
 `||L_phi C||²<=2||C||²+2||gamma_C||_(L²)²`.  Require every candidate
-to reproduce L340's rank/nullity law before proving it.  Do not
+to reproduce L340's rank/nullity law before proving it.  L341 now
+gives the canonical observation
+`O_phi=(s,Y_1^opt q,(Y_1^opt)*p)`: its paired L127 frames satisfy
+exact Stein equations, and numerically
+`ker O_phi=ker G_phi`, with endpoint rank `4n−8`, support increment
+`2n−6`, and total rank `6n−14`.  Derive the positive metric
+`G_phi=O_phi* M_phi O_phi` from the coupled frames, then prove the
+L339 energy contraction.  Do not use a data-dependent square root.
+Do not
 estimate `D_f` separately.  Test every candidate against the complete
-L334/L336/L340 forms before proving it.  Do not start isolated
+L334/L336/L340/L341 forms before proving it.  Do not start isolated
 dimension-four or dimension-five expansions.  Keep collision charts,
 direct sums, global compactness, and CP/H-r as later stages.  Commit
 each proved milestone."

@@ -1,8 +1,8 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-26 (Epoch 6 — Gau--Wu boundary loss isolated)
+**Last updated:** 2026-07-26 (Epoch 6 — Gau--Wu boundary observation isolated)
 
-## CANONICAL LIVE GATE (2026-07-26, after L340/A287)
+## CANONICAL LIVE GATE (2026-07-26, after L341/A288)
 
 There is exactly one current mathematical gate:
 **prove L338's purely physical Riesz-energy inequality.**  In shift
@@ -24,8 +24,16 @@ response.  L340 then defines the exact loss
 identify an explicit boundary response `L_phi` with
 `G_phi=L_phi*L_phi`, and prove the lossless-port estimate
 `||L_phi C||²<=2||C||²+2||gamma_C||_(L²)²`.  This is exactly
-`H_phys>=0`.  Any proposed factor must first reproduce L340's
-rank/nullity law.  Couple the two L127 Blaschke--Stein identities;
+`H_phys>=0`.  L341 supplies the canonical response coordinates:
+after L338's zero completion,
+`O_phi(C)=(s_C,Y_1^opt q,(Y_1^opt)*p)`.  Its exact paired L127
+frames have base projections `I−pp*` and `I−qq*`; numerically
+`ker O_phi=ker G_phi`, with endpoint rank `4n−8`, support increment
+`2n−6`, and total rank `6n−14`.  Derive the positive response metric
+`G_phi=O_phi* M_phi O_phi` from those frames, rather than taking a
+data-dependent square root.  Any proposed factor must first
+reproduce L340/L341's rank/nullity law.  Couple the two L127
+Blaschke--Stein identities;
 do not prove the one-sided signs:
 complete tests falsify each; every standard model with `n=4..8`
 has two negative modes at each endpoint.
@@ -39,6 +47,30 @@ occurrence of “historical gate,”
 “historical frontier,” or “remaining historical task” records what
 was unresolved at that dated checkpoint; none is a concurrent
 frontier.  The CP/H-r routes remain parked fallbacks.
+
+## L341/A288 EXACT PAIRED FRAMES AND NUMERICAL OBSERVATION LAW (2026-07-26)
+
+- For any moving orthonormal basis of `K_(f_e)`, the positive primal
+  and dual L127 frames obey exact Stein equations whose right sides
+  are `qq*−Y_eqq*Y_e*` and `pp*−Y_e*pp*Y_e`.
+  Their traces are exactly L336's two endpoint defects.
+- At the Gau--Wu base the frames are `I−pp*` and `I−qq*`.
+  Differentiating gives stable Stein equations forced by the
+  normalized operator direction and the endpoint vectors
+  `u=Y_1q`, `v=Y_1*p`.  Their moving rank-`n−1` kernels give exact
+  second-order squares.
+- After L338's zero completion define
+  `O_phi(E)=(s_E,Y_1^opt q,(Y_1^opt)*p)`.  In twelve complete models
+  through dimension nine, `(u,v)` has rank `4n−8`, the support
+  coordinate adds `2n−6`, and
+  `ker O_phi=ker G_phi` with total rank `6n−14` and nullity
+  `(n−4)²`.  The full optimized first image vanishes on the common
+  kernel.
+- The rank/kernel identification is numerical only.  The live task
+  is to derive the response metric `M_phi` from the exact paired
+  frames and prove its L339 port domination.
+- Dataset SHA-256
+  `73b7d48403d8321ec89068ae6f492b5517c81153cf8b5383d37c99c32dda8e56`.
 
 ## L340/A287 NUMERICAL BOUNDARY-RANK LOSS LAW (2026-07-26)
 
@@ -6871,16 +6903,19 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L340/A287)
+## Current next actions (Epoch 6, refreshed after L341/A288)
 
 1. **LIVE: factor and dominate the boundary loss.**  Starting from
-   the paired L127 Stein identities and L339's unitary colligation,
-   derive an explicit response `L_phi` whose Gram is
-   `G_phi=2I+2P_phi−H_phys`, then prove
-   `||L_phi C||²<=2||C||²+2||gamma_C||_(L²)²`.  Before opening a
-   proof route, require the candidate to reproduce L340's numerical
-   rank `6n−14` and nullity `(n−4)²`.  Keep both endpoints coupled;
-   do not reconstruct zero velocities or estimate `D_f` separately.
+   L341's paired positive frames and L339's unitary colligation,
+   derive the positive metric `M_phi` in
+   `G_phi=O_phi* M_phi O_phi`, where
+   `O_phi=(s,Y_1^opt q,(Y_1^opt)*p)`, then prove
+   `||M_phi^(1/2)O_phi C||²
+   <=2||C||²+2||gamma_C||_(L²)²`.  Before opening a proof route,
+   require the candidate to reproduce the endpoint rank `4n−8`,
+   support increment `2n−6`, total rank `6n−14`, and nullity
+   `(n−4)²`.  Keep both endpoints coupled; do not reconstruct zero
+   velocities or estimate `D_f` separately.
 2. **Falsify each proposed closed identity before proving it.**  The
    general jet supplies complete normal matrices and zero Schur
    blocks through dimension nine; any candidate must reproduce
