@@ -1,8 +1,8 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-26 (Epoch 6 — lower Schur-flag recurrence)
+**Last updated:** 2026-07-26 (Epoch 6 — cyclic corner/shape identity)
 
-## CANONICAL LIVE GATE (2026-07-26, after L346/A294)
+## CANONICAL LIVE GATE (2026-07-26, after L347/A295)
 
 There is exactly one current mathematical gate:
 **sign the `2n−2` boundary-shape Schur form at every finite
@@ -77,6 +77,15 @@ infer phase covariance merely from the nearly paired spectrum in
 the weighted coordinate.  A universal-diagonal-plus-rank-one
 inverse ansatz was falsified after resolving its dominant soft
 component; do not reopen it.
+L347 now identifies the cyclic condition exactly:
+
+`(Y_1)_(L0)=4f'(0) hat(sigma_W)(−n)/gamma`,
+
+where `sigma_W=omega_phi s_W` and `gamma` is the nonzero endpoint
+normalization of L343's polynomial frame (`gamma=1` in the standard
+frame).  Pure zero motion has no cyclic corner.  Therefore derive
+vanishing of this last negative Hardy coefficient from L344's fixed
+port; do not try to repair it by moving a Blaschke zero.
 L341's paired frames and L340's rank law remain equivalent response
 diagnostics, not separate concurrent gates.  A proposed factor must
 still reproduce their endpoint rank `4n−8`, support increment
@@ -88,6 +97,24 @@ occurrence of “historical gate,”
 “historical frontier,” or “remaining historical task” records what
 was unresolved at that dated checkpoint; none is a concurrent
 frontier.  The CP/H-r routes remain parked fallbacks.
+
+## L347/A295 EXACT CYCLIC-CORNER/SHAPE IDENTITY (2026-07-26)
+
+- If `sigma_E=omega_phi s_E`, direct coefficient extraction in
+  L343's polynomial frame gives
+  `hat(sigma_E)(−n)=(Ccal*E Ccal)_(L0)/4`.
+- The endpoint columns are `Ccal e_0=gamma p`,
+  `Ccal e_L=q`.  The inverse-Riemann correction and every
+  zero-motion correction are upper triangular, while the endpoint
+  divided difference is `f'(0)`.  Hence
+  `(Y_1)_(L0)=4f'(0)hat(sigma_E)(−n)/gamma`.
+- The cyclic flag debt is therefore purely physical and is exactly
+  the final negative coefficient of the weighted shape polynomial.
+  L347 locates the coefficient but does not prove its vanishing on
+  `W_phi`.
+- Twelve audits through `n=8` give highest-mode and corner residuals
+  below `6.36e−15`; dataset SHA-256
+  `a4bad7eb40ff2aa41d65c8b7cee515acb4f8ae21b1ea4b0caa3eb353f8646829`.
 
 ## L346/A294 EXACT LOWER-FLAG RECURRENCE (2026-07-26)
 
@@ -7090,7 +7117,7 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L346/A294)
+## Current next actions (Epoch 6, refreshed after L347/A295)
 
 1. **LIVE: sign the boundary-shape Schur form in the conformal
    chart.**  A292 proves that
@@ -7100,13 +7127,18 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    `W=J_phi^−1S_y*+iJ_phi^−1S_x*`.  L346 proves that the observed
    `tril Y_1(W)=0` is equivalent to only
    `diag Y_1(W)=0` and `Y_1(W)_(L0)=0`.  Prove those `n+1` Euler
-   identities from L344's fixed formula
+   identities from L344's fixed formula.  L347 already identifies
+   the corner as
+   `4f'(0)hat(omega_phi s_W)(−n)/gamma`; prove this last negative
+   Hardy coefficient vanishes, and derive the diagonal moving-root
+   equations, from
    `Hhat^(dagger/2)(I−zeta R*)^−1 Ccal*(H_Cy−s_Cy)`,
    and use L336's exact paired endpoint polarization to derive dual
    isotropy.  Then derive a positive Gram for the negative Hermitian
    `(n−1)`-square.  Do not infer the phase identity from nearly
    paired weighted-coordinate eigenvalues or from the falsified
-   diagonal-plus-rank-one inverse ansatz, and do not re-expand or
+   diagonal-plus-rank-one inverse ansatz, do not try to cancel the
+   cyclic corner with zero motion, and do not re-expand or
    re-prove the strictly negative `(n−2)^2` disk block.  L342's two
    endpoint residual squares must remain intact, and L340/L341's
    rank/nullity law remains the falsification gate for any proposed

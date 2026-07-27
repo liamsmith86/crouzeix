@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current Gau--Wu frontier (2026-07-26): after L346 / A294
+## Current Gau--Wu frontier (2026-07-26): after L347 / A295
 
 L342 gives the exact common scalar/similarity Hessian, and L343 now
 removes its quadratic-size disk bulk.  At every fixed finite
@@ -69,6 +69,20 @@ redo the disk block or replace the quotient by another
 dimension-by-dimension SDP computation.  Do not infer exact symmetry
 from the merely near-paired spectrum in weighted coordinates or
 from the falsified universal-diagonal-plus-rank-one inverse ansatz.
+
+L347 identifies the cyclic equation exactly.  If
+`sigma_E=omega_phi s_E` and `Ccal e_0=gamma p`,
+`Ccal e_L=q`, then
+
+`(Y_1)_(L0)=4f'(0)hat(sigma_E)(−n)/gamma`.
+
+The Riemann correction and every zero-motion term are upper
+triangular, so zero velocities cannot repair this corner.  The
+immediate task is to derive vanishing of that last negative Hardy
+coefficient, together with the diagonal moving-root equations, from
+L344's fixed-port Euler equation.  Twelve audits through `n=8` give
+corner residual below `6.35e−15`; dataset SHA-256
+`a4bad7eb40ff2aa41d65c8b7cee515acb4f8ae21b1ea4b0caa3eb353f8646829`.
 
 L336 gives the current exact organization.  In compressed-shift
 coordinates write
