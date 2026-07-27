@@ -38,6 +38,52 @@ class SupportPortEnergyRecord:
     all_checks_passed: bool
 
 
+@dataclass(frozen=True)
+class SupportPortData:
+    """Canonical model shift and Ando support-port matrices."""
+
+    shift: np.ndarray
+    initial: np.ndarray
+    terminal: np.ndarray
+    unitary: np.ndarray
+    d_matrix: np.ndarray
+    e_matrix: np.ndarray
+    null_scaling: np.ndarray
+
+
+def build_support_port_data(matrix: np.ndarray) -> SupportPortData:
+    """Build the canonical Gau--Wu support-port realization."""
+
+    dimension = matrix.shape[0]
+    scaling = np.ones(dimension)
+    scaling[0] = np.sqrt(2)
+    scaling[-1] = 1 / np.sqrt(2)
+    similarity = np.diag(scaling)
+    shift = np.diag(1 / scaling) @ matrix @ similarity
+    initial = np.eye(dimension)[:, 0]
+    terminal = np.eye(dimension)[:, -1]
+    unitary = shift + np.outer(terminal, initial)
+
+    d_values = np.full(dimension, 1 / np.sqrt(2))
+    d_values[0] = 0
+    d_values[-1] = 1
+    e_values = np.full(dimension, 1 / np.sqrt(2))
+    e_values[0] = 1
+    e_values[-1] = 0
+    middle_scaling = np.full(dimension, np.sqrt(2))
+    middle_scaling[0] = 1
+    middle_scaling[-1] = 1
+    return SupportPortData(
+        shift=shift,
+        initial=initial,
+        terminal=terminal,
+        unitary=unitary,
+        d_matrix=np.diag(d_values),
+        e_matrix=np.diag(e_values),
+        null_scaling=np.diag(middle_scaling),
+    )
+
+
 def audit_model(
     dimension: int,
     sample: int,
@@ -61,26 +107,7 @@ def audit_model(
         angle_count,
     )
 
-    scaling = np.ones(dimension)
-    scaling[0] = np.sqrt(2)
-    scaling[-1] = 1 / np.sqrt(2)
-    similarity = np.diag(scaling)
-    shift = np.diag(1 / scaling) @ matrix @ similarity
-    p = np.eye(dimension)[:, 0]
-    q = np.eye(dimension)[:, -1]
-    unitary = shift + np.outer(q, p)
-    d_values = np.full(dimension, 1 / np.sqrt(2))
-    d_values[0] = 0
-    d_values[-1] = 1
-    e_values = np.full(dimension, 1 / np.sqrt(2))
-    e_values[0] = 1
-    e_values[-1] = 0
-    middle_scaling = np.full(dimension, np.sqrt(2))
-    middle_scaling[0] = 1
-    middle_scaling[-1] = 1
-    d_matrix = np.diag(d_values)
-    e_matrix = np.diag(e_values)
-    null_scaling = np.diag(middle_scaling)
+    port = build_support_port_data(matrix)
 
     angles = np.linspace(0, 2 * np.pi, angle_count, endpoint=False)
     weight = boundary_angular_derivative(zeros, angles)
@@ -96,7 +123,9 @@ def audit_model(
     identity = np.eye(dimension)
     for angle_index, angle in enumerate(angles):
         phase = np.exp(1j * angle)
-        support_factor = unitary @ d_matrix - phase * e_matrix
+        support_factor = (
+            port.unitary @ port.d_matrix - phase * port.e_matrix
+        )
         support_slack = identity - (
             np.conj(phase) * matrix
             + phase * matrix.conj().T
@@ -110,10 +139,10 @@ def audit_model(
         )
 
         model_kernel = np.linalg.solve(
-            identity - np.conj(phase) * shift,
-            q,
+            identity - np.conj(phase) * port.shift,
+            port.terminal,
         )
-        null_state = null_scaling @ model_kernel
+        null_state = port.null_scaling @ model_kernel
         maximum_null_residual = max(
             maximum_null_residual,
             np.linalg.norm(support_factor @ null_state),

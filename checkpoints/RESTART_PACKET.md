@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current Gau--Wu frontier (2026-07-26): after L343 / A290
+## Current Gau--Wu frontier (2026-07-26): after L344 / A291
 
 L342 gives the exact common scalar/similarity Hessian, and L343 now
 removes its quadratic-size disk bulk.  At every fixed finite
@@ -37,8 +37,13 @@ gate is therefore to prove nonpositivity of
 
 `Hhat_phi(sigma)=max_(Sigma_phi(C)=sigma)e_phi(C)`.
 
-Use L339's support-port energy in the polynomial frame to factor this
-boundary-shape Schur form.  L340/L341 remain equivalent rank and
+Use L344's exact fixed-coordinate transport
+
+`Hhat^(dagger/2)(I−zeta R*)^−1 Ccal*(H_Cy−s_Cy)`
+
+to eliminate the already strict general-H disk direction and factor
+the remaining endpoint output.  Do not return to L339's moving
+pointwise pseudoinverse.  L340/L341 remain equivalent rank and
 boundary-response diagnostics, not a concurrent frontier.  Do not
 redo the disk block or replace the quotient by another
 dimension-by-dimension SDP computation.
@@ -877,7 +882,12 @@ forbids detaching L245's doubled terminal edge from its physical
 balance.  A206 forbids splitting the two formal ellipse orientations
 before their theta/coisometric cancellation.
 
-## Current frontier files map (after L343/A290)
+## Current frontier files map (after L344/A291)
+- `proof/gau_wu_toeplitz_port_transport.md` (L344),
+  `experiments/gau_wu_toeplitz_port_transport.py`, and its dataset:
+  exact replacement of L339's moving Ando pseudoinverse by a fixed
+  inverse-Toeplitz square root and triangular nilpotent resolvent.
+  Eliminate the disk variable in these coordinates.
 - `proof/gau_wu_disk_chart_recenter.md` (L343),
   `experiments/gau_wu_disk_chart_recenter.py`, and its dataset:
   exact polynomial-frame recentering on L187's inverse-Toeplitz
@@ -2820,7 +2830,7 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    not compute another isolated grade.  Then finish the
    normal/elliptic merger, retaining the full CP route as fallback.
 
-## Paste-ready continuation instruction (current after L343/A290)
+## Paste-ready continuation instruction (current after L344/A291)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix`
 as the sole repository-writing agent.  L342 proves exact
 scalar/similarity Hessian osculation.  L343 constructs the polynomial
@@ -2831,9 +2841,11 @@ strictly negative `(n−2)^2` general-H disk block.  With
 `Sigma_phi(C)=[omega_phi s_C] mod omega_phi span{1,cos,sin}` has rank
 `2n−2` and
 kernel exactly that block.  The sole live gate is to prove
-`Hhat_phi(sigma)=max_(Sigma_phi(C)=sigma)e_phi(C)<=0`.  Use L339's
-exact support-port energy in the polynomial frame to derive a
-Hardy/Toeplitz negative Gram for this quotient.  Keep the two L342
+`Hhat_phi(sigma)=max_(Sigma_phi(C)=sigma)e_phi(C)<=0`.  L344 replaces
+L339's moving support pseudoinverse exactly by
+`Hhat^(dagger/2)(I−zeta R*)^−1 Ccal*(H_Cy−s_Cy)`.  Eliminate the
+strict general-H disk variable in this fixed coefficient system and
+derive the remaining endpoint-output Gram.  Keep the two L342
 endpoint residuals coupled.  L340's rank `6n−14` and nullity
 `(n−4)²`, and L341's endpoint/support observation ranks, are
 falsification diagnostics, not separate live tasks.  Do not redo the

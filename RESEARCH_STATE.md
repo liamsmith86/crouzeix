@@ -1,8 +1,8 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-26 (Epoch 6 — Gau--Wu disk-chart recentering)
+**Last updated:** 2026-07-26 (Epoch 6 — fixed Toeplitz support port)
 
-## CANONICAL LIVE GATE (2026-07-26, after L343/A290)
+## CANONICAL LIVE GATE (2026-07-26, after L344/A291)
 
 There is exactly one current mathematical gate:
 **sign the `2n−2` boundary-shape Schur form at every finite
@@ -40,8 +40,15 @@ has rank `2n−2` and kernel exactly `D_phi`.  Define
 `Hhat_phi(sigma)=max_(Sigma_phi(C)=sigma) e_phi(C)`.
 
 The live theorem is precisely `Hhat_phi(sigma)<=0`.  Use the
-polynomial support frame and L339's support-port energy to derive its
-Hardy/Toeplitz Gram; do not re-expand the already strict disk block.
+polynomial support frame and L344's exact transport
+
+`eta_C(zeta)=Hhat^(dagger/2)(I−zeta R*)^−1 Ccal*
+ (H_C(zeta)y_zeta−s_C(zeta)y_zeta)`
+
+to eliminate the already strict disk variable and identify the
+remaining endpoint output.  This is a fixed inverse-Toeplitz Hardy
+norm, so do not return to L339's moving pointwise pseudoinverse or
+re-expand the already strict disk block.
 L341's paired frames and L340's rank law remain equivalent response
 diagnostics, not separate concurrent gates.  A proposed factor must
 still reproduce their endpoint rank `4n−8`, support increment
@@ -53,6 +60,30 @@ occurrence of “historical gate,”
 “historical frontier,” or “remaining historical task” records what
 was unresolved at that dated checkpoint; none is a concurrent
 frontier.  The CP/H-r routes remain parked fallbacks.
+
+## L344/A291 EXACT FIXED-TOEPLITZ PORT TRANSPORT (2026-07-26)
+
+- L343 supplies two factors of the same support slack:
+  `F_zeta Ccal` and `Hhat^(1/2)(I−conj(zeta)R)`.
+  Their Grams and ranks agree exactly, so polar decomposition gives
+  an isometry between their ranges.
+- Therefore L339's minimal response to `r⊥y_zeta` has exactly the
+  same norm as
+  `Hhat^(dagger/2)(I−zeta R*)^−1 Ccal* r`.
+  The only pseudoinverse is fixed, with constant kernel `span{e_L}`; the
+  other factor is one elementary nilpotent triangular resolvent.
+- For `r=H_Cy−s_Cy`, integrating this norm is exactly `P_phi(C)`.
+  Multiplication by the L343 support polynomial gives forcing
+  `Ccal*H_C Ccal f_zeta−s_C Kf_zeta`, whose scalar part is the
+  finite shape coordinate `omega_phi s_C`.
+- The next step is now sharply finite: eliminate the strict
+  general-H disk direction in this coefficient system and compare
+  the resulting endpoint output with the retained fixed Hardy
+  energy.
+- Twelve fully polarized audits through dimension eight agree with
+  the original port and L339 Gram within `1.44e−13`; dataset
+  SHA-256
+  `0e800d68f9e233738a51028b72ca9ce728f1990bb55286984e8125bbb187d874`.
 
 ## L343/A290 EXACT DISK-CHART RECENTERING AND SHAPE QUOTIENT (2026-07-26)
 
@@ -6959,15 +6990,18 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L343/A290)
+## Current next actions (Epoch 6, refreshed after L344/A291)
 
 1. **LIVE: sign the `2n−2` boundary-shape Schur form.**  Use L343's
    exact quotient
    `Sigma_phi(C)=[omega_phi s_C] mod omega_phi span{1,cos,sin}` and
-   `Hhat_phi(sigma)=max_(Sigma_phi(C)=sigma)e_phi(C)`.  Insert L339's
-   support-port energy in the polynomial frame and derive a
-   Hardy/Toeplitz negative Gram for `Hhat_phi`.  Do not re-expand or
-   re-prove the strictly negative `(n−2)^2` disk block.  L342's two
+   `Hhat_phi(sigma)=max_(Sigma_phi(C)=sigma)e_phi(C)`.  Use L344's
+   fixed formula
+   `Hhat^(dagger/2)(I−zeta R*)^−1 Ccal*(H_Cy−s_Cy)`,
+   eliminate the strict general-H disk variable from its
+   polynomialized forcing, and derive the remaining endpoint-output
+   Gram.  Do not re-expand or re-prove the strictly negative
+   `(n−2)^2` disk block.  L342's two
    endpoint residual squares must remain intact, and L340/L341's
    rank/nullity law remains the falsification gate for any proposed
    factor, not a second task.

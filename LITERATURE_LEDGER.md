@@ -82,6 +82,21 @@ Papers, theorems, assumptions, possible gaps. Status verified via web 2026-07-24
   novelty remains unclassified pending a targeted publication audit.
   The quotient sign itself is still open.
   `proof/gau_wu_disk_chart_recenter.md`.
+- **Campaign L344 (2026-07-26):** equality of two support-factor
+  Grams, the polar-decomposition range isometry, and replacement of
+  a minimal Moore--Penrose solve by a fixed spectral factor are
+  classical operator/systems arguments.  No novelty is claimed for
+  those ingredients.  Poon--Spitkovsky--Woerdeman, *Factorization of
+  Singular Matrix Polynomials and Matrices with Circular Higher Rank
+  Numerical Ranges* (SIMAX 43 (2022), DOI
+  `10.1137/22M1475934`), is a particularly close modern source for
+  the singular Hermitian trigonometric-polynomial factorization
+  substrate.  Their use to transport the Gau--Wu
+  second-support reserve into L343's exact inverse-Toeplitz
+  coefficient chart is campaign-specific bookkeeping.  It remains a
+  reduction only: the final endpoint-output domination on the
+  `2n−2` shape quotient has not been proved.
+  `proof/gau_wu_toeplitz_port_transport.md`.
 - Compressions of the shift / model space operators with certain Blaschke conditions (Bickel–Gorkin school).
 - Matrices attaining ‖A‖ = numerical radius conditions (Crabb-type equality cases).
 
