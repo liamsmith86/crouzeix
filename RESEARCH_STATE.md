@@ -1,52 +1,68 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-26 (Epoch 6 — Gau--Wu boundary observation isolated)
+**Last updated:** 2026-07-26 (Epoch 6 — exact Gau--Wu similarity/scalar osculation)
 
-## CANONICAL LIVE GATE (2026-07-26, after L341/A288)
+## CANONICAL LIVE GATE (2026-07-26, after L342/A289)
 
 There is exactly one current mathematical gate:
-**prove L338's purely physical Riesz-energy inequality.**  In shift
-coordinates,
-`Y_e=f_e(T_e)=pq*+eY_1+e²Y_2+...`; if `r_2,l_2` are the second
-coefficients of the right defect at `q` and left defect at `p`, then
-the sharp Hessian is exactly
-`−(r_2+l_2)/2−(|<q,Y_1q>|²+|<p,Y_1p>|²)/4`.
-L338 writes every inner tangent as `h_k=(zf)k−J_fk` and completes
-all zero velocities exactly:
-`r_2+l_2=2||k−kappa_C||²+Q(C,0)−2||kappa_C||²`.
-L339 writes L335's reserve as the ordinary boundary energy
-`P_phi(C)=||gamma_C||_(L²)²` of the minimal Ando support-port
-response.  L340 then defines the exact loss
-`G_phi=2I+2P_phi−H_phys`, where
-`H_phys=Q(C,0)−2||kappa_C||²`.  In twelve complete models,
-`G_phi` is numerically PSD with rank `6n−14` and nullity
-`(n−4)²`; this rank law is evidence, not a theorem.  Therefore
-identify an explicit boundary response `L_phi` with
-`G_phi=L_phi*L_phi`, and prove the lossless-port estimate
-`||L_phi C||²<=2||C||²+2||gamma_C||_(L²)²`.  This is exactly
-`H_phys>=0`.  L341 supplies the canonical response coordinates:
-after L338's zero completion,
-`O_phi(C)=(s_C,Y_1^opt q,(Y_1^opt)*p)`.  Its exact paired L127
-frames have base projections `I−pp*` and `I−qq*`; numerically
-`ker O_phi=ker G_phi`, with endpoint rank `4n−8`, support increment
-`2n−6`, and total rank `6n−14`.  Derive the positive response metric
-`G_phi=O_phi* M_phi O_phi` from those frames, rather than taking a
-data-dependent square root.  Any proposed factor must first
-reproduce L340/L341's rank/nullity law.  Couple the two L127
-Blaschke--Stein identities;
-do not prove the one-sided signs:
-complete tests falsify each; every standard model with `n=4..8`
-has two negative modes at each endpoint.
-The first contraction and moving-characteristic residuals have
-combined numerical rank `n²`, the full joint quotient, and are the
-preferred factor coordinates.  L335's Hardy comparison remains an
-equivalent underlying exact gate; L336 is the parent endpoint
-identity and L338 is the canonical reduced gate.  This is current
-next action 1 below.  Every later
+**prove the common scalar/similarity Gau--Wu Hessian is nonpositive.**
+L342 reduces the full second-order L21 SDP exactly to
+
+`e_phi(C)=min_(x in C^(n−1)) F_C(x)`,
+
+where `x` is one first-metric boundary row and its free curvature is
+the model-independent diagonal form
+`F_0(x)=8||x_mid||²+(8/3)|x_L|²`.  If `J_C(h)` is the scalar norm
+Hessian for a moving inner tangent, L342 proves the exact square gap
+
+`F_C(x)−4J_C(h)
+ =||r_-||²_(diag(1,...,1,3))
+  +||r_+||²_(diag(3,1,...,1))`.
+
+The endpoint residual map in `(x,h)` is bijective, hence
+`min_x F_C(x)=4 max_h J_C(h)`.  Thus Paulsen's stronger similarity
+quantity and the scalar Crouzeix quantity have exactly the same
+quadratic obstruction at every finite nondegenerate Gau--Wu equality
+model.  Prove
+
+`min_x F_C(x)<=0`
+
+for every physical normalized direction `C`.  Start from the explicit
+finite quadratic and L339's support-port energy; seek a canonical
+trial boundary row or a negative-Gram completion.  L341's paired
+frames and L340's rank law are now equivalent response diagnostics,
+not a separate concurrent gate.  A proposed factor must still
+reproduce their endpoint rank `4n−8`, support increment `2n−6`,
+total rank `6n−14`, and nullity `(n−4)²`.  Keep both endpoints
+coupled: the one-sided signs are false.  Do not replace the exact
+quadratic by another dimension-by-dimension SDP grind.  This is
+current next action 1 below.  Every later
 occurrence of “historical gate,”
 “historical frontier,” or “remaining historical task” records what
 was unresolved at that dated checkpoint; none is a concurrent
 frontier.  The CP/H-r routes remain parked fallbacks.
+
+## L342/A289 EXACT SIMILARITY/SCALAR OSCULATION (2026-07-26)
+
+- Every finite Gau--Wu equality model has the same sharp metric
+  `P_0=diag(1,2,...,2,4)` and positive embedded dual weight
+  `W=diag(0,2,...,2,1)`, with the exact balance
+  `W−AWA*=e_L e_L*−4e_0 e_0*`.
+- The full second-order metric SDP reduces exactly to a minimization
+  over one complex boundary row.  Its homogeneous Hessian is
+  `8||x_mid||²+(8/3)|x_L|²`, independent of the model zeros and
+  dimension.
+- The difference from four times the joint scalar Hessian is exactly
+  two positive endpoint-matching squares.  Strictness of the pure
+  metric and pure zero blocks makes the square residual map
+  bijective, proving exact optimized osculation:
+  `e_phi(C)=4 max_h J_C(h)`.
+- This closes the strategic question of whether the completely
+  bounded route has a distinct quadratic obstruction.  It does not;
+  the sign of the common form remains open for `n>=4`.
+- Twelve audits through dimension eight reproduce the full gap factor
+  within `1.27e−13`; dataset SHA-256
+  `30f38471eea4fb3728fe3a10b154053fcc44cbbc9c13b5673f125a27fb6a8ae1`.
 
 ## L341/A288 EXACT PAIRED FRAMES AND NUMERICAL OBSERVATION LAW (2026-07-26)
 
@@ -6903,26 +6919,26 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L341/A288)
+## Current next actions (Epoch 6, refreshed after L342/A289)
 
-1. **LIVE: factor and dominate the boundary loss.**  Starting from
-   L341's paired positive frames and L339's unitary colligation,
-   derive the positive metric `M_phi` in
-   `G_phi=O_phi* M_phi O_phi`, where
-   `O_phi=(s,Y_1^opt q,(Y_1^opt)*p)`, then prove
-   `||M_phi^(1/2)O_phi C||²
-   <=2||C||²+2||gamma_C||_(L²)²`.  Before opening a proof route,
-   require the candidate to reproduce the endpoint rank `4n−8`,
-   support increment `2n−6`, total rank `6n−14`, and nullity
-   `(n−4)²`.  Keep both endpoints coupled; do not reconstruct zero
-   velocities or estimate `D_f` separately.
+1. **LIVE: sign the universal finite similarity quadratic.**  Use
+   L342's exact reduction
+   `e_phi(C)=min_x F_C(x)=4 max_h J_C(h)`.  Expand only the
+   physical/linear part of `F_C(x)` around its universal curvature
+   `8||x_mid||²+(8/3)|x_L|²`, insert L339's exact support-port energy,
+   and seek either a canonical trial row `x(C)` with `F_C(x(C))<=0`
+   or a dimension-free negative-Gram completion.  L342's two
+   endpoint residual squares must remain intact.  L340/L341's
+   rank/nullity law remains the falsification gate for any proposed
+   factor, not a second task.
 2. **Falsify each proposed closed identity before proving it.**  The
    general jet supplies complete normal matrices and zero Schur
    blocks through dimension nine; any candidate must reproduce
-   L336's endpoint sum, L340's loss Gram, and its active/null
-   singular-value split.  The right and left signs separately,
-   pointwise `t>=delta²/2`, and the raw partial-isometry residual are
-   already falsified.
+   L336's endpoint sum, L340's loss Gram, L342's universal free
+   Hessian and exact square gap, and the active/null singular-value
+   split.  The right and left signs separately, pointwise
+   `t>=delta²/2`, and the raw partial-isometry residual are already
+   falsified.  Do not run another isolated finite-size SDP campaign.
 3. **Promote only the proved strict quotient to a local patch.**  Use
    the fixed-model support gap, finite Blaschke compactness, and
    Gau--Wu equality uniqueness exactly as in L333.  Keep collisions

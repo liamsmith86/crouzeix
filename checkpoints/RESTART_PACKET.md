@@ -1,7 +1,34 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current Gau--Wu frontier (2026-07-26): after L341 / A288
+## Current Gau--Wu frontier (2026-07-26): after L342 / A289
+
+L342 now gives the canonical exact finite gate.  At every fixed
+finite nondegenerate Gau--Wu equality model, the second-order L21
+similarity SDP reduces to
+
+`e_phi(C)=min_(x in C^(n−1)) F_C(x)`,
+
+where the free boundary-row Hessian is universally
+`8||x_mid||²+(8/3)|x_L|²`.  If `J_C(h)` is the scalar norm Hessian
+with moving inner tangent, then
+
+`F_C(x)−4J_C(h)`
+
+is exactly the sum of two endpoint-matching squares with weights
+`diag(1,...,1,3)` and `diag(3,1,...,1)`.  The residual map in
+`(x,h)` is bijective, so
+
+`min_x F_C(x)=4 max_h J_C(h)`.
+
+Thus the scalar and completely bounded/similarity routes have the
+same quadratic obstruction at Gau--Wu equality.  The sole live gate
+is to prove `min_x F_C(x)<=0` for every physical normalized
+direction.  Use L339's support-port energy to choose a canonical
+trial row or factor the optimized form.  L340/L341 remain equivalent
+rank and boundary-response diagnostics, not a concurrent frontier.
+Do not replace the universal finite quadratic by another
+dimension-by-dimension SDP computation.
 
 L336 gives the current exact organization.  In compressed-shift
 coordinates write
@@ -837,12 +864,18 @@ forbids detaching L245's doubled terminal edge from its physical
 balance.  A206 forbids splitting the two formal ellipse orientations
 before their theta/coisometric cancellation.
 
-## Current frontier files map (after L341/A288)
+## Current frontier files map (after L342/A289)
+- `proof/gau_wu_similarity_osculation.md` (L342),
+  `experiments/gau_wu_similarity_hessian.py`, and its dataset:
+  exact reduction of the second-order similarity SDP, universal
+  boundary-row curvature, and exact two-square osculation with the
+  scalar Hessian.  Signing the common finite quadratic is the sole
+  live task.
 - `proof/gau_wu_boundary_observation.md` (L341),
   `experiments/gau_wu_boundary_observation.py`, and its dataset:
   exact paired transferred-frame equations plus the numerical
-  identification of the canonical observation kernel.  Deriving its
-  positive response metric is the live task.
+  identification of the canonical observation kernel.  It is an
+  equivalent diagnostic for L342's common sign, not a separate task.
 - `proof/gau_wu_physical_loss_rank.md` (L340),
   `experiments/gau_wu_physical_loss_rank.py`, and its dataset:
   numerical PSD/rank/nullity law for the reduced loss.  This is the
@@ -2769,42 +2802,29 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    not compute another isolated grade.  Then finish the
    normal/elliptic merger, retaining the full CP route as fallback.
 
-## Paste-ready continuation instruction (current after L341/A288)
+## Paste-ready continuation instruction (current after L342/A289)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix`
-as the sole repository-writing agent.  L336 rewrites the exact
-arbitrary finite Gau--Wu Hessian as
-`−(r_2+l_2)/2−(|<q,Y_1q>|²+|<p,Y_1p>|²)/4`, where `r_2,l_2` are
-the right and left endpoint coefficients of the complete moving
-Blaschke image.  L127 makes their sum a two-ended Stein flux.  Do not
-redo L332--L335 or attempt either endpoint sign separately: those
-signs are false.  The sole live gate is `r_2+l_2>=0`.  Polarize the
-two Stein identities together at `S(zf)`.  L338 has already
-eliminated every zero velocity:
-`r_2+l_2=2||k−kappa_C||²+Q(C,0)−2||kappa_C||²`.
-Do not rebuild or numerically optimize the root block.  Prove the
-sole physical gate `Q(C,0)>=2||kappa_C||²` using L339's exact Ando
-port identity
-`P_phi(C)=integral ||(F_zeta*)^dagger H_Cy_zeta||²`.
-L340 defines
-`G_phi=2I+2P_phi−(Q(C,0)−2||kappa_C||²)` and finds numerically, in
-twelve models through dimension nine, rank `6n−14` and nullity
-`(n−4)²`.  This is evidence only.  Express the remaining loss as an
-explicit boundary response `G_phi=L_phi*L_phi`, then prove
-`||L_phi C||²<=2||C||²+2||gamma_C||_(L²)²`.  Require every candidate
-to reproduce L340's rank/nullity law before proving it.  L341 now
-gives the canonical observation
-`O_phi=(s,Y_1^opt q,(Y_1^opt)*p)`: its paired L127 frames satisfy
-exact Stein equations, and numerically
-`ker O_phi=ker G_phi`, with endpoint rank `4n−8`, support increment
-`2n−6`, and total rank `6n−14`.  Derive the positive metric
-`G_phi=O_phi* M_phi O_phi` from the coupled frames, then prove the
-L339 energy contraction.  Do not use a data-dependent square root.
-Do not
-estimate `D_f` separately.  Test every candidate against the complete
-L334/L336/L340/L341 forms before proving it.  Do not start isolated
-dimension-four or dimension-five expansions.  Keep collision charts,
-direct sums, global compactness, and CP/H-r as later stages.  Commit
-each proved milestone."
+as the sole repository-writing agent.  L342 proves that at every
+finite nondegenerate Gau--Wu equality model the complete
+second-order L21 similarity SDP is exactly
+`e_phi(C)=min_(x in C^(n−1)) F_C(x)`.  Its free metric curvature is
+the model-independent form
+`8||x_mid||²+(8/3)|x_L|²`.  It also proves the exact square gap
+`F_C(x)−4J_C(h)=||r_-||²_(diag(1,...,1,3))
++||r_+||²_(diag(3,1,...,1))`; the endpoint residual map is
+bijective, so `min_x F_C(x)=4 max_h J_C(h)`.  The sole live gate is
+to prove `min_x F_C(x)<=0` for every physical normalized direction.
+Use L339's exact support-port energy to construct a canonical trial
+row `x(C)` or a dimension-free negative-Gram completion.  Keep the
+two L342 endpoint residuals coupled.  L340's rank `6n−14` and
+nullity `(n−4)²`, and L341's endpoint/support observation ranks, are
+falsification diagnostics for a candidate factor, not separate live
+tasks.  Do not redo the zero Schur block, estimate `D_f` separately,
+split the false one-sided endpoint signs, or run isolated
+dimension-four/five SDP grinds.  Test every candidate against the
+complete L334/L336/L340/L341/L342 forms before proving it.  Keep
+collision charts, direct sums, global compactness, and CP/H-r as
+later stages.  Commit each proved milestone."
 
 ## Superseded pre-L331 continuation instruction (historical)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix`

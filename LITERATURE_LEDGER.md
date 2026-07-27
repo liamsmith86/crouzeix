@@ -55,6 +55,18 @@ Papers, theorems, assumptions, possible gaps. Status verified via web 2026-07-24
   spectral sets found no matching theorem; the closest variational paper proves first-order
   scalar stationarity rather than a neighbourhood inequality.  Treat L73 as apparently new
   pending publication-level review.  `proof/p3_crabb_local_theorem.md`.
+- **Campaign L342 (2026-07-26):** at every finite nondegenerate
+  Gau--Wu equality model, the second-order Paulsen/L21 similarity SDP
+  reduces to one universal boundary-row quadratic and equals four
+  times the optimized scalar Crouzeix Hessian.  This is an exact
+  local osculation statement, not the global assertion `t_*<=4` and
+  not a proof of either scalar or completely bounded Crouzeix in a
+  neighbourhood.  Okubo--Ando supplies the base disk bound and
+  Paulsen supplies the similarity equivalence, but neither source
+  currently identified in the ledger supplies this second-variation
+  identity.  Treat its novelty as unclassified pending a targeted
+  publication audit; do not advertise priority from the current
+  search record alone.  `proof/gau_wu_similarity_osculation.md`.
 - Compressions of the shift / model space operators with certain Blaschke conditions (Bickel–Gorkin school).
 - Matrices attaining ‖A‖ = numerical radius conditions (Crabb-type equality cases).
 
