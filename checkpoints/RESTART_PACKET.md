@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current Gau--Wu frontier (2026-07-26): after A292
+## Current Gau--Wu frontier (2026-07-26): after L345 / A293
 
 L342 gives the exact common scalar/similarity Hessian, and L343 now
 removes its quadratic-size disk bulk.  At every fixed finite
@@ -44,9 +44,17 @@ A292 gives the exact alternative coordinate
 In fifteen complete models the Schur form commutes with
 multiplication by `i` within `3.85e−12`, so it becomes one negative
 Hermitian `(n−1)`-square.  The coordinate chart is proved; phase
-covariance and sign are still numerical.  First derive the phase
-identity and then its negative Gram using L344's exact
-fixed-coordinate transport
+covariance and sign are still numerical.  When the joint Hessian is
+nondegenerate, L345 gives the exact criterion
+
+`W_phi^T J_phi W_phi=0`,
+
+where
+`W_phi=J_phi^−1S_y*+iJ_phi^−1S_x*`.
+Numerically its first Blaschke image has zero lower triangle and
+each L336 endpoint form is bilinearly isotropic on that complex
+range.  Prove the upper-Schur-flag Euler response and then its
+endpoint isotropy using L344's exact fixed-coordinate transport
 
 `Hhat^(dagger/2)(I−zeta R*)^−1 Ccal*(H_Cy−s_Cy)`
 
@@ -56,7 +64,8 @@ pointwise pseudoinverse.  L340/L341 remain equivalent rank and
 boundary-response diagnostics, not a concurrent frontier.  Do not
 redo the disk block or replace the quotient by another
 dimension-by-dimension SDP computation.  Do not infer exact symmetry
-from the merely near-paired spectrum in weighted coordinates.
+from the merely near-paired spectrum in weighted coordinates or
+from the falsified universal-diagonal-plus-rank-one inverse ansatz.
 
 L336 gives the current exact organization.  In compressed-shift
 coordinates write
@@ -892,7 +901,12 @@ forbids detaching L245's doubled terminal edge from its physical
 balance.  A206 forbids splitting the two formal ellipse orientations
 before their theta/coisometric cancellation.
 
-## Current frontier files map (after A292)
+## Current frontier files map (after L345/A293)
+- `proof/gau_wu_conformal_dual_polarization.md` (L345/A293),
+  `experiments/gau_wu_conformal_dual_polarization.py`, and its
+  dataset: exact dual-isotropy criterion for phase covariance and
+  numerical upper-Schur-flag/endpoint-isotropy target.  Prove the
+  lower-triangular Euler vanishing before using the phase reduction.
 - `proof/gau_wu_conformal_shape_phase.md`,
   `experiments/gau_wu_conformal_shape_phase.py`, and its dataset:
   exact conformal-Fourier chart of the shape quotient and numerical
@@ -2845,7 +2859,7 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    not compute another isolated grade.  Then finish the
    normal/elliptic merger, retaining the full CP route as fallback.
 
-## Paste-ready continuation instruction (current after A292)
+## Paste-ready continuation instruction (current after L345/A293)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix`
 as the sole repository-writing agent.  L342 proves exact
 scalar/similarity Hessian osculation.  L343 constructs the polynomial
@@ -2862,10 +2876,15 @@ L339's moving support pseudoinverse exactly by
 strict general-H disk variable in this fixed coefficient system.
 A292 proves that `2(hat(s_C)(2),...,hat(s_C)(n)) in C^(n−1)` is an
 exact coordinate on the quotient; numerically the Schur form is
-phase covariant and becomes one negative Hermitian matrix.  Prove
-that phase identity from L344, then derive the negative Hermitian
-Gram.  Do not infer it from nearly paired weighted-coordinate
-eigenvalues.  Keep the two L342
+phase covariant and becomes one negative Hermitian matrix.  L345
+proves phase covariance is equivalent to `W^T J_phi W=0`, where
+`W=J_phi^−1S_y*+iJ_phi^−1S_x*`; numerically
+`tril Y_1(W)=0` and both L336 endpoint forms are bilinearly
+isotropic there.  Prove that upper-Schur-flag Euler response from
+L344, polarize L336 to obtain dual isotropy, then derive the negative
+Hermitian Gram.  Do not infer phase from nearly paired weighted
+eigenvalues or the falsified diagonal-plus-rank-one inverse ansatz.
+Keep the two L342
 endpoint residuals coupled.  L340's rank `6n−14` and nullity
 `(n−4)²`, and L341's endpoint/support observation ranks, are
 falsification diagnostics, not separate live tasks.  Do not redo the

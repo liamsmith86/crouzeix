@@ -1,8 +1,8 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-26 (Epoch 6 — conformal shape phase chart)
+**Last updated:** 2026-07-26 (Epoch 6 — conformal dual polarization)
 
-## CANONICAL LIVE GATE (2026-07-26, after A292)
+## CANONICAL LIVE GATE (2026-07-26, after L345/A293)
 
 There is exactly one current mathematical gate:
 **sign the `2n−2` boundary-shape Schur form at every finite
@@ -48,18 +48,31 @@ It is an isomorphism on L343's shape quotient.  In fifteen complete
 models the Schur form is phase covariant in this coordinate within
 `3.85e−12`, hence is the realification of one negative Hermitian
 `(n−1)`-square.  The phase covariance and sign are evidence, not
-theorems.  First derive that phase identity from the polynomial
-support frame and L344's exact transport
+theorems.  L345 replaces the phase question by one exact dual
+criterion.  If `J_phi` is the uneliminated joint scalar Hessian,
+`S=[S_x;S_y]` is the conformal shape map, and
+
+`W_phi=J_phi^−1S_y*+iJ_phi^−1S_x*`,
+
+then, whenever `J_phi` is nondegenerate, phase covariance is
+equivalent exactly to
+`W_phi^T J_phi W_phi=0`.  Numerically, the first Blaschke image of
+this dual range has zero lower triangle and the two L336 endpoint
+forms are separately bilinearly isotropic there.  Prove that
+upper-Schur-flag Euler response from the polynomial support frame
+and L344's exact transport
 
 `eta_C(zeta)=Hhat^(dagger/2)(I−zeta R*)^−1 Ccal*
  (H_C(zeta)y_zeta−s_C(zeta)y_zeta)`
 
-after eliminating the already strict disk variable.  Then identify
-the positive Gram for the negative Hermitian matrix.  This is a
+and polarize L336 on that flag.  Then identify the positive Gram for
+the negative Hermitian matrix.  This is a
 fixed inverse-Toeplitz Hardy norm, so do not return to L339's moving
 pointwise pseudoinverse, re-expand the already strict disk block, or
 infer phase covariance merely from the nearly paired spectrum in
-the weighted coordinate.
+the weighted coordinate.  A universal-diagonal-plus-rank-one
+inverse ansatz was falsified after resolving its dominant soft
+component; do not reopen it.
 L341's paired frames and L340's rank law remain equivalent response
 diagnostics, not separate concurrent gates.  A proposed factor must
 still reproduce their endpoint rank `4n−8`, support increment
@@ -71,6 +84,35 @@ occurrence of “historical gate,”
 “historical frontier,” or “remaining historical task” records what
 was unresolved at that dated checkpoint; none is a concurrent
 frontier.  The CP/H-r routes remain parked fallbacks.
+
+## L345/A293 EXACT DUAL CRITERION + NUMERICAL HARDY POLARIZATION (2026-07-26)
+
+- Before eliminating zero velocities and the L343 disk fibre, the
+  joint scalar Hessian `J_phi` has exactly `n²` real variables.
+  With the extended shape map `S=[S_x;S_y]`, its dual compliance is
+  `K=S J_phi^−1 S*`.
+- Whenever `J_phi` is nondegenerate, put
+  `V_x=J_phi^−1S_x*`, `V_y=J_phi^−1S_y*`, and
+  `W=V_y+iV_x`.  Direct block expansion gives
+  `W^T J_phi W=K_yy−K_xx+i(K_yx+K_xy)`.  Thus total bilinear
+  isotropy is exactly equivalent to phase covariance of `K` and of
+  the final Schur form.  This equivalence is L345.
+- Numerically `tril Y_1(W)=0`, including the diagonal: the conformal
+  positive-frequency source selects a purely upper-Schur-flag first
+  response.  The right and left L336 endpoint forms are each
+  bilinearly isotropic on this complex range.  These are not real
+  one-sided sign claims and remain unproved.
+- Fifteen models in dimensions `4..8` survive.  The worst forward
+  residual `4.29e−6` occurs at condition number `1.61e11`, with
+  backward solve residual `9.05e−17`; well-conditioned models are
+  many orders tighter.
+- Prove the Euler response's lower-triangular vanishing in L344
+  coordinates, then derive endpoint isotropy from L336.
+- The soft rank-one dominance of the inverse form produced a false
+  universal-diagonal-plus-rank-one ansatz; resolved corrections are
+  model-dependent and can be indefinite.
+- Dataset SHA-256
+  `d02f3734280a2a5594fba11cdcc1514ad6b760c6b3fb112c1b76bf5b733ce8db`.
 
 ## A292 EXACT CONFORMAL CHART + NUMERICAL HERMITIAN COLLAPSE (2026-07-26)
 
@@ -7023,18 +7065,21 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after A292)
+## Current next actions (Epoch 6, refreshed after L345/A293)
 
 1. **LIVE: sign the boundary-shape Schur form in the conformal
    chart.**  A292 proves that
    `2(hat(s_C)(2),...,hat(s_C)(n))` is an exact coordinate in
-   `C^(n−1)` for L343's quotient.  First derive its numerically exact
-   phase covariance from L344's fixed formula
+   `C^(n−1)` for L343's quotient.  L345 says phase covariance is
+   equivalent exactly to `W^T J_phi W=0` for
+   `W=J_phi^−1S_y*+iJ_phi^−1S_x*`.  Prove the observed
+   `tril Y_1(W)=0` Euler response from L344's fixed formula
    `Hhat^(dagger/2)(I−zeta R*)^−1 Ccal*(H_Cy−s_Cy)`,
-   after eliminating the strict general-H disk variable.  Then
-   derive a positive Gram for the negative Hermitian
+   and use L336's exact paired endpoint polarization to derive dual
+   isotropy.  Then derive a positive Gram for the negative Hermitian
    `(n−1)`-square.  Do not infer the phase identity from nearly
-   paired weighted-coordinate eigenvalues, and do not re-expand or
+   paired weighted-coordinate eigenvalues or from the falsified
+   diagonal-plus-rank-one inverse ansatz, and do not re-expand or
    re-prove the strictly negative `(n−2)^2` disk block.  L342's two
    endpoint residual squares must remain intact, and L340/L341's
    rank/nullity law remains the falsification gate for any proposed
