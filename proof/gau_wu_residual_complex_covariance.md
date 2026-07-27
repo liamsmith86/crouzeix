@@ -122,18 +122,31 @@ zero-motion residual ranges are orthogonal for this weighted norm;
 bijectivity makes them complementary half-dimensional ranges.
 
 This is the universal residual-side complex structure sought after
-L351.  The remaining phase theorem has been reduced to one precise
-intertwining statement:
+L351.  It reduces the **mixed matching part** of the remaining phase
+theorem to one precise intertwining statement:
 
-> after eliminating L343's disk fibre, prove that the physical
+> after eliminating L343's disk fibre, determine whether the physical
 > forcing in L342 identifies L351's phase
 > \((a,\tau)\mapsto(ia,-i\tau)\) with
 > \({\cal I}_{\rm end}\).
 
-That commutative diagram would give
-\({\cal P}_\phi J_\phi^{-1}{\cal P}_\phi^T=0\) and hence close both
-A292 phase covariance and the remaining lower flag.  Equation (4)
-does not by itself prove the diagram.
+There is a separate load-bearing term.  The identity
+\({\cal F}_C(x)-4{\cal J}_C(h)=\|{\cal R}(C,x,h)\|^2\)
+determines all terms involving \(x\) or \(h\), but it leaves a common
+purely physical quadratic ``integration constant'' in
+\({\cal F}\) and \(4{\cal J}\).  Even a proof of the commutative
+diagram would only make the residual-square gap phase covariant; it
+would not by itself make that common physical term Hermitian.
+Therefore the full L351 identity still requires both:
+
+1. the residual-forcing intertwiner for the mixed
+   shape/tracking blocks; and
+2. a type-\((1,1)\) formula for the common pure physical coefficient,
+   most naturally from L344's fixed port.
+
+Together those would give
+\({\cal P}_\phi J_\phi^{-1}{\cal P}_\phi^T=0\).
+Equation (4) proves neither remaining item by itself.
 
 ## 5. Deterministic audit
 

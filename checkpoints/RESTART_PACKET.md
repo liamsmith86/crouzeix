@@ -162,10 +162,13 @@ selfadjoint truncated-Toeplitz metric extension, and L338's
 antilinear model conjugation supplies the same rule for zero motion.
 The two L342 square weights preserve this signed phase, and the
 metric/zero residual ranges are orthogonal complementary halves.
-The immediate open bridge is only the physical intertwiner: after
-eliminating L343's disk fibre, prove that L351's
-`(a,tau)->(ia,−itau)` maps to the L352 endpoint phase.  Do not treat
-the commutative diagram as proved.  Dataset SHA-256
+This is a symmetry of the square gap, not yet of its common optimized
+value: `F−4J=||R||²` leaves one common pure physical quadratic
+coefficient undetermined.  The immediate phase work therefore has
+two parts: derive the disk-eliminated mixed intertwiner carrying
+L351's `(a,tau)->(ia,−itau)` to the L352 endpoint phase, and prove
+the remaining pure physical coefficient is type `(1,1)` using
+L344's fixed port.  Do not treat either part as proved.  Dataset SHA-256
 `4b300f489b23ad51830014139640c1d403fc598f4a191bdb16d0751d8dc0e471`.
 
 L336 gives the current exact organization.  In compressed-shift

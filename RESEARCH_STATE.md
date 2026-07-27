@@ -146,11 +146,14 @@ physical forcing, L342's residual map obeys
 
 The signed endpoint phase preserves both diagonal square weights,
 and the metric/zero residual ranges are weighted-orthogonal
-complementary halves.  The only missing phase step is now the
-physical intertwiner: after eliminating L343's disk fibre, prove
-that L351's `(a,tau)->(ia,−itau)` is carried to this universal
-residual phase.  L352 does not by itself prove that commutative
-diagram or the sign.
+complementary halves.  This controls only L342's square **gap**.
+That identity leaves a common pure physical quadratic coefficient in
+`F` and `4J`, so even a physical residual intertwiner would not by
+itself prove phase covariance.  The remaining phase work has two
+parts: (i) derive the disk-eliminated mixed intertwiner carrying
+L351's `(a,tau)->(ia,−itau)` to the residual phase; and (ii) prove
+that the common pure physical coefficient is type `(1,1)` from
+L344's fixed port.  L352 proves neither part by itself.
 L341's paired frames and L340's rank law remain equivalent response
 diagnostics, not separate concurrent gates.  A proposed factor must
 still reproduce their endpoint rank `4n−8`, support increment
@@ -7275,9 +7278,13 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
    `P J_phi^−1P^T=0` for `P=[S_y+iS_x;tau]`.  Prove that coupled
    equation from L342's two endpoint residual squares and L338's
    Szegő zero metric.  L352 already proves the homogeneous signed
-   covariance `R_0(ix,−iv)=(−ir_-,ir_+)`; prove only that the
+   covariance `R_0(ix,−iv)=(−ir_-,ir_+)`.  Now prove (a) that the
    disk-eliminated physical forcing intertwines L351's signed
-   shape/tracking phase with this endpoint phase.  Its shape block gives phase covariance and
+   shape/tracking phase with this endpoint phase, and (b) that the
+   common pure physical coefficient left undetermined by the square
+   gap is type `(1,1)` in L344's fixed-port coordinates.  Only both
+   together give phase covariance; do not infer (b) from L352.
+   The resulting shape block gives phase covariance and
    its cross block gives all remaining Euler identities at once.
    If that coupled derivation fails, return to L344's fixed formula
    entrywise.  L347 already identifies
