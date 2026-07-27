@@ -247,6 +247,12 @@ Lemma-by-lemma scope:
   arbitrary Gau--Wu models.  Treat the identity's assembly as
   campaign-specific and the still-open positivity as having no
   novelty claim until a publication-level audit.
+- **L337 novelty scope.**  The canonical conjugation on a scalar
+  model space and the formula `h(S_phi)1=P_(K_phi)h` are classical.
+  L337 is their direct application to the two endpoint defects, so
+  record it as a classical identity in campaign coordinates, not an
+  original theorem.  Its role is to expose the exact Hilbert metric
+  for the still-open mixed L336 calculation.
 
 ## Equivalent / stronger formulations (Track F cautions)
 - Completely bounded version: "W(A) is a complete 2-spectral set" — open, possibly strictly stronger; Paulsen theory: cb-version ⇔ similarity to operator with dilation... (K-spectral ⇒ complete K'-spectral with K' possibly larger). Do NOT conflate.

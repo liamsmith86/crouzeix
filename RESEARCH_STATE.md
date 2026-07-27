@@ -1,8 +1,8 @@
 # RESEARCH_STATE.md — Crouzeix Conjecture Campaign
 
-**Last updated:** 2026-07-26 (Epoch 6 — two-sided Gau--Wu defect flux isolated)
+**Last updated:** 2026-07-26 (Epoch 6 — Gau--Wu zero-motion flux closed)
 
-## CANONICAL LIVE GATE (2026-07-26, after L336/A283)
+## CANONICAL LIVE GATE (2026-07-26, after L337/A284)
 
 There is exactly one current mathematical gate:
 **prove positivity of L336's symmetric right/left Blaschke--Stein
@@ -24,6 +24,23 @@ occurrence of “historical gate,”
 “historical frontier,” or “remaining historical task” records what
 was unresolved at that dated checkpoint; none is a concurrent
 frontier.  The CP/H-r routes remain parked fallbacks.
+
+## L337/A284 EXACT ZERO-MOTION PROJECTION SQUARE (2026-07-26)
+
+- At fixed `S=S(zf)`, for every inner `g`,
+  `1−||g(S)q||²=1−||g(S)*p||²=||P_(zf H²)g||²`.
+  The equality of the endpoints is the canonical conjugation
+  `J_(zf)u=zf zbar ubar=f ubar`, not a numerical symmetry.
+- Therefore an inner tangent `g_e=f+e h+...` contributes exactly
+  `r_2=l_2=||P_(zf H²)h||²`.  The zero acceleration drops out and
+  the complete pure zero block is a Hardy projection square.
+- The live next step is to write the mixed physical/zero term as a
+  Riesz pairing in this explicit metric, complete the square, and
+  sign the remaining purely physical form.  L337 does not by itself
+  control that mixed form.
+- Twelve independent finite-model/Fourier checks pass within
+  `1.43e−15`; dataset SHA-256
+  `233e72245d54a1d71ad1442332d0d26d9dbc5bff207d43c2e42f35390cad8b4f`.
 
 ## L336/A283 TWO-SIDED ENDPOINT-DEFECT FLUX (2026-07-26)
 
@@ -6775,14 +6792,15 @@ Posed-but-unattacked in literature (SV24 §6 remark); no refutation exists (sear
   full local question is now one finite weighted coupling problem; there is no additional hidden
   flat direction.
 
-## Current next actions (Epoch 6, refreshed after L336/A283)
+## Current next actions (Epoch 6, refreshed after L337/A284)
 
-1. **LIVE: prove the symmetric endpoint-flux sign.**  Polarize both
-   L127 Stein identities at `S(zf)`, keep the right endpoint `q` and
-   left endpoint `p` coupled, and factor `r_2+l_2` through the
-   contraction/characteristic residual pair `(R,Z)`.  The desired
-   factor must see all `n²` joint directions and may use the
-   decomposition `K_(zf)=K_f direct-sum C f`.
+1. **LIVE: complete the mixed Hardy square.**  Use L337's exact pure
+   zero metric `2||P_(zf H²)h||²` to represent the mixed
+   physical/zero term by Riesz, eliminate `h` invariantly, and sign
+   the remaining purely physical form.  Keep both L127 endpoint
+   identities coupled and factor the remainder through `(R,Z)`.
+   The desired factor must see all `n²` joint directions and may use
+   `K_(zf)=K_f direct-sum C f`.
 2. **Falsify each proposed closed identity before proving it.**  The
    general jet supplies complete normal matrices and zero Schur
    blocks in dimensions `3..8`; any candidate must reproduce L336's

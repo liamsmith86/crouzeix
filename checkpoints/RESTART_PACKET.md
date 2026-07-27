@@ -1,7 +1,7 @@
 # CROUZEIX RESEARCH CHECKPOINT — NOT A FINAL RESULT
 (Restart packet per goal.txt forced-stop protocol; written proactively 2026-07-20 while work continues.)
 
-## Current Gau--Wu frontier (2026-07-26): after L336 / A283
+## Current Gau--Wu frontier (2026-07-26): after L337 / A284
 
 L336 gives the current exact organization.  In compressed-shift
 coordinates write
@@ -20,6 +20,16 @@ sum survives 54 complete standard/holdout tests.  The first contraction and
 characteristic residuals have combined numerical rank `n²`, exactly
 the joint quotient dimension; prove a positive factorization in
 those coordinates.  This rank law is still numerical.
+
+L337 closes the pure zero-motion sector exactly.  At fixed
+`S=S(zf)`, canonical model conjugation gives, for every inner `g`,
+
+`1−||g(S)q||²=1−||g(S)*p||²=||P_(zf H²)g||²`.
+
+Thus an inner tangent `g_e=f+e h+...` contributes
+`r_2+l_2=2||P_(zf H²)h||²`.  Use this Hilbert metric to complete the
+mixed physical/zero square; the remaining purely physical form is
+the sole unresolved part of the L336 gate.
 
 L335 remains the exact underlying component.  If
 `t_E=<H_Ev,R H_Ev>` is the second numerical-range support
@@ -786,7 +796,11 @@ forbids detaching L245's doubled terminal edge from its physical
 balance.  A206 forbids splitting the two formal ellipse orientations
 before their theta/coisometric cancellation.
 
-## Current frontier files map (after L336/A283)
+## Current frontier files map (after L337/A284)
+- `proof/gau_wu_zero_motion_endpoint_projection.md` (L337),
+  `experiments/gau_wu_zero_motion_endpoint_projection.py`, and its
+  dataset: exact pure zero-motion Hardy projection square.  Use it
+  to complete the mixed term; do not mistake it for the full sign.
 - `proof/gau_wu_two_sided_endpoint_defect.md` (L336),
   `experiments/gau_wu_two_sided_endpoint_defect.py`, and its standard
   dataset: exact symmetric endpoint identity, false separate signs,
@@ -2697,7 +2711,7 @@ Direct ratio searches: n=6 → 1.148, n=7 → 1.465.
    not compute another isolated grade.  Then finish the
    normal/elliptic merger, retaining the full CP route as fallback.
 
-## Paste-ready continuation instruction (current after L336/A283)
+## Paste-ready continuation instruction (current after L337/A284)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix`
 as the sole repository-writing agent.  L336 rewrites the exact
 arbitrary finite Gau--Wu Hessian as
@@ -2706,14 +2720,16 @@ the right and left endpoint coefficients of the complete moving
 Blaschke image.  L127 makes their sum a two-ended Stein flux.  Do not
 redo L332--L335 or attempt either endpoint sign separately: those
 signs are false.  The sole live gate is `r_2+l_2>=0`.  Polarize the
-two Stein identities together at `S(zf)` and seek a positive
-factorization through the contraction and moving-characteristic
-residual pair `(R,Z)`, whose combined numerical rank is exactly
-`n²`.  Test every candidate against the complete L334/L336 forms
-before proving it.  Do not start isolated dimension-four or
-dimension-five expansions.  Keep collision charts, direct sums,
-global compactness, and CP/H-r as later stages.  Commit each proved
-milestone."
+two Stein identities together at `S(zf)`.  L337 already proves that
+pure zero motion is exactly
+`2||P_(zf H²)h||²`; use that metric to complete the mixed
+physical/zero square and leave one purely physical remainder.  Seek
+its positive factorization through `(R,Z)`, whose combined numerical
+rank is exactly `n²`.  Test every candidate against the complete
+L334/L336 forms before proving it.  Do not start isolated
+dimension-four or dimension-five expansions.  Keep collision charts,
+direct sums, global compactness, and CP/H-r as later stages.  Commit
+each proved milestone."
 
 ## Superseded pre-L331 continuation instruction (historical)
 "Continue the Crouzeix campaign in `/home/liam/Downloads/crouzeix`
