@@ -119,14 +119,25 @@ The endpoint component of L354's corrector is
 recovering the endpoint-trace Euler equation directly from the
 residual geometry.
 
-The observed antiholomorphic tracking law in L351 is now exactly
-equivalent to L354's remaining physical statement
+At each fixed physical direction \(C\), equation (12) makes the
+zero-optimized tracking law
+\(\tau_{\rm opt}(C)=R_\phi\overline{{\cal A}_\phi(C)}\)
+for a fixed complex-linear \(R_\phi\) exactly equivalent to L354's
+remaining physical statement
 \[
  \Delta_\phi(C)={\cal B}_\phi a
  \quad\text{with }{\cal B}_\phi\text{ complex linear}. \tag{14}
 \]
-Indeed, (12) then makes \(\tau_{\rm opt}\) complex linear in
-\(\overline a\).  This equivalence does not prove (14).
+Indeed, (12) and invertibility of \({\cal T}_\phi\) give both
+directions of this fixed-physical equivalence.  In particular, (14)
+implies the antiholomorphic tracking law observed in L351 after
+also optimizing the physical disk fibre at fixed shape.  That
+fully optimized law alone does **not** imply (14): it constrains
+\(\Delta_\phi\) only on the selected physical lift, not on every
+direction in \(\ker{\cal A}_\phi\).  Disk-fibre annihilation and
+complex linearity of the descended response remain separate proof
+debts.  See `audit_l352_l355_20260905.md`, Section 2, for an exact
+quadratic countermodel to the stronger converse.
 
 ## 4. What still remains
 

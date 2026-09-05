@@ -1,16 +1,36 @@
 # LITERATURE_LEDGER.md
 
-Papers, theorems, assumptions, possible gaps. Status verified via web 2026-07-24.
+Papers, theorems, assumptions, possible gaps. **Latest primary-source refresh:
+2026-09-05**, in [the versioned refresh report](proof/literature_refresh_20260905.md).
+The historical notes below were last checked in July unless stated otherwise.
+
+## September update — scalar proof verification
+
+Lorist–Schwenninger, [arXiv:2608.03841v2](https://arxiv.org/html/2608.03841v2)
+(August 17), proves the scalar constant two with an all-powers dilation lemma.
+Our finite-matrix reconstruction is `proof/CROUZEIX_PROOF.md`, with independent
+proof audits in progress. Credit belongs to the source authors. Jin's separate
+July/August proof and the September abstract extension are documented in the
+refresh report; neither is needed by our reconstruction.
+
+The old universal scalar baseline `1+sqrt(2)` is superseded. The unrestricted
+**complete** inequality remains a different problem. The new complete result
+through dimension three is a preprint claim recorded in the refresh, not a
+load-bearing ingredient or an independently audited result here.
+
+Historical future-work labels below describe that earlier campaign. In
+particular, old one-step abstract obstructions do not forbid the new argument,
+which retains the identities for every power and their commuting errors.
 
 ## Core chain
 | Ref | Result | Method | Notes / gaps to exploit |
 |---|---|---|---|
 | Crouzeix 2004 ("Bounds for analytical functions of matrices") | Conjecture stated; proved for 2×2 (constant 2, sharp) | Direct estimates, conformal maps | 2×2 case: W(A) is an ellipse; sharp via Jordan block [[0,2],[0,0]] |
 | Crouzeix 2007, *Numerical range and functional calculus in Hilbert space*, JFA 244 | Universal constant 11.08; Theorem 2.1 gives an extremal `B∘phi` with `B` a finite Blaschke product of degree at most `n−1` | Cauchy integral + conformal splitting; finite Schur--Pick extremality | The numerical constant is superseded, but the finite-extremal reduction is load-bearing for L329 and is also restated in BGG+20 and Li 2020/2021 |
-| Crouzeix–Palencia 2017 (SIMAX/FoCM) | W(A) is a (1+√2)-spectral set | f(A)+g(A)* via positive double-layer kernel; abstract lemma | THE target to improve. g = Cauchy transform of f̄ conjugate |
+| Crouzeix–Palencia 2017 (SIMAX/FoCM) | W(A) is a (1+√2)-spectral set | f(A)+g(A)* via positive double-layer kernel; abstract lemma | Historical one-step baseline, superseded for scalar polynomials by the all-powers proof; g is the Cauchy transform of f̄ |
 | Ransford–Schwenninger 2018 (SIMAX 1708.08633) | The abstract lemma (‖f(A)+g(A)*‖≤2‖f‖, g=C(f̄)) cannot yield better than 1+√2 in abstract setting | Explicit abstract construction | KEY OBSTRUCTION: need concrete structure of the pair (f(A), g(A)) beyond the abstract hypotheses |
 | Malman–Mashreghi–O'Loughlin–Ransford 2024 | For each fixed N: C_N < 1+√2 | Compactness + strict inequality analysis of C–P equality conditions | Non-constructive; no uniform bound. Their equality analysis of C–P may reveal extremal structure |
-| MMOR 2025 | Configuration constants via Neumann–Poincaré operator; domain-dependent bounds | Double-layer potential spectral analysis | Domain-dependent c(Ω) < 1+√2 for smooth domains? Check exact statement |
+| MMOR 2025 | Configuration constants via Neumann–Poincaré operator; domain-dependent bounds | Double-layer potential spectral analysis | Corrected 2026-09-05: for every compact convex domain with nonempty interior, analytic configuration constant a(Ω)<1 and scalar bound 1+sqrt(1+a(Ω)); no smoothness restriction. See refresh report |
 | Schwenninger–de Vries, arXiv:2409.15954 "DLP for spectral constants revisited" | §6: ρ(f₀,x₀) := ∫Re(K_Ω(f₀)*f₀)dμ₀ = ReC; **K² + ρ ≤ 2K** (Thm 6.1: K ≤ 1+√(1−ρ)); ρ ≥ −1 (convex); ρ ≥ 0 ⟹ Crouzeix; disk ⟹ (K−1)ρ = 0; \|ρ\| ≤ a(Ω) (Rem 6.2) | Extremal pair + DLP | READ & VERIFIED (pp. 15–17). Closest baseline to campaign's P1; our increment = β-subtraction (q < 2). Also: Appendix A smooth-approximation lemma (useful for Ω ↓ W(A) rigor); Prop A.2 spectral-constant equivalence |
 | arXiv:2410.10678 | "The algebraic numerical range as a spectral set in Banach algebras" | — | CORRECTED ID (audit): earlier ledger entry misattributed this ID to a parameterized C–P extension |
 | O'Loughlin–Rani, arXiv:2603.15536 (2026) "q-Numerical Ranges and Spectral Sets" | Bound K = t + √(t²+a(Ω)), t = 1+γ(1)/2 | q-numerical range | CAUTION (audit): sentence after Thm 3.3 claiming K<2-type conclusion may be typo/gap — verify before use |
@@ -32,7 +52,7 @@ Papers, theorems, assumptions, possible gaps. Status verified via web 2026-07-24
   publication-level review. `proof/crabb_full_disk_leading_residual_tube.md`.
 - Nearly Jordan blocks (Choi–Greenbaum).
 - Weighted shift matrices (Choi; complete 2-spectral via arXiv:2508.12768 Aug 2025).
-- Certain 3×3: tridiagonal with elliptic W(A) centered at eigenvalue; 3×3 KLS matrices (2025-26 work).
+- Certain 3×3: tridiagonal with elliptic W(A) centered at an eigenvalue. The former “KLS matrices (2025–26)” entry was unsupported: the 2023 source studies KMS matrices and its conformal estimates were numerical. A September 2026 preprint gives exact containment certification; see the refresh report for scope and audit status.
 - The Crabb-derived elliptic family `A=(C+bC*)/(2sqrt(b))`, where `C` has the fixed
   superdiagonal weights `(sqrt(2),1,...,1,sqrt(2))`: Kenan Li's 2021 thesis, Chapter 3,
   proposes an explicit contraction similarity with squared condition
