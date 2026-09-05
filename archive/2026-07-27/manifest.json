@@ -18,5 +18,10 @@
     "archive": "archive/2026-07-27/RESTART_PACKET.md",
     "sha256": "6ec00b2be411d2e2aaf8379248d073317ca2196a2953b4c5235736fa19bc03f7",
     "bytes": 191907
+  },
+  "log_sym4_sweep.txt": {
+    "archive": "archive/2026-07-27/log_sym4_sweep.txt",
+    "sha256": "5d43bb3ef7fb14fde7d8bfc4b8fcf80e3124587eaa688b3826a7041406666352",
+    "bytes": 57
   }
 }

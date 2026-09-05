@@ -1,0 +1,94 @@
+{
+  "all_checks_passed": true,
+  "all_power_correction_formula": "E_j = (1/3)^j I (binomial; N^2=0)",
+  "arithmetic": "exact SymPy rationals; no numerical tolerances",
+  "contraction_slack_determinant": "304/2025",
+  "contraction_slack_first_minor": "8/9",
+  "defect_expansion_margin": "500/1053",
+  "defect_square": "100/1053",
+  "maximum_power": 8,
+  "operator_norm": "5/3",
+  "power_records": [
+    {
+      "finite_iteration_margin": "428/1755",
+      "power": 1,
+      "recurrence": "26/81",
+      "response_square": "592/9477",
+      "square_completion_residual": "0"
+    },
+    {
+      "finite_iteration_margin": "7736/26325",
+      "power": 2,
+      "recurrence": "506/9477",
+      "response_square": "3088/85293",
+      "square_completion_residual": "0"
+    },
+    {
+      "finite_iteration_margin": "124004/394875",
+      "power": 3,
+      "recurrence": "674/85293",
+      "response_square": "7888/767637",
+      "square_completion_residual": "0"
+    },
+    {
+      "finite_iteration_margin": "1926512/5923125",
+      "power": 4,
+      "recurrence": "842/767637",
+      "response_square": "14992/6908733",
+      "square_completion_residual": "0"
+    },
+    {
+      "finite_iteration_margin": "5897836/17769375",
+      "power": 5,
+      "recurrence": "1010/6908733",
+      "response_square": "24400/62178597",
+      "square_completion_residual": "0"
+    },
+    {
+      "finite_iteration_margin": "447653288/1332703125",
+      "power": 6,
+      "recurrence": "1178/62178597",
+      "response_square": "36112/559607373",
+      "square_completion_residual": "0"
+    },
+    {
+      "finite_iteration_margin": "6762630356/19990546875",
+      "power": 7,
+      "recurrence": "1346/559607373",
+      "response_square": "3856/387420489",
+      "square_completion_residual": "0"
+    },
+    {
+      "finite_iteration_margin": "101869924064/299858203125",
+      "power": 8,
+      "recurrence": "1514/5036466357",
+      "response_square": "66448/45328197213",
+      "square_completion_residual": "0"
+    }
+  ],
+  "removed_hypothesis_counterexamples": {
+    "no_commutation": {
+      "Q": "0",
+      "T": [
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "commutator": "Matrix([[9, 0], [0, -9]])",
+      "corrections": "E_1=-T*, E_j=0 for j>=2"
+    },
+    "no_uniform_bound": {
+      "Q": "0",
+      "T": "3I",
+      "corrections": "E_j=-3^j I, commuting but unbounded",
+      "symbolically_verified": "E_1=-3, E_(j+1)=3 E_j, [E_j,T]=0",
+      "unboundedness_argument": "|E_1|=3 and growth ratio 3>1 give |E_j|=3^j -> infinity"
+    }
+  },
+  "scope": "algebra diagnostic; general proof is in the audit note"
+}

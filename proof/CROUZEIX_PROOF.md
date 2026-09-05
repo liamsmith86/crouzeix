@@ -102,7 +102,7 @@ preimage to reach the sphere. That image is convex. The numerical range of
 the compression contains the two chosen expectations and their joining segment,
 and is contained in W(A). Thus W(A) is convex, including the point/segment cases.
 
-For any compact convex K⊂C and ε>0, there is a bounded convex polygon P with
+For any nonempty compact convex K⊂C and ε>0, there is a bounded convex polygon P with
 K⊂int(P) and P⊂{z:dist(z,K)<ε}. One explicit existence argument is as follows.
 Choose a closed square B with K in its interior. For every z in the compact set
 B\{dist(·,K)<ε}, let y be its nearest point in K and put

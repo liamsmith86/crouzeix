@@ -1,0 +1,13 @@
+Jordan2 p=z                         R_inner=2.00000000  R_outer=1.99999059
+  crabb k=2: ||A^k||=2.000000  w(A)~1.00000000
+Crabb k=2 p=z^2                     R_inner=2.00000000  R_outer=1.99998118
+  crabb k=3: ||A^k||=2.000000  w(A)~1.00000000
+Crabb k=3 p=z^3                     R_inner=2.00000000  R_outer=1.99997176
+  crabb k=4: ||A^k||=2.000000  w(A)~1.00000000
+Crabb k=4 p=z^4                     R_inner=2.00000000  R_outer=1.99996235
+  crabb k=5: ||A^k||=2.000000  w(A)~1.00000000
+Crabb k=5 p=z^5                     R_inner=2.00000000  R_outer=1.99995294
+normal-0                            R_inner=1.00000000  R_outer=1.00000000
+normal-1                            R_inner=1.00000000  R_outer=1.00000000
+normal-2                            R_inner=1.00000000  R_outer=1.00000000
+random nonnormal max R_inner over 200 trials: 1.005384
