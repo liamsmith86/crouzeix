@@ -1,6 +1,6 @@
 # P2 — the campaign's central target (Epoch 3)
 
-Adopted from external audit (chatgpt/FABLE_RESEARCH_AUDIT.md) after independent verification
+Adopted from external audit (proof/initial_strategy_audit.md) after independent verification
 (2026-07-20). Supersedes L7/L7@ext as the target; L6 superseded by P1.
 
 ## Setting (as in refined_master_inequality.md; conventions: ⟨a,b⟩ linear in first arg)

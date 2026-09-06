@@ -1,9 +1,14 @@
-# Historical research snapshots
+# Historical research ledgers
 
-`2026-07-27/` preserves the complete research state, lemma ledger, approach
-ledger, restart packet, and stale failed-launch log from commit `14e77cd`, before the September cleanup.
-`manifest.json` records original paths, byte sizes, and SHA-256 hashes.
+`2026-07-27/` contains the full July lemma and approach ledgers, retaining
+the earlier statements, calculations and decisions behind the shorter root
+ledgers. Stable lemma and approach IDs connect these records to `proof/`
+and `experiments/`.
 
-These are historical records. Their ACTIVE/current/frontier labels and open
-literature baseline refer to July, not the current campaign state. Consult
-the root `RESEARCH_STATE.md` first. Stable lemma/approach IDs are never reused.
+The publication cleanup removed duplicated restart/state packets and launch
+logs, and updated the relocated initial-audit reference. `manifest.json`
+records the byte sizes and SHA-256 hashes of the retained ledger files.
+
+Research-status labels describe the dates of their entries. The
+[README](../README.md) and [research summary](../RESEARCH_STATE.md) give the
+subsequent general-proof reconstruction and the repository overview.

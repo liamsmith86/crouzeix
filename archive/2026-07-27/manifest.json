@@ -1,9 +1,4 @@
 {
-  "RESEARCH_STATE.md": {
-    "archive": "archive/2026-07-27/RESEARCH_STATE.md",
-    "sha256": "5ba8671598e3cf9a66d4468971433f0010c5c8a03a00e2bab0a1d1c88533c001",
-    "bytes": 466176
-  },
   "LEMMA_LEDGER.md": {
     "archive": "archive/2026-07-27/LEMMA_LEDGER.md",
     "sha256": "7c19696047a496301718633864a4d647bef8e0ee98c0e3cf1ad554810c7c42c3",
@@ -11,17 +6,7 @@
   },
   "APPROACH_LEDGER.md": {
     "archive": "archive/2026-07-27/APPROACH_LEDGER.md",
-    "sha256": "86477a423cc24da11c8c17b73fd6f42ef646cf477c603938dd5ebcf6c1dc576c",
+    "sha256": "53ad6474a652e7ec176eeb45896e08c84b4328e5daccf41a4c181491c203bc23",
     "bytes": 249123
-  },
-  "checkpoints/RESTART_PACKET.md": {
-    "archive": "archive/2026-07-27/RESTART_PACKET.md",
-    "sha256": "6ec00b2be411d2e2aaf8379248d073317ca2196a2953b4c5235736fa19bc03f7",
-    "bytes": 191907
-  },
-  "log_sym4_sweep.txt": {
-    "archive": "archive/2026-07-27/log_sym4_sweep.txt",
-    "sha256": "5d43bb3ef7fb14fde7d8bfc4b8fcf80e3124587eaa688b3826a7041406666352",
-    "bytes": 57
   }
 }

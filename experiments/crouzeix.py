@@ -9,9 +9,11 @@ Approximation directions (critical for rigor):
   lie in W(A). max_k |p(z_k)| <= true max  =>  R_inner >= R_true.
   R_inner is an OVERestimate of R: good for steering searches, never for claims.
 - OUTER: W(A) is contained in the polygon cut by support half-planes
-  Re(e^{-i th_k} z) <= lambda_max(Re(e^{-i th_k} A)). max over that polygon
-  >= true max  =>  R_outer <= R_true. R_outer > 2 is a genuine violation
-  (up to floating point, to then be certified independently).
+  Re(e^{-i th_k} z) <= lambda_max(Re(e^{-i th_k} A)). The exact maximum
+  over that polygon would give a lower bound on R. ratio_outer instead
+  samples its edges, so its computed value has no guaranteed bound direction.
+  A certified lower bound on R requires a certified upper bound on the
+  polynomial maximum and rigorous control of the matrix computations.
 """
 import numpy as np
 
@@ -97,7 +99,7 @@ def ratio_inner(A, c, ntheta=256):
     return opnorm(poly_A(c, A)) / M
 
 def ratio_outer(A, c, ntheta=512, per_edge=64):
-    """Underestimate of R (safe direction for claiming R > 2)."""
+    """Estimate R using sampled outer-polygon edges; not a certified bound."""
     verts = outer_polygon(A, ntheta)
     M = max_abs_on_segments(c, verts, per_edge)
     if M == 0:

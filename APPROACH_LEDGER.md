@@ -4,11 +4,11 @@ Updated 2026-09-05. Full attempts A1–A304 and C1–C2 are preserved verbatim i
 [the July archive](archive/2026-07-27/APPROACH_LEDGER.md). IDs are permanent.
 Historical ACTIVE labels there refer to their dated checkpoint, not today's plan.
 
-## Current epoch: global proof verification
+## September proof audits
 
-Two different attacks are in progress: independent reconstruction of the newly
-located Lorist–Schwenninger argument, and adversarial audit of the old local
-frontier and its missing global bridge. See `RESEARCH_STATE.md`.
+The repository contains an independently audited finite-matrix reconstruction
+of the Lorist–Schwenninger argument and an adversarial audit of the earlier
+local frontier. See `RESEARCH_STATE.md` for the results and source links.
 
 ## Latest local approaches (historical status retained)
 

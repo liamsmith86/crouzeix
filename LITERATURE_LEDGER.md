@@ -8,10 +8,11 @@ The historical notes below were last checked in July unless stated otherwise.
 
 Lorist–Schwenninger, [arXiv:2608.03841v2](https://arxiv.org/html/2608.03841v2)
 (August 17), proves the scalar constant two with an all-powers dilation lemma.
-Our finite-matrix reconstruction is `proof/CROUZEIX_PROOF.md`, with independent
-proof audits in progress. Credit belongs to the source authors. Jin's separate
-July/August proof and the September abstract extension are documented in the
-refresh report; neither is needed by our reconstruction.
+Our finite-matrix reconstruction is `proof/CROUZEIX_PROOF.md`, with an independent
+proof audit in `proof/audit_global_proof_20260905.md`. Credit belongs to the
+source authors. Jin's separate July/August proof and the September abstract
+extension are documented in the refresh report; neither is needed by our
+reconstruction.
 
 The old universal scalar baseline `1+sqrt(2)` is superseded. The unrestricted
 **complete** inequality remains a different problem. The new complete result

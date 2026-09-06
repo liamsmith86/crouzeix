@@ -1,4 +1,0 @@
-[n=4 d=6 s=4] trial 0: R_inner=1.00000000 R_outer=1.00000000
-[n=4 d=6 s=4] trial 7: R_inner=1.12014630 R_outer=1.12014490
-[n=4 d=6 s=4] trial 20: R_inner=1.33204629 R_outer=1.33203527
-DONE n=4 d=6 seed=4: best R_inner(1024) = 1.3320462943

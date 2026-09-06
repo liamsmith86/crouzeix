@@ -1,6 +1,6 @@
-# Research audit and steering memo for Fable
+# Initial strategy audit — 2026-07-20
 
-**Scope:** I read the current project Markdown files and audited the claims below against their algebra, the project’s reported experiments, and primary sources. I did not modify any existing project file. Temporary validation scripts lived only under `/tmp/chatgpt-crouzeix-audit/`.
+**Scope:** I read the current project Markdown files and audited the claims below against their algebra, the project’s reported experiments, and primary sources. I did not modify any existing project file.
 
 ## Bottom line
 

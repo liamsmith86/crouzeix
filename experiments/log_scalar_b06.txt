@@ -1,5 +1,0 @@
-<frozen site>:101: RuntimeWarning: Unexpected value in sys.prefix, expected /home/liam/Downloads/crouzeix/.venv, got /home/liam/Downloads/crouzeix/experiments/../.venv
-<frozen site>:101: RuntimeWarning: Unexpected value in sys.exec_prefix, expected /home/liam/Downloads/crouzeix/.venv, got /home/liam/Downloads/crouzeix/experiments/../.venv
-/home/liam/Downloads/crouzeix/experiments/L10_test.py:8: SyntaxWarning: "\o" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\o"? A raw string is also an option.
-  (i.e. \oint p w = 0), enforced by subtracting a multiple of a correction poly.
-DONE b0.6_k2_d5_s21: max certified viol = -99.00000000

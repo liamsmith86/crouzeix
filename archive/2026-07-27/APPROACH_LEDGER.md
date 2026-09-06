@@ -399,7 +399,7 @@ level-4 closed-form theory built (A7: L15 plus conditional L16 structure); EL4 s
 proved by A11; soft-class hunts all falsified with certificates (A8, A9). Adversarial H-r floors
 positive n=3..5; direct ratio searches n≤7 found no violation.
 
-## Epoch 3 (historical): P2 target, audit-adopted (chatgpt/FABLE_RESEARCH_AUDIT.md — verified before adoption)
+## Epoch 3 (historical): P2 target, audit-adopted (proof/initial_strategy_audit.md — verified before adoption)
 P1 (proved): K² + ReC ≤ Kq. P2 (target): q ≤ 2 + ReC/2 at extremals ⟹ Crouzeix. See proof/P2_target.md.
 Attacks: (i) falsification-first: exact 2×2, Ω = W(A) ellipse (elliptic Riemann map) + ψ-family adversarial ascent on −s_phase = q − 2 − r/2; (ii) if P2 survives: Euler–Lagrange at extremals (Blaschke-zero variations + singular-vector stationarity) → Stinespring leakage bound; (iii) fallback: pre-Cauchy–Schwarz angle form of P1.
 Audit adoptions verified by hand: P1/P2 algebra, Stinespring identities (D), D2-exactness, SV24 §6 baseline (ρ = ReC, K²+ρ≤2K — our β-subtraction is the increment). Audit hygiene items fixed (ledgers synced, 2410.10678 corrected, run tables filled).
